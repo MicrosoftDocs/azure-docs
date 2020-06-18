@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Update retail inventory assortment using publish/subscribe channels and topic filters with Azure portal | Microsoft Docs
+title: Update inventory using Azure portal and topics/subscriptions
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
@@ -36,62 +36,24 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Service Bus topics and subscriptions
 
 Each [subscription to a topic](service-bus-messaging-overview.md#topics) can receive a copy of each message. Topics are fully protocol and semantically compatible with Service Bus queues. Service Bus topics support a wide array of selection rules with filter conditions, with optional actions that set or modify message properties. Each time a rule matches, it produces a message. To learn more about rules, filters, and actions, follow this [link](topic-filters.md).
 
-## Sign in to the Azure portal
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-First, go to the [Azure portal][Azure portal] and sign in using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## Create a Service Bus namespace
 
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
-
-1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
-2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
-4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
-6. In **Location**, choose the country or region in which your namespace should be hosted.
-7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### Obtain the management credentials
-
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps:
-
-1. Click **All resources**, then click the newly created namespace name.
-2. In the namespace window, click **Shared access policies**.
-3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
-
-    ![connection-string][connection-string]
-5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
-
-## Create a topic and subscriptions
-
-To create a Service Bus topic, specify the namespace under which you want it created. The following example shows how to create a topic on the portal:
-
-1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **All services**).
-2. Click the namespace in which you would like to create the Topic.
-3. In the namespace window, click **Topics**, then in the **Topics** window, click **+ Topics**.
-4. Enter the Topic **Name** and leave the other values with their defaults.
-5. At the bottom of the window, click **Create**.
-6. Make a note of the topic name.
-7. Select the topic you just created.
-8. Click on **+ Subscription**, enter the subscription name **S1**, and leave all other values with their defaults.
-9. Repeat the previous step twice more, creating subscriptions named **S2** and **S3**.
 
 ## Create filter rules on subscriptions
 
-After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
+After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you are ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-### Send and receive messages
+## Send and receive messages
 
 To run the code, do the following:
 
@@ -103,7 +65,7 @@ To run the code, do the following:
 
 2. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Obtain the connection string you copied to Notepad in the [Obtain the management credentials](#obtain-the-management-credentials) section of this tutorial. You also need the name of the topic you created in the previous section.
+3. Obtain the connection string you copied to Notepad in the Obtain the management credentials section of this tutorial. You also need the name of the topic you created in the previous section.
 
 4. At the command prompt, type the following command:
 
@@ -124,7 +86,7 @@ To run the code, do the following:
    - Execute 2: to add your own filters.
    - Execute 3: to optionally remove your own filters. Note that this will not recreate the default filters.
 
-    ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Showing output of 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. After filter creation, you can send messages. Press 4 and observe 10 messages being sent to the topic:
 
@@ -429,6 +391,9 @@ private async Task ReceiveMessages(string subscription)
     await receiver.CloseAsync();
 }
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 

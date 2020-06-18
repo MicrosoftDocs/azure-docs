@@ -1,18 +1,11 @@
 ---
-# required metadata
-title: Connect to Oracle Database - Azure Logic Apps | Microsoft Docs
-description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps 
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 03/29/2017
-ms.topic: article
-ms.service: logic-apps
+title: Connect to Oracle Database
+description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: estfan, logicappspm
+ms.topic: article
+ms.date: 05/20/2020
 tags: connectors
 ---
 
@@ -22,6 +15,13 @@ Using the Oracle Database connector, you create organizational workflows that us
 
 * Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
 * Use actions to get a row of data, insert a new row, and even delete. For example, when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Oracle Database (an action). 
+
+This connector doesn't support the following items:
+
+* Views 
+* Any table with composite keys
+* Nested object types in tables
+* Database functions with non-scalar values
 
 This article shows you how to use the Oracle Database connector in a logic app.
 
@@ -38,7 +38,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 * Install the Oracle Client on the machine where you installed the on-premises data gateway. Be sure to install the 64-bit Oracle Data Provider for .NET from Oracle:  
 
-  [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
+  [64-bit ODAC 12c Release 4 (12.1.0.2.4) for Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
     > If the Oracle client is not installed, an error occurs when you try to create or use the connection. See the common errors in this article.
@@ -74,7 +74,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 or Gmail. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
+7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
@@ -110,12 +110,6 @@ This article shows you how to use the Oracle Database connector in a logic app.
 **Cause**: The table does not have any primary key.  
 
 **Resolution**: The Oracle Database connector requires that a table with a primary key column be used.
-
-#### Currently not supported
-
-* Views and stored procedures 
-* Any table with composite keys
-* Nested object types in tables
  
 ## Connector-specific details
 
@@ -123,9 +117,9 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 ## Get some help
 
-The [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
+The [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
-You can help improve Logic Apps and connectors by voting and submitting your ideas at [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps

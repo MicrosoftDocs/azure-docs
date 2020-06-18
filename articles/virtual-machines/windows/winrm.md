@@ -1,32 +1,16 @@
 ---
-title: Set up WinRM access for an Azure VM | Microsoft Docs
+title: Set up WinRM access for an Azure VM 
 description: Setup WinRM access for use with an Azure virtual machine created in the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
-author: singhkays
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
+author: mimckitt
+manager: vashan
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2016
-ms.author: kasing
+ms.author: mimckitt
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
-## WinRM in Azure Service Management vs Azure Resource Manager
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* For an overview of the Azure Resource Manager, please see this [article](../../azure-resource-manager/resource-group-overview.md)
-* For differences between Azure Service Management and Azure Resource Manager, please see this [article](../../resource-manager-deployment-model.md)
-
-The key difference in setting up WinRM configuration between the two stacks is how the certificate gets installed on the VM. In the Azure Resource Manager stack, the certificates are modeled as resources managed by the Key Vault Resource Provider. Therefore, the user needs to provide their own certificate and upload it to a Key Vault before using it in a VM.
 
 Here are the steps you need to take to set up a VM with WinRM connectivity
 
@@ -36,11 +20,13 @@ Here are the steps you need to take to set up a VM with WinRM connectivity
 4. Get the URL for your self-signed certificate in the Key Vault
 5. Reference your self-signed certificates URL while creating a VM
 
+ 
+
 ## Step 1: Create a Key Vault
 You can use the below command to create the Key Vault
 
 ```
-New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
+New-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
 ```
 
 ## Step 2: Create a self-signed certificate
@@ -78,7 +64,7 @@ $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
 $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
-Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
+Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
 ## Step 4: Get the URL for your self-signed certificate in the Key Vault
@@ -86,9 +72,7 @@ The Microsoft.Compute resource provider needs a URL to the secret inside the Key
 
 > [!NOTE]
 > The URL of the secret needs to include the version as well. An example URL looks like below
-> https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
-> 
-> 
+> https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### Templates
 You can get the link to the URL in the template using the below code
@@ -98,7 +82,7 @@ You can get the link to the URL in the template using the below code
 #### PowerShell
 You can get this URL using the below PowerShell command
 
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## Step 5: Reference your self-signed certificates URL while creating a VM
 #### Azure Resource Manager Templates
@@ -141,13 +125,13 @@ A sample template for the above can be found here at [201-vm-winrm-keyvault-wind
 Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
 #### PowerShell
-    $vm = New-AzureRmVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
+    $vm = New-AzVMConfig -VMName "<VM name>" -VMSize "<VM Size>"
     $credential = Get-Credential
-    $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
-    $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -WinRMCertificateUrl $secretURL
-    $sourceVaultId = (Get-AzureRmKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
+    $secretURL = (Get-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
+    $vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName "<Computer Name>" -Credential $credential -WinRMHttp -WinRMHttps -ProvisionVMAgent -WinRMCertificateUrl $secretURL
+    $sourceVaultId = (Get-AzKeyVault -ResourceGroupName "<Resource Group name>" -VaultName "<Vault Name>").ResourceId
     $CertificateStore = "My"
-    $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
+    $vm = Add-AzVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
 ## Step 6: Connecting to the VM
 Before you can connect to the VM you'll need to make sure your machine is configured for WinRM remote management. Start PowerShell as an administrator and execute the below command to make sure you're set up.

@@ -1,26 +1,21 @@
 ---
-title: Tutorial - Build container images in the cloud with Azure Container Registry Tasks
+title: Tutorial - Quick container image build
 description: In this tutorial, you learn how to build a Docker container image in Azure with Azure Container Registry Tasks (ACR Tasks), then deploy it to Azure Container Instances.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want to quickly build
 # container images in Azure, without having to install dependencies like Docker
 # Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
-# Tutorial: Build container images in the cloud with Azure Container Registry Tasks
+# Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks
 
 **ACR Tasks** is a suite of features within Azure Container Registry that provides streamlined and efficient Docker container image builds in Azure. In this article, you learn how to use the *quick task* feature of ACR Tasks.
 
 The "inner-loop" development cycle is the iterative process of writing code, building, and testing your application before committing to source control. A quick task extends your inner-loop to the cloud, providing you with build success validation and automatic pushing of successfully built images to your container registry. Your images are built natively in the cloud, close to your registry, enabling faster deployment.
 
-All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run.
+All your Dockerfile expertise is directly transferrable to ACR Tasks. You don't have to change your Dockerfiles to build in the cloud with ACR Tasks, just the command you run. 
 
 In this tutorial, part one of a series:
 
@@ -29,7 +24,7 @@ In this tutorial, part one of a series:
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
 
-In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update.
+In subsequent tutorials, you learn to use ACR Tasks for automated container image builds on code commit and base image update. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -55,13 +50,13 @@ Once you've forked the repo, clone your fork and enter the directory containing 
 
 Clone the repo with `git`, replace **\<your-github-username\>** with your GitHub username:
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Enter the directory containing the source code:
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -73,9 +68,11 @@ The commands in this tutorial series are formatted for the Bash shell. If you pr
 
 Now that you've pulled the source code down to your machine, follow these steps to create a container registry and build the container image with ACR Tasks.
 
-To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
+To make executing the sample commands easier, the tutorials in this series use shell environment variables. Execute the following command to set the `ACR_NAME` variable. Replace **\<registry-name\>** with a unique name for your new container registry. The registry name must be unique within Azure, contain only lower case letters, and contain 5-50 alphanumeric characters. The other resources you create in the tutorial are based on this name, so you should need to modify only this first variable.
 
-```azurecli-interactive
+[![Embed launch](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 
@@ -96,8 +93,7 @@ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 
 Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that the ACR task runs in the cloud. Because ACR tasks use `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Tasks immediately.
 
-```console
-$ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+```output
 Packing source code into tar file to upload...
 Sending build context (4.813 KiB) to ACR...
 Queued a build with build ID: da1
@@ -200,12 +196,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-The `--role` argument in the preceding command configures the service principal with the *reader* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *contributor*.
+The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
 
 Next, store the service principal's *appId* in the vault, which is the **username** you pass to Azure Container Registry for authentication:
 
@@ -245,17 +241,7 @@ az container create \
 
 The `--dns-name-label` value must be unique within Azure, so the preceding command appends your container registry's name to the container's DNS name label. The output from the command displays the container's fully qualified domain name (FQDN), for example:
 
-```console
-$ az container create \
->     --resource-group $RES_GROUP \
->     --name acr-tasks \
->     --image $ACR_NAME.azurecr.io/helloacrtasks:v1 \
->     --registry-login-server $ACR_NAME.azurecr.io \
->     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
->     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
->     --dns-name-label acr-tasks-$ACR_NAME \
->     --query "{FQDN:ipAddress.fqdn}" \
->     --output table
+```output
 FQDN
 ----------------------------------------------
 acr-tasks-myregistry.eastus.azurecontainer.io
@@ -273,8 +259,7 @@ az container attach --resource-group $RES_GROUP --name acr-tasks
 
 The `az container attach` output first displays the container's status as it pulls the image and starts, then binds your local console's STDOUT and STDERR to that of the container's.
 
-```console
-$ az container attach --resource-group $RES_GROUP --name acr-tasks
+```output
 Container 'acr-tasks' is in state 'Running'...
 (count: 1) (last timestamp: 2018-08-22 18:39:10+00:00) pulling image "myregistry.azurecr.io/helloacrtasks:v1"
 (count: 1) (last timestamp: 2018-08-22 18:39:15+00:00) Successfully pulled image "myregistry.azurecr.io/helloacrtasks:v1"

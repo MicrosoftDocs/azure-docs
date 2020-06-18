@@ -1,26 +1,23 @@
 ---
-title: Collaborative Translation Framework (CTF) Reporting - Translator Text
-titlesuffix: Azure Cognitive Services
+title: Collaborative Translation Framework (CTF) Reporting - Translator
+titleSuffix: Azure Cognitive Services
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # How to use Collaborative Translation Framework (CTF) reporting
 
 > [!NOTE]
-> This method is deprecated. It is not available in V3.0 of the Translator Text API.
-
-> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator Text API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were being retired and will not be replaced. 
-
->Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> This method is deprecated. It is not available in V3.0 of Translator.
+> 
+> The Collaborative Translations Framework (CTF), previously available for V2.0 of Translator, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were retired and will not be replaced.
 
 The Collaborative Translation Framework (CTF) Reporting API returns statistics and the actual content in the CTF store. This API is different from the GetTranslations() method because it:
 * Returns the translated content and its total count only from your account (appId or Azure Marketplace account).
@@ -28,12 +25,10 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 * Does not return the automatic translation (machine translation).
 
 ## Endpoint
-The endpoint of the CTF Reporting API is
-http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+The endpoint of the CTF Reporting API is https://api.microsofttranslator.com/v2/beta/ctfreporting.svc.
 
 ## Methods
-| Name |	Description|
+| Name | Description|
 |:---|:---|
 | GetUserTranslationCounts Method | Get counts of the translations that are created by the user. |
 | GetUserTranslations Method | Retrieves the translations that are created by the user. |
@@ -53,21 +48,21 @@ This method gets the count of translations that are created by the user. It prov
 **Syntax**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user, 
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **Parameters**
 
@@ -107,15 +102,15 @@ The result set contains array of the **UserTranslationCount**. Each UserTranslat
 | Exception	| Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
-| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|
+| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that Translator will accept.</li></ul>|
 | TranslateApiException | AppId is over the quota.| The application ID exceeded the hourly or daily quota.|
 
 > [!NOTE]
 > The quota will adjust to ensure fairness among all users of the service.
 
 **View code examples on GitHib**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
 ## GetUserTranslations method
 
@@ -124,21 +119,21 @@ This method retrieves the translations that are created by the user. It provides
 **Syntax**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user, 
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take); 
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **Parameters**
 
@@ -151,8 +146,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **Optional** An integer value representing the minimum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
 | maxRating| **Optional** An integer value representing the maximum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
 | user| **Optional. A string that is used to filter the result based on the originator of the submission**|
-| category| **Optional** A string containing the category or domain of the translation. This parameter supports only the default option general.| 
-| minDateUtc| **Optional** The date from when you want to retrieve the translations. The date must be in the UTC format.| 
+| category| **Optional** A string containing the category or domain of the translation. This parameter supports only the default option general.|
+| minDateUtc| **Optional** The date from when you want to retrieve the translations. The date must be in the UTC format.|
 | maxDateUtc| **Optional** The date till when you want to retrieve the translations. The date must be in the UTC format.|
 | skip| **Optional** The number of results that you want to skip on a page. For example, if you want the skip the first 20 rows of the results and view from the 21st result record, specify 20 for this parameter. The default value for this parameter is 0.|
 | take| **Optional** The number of results that you want to retrieve. The maximum number of each request is 100. The default is 50.|
@@ -180,30 +175,12 @@ The result set contains array of the **UserTranslation**. Each UserTranslation h
 | Exception	| Message | Conditions |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**'.| The value of the parameter **maxDateUtc** is lesser than the value of the parameter **minDateUtc**.|
-| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that the Microsoft Translator API will accept.</li></ul>|
+| TranslateApiException | IP is over the quota.| <ul><li>The limit for the number of requests per minute is reached.</li><li>The request size remains limited at 10000 characters.</li><li>An hourly and a daily quota limit the number of characters that Translator will accept.</li></ul>|
 | TranslateApiException | AppId is over the quota.| The application ID exceeded the hourly or daily quota.|
 
 > [!NOTE]
 > The quota will adjust to ensure fairness among all users of the service.
 
 **View code examples on GitHib**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
+* [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)

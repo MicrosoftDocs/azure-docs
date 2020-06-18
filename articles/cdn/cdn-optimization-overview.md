@@ -3,18 +3,18 @@ title: Optimize Azure CDN for the type of content delivery
 description: Optimize Azure CDN for the type of content delivery
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid:
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2018
-ms.author: v-deasim
+ms.topic: how-to
+ms.date: 03/25/2019
+ms.author: allensu
 ---
 # Optimize Azure CDN for the type of content delivery
 
@@ -33,6 +33,8 @@ This article provides an overview of various optimization features and when you 
 
 * [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
 
+> [!NOTE]
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles support the following optimizations:
 
@@ -61,7 +63,7 @@ When you create a CDN endpoint, select an optimization type that best matches th
 
 1. In an **Azure CDN Standard from Akamai** profile, select an endpoint.
 
-    ![Endpoint selection ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Endpoint selection](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Under SETTINGS, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
 
@@ -78,7 +80,7 @@ General web delivery is the most common optimization option. It's designed for g
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content, such as shopping cart contents, isn't cached because it's unique to each user. General web delivery can optimize your entire website. 
 
 > [!NOTE]
-> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Othewise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
+> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Otherwise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 
@@ -115,6 +117,9 @@ For more information about large file optimization, see [Large file optimization
 ### Dynamic site acceleration
 
  Dynamic site acceleration (DSA) is available for **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** profiles. This optimization involves an additional fee to use; for more information, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Dynamic site acceleration from Microsoft is offered via [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) which is a global [anycast](https://en.wikipedia.org/wiki/Anycast) service leveraging Microsoft's private global network to deliver your app workloads.
 
 DSA includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more. 
 

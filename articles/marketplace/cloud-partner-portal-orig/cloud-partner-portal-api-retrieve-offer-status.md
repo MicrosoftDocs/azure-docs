@@ -1,32 +1,25 @@
 ---
-title: Retrieve offer status | Microsoft Docs
+title: Retrieve offer status | Azure Marketplace
 description: API retrieves the current status of the offer.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
 
-Retrieve offer status 
-=====================
+# Retrieve offer status
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 Retrieves the current status of the offer.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
-URI parameters
---------------
+## URI parameters
 
 |  **Name**       |   **Description**                            |  **Data type** |
 |  -------------  |  ------------------------------------------  |  ------------  |
@@ -36,8 +29,8 @@ URI parameters
 |  |  |
 
 
-Header
-------
+## Header
+
 
 |  Name           |  Value               |
 |  -------------  | -------------------  |
@@ -45,9 +38,8 @@ Header
 |  Authorization  | `Bearer YOUR_TOKEN`  |
 |  |  |
 
+## Body example
 
-Body example
-------------
 
 ### Response
 
@@ -119,8 +111,7 @@ Body example
       ],
       "previewLinks": [],
       liveLinks": [],
-      "notificationEmails": "jdoe@contoso.com"
-  } 
+  }
 ```
 
 
@@ -140,9 +131,8 @@ Body example
 |  processPercentage    | Percentage completion of the step                                                              |
 |  previewLinks         | *Not currently implemented*                                                                    |
 |  liveLinks            | *Not currently implemented*                                                                    |
-|  notificationEmails   | Comma-separated list of email addresses to be notified of the progress of the operation        |
+|  notificationEmails   | Deprecated for offers migrated to Partner Center. Notification emails for migrated offers will be sent to the email specified under the Seller contact info in Account settings.<br><br>For non-migrated offers, comma-separated list of email addresses to be notified of the progress of the operation        |
 |  |  |
-
 
 ### Response status codes
 
@@ -152,7 +142,6 @@ Body example
 |  400     | `Bad/Malformed request` - The error response body may contain more information.                 |
 |  404     | `Not found` - The specified entity doesn't exist.                                                |
 |  |  |
-
 
 ### Offer status
 
@@ -166,7 +155,6 @@ Body example
 |  Canceled                    | Offer submission was canceled.                           |
 |  Failed                      | Offer submission failed.                                 |
 |  |  |
-
 
 ### Step Status
 

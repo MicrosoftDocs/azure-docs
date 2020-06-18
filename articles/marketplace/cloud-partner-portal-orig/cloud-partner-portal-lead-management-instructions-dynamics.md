@@ -1,20 +1,12 @@
 ---
-title: Dynamics CRM | Microsoft Docs
+title: Dynamics CRM | Azure Marketplace
 description: Configure lead management for Dynamics CRM.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: dsindona
 ---
 
 
@@ -60,6 +52,7 @@ Use the following steps to configure Azure Active Directory for Dynamics CRM.
 1.  Sign in to [Azure portal](https://portal.azure.com/) and then select the Azure Active Directory service.
 
 2.  Select **Properties** and then copy the **Directory Id**. This is your tenant account identification that you need use in the Cloud Partner Portal.
+
     ![Get Directory ID](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
 3.  Select **App registrations**, and then select **New application     registration**.
@@ -74,6 +67,7 @@ Use the following steps to configure Azure Active Directory for Dynamics CRM.
 11. On the Keys menu, select **Copy the key value.** Save a copy of this value because you'll need it for the Cloud Partner Portal.
     
     ![Dynamics get registered key](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    
 12. Select **Required permissions** and then select **Add**. 
 13. Select **Dynamics CRM Online** as the new API, and check the permission for *Access CRM Online as organization users*.
 
@@ -87,19 +81,21 @@ Use the following steps to configure Azure Active Directory for Dynamics CRM.
     ![Add new application user](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. In **New User**, provide the name and email that you want to use with this connection. Paste in the **Application Id** for the app you created in the Azure portal.
+
      ![Configure new user](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. Go to "Security settings" in this article to finish configuring the connection for this user.
 
 ### Office 365
 
-If you don't want to use Azure Active Directory, you can register a new user on the Office 365 Admin portal. You'll be required to update your username/password every 90 days to continue getting leads.
+If you don't want to use Azure Active Directory, you can register a new user on the *Microsoft 365 admin center*. You'll be required to update your username/password every 90 days to continue getting leads.
 
 Use the following steps to configure Office 365 for Dynamics CRM.
 
-1. Sign in to the [Microsoft Office 365 Admin Portal](https://go.microsoft.com/fwlink/?LinkId=225975).
+1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
-2. Select the **Admin** tile
+2. Select the **Admin** tile.
+
     ![Office Online Admin](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. Select **Add a user**.
@@ -111,6 +107,7 @@ Use the following steps to configure Office 365 for Dynamics CRM.
     -   Provide a password and uncheck the "Make this user change their password when they first sign in" option.
     -   Select "User (no administrator access)" as the role for the user.
     -   Select the product license shown in the next screen capture. You'll be charged for the license you choose. The solution will also work with Dynamics CRM Online Basic license.
+    
     ![Configure user permissions and license](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## Security settings
@@ -123,6 +120,7 @@ The final step is to enable the User you created to write the leads.
     ![Security settings](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
 3.  Select the user that you created in **User permissions**, and then select **Manage User Roles**. Check **Microsoft Marketplace Lead Writer** to assign the role.
+
     ![Assign user role](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
@@ -130,6 +128,7 @@ The final step is to enable the User you created to write the leads.
 
 4.  In Security, select **Security Roles** and find the role for
     Microsoft Marketplace Lead Writer.
+    
     ![Configure security lead writer](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. Select the **Core Records** tab. Enable Create/Read/Write for the User Entity UI.
@@ -145,6 +144,6 @@ Finish configuring Dynamics CRM for lead management by adding the generated acco
     *12345678-8af1-4asf-1234-12234d01db47*), and **Application Key**
     (example: *1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
 -   **Office 365** - **Url** (example:
-    *https://contoso.crm4.dynamics.com*), **User Name** (example:
-    *contoso\@contoso.onmicrosoft.com*), and **Password** (example:
+    **`https://contoso.crm4.dynamics.com`**), **User Name** (example:
+    **`contoso\@contoso.onmicrosoft.com`**), and **Password** (example:
     *P\@ssw0rd*).

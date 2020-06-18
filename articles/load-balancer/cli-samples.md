@@ -1,20 +1,18 @@
 ---
-title: Azure CLI Samples for Load Balancer| Microsoft Docs
+title: Azure CLI Samples for Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure CLI Samples
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags:
-ms.assetid:
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Azure CLI Samples for Load Balancer

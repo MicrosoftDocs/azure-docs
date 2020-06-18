@@ -1,18 +1,17 @@
 ---
 title: Azure CLI script sample - Subscribe to resource group | Microsoft Docs
-description: Azure CLI Script Sample - Subscribe to resource group
+description: This article provides a sample Azure CLI script that shows how to subscribe to Azure Event Grid events for a resource group.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
-ms.author: tomfitz
+ms.date: 01/23/2020
+ms.author: spelluru
 ---
 
 # Subscribe to events for a resource group with Azure CLI
@@ -23,9 +22,15 @@ This script creates an Event Grid subscription to the events for a resource grou
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
+
+## Sample script - stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group.sh "Subscribe to resource group")]
+
+## Sample script - preview extension
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.sh "Subscribe to resource group")]
 
 ## Script explanation
 
@@ -34,7 +39,7 @@ This script uses the following command to create the event subscription. Each co
 | Command | Notes |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extension version | Create an Event Grid subscription. |
 
 ## Next steps
 

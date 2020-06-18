@@ -2,13 +2,9 @@
 title: Kubernetes on Azure tutorial - Upgrade a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to upgrade an existing AKS cluster to the latest available Kubernetes version.
 services: container-service
-author: iainfoulds
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
-ms.author: iainfou
+ms.date: 02/25/2020
+
 ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to upgrade an Azure Kubernetes Service (AKS) cluster so that I can use the latest version of Kubernetes and features.
@@ -16,7 +12,7 @@ ms.custom: mvc
 
 # Tutorial: Upgrade Kubernetes in Azure Kubernetes Service (AKS)
 
-As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes and use new features. An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI. To minimize disruption to running applications, Kubernetes nodes are carefully [cordoned and drained][kubernetes-drain] during the upgrade process.
+As part of the application and cluster lifecycle, you may wish to upgrade to the latest available version of Kubernetes and use new features. An Azure Kubernetes Service (AKS) cluster can be upgraded using the Azure CLI.
 
 In this tutorial, part seven of seven, a Kubernetes cluster is upgraded. You learn how to:
 
@@ -27,38 +23,64 @@ In this tutorial, part seven of seven, a Kubernetes cluster is upgraded. You lea
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image uploaded to Azure Container Registry, and a Kubernetes cluster created. The application was then run on the Kubernetes cluster. If you have not done these steps, and would like to follow along, return to the [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+In previous tutorials, an application was packaged into a container image. This image was uploaded to Azure Container Registry, and you created an AKS cluster. The application was then deployed to the AKS cluster. If you have not done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you are running the Azure CLI version 2.0.44 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you are running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Get available cluster versions
 
 Before you upgrade a cluster, use the [az aks get-upgrades][] command to check which Kubernetes releases are available for upgrade:
 
 ```azurecli
-az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-In the following example, the current version is *1.9.6*, and the available versions are shown under the *Upgrades* column.
+In the following example, the current version is *1.15.11*, and the available versions are shown under *upgrades*.
 
-```
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  ----------------------
-default  myResourceGroup  1.9.9            1.9.9              1.10.3, 1.10.5, 1.10.6
+```json
+{
+  "agentPoolProfiles": null,
+  "controlPlaneProfile": {
+    "kubernetesVersion": "1.15.11",
+    ...
+    "upgrades": [
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.8"
+      },
+      {
+        "isPreview": null,
+        "kubernetesVersion": "1.16.9"
+      }
+    ]
+  },
+  ...
+}
 ```
 
 ## Upgrade a cluster
 
-Use the [az aks upgrade][] command to upgrade the AKS cluster. The following example upgrades the cluster to Kubernetes version *1.10.6*.
+To minimize disruption to running applications, AKS nodes are carefully cordoned and drained. In this process, the following steps are performed:
 
-> [!NOTE]
-> You can only upgrade one minor version at a time. For example, you can upgrade from *1.9.6* to *1.10.3*, but cannot upgrade from *1.9.6* to *1.11.x* directly. To upgrade from *1.9.6* to *1.11.x*, first upgrade from *1.9.6* to *1.10.3*, then perform another upgrade from *1.10.3* to *1.11.x*.
+1. The Kubernetes scheduler prevents additional pods being scheduled on a node that is to be upgraded.
+1. Running pods on the node are scheduled on other nodes in the cluster.
+1. A node is created that runs the latest Kubernetes components.
+1. When the new node is ready and joined to the cluster, the Kubernetes scheduler begins to run pods on it.
+1. The old node is deleted, and the next node in the cluster begins the cordon and drain process.
+
+Use the [az aks upgrade][] command to upgrade the AKS cluster.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
+az aks upgrade \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --kubernetes-version KUBERNETES_VERSION
 ```
 
-The following condensed example output shows the *kubernetesVersion* now reports *1.10.6*:
+> [!NOTE]
+> You can only upgrade one minor version at a time. For example, you can upgrade from *1.14.x* to *1.15.x*, but cannot upgrade from *1.14.x* to *1.16.x* directly. To upgrade from *1.14.x* to *1.16.x*, first upgrade from *1.14.x* to *1.15.x*, then perform another upgrade from *1.15.x* to *1.16.x*.
+
+The following condensed example output shows the result of upgrading to *1.16.8*. Notice the *kubernetesVersion* now reports *1.16.8*:
 
 ```json
 {
@@ -76,7 +98,7 @@ The following condensed example output shows the *kubernetesVersion* now reports
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.10.6",
+  "kubernetesVersion": "1.16.8",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -91,24 +113,24 @@ Confirm that the upgrade was successful using the [az aks show][] command as fol
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows the AKS cluster runs *KubernetesVersion 1.10.6*:
+The following example output shows the AKS cluster runs *KubernetesVersion 1.16.8*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.16.8               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## Delete the cluster
 
-As this is the last part of the tutorial series, you may want to delete the AKS cluster. As the Kubernetes nodes run on Azure virtual machines (VMs), they continue to incur charges even if you don't use the cluster. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
+As this tutorial is the last part of the series, you may want to delete the AKS cluster. As the Kubernetes nodes run on Azure virtual machines (VMs), they continue to incur charges even if you don't use the cluster. Use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require you to provision or rotate any secrets.
 
 ## Next steps
 

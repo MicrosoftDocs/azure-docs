@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid subscriptions through portal
-description: Describes how to create Event Grid subscriptions through the portal.
+description: This article describes how to create Event Grid subscriptions for the supported sources, such as Azure Blob Storage, by using the Azure portal.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
-ms.author: tomfitz
+ms.date: 01/23/2020
+ms.author: spelluru
 ---
 
 # Subscribe to events through portal
@@ -16,7 +16,7 @@ This article describes how to create Event Grid subscriptions through the portal
 
 ## Create event subscriptions
 
-To create an Event Grid subscription for any of the supported [event sources](event-sources.md), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
+To create an Event Grid subscription for any of the supported [event sources](overview.md#event-sources), use the following steps. This article shows how to create an Event Grid subscription for an Azure subscription.
 
 1. Select **All services**.
 
@@ -41,6 +41,16 @@ To create an Event Grid subscription for any of the supported [event sources](ev
 1. Provide additional details about the event subscription, such as the endpoint for handling events and a subscription name.
 
    ![Provide subscription details](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. To enable dead lettering and customize retry policies, select **Additional Features**.
+
+   ![Select additional features](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Select a container to use for storing events that aren't delivered, and set how retries are sent.
+
+   ![Enable dead lettering and retry](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. When done, select **Create**.
 
 ## Create subscription on resource
 

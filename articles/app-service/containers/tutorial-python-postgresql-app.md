@@ -1,449 +1,435 @@
 ---
-title: Build a Python and PostgreSQL web app in Azure App Service | Microsoft Docs
-description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
-services: app-service\web
-documentationcenter: python
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: 'Tutorial: Deploy Python (Django) with Postgres'
+description: Learn how to create a Python app with a PostgreSQL database and deploy it to Azure App Service on Linux. The tutorial uses a Django sample app for demonstration.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/28/2018
-ms.author: beverst;cephalin
-ms.custom: mvc
+ms.date: 04/14/2020
+ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
 ---
-# Build a Docker Python and PostgreSQL web app in Azure
+# Tutorial: Deploy a Python (Django) web app with PostgreSQL in Azure App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python web app, using PostgreSQL as the database back end. When you are done, you have a Python Flask application running within a Docker container in App Service on Linux.
+This tutorial shows how to deploy a data-driven Python (Django) web app to [Azure App Service](app-service-linux-intro.md) and connect it to an Azure Database for PostgreSQL database. App Service provides a highly scalable, self-patching web hosting service.
 
-![Docker Python Flask app in App Service on Linux](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
+![Deploy Python Django web app to Azure App Service](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a PostgreSQL database in Azure
-> * Connect a Python app to PostgreSQL
-> * Deploy the app to Azure
+> * Create an Azure Database for PostgreSQL database
+> * Deploy code to Azure App Service and connect to Postgres
+> * Update your code and redeploy
 > * View diagnostic logs
-> * Update the data model and redeploy the app
-> * Manage the app in the Azure portal
+> * Manage the web app in the Azure portal
 
-You can follow the steps in this article on macOS. Linux and Windows instructions are the same in most cases, but the differences are not detailed in this tutorial.
+You can follow the steps in this article on macOS, Linux, or Windows.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Install dependencies
 
-## Prerequisites
+Before you start this tutorial:
 
-To complete this tutorial:
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- Install [Azure CLI](/cli/azure/install-azure-cli).
+- Install [Git](https://git-scm.com/).
+- Install [Python 3](https://www.python.org/downloads/).
 
-1. [Install Git](https://git-scm.com/)
-1. [Install Python](https://www.python.org/downloads/)
-1. [Install and run PostgreSQL](https://www.postgresql.org/download/)
+## Clone the sample app
 
-## Test local PostgreSQL installation and create a database
+In a terminal window, run the following commands to clone the sample app repository, and change to the repository root:
 
-In a local terminal window, run `psql` to connect to your local PostgreSQL server.
-
-```bash
-sudo -u postgres psql postgres
+```
+git clone https://github.com/Azure-Samples/djangoapp
+cd djangoapp
 ```
 
-If you get an error message similar to `unknown user: postgres`, your PostgreSQL installation may be configured with your logged in username. Try the following command instead.
+The djangoapp sample repository contains the data-driven [Django](https://www.djangoproject.com/) polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. It's provided here for your convenience.
 
-```bash
-psql postgres
+## Prepare app for App Service
+
+Like many Python web frameworks, Django [requires certain changes before they can be run in a production server](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/), and it's no different with App Service. You need to change and add some settings in the default *azuresite/settings.py* file so that the app works after it's deployed to App Service. 
+
+Take a look at *azuresite/production.py*, which makes the necessary configuration for App Service. Briefly, it does the following:
+
+- Inherit all settings from *azuresite/settings.py*.
+- Add the fully qualified domain name of the App Service app to the allowed hosts. 
+- Use [WhiteNoise](https://whitenoise.evans.io/en/stable/) to enable serving static files in production, because Django by default doesn't serve static files in production. The WhiteNoise package is already included in *requirements.txt*.
+- Add configuration for PostgreSQL database. By default, Django uses Sqlite3 as the database, but it's not suitable for production apps. The [psycopg2-binary](https://pypi.org/project/psycopg2-binary/) package is already included in *requirements.txt*.
+- The Postgres configuration uses environment variables. Later, you'll find out how to set environment variables in App Service.
+
+*azuresite/production.py* is included in the repository for convenience, but it's not yet used by the app. To make sure that its settings are used in App Service, you need to configure two files, *manage.py* and *azuresite/wsgi.py*, to access it.
+
+- In *manage.py*, change the following line:
+
+    <pre>
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.settings')
+    </pre>
+
+    To the following code:
+
+    ```python
+    if os.environ.get('DJANGO_ENV') == 'production':
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.production')
+    else:
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'azuresite.settings')
+    ```
+
+    You'll set the environment variable `DJANGO_ENV` later when you configure your App Service app.
+
+- In *azuresite/wsgi.py*, make the same change as above.
+
+    In App Service, you use *manage.py* to run database migrations, and App Service uses *azuresite/wsgi.py* to run your Django app in production. This change in both files ensures that the production settings are used in both cases.
+
+## Sign in to Azure CLI
+
+You should have Azure CLI installed already. [Azure CLI](/cli/azure/what-is-azure-cli) lets you work with Azure resources from the command-line terminal. 
+
+To sign in to Azure, run the [`az login`](/cli/azure/reference-index#az-login) command:
+
+```azurecli
+az login
 ```
 
-If your connection is successful, your PostgreSQL database is running. If not, make sure that your local PostgresQL database is started by following the instructions for your operating system at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+Follow the instructions in the terminal to sign into your Azure account. When you're finished, your subscriptions are shown in JSON format in the terminal output.
 
-Create a database called *eventregistration* and set up a separate database user named *manager* with password *supersecretpass*.
+## Create Postgres database in Azure
 
-```sql
-CREATE DATABASE eventregistration;
-CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+<!-- > [!NOTE]
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. If your region doesn't support Gen4 hardware, change *--sku-name* in the following command line to a value that's supported in your region, such as B_Gen4_1.  -->
+
+In this section, you create an Azure Database for PostgreSQL server and database. To start, install the `db-up` extension with the following command:
+
+```azurecli
+az extension add --name db-up
 ```
 
-Type `\q` to exit the PostgreSQL client.
+Create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command, as shown in the following example. Replace *\<postgresql-name>* with a *unique* name (the server endpoint is *https://\<postgresql-name>.postgres.database.azure.com*). For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
 
-<a name="step2"></a>
-
-## Create local Python app
-
-In this step, you set up the local Python Flask project.
-
-### Clone the sample app
-
-Open the terminal window, and `CD` to a working directory.
-
-Run the following commands to clone the sample repository.
-
-```bash
-git clone https://github.com/Azure-Samples/flask-postgresql-app.git
-cd flask-postgresql-app
+<!-- Issue: without --location -->
+```azurecli
+az postgres up --resource-group myResourceGroup --location westus2 --server-name <postgresql-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-This sample repository contains a [Flask](http://flask.pocoo.org/) application.
+This command may take a while because it's doing the following:
 
-### Run the app locally
+- Creates a [resource group](../../azure-resource-manager/management/overview.md#terminology) called `myResourceGroup`, if it doesn't exist. Every Azure resource needs to be in one of these. `--resource-group` is optional.
+- Creates a Postgres server with the administrative user.
+- Creates a `pollsdb` database.
+- Allows access from your local IP address.
+- Allows access from Azure services.
+- Create a database user with access to the `pollsdb` database.
 
-Install the required packages and start the application.
+You can do all the steps separately with other `az postgres` commands and `psql`, but `az postgres up` does all of them in one step for you.
 
-```bash
-# Bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cd app
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+When the command finishes, find the output lines that being with `Ran Database Query:`. They show the database user that's created for you, with the username `root` and password `Pollsdb1`. You'll use them later to connect your app to the database.
 
-# PowerShell
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cd app
-Set-Item Env:FLASK_APP ".\app.py"
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+<!-- not all locations support az postgres up -->
+> [!TIP]
+> `--location <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
+
+## Deploy the App Service app
+
+In this section, you create the App Service app. You will connect this app to the Postgres database you created and deploy your code.
+
+### Create the App Service app
+
+<!-- validation error: Parameter 'ResourceGroup.location' can not be None. -->
+<!-- --resource-group is not respected at all -->
+
+Make sure you're back in the repository root (`djangoapp`), because the app will be deployed from this directory.
+
+Create an App Service app with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command, as shown in the following example. Replace *\<app-name>* with a *unique* name (the server endpoint is *https://\<app-name>.azurewebsites.net*). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`.
+
+```azurecli
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
+<!-- !!! without --sku creates PremiumV2 plan!! -->
 
-When the app is fully loaded, you see something similar to the following message:
+This command may take a while because it's doing the following:
 
-```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-```
+<!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
+<!-- No it doesn't. az webapp up doesn't respect --resource-group -->
+- Generates a [resource group](../../azure-resource-manager/management/overview.md#terminology) automatically.
+- Creates the [App Service plan](../overview-hosting-plans.md) *myAppServicePlan* in the Basic pricing tier (B1), if it doesn't exist. `--plan` and `--sku` are optional.
+- Creates the App Service app if it doesn't exist.
+- Enables default logging for the app, if not already enabled.
+- Uploads the repository using ZIP deployment with build automation enabled.
 
-Navigate to `http://localhost:5000` in a browser. Click **Register!** and create a test user.
+Once the deployment finishes, you see a JSON output like the following:
 
-![Python Flask application running locally](./media/tutorial-python-postgresql-app/local-app.png)
-
-The Flask sample application stores user data in the database. If you are successful at registering a user, your app is writing data to the local PostgreSQL database.
-
-To stop the Flask server at anytime, type Ctrl+C in the terminal.
-
-## Create a production PostgreSQL database
-
-In this step, you create a PostgreSQL database in Azure. When your app is deployed to Azure, it uses this cloud database.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-### Create a resource group
-
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux-no-h.md)]
-
-### Create an Azure Database for PostgreSQL server
-
-Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) command in the Cloud Shell.
-
-In the following example command, replace *\<postgresql_name>* with a unique server name, and replace *\<admin_username>* and *\<admin_password>* with the desired user credentials. The user credentials are for the database administrator account. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure.
-
-```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name B_Gen4_1
-```
-
-When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
-
-```json
+<pre>
 {
-  "administratorLogin": "<admin_username>",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
+  "URL": "http://&lt;app-name&gt;.azurewebsites.net",
+  "appserviceplan": "myAppServicePlan",
   "location": "westus",
-  "name": "<postgresql_name>",
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
-    "size": null,
-    "tier": "Basic"
-  },
-  < JSON data removed for brevity. >
+  "name": "&lt;app-name&gt;",
+  "os": "Linux",
+  "resourcegroup": "&lt;app-resource-group&gt;",
+  "runtime_version": "python|3.7",
+  "runtime_version_detected": "-",
+  "sku": "BASIC",
+  "src_path": "//var//lib//postgresql//djangoapp"
 }
-```
+</pre>
 
-> [!NOTE]
-> Remember \<admin_username> and \<admin_password> for later. You need them to sign in to the Postgre server and its databases.
+Copy the value of *\<app-resource-group>*. You need it to configure the app later. 
 
+> [!TIP]
+> The pertinent settings are saved into a hidden *.azure* directory in your repository. You can use the simple command later to redeploy any changes and immediately enable diagnostic logs with:
+> 
+> ```azurecli
+> az webapp up
+> ```
 
-### Create firewall rules for the PostgreSQL server
-
-In the Cloud Shell, run the following Azure CLI commands to allow access to the database from Azure resources.
-
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAllAzureIPs
-```
-
-> [!NOTE]
-> This setting allows network connections from all IPs within the Azure network. For production use, try to configure the most restrictive firewall rules possible by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
-
-In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
-
-```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
-```
-
-## Connect Python app to production database
-
-In this step, you connect your Flask sample app to the Azure Database for PostgreSQL server you created.
-
-### Create empty database and user access
-
-In the local terminal window, connect to the database by running the command below. When prompted for your admin password, use the same password you specified in [Create an Azure Database for PostgreSQL server](#create-an-azure-database-for-postgresql-server).
-
-```bash
-psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
-```
-
-Just like in your local Postgres server, create the database and user in the Azure Postgres server.
-
-```bash
-CREATE DATABASE eventregistration;
-CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
-```
-
-Type `\q` to exit the PostgreSQL client.
-
-> [!NOTE]
-> It's best practice to create database users with restricted permissions for specific applications, instead of using the admin user. In this example, the `manager` user has full privileges to _only_ the `eventregistration` database.
-
-### Test app connectivity to production database
-
-Back in the local terminal window, run the following commands to run Flask database migration and the Flask server.
-
-```bash
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
-```
-
-When the app is fully loaded, you see something similar to the following message:
-
-```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-```
-
-Navigate to http://localhost:5000 in a browser. Click **Register!** and create a test registration. You are now writing data to the database in Azure.
-
-![Python Flask application running locally](./media/tutorial-python-postgresql-app/local-app.png)
-
-## Deploy to Azure
-
-In this step, you deploy the Postgres-connected Python application to Azure App Service.
-
-### Configure repository
-
-The Git deployment engine in App Service invokes `pip` automation when there's an _application.py_ in the repository root. In this tutorial, you'll let the deployment engine run the automation for you. In the local terminal window, navigate to the repository root, create a dummy _application.py_, and commit your changes.
-
-```bash
-cd ..
-touch application.py
-git add .
-git commit -m "ensure azure automation"
-```
-
-### Configure a deployment user
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
-
-### Create an App Service plan 
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
-### Create a web app 
-
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+The sample code is now deployed, but the app doesn't connect to the Postgres database in Azure yet. You'll do this next.
 
 ### Configure environment variables
 
-Earlier in the tutorial, you defined environment variables to connect to your PostgreSQL database.
+When you run your app locally, you can set the environment variables in the terminal session. In App Service, you do it with *app settings*, by using the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
-In App Service, you set environment variables as _app settings_ by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in Cloud Shell.
+Run the following command to specify the database connection details as app settings. Replace *\<app-name>*, *\<app-resource-group>*, and *\<postgresql-name>* with your own values. Remember that the user credentials `root` and `Pollsdb1` were created for you by `az postgres up`.
 
-The following example specifies the database connection details as app settings. 
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
+```azurecli
+az webapp config appsettings set --name <app-name> --resource-group <app-resource-group> --settings DJANGO_ENV="production" DBHOST="<postgresql-name>.postgres.database.azure.com" DBUSER="root@<postgresql-name>" DBPASS="Pollsdb1" DBNAME="pollsdb"
 ```
 
-### Push to Azure from Git
+For information on how your code accesses these app settings, see [Access environment variables](how-to-configure-python.md#access-environment-variables).
 
-[!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
+### Run database migrations
 
-```bash 
-Counting objects: 5, done. 
-Delta compression using up to 4 threads. 
-Compressing objects: 100% (5/5), done. 
-Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done. 
-Total 5 (delta 3), reused 0 (delta 0) 
-remote: Updating branch 'master'. 
-remote: Updating submodules. 
-remote: Preparing deployment for commit id '6c7c716eee'. 
-remote: Running custom deployment command... 
-remote: Running deployment command... 
-remote: Handling node.js deployment. 
-. 
-. 
-. 
-remote: Deployment successful. 
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
- * [new branch]      master -> master 
-```  
+To run database migrations in App Service, open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*:
 
-### Configure entry point
+<!-- doesn't work when container not started -->
+<!-- ```azurecli
+az webapp ssh --resource-group myResourceGroup --name <app-name>
+``` -->
 
-By default, the built-in image looks for a _wsgi.py_ or _application.py_ in the root directory as the entry point, but your entry point is _app/app.py_. The _application.py_ you added earlier is empty and does nothing.
-
-In the Cloud Shell, run the [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) command to set a custom startup script.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
-```
-
-The `--startup-file` parameter takes a custom command or the path to the file that contains the custom command. Your custom command should have the following format:
-
-```
-gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
-```
-
-In the custom command, `--chdir` is required if your entry point is not in the root directory, and `<subdirectory>` is the subdirectory. `<module>` is the name of the _.py_ file and `<variable>` is the variable in the module that represents your web app.
-
-### Browse to the Azure web app
-
-Browse to the deployed web app. It takes some time to start because the container needs to be downloaded and run when the app is requested for the first time. If the page times out or displays an error message, wait a few minutes and refresh the page.
+In the SSH session, run the following commands:
 
 ```bash
-http://<app_name>.azurewebsites.net
+cd site/wwwroot
+
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
+# Install packages
+pip install -r requirements.txt
+# Run database migrations
+python manage.py migrate
+# Create the super user (follow prompts)
+python manage.py createsuperuser
 ```
 
-You see previously registered guests that were saved to the Azure production database in the previous step.
+### Browse to the Azure app
 
-![Python Flask application running in Azure](./media/tutorial-python-postgresql-app/docker-app-deployed.png)
+Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net* in a browser. You should see the message **No polls are available**. 
 
-**Congratulations!** You're running a Python app in App Service for Linux.
+Browse to *http:\//\<app-name>.azurewebsites.net/admin* and sign in using the admin user you created in the last step. Select **Add** next to **Questions**, and create a poll question with some choices.
 
-## Access diagnostic logs
+Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net/admin*, and create some poll questions. You can see the questions at *http:\//\<app-name>.azurewebsites.net/*. 
 
-Because the Python app is running in a container, App Service on Linux lets you access the console logs generated from within the container. To find the logs, navigate to this URL:
+![Run Python Django app in App Services in Azure](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-```
-https://<app_name>.scm.azurewebsites.net/api/logs/docker
-```
+Browse to the deployed app with URL *http:\//\<app-name>.azurewebsites.net* again to see the poll question and answer the question.
 
-You should see two JSON objects, each with an `href` property. One `href` points to the Docker console logs (ends with `_docker.log`), and another `href` points to the console logs generated from inside the Python container. 
+App Service detects a Django project in your repository by looking for a *wsgi.py* file in each subdirectory, which `manage.py startproject` creates by default. When App Service finds the file, it loads the Django web app. For more information on how App Service loads Python apps, see [Configure built-in Python image](how-to-configure-python.md).
 
-```json
-[  
-   {  
-      "machineName":"RD0003FF61ACD0_default",
-      "lastUpdated":"2018-09-27T16:48:17Z",
-      "size":4766,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
-   },
-   {  
-      "machineName":"RD0003FF61ACD0",
-      "lastUpdated":"2018-09-27T16:48:19Z",
-      "size":2589,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
-   }
-]
-```
+**Congratulations!** You're running a Python (Django) web app in Azure App Service for Linux.
 
-Copy the `href` value you want into a browser window to navigate to the logs. The logs are not streamed, so you may experience some delay. To see new logs, refresh the browser page.
+## Develop app locally and redeploy
 
-## Update data model and redeploy
+In this section, you develop your app in your local environment and redeploy your code to App Service.
 
-In this step, you add the number of attendees to each event registration by updating the `Guest` model, then redeploy the update to Azure.
+### Set up locally and run
 
-In the local terminal window, check out files from the `modelChange` branch by using the following git command:
+To set up your local development environment and run the sample app for the first time, run the following commands:
+
+# [bash](#tab/bash)
 
 ```bash
-git checkout origin/modelChange -- .
-```
-
-This checkout already makes the necessary changes to the model, views, and controllers. It also includes a database migration generated via *alembic* (`flask db migrate`). You can see all changes via the following git command:
-
-```bash
-git diff master origin/modelChange
-```
-
-### Test your changes locally
-
-In the local terminal window, run the following commands to test your changes locally by running the flask server.
-
-```bash
+# Configure the Python virtual environment
+python3 -m venv venv
 source venv/bin/activate
-cd app
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+
+# Install packages
+pip install -r requirements.txt
+# Run Django migrations
+python manage.py migrate
+# Create Django superuser (follow prompts)
+python manage.py createsuperuser
+# Run the dev server
+python manage.py runserver
 ```
 
-Navigate to http://localhost:5000 in your browser to view the changes. Create a test registration.
+# [PowerShell](#tab/powershell)
 
-![Docker container-based Python Flask application running locally](./media/tutorial-python-postgresql-app/local-app-v2.png)
+```powershell
+# Configure the Python virtual environment
+py -3 -m venv venv
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+venv\scripts\activate
 
-### Publish changes to Azure
-
-In the local terminal window, commit all the changes in Git, and then push the code changes to Azure.
-
-```bash 
-git add . 
-git commit -m "updated data model" 
-git push azure master 
-``` 
-
-Navigate to your Azure web app and try out the new functionality again. Make sure you refresh the page.
-
-```bash
-http://<app_name>.azurewebsites.net
+# Install packages
+pip install -r requirements.txt
+# Run Django migrations
+python manage.py migrate
+# Create Django superuser (follow prompts)
+python manage.py createsuperuser
+# Run the dev server
+python manage.py runserver
 ```
 
-![Docker Python Flask app in Azure App Service](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
+# [CMD](#tab/cmd)
 
-## Manage your web app in the Azure Portal
+```CMD
+:: Configure the Python virtual environment
+py -3 -m venv venv
+venv\scripts\activate
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+:: Install packages
+pip install -r requirements.txt
+:: Run Django migrations
+python manage.py migrate
+:: Create Django superuser (follow prompts)
+python manage.py createsuperuser
+:: Run the dev server
+python manage.py runserver
+```
+---
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+When the Django web app is fully loaded, it returns something like the following message:
 
-![Portal navigation to Azure web app](./media/tutorial-python-postgresql-app/app-resource.png)
+<pre>
+Performing system checks...
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+System check identified no issues (0 silenced).
+December 13, 2019 - 10:54:59
+Django version 2.1.2, using settings 'azuresite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</pre>
 
-![App Service page in Azure portal](./media/tutorial-python-postgresql-app/app-mgmt.png)
+Go to *http:\//localhost:8000* in a browser. You should see the message **No polls are available**. 
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+Go to *http:\//localhost:8000/admin* and sign in using the admin user you created in the last step. Select **Add** next to **Questions**, and create a poll question with some choices.
+
+![Run Python Django app in App Services locally](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
+
+Go to *http:\//localhost:8000* again to see the poll question and answer the question. The local Django sample application writes and stores user data to a local Sqlite3 database, so you don't need to worry about messing up your production database. To make your development environment match the Azure environment, consider using a Postgres database locally instead.
+
+To stop the Django server, type Ctrl+C.
+
+### Update the app
+
+Just to see how making app updates works, make a small change in `polls/models.py`. Find the line:
+
+<pre>
+choice_text = models.CharField(max_length=200)
+</pre>
+
+And change it to:
+
+```python
+choice_text = models.CharField(max_length=100)
+```
+
+By changing the data model, you need to create a new Django migration. Do it with the following command:
+
+```
+python manage.py makemigrations
+```
+
+You can test your changes locally by running migrations, running the development server, and navigating to *http:\//localhost:8000/admin*:
+
+```
+python manage.py migrate
+python manage.py runserver
+```
+
+### Redeploy code to Azure
+
+To redeploy the changes, run the following command from the repository root:
+
+```azurecli
+az webapp up
+```
+
+App Service detects that the app exists and just deploys the code.
+
+### Rerun migrations in Azure
+
+Because you made changes to the data model, you need to rerun database migrations in App Service. Open an SSH session in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Run the following commands:
+
+```
+cd site/wwwroot
+
+# Activate default virtual environment in App Service container
+source /antenv/bin/activate
+# Run database migrations
+python manage.py migrate
+```
+
+### Review app in production
+
+Browse to *http:\//\<app-name>.azurewebsites.net* and see the changes running live in production. 
+
+## Stream diagnostic logs
+
+You can access the console logs generated from inside the container.
+
+> [!TIP]
+> `az webapp up` turns on the default logging for you. For performance reasons, this logging turns itself off after some time, but turns back on each time you run `az webapp up` again. To turn it on manually, run the following command:
+>
+> ```azurecli
+> az webapp log config --name <app-name> --resource-group <app-resource-group> --docker-container-logging filesystem
+> ```
+
+Run the following Azure CLI command to see the log stream:
+
+```azurecli
+az webapp log tail --name <app-name> --resource-group <app-resource-group>
+```
+
+If you don't see console logs immediately, check again in 30 seconds.
+
+> [!NOTE]
+> You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+
+To stop log streaming at any time, type `Ctrl`+`C`.
+
+## Manage your app in the Azure portal
+
+In the [Azure portal](https://portal.azure.com), search for and select the app you created.
+
+![Navigate to your Python Django app in the Azure portal](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
+
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+
+![Manage your Python Django app in the Overview page in the Azure portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
+
+## Clean up resources
+
+If you don't expect to need these resources in the future, delete the resource groups by running the following commands:
+
+```azurecli
+az group delete --name myResourceGroup
+az group delete --name <app-resource-group>
+```
 
 ## Next steps
 
-In this tutorial, you learned how to:
+In this tutorial, you learned:
 
 > [!div class="checklist"]
-> * Create a PostgreSQL database in Azure
-> * Connect a Python app to PostgreSQL
-> * Deploy the app to Azure
+> * Create an Azure Database for PostgreSQL database
+> * Deploy code to Azure App Service and connect to Postgres
+> * Update your code and redeploy
 > * View diagnostic logs
-> * Update the data model and redeploy the app
-> * Manage the app in the Azure portal
+> * Manage the web app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
-
-> [!div class="nextstepaction"]
-> [Configure built-in Python image](how-to-configure-python.md)
+Go to the next tutorial to learn how to map a custom DNS name to your app:
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
 
+Or check out other resources:
+
+> [!div class="nextstepaction"]
+> [Configure Python app](how-to-configure-python.md)

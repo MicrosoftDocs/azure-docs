@@ -1,14 +1,13 @@
 ---
-title: Azure VPN Gateway FAQ | Microsoft Docs
+title: Azure VPN Gateway FAQ
 description: The VPN Gateway FAQ. FAQ for Microsoft Azure Virtual Network cross-premises connections, hybrid configuration connections, and VPN Gateways.
 services: vpn-gateway
-author: cherylmc
+author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc
-
+ms.date: 03/05/2020
+ms.author: yushwang
 ---
 # VPN Gateway FAQ
 
@@ -26,6 +25,10 @@ Yes.
 
 You can connect to multiple sites by using Windows PowerShell and the Azure REST APIs. See the [Multi-Site and VNet-to-VNet Connectivity](#V2VMulti) FAQ section.
 
+### Is there an additional cost for setting up a VPN gateway as active-active?
+
+No. 
+
 ### What are my cross-premises connection options?
 
 The following cross-premises connections are supported:
@@ -34,13 +37,13 @@ The following cross-premises connections are supported:
 * Point-to-Site – VPN connection over SSTP (Secure Socket Tunneling Protocol) or IKE v2. This connection does not require a VPN device. For more information, see [Point-to-Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet-to-VNet – This type of connection is the same as a Site-to-Site configuration. VNet to VNet is a VPN connection over IPsec (IKE v1 and IKE v2). It does not require a VPN device. For more information, see [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multi-Site – This is a variation of a Site-to-Site configuration that allows you to connect multiple on-premises sites to a virtual network. For more information, see [Multi-Site](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* ExpressRoute – ExpressRoute is a direct connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
+* ExpressRoute – ExpressRoute is a private connection to Azure from your WAN, not a VPN connection over the public Internet. For more information, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md).
 
 For more information about VPN gateway connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 
-**Site-to-Site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address that is not behind a NAT.
+**Site-to-Site** (IPsec/IKE VPN tunnel) configurations are between your on-premises location and Azure. This means that you can connect from any of your computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing and permissions. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware device or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have an externally facing IPv4 address.
 
 **Point-to-Site** (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection.
 
@@ -60,14 +63,15 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
-### Can I update my Policy-based VPN gateway to Route-based?
+### Can I update my policy-based VPN gateway to route-based?
+
 No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
 1. Delete any connections associated with the gateway to be deleted.
-2. Delete the gateway:
-* [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Delete the gateway:
+   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Create a new gateway of the type you want and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -81,11 +85,15 @@ No.
 
 ### Can I get my VPN gateway IP address before I create it?
 
-No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
+Zone-redundant and zonal gateways (gateway SKUs that have _AZ_ in the name) both rely on a _Standard SKU_ Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method. Therefore, you will have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource you intend to use for it.
+
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do _not_ have _AZ_ in the name), you cannot get the VPN gateway IP address before it is created. The IP address changes only if you delete and re-create your VPN gateway.
 
 ### Can I request a Static Public IP address for my VPN gateway?
 
-No. Only Dynamic IP address assignment is supported. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The VPN gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
+As stated above, zone-redundant and zonal gateways (gateway SKUs that have _AZ_ in the name) both rely on a _Standard SKU_ Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method.
+
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do _not_ have _AZ_ in the name), only dynamic IP address assignment is supported. However, this doesn't mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does my VPN tunnel get authenticated?
 
@@ -118,11 +126,11 @@ Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
-### Why are certain ports opened on my VPN gateway?
+### <a name="gatewayports"></a>Why are certain ports opened on my virtual network gateway?
 
 They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
-A VPN gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
+A virtual network gateway is fundamentally a multi-homed device with one NIC tapping into the customer private network, and one NIC facing the public network. Azure infrastructure entities cannot tap into customer private networks for compliance reasons, so they need to utilize public endpoints for infrastructure communication. The public endpoints are periodically scanned by Azure security audit.
 
 ### More information about gateway types, requirements, and throughput
 
@@ -156,6 +164,10 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
+## How do I change the authentication type for my point-to-site connections?
+
+You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
+
 ## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
 
 This section applies to the Resource Manager deployment model.
@@ -182,7 +194,7 @@ Transit traffic via Azure VPN gateway is possible using the classic deployment m
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
-No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be alphanumerical string of length between 1 to 128 characters.
+No, Azure by default generates different pre-shared keys for different VPN connections. However, you can use the Set VPN Gateway Key REST API or PowerShell cmdlet to set the key value you prefer. The key MUST be printable ASCII characters.
 
 ### Do I get more bandwidth with more Site-to-Site VPNs than for a single virtual network?
 
@@ -234,3 +246,5 @@ You view additional virtual network information in the [Virtual Network FAQ](../
 
 * For more information about VPN Gateway, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 * For more information about VPN Gateway configuration settings, see [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md).
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

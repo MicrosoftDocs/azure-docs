@@ -1,21 +1,19 @@
 ---
-title: Configure High Availability Ports for Azure Load Balancer| Microsoft Docs
+title: Configure High Availability Ports for Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to use High Availability Ports for load balancing internal traffic on all ports 
 services: load-balancer
 documentationcenter: na
 author: rdhillon
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+manager: narayan
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Configure High Availability Ports for an internal load balancer
@@ -35,9 +33,9 @@ The illustration shows the following configuration of the deployment example des
 
 ![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## Configure High Availability Ports
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To configure High Availability Ports, set up an internal load balancer with the NVAs in the back-end pool. Set up a corresponding load balancer health probe configuration to detect NVA health and the load balancer rule with High Availability Ports. The general load balancer-related configuration is covered in [Get started](load-balancer-get-started-ilb-arm-portal.md). This article highlights the High Availability Ports configuration.
 
@@ -48,7 +46,6 @@ The configuration essentially involves setting the front-end port and the back-e
 To configure High Availability Ports by using the Azure portal, select the **HA Ports** check box. When selected, the related port and protocol configuration is automatically populated. 
 
 ![High Availability Ports configuration via the Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### Configure a High Availability Ports load-balancing rule via the Resource Manager template
 
@@ -88,7 +85,7 @@ You can configure High Availability Ports by using the 2017-08-01 API version fo
 Use the following command to create the High Availability Ports load balancer rule while you create the internal load balancer with PowerShell:
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### Configure a High Availability Ports load balancer rule with Azure CLI
@@ -96,7 +93,7 @@ lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfig
 In step 4 of [Create an internal load balancer set](load-balancer-get-started-ilb-arm-cli.md), use the following command to create the High Availability Ports load balancer rule:
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## Next steps

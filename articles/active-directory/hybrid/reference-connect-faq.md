@@ -4,21 +4,39 @@ description: This article answers frequently asked questions about Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/05/2018
-ms.component: hybrid
+ms.topic: reference
+ms.date: 08/23/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect FAQ
 
 ## General installation
+
+**Q: How can I harden my Azure AD Connect server to decrease the security attack surface?**
+
+Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
+
+* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups
+
+To learn more, see: 
+
+* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **Q: Will installation work if the Azure Active Directory (Azure AD) Global Admin has two-factor authentication (2FA) enabled?**  
 As of the February 2016 builds, this scenario is supported.
 
@@ -33,7 +51,7 @@ Yes. After you install the agent, you can complete the registration process by u
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
+**Q: Does Azure AD Connect support syncing from two domains to an Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](how-to-connect-install-multiple-domains.md).
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  
@@ -55,6 +73,47 @@ The simplest way to do this is to use SQL Server Management Studio installed on 
 
 To keep things simple, we recommend that users who install Azure AD Connect be system administrators in SQL. However, with recent builds you can now use delegated SQL administrators, as described in [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).
 
+**Q: What are some of the best practices from the field?**  
+
+The following is an informational document that presents some of the best practices that engineering, support and our consultants have developed over the years.  This is presented in a bullet list that can be quickly referenced.  Although this list attempts to be comprehensive, there may be additional best practices that might not have made it on the list yet.
+
+- If using Full SQL then it should remain local vs. remote
+    - Fewer hops
+    - Easier to troubleshoot
+    - Less complexity
+    - Need to designate resources to SQL and allow overhead for Azure AD Connect and OS
+- Bypass Proxy if at all possible, if you are unable to bypass the proxy then you need to ensure that the timeout value is greater than 5 minutes.
+- If proxy is required then you must add the proxy to the machine.config file
+- Be aware of local SQL jobs and maintenance and how they will impact Azure AD Connect - particularly re-indexing
+- Ensure than DNS can resolve externally
+- Ensure that [server specifications](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) are per recommendation whether you are using physical or virtual servers
+- Ensure that if you are using a virtual server that resources required are dedicated
+- Ensure that you have the disk and disk configuration meet Best Practices for SQL Server
+- Install and configure Azure AD Connect Health for monitoring
+- Use the Delete Threshold that is built into Azure AD Connect.
+- Carefully review release updates to be prepared for all changes and new attributes that may be added
+- Backup everything
+    - Backup Keys
+    - Backup Synchronization Rules
+    - Backup Server Configuration
+    - Backup SQL Database
+- Ensure that there are no 3rd party backup agents that are backing up SQL without the SQL VSS Writer (common in virtual servers with 3rd party snapshots)
+- Limit the amount of custom synchronization rules that are used as they add complexity
+- Treat Azure AD Connect Servers as Tier 0 Servers
+- Be leery of modifying  cloud synchronization rules without great understanding of the impact and the right business drivers
+- Make sure that the correct URL's and Firewall ports are open for support of Azure AD Connect and Azure AD Connect Health
+- Leverage the cloud filtered attribute to troubleshoot and prevent phantom objects
+- With the Staging Server ensure that you are using the Azure AD Connect Configuration Documenter for consistency between servers
+- Staging Servers should be in separate datacenters (Physical Locations
+- Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
+- Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
+- Test and Validate all upgrades on the Staging Server first
+- Always validate exports before switching over to the staging server.  Leverage the staging server for Full Imports and Full Synchronizations to reduce business impact
+- Keep version consistency between Azure AD Connect Servers as much as possible 
+
+**Q: Can I allow Azure AD Connect to create the Azure AD Connector account on Workgroup machine?**
+No.  In order to allow Azure AD Connect to auto-create the Azure AD Connector account, the machine must be domain-joined.  
+
 ## Network
 **Q: I have a firewall, network device, or something else that limits the time that connections can stay open on my network. What should my client-side timeout threshold be when I use Azure AD Connect?**  
 All networking software, physical devices, or anything else that limits the maximum time that connections can remain open should use a threshold of at least five minutes (300 seconds) for connectivity between the server where the Azure AD Connect client is installed and Azure Active Directory. This recommendation also applies to all previously released Microsoft Identity synchronization tools.
@@ -71,6 +130,9 @@ No, Azure AD Connect does not support on-premises forests or domains where the N
 **Q: Is pure IPv6 environment supported?**  
 No, Azure AD Connect does not support a pure IPv6 environment.
 
+**Q:I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
+No, using Azure AD Connect over NAT is not supported. 
+
 ## Federation
 **Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  
 For guidance about renewing the certificate, see [renew certificates](how-to-connect-fed-o365-certs.md).
@@ -81,6 +143,15 @@ Use the guidance that's outlined in the article [renew certificates](how-to-conn
 ## Environment
 **Q: Is it supported to rename the server after Azure AD Connect has been installed?**  
 No. Changing the server name renders the sync engine unable to connect to the SQL database instance, and the service cannot start.
+
+**Q: Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?**  
+No.  They are not supported.
+
+**Q. If I disabled a synced device (for example: HAADJ) in the Azure portal, why it is re-enabled?**<br>
+Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
+
+**Q. If I block user sign-in at the Office 365 or Azure AD portal for synced users, why it is unblocked upon signing in again?**<br>
+Synced users might be authored or mastered on premises. If the account is enabled on premises, it can unblock the sign-in block placed by administrator.
 
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
@@ -189,8 +260,12 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 
-[Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
-* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q: Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?**
+
+The events 6311 - **The server encountered an unexpected error while performing a callback** and 6401 - **The management agent controller encountered an unexpected error** - are always logged after a synchronization step error. To resolve these errors, you need to clean up the synchronization step errors.  For more information, see [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) and [Troubleshoot object synchronization with Azure AD Connect sync](tshoot-connect-objectsync.md)

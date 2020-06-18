@@ -1,10 +1,10 @@
 ---
-title: Azure IoT Edge continuous integration and continuous deployment | Microsoft Docs
-description: Overview of the continuous integration and continuous deployment for Azure IoT Edge
+title: Continuous integration & continuous deployment - Azure IoT Edge
+description: Set up continuous integration and continuous deployment - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: shizn
-manager: 
+manager: philmea
 ms.author: xshi
-ms.date: 06/27/2018
+ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,356 +12,220 @@ services: iot-edge
 
 # Continuous integration and continuous deployment to Azure IoT Edge
 
-This article demonstrates how you can use the continuous integration and continuous deployment features of Azure DevOps Services and Microsoft Team Foundation Server (TFS) to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge. 
+You can easily adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how you can use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge.
 
-In this article, you will learn how to:
-* Create and check in a sample IoT Edge solution containing unit tests.
-* Install Azure IoT Edge extension for your Azure DevOps.
-* Configure continuous integration (CI) to build the solution and run the unit tests.
-* Configure continuous deployment (CD) to deploy the solution and view responses.
+![Diagram - CI and CD branches for development and production](./media/how-to-ci-cd/cd.png)
 
-It will take 30 minutes to complete the steps in this article.
+In this article, you learn how to use the built-in Azure IoT Edge tasks for Azure Pipelines to create two pipelines for your IoT Edge solution. There are four actions can be used in the Azure IoT Edge tasks.
 
-![CI and CD](./media/how-to-ci-cd/cd.png)
+* **Azure IoT Edge - Build Module images** takes your IoT Edge solution code and builds the container images.
+* **Azure IoT Edge - Push Module images** pushes module images to the container registry you specified.
+* **Azure IoT Edge - Generate Deployment Manifest** takes a deployment.template.json file and the variables, then generates the final IoT Edge deployment manifest file.
+* **Azure IoT Edge - Deploy to IoT Edge devices** helps create IoT Edge deployments to single/multiple IoT Edge devices.
 
-## Create a sample Azure IoT Edge solution using Visual Studio Code
+## Prerequisites
 
-In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+* An Azure Repos repository. If you don't have one, you can [Create a new Git repo in your project](https://docs.microsoft.com/azure/devops/repos/git/create-new-repo?view=vsts&tabs=new-nav).
+* An IoT Edge solution committed and pushed to your repository. If you want to create a new sample solution for testing this article, follow the steps in [Develop and debug modules in Visual Studio Code](how-to-vs-code-develop-module.md) or [Develop and debug C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md).
 
-1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). You need to change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
+   For this article, all you need is the solution folder created by the IoT Edge templates in either Visual Studio Code or Visual Studio. You don't need to build, push, deploy, or debug this code before proceeding. You'll set those processes up in Azure Pipelines.
 
-    ![Setup ACR](./media/how-to-ci-cd/acr.png)
+   If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there.
 
-2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
+* A container registry where you can push module images. You can use [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or a third-party registry.
+* An active [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
-3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Replace the entire **Program.cs** file with below content. For more information about this code snippet, you can refer to [Create an IoT Edge C# module project](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
-
-    ```csharp
-    namespace FilterModule
-    {
-        using System;
-        using System.IO;
-        using System.Runtime.InteropServices;
-        using System.Runtime.Loader;
-        using System.Security.Cryptography.X509Certificates;
-        using System.Text;
-        using System.Threading;
-        using System.Threading.Tasks;
-        using Microsoft.Azure.Devices.Client;
-        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-        using System.Collections.Generic;     // for KeyValuePair<>
-        using Microsoft.Azure.Devices.Shared; // for TwinCollection
-        using Newtonsoft.Json;                // for JsonConvert
-
-        public class MessageBody
-        {
-            public Machine machine { get; set; }
-            public Ambient ambient { get; set; }
-            public string timeCreated { get; set; }
-        }
-        public class Machine
-        {
-            public double temperature { get; set; }
-            public double pressure { get; set; }
-        }
-        public class Ambient
-        {
-            public double temperature { get; set; }
-            public int humidity { get; set; }
-        }
-
-        public class Program
-        {
-            static int counter;
-            static int temperatureThreshold { get; set; } = 25;
-
-            static void Main(string[] args)
-            {
-                Init().Wait();
-
-                // Wait until the app unloads or is cancelled
-                var cts = new CancellationTokenSource();
-                AssemblyLoadContext.Default.Unloading += (ctx) => cts.Cancel();
-                Console.CancelKeyPress += (sender, cpe) => cts.Cancel();
-                WhenCancelled(cts.Token).Wait();
-            }
-
-            /// <summary>
-            /// Handles cleanup operations when app is cancelled or unloads
-            /// </summary>
-            public static Task WhenCancelled(CancellationToken cancellationToken)
-            {
-                var tcs = new TaskCompletionSource<bool>();
-                cancellationToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
-                return tcs.Task;
-            }
-
-            /// <summary>
-            /// Initializes the ModuleClient and sets up the callback to receive
-            /// messages containing temperature information
-            /// </summary>
-            static async Task Init()
-            {
-                MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-                ITransportSettings[] settings = { mqttSetting };
-
-                // Open a connection to the Edge runtime
-                ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
-                await ioTHubModuleClient.OpenAsync();
-                Console.WriteLine("IoT Hub module client initialized.");
-
-                // Register callback to be called when a message is received by the module
-                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessage, ioTHubModuleClient);
-            }
-
-            /// <summary>
-            /// This method is called whenever the module is sent a message from the EdgeHub. 
-            /// It just pipe the messages without any change.
-            /// It prints all the incoming messages.
-            /// </summary>
-            static async Task<MessageResponse> FilterMessage(Message message, object userContext)
-            {
-                int counterValue = Interlocked.Increment(ref counter);
-
-                var moduleClient = userContext as ModuleClient;
-                if (moduleClient == null)
-                {
-                    throw new InvalidOperationException("UserContext doesn't contain " + "expected values");
-                }
-
-                byte[] messageBytes = message.GetBytes();
-                string messageString = Encoding.UTF8.GetString(messageBytes);
-                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
-
-                var filteredMessage = filter(message);
-
-                if (filteredMessage != null && !string.IsNullOrEmpty(messageString))
-                {
-                    var pipeMessage = new Message(messageBytes);
-                    foreach (var prop in message.Properties)
-                    {
-                        pipeMessage.Properties.Add(prop.Key, prop.Value);
-                    }
-                    await moduleClient.SendEventAsync("output1", pipeMessage);
-                    Console.WriteLine("Received message sent");
-                }
-                return MessageResponse.Completed;
-            }
-
-            public static Message filter(Message message)
-            {
-                var counterValue = Interlocked.Increment(ref counter);
-
-                var messageBytes = message.GetBytes();
-                var messageString = Encoding.UTF8.GetString(messageBytes);
-                Console.WriteLine($"Received message {counterValue}: [{messageString}]");
-
-                // Get message body
-                var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-                if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-                {
-                    Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
-                        $"exceeds threshold {temperatureThreshold}");
-                    var filteredMessage = new Message(messageBytes);
-                    foreach (KeyValuePair<string, string> prop in message.Properties)
-                    {
-                        filteredMessage.Properties.Add(prop.Key, prop.Value);
-                    }
-
-                    filteredMessage.Properties.Add("MessageType", "Alert");
-                    return filteredMessage;
-                }
-                return null;
-            }
-        }
-    }
-    ```
-
-4. Create a .Net Core unit test project. In VS Code file explorer, create a new folder **tests\FilterModuleTest** in your workspace. Then in VS Code integrated terminal (**Ctrl + `**), run following commands to create a xunit test project and add reference to the **FilterModule** project.
-
-    ```cmd
-    cd tests\FilterModuleTest
-    dotnet new xunit
-    dotnet add reference ../../modules/FilterModule/FilterModule.csproj
-    ```
-
-    ![Folder Structure](./media/how-to-ci-cd/add-test-project.png)
-
-5. In the **FilterModuleTest** folder, update the file name of **UnitTest1.cs** to **FilterModuleTest.cs**. Select and open **FilterModuleTest.cs**, replace the entire code with below code snippet, which contains the unit tests against the FilterModule project.
-
-    ```csharp
-    using Xunit;
-    using FilterModule;
-    using Newtonsoft.Json;
-    using System;
-    using System.IO;
-    using System.Runtime.InteropServices;
-    using System.Runtime.Loader;
-    using System.Security.Cryptography.X509Certificates;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Devices.Client;
-    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
-
-    namespace FilterModuleTest
-    {
-        public class FilterModuleTest
-        {
-            [Fact]
-            public void filterLessThanThresholdTest()
-            {
-                var source = createMessage(25 - 1);
-                var result = Program.filter(source);
-                Assert.True(result == null);
-            }
-
-            [Fact]
-            public void filterMoreThanThresholdAlertPropertyTest()
-            {
-                var source = createMessage(25 + 1);
-                var result = Program.filter(source);
-                Assert.True(result.Properties["MessageType"] == "Alert");
-            }
-
-            [Fact]
-            public void filterMoreThanThresholdCopyPropertyTest()
-            {
-                var source = createMessage(25 + 1);
-                source.Properties.Add("customTestKey", "customTestValue");
-                var result = Program.filter(source);
-                Assert.True(result.Properties["customTestKey"] == "customTestValue");
-            }
-
-            private Message createMessage(int temperature)
-            {
-                var messageBody = createMessageBody(temperature);
-                var messageString = JsonConvert.SerializeObject(messageBody);
-                var messageBytes = Encoding.UTF8.GetBytes(messageString);
-                return new Message(messageBytes);
-            }
-
-            private MessageBody createMessageBody(int temperature)
-            {
-                var messageBody = new MessageBody
-                {
-                    machine = new Machine
-                    {
-                        temperature = temperature,
-                        pressure = 0
-                    },
-                    ambient = new Ambient
-                    {
-                        temperature = 0,
-                        humidity = 0
-                    },
-                    timeCreated = string.Format("{0:O}", DateTime.Now)
-                };
-
-                return messageBody;
-            }
-        }
-    }
-    ```
-
-6. In integrated terminal, you can enter following commands to run unit tests locally. 
-    ```cmd
-    dotnet test
-    ```
-
-    ![Unit Test](./media/how-to-ci-cd/unit-test.png)
-
-7. Save these projects, then check it into your Azure DevOps or TFS repository.
-    
-
-> [!NOTE]
-> For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
-
+For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)
 
 ## Configure continuous integration
-In this section, you will create a build pipeline that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
 
-1. Sign into your Azure DevOps organization (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
+In this section, you create a new build pipeline. Configure the pipeline to run automatically when you check in any changes to the sample IoT Edge solution, and publish build logs.
 
-    ![Check-in code](./media/how-to-ci-cd/init-project.png)
+>[!NOTE]
+>This article uses the Azure DevOps visual designer. Before you follow the steps in this section, turn off the preview feature for the new YAML pipeline creation experience.
+>
+>1. In Azure DevOps, select your profile icon then select **Preview features**.
+>2. Turn **New YAML pipeline creation experience** off.
+>
+>For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Visit [Azure IoT Edge For Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on Azure DevOps Marketplace. Click **Get it free** and follow the wizard to install this extension to your Azure DevOps organization or download to your TFS.
+1. Sign in to your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
-    ![Install extension](./media/how-to-ci-cd/install-extension.png)
+   For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**.
 
-1. In your Azure DevOps, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New pipeline**. Or, if you already have build pipelines, choose the **+ New** button. 
+   ![Open your DevOps project](./media/how-to-ci-cd/init-project.png)
 
-    ![New build](./media/how-to-ci-cd/add-new-build.png)
+2. Navigate to Azure Pipelines in your project. Open the **Builds** tab and select **New pipeline**. Or, if you already have build pipelines, select the **New** button. Then choose **New build pipeline**.
 
-1. If prompted, select the **Azure DevOps Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
+    ![Create a new build pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-    ![Select Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
+3. Follow the prompts to create your pipeline.
 
-1. In **Select a template** window, choose **start with an Empty process**.
+   1. Provide the source information for your new build pipeline. Select **Azure Repos Git** as the source, then select the project, repository, and branch where your IoT Edge solution code is located. Then, select **Continue**.
 
-    ![Start empty](./media/how-to-ci-cd/start-with-empty.png)
+      ![Select your pipeline source](./media/how-to-ci-cd/pipeline-source.png)
 
-1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **.Net Core**, and click **Add** to add this task to the phase.
+   2. Select **Empty job** instead of a template.
 
-    ![Dotnet test](./media/how-to-ci-cd/add-dot-net-core.png)
+      ![Start with an empty process](./media/how-to-ci-cd/start-with-empty.png)
 
-1. Update the **Display name** to **dotnet test**, and in the **Command** dropdown list, select **test**. Add below path to the **Path to project(s)**.
+4. Once your pipeline is created, you are taken to the pipeline editor. In your pipeline description, choose the correct agent pool based on your target platform:
 
-    ```
-    tests/FilterModuleTest/*.csproj
-    ```
+   * If you would like to build your modules in platform amd64 for Linux containers, choose **Hosted Ubuntu 1604**
 
-    ![Configure dotnet test](./media/how-to-ci-cd/dotnet-test.png)
+   * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **Azure IoT Edge**, and click **Add** button **twice** to add these tasks to the phase.
+   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
 
-    ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
+     ![Configure build agent pool](./media/how-to-ci-cd/configure-env.png)
 
-1. In the first Azure IoT Edge task, update the **Display name** to **Module Build and Push**, and in the **Action** dropdown list, select **Build and Push**. In the **Module.json File** textbox, add below path to it. Then choose **Container Registry Type**, make sure you configure and select the same registry in your code. This task will build and push all your modules in the solution and publish to the container registry you specified. If your modules will be pushed to different registries, you can have multiple **Module Build and Push** tasks.
+5. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add three tasks to the job: **Azure IoT Edge** twice, **Copy Files** once and **Publish Build Artifacts** once. (Hover over the name of each task to see the **Add** button.)
 
-    ```
-    **/module.json
-    ```
+   ![Add Azure IoT Edge task](./media/how-to-ci-cd/add-iot-edge-task.png)
 
-    ![Module Build and Push](./media/how-to-ci-cd/module-build-push.png)
+   When all four tasks are added, your Agent job looks like the following example:
 
-1. In the second Azure IoT Edge task, update the **Display name** to **Deploy to IoT Edge device**, and in the **Action** dropdown list, select **Deploy to IoT Edge device**. Select your Azure subscription and input your IoT Hub name. You can specify an IoT Edge deployment ID and the deployment priority. You can also choose to deploy to single or multiple devices. If you are deploying to multiple devices, you need to specify the device target condition. For example, if you want to use device Tags as the condition, you need to update your corresponding devices Tags before the deployment. 
+   ![Three tasks in the build pipeline](./media/how-to-ci-cd/add-tasks.png)
 
-    ![Deploy to Edge](./media/how-to-ci-cd/deploy-to-edge.png)
+6. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify.
 
-1. Click the **Process** and make sure your **Agent queue** is **Hosted Linux Preview**.
+   * **Display name**: Accept the default **Azure IoT Edge - Build module images**.
+   * **Action**: Accept the default **Build module images**.
+   * **.template.json file**: Select the ellipsis (**...**) and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution.
+   * **Default platform**: Select the appropriate platform for your modules based on your target IoT Edge device.
+   * **Output variables**: The output variables include a reference name that you can use to configure the file path where your deployment.json file will be generated. Set the reference name to something memorable like **edge**.
 
-    ![Configure](./media/how-to-ci-cd/configure-env.png)
 
-1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
+   These configurations use the image repository and tag that are defined in the `module.json` file to name and tag the module image. **Build module images** also helps replace the variables with the exact value you define in the `module.json` file. In Visual Studio or Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value on the **Pipeline Variables** tab. Select the **Variables** tab and configure the name and value as following:
 
-    ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
+    * **ACR_ADDRESS**: Your Azure Container Registry address. 
 
-1. Save the new build pipeline and queue a new build. Click the **Save & queue** button.
-
-1. Choose the link to the build in the message bar that appears. Or go to build pipeline to see the latest queued build job.
-
-    ![Build](./media/how-to-ci-cd/build-def.png)
-
-1. After the build has finished, you see the summary for each task and the results in the live log file. 
+    If you have other variables in your project, you can specify the name and value on this tab. **Build module images** recognizes only variables that are in `${VARIABLE}` format. Make sure you use this format in your `**/module.json` files.
     
-    ![Complete](./media/how-to-ci-cd/complete.png)
+7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
 
-1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running (Make sure you've added registry credentials to Edge runtime).
+   * **Display name**: The display name is automatically updated when the action field changes.
+   * **Action**: Use the dropdown list to select **Push module images**.
+   * **Container registry type**: Select the type of container registry that you use to store your module images. Depending on which registry type you choose, the form changes. If you choose **Azure Container Registry**, use the dropdown lists to select the Azure subscription and the name of your container registry. If you choose **Generic Container Registry**, select **New** to create a registry service connection.
+   * **.template.json file**: Select the ellipsis (**...**) and navigate to the **deployment.template.json** file in the repository that contains your IoT Edge solution.
+   * **Default platform**: Select the same platform as your built module images.
 
-    ![Edge running](./media/how-to-ci-cd/edge-running.png)
+   If you have multiple container registries to host your module images, you need to duplicate this task, select different container registry, and use **Bypass module(s)** in the advanced settings to bypass the images which are not for this specific registry.
 
-## Continuous deployment to IoT Edge devices
+8. Select the **Copy Files** task to edit it. Use this task to copy files to the artifact staging directory.
 
-To enable continuous deployment, basically you need to set up CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commit should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
+   * **Display name**: Copy Files to: Drop folder.
+   * **Contents**: Put two lines in this section, `deployment.template.json` and `**/module.json`. These two types of files are the inputs to generate IoT Edge deployment manifest. Need to be copied to the artifact staging folder and published for release pipeline.
+   * **Target Folder**: Put the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) to learn about the description.
 
-So, when deploying to IoT Edge devices, there are three main environments.
-- On feature branch, you can use simulated IoT Edge device on your development machine or deploy to a physical IoT Edge device.
-- On develop branch, you should deploy to a physical IoT Edge device.
-- On master branch, the target IoT Edge devices should be the production devices.
+9. Select the **Publish Build Artifacts** task to edit it. Provide artifact staging directory path to the task so that the path can be published to release pipeline.
+
+   * **Display name**: Publish Artifact: drop.
+   * **Path to publish**: Put the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) to learn about the description.
+   * **Artifact name**: drop.
+   * **Artifact publish location**: Azure Pipelines.
+
+10. Open the **Triggers** tab and check the box to **Enable continuous integration**. Make sure the branch containing your code is included.
+
+    ![Turn on continuous integration trigger](./media/how-to-ci-cd/configure-trigger.png)
+
+11. Save the new build pipeline with **Save** button.
+
+This pipeline is now configured to run automatically when you push new code to your repo. The last task, publishing the pipeline artifacts, triggers a release pipeline. Continue to the next section to build the release pipeline.
+
+## Configure continuous deployment
+
+In this section, you create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
+
+Create a new pipeline, and add a new stage
+
+1. In the **Releases** tab, choose **+ New pipeline**. Or, if you already have release pipelines, choose the **+ New** button and select **+ New release pipeline**.  
+
+    ![Add release pipeline](./media/how-to-ci-cd/add-release-pipeline.png)
+
+2. When prompted to select a template, choose to start with an **Empty job**.
+
+    ![Start with an empty job](./media/how-to-ci-cd/start-with-empty-job.png)
+
+3. Your new release pipeline initializes with one stage, called **Stage 1**. Rename Stage 1 to **dev** and treat it as a test environment. Usually, continuous deployment pipelines have multiple stages including **dev**, **staging** and **prod**. You can create more based on your DevOps practice. Close the stage details window once it's renamed.
+
+4. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area.
+
+   ![Add artifacts](./media/how-to-ci-cd/add-artifacts.png)  
+
+5. In **Add an artifact page**, select source type **Build**. Then, select the project and the build pipeline you created. Then, select **Add**.
+
+   ![Add a build artifact](./media/how-to-ci-cd/add-an-artifact.png)
+
+6. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release will be created each time a new build is available.
+
+   ![Configure continuous deployment trigger](./media/how-to-ci-cd/add-a-trigger.png)
+
+7. The **dev** stage is preconfigured with one job and zero tasks. From the pipeline menu, select **Tasks** then choose the **dev** stage.  Select the job and task count to configure the tasks in this stage.
+
+    ![Configure dev tasks](./media/how-to-ci-cd/view-stage-tasks.png)
+
+8. In the **dev** stage, you should see a default **Agent job**. You can configure details about the agent job, but the deployment task is platform insensitive so you can use either **Hosted VS2017** or **Hosted Ubuntu 1604** in the **Agent pool** (or any other agent managed by yourself).
+
+9. Select the plus sign (**+**) to add two task. Search for and add **Azure IoT Edge** twice.
+
+    ![Add tasks for dev](./media/how-to-ci-cd/add-task-qa.png)
+
+10. Select the first **Azure IoT Edge** task and configure it with the following values:
+
+    * **Display name**: The display name is automatically updated when the action field changes.
+    * **Action**: Use the dropdown list to select **Generate deployment manifest**. Changing the action value also updates the task display name to match.
+    * **.template.json file**: Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/deployment.template.json`. The path is published from build pipeline.
+    * **Default platform**: Choose the same value when building the module images.
+    * **Output path**: Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. This path is the final IoT Edge deployment manifest file.
+
+    These configurations helps replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In VS/VS Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in Release Pipeline Variables tab. Move to Variables tab and configure the Name and Value as following.
+
+    * **ACR_ADDRESS**: Your Azure Container Registry address.
+    * **ACR_PASSWORD**: Your Azure Container Registry password.
+    * **ACR_USER**: Your Azure Container Registry username.
+
+    If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables are in `${VARIABLE}` flavor, make sure you are using this in your `*.template.json` files.
+
+    ![Configure variables for release pipeline](./media/how-to-ci-cd/configure-variables.png)
+
+11. Select the second **Azure IoT Edge** task and configure it with the following values:
+
+    * **Display name**: The display name is automatically updated when the action field changes.
+    * **Action**: Use the dropdown list to select **Deploy to IoT Edge devices**. Changing the action value also updates the task display name to match.
+    * **Azure subscription**: Select the subscription that contains your IoT Hub.
+    * **IoT Hub name**: Select your IoT hub.
+    * **Choose single/multiple device**: Choose whether you want the release pipeline to deploy to one device or multiple devices.
+      * If you deploy to a single device, enter the **IoT Edge device ID**.
+      * If you are deploying to multiple devices, specify the device **target condition**. The target condition is a filter to match a set of IoT Edge devices in IoT Hub. If you want to use Device Tags as the condition, you need to update your corresponding devices Tags with IoT Hub device twin. Update the **IoT Edge deployment ID** and **IoT Edge deployment priority** in the advanced settings. For more information about creating a deployment for multiple devices, see [Understand IoT Edge automatic deployments](module-deployment-monitoring.md).
+    * Expand Advanced Settings, select **IoT Edge deployment ID**, put the variable `$(System.TeamProject)-$(Release.EnvironmentName)`. This maps the project and release name with your IoT Edge deployment ID.
+
+12. Select **Save** to save your changes to the new release pipeline. Return to the pipeline view by selecting **Pipeline** from the menu.
+
+## Verify IoT Edge CI/CD with the build and release pipelines
+
+To trigger a build job, you can either push a commit to source code repository or manually trigger it. In this section, you manually trigger the CI/CD pipeline to test that it works. Then verify that the deployment succeeds.
+
+1. Navigate to the build pipeline that you created at the beginning of this article.
+
+2. You can trigger a build job in your build pipeline by selecting the **Queue** button as in following screenshot.
+
+    ![Manual trigger](./media/how-to-ci-cd/manual-trigger.png)
+
+3. Select the build job to watch its progress. If the build pipeline is completed successfully, it triggers a release to **dev** stage.
+
+    ![Build logs](./media/how-to-ci-cd/build-logs.png)
+
+4. The successful **dev** release creates IoT Edge deployment to target IoT Edge devices.
+
+    ![Release to dev](./media/how-to-ci-cd/pending-approval.png)
+
+5. Click **dev** stage to see release logs.
+
+    ![Release logs](./media/how-to-ci-cd/release-logs.png)
 
 ## Next steps
 
+* IoT Edge DevOps best practices sample in [Azure DevOps Project for IoT Edge](how-to-devops-project.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

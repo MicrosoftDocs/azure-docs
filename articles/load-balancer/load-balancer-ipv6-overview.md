@@ -1,30 +1,30 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer | Microsoft Docs
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Overview of IPv6 for Azure Load Balancer
 
 
 >[!NOTE] 
+>This content has been superseded by [IPv6 for Azure VNet Overview](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
+
+>[!NOTE]
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
-Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
+Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
 
 * Native end-to-end IPv6 connectivity between public Internet clients and Azure Virtual Machines (VMs) through the load balancer.
 * Native end-to-end IPv6 outbound connectivity between VMs and public Internet IPv6-enabled clients.
@@ -76,6 +76,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
+* Attaching a secondary NIC that refers to an IPv6 subnet to a back-end pool is **currently not supported**.
 
 ## Next steps
 

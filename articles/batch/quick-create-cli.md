@@ -1,15 +1,8 @@
 ---
 title: Azure Quickstart - Run Batch job - CLI 
-description: Quickly learn to run a Batch job with the Azure CLI.
-services: batch
-author: dlepow
-manager: jeconnoc
-
-ms.service: batch
-ms.devlang: azurecli
+description: Quickly learn to run a Batch job with the Azure CLI. Create and manage Azure resources from the command line or in scripts.
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -135,7 +128,7 @@ The command output includes many details, but take note of the `exitCode` of the
 
 ## View task output
 
-To list the files created by a task on a compute node, use the [az batch task file list](/cli/azure/batch/task#az-batch-task-file-list) command. The following command lists the files created by *mytask1*: 
+To list the files created by a task on a compute node, use the [az batch task file list](/cli/azure/batch/task) command. The following command lists the files created by *mytask1*: 
 
 ```azurecli-interactive 
 az batch task file list \
@@ -156,7 +149,7 @@ stderr.txt  https://mybatchaccount.eastus2.batch.azure.com/jobs/myjob/tasks/myta
 
 ```
 
-To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task#az-batch-task-file-download) command. In this example, task output is in `stdout.txt`. 
+To download one of the output files to a local directory, use the [az batch task file download](/cli/azure/batch/task) command. In this example, task output is in `stdout.txt`. 
 
 ```azurecli-interactive
 az batch task file download \

@@ -1,15 +1,13 @@
 ---
 title: DDL operations in Azure Cosmos DB Cassandra API from Spark
 description: This article details keyspace and table DDL operations against Azure Cosmos DB Cassandra API from Spark.
-services: cosmos-db
-author: anagha-microsoft
-
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
 
 ---
 
@@ -83,7 +81,7 @@ DESCRIBE keyspaces;
 **Considerations:**  
 
 - Throughput can be assigned at the table level by using the create table statement.  
-- One partition key can store 10 GB of data.  
+- One partition key can store 20 GB of data.  
 - One record can store a maximum of 2 MB of data.  
 - One partition key range can store multiple partition keys.
 

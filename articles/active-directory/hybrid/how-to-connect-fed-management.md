@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS cu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -13,11 +13,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Manage and customize Active Directory Federation Services by using Azure AD Connect
 This article describes how to manage and customize Active Directory Federation Services (AD FS) by using Azure Active Directory (Azure AD) Connect. It also includes other common AD FS tasks that you might need to do for a complete configuration of an AD FS farm.
@@ -26,11 +27,11 @@ This article describes how to manage and customize Active Directory Federation S
 |:--- |:--- |
 | **Manage AD FS** | |
 | [Repair the trust](#repairthetrust) |How to repair the federation trust with Office 365. |
-| [Federate with Azure AD using alternate login ID ](#alternateid) | Configure federation using alternate login ID  |
+| [Federate with Azure AD using alternate login ID](#alternateid) | Configure federation using alternate login ID  |
 | [Add an AD FS server](#addadfsserver) |How to expand an AD FS farm with an additional AD FS server. |
 | [Add an AD FS Web Application Proxy server](#addwapserver) |How to expand an AD FS farm with an additional Web Application Proxy (WAP) server. |
 | [Add a federated domain](#addfeddomain) |How to add a federated domain. |
-| [Update the SSL certificate](how-to-connect-fed-ssl-update.md)| How to update the SSL certificate for an AD FS farm. |
+| [Update the TLS/SSL certificate](how-to-connect-fed-ssl-update.md)| How to update the TLS/SSL certificate for an AD FS farm. |
 | **Customize AD FS** | |
 | [Add a custom company logo or illustration](#customlogo) |How to customize an AD FS sign-in page with a company logo and illustration. |
 | [Add a sign-in description](#addsignindescription) |How to add a sign-in page description. |
@@ -76,7 +77,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
     ![Warning for missing KB on 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    To rectify the configuration in case of missing KB, install the required [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
+    To rectify the configuration in case of missing KB, install the required [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
 > For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
@@ -102,7 +103,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
    ![Certificate password](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Specify SSL certificate](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. On the **AD FS Servers** page, enter the server name or IP address to be added to the AD FS farm.
 
@@ -130,7 +131,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 3. On the **Specify SSL certificate** page, provide the password for the PFX file that you provided when you configured the AD FS farm with Azure AD Connect.
    ![Certificate password](./media/how-to-connect-fed-management/WapServer3.PNG)
 
-    ![Specify SSL certificate](./media/how-to-connect-fed-management/WapServer4.PNG)
+    ![Specify TLS/SSL certificate](./media/how-to-connect-fed-management/WapServer4.PNG)
 
 4. Add the server to be added as a WAP server. Because the WAP server might not be joined to the domain, the wizard asks for administrative credentials to the server being added.
 
@@ -220,12 +221,12 @@ Also, by using **add** and not **issue**, you avoid adding an outgoing issue for
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims http://contoso.com/ws/2016/02/identity/claims/objectguid and http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
+This rule defines a temporary flag called **idflag** that is set to **useguid** if there's no **ms-ds-consistencyguid** populated for the user. The logic behind this is the fact that AD FS doesn't allow empty claims. So when you add claims `http://contoso.com/ws/2016/02/identity/claims/objectguid` and `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` in Rule 1, you end up with an **msdsconsistencyguid** claim only if the value is populated for the user. If it isn't populated, AD FS sees that it will have an empty value and drops it immediately. All objects will have **objectGuid**, so that claim will always be there after Rule 1 is executed.
 
 **Rule 3: Issue ms-ds-consistencyguid as immutable ID if it's present**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c.Value);
 
 This is an implicit **Exist** check. If the value for the claim exists, then issue that as the immutable ID. The previous example uses the **nameidentifier** claim. You'll have to change this to the appropriate claim type for the immutable ID in your environment.
 
@@ -233,7 +234,7 @@ This is an implicit **Exist** check. If the value for the claim exists, then iss
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
-    => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c2.Value);
+    => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 
 In this rule, you're simply checking the temporary flag **idflag**. You decide whether to issue the claim based on its value.
 

@@ -1,46 +1,85 @@
-
 - name: Azure Cognitive Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Cognitive Services?
+  - name: What are Cognitive Services?
     href: Welcome.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md
+  - name: Custom subdomains for Cognitive Services
+    href: cognitive-services-custom-subdomains.md
   - name: Language support
     href: language-support.md
 - name: Quickstarts
   items:
-  - name: Create an account
+  - name: Create a new resource using the Azure portal
     href: cognitive-services-apis-create-account.md
-- name: Tutorials
+  - name: Create a new resource using the Azure CLI
+    href: cognitive-services-apis-create-account-cli.md
+  - name: Diagnostic logging
+    href: diagnostic-logging.md
+- name: Samples
   items:
-  - name: Develop an app using Computer Vision
-    href: ./Computer-vision/tutorials/csharptutorial.md
-  - name: Recognize intents using Speech SDK and LUIS
-    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
-  - name: Build a LUIS app
-    href: ./luis/luis-quickstart-intents-only.md
-  - name: Use Text Analytics with Power BI
-    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
-  - name: Create a Bing Web Search app
-    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
-  - name: Create a Bing Image Search app
-    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
+- name: Security
+  items:
+  - name: Cognitive Services security
+    href: cognitive-services-security.md
+  - name: Virtual networks for Cognitive Services
+    href: cognitive-services-virtual-networks.md
+  - name: Configure customer-managed keys
+    href: ./encryption/cognitive-services-encryption-keys-portal.md
+  - name: Authenticate requests to Cognitive Services
+    href: authentication.md
+- name: Container support
+  items:
+  - name: Container support
+    href: cognitive-services-container-support.md
+  - name: Container image tags
+    href: ./containers/container-image-tags.md
+  - name: Container FAQ
+    href: ./containers/container-faq.md
+  - name: Container recipes
+    items:
+    - name: Container Reuse
+      href: ./containers/container-reuse-recipe.md
+    - name: Deploy to Azure Container Instance
+      href: ./containers/azure-container-instance-recipe.md
+    - name: Deploy to Azure Kubernetes
+      href: ./containers/azure-kubernetes-recipe.md
+    - name: Deploy with Docker Compose
+      href: ./containers/docker-compose-recipe.md
+  - name: Other Container Services
+    items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Registry
+      href: ../container-registry/container-registry-get-started-azure-cli.md
+    - name: Azure Kubernetes Service (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Language and region support
-    href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Support & help options
+    href: cognitive-services-support-options.md
+  - name: Service Level Agreement (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/cognitive-services/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Provide product feedback
+    href: https://cognitive.uservoice.com/
   - name: Code of conduct
-    href: http://go.microsoft.com/fwlink/?LinkId=698895
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase
+    href: https://go.microsoft.com/fwlink/?LinkId=698895

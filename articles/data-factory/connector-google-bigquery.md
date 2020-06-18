@@ -1,30 +1,37 @@
 ---
-title: Copy data from Google BigQuery by using Azure Data Factory | Microsoft Docs
+title: Copy data from Google BigQuery by using Azure Data Factory 
 description: Learn how to copy data from Google BigQuery to supported sink data stores by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 09/04/2019
 ---
+
 # Copy data from Google BigQuery by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
 
+This Google BigQuery connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Google BigQuery to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
- Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install a driver to use this connector.
+
+>[!NOTE]
+>This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
 
 ## Get started
 
@@ -72,8 +79,8 @@ Set "authenticationType" property to **UserAuthentication**, and specify the fol
                 "value":"<secret of the application used to generate the refresh token>"
             },
             "refreshToken": {
-                 "type": "SecureString",
-                 "value": "<refresh token>"
+                "type": "SecureString",
+                "value": "<refresh token>"
             }
         }
     }
@@ -88,7 +95,7 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
 |:--- |:--- |:--- |
 | email | The service account email ID that is used for ServiceAuthentication. It can be used only on Self-hosted Integration Runtime.  | No |
 | keyFilePath | The full path to the .p12 key file that is used to authenticate the service account email address. | No |
-| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over SSL. This property can be set only when you use SSL on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
+| trustedCertPath | The full path of the .pem file that contains trusted CA certificates used to verify the server when you connect over TLS. This property can be set only when you use TLS on Self-hosted Integration Runtime. The default value is the cacerts.pem file installed with the integration runtime.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified .pem file. The default value is **false**.  | No |
 
 **Example:**
@@ -103,21 +110,28 @@ Set "authenticationType" property to **ServiceAuthentication**, and specify the 
             "requestGoogleDriveScope" : true,
             "authenticationType" : "ServiceAuthentication",
             "email": "<email>",
-	        "keyFilePath": "<.p12 key path on the IR machine>"
+            "keyFilePath": "<.p12 key path on the IR machine>"
         },
         "connectVia": {
             "referenceName": "<name of Self-hosted Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
-} 
+}
 ```
 
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Google BigQuery dataset.
 
-To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Google BigQuery, set the type property of the dataset to **GoogleBigQueryObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **GoogleBigQueryObject** | Yes |
+| dataset | Name of the Google BigQuery dataset. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `dataset` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -126,6 +140,8 @@ To copy data from Google BigQuery, set the type property of the dataset to **Goo
     "name": "GoogleBigQueryDataset",
     "properties": {
         "type": "GoogleBigQueryObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
@@ -145,7 +161,7 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **GoogleBigQuerySource**. | Yes |
-| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -178,6 +194,10 @@ To copy data from Google BigQuery, set the source type in the copy activity to *
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

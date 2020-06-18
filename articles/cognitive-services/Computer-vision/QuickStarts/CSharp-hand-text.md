@@ -1,45 +1,45 @@
 ---
-title: "Quickstart: Extract handwritten text - REST, C# - Computer Vision"
+title: "Quickstart: Computer Vision 2.1, and 3.0 - Extract printed and handwritten text - REST, C#"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with C#.
+description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with C#.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
-ms.author: v-deken
+ms.date: 05/22/2020
+ms.author: pafarley
+ms.custom: seodec18
 ---
-# Quickstart: Extract handwritten text using the REST API and C&#35; in Computer Vision
+# Quickstart: Extract printed and handwritten text using the Computer Vision 3.0 REST API and C#
 
-In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) methods, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
 
 > [!IMPORTANT]
-> Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Recognize Text method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) method, to both check the status and return the results of the Recognize Text method call.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
 
 ## Prerequisites
 
-- You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
-To create the sample in Visual Studio, do the following steps:
+To create the sample in Visual Studio:
 
 1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App template.
-1. Install the Newtonsoft.Json NuGet package.
+2. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
-    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
-    1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
-1. Replace the code in `Program.cs` with the following code, and then make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) method from the Azure region where you obtained your subscription keys, if necessary.
-1. Run the program.
-1. At the prompt, enter the path to a local image.
+    2. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
+    3. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+3. Copy and paste the code below into the Program.cs file in your solution.
+4. Run the program.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -49,53 +49,41 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the West Central US region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
+        // An endpoint should have a format like "https://westus.api.cognitive.microsoft.com"
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
-        static void Main()
+        // the Batch Read method endpoint
+        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+
+        // Add a local image with text here (png or jpg is OK)
+        static string imageFilePath = @"my-image.png";
+
+
+        static void Main(string[] args)
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Handwriting Recognition:");
-            Console.Write(
-                "Enter the path to an image with handwritten text you wish to read: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadHandwrittenText(imageFilePath).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
 
         /// <summary>
-        /// Gets the handwritten text from the specified image file by using
+        /// Gets the text from the specified image file by using
         /// the Computer Vision REST API.
         /// </summary>
-        /// <param name="imageFilePath">The image file with handwritten text.</param>
-        static async Task ReadHandwrittenText(string imageFilePath)
+        /// <param name="imageFilePath">The image file with text.</param>
+        static async Task ReadText(string imageFilePath)
         {
             try
             {
@@ -105,15 +93,11 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameter.
-                string requestParameters = "mode=Handwritten";
-
-                // Assemble the URI for the REST API method.
-                string uri = uriBase + "?" + requestParameters;
+                string url = uriBase;
 
                 HttpResponseMessage response;
 
-                // Two REST API methods are required to extract handwritten text.
+                // Two REST API methods are required to extract text.
                 // One method to submit the image for processing, the other method
                 // to retrieve the text found in the image.
 
@@ -134,15 +118,15 @@ namespace CSHttpClientSample
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // The first REST API method, Recognize Text, starts
+                    // The first REST API method, Batch Read, starts
                     // the async process to analyze the written text in the image.
-                    response = await client.PostAsync(uri, content);
+                    response = await client.PostAsync(url, content);
                 }
 
-                // The response header for the Recognize Text method contains the URI
-                // of the second method, Get Recognize Text Operation Result, which
+                // The response header for the Batch Read method contains the URI
+                // of the second method, Read Operation Result, which
                 // returns the results of the process in the response body.
-                // The Recognize Text operation does not return anything in the response body.
+                // The Batch Read operation does not return anything in the response body.
                 if (response.IsSuccessStatusCode)
                     operationLocation =
                         response.Headers.GetValues("Operation-Location").FirstOrDefault();
@@ -158,9 +142,9 @@ namespace CSHttpClientSample
                 // If the first REST API method completes successfully, the second 
                 // REST API method retrieves the text written in the image.
                 //
-                // Note: The response may not be immediately available. Handwriting
+                // Note: The response may not be immediately available. Text
                 // recognition is an asynchronous operation that can take a variable
-                // amount of time depending on the length of the handwritten text.
+                // amount of time depending on the length of the text.
                 // You may need to wait or retry this operation.
                 //
                 // This example checks once per second for ten seconds.
@@ -173,9 +157,9 @@ namespace CSHttpClientSample
                     contentString = await response.Content.ReadAsStringAsync();
                     ++i;
                 }
-                while (i < 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1);
+                while (i < 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1);
 
-                if (i == 10 && contentString.IndexOf("\"status\":\"Succeeded\"") == -1)
+                if (i == 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1)
                 {
                     Console.WriteLine("\nTimeout error.\n");
                     return;
@@ -211,205 +195,203 @@ namespace CSHttpClientSample
 }
 ```
 
+
 ## Examine the response
 
 A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example:
 
+
 ```json
 {
-    "status": "Succeeded",
-    "recognitionResult": {
+  "status": "succeeded",
+  "createdDateTime": "2020-05-28T05:13:21Z",
+  "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
         "lines": [
-            {
+          {
+            "boundingBox": [
+              67,
+              646,
+              2582,
+              713,
+              2580,
+              876,
+              67,
+              821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
+              {
                 "boundingBox": [
-                    99,
-                    195,
-                    1309,
-                    45,
-                    1340,
-                    292,
-                    130,
-                    442
+                  143,
+                  650,
+                  435,
+                  661,
+                  436,
+                  823,
+                  144,
+                  824
                 ],
-                "text": "when you write them down",
-                "words": [
-                    {
-                        "boundingBox": [
-                            152,
-                            191,
-                            383,
-                            154,
-                            341,
-                            421,
-                            110,
-                            458
-                        ],
-                        "text": "when"
-                    },
-                    {
-                        "boundingBox": [
-                            436,
-                            145,
-                            607,
-                            118,
-                            565,
-                            385,
-                            394,
-                            412
-                        ],
-                        "text": "you"
-                    },
-                    {
-                       "boundingBox": [
-                            644,
-                            112,
-                            873,
-                            76,
-                            831,
-                            343,
-                            602,
-                            379
-                        ],
-                        "text": "write"
-                    },
-                    {
-                        "boundingBox": [
-                            895,
-                            72,
-                            1092,
-                            41,
-                            1050,
-                            308,
-                            853,
-                            339
-                        ],
-                        "text": "them"
-                    },
-                    {
-                        "boundingBox": [
-                            1140,
-                            33,
-                            1400,
-                            0,
-                            1359,
-                            258,
-                            1098,
-                            300
-                        ],
-                        "text": "down"
-                    }
-                ]
-            },
-            {
+                "text": "The",
+                "confidence": 0.958
+              },
+              {
                 "boundingBox": [
-                    142,
-                    222,
-                    1252,
-                    62,
-                    1269,
-                    180,
-                    159,
-                    340
+                  540,
+                  665,
+                  926,
+                  679,
+                  926,
+                  825,
+                  541,
+                  823
                 ],
-                "text": "You remember things better",
-                "words": [
-                    {
-                        "boundingBox": [
-                            140,
-                            223,
-                            267,
-                            205,
-                            288,
-                            324,
-                            162,
-                            342
-                        ],
-                        "text": "You"
-                    },
-                    {
-                        "boundingBox": [
-                            314,
-                            198,
-                            740,
-                            137,
-                            761,
-                            256,
-                            335,
-                            317
-                        ],
-                        "text": "remember"
-                    },
-                    {
-                        "boundingBox": [
-                            761,
-                            134,
-                            1026,
-                            95,
-                            1047,
-                            215,
-                            782,
-                            253
-                        ],
-                        "text": "things"
-                    },
-                    {
-                        "boundingBox": [
-                            1046,
-                            92,
-                            1285,
-                            58,
-                            1307,
-                            177,
-                            1068,
-                            212
-                        ],
-                        "text": "better"
-                    }
-                ]
-            },
-            {
+                "text": "quick",
+                "confidence": 0.57
+              },
+              {
                 "boundingBox": [
-                    155,
-                    405,
-                    537,
-                    338,
-                    557,
-                    449,
-                    175,
-                    516
+                  1125,
+                  686,
+                  1569,
+                  700,
+                  1569,
+                  838,
+                  1125,
+                  828
                 ],
-                "text": "by hand",
-                "words": [
-                    {
-                        "boundingBox": [
-                            146,
-                            408,
-                            266,
-                            387,
-                            301,
-                            495,
-                            181,
-                            516
-                        ],
-                        "text": "by"
-                    },
-                    {
-                        "boundingBox": [
-                            290,
-                            383,
-                            569,
-                            334,
-                            604,
-                            443,
-                            325,
-                            491
-                        ],
-                        "text": "hand"
-                    }
-                ]
-            }
+                "text": "brown",
+                "confidence": 0.799
+              },
+              {
+                "boundingBox": [
+                  1674,
+                  703,
+                  1966,
+                  711,
+                  1966,
+                  851,
+                  1674,
+                  841
+                ],
+                "text": "fox",
+                "confidence": 0.442
+              },
+              {
+                "boundingBox": [
+                  2083,
+                  714,
+                  2580,
+                  725,
+                  2579,
+                  876,
+                  2083,
+                  855
+                ],
+                "text": "jumps",
+                "confidence": 0.878
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              187,
+              1062,
+              485,
+              1056,
+              486,
+              1120,
+              189,
+              1126
+            ],
+            "text": "over",
+            "words": [
+              {
+                "boundingBox": [
+                  190,
+                  1064,
+                  439,
+                  1059,
+                  441,
+                  1122,
+                  192,
+                  1126
+                ],
+                "text": "over",
+                "confidence": 0.37
+              }
+            ]
+          },
+          {
+            "boundingBox": [
+              664,
+              1008,
+              1973,
+              1023,
+              1969,
+              1178,
+              664,
+              1154
+            ],
+            "text": "the lazy dog!",
+            "words": [
+              {
+                "boundingBox": [
+                  668,
+                  1008,
+                  923,
+                  1015,
+                  923,
+                  1146,
+                  669,
+                  1117
+                ],
+                "text": "the",
+                "confidence": 0.909
+              },
+              {
+                "boundingBox": [
+                  1107,
+                  1018,
+                  1447,
+                  1023,
+                  1445,
+                  1178,
+                  1107,
+                  1162
+                ],
+                "text": "lazy",
+                "confidence": 0.853
+              },
+              {
+                "boundingBox": [
+                  1639,
+                  1024,
+                  1974,
+                  1023,
+                  1971,
+                  1170,
+                  1636,
+                  1178
+                ],
+                "text": "dog!",
+                "confidence": 0.41
+              }
+            ]
+          }
         ]
-    }
+      }
+    ]
+  }
 }
 ```
 
@@ -419,7 +401,7 @@ When no longer needed, delete the Visual Studio solution. To do so, open File Ex
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR). Create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
+> [Computer Vision API C# Tutorial](../Tutorials/CSharpTutorial.md)

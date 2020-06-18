@@ -4,7 +4,7 @@ description: This topic shows how to perform advanced encoding by customizing Me
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
@@ -24,11 +24,10 @@ ms.author: juliako
 
 This topic shows how to customize Media Encoder Standard presets. The [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) topic shows how to use .NET to create an encoding task and a job that executes this task. Once you customize a preset, supply the custom presets to the encoding task. 
 
->[!NOTE]
->If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
->
+If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
-In this topic, the custom presets that perform the following encoding tasks are demonstrated.
+> [!NOTE] 
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](https://docs.microsoft.com/azure/media-services/latest/media-services-v2-vs-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## Support for relative sizes
 
@@ -157,7 +156,7 @@ Make sure to review the [Considerations](#considerations) section.
 
 ### <a id="xml"></a>XML preset
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
         <H264Video>
           <KeyFrameInterval>00:00:02</KeyFrameInterval>
@@ -241,7 +240,7 @@ The following considerations apply:
 
     You can mix and match notations as you please.
 
-    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first “interesting” frame of the content
+    Additionally, Start also supports a special Macro:{Best}, which attempts to determine the first "interesting" frame of the content
     NOTE: (Step and Range are ignored when Start is set to {Best})
   * Defaults: Start:{Best}
 * Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
@@ -374,7 +373,7 @@ To trim your videos, you can take any of the MES presets documented [this](media
 To trim your videos, you can take any of the MES presets documented [here](media-services-mes-presets-overview.md) and modify the **Sources** element (as shown below).
 
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source StartTime="PT4S" Duration="PT14S"/>
       </Sources>
@@ -497,24 +496,24 @@ In addition to defining a preset file, you also have to let Media Services know 
 If you are using .NET, add the following two functions to the .NET example defined in [this](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic. The **UploadMediaFilesFromFolder** function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
 
 
-	static public IAsset UploadMediaFilesFromFolder(string folderPath)
-	{
-	    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-	
-	    foreach (var af in asset.AssetFiles)
-	    {
-	        // The following code assumes 
-	        // you have an input folder with one MP4 and one overlay image file.
-	        if (af.Name.Contains(".mp4"))
-	            af.IsPrimary = true;
-	        else
-	            af.IsPrimary = false;
-	
-	        af.Update();
-	    }
-	
-	    return asset;
-	}
+    static public IAsset UploadMediaFilesFromFolder(string folderPath)
+    {
+        IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+    
+        foreach (var af in asset.AssetFiles)
+        {
+            // The following code assumes 
+            // you have an input folder with one MP4 and one overlay image file.
+            if (af.Name.Contains(".mp4"))
+                af.IsPrimary = true;
+            else
+                af.IsPrimary = false;
+    
+            af.Update();
+        }
+    
+        return asset;
+    }
 
     static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
     {
@@ -579,8 +578,7 @@ If you are using .NET, add the following two functions to the .NET example defin
                 },
                 {
                   "IsOverlay": true,
-                  "OverlayLoopCount": 1,
-                  "InputLoop": true
+                  "OverlayLoopCount": 1
                 }
               ],
               "Source": "Image001.png",
@@ -637,7 +635,7 @@ If you are using .NET, add the following two functions to the .NET example defin
 
 ### XML preset
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
         <Source>
           <Streams />
@@ -654,12 +652,10 @@ If you are using .NET, add the following two functions to the .NET example defin
                 <MediaParam>
                   <IsOverlay>false</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>false</InputLoop>
                 </MediaParam>
                 <MediaParam>
                   <IsOverlay>true</IsOverlay>
                   <OverlayLoopCount>1</OverlayLoopCount>
-                  <InputLoop>true</InputLoop>
                 </MediaParam>
               </MediaParams>
             </VideoOverlay>
@@ -722,7 +718,7 @@ You can take any of the MES presets documented in [this](media-services-mes-pres
     </AACAudio>
 
 ## <a id="deinterlacing"></a>Disable auto de-interlacing
-Customers don’t need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
+Customers don't need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
 
 You can turn the auto de-interlacing off. This option is not recommended.
 

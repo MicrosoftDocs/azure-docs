@@ -1,16 +1,16 @@
 ---
 title: "Tutorial: Bing Entity Search single-page web app"
-titlesuffix: Azure Cognitive Services
-description: Shows how to use the Bing Entity Search API in a single-page Web application.
+titleSuffix: Azure Cognitive Services
+description: This tutorial shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/08/2017
-ms.author: v-jerkin
+ms.date: 03/05/2020
+ms.author: aahi
 ---
 # Tutorial: Single-page web app
 
@@ -51,6 +51,10 @@ In this tutorial, we discuss only selected portions of the source code. The full
 > [!NOTE]
 > This tutorial is substantially similar to the [single-page Bing Web Search app tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), but deals only with entity search results.
 
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API, and Bing Maps API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 ## App components
 
 Like any single-page Web app, the tutorial application includes three parts:
@@ -81,7 +85,7 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 
 To avoid having to include the Bing Search and Bing Maps API subscription keys in the code, we use the browser's persistent storage to store them. If either key has not been stored, we prompt for it and store it for later use. If the key is later rejected by the API, we invalidate the stored key so the user is asked for it upon their next search.
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (if the browser supports it) or a cookie. Our `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ```javascript
 // cookie names for data we store
@@ -91,7 +95,7 @@ CLIENT_ID_COOKIE      = "bing-search-client-id";
 
 // API endpoints
 SEARCH_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/entities";
-MAPS_ENDPOINT   = "http://dev.virtualearth.net/REST/v1/Locations";
+MAPS_ENDPOINT   = "https://dev.virtualearth.net/REST/v1/Locations";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 
@@ -417,7 +421,7 @@ function renderSearchResults(results) {
     if (results.queryContext.alteredQuery) 
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // for each possible section, render the resuts from that section
+    // for each possible section, render the results from that section
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));

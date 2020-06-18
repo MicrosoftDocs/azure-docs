@@ -1,13 +1,13 @@
 ---
-title: Static IP address for egress traffic in Azure Kubernetes Service (AKS)
+title: Use static IP for egress traffic
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static public IP address for egress traffic in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
-
-ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: iainfou
+ms.date: 03/04/2019
+
+
+#Customer intent: As an cluster operator, I want to define the egress IP address to control the flow of traffic from a known, defined address.
 ---
 
 # Use a static public IP address for egress traffic in Azure Kubernetes Service (AKS)
@@ -20,7 +20,7 @@ This article shows you how to create and use a static public IP address for use 
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Egress traffic overview
 
@@ -30,9 +30,9 @@ Once a Kubernetes service of type `LoadBalancer` is created, agent nodes are add
 
 ## Create a static public IP
 
-When you create a static public IP address for use with AKS, the IP address resource must be created in the **node** resource group. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
+Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster name *myAKSCluster* in the resource group name *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -40,7 +40,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 Now create a static public IP address with the [az network public ip create][az-network-public-ip-create] command. Specify the node resource group name obtained in the previous command, and then a name for the IP address resource, such as *myAKSPublicIP*:
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -59,11 +59,11 @@ The IP address is shown, as shown in the following condensed example output:
     "ipAddress": "40.121.183.52",
     [..]
   }
-````
+```
 
 You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. Specify the name of the node resource group, and then query for the *ipAddress* as shown in the following example:
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -100,7 +100,7 @@ To verify that the static public IP address is being used, you can use DNS look-
 Start and attach to a basic *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 To access a web site from within the container, use `apt-get` to install `curl` into the container.
@@ -114,7 +114,7 @@ Now use curl to access the *checkip.dyndns.org* site. The egress IP address is s
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## Next steps

@@ -1,20 +1,16 @@
 ---
 title: Azure Government Identity | Microsoft Docs
-description: Provides Planning Guidance for Identity in Azure Government
+description: Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. This article provides Planning Guidance for Identity in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: bernie-msft
-manager: zakramer
 
-ms.assetid: 1f222624-872b-4fe7-9c65-796deae03306
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/20/2017
-ms.author: beellis
 
 ---
 # Planning identity for Azure Government applications
@@ -28,9 +24,9 @@ Before determining the identity approach for your application, you need to know 
 |On-Premises Identity|Cloud Identity|Hybrid Identity
 |---|---|---|
 |On-Premises Identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, only exist, and are managed in Azure AD.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Azure AD. After directory synchronization they exist both on-premises and in the cloud, hence hybrid.|
-
+ 
 >[!NOTE]
->Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](..\active-directory\choose-hybrid-identity-solution.md).
+>Hybrid comes with deployment options (Synchronized Identity, Federated Identity, etc.) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [Choose a Hybrid Identity Solution](../active-directory/choose-hybrid-identity-solution.md).
 >
 
 ## Selecting identity for an Azure Government application
@@ -78,20 +74,20 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 >The preceding figure is a simple connectivity example, using site-to-site VPN. Azure ExpressRoute is another and more preferred connectivity option.
 >
 
-The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_RODC).
+The type of domain controller to place in Azure is also a consideration based on application requirements for directory access. If applications require directory write access, deploy a standard domain controller with a writable copy of the Active Directory database. If applications only require directory read access, we recommend deploying a RODC (Read-Only Domain Controller) to Azure instead. Specifically, for RODCs we recommend following the guidance available at [Deployment Decisions and Factors for Read-Only DCs](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100).
 
 We have documentation covering the guidelines for deploying AD Domain Controllers and ADFS (AD Federation Services) at these links:
 
- - [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) 
-   -  Answers questions such as:
+- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 
+  - Answers questions such as:
     -   Is it safe to virtualize Windows Server Active Directory Domain Controllers?
     -   Why deploy AD to Azure Virtual Machines?
     -   Can you deploy ADFS to Azure Virtual Machines?
- - [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
-   -   Provides guidance on how to deploy ADFS in Azure.
+- [Deploying Active Directory Federation Services in Azure](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)
+  -   Provides guidance on how to deploy ADFS in Azure.
 
 ## Identity scenarios for subscription administration in Azure Government
-First, see [Managing and connecting to your subscription in Azure Government](.\documentation-government-manage-subscriptions.md), for instructions on accessing Azure Government management portals.
+First, see [Managing and connecting to your subscription in Azure Government](./documentation-government-manage-subscriptions.md), for instructions on accessing Azure Government management portals.
 
 There are a few important points that set the foundation of this section:
 
@@ -166,10 +162,10 @@ The first Office 365 US Government environment, Government Community Cloud (GCC)
 Here’s a way to find out using your browser of choice:
 
    - Obtain your tenant name (**for example**, contoso.onmicrosoft.com) or a domain name registered to your Azure AD tenant (**for example**, contoso.gov).  
-   - Navigate to https://login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
+   - Navigate to https:\//login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+   - The result posts back to the page in attribute/value pairs using JavaScript Object Notation (JSON) format that resembles:
 
      ```json
      {
@@ -178,7 +174,7 @@ Here’s a way to find out using your browser of choice:
      }
      ```
      
-   - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
+   - If the **tenant_region_scope** attribute’s value is **USG** as shown or **USGov**, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 
@@ -190,7 +186,7 @@ See “Choosing your Identity Authority” earlier in this article.
 
 **I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?**
 
-Yes, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
+Yes, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
 **Can an Azure Government subscription be associated with a directory in Azure AD Public?**
 
@@ -198,6 +194,6 @@ No, the ability to manage Azure Government subscriptions requires identities sou
 
 ## Next steps
 
-- Check out the [Azure Government developer guide](..\azure-government\documentation-government-developer-guide.md) and build your first application!
+- Check out the [Azure Government developer guide](../azure-government/documentation-government-developer-guide.md) and build your first application!
 - For supplemental information and updates, subscribe to the [Microsoft Azure Government blog.](https://blogs.msdn.microsoft.com/azuregov/)
 

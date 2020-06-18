@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of implementing an on dem
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
@@ -13,12 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2018
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand using REST
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+# Get started with delivering content on demand using REST  
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
 
@@ -36,7 +38,7 @@ The following prerequisites are required to start developing with Media Services
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
 * Understanding of how to develop with Media Services REST API. For more information, see [Media Services REST API overview](media-services-rest-how-to-use.md).
-* An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](http://www.telerik.com/download/fiddler).
+* An application of your choice that can send HTTP requests and responses. This tutorial uses [Fiddler](https://www.telerik.com/download/fiddler).
 
 The following tasks are shown in this quickstart.
 
@@ -68,7 +70,7 @@ To start the streaming endpoint, do the following:
 2. In the Settings window, click Streaming endpoints.
 3. Click the default streaming endpoint.
 
-	The DEFAULT STREAMING ENDPOINT DETAILS window appears.
+    The DEFAULT STREAMING ENDPOINT DETAILS window appears.
 
 4. Click the Start icon.
 5. Click the Save button to save your changes.
@@ -103,7 +105,7 @@ The following example shows how to create an asset.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -157,7 +159,7 @@ After you upload your digital media file into a blob container, you use the **ME
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -219,7 +221,7 @@ The following example shows how to create an AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -278,7 +280,7 @@ The following example shows how to create a SAS URL Locator, as defined by the T
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -326,7 +328,7 @@ If successful, the following response is returned:
 Once you have the AccessPolicy and Locator set, the actual file is uploaded to an Azure blob storage container using the Azure Storage REST APIs. You must upload the files as block blobs. Page blobs are not supported by Azure Media Services.  
 
 > [!NOTE]
-> You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> You must add the file name for the file you want to upload to the Locator **Path** value received in the previous section. For example, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -342,7 +344,7 @@ Now that you've uploaded your file, update the FileAsset size (and other) inform
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -370,7 +372,7 @@ If successful, the following is returned:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -389,7 +391,7 @@ If successful, the following is returned:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP Response**
@@ -420,7 +422,7 @@ The following code requests the encoder's id.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -454,9 +456,9 @@ The following code requests the encoder's id.
     }
 
 ### Create a job
-Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this article, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Each Job can have one or more Tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create Jobs and their related Tasks in one of two ways: Tasks can be defined inline through the Tasks navigation property on Job entities, or through OData batch processing. The Media Services SDK uses batch processing. However, for the readability of the code examples in this article, tasks are defined inline. For information on batch processing, see [Open Data Protocol (OData) Batch Processing](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](http://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
+The following example shows you how to create and post a Job with one Task set to encode a video at a specific resolution and quality. The following documentation section contains the list of all the [task presets](https://msdn.microsoft.com/library/mt269960) supported by the Media Encoder Standard processor.  
 
 **HTTP Request**
 
@@ -467,7 +469,7 @@ The following example shows you how to create and post a Job with one Task set t
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -555,7 +557,7 @@ If successful, the following response is returned:
 There are a few important things to note in any Job request:
 
 * TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task article contains the XML Schema Definition for the XML.
-* In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
+* In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
@@ -567,7 +569,7 @@ There are a few important things to note in any Job request:
 >
 
 * InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
+* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the `<outputAsset>` element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
 
     The following example shows how to set the assetName attribute:
 
@@ -589,7 +591,7 @@ You can retrieve the Job status by using the State property, as shown in the fol
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -626,7 +628,7 @@ The following example shows how to call CancelJob.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.2
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
@@ -650,7 +652,7 @@ The following code shows how to request the output asset Id.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -727,7 +729,7 @@ The following example shows how to specify the AccessPolicy for read permissions
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -750,7 +752,7 @@ The following code shows how to get a URL that can be used to download a media f
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -811,9 +813,7 @@ The returned **Path** property contains the SAS URL.
 Once you have the AccessPolicy and Locator set, you can download files using the Azure Storage REST APIs.  
 
 > [!NOTE]
-> You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
+> You must add the file name for the file you want to download to the Locator **Path** value received in the previous section. For example, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4`? . . .
 
 For more information on working with Azure storage blobs, see [Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -843,7 +843,7 @@ The following code shows how to create a streaming URL Locator:
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
@@ -907,7 +907,7 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 
 ## <a id="play"></a>Play your content
-To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream you video, use [Azure Media Services Player](https://aka.ms/azuremediaplayer).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 

@@ -1,6 +1,6 @@
 ---
-title: Send messages to an MQTT server using the Azure MQTT client library | Microsoft Docs
-description: Use the DevKit as a client to send messages to an MQTT server
+title: Send messages to an MQTT server using Azure MQTT client library
+description: Learn how to use the MQTT Client library to send messages to an MQTT broker. Also learn how to configure your mXChip IoT DevKit to be an MQTT client.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,13 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
+ms.custom:  mqtt
 ---
 
 # Send messages to an MQTT server
 
 Internet of Things (IoT) systems often deal with intermittent, poor quality, or slow internet connections. MQTT is a machine-to-machine (M2M) connectivity protocol, which was developed with such challenges in mind. 
 
-The MQTT client library used here is part of the [Eclipse Paho](http://www.eclipse.org/paho/) project, which provides APIs for using MQTT over multiple means of transport.
+The MQTT client library used here is part of the [Eclipse Paho](https://www.eclipse.org/paho/) project, which provides APIs for using MQTT over multiple means of transport.
 
 ## What you learn
 
@@ -75,8 +76,8 @@ The Serial Monitor displays all the messages sent by the sample sketch. The sket
 
 If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) or connect using the following channels:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## See also
 
@@ -88,4 +89,4 @@ If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.githu
 Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here are the suggested next steps:
 
 * [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)

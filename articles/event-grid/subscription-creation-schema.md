@@ -1,14 +1,13 @@
 ---
 title: Azure Event Grid subscription schema
-description: Describes the properties for subscribing to an event with Azure Event Grid.
+description: This article describes the properties for subscribing to an event with Azure Event Grid. Event Grid subscription schema. 
 services: event-grid
-author: banisadr
-manager: timlt
+author: femila
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/02/2018
-ms.author: babanisa
+ms.date: 01/23/2020
+ms.author: femila
 ---
 
 # Event Grid subscription schema
@@ -25,7 +24,7 @@ For example, to create an event subscription for a storage account named `exampl
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-The article describes the properties and schema for the body of the request.
+The Event Subscription name must be 3-64 characters in length and can only contain a-z, A-Z, 0-9, and "-". The article describes the properties and schema for the body of the request.
  
 ## Event subscription properties
 
@@ -64,7 +63,7 @@ The article describes the properties and schema for the body of the request.
     },
     "filter": {
       "includedEventTypes": [ "Microsoft.Storage.BlobCreated", "Microsoft.Storage.BlobDeleted" ],
-      "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+      "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
       "subjectEndsWith": ".jpg",
       "isSubjectCaseSensitive ": "true"
     }

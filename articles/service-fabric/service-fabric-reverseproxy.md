@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric reverse proxy | Microsoft Docs
+title: Azure Service Fabric reverse proxy 
 description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster.
-services: service-fabric
-documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
-editor: vturecek
 
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-
 ---
 # Reverse proxy in Azure Service Fabric
 Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
@@ -53,7 +43,7 @@ Instead of configuring the port of an individual service in Load Balancer, you c
 ![External communication][0]
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potentially presents serious vulnerabilities that can be exploited; for example:
 >
 > * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
 > * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
@@ -83,7 +73,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** This specifies how the target replica or instance should be selected.
   * When the target service is stateful, the TargetReplicaSelector can be one of the following:  'PrimaryReplica', 'RandomSecondaryReplica', or 'RandomReplica'. When this parameter is not specified, the default is 'PrimaryReplica'.
   * When the target service is stateless, reverse proxy picks a random instance of the service partition to forward the request to.
-* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 60 seconds. This is an optional parameter.
+* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 120 seconds. This is an optional parameter.
 
 ### Example usage
 As an example, let's take the *fabric:/MyApp/MyService* service that opens an HTTP listener on the following URL:
@@ -152,10 +142,12 @@ For services running inside containers, you can use the environment variable, `F
 ```
 For the local cluster, `Fabric_NodeIPOrFQDN` is set to "localhost" by default. Start the local cluster with the `-UseMachineName` parameter to make sure containers can reach reverse proxy running on the node. For more information, see [Configure your developer environment to debug containers](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
+Service Fabric services that run within Docker Compose containers require a special docker-compose.yml *Ports section* http: or https: configuration. For more information, see [Docker Compose deployment support in Azure Service Fabric](service-fabric-docker-compose.md).
+
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
+* [Diagnose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)

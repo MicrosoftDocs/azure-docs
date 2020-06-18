@@ -1,181 +1,161 @@
 ---
-title: Azure Table | Microsoft Docs
-description: Configure lead management for Azure Table.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+title: Azure Table storage | Azure Marketplace
+description: Configure lead management in Azure Table storage.
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.date: 05/22/2019
+ms.author: dsindona
 ---
 
+# Lead-management instructions for Table storage
 
-Lead Management Instructions for Azure Table
-============================================
+This article describes how to configure Azure Table storage to manage sales leads. Table storage helps you store and modify customer information.
 
-This article describes how to configure Azure Table for storing sales leads. Azure Table lets you store and customize customer information.
+## Configure Table storage
 
-## To configure Azure Table
+1. If you don't have an Azure account, [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
+1. After your account is active, sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, follow these steps:  
+    1. Select **+Create a resource** in the pane on the left side. The **New** pane will open.
+    1. In the **New** pane, select **Storage**. A **Featured** list will open on the right side.
+    1. Select **Storage account**. Then, follow the instructions at [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
-1.  If you don't have an Azure account, you can [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).
+    ![Create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-2.  After your Azure account is active, sign in to the [Azure     portal](https://portal.azure.com).
-3.  In the Azure portal, create a storage account. The next screen capture shows how to create a storage account. For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+    For more about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For pricing information, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-    ![Steps to create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
+1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the home page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane.
 
-4.  Copy the storage account connection string for the key and paste it into the **Storage Account Connection String** field on the Cloud Partner Portal. An example of a connection sting is `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
-    
-    ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
+    ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-You can use [Azure storage explorer](http://azurestorageexplorer.codeplex.com/) or any other tool to see the data in your storage table. You can also export the data in Azure Table.
-data.
+1. From your storage account pane, copy the storage account connection string for the key. Paste it in the **Connection String** field for the storage account in the Cloud Partner Portal.
 
-## **(Optional)** To use Azure Functions with an Azure table
+    Example connection string:
 
-If you want to customize how you're receiving leads, use [Azure Functions](https://azure.microsoft.com/services/functions/) with an Azure table. The Azure Functions service lets you automate the lead generation process.
+    ```sql
+    DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
+    ```
 
-The following steps show how to create an Azure Function that uses a timer. Every five minutes the function looks in the Azure table for new records and then uses the SendGrid service to send an email notification.
+      ![Azure storage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
+You can use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or a similar tool to see the data in your table storage. You can also export data from it.
 
-1.  [Create](https://portal.azure.com/#create/SendGrid.SendGrid) a free SendGrid service account in your Azure subscription.
+## Use Microsoft Flow with Table storage (*optional*)
 
-    ![Create SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automatically send notifications when a lead is added to your table storage. If you don't have a Microsoft Flow account, [sign up for a free account](https://flow.microsoft.com/).
 
-2.  Create a SendGrid API Key 
-    - Select **Manage** to go to SendGrid UI
-    - Select **Settings**, **API Keys**, and then create a Key that has Mail Send -\> Full Access
-    - Save the API key
+### Lead notification example
 
+This example shows how to create a basic flow. The flow automatically sends an email notification hourly when new leads are added to your table storage.
 
-    ![SendGrid API Key](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
+1. Sign in to your Microsoft Flow account.
+1. In the navigation pane on the left side, select **My flows**.
+1. In the top navigation bar, select **+New**.  
+1. From the drop-down list, select **+Create from blank**.
+1. Under **Create a flow from blank**, select **Create from blank**.
 
+   ![Create a new flow from blank](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-3.  [Create](https://portal.azure.com/#create/Microsoft.FunctionApp) an Azure Function app using the Hosting Plan option named "Consumption Plan".
+1. On the connectors and triggers search page, select **Triggers**.
+1. Under **Triggers**, select **Recurrence**.
+1. In the **Recurrence** window, keep the default setting of **1** for **Interval**. From the **Frequency** drop-down list, select **Hour**.
 
-    ![Create Azure Function App](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
+   >[!NOTE] 
+   >This example uses a one-hour interval. But you can select an interval and frequency that best fits your business needs.
 
+   ![Set a 1-hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
-4.  Create a new function definition.
+1. Select **+New step**.
+1. Search for **Get past time**, and then select **Get past time** under **Choose an action**.
 
-    ![Create Azure Function Definition](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
- 
+    ![Find and select the "get past time" action](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-5.  To get the function to send an update on a specific
-    time, select the **TimerTrigger-CSharp** as the starter option.
+1. In the **Get past time** window, set the **Interval** to **1**.  From the **Time unit** drop-down list, select **Hour**.
+    >[!IMPORTANT] 
+    >Make sure that the **Interval** and **Time unit** match the interval and frequency that you configured for recurrence (step 8).
 
-     ![Azure Function time trigger option](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
+    ![Set the get past time interval](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
+    >[!TIP] 
+    >You can check your flow at any time to verify that each step is configured correctly: Select **Flow checker** from the Flow menu bar.
 
-6.  Replace the "Develop" code with the following code sample. Edit the email addresses with addresses you want to use for sender and receiver.
+In the next set of steps, you connect to your storage table and set up the processing logic to handle new leads.
 
-        #r "Microsoft.WindowsAzure.Storage"
-        #r "SendGrid"
-        using Microsoft.WindowsAzure.Storage.Table;
-        using System;
-        using SendGrid;
-        using SendGrid.Helpers.Mail;
-        public class MyRow : TableEntity
-        {
-            public string Name { get; set; }
-        }
-        public static void Run(TimerInfo myTimer, IQueryable<MyRow> inputTable, out Mail message, TraceWriter log)
-        {
-            // UTC datetime that is 5.5 minutes ago while the cron timer schedule is every 5 minutes
-            DateTime dateFrom = DateTime.UtcNow.AddSeconds(-(5 * 60 + 30));
-            var emailFrom = "YOUR EMAIL";
-            var emailTo = "YOUR EMAIL";
-            var emailSubject = "Azure Table Notification";
-            // Look in the table for rows that were added recently
-            var rowsList = inputTable.Where(r => r.Timestamp > dateFrom).ToList();
-            // Check how many rows were added
-            int rowsCount = rowsList.Count;
-            if (rowsCount > 0)
-            {
-                log.Info($"Found {rowsCount} rows added since {dateFrom} UTC");
-                // Configure the email message describing how many rows were added
-                message = new Mail
-                {
-                    From = new Email(emailFrom),
-                    Subject = emailSubject + " (" + rowsCount + " new rows)"
-                };
-                var personalization = new Personalization();
-                personalization.AddTo(new Email(emailTo));
-                message.AddPersonalization(personalization);
-                var content = new Content
-                {
-                    Type = "text/plain",
-                    Value = "Found " + rowsCount + " new rows added since " + dateFrom.ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
-                };
-                message.AddContent(content);
-            }
-            else
-            {
-                // Do not send the email if no new rows were found
-                message = null;
-            }
-        }
+1. After the **Get past time** step, select **+New step**, and then search for **Get entities**.
+1. Under **Actions**, select **Get entities**, and then select **Show advanced options**.
+1. In the **Get entities** window, fill in the following fields:
 
-    ![Azure Function code snippet](./media/cloud-partner-portal-lead-management-instructions-azure-table/code.png)
+   - **Table**: the name of your table storage. The following image shows "MarketPlaceLeads" entered:
+
+     ![Pick a custom value for Azure table name](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
+
+   - **Filter Query**: When you select this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
+   
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
+
+     ![Set up the filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
+
+1. Select **New step** to add a condition to scan your table storage for new leads.
+
+   ![Use "New step" to add a condition to scan table storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
+
+1. In the **Choose an action** window, select **Actions**, and then select **Condition Control**.
+
+     ![Add a condition control](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
+
+1. In the **Condition** window, select **Choose a value**, and then select **Expression** in the pop-up window.
+1. Paste `length(body('Get_entities')?['value'])` in the ***fx*** field. Select **OK** to add this function. 
 
 
-7.  Select **Integrate** and **Inputs** to define the Azure Table
-    connection.
 
-    ![Azure Function integrate](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
+     ![Add a function to the condition](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
+1. Set up the action to take based on the result of the condition.
 
-8.  Enter the table name and define the connection string by selecting **new**.
+    1. Select **is greater than** from the drop-down list.
+   1. Enter **0** as the value.
 
+     ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-    ![Azure Function table connection](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
+1. If the condition resolves to "If no," don't do anything.
 
-9.  Now define the Output as SendGrid and keep all the defaults.
+    If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
+   1. Select **Add an action**.
+   1. Select **Send an email**.
+   1. In the **Send an email** window, enter information in the following fields:
 
-    ![SendGrid output](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
+      - **To**: an email address for everyone who will get the notification.
+      - **Subject**: a subject for the email. For example: *New leads!*
+      - **Body**: the text that you want to include in each email (optional). Also paste in `body('Get_entities')?['value']` as a function to insert lead information.
 
-    ![SendGrid output defaults](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
+        >[!NOTE] 
+        >You can insert additional static or dynamic data points in the body of the email.
 
-10. Add SendGrid API Key to Function App Settings using the Name
-    "SendGridApiKey" and value obtained from API Keys in SendGrid UI
+      ![Set up email for lead notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-    ![SendGrid manage](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
-    ![SendGrid manage key](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
+1. Select **Save** to save the flow. Microsoft Flow will automatically test it for errors. If there aren't any errors, your flow starts running after it's saved.
 
-After you've finished configuring the function, the code in the Integrate section should look like the following example.
+    The following image shows an example of how the final flow should look.
 
-    {
-      "bindings": [
-        {
-          "name": "myTimer",
-          "type": "timerTrigger",
-          "direction": "in",
-          "schedule": "0 */5 * * * *"
-        },
-        {
-          "type": "table",
-          "name": "inputTable",
-          "tableName": "MarketplaceLeads",
-          "take": 50,
-          "connection": "yourstorageaccount_STORAGE",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "message",
-          "apiKey": "SendGridApiKey",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
+    [![Final flow sequence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end-thmb.png)](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
 
-11. The final step is to navigate to the Develop UI of the function and then select **Run** to start the timer. Now you'll get a notification every time a new lead comes in.
+    (*Select the image to enlarge it.*)
+
+### Manage your flow
+
+It's easy to manage your flow after it's running. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The following image shows the flow-management options.
+
+ ![Flow-management options](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+
+The flow keeps running until you select **Turn flow off**.
+
+If you're not getting any lead email notifications, no new leads have been added to your table storage.
+You'll get an email like the following example if a flow failure occurs:
+
+ ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
+## Next steps
+
+[Configure customer leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

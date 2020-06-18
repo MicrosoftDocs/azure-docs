@@ -1,8 +1,8 @@
 ---
 title: H264 Multiple Bitrate 4K Media Encoder Standard preset - Azure | Microsoft Docs
-description: The topic gives an overview of the **H264 Multiple Bitrate 4K** task preset.
+description: The article gives an overview of the Media Encoder Standard **H264 Multiple Bitrate 4K** task preset.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -35,7 +35,7 @@ ms.author: juliako
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

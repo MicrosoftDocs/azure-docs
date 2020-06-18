@@ -1,22 +1,13 @@
 ---
-title: Salesforce | Microsoft Docs
-description: Configure lead management on Salesforce.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+title: Configure lead management for Salesforce | Azure Marketplace
+description: Configure lead management on Salesforce for Azure Marketplace customers.
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: dsindona
 ---
-
 
 # Configure lead management for Salesforce
 
@@ -36,4 +27,4 @@ This article describes how to setup your Salesforce system to handle sales leads
     ![Salesforce generate](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copy the OID in the sample and save it. You'll paste the OID in the **Object Identifier** field on the Cloud Partner Portal.
-![Salesforce get OID ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

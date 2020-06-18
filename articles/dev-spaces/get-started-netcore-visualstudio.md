@@ -1,20 +1,14 @@
-﻿---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio | Microsoft Docs"
-titleSuffix: Azure Dev Spaces
+---
+title: "Create a Kubernetes dev space: Visual Studio & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
-ms.date: "07/09/2018"
-ms.topic: "tutorial"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
+ms.date: 07/09/2018
+ms.topic: tutorial
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get Started on Azure Dev Spaces with .NET Core and Visual Studio
+# Create a Kubernetes dev space: Visual Studio and .NET Core with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -24,52 +18,72 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
+## Install the Azure CLI
+Azure Dev Spaces requires minimal local machine setup. Most of your dev space's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+### Sign in to Azure CLI
+Sign in to Azure. Type the following command in a terminal window:
+
+```azurecli
+az login
+```
+
+> [!Note]
+> If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+
+#### If you have multiple Azure subscriptions...
+You can view your subscriptions by running: 
+
+```azurecli
+az account list --output table
+```
+
+Locate the subscription which has *True* for *IsDefault*.
+If this isn't the subscription you want to use, you can change the default subscription:
+
+```azurecli
+az account set --subscription <subscription ID>
+```
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1. Sign in to the Azure portal at http://portal.azure.com.
-1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
-   Complete the following steps under each heading of the create AKS cluster form.
+```azurecli
+az group create --name MyResourceGroup --location <region>
+```
 
-    - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, Central US, WestEurope, WestUS2, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
-    - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
+Create a Kubernetes cluster with the following command:
 
-   Make sure to choose Kubernetes version 1.9.6 or later.
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+```
 
-   ![Kubernetes configuration settings](media/common/Kubernetes-Create-Cluster-2.PNG)
+It takes a few minutes to create the cluster.
 
-   Select **Next: Authentication** when complete.
+### Configure your AKS cluster to use Azure Dev Spaces
 
-1. Choose your desired setting for Role-based Access Control (RBAC). Azure Dev Spaces supports clusters with RBAC enabled, or disabled.
+Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
-    ![RBAC setting](media/common/k8s-RBAC.PNG)
-
-1. Make sure that Http Application Routing is enabled.
-
-   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
-
-1. Select **Review + create** and then **Create** when complete.
+   ```azurecli
+   az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+   ```
+   
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
 ## Get the Visual Studio tools
-1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. In the Visual Studio installer make sure the following Workload is selected:
-    * ASP.NET and web development
-1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
+Install the latest version of [Visual Studio 2019](https://www.visualstudio.com/vs/) on Windows with the Azure Development workload.
 
 ## Create a web app running in a container
 
-In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+In this section, you'll create an ASP.NET Core web app and get it running in a container in Kubernetes.
 
 ### Create an ASP.NET web app
 
-From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
+From within Visual Studio, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -98,6 +112,9 @@ If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Choose **OK**.
+
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
 
  A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
@@ -129,9 +146,16 @@ Click on the **About** link at the top of the page to trigger the breakpoint. Yo
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 ### Update a content file
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
-1. Save the file.
-1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+
+
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. Save the file.
+3. Go to your browser and refresh the page. You should see the web page display the updated HTML.
 
 What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active F5 session automatically syncs any modified content files into the running container in AKS, so you can see your content edits right away.
 
@@ -150,4 +174,7 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-netcore-visualstudio.md)
+> [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

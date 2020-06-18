@@ -1,276 +1,211 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Slack | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Slack | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: tutorial
+ms.date: 05/19/2020
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Slack
 
-In this tutorial, you learn how to integrate Slack with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Slack
 
-Integrating Slack with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Slack with Azure Active Directory (Azure AD). When you integrate Slack with Azure AD, you can:
 
-- You can control in Azure AD who has access to Slack
-- You can enable your users to automatically get signed-on to Slack (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* Control in Azure AD who has access to Slack.
+* Enable your users to be automatically signed-in to Slack with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
-To configure Azure AD integration with Slack, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A Slack single sign-on enabled subscription
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* Slack single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+> If you need to integrate with more than one Slack instance in one tenant, the identifier for each application can be a variable.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Slack from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
+
+* Slack supports **SP** initiated SSO
+* Slack supports **Just In Time** user provisioning
+* Slack supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-provisioning-tutorial)
+* Once you configure Slack you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding Slack from the gallery
+
 To configure the integration of Slack into Azure AD, you need to add Slack from the gallery to your list of managed SaaS apps.
 
-**To add Slack from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Slack** in the search box.
+1. Select **Slack** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+## Configure and test Azure AD single sign-on for Slack
 
-	![Active Directory][1]
+Configure and test Azure AD SSO with Slack using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Slack.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+To configure and test Azure AD SSO with Slack, complete the following building blocks:
 
-	![Applications][2]
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+	* **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+	* **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Slack SSO](#configure-slack-sso)** - to configure the single sign-on settings on application side.
+	* **[Create Slack test user](#create-slack-test-user)** - to have a counterpart of B.Simon in Slack that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+
+### Configure Azure AD SSO
+
+Follow these steps to enable Azure AD SSO in the Azure portal.
+
+1. In the [Azure portal](https://portal.azure.com/), on the **Slack** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
+
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://< DOMAIN NAME>.slack.com/sso/saml/start`
+
+    b. In the **Identifier (Entity ID)** text box, type a URL:
+    `https://slack.com`
+
+	> [!NOTE]
+	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 	
-1. To add new application, click **New application** button on the top of dialog.
+	> [!NOTE]
+	> The value for **Identifier (Entity ID)** can be a variable if you have more than one Slack instance that you need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com`. In this scenario, you also must pair with another setting in Slack by using the same value.
 
-	![Applications][3]
+1. Slack application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-1. In the search box, type **Slack**.
+	![image](common/edit-attribute.png)
 
-	![Creating an Azure AD test user](./media/slack-tutorial/tutorial_slack_search.png)
+1. In addition to above, Slack application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements. You also must add the `email` attribute. If the user does not have an email address, map **emailaddress** to **user.userprincipalname** and map **email** to **user.userprincipalname**.
 
-1. In the results panel, select **Slack**, and then click **Add** button to add the application.
+    | Name | Source Attribute |
+    | -----|---------|
+    | emailaddress | user.userprincipalname |
+    | email | user.userprincipalname |
+    | | |
 
-	![Creating an Azure AD test user](./media/slack-tutorial/tutorial_slack_addfromgallery.png)
+   > [!NOTE]
+   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Slack based on a test user called "Britta Simon".
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Slack is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Slack needs to be established.
+	![The Certificate download link](common/certificatebase64.png)
 
-In Slack, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. On the **Set up Slack** section, copy the appropriate URL(s) based on your requirement.
 
-To configure and test Azure AD single sign-on with Slack, you need to complete the following building blocks:
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Slack test user](#creating-a-slack-test-user)** - to have a counterpart of Britta Simon in Slack that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+### Create an Azure AD test user
 
-### Configuring Azure AD single sign-on
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Slack application.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
-**To configure Azure AD single sign-on with Slack, perform the following steps:**
+### Assign the Azure AD test user
 
-1. In the Azure portal, on the **Slack** application integration page, click **Single sign-on**.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Slack.
 
-	![Configure Single Sign-On][4]
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Slack**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_samlbase.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. On the **Slack Domain and URLs** section, perform the following steps:
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_url.png)
+	![The Add User link](common/add-assign-user.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.slack.com`
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    b. In the **Identifier** textbox, update the value with the Sign On URL. This is your workspace domain. For example: `https://contoso.slack.com`
+## Configure Slack SSO
 
-1. Slack application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. The following screenshot shows an example for this.
-	
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_attribute.png)
+1. In a different web browser window, sign in to your Slack company site as an administrator.
 
-	> [!NOTE] 
-	> If you have users who’s assigned **email address** is not on a Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value to map as **Unique Identifier** instead.
+2. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
 
-1. In the **User Attributes** section on the **Single sign-on** dialog, select **user.mail**  as **User Identifier** and for each row shown in the table below, perform the following steps:
-    
-	| Attribute Name | Attribute Value |
-	| --- | --- |
-	| first_name | user.givenname |
-	| last_name | user.surname |
-	| User.Email | user.mail |	
-	| User.Username | user.userprincipalname |
+     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-001.png)
 
-    a. Click on **Attribute** to open **Edit Attribute** dialog box and perform the following steps:
+3. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
 
-    ![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_attribute1.png)
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-002.png)
 
-    a. In the **Name** textbox, type the attribute name shown for that row.
+4. On the **SAML Authentication Settings** dialog, perform the following steps:
 
-	b. From the **Value** list, select the attribute value shown for that row.
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-003.png)
 
-	c. Leave the **Namespace** blank.
+    a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	d. Click **OK**
+    b.  In the **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
-1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
-
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_certificate.png)
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_general_400.png)
-
-1. On the **Slack Configuration** section, click **Configure Slack** to open **Configure sign-on** window. Copy the **SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_configure.png)
-
-1. In a different web browser window, log in to your Slack company site as an administrator.
-
-1. Navigate to **Microsoft Azure AD** then go to **Team Settings**.
-
-     ![Configure Single Sign-On On App Side](./media/slack-tutorial/tutorial_slack_001.png)
-
-1. In the **Team Settings** section, click the **Authentication** tab, and then click **Change Settings**.
-
-    ![Configure Single Sign-On On App Side](./media/slack-tutorial/tutorial_slack_002.png)
-
-1. On the **SAML Authentication Settings** dialog, perform the following steps:
-
-    ![Configure Single Sign-On On App Side](./media/slack-tutorial/tutorial_slack_003.png)
-
-    a.  In the **SAML 2.0 Endpoint (HTTP)** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
-
-    b.  In the **Identity Provider Issuer** textbox, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
-
-    c.  Open your downloaded certificate file in notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
+    c.  Open your downloaded certificate file in Notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
 
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
-    e.  Click **Save Configuration**.
+    ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-004.png)
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+    e. Click on **expand** and enter `https://slack.com` in the **Service provider issuer** textbox.
 
-![Create Azure AD User][100]
+    f.  Click **Save Configuration**.
+    
+    > [!NOTE]
+    > If you have more than one Slack instance that you need to integrate with Azure AD, set `https://<DOMAIN NAME>.slack.com` to **Service provider issuer** so that it can pair with the Azure application **Identifier** setting.
 
-**To create a test user in Azure AD, perform the following steps:**
+### Create Slack test user
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
-
-	![Creating an Azure AD test user](./media/slack-tutorial/create_aaduser_01.png) 
-
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/slack-tutorial/create_aaduser_02.png) 
-
-1. To open the **User** dialog, click **Add** on the top of the dialog.
-
-	![Creating an Azure AD test user](./media/slack-tutorial/create_aaduser_03.png)
-
-1. On the **User** dialog page, perform the following steps:
-
-	![Creating an Azure AD test user](./media/slack-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
-
-### Creating a Slack test user
-
-The objective of this section is to create a user called Britta Simon in Slack. Slack supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet. Slack also supports automatic user provisioning, you can find more details [here](slack-provisioning-tutorial.md) on how to configure automatic user provisioning.
+The objective of this section is to create a user called B.Simon in Slack. Slack supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet. Slack also supports automatic user provisioning, you can find more details [here](slack-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 > [!NOTE]
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect is the synchronization tool which can sync on premise Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
+> Azure AD Connect is the synchronization tool which can sync on premises Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Slack.
-
-![Assign User][200]
-
-**To assign Britta Simon to Slack, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Slack**.
-
-	![Configure Single Sign-On](./media/slack-tutorial/tutorial_slack_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Slack tile in the Access Panel, you should get automatically signed-on to your Slack application.
+When you click the Slack tile in the Access Panel, you should be automatically signed in to the Slack for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configure User Provisioning](slack-provisioning-tutorial.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[1]: ./media/slack-tutorial/tutorial_general_01.png
-[2]: ./media/slack-tutorial/tutorial_general_02.png
-[3]: ./media/slack-tutorial/tutorial_general_03.png
-[4]: ./media/slack-tutorial/tutorial_general_04.png
+- [Try Slack with Azure AD](https://aad.portal.azure.com/)
 
-[100]: ./media/slack-tutorial/tutorial_general_100.png
-
-[200]: ./media/slack-tutorial/tutorial_general_200.png
-[201]: ./media/slack-tutorial/tutorial_general_201.png
-[202]: ./media/slack-tutorial/tutorial_general_202.png
-[203]: ./media/slack-tutorial/tutorial_general_203.png
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -1,21 +1,16 @@
 ---
-title: CLI Example - Load balance traffic to VMs for high availability - Azure | Microsoft Docs
+title: Load balance traffic to VMs for HA - Azure CLI - Azure Load Balancer
 description: This Azure CLI script example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: 
-
-ms.assetid:
+author: asudbring
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Azure CLI script example: Load balance traffic to VMs for high availability

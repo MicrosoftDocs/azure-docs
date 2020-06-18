@@ -1,37 +1,27 @@
 ---
-title: Create a standalone Azure Service Fabric cluster | Microsoft Docs
+title: Create a standalone Azure Service Fabric cluster 
 description: Create an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
 
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 8/10/2017
+ms.date: 2/21/2019
 ms.author: dekapur
-
 ---
 # Create a standalone cluster running on Windows Server
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
+You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service. For more on the differences, see [Comparing Azure and standalone Service Fabric clusters](./service-fabric-deploy-anywhere.md).
 
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
 > [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available at no cost and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 
 <a id="getsupport"></a>
 
 ## Get support for the Service Fabric for Windows Server package
-* Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Ask the community about the Service Fabric standalone package for Windows Server in the [Microsoft Q&A question page for Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
+* Open a ticket for [Professional Support for Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
@@ -40,7 +30,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 
 ## Download the Service Fabric for Windows Server package
 To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: <br>
-[Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Download Link - Service Fabric Standalone Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Find details on contents of the package [here](service-fabric-cluster-standalone-package-contents.md).
 
@@ -57,7 +47,9 @@ Several sample cluster configuration files are installed with the setup package.
 
 The cluster created in this article is unsecure.  Anyone can connect anonymously and perform management operations, so production clusters should always be secured using X.509 certificates or Windows security.  Security is only configured at cluster creation time and it is not possible to enable security after the cluster is created. Update the config file enable [certificate security](service-fabric-windows-cluster-x509-security.md) or [Windows security](service-fabric-windows-cluster-windows-security.md). Read [Secure a cluster](service-fabric-cluster-security.md) to learn more about Service Fabric cluster security.
 
-### Step 1A: Create an unsecured local development cluster
+### Step 1: Create the cluster
+
+#### Scenario A: Create an unsecured local development cluster
 Service Fabric can be deployed to a one-machine development cluster by using the *ClusterConfig.Unsecure.DevCluster.json* file included in [Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 Unpack the standalone package to your machine, copy the sample config file to the local machine, then run the *CreateServiceFabricCluster.ps1* script through an administrator PowerShell session, from the standalone package folder.
@@ -70,7 +62,7 @@ See the Environment Setup section at [Plan and prepare your cluster deployment](
 
 If you're finished running development scenarios, you can remove the Service Fabric cluster from the machine by referring to steps in section "[Remove a cluster](#removecluster_anchor)". 
 
-### Step 1B: Create a multi-machine cluster
+#### Scenario B: Create a multi-machine cluster
 After you have gone through the planning and preparation steps detailed at [Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md), you are ready to create your production cluster using your cluster configuration file.
 
 The cluster administrator deploying and configuring the cluster must have administrator privileges on the computer. You cannot install Service Fabric on a domain controller.
@@ -81,7 +73,7 @@ The cluster administrator deploying and configuring the cluster must have admini
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    You should see output similiar to the following. If the bottom field "Passed" is returned as "True", sanity checks have passed and the cluster looks to be deployable based on the input configuration.
+    You should see output similar to the following. If the bottom field "Passed" is returned as "True", sanity checks have passed and the cluster looks to be deployable based on the input configuration.
 
     ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
@@ -111,7 +103,7 @@ The cluster administrator deploying and configuring the cluster must have admini
 > 
 > 
 
-### Step 1C: Create an offline (internet-disconnected) cluster
+#### Scenario C: Create an offline (internet-disconnected) cluster
 The Service Fabric runtime package is automatically downloaded at cluster creation. When deploying a cluster to machines not connected to the internet, you will need to download the Service Fabric runtime package separately, and provide the path to it at cluster creation.
 The runtime package can be downloaded separately, from another machine connected to the internet, at [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copy the runtime package to where you are deploying the offline cluster from, and create the cluster by running `CreateServiceFabricCluster.ps1` with the `-FabricRuntimePackagePath` parameter included, as shown in this example: 
 
@@ -148,7 +140,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### Step 3: Visualize the cluster using Service Fabric explorer
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is a good tool for visualizing your cluster and managing applications.  Service Fabric Explorer is a service that runs in the cluster, which you access using a browser by navigating to `http://localhost:19080/Explorer`.
 
 The cluster dashboard provides an overview of your cluster, including a summary of application and node health. The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node.
 

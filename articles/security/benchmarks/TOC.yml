@@ -1,0 +1,79 @@
+- name: Azure Security Benchmark
+  href: index.yml
+- name: Introduction
+  href: introduction.md
+- name: Security Controls
+  expanded: true
+  items:
+  - name: Overview of Azure security controls
+    href: overview.md
+  - name: Network security
+    href: security-control-network-security.md
+  - name: Logging and monitoring
+    href: security-control-logging-monitoring.md
+  - name: Identity and access control
+    href: security-control-identity-access-control.md
+  - name: Data protection
+    href: security-control-data-protection.md
+  - name: Vulnerability management
+    href: security-control-vulnerability-management.md
+  - name: Inventory and asset management
+    href: security-control-inventory-asset-management.md
+  - name: Secure configuration
+    href: security-control-secure-configuration.md
+  - name: Malware defense
+    href: security-control-malware-defense.md
+  - name: Data recovery
+    href: security-control-data-recovery.md
+  - name: Incident response
+    href: security-control-incident-response.md
+  - name: Penetration tests and red team exercises
+    href: security-control-penetration-tests-red-team-exercises.md
+- name: Security baselines for Azure
+  items:
+  - name: Overview of security baselines for Azure
+    href: security-baselines-overview.md
+  - name: API Management security baseline
+    href: ../../api-management/security-baseline.md
+  - name: Application Gateway security baseline
+    href: ../../application-gateway/security-baseline.md
+  - name: Azure Cache for Redis security baseline
+    href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Backup security baseline
+    href: ../../backup/security-baseline.md
+  - name: Batch security baseline
+    href: ../../batch/security-baseline.md
+  - name: Container Instances security baseline
+    href: ../../container-instances/security-baseline.md
+  - name: Container Registry security baseline
+    href: ../../container-registry/security-baseline.md
+  - name: Cosmos DB security baseline
+    href: ../../cosmos-db/security-baseline.md  
+  - name: Customer Lockbox security baseline
+    href: ../fundamentals/customer-lockbox-security-baseline.md  
+  - name: Data Explorer security baseline
+    href: /azure/data-explorer/security-baseline
+  - name: Data Factory security baseline
+    href: /azure/data-factory/security-baseline
+  - name: Databricks security baseline
+    href: ../../azure-databricks/security-baseline.md
+  - name: Event Hubs security baseline
+    href: ../../event-hubs/security-baseline.md
+  - name: Functions security baseline
+    href: ../../azure-functions/security-baseline.md
+  - name: HDInsight security baseline
+    href: ../../hdinsight/security-baseline.md
+  - name: Key Vault security baseline
+    href: ../../key-vault/security-baseline.md
+  - name: MariaDB security baseline
+    href: ../../mariadb/security-baseline.md
+  - name: MySQL security baseline
+    href: ../../mysql/security-baseline.md
+  - name: PostgreSQL security baseline
+    href: ../../postgresql/security-baseline.md
+  - name: SQL Database security baseline
+    href: ../../sql-database/security-baseline.md
+  - name: Stream Analytics baseline
+    href: ../../stream-analytics/security-baseline.md
+  - name: Storage security baseline
+    href: ../../storage/common/security-baseline.md

@@ -1,29 +1,19 @@
 ---
-title: Create a PHP web app and deploy to App Service on Linux | Microsoft Docs
-description: Deploy your first PHP Hello World in App Service on Linux in minutes.
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
-
+title: 'Quickstart: Create a PHP app on Linux'
+description: Get started with Linux apps on Azure App Service by deploying your first PHP app to a Linux container in App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
-ms.custom: mvc
+ms.date: 05/25/2020
+ms.custom: mvc, cli-validatem seodec18
 ---
-# Create a PHP web app in App Service on Linux
+
+# Create a PHP app in App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP web app in Azure](../app-service-web-get-started-php.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP app in Azure](../app-service-web-get-started-php.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux. You create the web app with built-in image using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy the PHP code to the web app.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -75,52 +65,50 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
-Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+Browse to the site to see your newly created app with built-in image. Replace _&lt;app name>_ with your app name.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-Here is what your new web app should look like:
+Here is what your new app should look like:
 
-![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
+![Empty app page](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
-Counting objects: 2, done.
+<pre>
+Counting objects: 26, done.
 Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (2/2), 352 bytes | 0 bytes/s, done.
-Total 2 (delta 1), reused 0 (delta 0)
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (26/26), 4.95 KiB | 0 bytes/s, done.
+Total 26 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '25f18051e9'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.php'
-remote: Ignoring: .git
-remote: Finished successfully.
-remote: Running post deployment command(s)...
+remote: Preparing deployment for commit id 'df425ea6ef'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote: .
+remote: .
+remote: .
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
-   cc39b1e..25f1805  master -> master
-```
+remote: Deployment Logs : 'https://&lt;app-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/.../log'
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
+ * [new branch]      master -> master
+</pre>
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-The PHP sample code is running in a web app with built-in image.
+The PHP sample code is running in App Service on Linux with built-in image.
 
 ![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
@@ -145,15 +133,15 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
 
-## Manage your new Azure web app
+## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
+![Portal navigation to Azure app](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
@@ -164,4 +152,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [PHP with MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

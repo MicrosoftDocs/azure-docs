@@ -1,29 +1,21 @@
 ---
-title: Interpret model results in Machine Learning | Microsoft Docs
+title: Interpret model results
+titleSuffix: ML Studio (classic) - Azure
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: studio
+ms.topic: how-to
+
+author: likebupt
+ms.author: keli19
 ms.date: 11/29/2017
-
 ---
-# Interpret model results in Azure Machine Learning
-This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
+# Interpret model results in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio (classic). After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
-There are four major kinds of machine learning models in Azure Machine Learning:
+There are four major kinds of machine learning models in Azure Machine Learning Studio (classic):
 
 * Classification
 * Clustering
@@ -36,11 +28,11 @@ The modules used for prediction on top of these models are:
 * [Assign to Clusters][assign-to-clusters] module for clustering
 * [Score Matchbox Recommender][score-matchbox-recommender] for recommendation systems
 
-This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](algorithm-parameters-optimize.md).
+Learn how to [choose parameters to optimize your algorithms in ML Studio (classic)](algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning](evaluate-model-performance.md).
+To learn how to evaluate your models, see [How to evaluate model performance](evaluate-model-performance.md).
 
-If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md) in Azure Machine Learning Studio.
+If you are new to ML Studio (classic), [learn how to create a simple experiment](create-experiment.md).
 
 ## Classification
 There are two subcategories of classification problems:
@@ -48,12 +40,12 @@ There are two subcategories of classification problems:
 * Problems with only two classes (two-class or binary classification)
 * Problems with more than two classes (multi-class classification)
 
-Azure Machine Learning has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
+Azure Machine Learning Studio (classic) has different modules to deal with each of these types of classification, but the methods for interpreting their prediction results are similar.
 
 ### Two-class classification
 **Example experiment**
 
-An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning is a subset of the popular [Iris data set](http://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
+An example of a two-class classification problem is the classification of iris flowers. The task is to classify iris flowers based on their features. The Iris data set provided in Azure Machine Learning Studio (classic) is a subset of the popular [Iris data set](https://en.wikipedia.org/wiki/Iris_flower_data_set) containing instances of only two flower species (classes 0 and 1). There are four features for each flower (sepal length, sepal width, petal length, and petal width).
 
 ![Screenshot of iris experiment](./media/interpret-model-results/1.png)
 
@@ -75,7 +67,7 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
+After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md). This procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![Screenshot of scoring experiment](./media/interpret-model-results/3.png)
 
@@ -116,7 +108,7 @@ Figure 7. Visualize score model results in a multi-class classification
 
 **Result interpretation**
 
-The left 16 columns represent the feature values of the test set. The columns with names like Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case. They show the probability that the corresponding entry falls into a certain class. For example, for the first entry, there is 0.003571 probability that it is an “A,” 0.000451 probability that it is a “B,” and so forth. The last column (Scored Labels) is the same as Scored Labels in the two-class case. It selects the class with the largest scored probability as the predicted class of the corresponding entry. For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).
+The left 16 columns represent the feature values of the test set. The columns with names like Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case. They show the probability that the corresponding entry falls into a certain class. For example, for the first entry, there is 0.003571 probability that it is an "A," 0.000451 probability that it is a "B," and so forth. The last column (Scored Labels) is the same as Scored Labels in the two-class case. It selects the class with the largest scored probability as the predicted class of the corresponding entry. For example, for the first entry, the scored label is "F" since it has the largest probability to be an "F" (0.916995).
 
 **Web service publication**
 
@@ -130,7 +122,7 @@ Figure 8. R code for extracting Scored Labels and the associated probabilities o
 
 Figure 9. Final scoring experiment of the letter-recognition multiclass classification problem
 
-After you publish and run the web service and enter some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a “T” with 0.9715 probability.
+After you publish and run the web service and enter some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a "T" with 0.9715 probability.
 
 ![Test interpreting score module](./media/interpret-model-results/9_1.png)
 
@@ -178,13 +170,13 @@ Figure 14. Web service result of an automobile price regression problem
 ## Clustering
 **Example experiment**
 
-Let’s use the Iris data set again to build a clustering experiment. Here you can filter out the class labels in the data set so that it only has features and can be used for clustering. In this iris use case, specify the number of clusters to be two during the training process, which means you would cluster the flowers into two classes. The experiment is shown in Figure 15.
+Let's use the Iris data set again to build a clustering experiment. Here you can filter out the class labels in the data set so that it only has features and can be used for clustering. In this iris use case, specify the number of clusters to be two during the training process, which means you would cluster the flowers into two classes. The experiment is shown in Figure 15.
 
 ![Iris clustering problem experiment](./media/interpret-model-results/15.png)
 
 Figure 15. Iris clustering problem experiment
 
-Clustering differs from classification in that the training data set doesn’t have ground-truth labels by itself. Clustering groups the training data set instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be used to further classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is labeling the training data set, and the second is classifying a new data set with the trained model.
+Clustering differs from classification in that the training data set doesn't have ground-truth labels by itself. Clustering groups the training data set instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be used to further classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is labeling the training data set, and the second is classifying a new data set with the trained model.
 
 The first part of the result can be visualized by clicking the left output port of [Train Clustering Model][train-clustering-model] and then clicking **Visualize**. The visualization is shown in Figure 16.
 
@@ -227,7 +219,7 @@ For recommender systems, you can use the restaurant recommendation problem as an
 * Customer feature data
 * Restaurant feature data
 
-There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning:
+There are several things we can do with the [Train Matchbox Recommender][train-matchbox-recommender] module in Azure Machine Learning Studio (classic):
 
 * Predict ratings for a given user and item
 * Recommend items to a given user
@@ -238,7 +230,7 @@ You can choose what you want to do by selecting from the four options in the **R
 
 ![Matchbox recommender](./media/interpret-model-results/19_1.png)
 
-A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+A typical Azure Machine Learning Studio (classic) experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![Recommender system experiment](./media/interpret-model-results/20.png)
 

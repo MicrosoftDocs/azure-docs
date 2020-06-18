@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of scaling streaming endp
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 1008b3a3-2fa1-4146-85bd-2cf43cd1e00e
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -29,7 +29,7 @@ ms.author: juliako
  
 This topic shows how to scale a streaming endpoint.
 
-For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+For information about pricing details, see [Media Services Pricing Details](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## Scale streaming endpoints
 

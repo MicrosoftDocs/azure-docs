@@ -1,11 +1,10 @@
 ---
 title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
-description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
+description: Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -13,12 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
+ms.date: 03/13/2019
+ms.author: memildin
 
 ---
 # File Integrity Monitoring in Azure Security Center
 Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
+
+
+## Availability
+
+- Release state: **Generally Available**
+- Required roles: **Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Reader** can view results.
+- Clouds:
+    - ✔ Commercial clouds
+    - ✔ US Gov cloud
+    - ✘ China Gov / Other Gov
+
 
 ## What is FIM in Security Center?
 File Integrity Monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can leverage this comparison to determine if valid or suspicious modifications have been made to your files.
@@ -27,25 +37,54 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 
 - File and Registry creation and removal
 - File modifications (changes in file size, access control lists, and hash of the content)
-- Registry modifications (changes in size, access conrol lists, type, and the content)
+- Registry modifications (changes in size, access control lists, type, and the content)
 
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
 > [!NOTE]
-> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
->
->
+> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+
+FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
 
 > [!NOTE]
-> FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type Solution. If you remove the **Change Tracking** resource, you disable the File Integrity Monitoring feature in Security Center.
->
->
+> If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Security Center.
 
 ## Which files should I monitor?
 You should think about the files that are critical for your system and applications when choosing which files to monitor. Consider choosing files that you don’t expect to change without planning. Choosing files that are frequently changed by applications or operating system (such as log files and text files) create a lot of noise which make it difficult to identify an attack.
 
-Security Center recommends which files you should monitor as a default according to known attack patterns that include file and registry changes.
+Security Center provides the following list of recommended items to monitor based on known attack patterns. These include files and Windows registry keys. All the keys are under HKEY_LOCAL_MACHINE ("HKLM" in the table.)
+
+|**Linux files**|**Windows files**|**Windows registry keys**|
+|:----|:----|:----|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/*.conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
+|/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
+|/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/bin|C:\Windows\regedit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders|
+|/sbin|C:\Windows\System32\userinit.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|/boot|C:\Windows\explorer.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run|
+|/usr/local/bin|C:\Program Files\Microsoft Security Client\msseces.exe|HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce|
+|/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
+|/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0\CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
+|/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
+|/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
+|/etc/cron.monthly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnceEx|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServices|
+|||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunServicesOnce|
+|||HKLM\SYSTEM\CurrentControlSet\Control\hivelist|
+|||HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\KnownDLLs|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\DomainProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
+|||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
 ## Using File Integrity Monitoring
 1. Open the **Security Center** dashboard.
@@ -84,16 +123,15 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
->
->
+> You can change the settings at any time. See Edit monitored entities below to learn more.
+
 
 ## View the FIM dashboard
 The **File integrity monitoring** dashboard displays for workspaces where FIM is enabled. The FIM dashboard opens after you enable FIM on a workspace or when you select a workspace in the **File Integrity Monitoring** window that already has FIM enabled.
 
 ![File Integrity Monitoring dashboard][6]
 
-The FIM dashboard for a workspace displays the following:
+The FIM dashboard for a workspace displays the following details:
 
 - Total number of machines connected to the workspace
 - Total number of changes that occurred during the selected time period
@@ -130,15 +168,15 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 1. Return to the **File Integrity Monitoring dashboard** and select **Settings**.
 
-  ![Settings][11]
+   ![Settings][11]
 
-  **Workspace Configuration** opens displaying three tabs: **Windows Registry**, **Windows Files**, and **Linux Files**. Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
+   **Workspace Configuration** opens displaying three tabs: **Windows Registry**, **Windows Files**, and **Linux Files**. Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
 
-  ![Workspace configuration][12]
+   ![Workspace configuration][12]
 
-2. Select an identityprotection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
+2. Select an identity protection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
 
-  ![Edit or change tracking][13]
+   ![Edit or change tracking][13]
 
 Under **Edit for Change Tracking** you can:
 
@@ -148,14 +186,14 @@ Under **Edit for Change Tracking** you can:
 - Delete the entity, discard the change, or save the change
 
 ## Add a new entity to monitor
-1. Return to the **File integirty monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
+1. Return to the **File integrity monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
 2. Under **Workspace Configuration**, select the tab for the type of entity that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected **Linux Files**.
 
-  ![Add a new item to monitor][14]
+   ![Add a new item to monitor][14]
 
 3. Select **Add**. **Add for Change Tracking** opens.
 
-  ![Enter requested information][15]
+   ![Enter requested information][15]
 
 4. On the **Add** page, type the requested information and select **Save**.
 
@@ -163,29 +201,29 @@ Under **Edit for Change Tracking** you can:
 1. Return to the **File Integrity Monitoring** dashboard.
 2. Select a workspace where FIM is currently enabled. A workspace is enabled for FIM if it is missing the Enable button or Upgrade Plan button.
 
-  ![Select a workspace where FIM is enabled][16]
+   ![Select a workspace where FIM is enabled][16]
 
 3. Under File Integrity Monitoring, select **Settings**.
 
-  ![Select settings][17]
+   ![Select settings][17]
 
 4. Under **Workspace Configuration**, select a group where **Enabled** is set to true.
 
-  ![Workspace Configuration][18]
+   ![Workspace Configuration][18]
 
 5. Under **Edit for Change Tracking** window set **Enabled** to False.
 
-  ![Set Enabled to false][19]
+   ![Set Enabled to false][19]
 
 6. Select **Save**.
 
 ## Folder and path monitoring using wildcards
 
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
--	Wildcards are required for tracking multiple files.
--	Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
--	If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
--	When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
+-   Wildcards are required for tracking multiple files.
+-   Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
+-   If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
+-   When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
 
 ## Disable FIM
 You can disable FIM. FIM uses the Azure Change Tracking solution to track and identify changes in your environment. By disabling FIM, you remove the Change Tracking solution from selected workspace.
@@ -194,20 +232,16 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 2. Select a workspace.
 3. Under **File Integrity Monitoring**, select **Disable**.
 
-  ![Disable FIM][20]
+   ![Disable FIM][20]
 
 4. Select **Remove** to disable.
 
 ## Next steps
-In this article you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following:
+In this article, you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following pages:
 
-* [Setting security policies](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies](tutorial-security-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-* [Security health monitoring](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-* [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-* [Monitoring partner solutions](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-* [Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

@@ -1,22 +1,14 @@
 ---
-title: Overview of autoscale with Azure virtual machine scale sets | Microsoft Docs
+title: Overview of autoscale with Azure virtual machine scale sets
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.custom: H1Hack27Feb2017
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Overview of autoscale with Azure virtual machine scale sets
@@ -118,7 +110,7 @@ For more information, see the articles for how to enable the Azure diagnostics e
 ## Application-level metrics with App Insights
 To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create autoscale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
 
-For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
+For more information about App Insights, see [What is Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## Scheduled autoscale
@@ -142,4 +134,4 @@ This overview detailed how to use autoscale rules to scale horizontally and incr
 
 For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

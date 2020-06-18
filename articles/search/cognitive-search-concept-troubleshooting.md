@@ -1,22 +1,20 @@
----
-title: Troubleshooting tips for cognitive search in Azure Search | Microsoft Docs
-description: Tips and troubleshooting for setting up cognitive search pipelines in Azure Search.
-services: search
-manager: pablocas
+--- 
+title: Tips for AI enrichment design
+titleSuffix: Azure Cognitive Search
+description: Tips and troubleshooting for setting up AI enrichment pipelines in Azure Cognitive Search.
+
+manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2018
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 06/08/2020
 ---
-# Troubleshooting tips for cognitive search
+# Tips for AI enrichment in Azure Cognitive Search
 
-This article contains a list of tips and tricks to keep you moving as you get started with cognitive search capabilities in Azure Search. 
+This article contains a list of tips and tricks to keep you moving as you get started with AI enrichment capabilities in Azure Cognitive Search. 
 
-If you have not done so already, step through the [Tutorial: Learn how to call the cognitive search APIs](cognitive-search-quickstart-blob.md) for practice in applying cognitive search enrichments to a blob data source.
+If you have not done so already, step through the [Tutorial: Learn how to call AI enrichment APIs](cognitive-search-quickstart-blob.md) for practice in applying AI enrichments to a blob data source.
 
 ## Tip 1: Start with a small dataset
 The best way to find issues quickly is to increase the speed at which you can fix issues. The best way to reduce the indexing time is by reducing the number of documents to be indexed. 
@@ -27,7 +25,7 @@ Run your document sample through the end-to-end pipeline and check that the resu
 
 ## Tip 2: Make sure your data source credentials are correct
 The data source connection is not validated until you define an indexer that uses it. If you see any errors mentioning that the indexer cannot get to the data, make sure that:
-- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Search. See [How to specify credentials section](
+- Your connection string is correct. Specially when you are creating SAS tokens, make sure to use the format expected by Azure Cognitive Search. See [How to specify credentials section](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials) to learn about the different formats supported.
 - Your container name in the indexer is correct.
 
@@ -74,11 +72,15 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
 }
 ```
 
+### Debug sessions
+
+Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and push changes to a production skillset in the AI enrichment pipeline. This is a preview feature and access is granted on a case-by-case basis. [Read the documentation](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) and find out how to apply for access.
+
 ## Tip 5: Expected content fails to appear
 
 Missing content could be the result of documents getting dropped during indexing. Free and Basic tiers have low limits on document size. Any file exceeding the limit is dropped during indexing. You can check for dropped documents in the Azure portal. In the search service dashboard, double-click the Indexers tile. Review the ratio of successful documents indexed. If it is not 100%, you can click the ratio to get more detail. 
 
-If the problem is related to file size, you might see an error like this: "The blob <file-name>" has the size of <file-size> bytes, which exceeds the maximum size for document extraction for your current service tier." For more information on indexer limits, see [Service limits](search-limits-quotas-capacity.md).
+If the problem is related to file size, you might see an error like this: "The blob \<file-name>" has the size of \<file-size> bytes, which exceeds the maximum size for document extraction for your current service tier." For more information on indexer limits, see [Service limits](search-limits-quotas-capacity.md).
 
 A second reason for content failing to appear might be related input/output mapping errors. For example, an output target name is "People" but the index field name is lower-case "people". The system could return 201 success messages for the entire pipeline so you think indexing succeeded, when in fact a field is empty. 
 
@@ -88,7 +90,10 @@ Image analysis is computationally-intensive for even simple cases, so when image
 
 Maximum run time varies by tier: several minutes on the Free tier, 24-hour indexing on billable tiers. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
-For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
 
 For portal-based indexing (as described in the quickstart), choosing the "run once" indexer option limits processing to 1 hour (`"maxRunTime": "PT1H"`). You might want to extend the processing window to something longer.
 
@@ -98,8 +103,8 @@ For [parallel indexing](search-howto-large-index.md), place your data into multi
 For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
-+ [Quickstart: Create a cognitive search pipeline in the portal](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Learn cognitive search REST APIs](cognitive-search-tutorial-blob.md)
++ [Quickstart: Create an AI enrichment pipeline in the portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Learn AI enrichment REST APIs](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

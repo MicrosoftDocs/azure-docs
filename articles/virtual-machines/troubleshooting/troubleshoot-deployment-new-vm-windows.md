@@ -3,8 +3,8 @@ title: Troubleshoot Windows VM deployment in Azure | Microsoft Docs
 description: Troubleshoot Resource Manager deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
-manager: jeconnoc
+author: DavidCBerry13
+manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -12,10 +12,10 @@ ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,7 +32,7 @@ For other VM deployment issues and questions, see [Troubleshoot deploying Window
 ## Collect activity logs
 To start troubleshooting, collect the activity logs to identify the error associated with the issue. The following links contain detailed information on the process to follow.
 
-[View deployment operations](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[View deployment operations](../../azure-resource-manager/templates/deployment-history.md)
 
 [View activity logs to manage Azure resources](../../resource-group-audit.md)
 
@@ -50,7 +50,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution**
 
-To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+To resolve both these errors, use [Add-AzVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
 
 **Capture Errors:**
 

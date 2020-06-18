@@ -3,8 +3,8 @@ title: Use Azure AD authentication to access Azure Media Services API with REST 
 description: Learn how to access Azure Media Services API with Azure Active Directory authentication by using REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,12 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
-ms.author: willzhan;juliako;johndeu
-
+ms.date: 03/20/2019
+ms.author: juliako
+ms.reviewer: willzhan; johndeu
 ---
 
-# Use Azure AD authentication to access the Azure Media Services API with REST
+# Use Azure AD authentication to access the Media Services API with REST
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -44,10 +47,10 @@ In this tutorial, you learn how to:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create an Azure Media Services account using the Azure portal](media-services-portal-create-account.md).
-- Review the [Accessing Azure Media Services API with AAD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
+- Review the [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in this article. 
 
-    In this tutorial, we are uring **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
+    In this tutorial, we are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
 
 ## Get the authentication information from the Azure portal
 
@@ -57,8 +60,8 @@ To access Media Services API, you need to collect the following data points.
 
 |Setting|Example|Description|
 |---|-------|-----|
-|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD issues a JWT in order to access resources (an access token).|
-|REST API endpoint|https://amshelloworld.restv2.westus.media.azure.net/api/|This is the endpoint against which all Media Services REST API calls in your application are made.|
+|Azure Active Directory tenant domain|microsoft.onmicrosoft.com|Azure AD as a Secure Token Service (STS) endpoint is created using the following format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD issues a JWT in order to access resources (an access token).|
+|REST API endpoint|<https://amshelloworld.restv2.westus.media.azure.net/api/>|This is the endpoint against which all Media Services REST API calls in your application are made.|
 |Client ID (Application ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD application (client) ID. The client ID is required to get the access token. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD application keys (client secret). The client secret is required to get the access token.|
 
@@ -66,7 +69,7 @@ To access Media Services API, you need to collect the following data points.
 
 To get the information, follow these steps:
 
-1. Log in to the [Azure portal](http://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your AMS instance.
 3. Select **API access**.
 4. Click on **Connect to Azure Media Services API with service principal**.
@@ -80,33 +83,33 @@ To get the information, follow these steps:
 
     If you need to create a new AD app, follow these steps:
     
-    1. Press **Create New**.
-    2. Enter a name.
-    3. Press **Create New** again.
-    4. Press **Save**.
+   1. Press **Create New**.
+   2. Enter a name.
+   3. Press **Create New** again.
+   4. Press **Save**.
 
-    ![API access](./media/connect-with-rest/new-app.png)
+      ![API access](./media/connect-with-rest/new-app.png)
 
-    The new app shows up on the page.
+      The new app shows up on the page.
 
 6. Get the **Client ID** (Application ID).
     
-    1. Select the application.
-    2. Get the **Client ID** from the window on the right. 
+   1. Select the application.
+   2. Get the **Client ID** from the window on the right. 
 
-    ![API access](./media/connect-with-rest/existing-client-id.png)
+      ![API access](./media/connect-with-rest/existing-client-id.png)
 
-7.  Get the application's **Key** (client secret). 
+7. Get the application's **Key** (client secret). 
 
-    1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
-    2. Press **Keys**.
+   1. Click the **Manage application** button (notice that the Client ID info is under **Application ID**). 
+   2. Press **Keys**.
     
-        ![API access](./media/connect-with-rest/manage-app.png)
-    3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
+       ![API access](./media/connect-with-rest/manage-app.png)
+   3. Generate the app key (client secret) by filling in **DESCRIPTION** and **EXPIRES** and pressing **Save**.
     
-        Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
+       Once the **Save** button is pressed, the key value appears. Copy the key value before leaving the blade.
 
-    ![API access](./media/connect-with-rest/connect-with-rest03.png)
+   ![API access](./media/connect-with-rest/connect-with-rest03.png)
 
 You can add values for AD connection parameters to your web.config or app.config file, to later use in your code.
 
@@ -121,7 +124,7 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 2. Select **POST**.
 3. Enter the URL that includes your tenant name using the following format: the tenant name should end with **.onmicrosoft.com** and the URL should end with **oauth2/token**: 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Select the **Headers** tab.
 5. Enter the **Headers** information using the "Key/Value" data grid. 
@@ -141,8 +144,8 @@ This section shows how to use **Postman** to execute a REST API that returns a J
     Alternatively, click **Bulk Edit** on the right of the Postman window and paste the following body (replace the client ID and secret values):
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Press **Send**.
@@ -173,7 +176,7 @@ This section shows how to access the **Assets** API using **Postman**.
 5. Click **Bulk Edit** link on the right the Postman window.
 6. Paste the following headers:
 
-        x-ms-version:2.15
+        x-ms-version:2.19
         Accept:application/json
         Content-Type:application/json
         DataServiceVersion:3.0

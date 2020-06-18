@@ -1,16 +1,16 @@
 ---
-title: Hyper-V to Azure replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when replicating on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
+title: Hyper-V disaster recovery architecture in Azure Site Recovery
+description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 
 
-# Hyper-V to Azure replication architecture
+# Hyper-V to Azure disaster recovery architecture
 
 
 This article describes the architecture and processes used when you replicate, fail over, and recover Hyper-V virtual machines (VMs) between on-premises Hyper-V hosts and Azure, using the [Azure Site Recovery](site-recovery-overview.md) service.
@@ -33,7 +33,6 @@ The following table and graphic provide a high-level view of the components used
 **Hyper-V to Azure architecture (without VMM)**
 
 ![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
-
 
 
 ## Architectural components - Hyper-V with VMM

@@ -1,21 +1,21 @@
 ---
 title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
-description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
+description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
-manager: jeconnoc
-
-ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 08/06/2019
 ms.author: laevenso
 ---
 
 # HTTP application routing
 
-The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an Ingress controller in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
+The HTTP application routing solution makes it easy to access applications that are deployed to your Azure Kubernetes Service (AKS) cluster. When the solution's enabled, it configures an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in your AKS cluster. As applications are deployed, the solution also creates publicly accessible DNS names for application endpoints.
 
 When the add-on is enabled, it creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
+
+> [!CAUTION]
+> The HTTP application routing add-on is designed to let you quickly create an ingress controller and access your applications. This add-on is not recommended for production use. For production-ready ingress deployments that include multiple replicas and TLS support, see [Create an HTTPS ingress controller](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## HTTP routing solution overview
 
@@ -32,6 +32,9 @@ The HTTP application routing add-on can be enabled with the Azure CLI when deplo
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
+> [!TIP]
+> If you want to enable multiple add-ons, provide them as a comma-separated list. For example, to enable HTTP application routing and monitoring, use the format `--enable-addons http_application_routing,monitoring`.
+
 You can also enable HTTP routing on an existing AKS cluster using the [az aks enable-addons][az-aks-enable-addons] command. To enable HTTP routing on an existing cluster, add the `--addons` parameter and specify *http_application_routing* as shown in the following example:
 
 ```azurecli
@@ -41,12 +44,13 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+```
 
 Result
------------------------------------------------------
+
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-```
+
 
 ## Deploy HTTP routing: Portal
 
@@ -167,6 +171,36 @@ The HTTP routing solution can be removed using the Azure CLI. To do so run the f
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+When the HTTP application routing add-on is disabled, some Kubernetes resources may remain in the cluster. These resources include *configMaps* and *secrets*, and are created in the *kube-system* namespace. To maintain a clean cluster, you may want to remove these resources.
+
+Look for *addon-http-application-routing* resources using the following [kubectl get][kubectl-get] commands:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+The following example output shows configMaps that should be deleted:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+To delete resources, use the [kubectl delete][kubectl-delete] command. Specify the resource type, resource name, and namespace. The following example deletes one of the previous configmaps:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Repeat the previous `kubectl delete` step for all *addon-http-application-routing* resources that remained in your cluster.
+
 ## Troubleshoot
 
 Use the [kubectl logs][kubectl-logs] command to view the application logs for the External-DNS application. The logs should confirm that an A and TXT DNS record were created successfully.
@@ -249,6 +283,7 @@ For information on how to install an HTTPS-secured Ingress controller in AKS, se
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

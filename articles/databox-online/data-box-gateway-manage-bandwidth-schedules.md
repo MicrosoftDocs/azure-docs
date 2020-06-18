@@ -1,38 +1,28 @@
 ---
-title: Azure Data Box Gateway manage users | Microsoft Docs 
+title: Manage bandwidth schedules on Azure Data Box Gateway  | Microsoft Docs 
 description: Describes how to use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
-ms.topic: overview
-ms.custom: 
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 10/09/2018
+ms.subservice: gateway
+ms.topic: how-to
+ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway  
 
-This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud. 
+This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
 You can add, modify, or delete the bandwidth schedules for your Data Box Gateway via the Azure portal.
-
-> [!IMPORTANT]
-> - Data Box Gateway is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Add a schedule
 > * Modify schedule
-> * Delete a schedule 
-
+> * Delete a schedule
 
 ## Add a schedule
 
@@ -45,13 +35,13 @@ Do the following steps in the Azure portal to add a user.
 
 3. In the **Add schedule**: 
 
-    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
-    2. If this schedule runs all day, then you can check the **All day** option. 
-    3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field. 
-    4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
-    5. Click **Add**.
+   1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule. 
+   2. If this schedule runs all day, then you can check the **All day** option. 
+   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field. 
+   4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
+   5. Click **Add**.
 
-    ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. A schedule is created with the specified parameters. This schedule is then displayed in the list of bandwidth schedules in the portal.
 
@@ -89,4 +79,4 @@ Do the following steps to delete a bandwidth schedule associated with your Data 
 
 ## Next steps
 
-- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth-schedules.md).
+- Learn how to [Manage bandwidth](data-box-gateway-manage-bandwidth-schedules.md). 

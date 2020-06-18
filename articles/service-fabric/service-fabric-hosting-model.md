@@ -1,19 +1,11 @@
 ---
-title: Azure Service Fabric hosting model | Microsoft Docs
+title: Azure Service Fabric hosting model 
 description: Describes the relationship between replicas (or instances) of a deployed Service Fabric service and the service-host process.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: timlt
 
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-
 ---
 # Azure Service Fabric hosting model
 This article provides an overview of application hosting models provided by Azure Service Fabric, and describes the differences between the **Shared Process** and **Exclusive Process** models. It describes how a deployed application looks on a Service Fabric node, and the relationship between replicas (or instances) of the service and the service-host process.
@@ -146,7 +138,7 @@ For certain cases, Service Fabric also allows more than one *ServiceType* per *S
 
 The Exclusive Process hosting model is not coherent with an application model having multiple *ServiceTypes* per *ServicePackage*. This is because multiple *ServiceTypes* per *ServicePackage* are designed to achieve higher resource sharing among replicas, and enables higher replica density per process. The Exclusive Process model is designed to achieve different outcomes.
 
-Consider the case of multiple *ServiceTypes* per *ServicePackage*, with a different *CodePackage* registering each *ServiceType*. Let's say we have a *ServicePackage* 'MultiTypeServicePackge', which has two *CodePackages*:
+Consider the case of multiple *ServiceTypes* per *ServicePackage*, with a different *CodePackage* registering each *ServiceType*. Let's say we have a *ServicePackage* 'MultiTypeServicePackage', which has two *CodePackages*:
 
 - 'MyCodePackageA', which registers *ServiceType* 'MyServiceTypeA'.
 - 'MyCodePackageB', which registers *ServiceType* 'MyServiceTypeB'.
@@ -156,21 +148,25 @@ Now, let's say that we create an application, **fabric:/SpecialApp**. Inside **f
 - Service **fabric:/SpecialApp/ServiceA** of type 'MyServiceTypeA', with two partitions (for example, **P1** and **P2**), and three replicas per partition.
 - Service **fabric:/SpecialApp/ServiceB** of type 'MyServiceTypeB', with two partitions (**P3** and **P4**), and three replicas per partition.
 
-On a given node, both of the services have two replicas each. Because we used the Exclusive Process model to create the services, Service Fabric activates a new copy of 'MyServicePackage' for each replica. Each activation of 'MultiTypeServicePackge' starts a copy of 'MyCodePackageA' and 'MyCodePackageB'. However, only one of 'MyCodePackageA' or 'MyCodePackageB' hosts the replica for which 'MultiTypeServicePackge' was activated. The following diagram shows the node view:
+On a given node, both of the services have two replicas each. Because we used the Exclusive Process model to create the services, Service Fabric activates a new copy of 'MyServicePackage' for each replica. Each activation of 'MultiTypeServicePackage' starts a copy of 'MyCodePackageA' and 'MyCodePackageB'. However, only one of 'MyCodePackageA' or 'MyCodePackageB' hosts the replica for which 'MultiTypeServicePackage' was activated. The following diagram shows the node view:
 
 
 ![Diagram of the node view of deployed application][node-view-five]
 
 
-In the activation of 'MultiTypeServicePackge' for the replica of partition **P1** of service **fabric:/SpecialApp/ServiceA**, 'MyCodePackageA' is hosting the replica. 'MyCodePackageB' is running. Similarly, in the activation of 'MultiTypeServicePackge' for the replica of partition **P3** of service **fabric:/SpecialApp/ServiceB**, 'MyCodePackageB' is hosting the replica. 'MyCodePackageA' is running. Hence, the greater the number of *CodePackages* (registering different *ServiceTypes*) per *ServicePackage*, the higher the redundant resource usage. 
+In the activation of 'MultiTypeServicePackage' for the replica of partition **P1** of service **fabric:/SpecialApp/ServiceA**, 'MyCodePackageA' is hosting the replica. 'MyCodePackageB' is running. Similarly, in the activation of 'MultiTypeServicePackage' for the replica of partition **P3** of service **fabric:/SpecialApp/ServiceB**, 'MyCodePackageB' is hosting the replica. 'MyCodePackageA' is running. Hence, the greater the number of *CodePackages* (registering different *ServiceTypes*) per *ServicePackage*, the higher the redundant resource usage. 
  
- However, if we create the services **fabric:/SpecialApp/ServiceA** and **fabric:/SpecialApp/ServiceB** with the Shared Process model, Service Fabric activates only one copy of 'MultiTypeServicePackge' for the application **fabric:/SpecialApp**. 'MyCodePackageA' hosts all replicas for the service **fabric:/SpecialApp/ServiceA**. 'MyCodePackageB' hosts all replicas for the service **fabric:/SpecialApp/ServiceB**. The following diagram shows the node view in this setting: 
+ However, if we create the services **fabric:/SpecialApp/ServiceA** and **fabric:/SpecialApp/ServiceB** with the Shared Process model, Service Fabric activates only one copy of 'MultiTypeServicePackage' for the application **fabric:/SpecialApp**. 'MyCodePackageA' hosts all replicas for the service **fabric:/SpecialApp/ServiceA**. 'MyCodePackageB' hosts all replicas for the service **fabric:/SpecialApp/ServiceB**. The following diagram shows the node view in this setting: 
 
 
 ![Diagram of the node view of deployed application][node-view-six]
 
 
 In the preceding example, you might think that if 'MyCodePackageA' registers both 'MyServiceTypeA' and 'MyServiceTypeB', and there is no 'MyCodePackageB', then there is no redundant *CodePackage* running. Although this is correct, this application model does not align with the Exclusive Process hosting model. If the goal is to put each replica in its own dedicated process, you do not need to register both *ServiceTypes* from same *CodePackage*. Instead, you simply put each *ServiceType* in its own *ServicePackage*.
+
+### Reliable Services and Actor forking subprocesses
+
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancellation tokens are only sent to registered processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancellation token.
 
 ## Next steps
 [Package an application][a4] and get it ready to deploy.

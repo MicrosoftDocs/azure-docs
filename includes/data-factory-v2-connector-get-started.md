@@ -1,13 +1,21 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/articles/data-factory/ to ease future central update.
 -->
-You can create a pipeline with the copy activity by using one of the following tools or SDKs. Select a link to go to a tutorial with step-by-step instructions to create a pipeline with a copy activity. 
 
-- [Copy Data tool](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
-- [Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
-- [.NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
-- [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
+To perform the Copy activity with a pipeline, you can use one of the following tools or SDKs:
+
+- [The Copy Data tool](../articles/data-factory/quickstart-create-data-factory-copy-data-tool.md)
+- [The Azure portal](../articles/data-factory/quickstart-create-data-factory-portal.md)
+- [The .NET SDK](../articles/data-factory/quickstart-create-data-factory-dot-net.md)
+- [The Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
-- [REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager template](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md). 
+- [The REST API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
+- [The Azure Resource Manager template](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 

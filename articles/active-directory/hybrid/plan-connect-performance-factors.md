@@ -3,14 +3,16 @@ title: Factors influencing the performance of Azure AD Connect
 description: This document explains the how various factors influence the Azure AD Connect provisioning engine. These factors will help organizations to plan their Azure AD Connect deployment to make sure it meets their sync requirements.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Factors influencing the performance of Azure AD Connect
 
@@ -24,7 +26,7 @@ Azure AD Connect syncs your Active Directory to Azure AD. This server is a criti
 | Configuration| How Azure AD Connect processes the directories and information. |
 | Load| Frequency of object changes. The loads may vary during an hour, day, or week. Depending on the component, you may have to design for peak load or average load. |
 
-The purpose of this document is to describe the performance considerations influencing the performance of the provisioning engine of Azure AD Connect. The other components of Azure AD Connect, such as [Azure AD Connect health](how-to-connect-health-agent-install.md) and agents aren't covered here.
+The purpose of this document is to describe the factors influencing the performance of the Azure AD Connect provisioning engine. Large or complex organizations (organizations provisioning more than 100,000 objects) can use the recommendations to optimize their Azure AD Connect implementation, if they experience any performance issues outlined here. The other components of Azure AD Connect, such as [Azure AD Connect health](how-to-connect-health-agent-install.md) and agents aren't covered here.
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
@@ -173,7 +175,7 @@ To optimize the performance of your Azure AD Connect implementation, consider th
 
 
 - Use the [recommended hardware configuration](how-to-connect-install-prerequisites.md) based on your implementation size for the Azure AD Connect server.
-- When upgrading Azure AD Connect in large scale deployments, consider using [swing migration method](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), to make sure you have the least downtime and best reliability. 
+- When upgrading Azure AD Connect in large-scale deployments, consider using [swing migration method](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), to make sure you have the least downtime and best reliability. 
 - Use SSD for the SQL database for best writing performance.
 - Filter the Active Directory scope to only include objects that need to be provisioned in Azure AD, using domain, OU, or attribute filtering.
 - If you require to change the default attribute flow rules, first copy the rule, then change the copy and disable the original rule. Remember to rerun a full sync.

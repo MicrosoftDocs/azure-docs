@@ -1,13 +1,14 @@
 ---
-title: Remote Monitoring access control - Azure | Microsoft Docs 
+title: Remote Monitoring access control - Azure | Microsoft Docs
 description: This article provides information about how you can configure role-based access controls (RBAC) in the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
+ms.custom: has-adal-ref
 
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---
@@ -20,29 +21,33 @@ This article provides information about how to configure role-based access contr
 
 When you first deploy the Remote Monitoring solution, there are two roles: **Admin** and **Read Only**.
 
-Any user in the **Admin** role has full access to the solution. A user in the **Read Only** role can't do any of the following tasks:
+Any user in the **Admin** role has full access to the solution, including the following permissions below. A user in the **Read Only** role will only have access to view the solution.
 
-- Update alarms
-- Delete alarms
-- Create devices
-- Update devices
-- Delete devices
-- Create device groups
-- Update device groups
-- Delete device groups
-- Create rules
-- Update rules
-- Delete rules
-- Create jobs
-- Update SIM management
+| Permission            | Admin | Read Only |
+|----------------       |-------|-----------|
+| View Solution         | Yes   | Yes       |
+| Update alarms         | Yes   | No        |
+| Delete alarms         | Yes   | No        |
+| Create devices        | Yes   | No        |
+| Update devices        | Yes   | No        |
+| Delete devices        | Yes   | No        |
+| Create device groups  | Yes   | No        |
+| Update device groups  | Yes   | No        |
+| Delete device groups  | Yes   | No        |
+| Create rules          | Yes   | No        |
+| Update rules          | Yes   | No        |
+| Delete rules          | Yes   | No        |
+| Create jobs           | Yes   | No        |
+| Update SIM management | Yes   | No        |
 
-The person who deploys the Remote Monitoring solution is automatically assigned to the **Admin** role and is an Azure Active Directory application owner. As an application owner you can assign roles to other users in the Azure portal.
+By default, the user who deployed the solution is automatically assigned the **Admin** role and is an Azure Active Directory application owner. As an application owner, you can assign roles to other users through the Azure portal. If you want another user to assign roles in the solution, they must also be set as an application owner in the Azure portal.
 
-If you want another user to assign roles in the solution, they must also be set as an application owner in the Azure portal.
+> [!NOTE]
+> The user who deployed the solution is the **only person** who can view it immediately after its been created. To grant others access to view the application as either a Read Only, Admin, or a Custom role, see the following directions below on add or remove users.
 
 ## Add or remove users
 
-Use the Azure portal to add or remove a user from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created for you when you deployed the Remote Monitoring solution.
+As an Azure Active Directory application owner, you can use the Azure portal to add or remove a user to a role from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created when you deployed the Remote Monitoring solution.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -84,11 +89,11 @@ The following steps describe how to add a role to an application in Azure Active
 
 1. Find the **App registration** for your solution in the Azure portal. The application name is the name of your Remote Monitoring solution. In the following screenshot, the solution and application display names are **contoso-rm4**.
 
-    ![App registration](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![App registration](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Select your application and then click **Manifest**. You can see the two existing [app roles](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) defined for the application:
 
-    ![View manifest](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![View manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Edit the manifest to add a role called **ManageDevices** as shown in the following snippet. You need a unique string such as a GUID for the new role ID. You can generate a new GUID using a service such as the [Online GUID Generator](https://www.guidgenerator.com/):
 

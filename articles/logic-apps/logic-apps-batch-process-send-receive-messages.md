@@ -1,14 +1,13 @@
 ---
-title: Batch process messages as a group or collection - Azure Logic Apps | Microsoft Docs
-description: Send and receive messages as batches in Azure Logic Apps
+title: Batch process messages as a group
+description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, jonfan, LADocs
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
-ms.date: 08/19/2018
+ms.date: 01/16/2019
 ---
 
 # Send, receive, and batch process messages in Azure Logic Apps
@@ -45,20 +44,20 @@ batch sender because they're not visible to each other.
 
 ## Prerequisites
 
-To follow this example, you need these items:
-
-* An Azure subscription. If you don't have a subscription, you can 
-[start with a free Azure account](https://azure.microsoft.com/free/). 
+* An Azure subscription. If you don't have a subscription, you can [start with a free Azure account](https://azure.microsoft.com/free/).
 Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/pricing/purchase-options/).
 
-* An email account with any 
-[email provider supported by Azure Logic Apps](../connectors/apis-list.md)
+* An email account with any [email provider supported by Azure Logic Apps](../connectors/apis-list.md)
 
-* Basic knowledge about 
-[how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* To use Visual Studio rather than the Azure portal, make sure you 
-[set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* To use Visual Studio rather than the Azure portal, make sure you [set up Visual Studio for working with Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
@@ -85,16 +84,27 @@ Select this trigger: **Batch messages**
 
    ![Add "Batch messages" trigger](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Set the batch receiver properties: 
+3. Set these properties for the batch receiver: 
 
    | Property | Description | 
    |----------|-------------|
    | **Batch Mode** | - **Inline**: For defining release criteria inside the batch trigger <br>- **Integration Account**: For defining multiple release criteria configurations through an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). With an integration account, you can maintain these configurations all in one place rather than in separate logic apps. | 
    | **Batch Name** | The name for your batch, which is "TestBatch" in this example, and applies only to **Inline** batch mode |  
-   | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: The number of messages to collect in the batch, for example, 10 messages <br>- **Size based**: The maximum batch size in bytes, for example, 100 MB <br>- **Schedule based**: The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minute values are effectively rounded up to 1 minute. To specify a start date and time, choose **Show advanced options**. <br>- **Select all**: Use all the specified criteria. | 
+   | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: Release the batch based on the number of messages collected by the batch. <br>- **Size based**: Release the batch based on the total size in bytes for all messages collected by that batch. <br>- **Schedule**: Release the batch based on a recurrence schedule, which specifies an interval and frequency. In the advanced options, you can also select a time zone and provide a start date and time. <br>- **Select all**: Use all the specified criteria. | 
+   | **Message Count** | The number of messages to collect in the batch, for example, 10 messages. A batch's limit is 8,000 messages. | 
+   | **Batch Size** | The total size in bytes to collect in the batch, for example, 10 MB. A batch's size limit is 80 MB. | 
+   | **Schedule** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. To specify a time zone or a start date and time, choose **Show advanced options**. | 
    ||| 
-   
-   This example selects all the criteria:
+
+   > [!NOTE]
+   > 
+   > If you change the release criteria while the 
+   > trigger still has batched but unsent messages, 
+   > the trigger uses the updated release criteria 
+   > for handling the unsent messages. 
+
+   This example shows all the criteria, 
+   but for your own testing, try just one criterion:
 
    ![Provide Batch trigger details](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -108,12 +118,8 @@ Select this trigger: **Batch messages**
 
    2. In the search box, enter "send email" as your filter.
    Based on your email provider, select an email connector.
-      
-      For example, if you have a personal account, 
-      such as @outlook.com or @hotmail.com, 
-      select the Outlook.com connector. 
-      If you have a Gmail account, select the Gmail connector. 
-      This example uses Office 365 Outlook. 
+
+      For example, if you have a personal account, such as @outlook.com or @hotmail.com, select the Outlook.com connector. This example uses the Office 365 Outlook connector.
 
    3. Select this action: **Send an email - <*email provider*>**
 
@@ -133,8 +139,8 @@ Select this trigger: **Batch messages**
 
      ![From the dynamic content list, select "Partition Name"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     In a later section, you can specify a unique partition key that divides 
-     the target batch into logical subsets to where you can send messages. 
+     Later, in the batch sender, you can specify a unique partition key that 
+     divides the target batch into logical subsets where you can send messages. 
      Each set has a unique number that's generated by the batch sender logic app. 
      This capability lets you use a single batch with multiple subsets and 
      define each subset with the name that you provide.

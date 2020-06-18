@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array – Set up as an iSCSI server via Azure portal
@@ -21,6 +21,8 @@ ms.author: alkohli
 ![iscsi setup process flow](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array. This tutorial describes how to perform the initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple Virtual Array configured as an iSCSI server. 
 
@@ -39,7 +41,7 @@ Before you configure and set up your StorSimple Virtual Array, make sure that:
 Use the following step-by-step instructions to set up and configure your StorSimple Virtual Array:
 
 * [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [Step 2: Complete the required device setup](#step-2-complete-the-required-device-setup)
+* Step 2: Complete the required device setup
 * [Step 3: Add a volume](#step-3-add-a-volume)
 * [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)
 
@@ -93,7 +95,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
     On the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://host-IP address* or *FDQN:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http:\//host-IP address* or *FQDN:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If you are using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.

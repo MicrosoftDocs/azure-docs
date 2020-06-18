@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 IoT devices often connect to the cloud using a SIM card that allows them to send data streams from anywhere. The Azure IoT Remote Monitoring solution allows the integration of IoT Managed Connectivity data, so that operators can also track the health of the device through the data provided by the IoT SIM.
 
-Remote Monitoring provides out of the box integration with Telefónica IoT Connectivity, allowing customers using its IoT Connectivity Platform synchronize their device SIMs connectivity data to their solutions. This solution can be extended to support other IoT Connectivity providers through GitHub [repository](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Remote Monitoring provides out of the box integration with Telefónica IoT Connectivity, allowing customers using its IoT Connectivity Platform synchronize their device SIMs connectivity data to their solutions. This solution can be extended to support other IoT Connectivity providers through GitHub [repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
 In this tutorial, you learn how to:
 

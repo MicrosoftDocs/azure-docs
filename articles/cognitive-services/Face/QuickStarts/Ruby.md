@@ -1,51 +1,38 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API, Ruby"
+title: "Quickstart: Detect faces in an image using the REST API and Ruby"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you detect faces from an image using the Face API with Ruby.
+description: In this quickstart, you detect faces from an image using the Face REST API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
-ms.author: nolachar
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
-# Quickstart: Detect faces in an image using Ruby
+# Quickstart: Detect faces in an image using the REST API and Ruby
 
-In this quickstart, you detect human faces in an image using the Face API.
+In this quickstart, you'll use the Azure Face REST API with Ruby to detect human faces in an image.
 
 ## Prerequisites
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Face - Detect request
+## Write the script
 
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
-
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
-
-To run the sample, do the following steps:
-
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uri` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, set `imageUri` to the image you want to analyze.
-1. Save the file with an `.rb` extension.
-1. Open the Ruby Command Prompt and run the file, for example: `ruby myfile.rb`.
+Create a new file, _faceDetection.rb_, and add the following code. This code calls the Face API for a given image URL.
 
 ```ruby
 require 'net/http'
 
-# You must use the same location in your REST call as you used to get your
-# subscription keys. For example, if you got your subscription keys from  westus,
-# replace "westcentralus" in the URL below with "westus".
-uri = URI('https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect')
+# replace <My Endpoint String> in the URL below with the string from your endpoint.
+uri = URI('https://<My Endpoint String>.com/face/v1.0/detect')
 uri.query = URI.encode_www_form({
     # Request parameters
     'returnFaceId' => 'true',
@@ -71,9 +58,21 @@ end
 puts response.body
 ```
 
-## Face - Detect response
+You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key and change the `uri` string so that it contains the correct endpoint.
 
-A successful response is returned in JSON, for example:
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
+You may also wish to change the `imageUri` field to point to your own input image. You also may wish to change the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
+
+## Run the script
+
+Run the Ruby script with the following command:
+
+```shell
+ruby faceDetection.rb
+```
+
+You should see a JSON string of detected face data printed to the console. The following text is an example of a successful JSON response.
 
 ```json
 [
@@ -256,7 +255,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+In this quickstart, you wrote a Ruby script that calls the Azure Face service to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
-> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

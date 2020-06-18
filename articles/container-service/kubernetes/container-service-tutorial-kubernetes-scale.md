@@ -1,9 +1,7 @@
 ---
-title: Azure Container Service tutorial - Scale Application
+title: (DEPRECATED) Azure Container Service tutorial - Scale Application
 description: Azure Container Service tutorial - Scale Application
-services: container-service
 author: dlepow
-manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -12,9 +10,12 @@ ms.author: danlep
 ms.custom: mvc
 ---
 
-# Scale Kubernetes pods and Kubernetes infrastructure
+# (DEPRECATED) Scale Kubernetes pods and Kubernetes infrastructure
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Scale applications in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 If you've been following the tutorials, you have a working Kubernetes cluster in Azure Container Service and you deployed the Azure Voting app. 
 
@@ -37,13 +38,15 @@ If you have not done these steps, and would like to follow along, return to the 
 
 Thus far, the Azure Vote front-end and Redis instance have been deployed, each with a single replica. To verify, run the [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command.
 
-```azurecli-interactive
+Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
+
+```console
 kubectl get pods
 ```
 
 Output:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,19 +54,19 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 
 Manually change the number of pods in the `azure-vote-front` deployment using the [kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale) command. This example increases the number to 5.
 
-```azurecli-interactive
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
 Run [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) to verify that Kubernetes is creating the pods. After a minute or so, the additional pods are running:
 
-```azurecli-interactive
+```console
 kubectl get pods
 ```
 
 Output:
 
-```bash
+```output
 NAME                                READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
@@ -79,7 +82,7 @@ Kubernetes supports [horizontal pod autoscaling](https://kubernetes.io/docs/task
 
 To use the autoscaler, your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container requests 0.25 CPU, with a limit of 0.5 CPU. The settings look like:
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -90,19 +93,19 @@ resources:
 The following example uses the [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) command to autoscale the number of pods in the `azure-vote-front` deployment. Here, if CPU utilization exceeds 50%, the autoscaler increases the pods to a maximum of 10.
 
 
-```azurecli-interactive
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
 To see the status of the autoscaler, run the following command:
 
-```azurecli-interactive
+```console
 kubectl get hpa
 ```
 
 Output:
 
-```bash
+```output
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
@@ -121,7 +124,7 @@ az acs scale --resource-group=myResourceGroup --name=myK8SCluster --new-agent-co
 
 The command output shows the number of agent nodes in the value of `agentPoolProfiles:count`:
 
-```azurecli
+```output
 {
   "agentPoolProfiles": [
     {

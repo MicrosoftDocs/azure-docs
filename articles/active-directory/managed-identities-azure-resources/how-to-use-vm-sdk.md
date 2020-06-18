@@ -1,20 +1,21 @@
 ---
-title: How to use managed identities for Azure resources on an Azure VM with Azure SDKs
+title: Use managed identities on an Azure VM with Azure SDKs - Azure AD
 description: Code samples for using Azure SDKs with an Azure VM that has managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # How to use managed identities for Azure resources on an Azure VM with Azure SDKs 
@@ -37,7 +38,7 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 | .NET Core       | [Call Azure services from a Linux VM using managed identities for Azure resources](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js         | [Manage resources using managed identities for Azure resources](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python          | [Use managed identities for Azure resources to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) |
+| Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 
 ## Next steps
 

@@ -1,39 +1,40 @@
 ---
-title: Monitor integration runtime in Azure Data Factory | Microsoft Docs
+title: Monitor integration runtime in Azure Data Factory 
 description: Learn how to monitor different types of integration runtime in Azure Data Factory.  
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
 ---
 
-# Monitor an integration runtime in Azure Data Factory  
+# Monitor an integration runtime in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  
 **Integration runtime** is the compute infrastructure used by Azure Data Factory to provide various data integration capabilities across different network environments. There are three types of integration runtimes offered by Data Factory:
 
 - Azure integration runtime
 - Self-hosted integration runtime
 - Azure-SSIS integration runtime
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To get the status of an instance of integration runtime (IR), run the following PowerShell command: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 The cmdlet returns different information for different types of integration runtime. This article explains the properties and statuses for each type of integration runtime.  
 
 ## Azure integration runtime
-The compute resource for an Azure integration runtime is fully managed elastically in Azure. The following table provides descriptions for properties returned by the **Get-AzureRmDataFactoryV2IntegrationRuntime** command:
+The compute resource for an Azure integration runtime is fully managed elastically in Azure. The following table provides descriptions for properties returned by the **Get-AzDataFactoryV2IntegrationRuntime** command:
 
 ### Properties
 The following table provides descriptions of properties returned by the cmdlet for an Azure integration runtime:
@@ -56,7 +57,7 @@ The following table provides possible statuses of an Azure integration runtime:
 | Offline | The Azure integration runtime is offline due to an internal error. |
 
 ## Self-hosted integration runtime
-This section provides descriptions for properties returned by the Get-AzureRmDataFactoryV2IntegrationRuntime cmdlet. 
+This section provides descriptions for properties returned by the Get-AzDataFactoryV2IntegrationRuntime cmdlet. 
 
 > [!NOTE] 
 > The returned properties and status contain information about overall self-hosted integration runtime and each node in the runtime.  
@@ -84,7 +85,7 @@ The default value of the concurrent jobs limit is set based on the machine size.
 
 You scale out by increasing the number of nodes. When you increase the number of nodes, the concurrent jobs limit is the sum of the concurrent job limit values of all the available nodes.  For example, if one node lets you run a maximum of twelve concurrent jobs, then adding three more similar nodes lets you run a maximum of  48 concurrent jobs (that is, 4 x 12). We recommend that you increase the concurrent jobs limit only when you see low resource usage with the default values on each node.
 
-You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node. You can also use the PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) command.
+You can override the calculated default value in the Azure portal. Select Author > Connections > Integration Runtimes > Edit > Nodes > Modify concurrent job value per node. You can also use the PowerShell [update-Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) command.
   
 ### Status (per node)
 The following table provides possible statuses of a self-hosted integration runtime node:
@@ -109,10 +110,10 @@ The following table provides possible statuses of a self-hosted integration runt
 | Offline | No node is online. |
 | Limited | Not all nodes in this self-hosted integration runtime are in a healthy state. This status is a warning that some nodes might be down. This status could be due to a credential sync issue on dispatcher/worker node. |
 
-Use the **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet to fetch the JSON payload containing the detailed self-hosted integration runtime properties, and their snapshot values during the time of execution of the cmdlet.
+Use the **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet to fetch the JSON payload containing the detailed self-hosted integration runtime properties, and their snapshot values during the time of execution of the cmdlet.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName | ConvertTo-Json 
 ```
 
 Sample output (assumes that there are two nodes associated with this self-hosted integration runtime):
@@ -165,10 +166,10 @@ Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machi
 | NodeSize | The size of each node of your Azure-SSIS integration runtime. |
 | NodeCount | The number of nodes in your Azure-SSIS integration runtime. |
 | MaxParallelExecutionsPerNode | The number of parallel executions per node in your Azure-SSIS integration runtime. |
-| CatalogServerEndpoint | The endpoint of your existing Azure SQL Database/Managed Instance server to host SSISDB. |
-| CatalogAdminUserName | The admin username of your existing Azure SQL Database/Managed Instance server. Data Factory service uses this information to prepare and manage SSISDB on your behalf. |
-| CatalogAdminPassword | The admin password of your existing Azure SQL Database/Managed Instance server. |
-| CatalogPricingTier | The pricing tier for SSISDB hosted by your existing Azure SQL Database server.  Not applicable to Azure SQL Database Managed Instance hosting SSISDB. |
+| CatalogServerEndpoint | The endpoint of your existing SQL Database/SQL Managed Instance to host SSISDB. |
+| CatalogAdminUserName | The admin username of your existing SQL Database/SQL Managed Instance. Data Factory service uses this information to prepare and manage SSISDB on your behalf. |
+| CatalogAdminPassword | The admin password of your existing SQL Database/SQL Managed Instance. |
+| CatalogPricingTier | The pricing tier for SSISDB hosted by SQL Database.  Not applicable to SQL Managed Instance hosting SSISDB. |
 | VNetId | The virtual network resource ID for your Azure-SSIS integration runtime to join. |
 | Subnet | The subnet name for your Azure-SSIS integration runtime to join. |
 | ID | The resource ID of your Azure-SSIS integration runtime. |
@@ -211,7 +212,7 @@ The following screenshots show how to select the Azure-SSIS IR to monitor, and p
 Use a script like the following example to check the status of the Azure-SSIS IR.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### More info about the Azure-SSIS integration runtime
@@ -219,8 +220,8 @@ Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Na
 See the following articles to learn more about Azure-SSIS integration runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
-- [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database Managed Instance and joining the IR to a virtual network. 
+- [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses SQL Database to host the SSIS catalog. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using SQL Managed Instance and joining the IR to a virtual network. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network. It also provides steps to use Azure portal to configure the virtual network so that the Azure-SSIS IR can join the virtual network. 
 

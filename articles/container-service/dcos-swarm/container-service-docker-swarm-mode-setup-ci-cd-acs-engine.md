@@ -1,18 +1,17 @@
 ---
-title: CI/CD with Azure Container Service Engine and Swarm Mode
+title: (DEPRECATED) CI/CD with Azure Container Service Engine and Swarm Mode
 description: Use Azure Container Service Engine with Docker Swarm Mode, an Azure Container Registry, and Azure DevOps to deliver continuously a multi-container .NET Core application
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
-ms.author: diegomrtnzg
+ms.author: dimart
 ms.custom: mvc
 ---
 
-# Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+# (DEPRECATED) Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with ACS Engine and Docker Swarm Mode using Azure DevOps
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *This article is based on 
 [Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Azure DevOps](container-service-docker-swarm-setup-ci-cd.md) documentation*
@@ -22,7 +21,6 @@ Nowadays, One of the biggest challenges when developing modern applications for 
 * Azure Container Registry
 * Azure DevOps
 
-This article is based on a simple application, available on [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), developed with ASP.NET Core. The application is composed of four different services: three web APIs and one web front end:
 
 ![MyShop sample application](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -126,7 +124,7 @@ There are five container images to build for the *MyShop* application. Each imag
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 You need two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
@@ -158,21 +156,21 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
    ![Azure DevOps - Add Command-Line Task](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
+   1. A command-line task that uses a bash script to replace the *RegistryURL* occurrence in the docker-compose.yml file with the RegistryURL variable. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - Update Compose file with Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
+   2. A command-line task that uses a bash script to replace the *AgentURL* occurrence in the docker-compose.yml file with the AgentURL variable.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
+      1. A task that drops the updated Compose file as a build artifact so it can be used in the release. See the following screen for details.
 
-         ![Azure DevOps - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - Publish Artifact](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps - Publish Compose file](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Click **Save & queue** to test your build pipeline.
 
@@ -182,7 +180,7 @@ You need two Docker steps for each image, one to build the image, and one to pus
 
 6. If the **Build** is correct, you have to see this screen:
 
-  ![Azure DevOps - Build succeeded](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - Build succeeded](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## Step 3: Create the release pipeline
 
@@ -222,20 +220,22 @@ The release workflow is composed of two tasks that you add.
 
 2. Configure a second task to execute a bash command to run `docker` and `docker stack deploy` commands on the master node. See the following screen for details.
 
-    ```docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth```
+    ```
+    docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth
+    ```
 
     ![Azure DevOps - Release Bash](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-bash.png)
 
     The command executed on the master uses the Docker CLI and the Docker-Compose CLI to do the following tasks:
 
-    - Log in to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
-    - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
-    - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
-    - Execute `docker stack deploy` commands that pull the new images and create the containers.
+   - Log in to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
+   - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
+   - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
+   - Execute `docker stack deploy` commands that pull the new images and create the containers.
 
-    >[!IMPORTANT]
-    > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
-    >
+     >[!IMPORTANT]
+     > As shown on the previous screen, leave the **Fail on STDERR** checkbox unchecked. This setting allows us to complete the release process due to `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Azure DevOps reports that errors occurred during the release, even if all goes well.
+     >
 3. Save this new release pipeline.
 
 ## Step 4: Test the CI/CD pipeline
@@ -244,6 +244,6 @@ Now that you are done with the configuration, it's time to test this new CI/CD p
 
 ## Next steps
 
-* For more information about CI/CD with Azure DevOps, see the [Azure DevOps Build overview](https://www.visualstudio.com/docs/build/overview).
+* For more information about CI/CD with Azure DevOps, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.
 * For more information about ACS Engine, see the [ACS Engine GitHub repo](https://github.com/Azure/acs-engine).
 * For more information about Docker Swarm mode, see the [Docker Swarm mode overview](https://docs.docker.com/engine/swarm/).

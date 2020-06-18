@@ -1,14 +1,9 @@
 ---
-title: Azure Container Registry tutorial - Prepare a geo-replicated Azure container registry
+title: Tutorial - Create geo-replicated registry
 description: Create an Azure container registry, configure geo-replication, prepare a Docker image, and deploy it to the registry. Part one of a three-part series.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
 # Tutorial: Prepare a geo-replicated Azure container registry
@@ -37,7 +32,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 ## Create a container registry
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
@@ -114,7 +109,7 @@ The Dockerfile included in the sample shows how the container is built. It start
 
 The [Dockerfile][dockerfile] is located at `./AcrHelloworld/Dockerfile` in the cloned source.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -158,7 +153,7 @@ uniqueregistryname.azurecr.io
 
 Next, update the `ENV DOCKER_REGISTRY` line with the FQDN of your registry's login server. This example reflects the example registry name, *uniqueregistryname*:
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 
@@ -240,7 +235,7 @@ Advance to the next tutorial to deploy your container to multiple Web Apps for C
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
-[aspnet-core]: http://dot.net
+[aspnet-core]: https://dot.net
 [dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
 [dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

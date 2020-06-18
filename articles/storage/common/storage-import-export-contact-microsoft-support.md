@@ -6,8 +6,8 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
-ms.component: common
+ms.author: alkohli
+ms.subservice: common
 ---
 # Open a support ticket for an Import/Export job
 
@@ -52,14 +52,14 @@ Perform the following steps to create a support request:
 
 4. In **New support request**, click **Step 3 Contact information**. In **Contact information**, do the following steps:
 
-    1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
-    2. In the Contact information, provide your name, email, optional contact, country. Select the **Save contact changes for future support requests** checkbox.
-    3. Click **Create**.
+   1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
+   2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** checkbox.
+   3. Click **Create**.
    
-        ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
-After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
+      Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
+      After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
 
 ## Manage a support request
 

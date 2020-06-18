@@ -1,14 +1,11 @@
 ---
-title: Advanced Threat Protection - Azure Database for MySQL | Microsoft Docs
-description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
-services: mysql
-author: bolzmj
-manager: kfile
+title: Advanced Threat Protection - Azure portal - Azure Database for MySQL
+description: Learn how to configure Advanced Threat Protection to detect anomalous database activities indicating potential security threats to the database. 
+author: ajlam
+ms.author: andrela
 ms.service: mysql
-ms.topic: article
-ms.date: 09/20/2018
-ms.author: mbolz
-
+ms.topic: conceptual
+ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MySQL
 
@@ -19,6 +16,9 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 > [!NOTE]
 > The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/global-infrastructure/services/) for general product availability.
 >
+
+> [!NOTE]
+> This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 
 ## Set up threat detection
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -48,7 +48,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 ## Explore threat detection alerts
 
-SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tiles within the database and SQL ATP blades in the Azure portal tracks the status of active threats.
+SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tile tracks the status of active threats on the database and SQL ATP pages in the Azure portal.
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 

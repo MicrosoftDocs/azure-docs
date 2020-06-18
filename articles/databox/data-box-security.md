@@ -2,19 +2,12 @@
 title: Microsoft Azure Data Box security overview | Microsoft Docs in data 
 description: Describes Azure Data Box security features in the device, service, and data that resides on Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.subservice: pod
+ms.topic: conceptual
+ms.date: 06/16/2020
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection
@@ -36,6 +29,8 @@ The following diagram indicates the flow of data through the Azure Data Box solu
 
 ![Data Box security](media/data-box-security/data-box-security-2.png)
 
+As the data flows through this solution, events are logged and logs are generated. For more information, go to [Tracking and event logging for your Azure Data Box](data-box-logs.md).
+
 ## Security features
 
 Data Box provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them. 
@@ -45,29 +40,29 @@ Data Box provides a secure solution for data protection by ensuring that only au
 The Data Box device is protected by the following features:
 
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
-- Tamper-evident seals to indicate any device tampering during transit.
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
 - Controls device access via device unlock password.
-- Access credentials to copy data in and out of the device.
+- Access credentials to copy data in and out of the device. All access to the **Device credentials** page in Azure portal are logged in the [activity logs](data-box-logs.md#query-activity-logs-during-setup).
 
 ### Data Box data protection
 
 The data that flows in and out of Data Box is protected by the following features:
 
-- AES 256-bit encryption for Data-at-rest. 
-- Encrypted protocols can be used for data-in-flight.
-- Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with NIST 800-88r1 standards.
+- AES 256-bit encryption for Data-at-rest.
+- Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy it from your data servers.
+- Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
 ### Data Box service protection
 
 The Data Box service is protected by the following features.
 
 - Access to the Data Box service requires that your organization has an Azure subscription that includes Data Box. Your subscription governs the features that you can access in the Azure portal.
-- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- The Data Box service stores unlock password that is used to unlock the device in the service. 
-- The Data box service stores order details and status in the service. This information is deleted when the order is deleted. 
+- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- Access to the Data Box order can be controlled via the use of Role-based Access Control (RBAC) roles. For more information, see [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order)
+- The Data Box service stores unlock password that is used to unlock the device in the service.
+- The Data box service stores order details and status in the service. This information is deleted when the order is deleted.
 
 ## Managing personal data
 
@@ -77,16 +72,16 @@ Azure Data Box collects and displays personal information in the following key i
 
 - **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
 
-    - Contact name
-    - Phone number
-    - Email
-    - Street address
-    - City
-    - Zip/postal code
-    - State
-    - Country/Province/Region
-    - Carrier account number
-    - Shipping tracking number
+  - Contact name
+  - Phone number
+  - Email
+  - Street address
+  - City
+  - Zip/postal code
+  - State
+  - Country/Province/Region
+  - Carrier account number
+  - Shipping tracking number
 
     The order details are deleted by the Data Box service when the job completes or when you delete the order.
 
@@ -101,11 +96,11 @@ The following security guidelines are implemented in Data Box:
 
 |Guideline   |Description   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | For water and dust protection         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | For water and dust protection         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | For adverse transport conditions endurance          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | For secure firmware update         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | For data protection         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
+|Appendix A, for ATA Hard Disk Drives in [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | For data sanitization         |
 
 ## Next steps
 

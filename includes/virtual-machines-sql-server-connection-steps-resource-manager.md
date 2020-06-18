@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+---
 ### Configure a DNS Label for the public IP address
 
 To connect to the SQL Server Database Engine from the Internet, consider creating a DNS Label for your public IP address. You can connect by IP address, but the DNS Label creates an A Record that is easier to identify and abstracts the underlying public IP address.

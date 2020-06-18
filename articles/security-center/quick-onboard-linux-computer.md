@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Linux computers to Security Center | Microsoft Docs
+title: Onboard Linux computers to Azure Security Center | Microsoft Docs
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -14,26 +13,26 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
-ms.author: rkarlin
+ms.date: 12/02/2018
+ms.author: memildin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
-After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning the Linux Agent.
+After you onboard your Azure subscriptions, you can enable Security Center for Linux resources running outside of Azure, for example on-premises or in other clouds, by provisioning an Agent. The Agent is called the Log Analytics agent, but it is also known as the OMS agent.
 
-This quickstart shows you how to install the Linux Agent on a Linux computer.
+This quickstart shows you how to install the Agent on a Linux computer.
 
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-You must be on Security Center’s Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center’s Standard at no cost for the first 60 days.
+You must be on Security Center's Standard pricing tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center's Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Add new Linux computer
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 3. Under the Security Center main menu, select **Getting started**.
 4. Select the **Get started** tab.
@@ -43,18 +42,18 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
     ![Add non-Azure computer](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.	On the **Direct Agent** page, under **DOWNLOAD AND ONBOARD AGENT FOR LINUX**, select the **copy** button to copy the *wget* command.
+6. On the **Direct Agent** page, under **DOWNLOAD AND ONBOARD AGENT FOR LINUX**, select the **copy** button to copy the *wget* command.
 
-7.	Open Notepad, and paste this command. Save this file to a location that can be accessible from your Linux computer.
+7. Open Notepad, and paste this command. Save this file to a location that can be accessible from your Linux computer.
 
 ## Install the agent
 
-1.	On your Linux computer, open the file that was previously saved. Select the entire content, copy, open a terminal console, and paste the command.
-2.	Once the installation is finished, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID (Process ID) as shown below:
+1. On your Linux computer, open the file that was previously saved. Select the entire content, copy, open a terminal console, and paste the command.
+2. Once the installation is finished, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID (Process ID) as shown below:
 
-  ![Install the agent][5]
+   ![Install the agent][5]
 
-The logs for the Security Center Agent for Linux can be found at: */var/opt/microsoft/omsagent/<workspace id>/log/*
+The logs for the Agent can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Logs for agent][6]
 
@@ -80,7 +79,7 @@ To remove the agent:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## Next steps
-In this quick start, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

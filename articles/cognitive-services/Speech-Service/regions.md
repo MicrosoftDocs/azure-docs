@@ -1,51 +1,103 @@
 ---
-title: Speech service regions
-description: Reference for regions of the Speech service.
+title: Regions - Speech service
+titleSuffix: Azure Cognitive Services
+description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
 author: mahilleb-msft
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
-ms.date: 09/24/2018
-ms.author: mahilleb
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 11/05/2019
+ms.author: panosper
+ms.custom: seodec18
 ---
 
-# Regions of the Speech service
+# Speech service supported regions
 
-The Speech service is available in different regions.
-When you create a subscription, you can select an available region based on your needs.
+The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-When you use your subscription, you have to account for the region you selected.
+The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
 
-## REST API
-
-Use the REST API to select the correct region-specific endpoints.
-See [REST APIs](rest-apis.md) for details.
+For invocations of your Speech service, make sure the call matches the region for your subscription.
 
 ## Speech SDK
 
 In the [Speech SDK](speech-sdk.md), regions are specified as a string
 (for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
 
-### Regions for speech recognition and translation
+### Speech-to-text, text-to-speech, and translation
 
-The following table lists the available regions for **speech recognition** and **translation**.
+The speech customization portal is available here: https://speech.microsoft.com
 
-  Region | Speech SDK Parameter | Portal
- ------|-------|--------
- West US | `westus` | https://westus.cris.ai
- West US2 | `westus2` | https://westus2.cris.ai 
- East US | `eastus` | https://eastus.cris.ai
- East US2 | `eastus2` | https://eastus2.cris.ai
- East Asia | `eastasia` | https://eastasia.cris.ai
- South East Asia | `southeastasia` | https://southeastasia.cris.ai
- North Europe | `northeurope` | https://northeurope.cris.ai
- West Europe | `westeurope` | https://westeurope.cris.ai
+The Speech service is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
 
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-### Regions for intent recognition
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
-Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
-For each publishing region listed, the corresponding Speech SDK region parameter is determined as the first part of the domain name of the endpoint.
-For example, use `westus` to specify the West US publishing region.
+### Intent recognition
+
+Available regions for **intent recognition** via the Speech SDK are the following:
+
+| Global region | Region           | Region identifier |
+| ------------- | ---------------- | -------------------- |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| Australia     | Australia East   | `australiaeast`      |
+| Europe        | North Europe     | `northeurope`        |
+| Europe        | West Europe      | `westeurope`         |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | South Central US | `southcentralus`     |
+| North America | West Central US  | `westcentralus`      |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| South America | Brazil South     | `brazilsouth`        |
+
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### Voice assistants
+
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+
+| Region         | Region identifier |
+| -------------- | -------------------- |
+| West US        | `westus`             |
+| West US 2      | `westus2`            |
+| East US        | `eastus`             |
+| East US 2      | `eastus2`            |
+| West Europe    | `westeurope`         |
+| North Europe   | `northeurope`        |
+| Southeast Asia | `southeastasia`      |
+
+### Speaker Recognition
+
+Speaker Recognition is currently only available in the `westus` region.
+
+## REST APIs
+
+The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
+
+### Speech-to-text
+
+For speech-to-text reference documentation, see [Speech-to-text REST API](rest-speech-to-text.md).
+
+The endpoint for the REST API has this format:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+
+### Text-to-speech
+
+For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

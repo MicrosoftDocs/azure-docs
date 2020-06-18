@@ -2,13 +2,14 @@
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/06/2018
-ms.author: spelluru
+ms.date: 06/17/2020
+ms.author: aschhab
 
 ---
 # Partitioned queues and topics
@@ -22,9 +23,11 @@ It is not possible to change the partitioning option on any existing queue or to
 
 ## How it works
 
-Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
+Each partitioned queue or topic consists of multiple partitions. Each partition is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the partitions. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
-When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all partitions for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+
+The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There is no guarantee that the returned message is the oldest one across all partitions. 
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
@@ -34,11 +37,11 @@ To use partitioned queues and topics with Azure Service Bus, use the Azure SDK v
 
 ### Standard
 
-In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In the Standard messaging tier, you can create Service Bus queues and topics in 1, 2, 3, 4, or 5-GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 copies (16 partitions) of the entity, each of the same size specified. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Premium
 
-In a Premium tier namespace, partitioning entities is not supported. However, you can still create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In a Premium tier namespace, partitioning entities are not supported. However, you can still create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Create a partitioned entity
 
@@ -56,11 +59,11 @@ Alternatively, you can create a partitioned queue or topic in the [Azure portal]
 
 ## Use of partition keys
 
-When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.
+When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the partition based on that key. If it does not find a partition key, it selects the partition based on an internal algorithm.
 
 ### Using a partition key
 
-Some scenarios, such as sessions or transactions, require messages to be stored in a specific fragment. All these scenarios require the use of a partition key. All messages that use the same partition key are assigned to the same fragment. If the fragment is temporarily unavailable, Service Bus returns an error.
+Some scenarios, such as sessions or transactions, require messages to be stored in a specific partition. All these scenarios require the use of a partition key. All messages that use the same partition key are assigned to the same partition. If the partition is temporarily unavailable, Service Bus returns an error.
 
 Depending on the scenario, different message properties are used as a partition key:
 
@@ -72,13 +75,13 @@ Depending on the scenario, different message properties are used as a partition 
 
 ### Not using a partition key
 
-In the absence of a partition key, Service Bus distributes messages in a round-robin fashion to all the fragments of the partitioned queue or topic. If the chosen fragment is not available, Service Bus assigns the message to a different fragment. This way, the send operation succeeds despite the temporary unavailability of a messaging store. However, you will not achieve the guaranteed ordering that a partition key provides.
+In the absence of a partition key, Service Bus distributes messages in a round-robin fashion to all the partitions of the partitioned queue or topic. If the chosen partition is not available, Service Bus assigns the message to a different partition. This way, the send operation succeeds despite the temporary unavailability of a messaging store. However, you will not achieve the guaranteed ordering that a partition key provides.
 
 For a more in-depth discussion of the tradeoff between availability (no partition key) and consistency (using a partition key), see [this article](../event-hubs/event-hubs-availability-and-consistency.md). This information applies equally to partitioned Service Bus entities.
 
-To give Service Bus enough time to enqueue the message into a different fragment, the [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) value specified by the client that sends the message must be greater than 15 seconds. It is recommended that you set the [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) property to the default value of 60 seconds.
+To give Service Bus enough time to enqueue the message into a different partition, the [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) value specified by the client that sends the message must be greater than 15 seconds. It is recommended that you set the [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) property to the default value of 60 seconds.
 
-A partition key "pins" a message to a specific fragment. If the messaging store that holds this fragment is unavailable, Service Bus returns an error. In the absence of a partition key, Service Bus can choose a different fragment and the operation succeeds. Therefore, it is recommended that you do not supply a partition key unless it is required.
+A partition key "pins" a message to a specific partition. If the messaging store that holds this partition is unavailable, Service Bus returns an error. In the absence of a partition key, Service Bus can choose a different partition and the operation succeeds. Therefore, it is recommended that you do not supply a partition key unless it is required.
 
 ## Advanced topics: use transactions with partitioned entities
 
@@ -96,7 +99,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-If any of the properties that serve as a partition key are set, Service Bus pins the message to a specific fragment. This behavior occurs whether or not a transaction is used. It is recommended that you do not specify a partition key if it is not necessary.
+If any of the properties that serve as a partition key are set, Service Bus pins the message to a specific partition. This behavior occurs whether or not a transaction is used. It is recommended that you do not specify a partition key if it is not necessary.
 
 ## Using sessions with partitioned entities
 
@@ -121,9 +124,9 @@ committableTransaction.Commit();
 Service Bus supports automatic message forwarding from, to, or between partitioned entities. To enable automatic message forwarding, set the [QueueDescription.ForwardTo][QueueDescription.ForwardTo] property on the source queue or subscription. If the message specifies a partition key ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), or [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), that partition key is used for the destination entity.
 
 ## Considerations and guidelines
-* **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific fragments. If any of the fragments experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than non-partitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic. For more information, see this [discussion of availability and consistency](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Management**: Operations such as Create, Update, and Delete must be performed on all the fragments of the entity. If any fragment is unhealthy, it could result in failures for these operations. For the Get operation, information such as message counts must be aggregated from all fragments. If any fragment is unhealthy, the entity availability status is reported as limited.
-* **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you may have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the fragments and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies will be lower. However, if you have multiple connections or use HTTP, that establishes a new connection for each request. As such, there is no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended.
+* **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific partition. If any of the partitions experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than non-partitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic. For more information, see this [discussion of availability and consistency](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Management**: Operations such as Create, Update, and Delete must be performed on all the partitions of the entity. If any partition is unhealthy, it could result in failures for these operations. For the Get operation, information such as message counts must be aggregated from all partitions. If any partition is unhealthy, the entity availability status is reported as limited.
+* **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you may have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the partitions and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies will be lower. However, if you have multiple connections or use HTTP, that establishes a new connection for each request. As such, there is no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended. When using partitioning in low-volume scenarios, receive operations may take longer than expected. Hence, we recommend that you don't use partitioning in these scenarios. Delete any existing partitioned entities and recreate them with partitioning disabled to improve performance.
 * **Browse/Peek messages**: Available only in the older [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) does not always return the number of messages specified in the [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) property. There are two common reasons for this behavior. One reason is that the aggregated size of the collection of messages exceeds the maximum size of 256 KB. Another reason is that if the queue or topic has the [EnablePartitioning property](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) set to **true**, a partition may not have enough messages to complete the requested number of messages. In general, if an application wants to receive a specific number of messages, it should call [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repeatedly until it gets that number of messages, or there are no more messages to peek. For more information, including code samples, see the [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) or [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API documentation.
 
 ## Latest added features

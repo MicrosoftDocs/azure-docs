@@ -2,36 +2,25 @@
 title: Azure Data Box Disk portal admin guide | Microsoft Docs 
 description: Describes how to use the Azure portal to administer your Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 08/28/2018
+ms.subservice: disk
+ms.topic: how-to
+ms.date: 01/09/2019
 ms.author: alkohli
 ---
-# Use Azure portal to administer your Data Box Disk (Preview)
+# Use Azure portal to administer your Data Box Disk
 
 The tutorials in this article apply to the Microsoft Azure Data Box Disk during Preview. This article describes some of the complex workflows and management tasks that can be performed on the Data Box Disk. 
 
 You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage disks, and track the status of the order as it proceeds to the terminal stage.
 
-> [!IMPORTANT]
-> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
-
 ## Cancel an order
 
 You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the disk preparation starts. Once the disks are prepared and order processed, it is not possible to cancel the order. 
 
-Perform the following steps to cancel a order.
+Perform the following steps to cancel an order.
 
 1.	Go to **Overview > Cancel**. 
 
@@ -111,7 +100,7 @@ Perform the following steps to edit the order.
 
 ## Edit notification details
 
-You may need to change the users whom you want to recieve the order status emails. For instance, a user needs to be informed when the disk is delivered or picked up. Another user may need to be informed when the data copy is complete so he can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
+You may need to change the users whom you want to receive the order status emails. For instance, a user needs to be informed when the disk is delivered or picked up. Another user may need to be informed when the data copy is complete so they can verify the data is in the Azure storage account before deleting it from the source. In these instances, you can edit the notification details.
 
 Perform the following steps to edit notification details.
 
@@ -131,11 +120,11 @@ Perform the following steps to edit notification details.
 |Processed     | Order processing is complete. <br> During order processing, following actions occur:<li>Disks are encrypted using AES-128 BitLocker encryption. </li> <li>The Data Box Disk are locked to prevent any unauthorized access.</li><li>The passkey that unlocks the disks is generated during this process.</li>        |
 |Dispatched     | Order has shipped. You should receive the order in 1-2 days.        |
 |Delivered     | Order was delivered to the address specified in the order.        |
-|Picked up     |Your return shipment was picked up. <br> Once the shipment is recieved at Azure datacenter, data will be automatically uploaded to Azure.         |
+|Picked up     |Your return shipment was picked up. <br> Once the shipment is received at Azure datacenter, data will be automatically uploaded to Azure.         |
 |Received     | Your disks were received at the Azure datacenter. Data copy will start soon.        |
 |Data copied     |Data copy is in progress.<br> Wait until the data copy is complete.         |
-|Completed       |Successfully completed the order.<br> Verfiy your data is in Azure before you delete the on-premises data from servers.         |
-|Completed with errors| Data copy was completed but errors were received. <br> Review the copy logs using the path provided in the **Overview**. For more information, go to [Download diagnostic logs](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Completed       |Successfully completed the order.<br> Verify your data is in Azure before you delete the on-premises data from servers.         |
+|Completed with errors| Data copy was completed but errors were received. <br> Review the error logs for upload using the path provided in the **Overview**. For more information, go to [Download upload error logs](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order.     |
 
 

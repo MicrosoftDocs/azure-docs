@@ -1,21 +1,17 @@
 ---
-title: Branding guidelines for applications | Microsoft Docs
+title: App branding guidelines | Azure
+titleSuffix: Microsoft identity platform
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
-documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
-ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
-ms.devlang: na
+ms.subservice: develop
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ---
@@ -65,7 +61,7 @@ Your “get the app” link must redirect the user to the Azure AD grant access 
 
 After admins consent to your app, they can choose to add it to their users’ Office 365 app launcher experience (accessible from the waffle and from [https://portal.office.com/myapps](https://portal.office.com/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like the following example:
 
-![Application Types and scenarios](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Button showing the Microsoft logo and "Add to my organization" text](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 However, we recommend that you write explanatory text instead of relying on buttons. For example:
 
@@ -75,7 +71,7 @@ To download the official Microsoft logo for use in your app, right-click the one
 
 | Asset                                | PNG format | SVG format |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft logo  | ![Microsoft logo PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft logo SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Microsoft logo  | ![Downloadable Microsoft logo in PNG format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Downloadable Microsoft logo in SVG format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## Visual guidance for sign-in
 
@@ -87,16 +83,16 @@ It’s the association of the Microsoft logo and the “Sign in with Microsoft�
 
 The following diagram shows the Microsoft-recommended redlines when using the assets with your app. The redlines apply to "Sign in with Microsoft" or the shorter "Sign in" version.
 
-![Sign in with Microsoft redlines](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Shows the "Sign in with Microsoft" redlines](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 To download the official images for use in your app, right-click the one you want to use and then save it to your computer.
 
 | Asset                                | PNG format | SVG format |
 | ------------------------------------ | ---------- | ---------- |
-| Sign in with Microsoft (dark theme)  | ![Sign in button dark theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Sign in with Microsoft button dark theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Sign in with Microsoft (light theme) | ![Sign in button light theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Sign in with Microsoft button light theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Sign in (dark theme)                 | ![Sign in short button dark theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Sign in short button dark theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Sign in (light theme)                | ![Sign in short button light theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Sign in short button light theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Sign in with Microsoft (dark theme)  | ![Downloadable "Sign in with Microsoft" button dark theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Downloadable "Sign in with Microsoft" button dark theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Sign in with Microsoft (light theme) | ![Downloadable "Sign in with Microsoft" button light theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Downloadable "Sign in with Microsoft" button light theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Sign in (dark theme)                 | ![Downloadable "Sign in" short button dark theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Downloadable "Sign in" short button dark theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Sign in (light theme)                | ![Downloadable "Sign in" short button light theme PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Downloadable "Sign in" short button light theme SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## Branding Do’s and Don’ts
 

@@ -1,16 +1,12 @@
 ---
-title: Connect to Yammer from Azure Logic Apps | Microsoft Docs
+title: Connect to Yammer from Azure Logic Apps
 description: Automate tasks and workflows that monitor, post, and manage messages, feeds, and more in Yammer by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
 
 # Monitor and manage your Yammer account by using Azure Logic Apps
@@ -34,7 +30,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your Yammer account and user credentials
 
@@ -80,7 +76,7 @@ and open your logic app in Logic App Designer, if not open already.
        Under the actions list, select the action you want.
 
 1. If you're prompted to sign in to Yammer, sign in now 
-sign in now so you can allow access.
+so that you can allow access.
 
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
@@ -93,8 +89,8 @@ review the connector's [reference page](/connectors/yammer/).
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

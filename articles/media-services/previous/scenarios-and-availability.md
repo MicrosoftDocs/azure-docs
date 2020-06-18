@@ -4,25 +4,27 @@ description: This topic gives an overview of Microsoft Azure Media Services scen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-
+ms.topic: conceptual
+ms.date: 03/20/2019
+ms.author: juliako 
 ---
 # Scenarios and availability of Media Services features across datacenters
+
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
 
-This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across datacenters.
+This topic shows common scenarios for delivering your content [live](#live_scenarios) or on-demand. The topic also provides details about availability of media features and services across datacenters.
 
 ## Overview
 
@@ -130,7 +132,7 @@ For information about availability in datacenters, see the [Availability](#avail
 
 ## Consuming content
 
-Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services. For more information, see [Developing video payer applications](media-services-develop-video-players.md)
+Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. 
 
 ## Enabling Azure CDN
 
@@ -154,7 +156,7 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
 * You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Availability of Media Services features across datacenters
+## <a id="availability"></a> Availability of Media Services features across datacenters
 
 This section provides details about availability of Media Services features across datacenters.
 
@@ -162,7 +164,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+Use [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) to determine whether Media Services is available in a specific datacenter.
 
 ### Streaming endpoints 
 
@@ -196,19 +198,19 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 
 Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
 
+> [!NOTE]
+> Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
+
 #### Availability
 
 |Media processor name|Status|Datacenters
 |---|---|---|
 |Azure Media Face Detector|Preview|All|
-|Azure Media Hyperlapse|Preview|All|
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
-|Azure Media Redactor|Preview|All|
-|Azure Media Stabilizer|Preview|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
@@ -247,6 +249,10 @@ For more information, see the [scaling](#scaling) section.
 |S1|GA|All|
 |S2|GA|All except Brazil South, and India West|
 |S3|GA|All except India West|
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

@@ -1,39 +1,22 @@
 ---
-title: Azure Service Fabric cluster scaling | Microsoft Docs
-description: Learn about scaling Service Fabric clusters in or out and up or down.
-services: service-fabric
-documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: aljo
+title: Azure Service Fabric cluster scaling 
+description: Learn about scaling Azure Service Fabric clusters in or out and up or down. As application demands change, so can Service Fabric clusters.
 
-ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 04/09/2018
-ms.author: ryanwi
-
+ms.date: 11/13/2018
+ms.author: atsenthi
 ---
-# Scaling Service Fabric clusters
+# Scaling Azure Service Fabric clusters
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Clusters can contain potentially thousands of nodes. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes).  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 Why scale the cluster? Application demands change over time.  You may need to increase cluster resources to meet increased application workload or network traffic or decrease cluster resources when demand drops.
 
-### Scaling in and out, or horizontal scaling
+## Scaling in and out, or horizontal scaling
 Changes the number of nodes in the cluster.  Once the new nodes join the cluster, the [Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md) moves services to them which reduces load on the existing nodes.  You can also decrease the number of nodes if the cluster's resources are not being used efficiently.  As nodes leave the cluster, services move off those nodes and load increases on the remaining nodes.  Reducing the number of nodes in a cluster running in Azure can save you money, since you pay for the number of VMs you use and not the workload on those VMs.  
 
 - Advantages: Infinite scale, in theory.  If your application is designed for scalability, you can enable limitless growth by adding more nodes.  The tooling in cloud environments makes it easy to add or remove nodes, so it's easy to adjust capacity and you only pay for the resources you use.  
 - Disadvantages: Applications must be [designed for scalability](service-fabric-concepts-scalability.md).  Application databases and persistence may require additional architectural work to scale as well.  [Reliable collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric stateful services, however, make it much easier to scale your application data.
 
-### Scaling up and down, or vertical scaling 
-Changes the resources (CPU, memory, or storage) of nodes in the cluster.
-- Advantages: Software and application architecture stays the same.
-- Disadvantages: Finite scale, since there is a limit to how much you can increase resources on individual nodes. Downtime, because you will need to take physical or virtual machines offline in order to add or remove resources.
-
-## Scaling an Azure cluster in or out
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be scaled in or out independently, have different sets of ports open, and can have different capacity metrics. 
 
 When scaling an Azure cluster, keep the following guidelines in mind:
@@ -41,18 +24,18 @@ When scaling an Azure cluster, keep the following guidelines in mind:
 - non-primary node types running stateful production workloads should always have five or more nodes.
 - non-primary node types running stateless production workloads should always have two or more nodes.
 - Any node type of [durability level](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) of Gold or Silver should always have five or more nodes.
-- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale down feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
+- Do not remove random VM instances/nodes from a node type, always use the virtual machine scale set scale in feature. The deletion of random VM instances can adversely affect the systems ability to properly load balance.
 - If using autoscale rules, set the rules so that scaling in (removing VM instances) is done one node at a time. Scaling down more than one instance at a time is not safe.
 
-Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-up-down.md) each node type/virtual machine scale set.
+Since the Service Fabric node types in your cluster are made up of virtual machine scale sets at the backend, you can [set up auto-scale rules or manually scale](service-fabric-cluster-scale-in-out.md) each node type/virtual machine scale set.
 
 ### Programmatic scaling
-In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-up-down.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
+In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-in-out.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
-- Manually scaling requires you to log in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
+- Manually scaling requires you to sign in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
 - When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
 - A node type with a durability level of Gold or Silver automatically cleans up removed nodes, so no additional clean-up is needed.
-- Although there are [many metrics](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
+- Although there are [many metrics](../azure-monitor/platform/autoscale-common-metrics.md) supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
 
 How you should approach Service Fabric scaling depends on your scenario. If scaling is uncommon, the ability to add or remove nodes manually is probably sufficient. For more complex scenarios, auto-scale rules and SDKs exposing the ability to scale programmatically offer powerful alternatives.
 
@@ -66,23 +49,11 @@ The scaling code doesn't need to run as a service in the cluster to be scaled, t
 
 Based on these limitations, you may wish to [implement more customized automatic scaling models](service-fabric-cluster-programmatic-scaling.md).
 
+## Scaling up and down, or vertical scaling 
+Changes the resources (CPU, memory, or storage) of nodes in the cluster.
+- Advantages: Software and application architecture stays the same.
+- Disadvantages: Finite scale, since there is a limit to how much you can increase resources on individual nodes. Downtime, because you will need to take physical or virtual machines offline in order to add or remove resources.
 
-## Scaling a standalone cluster in or out
-Standalone clusters allow you to deploy Service Fabric cluster on-premises or in the cloud provider of your choice.  Node types are comprised of physical machines or virtual machines, depending on your deployment. Compared to clusters running in Azure, the process of scaling a standalone cluster is a little more involved.  You must manually change the number of nodes in the cluster and then run a cluster configuration upgrade.
-
-Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
-
-> [!WARNING]
-> We recommend that you do not lower the node count below the [Cluster Size of the Reliability Tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) for the cluster. This will interfere with the ablility of the Service Fabric System Services to be replicated across the cluster, and will destabilize or possibly destroy the cluster.
->
-
-When scaling a standalone cluster, keep the following guidelines in mind:
-- The replacement of primary nodes should be performed one node after another, instead of removing and then adding in batches.
-- Before removing a node type, check if there are any nodes referencing the node type. Remove these nodes before removing the corresponding node type. Once all corresponding nodes are removed, you can remove the NodeType from the cluster configuration and begin a configuration upgrade using [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade).
-
-For more information, see [scale a standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md).
-
-## Scaling an Azure cluster up or down
 Virtual machine scale sets are an Azure compute resource that you can use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.  Scaling a node type up or down involves changing the SKU of the virtual machine instances in the scale set. 
 
 > [!WARNING]
@@ -95,7 +66,7 @@ When scaling an Azure cluster, keep the following guideline in mind:
 The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
 
 ### Scaling non-primary node types
-Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommisioned.
+Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommissioned.
 
 ### Scaling the primary node type
 We recommend that you do not change the VM SKU of the primary node type. If you need more cluster capacity, we recommend adding more instances. 
@@ -106,5 +77,5 @@ If that not possible, you can create a new cluster and [restore application stat
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
-* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

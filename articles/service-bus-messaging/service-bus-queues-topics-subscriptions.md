@@ -1,15 +1,16 @@
 ---
-title: Overview of Azure Service Bus messaging queues, topics, and subscriptions | Microsoft Docs
-description: Overview of Service Bus messaging entities.
+title: Azure Service Bus messaging - queues, topics, and subscriptions
+description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: spelluru
+ms.date: 01/16/2020
+ms.author: aschhab
 
 ---
 # Service Bus queues, topics, and subscriptions
@@ -28,15 +29,15 @@ Using queues to intermediate between message producers and consumers provides an
 
 ### Create queues
 
-You create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). You then send and receive messages using a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. 
+You create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). You then send and receive messages using a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object.
 
-To quickly learn how to create a queue, then send and receive messages to and from the queue, see the [quickstarts](service-bus-quickstart-portal.md) for each method. For a more in-depth tutorial on how to use queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md). 
+To quickly learn how to create a queue, then send and receive messages to and from the queue, see the [quickstarts](service-bus-quickstart-portal.md) for each method. For a more in-depth tutorial on how to use queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 For a working sample, see the [BasicSendReceiveUsingQueueClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) on GitHub.
 
 ### Receive modes
 
-You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 In [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation becomes two-stage, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives the request, it finds the next message to be consumed, locks it to prevent other consumers from receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) on the received message. When Service Bus sees the **CompleteAsync** call, it marks the message as being consumed.
 
@@ -52,9 +53,9 @@ By way of comparison, the message-sending functionality of a queue maps directly
 
 ### Create topics and subscriptions
 
-Creating a topic is similar to creating a queue, as described in the previous section. You then send messages using the [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) class. To receive messages, you create one or more subscriptions to the topic. Similar to queues, messages are received from a subscription using a [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object instead of a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Create the subscription client, passing the name of the topic, the name of the subscription, and (optionally) the receive mode as parameters. 
+Creating a topic is similar to creating a queue, as described in the previous section. You then send messages using the [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) class. To receive messages, you create one or more subscriptions to the topic. Similar to queues, messages are received from a subscription using a [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object instead of a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Create the subscription client, passing the name of the topic, the name of the subscription, and (optionally) the receive mode as parameters.
 
-For a full working example, see the [BasicSendReceiveUsingTopicSubscriptionClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) on Github.
+For a full working example, see the [BasicSendReceiveUsingTopicSubscriptionClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) on GitHub.
 
 ### Rules and actions
 
@@ -62,7 +63,7 @@ In many scenarios, messages that have specific characteristics must be processed
 
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
-For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes. 
+For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
 ## Next steps
 

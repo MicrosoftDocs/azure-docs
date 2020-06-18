@@ -1,27 +1,31 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, Java - Computer Vision"
+title: "Quickstart: Analyze a remote image with the REST API and Java"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Java.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ---
-# Quickstart: Analyze a remote image using the REST API and Java in Computer Vision
 
-In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
+# Quickstart: Analyze a remote image using the Computer Vision REST API and Java
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+In this quickstart, you'll analyze a remotely stored image to extract visual features by using Java and the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 ## Prerequisites
 
-- You must have [Java&trade; Platform, Standard Edition Development Kit 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 or 8) installed.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* [Java&trade; Platform, Standard Edition Development Kit 7 or 8](https://aka.ms/azure-jdks) (JDK 7 or 8)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
@@ -47,36 +51,24 @@ To create and run the sample, do the following steps:
    import org.json.JSONObject;
    ```
 
-1. Replace the `Main` public class with the following code, then make the following changes in code where needed:
-   1. Replace the value of `subscriptionKey` with your subscription key.
-   1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
-   1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image that you want to analyze.
-1. Save, then build the Java project.
-1. If you're using an IDE, run `Main`. Otherwise, open a command prompt window and then use the `java` command to run the compiled class. For example, `java Main`.
+1. Replace the `AnalyzeImage` public class with the following code.
+1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image that you want to analyze.
 
 ```java
-public class Main {
+public class AnalyzeImage {
     // **********************************************
     // *** Update or verify the following values. ***
     // **********************************************
 
-    // Replace <Subscription Key> with your valid subscription key.
-    private static final String subscriptionKey = "<Subscription Key>";
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // After setting, close and then re-open your command shell or project for the changes to take effect.
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    // You must use the same Azure region in your REST API method as you used to
-    // get your subscription keys. For example, if you got your subscription keys
-    // from the West US region, replace "westcentralus" in the URL
-    // below with "westus".
-    //
-    // Free trial subscription keys are generated in the West Central US region.
-    // If you use a free trial subscription key, you shouldn't need to change
-    // this region.
-    private static final String uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
-
+    private static final String uriBase = endpoint + "vision/v3.0/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
-                    "1/12/Broadway_and_Times_Square_by_night.jpg";
+            "1/12/Broadway_and_Times_Square_by_night.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -119,6 +111,25 @@ public class Main {
     }
 }
 ```
+
+## Compile and run the program
+
+1. Save, then build the Java project.
+1. If you're using an IDE, run `Main`.
+
+Alternately, if you're running the program from a command line window, run the following commands. These commands presume your libraries are in a folder named `libs` that is in the same folder as `Main.java`; if not, you will need to replace `libs` with the path to your libraries.
+
+1. Compile the file `Main.java`.
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. Run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the command line window.
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## Examine the response
 
@@ -180,10 +191,6 @@ REST Response:
   }]
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the Java project, including the compiled class and imported libraries.
 
 ## Next steps
 

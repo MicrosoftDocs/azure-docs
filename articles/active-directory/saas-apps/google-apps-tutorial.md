@@ -1,294 +1,278 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with G Suite | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and G Suite.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Google Cloud (G Suite) Connector | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Google Cloud (G Suite) Connector.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/03/2018
+ms.topic: tutorial
+ms.date: 05/06/2020
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with G Suite
 
-In this tutorial, you learn how to integrate G Suite with Azure Active Directory (Azure AD).
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Google Cloud (G Suite) Connector
 
-Integrating G Suite with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Google Cloud (G Suite) Connector with Azure Active Directory (Azure AD). When you integrate Google Cloud (G Suite) Connector with Azure AD, you can:
 
-- You can control in Azure AD who has access to G Suite.
-- You can enable your users to automatically get signed-on to G Suite (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Google Cloud (G Suite) Connector.
+* Enable your users to be automatically signed-in to Google Cloud (G Suite) Connector with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
-To configure Azure AD integration with G Suite, you need the following items:
+To get started, you need the following items:
 
-- An Azure AD subscription
-- A G Suite single sign-on enabled subscription
+- An Azure AD subscription.
+- Google Cloud (G Suite) Connector single sign-on (SSO) enabled subscription.
 - A Google Apps subscription or Google Cloud Platform subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> To test the steps in this tutorial, we do not recommend using a production environment. This document was created using the new user Single-Sign-on experience. If you are still using the old one, the setup will look different. You can enable the new experience in the Single Sign-on settings of G-Suite application. Go to **Azure AD, Enterprise applications**, select **Google Cloud (G Suite) Connector**, select **Single Sign-on** and then click on **Try out our new experience**.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
 ## Frequently Asked Questions
 
-1.	**Q: Does this integration support Google Cloud Platform SSO integration with Azure AD?**
-	
+1. **Q: Does this integration support Google Cloud Platform SSO integration with Azure AD?**
+
 	A: Yes. Google Cloud Platform and Google Apps share the same authentication platform. So to do the GCP integration you need to configure the SSO with Google Apps.
 
+2. **Q: Are Chromebooks and other Chrome devices compatible with Azure AD single sign-on?**
+  
+    A: Yes, users are able to sign into their Chromebook devices using their Azure AD credentials. See this [Google Cloud (G Suite) Connector support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
 
-1. **Q: Are Chromebooks and other Chrome devices compatible with Azure AD single sign-on?**
-   
-    A: Yes, users are able to sign into their Chromebook devices using their Azure AD credentials. See this [G Suite support article](https://support.google.com/chrome/a/answer/6060880) for information on why users may get prompted for credentials twice.
+3. **Q: If I enable single sign-on, will users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, and so on?**
 
-1. **Q: If I enable single sign-on, will users be able to use their Azure AD credentials to sign into any Google product, such as Google Classroom, GMail, Google Drive, YouTube, and so on?**
-   
-    A: Yes, depending on [which G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
+    A: Yes, depending on [which Google Cloud (G Suite) Connector](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) you choose to enable or disable for your organization.
 
-1. **Q: Can I enable single sign-on for only a subset of my G Suite users?**
-   
-    A: No, turning on single sign-on immediately requires all your G Suite users to authenticate with their Azure AD credentials. Because G Suite doesn't support having multiple identity providers, the identity provider for your G Suite environment can either be Azure AD or Google -- but not both at the same time.
+4. **Q: Can I enable single sign-on for only a subset of my Google Cloud (G Suite) Connector users?**
 
-1. **Q: If a user is signed in through Windows, are they automatically authenticate to G Suite without getting prompted for a password?**
-   
-    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and G Suite.
+    A: No, turning on single sign-on immediately requires all your Google Cloud (G Suite) Connector users to authenticate with their Azure AD credentials. Because Google Cloud (G Suite) Connector doesn't support having multiple identity providers, the identity provider for your Google Cloud (G Suite) Connector environment can either be Azure AD or Google -- but not both at the same time.
+
+5. **Q: If a user is signed in through Windows, are they automatically authenticate to Google Cloud (G Suite) Connector without getting prompted for a password?**
+
+    A: There are two options for enabling this scenario. First, users could sign into Windows 10 devices via [Azure Active Directory Join](../device-management-introduction.md). Alternatively, users could sign into Windows devices that are domain-joined to an on-premises Active Directory that has been enabled for single sign-on to Azure AD via an [Active Directory Federation Services (AD FS)](../hybrid/plan-connect-user-signin.md) deployment. Both options require you to perform the steps in the following tutorial to enable single sign-on between Azure AD and Google Cloud (G Suite) Connector.
+
+6. **Q: What should I do when I get an "invalid email" error message?**
+
+	A: For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
+
+	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
+
+	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+
+	Once the O365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding G Suite from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-## Adding G Suite from the gallery
+* Google Cloud (G Suite) Connector supports **SP** initiated SSO
 
-To configure the integration of G Suite into Azure AD, you need to add G Suite from the gallery to your list of managed SaaS apps.
+* Google Cloud (G Suite) Connector supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+* Once you configure Google Cloud (G Suite) Connector you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-**To add G Suite from the gallery, perform the following steps:**
+## Adding Google Cloud (G Suite) Connector from the gallery
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of Google Cloud (G Suite) Connector into Azure AD, you need to add Google Cloud (G Suite) Connector from the gallery to your list of managed SaaS apps.
 
-	![image](./media/google-apps-tutorial/selectazuread.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Google Cloud (G Suite) Connector** in the search box.
+1. Select **Google Cloud (G Suite) Connector** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+## Configure and test Azure AD single sign-on for Google Cloud (G Suite) Connector
 
-	![image](./media/google-apps-tutorial/a_select_app.png)
-	
-3. To add new application, click **New application** button on the top of dialog.
+Configure and test Azure AD SSO with Google Cloud (G Suite) Connector using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Google Cloud (G Suite) Connector.
 
-	![image](./media/google-apps-tutorial/a_new_app.png)
+To configure and test Azure AD SSO with Google Cloud (G Suite) Connector, complete the following building blocks:
 
-4. In the search box, type **G Suite**, select **G Suite** from result panel then click **Add** button to add the application.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Configure Google Cloud (G Suite) Connector SSO](#configure-google-cloud-g-suite-connector-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Google Cloud (G Suite) Connector test user](#create-google-cloud-g-suite-connector-test-user)** - to have a counterpart of B.Simon in Google Cloud (G Suite) Connector that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-	 ![image](./media/google-apps-tutorial/a_add_app.png)
+## Configure Azure AD SSO
 
-## Configure and test Azure AD single sign-on
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-In this section, you configure and test Azure AD single sign-on with G Suite based on a test user called "Britta Simon".
+1. In the [Azure portal](https://portal.azure.com/), on the **Google Cloud (G Suite) Connector** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in G Suite is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in G Suite needs to be established.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-In G Suite, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+1. On the **Basic SAML Configuration** section, if you want to configure for the **Gmail** perform the following steps:
 
-To configure and test Azure AD single sign-on with G Suite, you need to complete the following building blocks:
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a G Suite test user](#create-a-g-suite-test-user)** - to have a counterpart of Britta Simon in G Suite that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+    b. In the **Identifier** textbox, type a URL using the following pattern:
 
-### Configure Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your G Suite application.
-
-**To configure Azure AD single sign-on with G Suite, perform the following steps:**
-
-1. In the [Azure portal](https://portal.azure.com/), on the **G Suite** application integration page, select **Single sign-on**.
-
-    ![image](./media/google-apps-tutorial/b1_b2_select_sso.png)
-
-2. Click **Change Single sign-on mode** on top of the screen to select the **SAML** mode.
-
-	  ![image](./media/google-apps-tutorial/b1_b2_saml_ssso.png)
-
-3. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
-
-    ![image](./media/google-apps-tutorial/b1_b2_saml_sso.png)
-
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **Basic SAML Configuration** dialog.
-
-	![image](./media/google-apps-tutorial/b1-domains_and_urlsedit.png)
-
-5. On the **Basic SAML Configuration** section, perform the following steps:
-
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
-
-    b. In the **Identifier** textbox, type a URL using the following pattern: 
 	| |
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
 
-    ![image](./media/google-apps-tutorial/b1-domains_and_urls.png)
- 
-    > [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
 
-6. G Suite application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+    | |
+	|--|
+	| `https://www.google.com` |
+	| `https://www.google.com/a/<yourdomain.com>` |
 
-	![image](./media/google-apps-tutorial/i3-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
+
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
+
+    b. In the **Identifier** textbox, type a URL using the following pattern:
+	
+	| |
+	|--|
+	| `google.com/a/<yourdomain.com>` |
+	| `google.com` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
     
-	a. Click **Edit** button to open the **Manage user claims** dialog.
+    c. In the **Reply URL** textbox, type a URL using the following pattern: 
+    
+    | |
+	|--|
+	| `https://www.google.com` |
+	| `https://www.google.com/a/<yourdomain.com>` |
 
-	![image](./media/google-apps-tutorial/i2-attribute.png)
+    > [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Google Cloud (G Suite) Connector doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure Google Cloud (G Suite) Connector SSO** section which is explained later in the tutorial. For more information contact [Google Cloud (G Suite) Connector Client support team](https://www.google.com/contact/).
 
-	![image](./media/google-apps-tutorial/i4-attribute.png)
+1. Your Google Cloud (G Suite) Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but Google Cloud (G Suite) Connector expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
-	b. From the **Source attribute** list, selelct the attribute value.
+	![image](common/default-attributes.png)
 
-	c. Click **Save**.
 
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the appropriate certificate as per your requirement and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![image](./media/google-apps-tutorial/certificatebase64.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-9. On the **Set up G Suite** section, copy the appropriate URL as per your requirement.
+1. On the **Set up Google Cloud (G Suite) Connector** section, copy the appropriate URL(s) based on your requirement.
 
-	Note that the URL may say the following:
-
-	a. Login URL
-
-	b. Azure Ad Identifier
-
-	c. Logout URL
-
-	![image](./media/google-apps-tutorial/d1_saml.png) 
-
-10. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
-
-11. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
-   
-    ![Click Security.][10]
-
-12. On the **Security** page, click **Set up single sign-on (SSO).**
-   
-    ![Click SSO.][11]
-
-13. Perform the following configuration changes:
-   
-    ![Configure SSO][12]
-   
-    a. Select **Setup SSO with third-party identity provider**.
-
-    b. In the **Sign-in page URL** field in G Suite, paste the value of **Single Sign-On Service URL** which you have copied from Azure portal.
-
-    c. In the **Sign-out page URL** field in G Suite, paste the value of **Sign-Out URL** which you have copied from Azure portal. 
-
-    d. In the **Change password URL** field in G Suite, paste the value of **Change password URL** which you have copied from Azure portal. 
-
-    e. In G Suite, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
-
-	f. Select **Use a domain specific issuer**.
-
-    g. Click **Save Changes**.
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
-
-    ![image](./media/google-apps-tutorial/d_users_and_groups.png)
-
-2. Select **New user** at the top of the screen.
-
-    ![image](./media/google-apps-tutorial/d_adduser.png)
-
-3. In the User properties, perform the following steps.
-
-    ![image](./media/google-apps-tutorial/d_userproperties.png)
-
-    a. In the **Name** field enter **BrittaSimon**.
-  
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
-
-    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
-
-    d. Select **Create**.
- 
-### Create a G Suite test user
-
-The objective of this section is to create a user called Britta Simon in G Suite Software. G Suite supports auto provisioning, which is by default enabled. There is no action for you in this section. If a user doesn't already exist in G Suite Software, a new one is created when you attempt to access G Suite Software.
-
->[!NOTE]
->Make sure that your user already exists in G Suite if provisioning in Azure AD has not been turned on before testing Single Sign-on.
-
->[!NOTE] 
->If you need to create a user manually, contact the [Google support team](https://www.google.com/contact/).
-
-
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to G Suite.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Google Cloud (G Suite) Connector.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Google Cloud (G Suite) Connector**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-	![image](./media/google-apps-tutorial/d_all_applications.png)
+   ![The "Users and groups" link](common/users-groups-blade.png)
 
-2. In the applications list, select **G Suite**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![image](./media/google-apps-tutorial/d_all_proapplications.png)
+	![The Add User link](common/add-assign-user.png)
 
-3. In the menu on the left, select **Users and groups**.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-    ![image](./media/google-apps-tutorial/d_leftpaneusers.png)
+## Configure Google Cloud (G Suite) Connector SSO
 
-4. Select the **Add** button, then select **Users and groups** in the **Add Assignment** dialog.
+1. Open a new tab in your browser, and sign into the [Google Cloud (G Suite) Connector Admin Console](https://admin.google.com/) using your administrator account.
 
-    ![image](./media/google-apps-tutorial/d_assign_user.png)
+2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 
-4. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+    ![Click Security.][10]
 
-5. In the **Add Assignment** dialog select the **Assign** button.
-	
-### Test single sign-on
+3. On the **Security** page, click **Set up single sign-on (SSO).**
+
+    ![Click SSO.][11]
+
+4. Perform the following configuration changes:
+
+    ![Configure SSO][12]
+
+    a. Select **Setup SSO with third-party identity provider**.
+
+    b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
+
+    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Logout URL** which you have copied from Azure portal.
+
+    d. In the **Change password URL** field in Google Cloud (G Suite) Connector, paste the value of **Change password URL** which you have copied from Azure portal.
+
+    e. In Google Cloud (G Suite) Connector, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
+
+	f. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
+
+    g. Click **Save Changes**.
+
+### Create Google Cloud (G Suite) Connector test user
+
+The objective of this section is to [create a user in Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in Google Cloud (G Suite) Connector, the user will now be able to sign in using their Office 365 login credentials.
+
+Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
+
+> [!NOTE]
+> Make sure that your user already exists in Google Cloud (G Suite) Connector if provisioning in Azure AD has not been turned on before testing Single Sign-on.
+
+> [!NOTE]
+> If you need to create a user manually, contact the [Google support team](https://www.google.com/contact/).
+
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the G Suite tile in the Access Panel, you should get automatically signed-on to your G Suite application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Google Cloud (G Suite) Connector tile in the Access Panel, you should be automatically signed in to the Google Cloud (G Suite) Connector for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Configure User Provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+
+- [Try Google Cloud (G Suite) Connector with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect Google Cloud (G Suite) Connector with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png
 [11]: ./media/google-apps-tutorial/security-gapps.png
 [12]: ./media/google-apps-tutorial/gapps-sso-config.png
-

@@ -1,62 +1,68 @@
 ---
-title: Migration of web resources from Azure Germany to global Azure
-description: This article provides help for migrating web resources from Azure Germany to global Azure
+title: Migrate Azure web resources from Azure Germany to global Azure
+description: This article provides information about migrating your Azure web resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 12/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migration of web resources from Azure Germany to global Azure
-
-This article will provide you some help for the migration of Azure Web resources from Azure Germany to global Azure.
-
-## App Service - Web Apps
-
-The migration of App Services from Azure Germany to global Azure isn't supported at this time. The recommended approach is to export as Resource Manager template and redeploy after changing the location property to the new destination region.
+# Migrate web resources to global Azure
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certs, and other GUIDs to be consistent with the new region.
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
-### Next steps
+This article has information that can help you migrate Azure web resources from Azure Germany to global Azure.
 
-- Refresh your knowledge about App Services by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Make yourself familiar how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview about [the Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+## Web Apps
 
-### References
+Migrating apps that you created by using the Web Apps feature of Azure App Service from Azure Germany to global Azure isn't supported at this time. We recommend that you export a web app as an Azure Resource Manager template. Then, redeploy after you change the location property to the new destination region.
 
-- [App Service Overview](../app-service/app-service-web-overview.md)
-- [Export a Resource Manager template using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
-- [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
-- [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
+> [!IMPORTANT]
+> Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
+For more information:
 
-
-
-
-
-
-
-
-
-
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
+- Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
+- Review the [App Service overview](../app-service/overview.md).
+- Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
+- Learn how to [redeploy a template](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Notification Hubs
 
-To migrate settings from one Notification Hub to another, you can export and import all registration tokens along with tags. Here's how:
+To migrate settings from one Azure Notification Hubs instance to another instance, export and import all registration tokens with their tags:
 
-- [Export the existing Hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) into an Azure Blob Storage container.
-- Create a new Notification Hub in the target environment
-- [Import your Registration Tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Azure Blob Storage to your new Hub
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
+1. Create a new notification hub in the target environment.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
-### Next Steps
+For more information:
 
-Refresh your knowledge about Notification Hubs by following these [Step-by-Step tutorials](https://docs.microsoft.com/azure/notification-hubs/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Notification Hubs tutorials](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started).
+- Review the [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-### References
+## Next steps
 
-- [Notification Hubs overview](../notification-hubs/notification-hubs-push-notification-overview.md)
+Learn about tools, techniques, and recommendations for migrating resources in the following service categories:
+
+- [Compute](./germany-migration-compute.md)
+- [Networking](./germany-migration-networking.md)
+- [Storage](./germany-migration-storage.md)
+- [Databases](./germany-migration-databases.md)
+- [Analytics](./germany-migration-analytics.md)
+- [IoT](./germany-migration-iot.md)
+- [Integration](./germany-migration-integration.md)
+- [Identity](./germany-migration-identity.md)
+- [Security](./germany-migration-security.md)
+- [Management tools](./germany-migration-management-tools.md)
+- [Media](./germany-migration-media.md)

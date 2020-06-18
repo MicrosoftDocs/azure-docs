@@ -2,30 +2,30 @@
 title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 04/20/2020
+ms.author: mimart
+ms.subservice: B2C
 ---
 
 # RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **RelyingParty** element specifies the user journey to enforce for the current request to Azure Active Directory (Azure AD) B2C. It also specifies the list of claims that the relying party (RP) application needs as part of the issued token. An RP application, such as a web, mobile, or desktop application, calls the RP policy file. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. Multiple applications can use the same RP policy and a single application can use multiple policies. All RP applications receive the same token with claims, and the user goes through the same user journey.
+The **RelyingParty** element specifies the user journey to enforce for the current request to Azure Active Directory B2C (Azure AD B2C). It also specifies the list of claims that the relying party (RP) application needs as part of the issued token. An RP application, such as a web, mobile, or desktop application, calls the RP policy file. The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. Multiple applications can use the same RP policy and a single application can use multiple policies. All RP applications receive the same token with claims, and the user goes through the same user journey.
 
 The following example shows a **RelyingParty** element in the *B2C_1A_signup_signin* policy file:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -40,7 +40,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" />
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -50,7 +50,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -100,7 +100,7 @@ The **DefaultUserJourney** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of the user journey in the policy. For more informaiton, see [user journeys](userjourneys.md) |
+| ReferenceId | Yes | An identifier of the user journey in the policy. For more information, see [user journeys](userjourneys.md) |
 
 ## UserJourneyBehaviors
 
@@ -113,6 +113,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. |
 | JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
+|ScriptExecution| 0:1| The supported [JavaScript](javascript-samples.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
 ### SingleSignOn
 
@@ -120,7 +121,10 @@ The **SingleSignOn** element contains in the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed. For example, in the case of a single sign-on session, no session is maintained for the user and the user is always prompted for an identity provider selection. The `TrustFramework` value indicates that the behavior is applied for all policies in the trust framework. For example, a user navigating through two policy journeys for a trust framework is not prompted for an identity provider selection. The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
+| Scope | Yes | The scope of the single sign-on behavior. Possible values: `Suppressed`, `Tenant`, `Application`, or `Policy`. The `Suppressed` value indicates that the behavior is suppressed, and the user is always prompted for an identity provider selection.  The `Tenant` value indicates that the behavior is applied to all policies in the tenant. For example, a user navigating through two policy journeys for a tenant is not prompted for an identity provider selection. The `Application` value indicates that the behavior is applied to all policies for the application making the request. For example, a user navigating through two policy journeys for an application is not prompted for an identity provider selection. The `Policy` value indicates that the behavior only applies to a policy. For example, a user navigating through two policy journeys for a trust framework is prompted for an identity provider selection when switching between policies. |
+| KeepAliveInDays | Yes | Controls how long the user remains signed in. Setting the value to 0 turns off KMSI functionality. For more information, see [Keep me signed in](custom-policy-keep-me-signed-in.md). |
+|EnforceIdTokenHintOnLogout| No|  Force to pass a previously issued ID token to the logout endpoint as a hint about the end user's current authenticated session with the client. Possible values: `false` (default), or `true`. For more information, see [Web sign-in with OpenID Connect](openid-connect.md).  |
+
 
 ## JourneyInsights
 
@@ -128,18 +132,18 @@ The **JourneyInsights** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Yes | The value must be `ApplicationInsights`. | 
+| TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
 | InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
 | DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
-| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. | 
-| ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. | 
-| TelemetryVersion | Yes | The value must be `1.0.0`. | 
+| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
+| ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
+| TelemetryVersion | Yes | The value must be `1.0.0`. |
 
-For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md)
+For more information, see [Collecting Logs](troubleshoot-with-application-insights.md)
 
 ## ContentDefinitionParameters
 
-By using custom policies in Azure AD B2C, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. Azure AD B2C passes the query string parameters to your dynamic HTML file, such as aspx file. 
+By using custom policies in Azure AD B2C, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. Azure AD B2C passes the query string parameters to your dynamic HTML file, such as aspx file.
 
 The following example passes a parameter named `campaignId` with a value of `hawaii` in the query string:
 
@@ -157,32 +161,32 @@ The **ContentDefinitionParameter** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of the key value pair. |
 
-For more information, see [Configure the UI with dynamic content by using custom policies](active-directory-b2c-ui-customization-custom-dynamic.md)
+For more information, see [Configure the UI with dynamic content by using custom policies](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri)
 
 ## TechnicalProfile
 
 The **TechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | Id | Yes | The value must be `PolicyProfile`. |
 
 The **TechnicalProfile** contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | The string that contains the name of the technical profile that is displayed to users. |
-| Description | 0:1 | The string that contains the description of the technical profile that is displayed to users. |
+| DisplayName | 1:1 | The string that contains the name of the technical profile. |
+| Description | 0:1 | The string that contains the description of the technical profile. |
 | Protocol | 1:1 | The protocol used for the federation. |
 | Metadata | 0:1 | The collection of *Item* of key/value pairs utilized by the protocol for communicating with the endpoint in the course of a transaction to configure interaction between the relying party and other community participants. |
-| OutputClaims | 0:1 | A list of claim types that are taken as output in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
-| SubjectNamingInfo | 0:1 | The subject name used in tokens. |
+| OutputClaims | 1:1 | A list of claim types that are taken as output in the technical profile. Each of these elements contains reference to a **ClaimType** already defined in the **ClaimsSchema** section or in a policy from which this policy file inherits. |
+| SubjectNamingInfo | 1:1 | The subject name used in tokens. |
 
 The **Protocol** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. Do not use a SAML token in production. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. |
 
 ## OutputClaims
 
@@ -203,7 +207,7 @@ The **OutputClaim** element contains the following attributes:
 ### SubjectNamingInfo
 
 With the **SubjectNameingInfo** element, you control the value of the token subject:
-- **JTW token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](active-directory-b2c-token-session-sso.md).
+- **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
 - **SAML token** - the `<Subject><NameID>` element which identifies the subject element.
 
 The **SubjectNamingInfo** element contains the following attribute:
@@ -212,7 +216,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 | --------- | -------- | ----------- |
 | ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
 
-The following example shows how to define an OpenId Connect relying party. The subject name info is configured as the `objectId`:
+The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:
 
 ```XML
 <RelyingParty>
@@ -241,5 +245,3 @@ The JWT token includes the `sub` claim with the user objectId:
   ...
 }
 ```
-
-

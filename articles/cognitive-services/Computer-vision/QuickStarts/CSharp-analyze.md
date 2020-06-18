@@ -1,42 +1,43 @@
 ---
-title: "Quickstart: Analyze a local image - REST, C# - Computer Vision"
+title: "Quickstart: Analyze a local image - REST, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a local image using the Computer Vision API with C#.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
-ms.author: v-deken
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.custom: seodec18
 ---
-# Quickstart: Analyze a local image using the REST API and C&#35; in Computer Vision
+# Quickstart: Analyze a local image using the Computer Vision REST API and C#
 
-In this quickstart, you analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+In this quickstart, you will analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual feature information from image content.
 
 ## Prerequisites
 
-- You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
 To create the sample in Visual Studio, do the following steps:
 
-1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App template.
+1. Create a new Visual Studio solution/project in Visual Studio, using the Visual C# Console App (.NET Core Framework) template.
 1. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
-    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
-    1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
-1. Replace the code in `Program.cs` with the following code, and then make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
+    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json" (if it is not already displayed).
+    1. Select **Newtonsoft.Json**, then click the checkbox next to your project name, and **Install**.
+1. Copy/paste the sample code snippet below, into your Program.cs file. Adjust the namespace name if it's different from the one you created.
+1. Add an image of your choosing to your bin/debug/netcoreappX.X folder, then add the image name (with extension) to the 'imageFilePath' variable.
 1. Run the program.
-1. At the prompt, enter the path to a local image.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -50,38 +51,24 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
-        // You must use the same Azure region in your REST API method as you used to
-        // get your subscription keys. For example, if you got your subscription keys
-        // from the West US region, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the West Central US region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        
+        // the Analyze method endpoint
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static void Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeAnalysisRequest(imageFilePath).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -170,7 +157,7 @@ namespace CSHttpClientSample
 
 ## Examine the response
 
-A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example:
+A successful response is returned in JSON (based on your own image used) in the console window, similar to the following example:
 
 ```json
 {
@@ -241,13 +228,9 @@ A successful response is returned in JSON. The sample application parses and dis
 }
 ```
 
-## Clean up resources
-
-When no longer needed, delete the Visual Studio solution. To do so, open File Explorer, navigate to the folder in which you created the Visual Studio solution, and delete the folder.
-
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
+> [Computer Vision API C# Tutorial](../Tutorials/CSharpTutorial.md)

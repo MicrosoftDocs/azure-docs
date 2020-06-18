@@ -1,20 +1,16 @@
 ---
-title: Manage DNS records in Azure DNS using the Azure CLI | Microsoft Docs
+title: Manage DNS records in Azure DNS using the Azure CLI
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS.
-services: dns
-documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: rohinkoul
 
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Manage DNS records and recordsets in Azure DNS using the Azure CLI
@@ -89,7 +85,7 @@ The parameters used to specify the record data vary depending on the type of the
 
 In each case, we show how to create a single record. The record is added to the existing record set, or a record set created implicitly. For more information on creating record sets and defining record set parameter explicitly, see [Create a DNS record set](#create-a-dns-record-set).
 
-We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-SOA-record).
+We do not give an example to create an SOA record set, since SOAs are created and deleted with each DNS zone and cannot be created or deleted separately. However, [the SOA can be modified, as shown in a later example](#to-modify-an-soa-record).
 
 ### Create an AAAA record
 

@@ -1,12 +1,9 @@
 ---
-title: Create or join parallel branches - Azure Logic Apps | Microsoft Docs
-description: How to create or join parallel branches for workflows in Azure Logic Apps
+title: Create or join parallel branches for actions in workflows
+description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ---
@@ -44,7 +41,7 @@ Your logic app waits for all branches to finish before continuing workflow.
 Parallel branches run only when their `runAfter` property 
 values match the finished parent step's status. 
 For example, both `branchAction1` and `branchAction2` are set to 
-run only when the `parentAction` completes with `Succeded` status.
+run only when the `parentAction` completes with `Succeeded` status.
 
 > [!NOTE]
 > Before you start, your logic app must already 
@@ -71,7 +68,7 @@ and then choose **Add a parallel branch**.
 1. Now, in each parallel branch, add the steps you want. 
 To add another action to a branch, move your pointer under 
 the action where you want to add a sequential action. 
-Choose the  the **plus** (**+**) sign that appears, 
+Choose the **plus** (**+**) sign that appears, 
 and then select **Add an action**.
 
    ![Add sequential action to parallel branch](media/logic-apps-control-flow-branches/add-sequential-action.png)
@@ -209,9 +206,9 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

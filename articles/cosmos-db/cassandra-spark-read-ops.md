@@ -1,19 +1,18 @@
 ---
-title: Read operations against Azure CosmosDB Cassandra API from Spark 
-description: This article how to read from tables in Cosmos DB Cassandra API
-services: cosmos-db
-author: anagha-microsoft
-
+title: Read Cassandra API table data using Spark
+titleSufix: Azure Cosmos DB
+description: This article describes how to read data from Cassandra API tables in Azure Cosmos DB.
+author: TheovanKraay
+ms.author: thvankra
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ankhanol
-
+ms.date: 06/02/2020
+ms.custom: seodec18
 ---
 
-# Read Azure Cosmos DB Cassandra API tables from Spark
+# Read data from Azure Cosmos DB Cassandra API tables using Spark
 
  This article describes how to read data stored in Azure Cosmos DB Cassandra API from Spark.
 
@@ -79,7 +78,7 @@ readBooksDF.show
 
 ### Apply filters
 
-Currently predicate pushdown is not supported, the samples below reflect client-side filtering. 
+You can push down predicates to the database to allow for better optimized Spark queries. A predicate is a condition on a query that returns true or false, typically located in the WHERE clause. A predicate push down filters the data in the database query, reducing the number of entries retrieved from the database and improving query performance. By default the Spark Dataset API will automatically push down valid WHERE clauses to the database. 
 
 ```scala
 val readBooksDF = spark
@@ -98,6 +97,10 @@ readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+The PushedFilters section of the physical plan includes the GreaterThan push down filter. 
+
+![partitions](./media/cassandra-spark-read-ops/pushdown-predicates.png)
 
 ## RDD API
 

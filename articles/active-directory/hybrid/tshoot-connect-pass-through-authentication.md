@@ -5,16 +5,17 @@ services: active-directory
 keywords: Troubleshoot Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
-ms.component: hybrid
+ms.date: 4/15/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication
@@ -46,6 +47,33 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
+### Users get invalid username/password error 
+
+This can happen when a user’s on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
+
+To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
+
+
+1. Create a test account.  
+2. Import the PowerShell module on the agent machine:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication  Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Run the Invoke PowerShell command: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
+
+If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+
+
+
+
+
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
 If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
@@ -65,6 +93,9 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 | 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
+
+>[!IMPORTANT]
+>Pass-through Authentication Agents authenticate Azure AD users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Azure AD.
 
 ## Authentication Agent installation issues
 
@@ -120,7 +151,7 @@ For errors related to installation, check the Azure AD Connect logs at **%Progra
 
 For errors related to the Authentication Agent, open up the Event Viewer application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-For detailed analytics, enable the "Session" log. Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
+For detailed analytics, enable the "Session" log (right-click inside the Event Viewer application to find this option). Don't run the Authentication Agent with this log enabled during normal operations; use only for troubleshooting. The log contents are only visible after the log is disabled again.
 
 ### Detailed trace logs
 

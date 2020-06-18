@@ -8,13 +8,16 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
+ms.custom:  mqtt
 ---
 
 # Connect your device to the Remote Monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a real device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+
+If you prefer to simulate a device, see [Create and test a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## Create a Node.js solution
 
@@ -33,24 +36,22 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
     var async = require('async');
     ```
 
 1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
-    var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
 1. To define some base telemetry data, add the following variables:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -61,12 +62,9 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. To define some property values, add the following variables:
 
-    ```nodejs
-    var temperatureSchema = 'chiller-temperature;v1';
-    var humiditySchema = 'chiller-humidity;v1';
-    var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
-    var deviceType = "Chiller";
+    ```javascript
+    var schema = "real-chiller;v1";
+    var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
     var deviceLocation = "Building 44";
@@ -75,49 +73,13 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     var deviceOnline = true;
     ```
 
-1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to describe the methods and telemetry the device uses:
+1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to display in the Web UI:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
-      "Protocol": "MQTT",
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
-        "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
-          "MessageSchema": {
-            "Name": temperatureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "temperature": "Double",
-              "temperature_unit": "Text"
-            }
-          }
-        },
-        "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
-          "MessageSchema": {
-            "Name": humiditySchema,
-            "Format": "JSON",
-            "Fields": {
-              "humidity": "Double",
-              "humidity_unit": "Text"
-            }
-          }
-        },
-        "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
-          "MessageSchema": {
-            "Name": pressureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "pressure": "Double",
-              "pressure_unit": "Text"
-            }
-          }
-        }
+        [schema]: ""
       },
       "Type": deviceType,
       "Firmware": deviceFirmware,
@@ -131,7 +93,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. To print operation results, add the following helper function:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -141,159 +103,158 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following helper function to use to randomize the telemetry values:
 
-    ```nodejs
-    function generateRandomIncrement() {
-        return ((Math.random() * 2) - 1);
-    }
-    ```
+     ```javascript
+     function generateRandomIncrement() {
+         return ((Math.random() * 2) - 1);
+     }
+     ```
 
 1. Add the following generic function to handle direct method calls from the solution. The function displays information about the direct method that was invoked, but in this sample does not modify the device in any way. The solution uses direct methods to act on devices:
 
-    ```nodejs
-    function onDirectMethod(request, response) {
-      // Implement logic asynchronously here.
-      console.log('Simulated ' + request.methodName);
+     ```javascript
+     function onDirectMethod(request, response) {
+       // Implement logic asynchronously here.
+       console.log('Simulated ' + request.methodName);
 
-      // Complete the response
-      response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (err) console.error('Error sending method response :\n' + err.toString());
-        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
-      });
-    }
-    ```
+       // Complete the response
+       response.send(200, request.methodName + ' was called on the device', function (err) {
+         if (err) console.error('Error sending method response :\n' + err.toString());
+         else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       });
+     }
+     ```
 
 1. Add the following function to handle the **FirmwareUpdate** direct method calls from the solution. The function verifies the parameters passed in the direct method payload and then asynchronously runs a firmware update simulation:
 
-    ```nodejs
-    function onFirmwareUpdate(request, response) {
-      // Get the requested firmware version from the JSON request body
-      var firmwareVersion = request.payload.Firmware;
-      var firmwareUri = request.payload.FirmwareUri;
+     ```javascript
+     function onFirmwareUpdate(request, response) {
+       // Get the requested firmware version from the JSON request body
+       var firmwareVersion = request.payload.Firmware;
+       var firmwareUri = request.payload.FirmwareUri;
       
-      // Ensure we got a firmware values
-      if (!firmwareVersion || !firmwareUri) {
-        response.send(400, 'Missing firmware value', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
-        });
-      } else {
-        // Respond the cloud app for the device method
-        response.send(200, 'Firmware update started.', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else {
-            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       // Ensure we got a firmware values
+       if (!firmwareVersion || !firmwareUri) {
+         response.send(400, 'Missing firmware value', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+         });
+       } else {
+         // Respond the cloud app for the device method
+         response.send(200, 'Firmware update started.', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else {
+             console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
 
-            // Run the simulated firmware update flow
-            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
-          }
-        });
-      }
-    }
-    ```
+             // Run the simulated firmware update flow
+             runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+           }
+         });
+       }
+     }
+     ```
 
 1. Add the following function to simulate a long-running firmware update flow that reports progress back to the solution:
 
-    ```nodejs
-    // Simulated firmwareUpdate flow
-    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
-      console.log('Simulating firmware update flow...');
-      console.log('> Firmware version passed: ' + firmwareVersion);
-      console.log('> Firmware URI passed: ' + firmwareUri);
-      async.waterfall([
-        function (callback) {
-          console.log("Image downloading from " + firmwareUri);
-          var patch = {
-            FirmwareUpdateStatus: 'Downloading image..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Downloaded, applying firmware " + firmwareVersion);
-          deviceOnline = false;
-          var patch = {
-            FirmwareUpdateStatus: 'Applying firmware..',
-            Online: false
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(8000, callback);
-        },
-        function (callback) {
-          console.log("Rebooting");
-          var patch = {
-            FirmwareUpdateStatus: 'Rebooting..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Firmware updated to " + firmwareVersion);
-          deviceOnline = true;
-          var patch = {
-            FirmwareUpdateStatus: 'Firmware updated',
-            Online: true,
-            Firmware: firmwareVersion
-          };
-          reportUpdateThroughTwin(patch, callback);
-          callback(null);
-        }
-      ], function(err) {
-        if (err) {
-          console.error('Error in simulated firmware update flow: ' + err.message);
-        } else {
-          console.log("Completed simulated firmware update flow");
-        }
-      });
+     ```javascript
+     // Simulated firmwareUpdate flow
+     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+       console.log('Simulating firmware update flow...');
+       console.log('> Firmware version passed: ' + firmwareVersion);
+       console.log('> Firmware URI passed: ' + firmwareUri);
+       async.waterfall([
+         function (callback) {
+           console.log("Image downloading from " + firmwareUri);
+           var patch = {
+             FirmwareUpdateStatus: 'Downloading image..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Downloaded, applying firmware " + firmwareVersion);
+           deviceOnline = false;
+           var patch = {
+             FirmwareUpdateStatus: 'Applying firmware..',
+             Online: false
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(8000, callback);
+         },
+         function (callback) {
+           console.log("Rebooting");
+           var patch = {
+             FirmwareUpdateStatus: 'Rebooting..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Firmware updated to " + firmwareVersion);
+           deviceOnline = true;
+           var patch = {
+             FirmwareUpdateStatus: 'Firmware updated',
+             Online: true,
+             Firmware: firmwareVersion
+           };
+           reportUpdateThroughTwin(patch, callback);
+           callback(null);
+         }
+       ], function(err) {
+         if (err) {
+           console.error('Error in simulated firmware update flow: ' + err.message);
+         } else {
+           console.log("Completed simulated firmware update flow");
+         }
+       });
 
-      // Helper function to update the twin reported properties.
-      function reportUpdateThroughTwin(patch, callback) {
-        console.log("Sending...");
-        console.log(JSON.stringify(patch, null, 2));
-        client.getTwin(function(err, twin) {
-          if (!err) {
-            twin.properties.reported.update(patch, function(err) {
-              if (err) callback(err);
-            });      
-          } else {
-            if (err) callback(err);
-          }
-        });
-      }
+       // Helper function to update the twin reported properties.
+       function reportUpdateThroughTwin(patch, callback) {
+         console.log("Sending...");
+         console.log(JSON.stringify(patch, null, 2));
+         client.getTwin(function(err, twin) {
+           if (!err) {
+             twin.properties.reported.update(patch, function(err) {
+               if (err) callback(err);
+             });      
+           } else {
+             if (err) callback(err);
+           }
+         });
+       }
 
-      function sleep(milliseconds, callback) {
-        console.log("Simulate a delay (milleseconds): " + milliseconds);
-        setTimeout(function () {
-          callback(null);
-        }, milliseconds);
-      }
-    }
-    ```
+       function sleep(milliseconds, callback) {
+         console.log("Simulate a delay (milleseconds): " + milliseconds);
+         setTimeout(function () {
+           callback(null);
+         }, milliseconds);
+       }
+     }
+     ```
 
 1. Add the following code to send telemetry data to the solution. The client app adds properties to the message to identify the message schema:
 
-    ```nodejs
-    function sendTelemetry(data, schema) {
-      if (deviceOnline) {
-        var d = new Date();
-        var payload = JSON.stringify(data);
-        var message = new Message(payload);
-        message.properties.add('$$CreationTimeUtc', d.toISOString());
-        message.properties.add('$$MessageSchema', schema);
-        message.properties.add('$$ContentType', 'JSON');
+     ```javascript
+     function sendTelemetry(data, schema) {
+       if (deviceOnline) {
+         var d = new Date();
+         var payload = JSON.stringify(data);
+         var message = new Message(payload);
+         message.properties.add('iothub-creation-time-utc', d.toISOString());
+         message.properties.add('iothub-message-schema', schema);
 
-        console.log('Sending device message data:\n' + payload);
-        client.sendEvent(message, printErrorFor('send event'));
-      } else {
-        console.log('Offline, not sending telemetry');
-      }
-    }
-    ```
+         console.log('Sending device message data:\n' + payload);
+         client.sendEvent(message, printErrorFor('send event'));
+       } else {
+         console.log('Offline, not sending telemetry');
+       }
+     }
+     ```
 
 1. Add the following code to create a client instance:
 
-    ```nodejs
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```javascript
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
 1. Add the following code to:
 
@@ -303,8 +264,8 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     * Register handlers for the direct methods. The sample uses a separate handler for the firmware update direct method.
     * Start sending telemetry.
 
-    ```nodejs
-    client.open(function (err) {
+      ```javascript
+      client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
       } else {
@@ -337,31 +298,19 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
         });
 
         // Start sending telemetry
-        var sendTemperatureInterval = setInterval(function () {
+        var sendDeviceTelemetry = setInterval(function () {
           temperature += generateRandomIncrement();
-          var data = {
-            'temperature': temperature,
-            'temperature_unit': temperatureUnit
-          };
-          sendTelemetry(data, temperatureSchema)
-        }, 5000);
-
-        var sendHumidityInterval = setInterval(function () {
+          pressure += generateRandomIncrement();
           humidity += generateRandomIncrement();
           var data = {
+            'temperature': temperature,
+            'temperature_unit': temperatureUnit,
             'humidity': humidity,
-            'humidity_unit': humidityUnit
-          };
-          sendTelemetry(data, humiditySchema)
-        }, 5000);
-
-        var sendPressureInterval = setInterval(function () {
-          pressure += generateRandomIncrement();
-          var data = {
+            'humidity_unit': humidityUnit,
             'pressure': pressure,
             'pressure_unit': pressureUnit
           };
-          sendTelemetry(data, pressureSchema)
+          sendTelemetry(data, schema)
         }, 5000);
 
         client.on('error', function (err) {
@@ -372,15 +321,15 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
           client.close(printErrorFor('client.close'));
         });
       }
-    });
-    ```
+      });
+      ```
 
 1. Save the changes to the **remote_monitoring.js** file.
 
 1. To launch the sample application, run the following command at a command prompt:
 
-    ```cmd/sh
-    node remote_monitoring.js
-    ```
+     ```cmd/sh
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

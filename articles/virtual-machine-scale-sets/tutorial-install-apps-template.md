@@ -1,22 +1,14 @@
 ---
-title: Tutorial - Install applications in a scale set with Azure templates | Microsoft Docs
+title: Tutorial - Install apps in a scale set with Azure templates
 description: Learn how to use Azure Resource Manager templates to install applications into virtual machine scale sets with the Custom Script Extension
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ju-shim
+ms.author: jushiman
 ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: template
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with an Azure template
@@ -73,13 +65,13 @@ For a complete example of an Azure template that deploys a scale set and the Cus
 
 
 ## Create a scale set
-Let's use the sample template to create a scale set and apply the Custom Script Extension. First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Let's use the sample template to create a scale set and apply the Custom Script Extension. First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). When prompted, provide your own username and password that is used as the credentials for each VM instance:
+Now create a virtual machine scale set with [az group deployment create](/cli/azure/group/deployment). When prompted, provide your own username and password that is used as the credentials for each VM instance:
 
 ```azurecli-interactive
 az group deployment create \
@@ -93,7 +85,7 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 
 
 ## Test your scale set
-To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#show). The following example obtains the IP address for *myScaleSetPublicIP* created as part of the scale set:
+To see your web server in action, obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myScaleSetPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
@@ -111,7 +103,7 @@ Leave the web browser open so that you can see an updated version in the next st
 
 
 ## Update app deployment
-Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the *upgradePolicy` was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
+Throughout the lifecycle of a scale set, you may need to deploy an updated version of your application. With the Custom Script Extension, you can reference an updated deploy script and then reapply the extension to your scale set. When the scale set was created in a previous step, the *upgradePolicy* was set to *Automatic*. This setting allows the VM instances in the scale set to automatically update and apply the latest version of your application.
 
 To update the Custom Script Extension definition, edit your template to reference a new install script. A new filename must be used for the Custom Script Extension to recognize the change. The Custom Script Extension does not examine the contents of the script to determine any changes. This following definition uses an updated install script with *_v2* appended to its name:
 
@@ -137,7 +129,7 @@ To update the Custom Script Extension definition, edit your template to referenc
 }
 ```
 
-Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
+Apply the Custom Script Extension configuration to the VM instances in your scale set again with [az group deployment create](/cli/azure/group/deployment). This *azuredeployv2.json* template is used to apply the updated version of the application. In practice, you edit the existing *azuredeploy.json* template to reference the updated install script, as shown in the previous section. When prompted, enter the same username and password credentials as used when you first created the scale set:
 
 ```azurecli-interactive
 az group deployment create \
@@ -151,7 +143,7 @@ All VM instances in the scale set are automatically updated with the latest vers
 
 
 ## Clean up resources
-To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and additional resources, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

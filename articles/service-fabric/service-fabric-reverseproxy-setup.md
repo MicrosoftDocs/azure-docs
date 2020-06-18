@@ -1,21 +1,10 @@
 ---
-title: Azure Service Fabric set up reverse proxy | Microsoft Docs
-description: Understand how to set up and configure Service Fabric's reverse proxy.
-services: service-fabric
-documentationcenter: na
-author: jimacoMS2
-manager: timlt
-editor: 
+title: Azure Service Fabric set up reverse proxy 
+description: Understand how to set up and configure the reverse proxy service for an Azure Service Fabric application.
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 07/27/201
-ms.author: v-jamebr
-
+ms.date: 11/13/2018
+ms.author: pepogors
 ---
 # Set up and configure reverse proxy in Azure Service Fabric
 Reverse proxy is an optional Azure Service Fabric service that helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints. To learn more, see [Reverse proxy in Azure Service Fabric](service-fabric-reverseproxy.md). This article shows you how to set up and configure reverse proxy in your cluster. 
@@ -29,7 +18,7 @@ To configure reverse proxy when you [create a cluster using Azure portal](./serv
 1. In **Step 2: Cluster Configuration**, under **Node type configuration**, select **Enable reverse proxy**.
 
    ![Enable reverse proxy on portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. (Optional) To configure secure reverse proxy, you need to configure an SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
+2. (Optional) To configure secure reverse proxy, you need to configure a TLS/SSL certificate. In **Step 3: Security**, on **Configure cluster security settings**, under **Configuration type**, select **Custom**. Then, under **Reverse Proxy SSL certificate**, select **Include a SSL certificate for reverse proxy** and enter your certificate details.
 
    ![Configure secure reverse proxy on portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -41,13 +30,13 @@ For clusters on Azure, you can use the Azure Resource Manager template to enable
 
 For a new cluster, you can [create a custom Resource Manager template](service-fabric-cluster-creation-via-arm.md) or you can use a sample template. 
 
-You can find sample Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and the templates to use to configure secure reverse proxy with a certificate and to handle certificate rollover.
+You can find sample Resource Manager templates that can help you configure secure reverse proxy for an Azure cluster in the [Secure Reverse Proxy Sample Templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) on GitHub. Refer to [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) in the README file for instructions and the templates to use to configure secure reverse proxy with a certificate and to handle certificate rollover.
 
-For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+For an existing cluster, you can export the Resource Manager template for the cluster's resource group using the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), or the [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 After you have a Resource Manager template, you can enable the reverse proxy with the following steps:
 
-1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/resource-group-authoring-templates.md) of the template.
+1. Define a port for the reverse proxy in the [Parameters section](../azure-resource-manager/templates/template-syntax.md) of the template.
 
     ```json
     "SFReverseProxyPort": {
@@ -58,7 +47,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         }
     },
     ```
-2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/resource-group-authoring-templates.md).
+2. Specify the port for each of the nodetype objects in the [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource type section](../azure-resource-manager/templates/template-syntax.md).
 
     The port is identified by the parameter name, reverseProxyEndpointPort.
 
@@ -80,7 +69,7 @@ After you have a Resource Manager template, you can enable the reverse proxy wit
         ...
     }
     ```
-3. To configure SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../resource-group-authoring-templates.md).
+3. To configure TLS/SSL certificates on the port for the reverse proxy, add the certificate to the ***reverseProxyCertificate*** property in the **Microsoft.ServiceFabric/clusters** [Resource type section](../resource-group-authoring-templates.md).
 
     ```json
     {
@@ -227,7 +216,7 @@ The following steps show you the settings to use to enable reverse proxy and, op
 
    To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.md).
 
-After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to push the changes to your cluster.
+After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](service-fabric-cluster-config-upgrade-windows-server.md) to push the changes to your cluster.
 
 
 ## Expose reverse proxy on a public port through Azure Load Balancer
@@ -235,7 +224,7 @@ After you've modified your ClusterConfig.json file to enable reverse proxy, foll
 To address the reverse proxy from outside an Azure cluster, set up Azure Load Balancer rules and an Azure Health Probe for the reverse proxy port. These steps can be performed using the Azure portal or the Resource Manager template at any time after you have created the cluster. 
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potentially presents serious vulnerabilities that can be exploited; for example:
 >
 > * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
 > * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
@@ -328,9 +317,9 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
    }
    ``` 
 
-For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). For standalone clusters, see [Customize cluster settings for standalone clusters](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, see [Customize cluster settings for standalone clusters](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Several fabric settings are used to help establish secure communication between reverse proxy and services. For detailed information about these setttings, see [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md).
+Several fabric settings are used to help establish secure communication between reverse proxy and services. For detailed information about these settings, see [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## Next steps
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)

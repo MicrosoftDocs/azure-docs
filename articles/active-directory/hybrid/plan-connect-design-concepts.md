@@ -4,20 +4,21 @@ description: This topic details certain implementation design areas
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
 ms.custom: azure-ad-connect
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Design concepts
 The purpose of this document is to describe areas that must be thought through during the implementation design of Azure AD Connect. This document is a deep dive on certain areas and these concepts are briefly described in other documents as well.
@@ -87,10 +88,9 @@ For this feature to work, the AD DS account used to synchronize with on-premises
 You can enable the use of ConsistencyGuid as sourceAnchor during new installation. This section covers both Express and Custom installation in details.
 
   >[!NOTE]
-  > Only newer versions of Azure AD Connect (1.1.524.0 and after) supports the use of ConsistencyGuid as sourceAnchor during new installation.
+  > Only newer versions of Azure AD Connect (1.1.524.0 and after) support the use of ConsistencyGuid as sourceAnchor during new installation.
 
 ### How to enable the ConsistencyGuid feature
-Currently, the feature can only be enabled during new Azure AD Connect installation only.
 
 #### Express Installation
 When installing Azure AD Connect with Express mode, the Azure AD Connect wizard automatically determines the most appropriate AD attribute to use as the sourceAnchor attribute using the following logic:
@@ -98,7 +98,7 @@ When installing Azure AD Connect with Express mode, the Azure AD Connect wizard 
 * First, the Azure AD Connect wizard queries your Azure AD tenant to retrieve the AD attribute used as the sourceAnchor attribute in the previous Azure AD Connect installation (if any). If this information is available, Azure AD Connect uses the same AD attribute.
 
   >[!NOTE]
-  > Only newer versions of Azure AD Connect (1.1.524.0 and after) stores information in your Azure AD tenant about the sourceAnchor attribute used during installation. Older versions of Azure AD Connect do not.
+  > Only newer versions of Azure AD Connect (1.1.524.0 and after) store information in your Azure AD tenant about the sourceAnchor attribute used during installation. Older versions of Azure AD Connect do not.
 
 * If information about the sourceAnchor attribute used isn't available, the wizard checks the state of the ms-DS-ConsistencyGuid attribute in your on-premises Active Directory. If the attribute isn't configured on any object in the directory, the wizard uses the ms-DS-ConsistencyGuid as the sourceAnchor attribute. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and is not suitable as sourceAnchor attribute...
 
@@ -124,7 +124,7 @@ When installing Azure AD Connect with Custom mode, the Azure AD Connect wizard p
 If you have an existing Azure AD Connect deployment which is using objectGUID as the Source Anchor attribute, you can switch it to using ConsistencyGuid instead.
 
 >[!NOTE]
-> Only newer versions of Azure AD Connect (1.1.552.0 and after) supports switching from ObjectGuid to ConsistencyGuid as the Source Anchor attribute.
+> Only newer versions of Azure AD Connect (1.1.552.0 and after) support switching from ObjectGuid to ConsistencyGuid as the Source Anchor attribute.
 
 To switch from objectGUID to ConsistencyGuid as the Source Anchor attribute:
 
@@ -152,7 +152,7 @@ During the analysis (step 4), if the attribute is configured on one or more obje
 
 ![Enable ConsistencyGuid for existing deployment - error](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearchcontact** specified. To do so, run the following command in command prompt:
+ If you are certain that the attribute isn't used by other existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearch** switch specified. To do so, run the following command in command prompt:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -166,7 +166,7 @@ If you are managing AD FS outside of Azure AD Connect or you are using third-par
 ![Third-party federation configuration](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### Adding new directories to existing deployment
-Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the ms-DS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you need to contact Support for information on how to suppress the error.
+Suppose you have deployed Azure AD Connect with the ConsistencyGuid feature enabled, and now you would like to add another directory to the deployment. When you try to add the directory, Azure AD Connect wizard checks the state of the ms-DS-ConsistencyGuid attribute in the directory. If the attribute is configured on one or more objects in the directory, the wizard concludes the attribute is being used by other applications and returns an error as illustrated in the diagram below. If you are certain that the attribute isn't used by existing applications, you can suppress the error by restarting the Azure AD Connect wizard with the **/SkipLdapSearch** switch specified as described above or you need to contact Support for more information.
 
 ![Adding new directories to existing deployment](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

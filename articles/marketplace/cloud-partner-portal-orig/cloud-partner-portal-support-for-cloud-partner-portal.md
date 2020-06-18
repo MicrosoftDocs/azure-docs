@@ -1,22 +1,13 @@
 ---
-title: Support for Cloud Partner Portal | Microsoft Docs
+title: Support for Cloud Partner Portal  | Azure Marketplace
 description: Get support in the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
+ms.author: dsindona
 ---
-
 
 # Get Support for Cloud Partner Portal
 
@@ -39,19 +30,19 @@ team:
 ![support1](./media/cloud-partner-portal-support-for-cloud-partner-portal/support1.png)
 
 
-3. On **Create an incident**, identify the **Problem type** and **Category**.
+1. On **Create an incident**, identify the **Problem type** and **Category**.
 
 
 ![support2](./media/cloud-partner-portal-support-for-cloud-partner-portal/support2.png)
 
 
-4. Select **Start request**.
+1. Select **Start request**.
 
-5. Provide contact information and describe the problem. Describe the problem as fully as you can. Provide any files (for example, screen captures, error descriptions, or network traces) that might be helpful in resolving your issue.
+1. Provide contact information and describe the problem. Describe the problem as fully as you can. Provide any files (for example, screen captures, error descriptions, or network traces) that might be helpful in resolving your issue.
 
 ![support3](./media/cloud-partner-portal-support-for-cloud-partner-portal/support3.png)
 
-6. Select **Submit** to create the ticket.
+1. Select **Submit** to create the ticket.
 
 ### Support followup
 

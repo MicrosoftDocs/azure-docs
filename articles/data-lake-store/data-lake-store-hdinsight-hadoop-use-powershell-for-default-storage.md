@@ -1,18 +1,12 @@
 ---
-title: Create HDInsight clusters with Azure Data Lake Storage Gen1 as default storage by using PowerShell | Microsoft Docs'
-description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake Storage Gen1
-services: data-lake-store,hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+title: PowerShell - HDInsight cluster with Data Lake Storage Gen1 - Azure
+description: Use Azure PowerShell to create and use Azure HDInsight clusters with Azure Data Lake Storage Gen1.
 
-ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Create HDInsight clusters with Azure Data Lake Storage Gen1 as default storage by using PowerShell
@@ -35,6 +29,8 @@ To configure HDInsight to work with Data Lake Storage Gen1 by using PowerShell, 
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Before you begin this tutorial, make sure that you meet the following requirements:
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -43,7 +39,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 * **Azure Active Directory service principal**: This tutorial describes how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you are an administrator, you can skip this prerequisite and proceed with the tutorial.
 
 	>[!NOTE]
-	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
 ## Create a Data Lake Storage Gen1 account
@@ -53,25 +49,25 @@ To create a Data Lake Storage Gen1 account, do the following:
 1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners. 
 
         # Sign in to your Azure account
-        Connect-AzureRmAccount
+        Connect-AzAccount
 
         # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+        Get-AzSubscription
 
         # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+        Set-AzContext -SubscriptionId <subscription ID>
 
         # Register for Data Lake Storage Gen1
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+        Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 	> [!NOTE]
-	> If you register the Data Lake Storage Gen1 resource provider and receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Storage Gen1. To enable your Azure subscription for Data Lake Storage Gen1, follow the instructions in [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md).
+	> If you register the Data Lake Storage Gen1 resource provider and receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Storage Gen1. To enable your Azure subscription for Data Lake Storage Gen1, follow the instructions in [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md).
 	>
 
 2. A Data Lake Storage Gen1 account is associated with an Azure resource group. Start by creating a resource group.
 
         $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+        New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     You should see an output like this:
 
@@ -84,7 +80,7 @@ To create a Data Lake Storage Gen1 account, do the following:
 3. Create a Data Lake Storage Gen1 account. The account name you specify must contain only lowercase letters and numbers.
 
         $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
+        New-AzDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStorageGen1Name -Location "East US 2"
 
 	You should see an output like the following:
 
@@ -106,7 +102,7 @@ To create a Data Lake Storage Gen1 account, do the following:
 4. Using Data Lake Storage Gen1 as default storage requires you to specify a root path to which the cluster-specific files are copied during cluster creation. To create a root path, which is **/clusters/hdiadlcluster** in the  snippet, use the following cmdlets:
 
         $myrootdir = "/"
-        New-AzureRmDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
+        New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
 
 
 ## Set up authentication for role-based access to Data Lake Storage Gen1
@@ -148,7 +144,7 @@ In this section, you create a service principal for an Azure AD application, ass
 
         $credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
+        $application = New-AzADApplication `
             -DisplayName "HDIADL" `
             -HomePage "https://contoso.com" `
             -IdentifierUris "https://mycontoso.com" `
@@ -159,14 +155,14 @@ In this section, you create a service principal for an Azure AD application, ass
         $applicationId = $application.ApplicationId
 2. Create a service principal by using the application ID.
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+        $servicePrincipal = New-AzADServicePrincipal -ApplicationId $applicationId
 
         $objectId = $servicePrincipal.Id
 3. Grant the service principal access to the Data Lake Storage Gen1 root and all the folders in the root path that you specified earlier. Use the following cmdlets:
 
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
-		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
+		Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path / -AceType User -Id $objectId -Permissions All
+		Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters -AceType User -Id $objectId -Permissions All
+		Set-AzDataLakeStoreItemAclEntry -AccountName $dataLakeStorageGen1Name -Path /clusters/hdiadlcluster -AceType User -Id $objectId -Permissions All
 
 ## Create an HDInsight Linux cluster with Data Lake Storage Gen1 as the default storage
 
@@ -174,7 +170,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
 
 1. Retrieve the subscription tenant ID, and store it to use later.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+        $tenantID = (Get-AzContext).Tenant.TenantId
 
 2. Create the HDInsight cluster by using the following cmdlets:
 
@@ -188,7 +184,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
         $httpCredentials = Get-Credential
         $sshCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster `
+        New-AzHDInsightCluster `
                -ClusterType Hadoop `
                -OSType Linux `
                -ClusterSizeInNodes $clusterNodes `
@@ -209,7 +205,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
     After the cmdlet has been successfully completed, you should see an output that lists the cluster details.
 
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1
-After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *<cluster root>/example/data/sample.log*.
+After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *\<cluster root>/example/data/sample.log*.
 
 In this section, you make a Secure Shell (SSH) connection into the HDInsight Linux cluster that you created, and then you run a sample Hive query.
 

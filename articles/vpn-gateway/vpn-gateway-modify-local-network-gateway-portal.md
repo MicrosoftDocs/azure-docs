@@ -1,19 +1,11 @@
 ---
-title: 'Modify the local network gateway IP address prefixes and the VPN Gateway IP address| Azure| Portal| Microsoft Docs'
+title: 'VPN Gateway: Modify gateway IP address settings: Azure portal'
 description: This article walks you through changing IP address prefixes for your local network gateway using the Azure portal.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid:
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: how-to
 ms.date: 06/19/2017
 ms.author: cherylmc
 
@@ -21,6 +13,8 @@ ms.author: cherylmc
 # Modify local network gateway settings using the Azure portal
 
 Sometimes the settings for your local network gateway AddressPrefix or GatewayIPAddress change. This article shows you how to modify your local network gateway settings. You can also modify these settings using a different method by selecting a different option from the following list:
+
+Before you delete the connection, you may want to download the configuration for your connecting devices in order to get the defined PSK. That way, you don't need to redefine it on the other side.
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)

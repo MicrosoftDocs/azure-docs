@@ -4,11 +4,11 @@ description: Disaster recovery principles and preparation on SAP HANA on Azure (
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -44,7 +44,7 @@ In cases where you use HANA System Replication as high-availability functionalit
 
 
 >[!NOTE]
->The HANA Large Instance storage replication functionality is mirroring and replicating storage snapshots. If you don't perform storage snapshots as introduced in the [Backup and restore](#backup-and-restore) section of this article, there can't be any replication to the disaster recovery site. Storage snapshot execution is a prerequisite to storage replication to the disaster recovery site.
+>The HANA Large Instance storage replication functionality is mirroring and replicating storage snapshots. If you don't perform storage snapshots as introduced in the Backup and restore section of this article, there can't be any replication to the disaster recovery site. Storage snapshot execution is a prerequisite to storage replication to the disaster recovery site.
 
 
 

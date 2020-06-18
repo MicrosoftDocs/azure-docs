@@ -1,18 +1,21 @@
 ---
 title: Azure Stream Analytics integration with Azure Machine Learning
 description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning, using a user defined function.
-services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 03/19/2020
+ms.custom: seodec18
 ---
 
-# Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning
-This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning. You use a Machine Learning sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score in real time. Using the Cortana Intelligence Suite lets you accomplish this task without worrying about the intricacies of building a sentiment analytics model.
+# Perform sentiment analysis with Azure Stream Analytics and Azure Machine Learning Studio (classic)
+
+This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio (classic). You use a Machine Learning sentiment analytics model from the Cortana Intelligence Gallery to analyze streaming text data and determine the sentiment score in real time. Using the Cortana Intelligence Suite lets you accomplish this task without worrying about the intricacies of building a sentiment analytics model.
+
+> [!TIP]
+> It is highly recommended to use [Azure Machine Learning UDFs](machine-learning-udf.md) instead of Azure Machine Learning Studio (classic) UDF for improved performance and reliability.
 
 You can apply what you learn from this article to scenarios such as these:
 
@@ -23,7 +26,7 @@ You can apply what you learn from this article to scenarios such as these:
 
 In a real-world scenario, you would get the data directly from a Twitter data stream. To simplify the tutorial, it's written so that the Streaming Analytics job gets tweets from a CSV file in Azure Blob storage. You can create your own CSV file, or you can use a sample CSV file, as shown in the following image:
 
-![sample tweets in a CSV file](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![Sample tweets shown in a CSV file](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 The Streaming Analytics job that you create applies the sentiment analytics model as a user-defined function (UDF) on the sample text data from the blob store. The output (the result of the sentiment analysis) is written to the same blob store in a different CSV file. 
 
@@ -40,7 +43,7 @@ Before you start, make sure you have the following:
 At a high level, to complete the tasks demonstrated in this article, you do the following:
 
 1. Create an Azure storage account and a blob storage container, and upload a CSV-formatted input file to the container.
-3. Add a sentiment analytics model from the Cortana Intelligence Gallery to your Azure Machine Learning workspace and deploy this model as a web service in the Machine Learning workspace.
+3. Add a sentiment analytics model from the Cortana Intelligence Gallery to your Azure Machine Learning Studio (classic) workspace and deploy this model as a web service in the Machine Learning workspace.
 5. Create a Stream Analytics job that calls this web service as a function in order to determine sentiment for the text input.
 6. Start the Stream Analytics job and check the output.
 
@@ -53,15 +56,15 @@ For this step, you can use any CSV file, such as the one available from GitHub.
 
 3. Specify an existing resource group and specify a location. For location, we recommend that all the resources created in this tutorial use the same location.
 
-    ![provide storage account details](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![provide storage account details](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
 4. In the Azure portal, select the storage account. In the storage account blade, click **Containers** and then click **+&nbsp;Container** to create blob storage.
 
-    ![create blob container](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![Create blob storage container for input](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
 5. Provide a name for the container (`azuresamldemoblob` in the example) and verify that **Access type** is set to **Blob**. When you're done, click **OK**.
 
-    ![specify blob container details](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![specify blob container details](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. In the **Containers** blade, select the new container, which opens the blade for that container.
 
@@ -118,7 +121,7 @@ You can now create a Stream Analytics job that reads the sample tweets from the 
 
 3. Name the job `azure-sa-ml-demo`, specify a subscription, specify an existing resource group or create a new one, and select the location for the job.
 
-   ![specify settings for new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![specify settings for new Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### Configure the job input
@@ -138,9 +141,9 @@ The job gets its input from the CSV file that you uploaded earlier to blob stora
    |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
    |**Event serialization format**  |  Select **CSV**       |
 
-   ![Settings for new job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Settings for new Stream Analytics job input](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Click **Save**.
+1. Click **Save**.
 
 ### Configure the job output
 The job sends results to the same blob storage where it gets input. 
@@ -158,7 +161,7 @@ The job sends results to the same blob storage where it gets input.
    |**Container**  | Select the container you created earlier (`azuresamldemoblob`)        |
    |**Event serialization format**  |  Select **CSV**       |
 
-   ![Settings for new job output](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![Settings for new Stream Analytics job output](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
 4. Click **Save**.   
 
@@ -180,7 +183,7 @@ In this section of the tutorial, you define a function in the Stream Analysis jo
    | **URL**| Paste the web service URL.|
    |**Key** | Paste the API key. |
   
-   ![Settings for adding a Machine Learning function to the Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Settings to add Machine Learning function to Stream Analytics job](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
 4. Click **Save**.
 
@@ -194,9 +197,9 @@ Stream Analytics uses a declarative, SQL-based query to examine the input and pr
 
 3. Enter the following query:
 
-    ```
+    ```SQL
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result 
+    SELECT text, sentiment1(text) as result 
     FROM datainput  
     )  
 
@@ -247,7 +250,7 @@ You also can view Azure Machine Learning function-related metrics. The following
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Integrate REST API and Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

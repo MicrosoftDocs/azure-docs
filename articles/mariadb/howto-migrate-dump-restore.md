@@ -1,13 +1,11 @@
 ---
-title: Migrate your MariaDB database using dump and restore in Azure Database for MariaDB
+title: Migrate with dump and restore - Azure Database for MariaDB
 description: This article explains two common ways to back up and restore databases in your Azure Database for MariaDB, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 2/27/2020
 ---
 
 # Migrate your MariaDB database to Azure Database for MariaDB using dump and restore
@@ -19,13 +17,15 @@ This article explains two common ways to back up and restore databases in your A
 To step through this how-to guide, you need to have:
 - [Create Azure Database for MariaDB server - Azure portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) command-line utility installed on a machine.
-- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/), Toad, Navicat, or other third-party MySQL tool to do dump and restore commands.
+- MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool to do dump and restore commands.
 
 ## Use common tools
-Use common utilities and tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MariaDB. Use such tools on your client machine with an internet connection to connect to the Azure Database for MariaDB. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MariaDB. 
+Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into Azure Database for MariaDB. Use such tools on your client machine with an internet connection to connect to the Azure Database for MariaDB. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MariaDB. 
 
 ## Common uses for dump and restore
-You may use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+You may use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MariaDB. Azure Database for MariaDB supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MariaDB.
@@ -74,13 +74,9 @@ To back up more than one database at once, use the --database switch and list th
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
 ```
-To back up all the databases in the server at one time, you should use the --all-databases option.
-```bash
-$ mysqldump -u root -p --all-databases > alldb_backup.sql 
-```
 
 ## Create a database on the target server
-Create an empty database on the target Azure Database for MariaDB server where you want to migrate the data. Use a tool such as MySQL Workbench, Toad, or Navicat to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
+Create an empty database on the target Azure Database for MariaDB server where you want to migrate the data. Use a tool such as MySQL Workbench to create the database. The database can have the same name as the database that is contained the dumped data or you can create a database with a different name.
 
 To get connected, locate the connection information in the **Overview** of your Azure Database for MariaDB.
 
@@ -122,5 +118,5 @@ Importing your database is similar to exporting. Do the following actions:
 - [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
  
 <!--
-- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](http://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).
 -->

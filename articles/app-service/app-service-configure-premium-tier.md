@@ -1,21 +1,11 @@
 ---
-title: Configure PremiumV2 tier for Azure App Service | Microsoft Docs
+title: Configure PremiumV2 tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new PremiumV2 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
-ms.author: cephalin
+ms.custom: seodec18
 
 ---
 
@@ -25,7 +15,7 @@ The new **PremiumV2** pricing tier gives you faster processors, SSD storage, and
 
 ## Prerequisites
 
-To scale-up a web app to **PremiumV2**, you need to have a Web App in Azure App Service that runs in a pricing tier lower than **PremiumV2**, and the Web App must be running in an App Service deployment that supports PremiumV2.
+To scale-up an app to **PremiumV2**, you need to have an Azure App Service app that runs in a pricing tier lower than **PremiumV2**, and the app must be running in an App Service deployment that supports PremiumV2.
 
 <a name="availability"></a>
 
@@ -43,7 +33,7 @@ az appservice list-locations --sku P1V2
 
 ## Create an app in PremiumV2 tier
 
-The pricing tier of an App Service app is defined in the [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) that it runs on. You can create an App Service plan by itself or as part of Web App creation.
+The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or as part of app creation.
 
 When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing tier**. 
 
@@ -84,7 +74,7 @@ Some App Service plans can't scale up to the PremiumV2 tier if the underlying Ap
 
 If your app runs in an App Service deployment where **PremiumV2** isn't available, or if your app runs in a region that currently does not support **PremiumV2**, you will need to re-deploy your app to take advantage of **PremiumV2**.  You have two options:
 
-- Create a **new** resource group, and then create a **new** web app and app service plan in the **new** resource group, choosing your desired Azure region during the creation process.  You **must** select the **PremiumV2** plan at the time the new app service plan is created.  This ensures the combination of resource group, App Service plan, and Azure region will result in the App Service plan being created in an App Service deployment that supports **PremiumV2**.  Then redeploy your application code into the newly created app and app service plan. If desired you can subsequently scale the App Service plan down from **PremiumV2** to save costs, and you will still be able to successfully scale back up again in the future using **PremiumV2**.
+- Create a **new** resource group, and then create a **new** app and App Service plan in the **new** resource group, choosing your desired Azure region during the creation process.  You **must** select the **PremiumV2** plan at the time the new app service plan is created.  This ensures the combination of resource group, App Service plan, and Azure region will result in the App Service plan being created in an App Service deployment that supports **PremiumV2**.  Then redeploy your application code into the newly created app and app service plan. If desired you can subsequently scale the App Service plan down from **PremiumV2** to save costs, and you will still be able to successfully scale back up again in the future using **PremiumV2**.
 - If your app already runs in an existing **Premium** tier, then you can clone your app with all app settings, connection strings, and deployment configuration into a new app service plan that uses **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
@@ -108,10 +98,12 @@ az appservice plan create \
 
 ### Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command creates an App Service plan in _P1V2_. The options for `-WorkerSize` are _Small_, _Medium_, and _Large_.
 
-```PowerShell
-New-AzureRmAppServicePlan -ResourceGroupName <resource_group_name> `
+```powershell
+New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
     -Tier "PremiumV2" `
@@ -119,5 +111,5 @@ New-AzureRmAppServicePlan -ResourceGroupName <resource_group_name> `
 ```
 ## More resources
 
-[Scale up an app in Azure](web-sites-scale.md)  
+[Scale up an app in Azure](manage-scale-up.md)  
 [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)

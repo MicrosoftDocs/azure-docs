@@ -1,16 +1,15 @@
 ---
-title: Set up VMware replication to Azure in multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
-description: Describes how to create and manage tenant subscriptions through CSP and deploy Azure Site Recovery in a multi-tenant setup
-services: site-recovery
-author: mayanknayar
+title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
+description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
 ---
 
-# Set up VMware replication in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
+# Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
 
 The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
 
@@ -68,9 +67,13 @@ You can now perform and manage all Site Recovery operations for the tenant in th
 
 	  ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-	  b) Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
+	b) Now create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
+    
     c) After you've created a new user, go back to the Azure portal. In the **Subscription** page, select the relevant subscription.
-    d) Select **Access Control (IAM)**, and then click **Add**, to add a user with the relevant access level. The users that were created through the CSP portal are automatically displayed on the page that opens after you click an access level.
+
+    d) Select **Access control (IAM)**, and then click **Role assignments**.
+
+    e) Click **Add role assignment** to add a user with the relevant access level. The users that were created through the CSP portal are displayed on the Role assignments tab.
 
 	  ![Add a user](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

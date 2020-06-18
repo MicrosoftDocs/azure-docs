@@ -1,20 +1,18 @@
 ---
-title: Create an internal Basic Load Balancer - Azure CLI | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI
+title: Create an internal Basic Load Balancer - Azure CLI
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to create an internal load balancer using Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
-ms.author: kumud
+ms.author: allensu
 ---
 # Create an internal load balancer to load balance VMs using Azure CLI
 
@@ -26,7 +24,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example creates a resource group named *myResourceGroupILB* in the *eastus* location:
 
@@ -35,9 +33,10 @@ The following example creates a resource group named *myResourceGroupILB* in the
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## Create a virtual network
 
-Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -46,6 +45,7 @@ Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *m
     --location eastus \
     --subnet-name mySubnet
 ```
+
 ## Create Basic Load Balancer
 
 This section details how you can create and configure the following components of the load balancer:
@@ -56,7 +56,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Basic Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -67,10 +67,11 @@ Create a public Basic Load Balancer with [az network lb create](https://docs.mic
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### Create the health probe
 
-A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) to monitor the health of the virtual machines. 
+A health probe checks all virtual machine instances to make sure they can receive network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -83,7 +84,7 @@ A health probe checks all virtual machine instances to make sure they can receiv
 
 ### Create the load balancer rule
 
-A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myHTTPRule* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -124,9 +125,9 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -176,11 +177,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -192,6 +193,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 It may take a few minutes for the VMs to get deployed.
 
 ### Create a VM for testing the load balancer
@@ -211,20 +213,21 @@ To test the load balancer, create a virtual machine, *myVMTest*, and associate i
 
 To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine myVMTest, and type the private IP address into the address bar of its web browser.
 
-To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
+To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![Test load balancer](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## Clean up resources
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

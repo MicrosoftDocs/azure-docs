@@ -1,20 +1,12 @@
 ---
-title: 'Create a route-based Azure VPN gateway: CLI | Microsoft Docs'
+title: 'Create a route-based Azure VPN Gateway: CLI'
 description: Quickly learn how to create a VPN Gateway using CLI
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.topic: how-to
+ms.date: 10/04/2018
 ms.author: cherylmc
 ---
 
@@ -30,18 +22,18 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Create a resource group
 
-Create a resource group using the [az group create](/cli/azure/group#az_group_create) command. A resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed. 
 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name TestRG1 --location eastus
 ```
 
 ## <a name="vnet"></a>Create a virtual network
 
-Create a virtual network using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
+Create a virtual network using the [az network vnet create](/cli/azure/network/vnet) command. The following example creates a virtual network named **VNet1** in the **EastUS** location:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   -n VNet1 \
   -g TestRG1 \
@@ -55,7 +47,7 @@ az network vnet create \
 
 The gateway subnet contains the reserved IP addresses that the virtual network gateway services use. Use the following examples to add a gateway subnet:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network vnet subnet create \
   --vnet-name VNet1 \
   -n GatewaySubnet \
@@ -76,7 +68,7 @@ az network public-ip create \
 
 ## <a name="CreateGateway"></a>Create the VPN gateway
 
-Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group#az_network_vnet_gateway_create) command.
+Create the VPN gateway using the [az network vnet-gateway create](/cli/azure/group) command.
 
 If you run this command by using the `--no-wait` parameter, you don't see any feedback or output. The `--no-wait` parameter allows the gateway to be created in the background. It does not mean that the VPN gateway is created immediately.
 
@@ -105,7 +97,7 @@ az network vnet-gateway show \
 
 The response looks similar to this:
 
-```
+```output
 {
   "activeActive": false,
   "bgpSettings": null,
@@ -163,7 +155,7 @@ The value associated with the **ipAddress** field is the public IP address of yo
 
 Example response:
 
-```
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
@@ -174,9 +166,10 @@ Example response:
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
+
 ## Clean up resources
 
-When you no longer need the resources you created, use [az group delete](/cli/azure/group#az_group_delete) to delete the resource group. This will delete the resource group and all of the resources it contains.
+When you no longer need the resources you created, use [az group delete](/cli/azure/group) to delete the resource group. This will delete the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name TestRG1 --yes

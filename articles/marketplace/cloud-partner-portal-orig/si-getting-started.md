@@ -1,20 +1,12 @@
 ---
-title: Getting Started with Seller Insights | Microsoft Docs
+title: Getting Started with Seller Insights 
 description: Introduction to the Seller insights feature of the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: dsindona
 ---
 
 Getting Started with Seller Insights

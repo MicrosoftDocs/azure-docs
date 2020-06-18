@@ -1,41 +1,48 @@
 ---
-title: How to use Azure Service Bus queues with Java | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
+title: Use Azure Service Bus queues with Java
+description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 09/13/2018
-ms.author: spelluru
+ms.topic: quickstart
+ms.date: 03/24/2020
+ms.author: aschhab
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 
 ---
-# How to use Service Bus queues with Java
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+# Quickstart: Use Azure Service Bus queues with Java to send and receive messages
 
-This article describes how to use Service Bus queues. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
+[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!NOTE]
 > You can find Java samples on GitHub in the [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
+    1. Read the quick **overview** of Service Bus **queues**. 
+    2. Create a Service Bus **namespace**. 
+    3. Get the **connection string**.
+    4. Create a Service Bus **queue**.
+3. Install [Azure SDK for Java][Azure SDK for Java]. 
 
-## Create a Service Bus namespace
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-## Create a Service Bus queue
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Configure your application to use Service Bus
-Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
+Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. 
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project. If you are using IntelliJ, see [Install the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation). 
+
+![Add Microsoft Azure Libraries for Java to your Eclipse project](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+
 
 Add the following `import` statements to the top of the Java file:
 
@@ -105,7 +112,7 @@ public void run() throws Exception {
 
 ```
 
-Messages sent to, and received from Service Bus queues are instances of the [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) class. Message objects have a set of standard properties (such as Label and TimeToLive), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the Message, and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
+Messages sent to, and received from Service Bus queues are instances of the [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) class. Message objects have a set of standard properties (such as Label and TimeToLive), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the Message, and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
@@ -137,14 +144,16 @@ messages. When Service Bus receives a request, it finds the next message
 to be consumed, locks it to prevent other consumers receiving it, and
 then returns it to the application. After the application finishes
 processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-marks the message as being consumed and remove it from the queue.
+completes the second stage of the receive process by calling **complete()**
+on the received message. When Service Bus sees the **complete()** call, it
+marks the message as being consumed and remove it from the queue. 
 
 The following example demonstrates how messages can be received and
 processed using **PeekLock** mode (not the default mode). The example
-below does an infinite loop and processes messages as they arrive into
-our `TestQueue`:
+below uses the callback model with a registered message handler
+and processes messages as they arrive into our `TestQueue`. This mode
+calls **complete()** automatically as the callback returns normally and calls
+**abandon()** if the callback throws an exception. 
 
 ```java
     public void run() throws Exception {
@@ -200,11 +209,11 @@ our `TestQueue`:
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
 receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This causes Service Bus
-to unlock the message within the queue and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+then it can call the **abandon()** method on client object with the 
+received message's lock token obtained via **getLockToken()**. This 
+causes Service Bus to unlock the message within the queue and make 
+it available to be received again, either by the same consuming 
+application or by another consuming application.
 
 There is also a timeout associated with a message locked within the
 queue, and if the application fails to process the message before the
@@ -213,7 +222,7 @@ Bus unlocks the message automatically and makes it available to be
 received again.
 
 In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
+but before the **complete()** request is issued, then the message
 is redelivered to the application when it restarts. This is often
 called *At Least Once Processing*; that is, each message is
 processed at least once but in certain situations the same message may
@@ -223,12 +232,15 @@ application to handle duplicate message delivery. This is often achieved
 using the **getMessageId** method of the message, which remains
 constant across delivery attempts.
 
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
 ## Next Steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
+[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

@@ -1,10 +1,10 @@
 ---
-title: Add monitoring & diagnostics to an Azure virtual machine | Microsoft Docs
-description: Use a Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
+title: Add monitoring & diagnostics to an Azure virtual machine 
+description: Use an Azure Resource Manager template to create a new Windows virtual machine with Azure diagnostics extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: sbtron
-manager: jeconnoc
+author: mimckitt
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,10 +12,9 @@ ms.assetid: 8cde8fe7-977b-43d2-be74-ad46dc946058
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
-ms.author: saurabh
+ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -89,13 +88,13 @@ The diagnostics extension json snippet above assumes two parameters *existingdia
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -165,7 +164,7 @@ Example: *WADMetricsPT1HP10DV2S20151108* contains metrics data aggregated over a
 
 Each WADMetrics table contains the following columns:
 
-* **PartitionKey**: The partition key is constructed based on the *resourceID* value to uniquely identify the VM resource. For example: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **PartitionKey**: The partition key is constructed based on the *resourceID* value to uniquely identify the VM resource. For example: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: Follows the format `<Descending time tick>:<Performance Counter Name>`. The descending time tick calculation is max time ticks minus the time of the beginning of the aggregation period. For example if the sample period started on 10-Nov-2015 and 00:00Hrs UTC then the calculation would be: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. For the memory available bytes performance counter the row key will look like: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: Is the name of the performance counter. This matches the *counterSpecifier* defined in the xml config.
 * **Maximum**: The maximum value of the performance counter over the aggregation period.

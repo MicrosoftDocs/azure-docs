@@ -4,7 +4,7 @@ description: Video summarization can help you create summaries of long videos by
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
@@ -13,12 +13,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
-ms.author: milanga;juliako;
-
+ms.date: 03/20/2019
+ms.author: juliako
+ms.reviewer: milanga
 ---
-# Use Azure Media Video Thumbnails to Create a Video Summarization
+# Use Azure Media Video Thumbnails to Create a Video Summarization  
+
+> [!NOTE]
+> The **Azure Media Video Thumbnails** media processor will be retired. For the retirement date, see the [legacy components](legacy-components.md) topic.
+
 ## Overview
+
 The **Azure Media Video Thumbnails** media processor (MP) enables you to create a summary of a video that is useful to customers who just want to preview a summary of a long video. For example, customers might want to see a short "summary video" when they hover over a thumbnail. By tweaking the parameters of **Azure Media Video Thumbnails** through a configuration preset, you can use the MP's powerful shot detection and concatenation technology to algorithmically generate a descriptive subclip.  
 
 The **Azure Media Video Thumbnail** MP is currently in Preview.
@@ -33,10 +38,10 @@ In some cases, if your video is not comprised of different scenes, the output wi
 Here are some examples of what the Azure Media Video Thumbnails media processor can do:
 
 ### Original video
-[Original video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Original video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### Video thumbnail result
-[Video thumbnail result](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video thumbnail result](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## Task configuration (preset)
 When creating a video thumbnail task with **Azure Media Video Thumbnails**, you must specify a configuration preset. The above thumbnail sample was created with the following basic JSON configuration:
@@ -58,7 +63,7 @@ Currently, you can change the following parameters:
 The following table describes the default duration, when **maxMotionThumbnailInSecs** is not used.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Video duration |d < 3 min |3 min < d < 15 min |
 | Thumbnail duration |15 sec (2-3 scenes) |30 sec (3-5 scenes) |
 
@@ -272,7 +277,7 @@ Set up your development environment and populate the app.config file with connec
 ```
 
 ### Video thumbnail output
-[Video thumbnail output](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video thumbnail output](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -283,5 +288,5 @@ Set up your development environment and populate the app.config file with connec
 ## Related links
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

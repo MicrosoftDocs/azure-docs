@@ -1,22 +1,23 @@
 ---
 title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
-services: cosmos-db
+
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-author: SnehaGunda
-ms.author: sngun
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
+author: TheovanKraay
+ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/18/2020
 ---
 
-# Quickstart: Build a Cassandra app with .NET and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
@@ -30,7 +31,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition, you need: 
-* If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
+* If you don't already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * Install [Git](https://www.git-scm.com/) to clone the example.
 
 <a id="create-account"></a>
@@ -113,13 +114,13 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string information enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**.
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
     Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 
     ![View and copy an access key in the Azure portal, Connection String page](./media/create-cassandra-dotnet/keys.png)
 
-2. In Visual Studio 2017, open the Program.cs file. 
+2. In Visual Studio, open the Program.cs file. 
 
 3. Paste the USERNAME value from the portal over `<FILLME>` on line 13.
 
@@ -141,7 +142,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Save the Program.cs file.
     
-## Run the .Net app
+## Run the .NET app
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 

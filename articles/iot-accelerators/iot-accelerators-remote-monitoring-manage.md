@@ -1,32 +1,29 @@
 ---
-title: Manage devices in an Azure-based remote monitoring solution tutorial | Microsoft Docs
-description: This tutorial shows you how to manage devices connected to the Remote Monitoring solution accelerator.
+title: Configure devices in Remote Monitoring Solution - Azure | Microsoft Docs
+description: This tutorial shows you how to configure devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 
-# As an operator of an IoT monitoring solution, I want to use an online solution to configure and manage my connected devices. 
+# As an operator of an IoT monitoring solution, I want to use an online solution to configure my connected devices. 
 ---
 
-# Tutorial: Configure and manage devices connected to your monitoring solution
+# Tutorial: Configure devices connected to your monitoring solution
 
-In this tutorial, you use the Remote Monitoring solution accelerator to configure and manage your connected IoT devices. You add a new device to the solution accelerator, configure the device, and update the device's firmware.
+In this tutorial, you use the Remote Monitoring solution accelerator to configure and manage your connected IoT devices. You add a new device to the solution accelerator and configure the device.
 
-Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to actions and configuration updates.
-
-To provide an extensible way to configure and manage devices, the Remote Monitoring solution accelerator uses IoT Hub features such as [jobs](../iot-hub/iot-hub-devguide-jobs.md) and [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). While this tutorial uses simulated devices, a device developer can implement direct methods on a [physical device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to configuration updates. While this tutorial uses simulated devices, a device developer can implement direct methods on a [real device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 In this tutorial, you:
 
 >[!div class="checklist"]
 > * Provision a simulated device.
 > * Test a simulated device.
-> * Update a device's firmware.
 > * Reconfigure a device.
 > * Organize your devices.
 
@@ -36,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Add a simulated device
 
-Navigate to the **Devices** page in the solution and then click **+ New device**:
+Navigate to the **Device Explorer** page in the solution and then click **+ New device**:
 
 [![Provision a simulated device](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +43,7 @@ In the **New device** panel, choose **Simulated**, leave the number of devices t
 
 ## Test the simulated device
 
-To test your simulated engine device is sending telemetry and reporting property values, select it in the list of devices on the **Devices** page. Live information about your engine displays in the **Device Details** panel:
+To test your simulated engine device is sending telemetry and reporting property values, select it in the list of devices on the **Device Explorer** page. Live information about your engine displays in the **Device Details** panel:
 
 [![View the new simulated engine device](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -58,27 +55,9 @@ The **Device Details** panel displays other information about the device such as
 
 To view detailed diagnostics, scroll down in the **Device Details** panel to view the **Diagnostics** section.
 
-## Act on a device
-
-To test the simulated engine device responds correctly to actions initiated from the dashboard, run the **FirmwareUpdate** method. To act on a device by running a method, select the device in the list of devices, and then click **Jobs**. You can select more than one device if you want to act on multiple devices. In the **Jobs** panel, select **Run method**. The **Engine** device model specifies three methods: **FirmwareUpdate**, **FillTank**, and **EmptyTank**:
-
-[![Engine methods](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-Choose **FirmwareUpdate**, set the job name to **UpdateEngineFirmware**, set the firmware version to **2.0.0**, set the firmware URI to **http://contoso.com/engine.bin**, and then click **Apply**:
-
-[![Schedule the firmware update method](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-To track the status of the job, click **View job status**:
-
-[![Monitor the scheduled firmware update job](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-After the job completes, navigate back to the **Devices** page. The new firmware version is displayed for the engine device.
-
-If you select multiple devices of different types on the **Devices** page, you can still create a job to a run a method on those multiple devices. The **Jobs** panel only shows the methods common to all the selected devices.
-
 ## Reconfigure a device
 
-To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Reconfigure**. The jobs panel shows the updateable property values for the selected device:
+To test that you can update the engine's configuration properties, select it in the device list on the **Device Explorer** page. Then click **Jobs**, and then choose **Properties**. The jobs panel shows the updateable property values for the selected device:
 
 [![Reconfigure a device](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -101,7 +80,7 @@ To make it easier as an operator to organize and manage your devices, you want t
 * The Smart Vehicle team manages trucks and prototyping devices.
 * The Smart Building team manages chillers, elevators, and engines.
 
-To display all your devices, navigate to the **Devices** page and choose the **All devices** filter:
+To display all your devices, navigate to the **Device Explorer** page and choose the **All devices** filter:
 
 [![Show all devices](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -121,7 +100,7 @@ In the **Jobs** panel, select **Tag**, set the job name to **AddSmartBuildingTag
 
 ### Create filters
 
-Now you can use the tag values to create filters. On the **Devices** page, click **Manage device groups**:
+Now you can use the tag values to create filters. On the **Device Explorer** page, click **Manage device groups**:
 
 [![Manage device groups](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

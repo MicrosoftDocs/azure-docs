@@ -3,18 +3,18 @@ title: What is a content delivery network (CDN)? - Azure | Microsoft Docs
 description: Learn what Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: v-deasim
+ms.author: allensu
 ms.custom: mvc
 
 ---
@@ -55,7 +55,7 @@ Each Azure subscription has default limits for the following resources:
  - The number of endpoints that can be created in a CDN profile. 
  - The number of custom domains that can be mapped to an endpoint.
 
-For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+For more information about CDN subscription limits, see [CDN limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
     
 ## Azure CDN features
 Azure CDN offers the following key features:
@@ -75,4 +75,3 @@ For a complete list of features that each Azure CDN product supports, see [Compa
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
 - To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 - For information about the latest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/blog/tag/azure-cdn/).
-

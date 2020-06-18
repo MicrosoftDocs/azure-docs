@@ -1,28 +1,28 @@
 ---
 title: Operationalize ML Services on HDInsight - Azure 
-description: Learn how to operationalize ML Services in Azure HDInsight.
-services: hdinsight
-ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+description: Learn how to operationalize your data model to make predictions with ML Services in Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ---
+
 # Operationalize ML Services cluster on Azure HDInsight
 
 After you have used ML Services cluster in HDInsight to complete your data modeling, you can operationalize the model to make predictions. This article provides instructions on how to perform this task.
 
 ## Prerequisites
 
-* **An ML Services cluster on HDInsight**: For instructions, see [Get started with ML Services on HDInsight](r-server-get-started.md).
+* An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **ML Services** for **Cluster type**.
 
-* **A Secure Shell (SSH) client**: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* A Secure Shell (SSH) client: An SSH client is used to remotely connect to the HDInsight cluster and run commands directly on the cluster. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Operationalize ML Services cluster with one-box configuration
 
-> [!NOTE]
+> [!NOTE]  
 > The steps below are applicable to R Server 9.0 and ML Server 9.1. For ML Server 9.3, refer to [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH into the edge node.
@@ -45,37 +45,37 @@ After you have used ML Services cluster in HDInsight to complete your data model
 
 1. You are presented with the options to choose from. Choose the first option, as shown in the following screenshot, to **Configure ML Server for Operationalization**.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-1.png)
+    ![R server Administration utility select](./media/r-server-operationalize/admin-util-one-box-1.png)
 
 1. You are now presented with the option to choose how you want to operationalize ML Server. From the presented options, choose the first one by entering **A**.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-2.png)
+    ![R server Administration utility operationalize](./media/r-server-operationalize/admin-util-one-box-2.png)
 
 1. When prompted, enter and reenter the password for a local admin user.
 
 1. You should see outputs suggesting that the operation was successful. You are also prompted to select another option from the menu. Select E to go back to the main menu.
 
-    ![one box op](./media/r-server-operationalize/admin-util-one-box-3.png)
+    ![R server Administration utility success](./media/r-server-operationalize/admin-util-one-box-3.png)
 
 1. Optionally, you can perform diagnostic checks by running a diagnostic test as follows:
 
     a. From the main menu, select **6** to run diagnostic tests.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-1.png)
+    ![R server Administration utility diagnostic](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
     b. From the Diagnostic Tests menu, select **A**. When prompted, enter the password that you provided for the local admin user.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-2.png)
+    ![R server Administration utility test](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
     c. Verify that the output shows that overall health is a pass.
 
-    ![one box op](./media/r-server-operationalize/diagnostic-3.png)
+    ![R server Administration utility pass](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
     d. From the menu options presented, enter **E** to return to the main menu and then enter **8** to exit the admin utility.
 
-### Long delays when consuming web service on Spark
+### Long delays when consuming web service on Apache Spark
 
-If you encounter long delays when trying to consume a web service created with mrsdeploy functions in a Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
+If you encounter long delays when trying to consume a web service created with mrsdeploy functions in an Apache Spark compute context, you may need to add some missing folders. The Spark application belongs to a user called '*rserve2*' whenever it is invoked from a web service using mrsdeploy functions. To work around this issue:
 
 	# Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -133,7 +133,7 @@ To scale the compute nodes, you first decommission the worker nodes and then con
 
 ### Step 1: Decommission the worker nodes
 
-ML Services cluster is not managed through YARN. If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
+ML Services cluster is not managed through [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). If the worker nodes are not decommissioned, the YARN Resource Manager does not work as expected because it is not aware of the resources being taken up by the server. In order to avoid this situation, we recommend decommissioning the worker nodes before you scale out the compute nodes.
 
 Follow these steps to decommission worker nodes:
 
@@ -143,7 +143,7 @@ Follow these steps to decommission worker nodes:
 
 1. Click  **Actions** > **Selected Hosts** > **Hosts** > **Turn ON Maintenance Mode**. For example, in the following image we have selected wn3 and wn4 to decommission.  
 
-   ![decommission worker nodes](./media/r-server-operationalize/get-started-operationalization.png)  
+   ![Apache Ambari Turn On Maintenance Mode](./media/r-server-operationalize/get-started-operationalization.png)  
 
 * Select **Actions** > **Selected Hosts** > **DataNodes** > click **Decommission**.
 * Select **Actions** > **Selected Hosts** > **NodeManagers** > click **Decommission**.

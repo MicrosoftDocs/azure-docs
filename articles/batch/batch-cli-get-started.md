@@ -1,20 +1,8 @@
 ---
-title: Get started with Azure CLI for Batch | Microsoft Docs
+title: Get started with Azure CLI for Batch
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
-services: batch
-documentationcenter: ''
-author: dlepow
-manager: jeconnoc
-editor: ''
-
-ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
-ms.service: batch
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: multiple
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 07/24/2018
-ms.author: danlep
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -58,8 +46,8 @@ To use the Azure CLI with Batch, you need to log in and authenticate. There are 
 
 There are a few different ways to log into Azure, described in detail in [Log in with Azure CLI](/cli/azure/authenticate-azure-cli):
 
-1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Log in interactively when you are running Azure CLI commands yourself from the command line.
-2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
+1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Log in interactively when you are running Azure CLI commands yourself from the command line.
+2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
 For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) on the command line:
 
@@ -72,7 +60,7 @@ The `az login` command returns a token that you can use to authenticate, as show
 
 ![Log in to Azure](./media/batch-cli-get-started/az-login.png)
 
-The examples listed in the [Sample shell scripts](#sample-shell-scripts) section also show how to start your Azure CLI session by logging into Azure interactively. Once you have logged in, you can call commands to work with Batch Management resources, including Batch accounts, keys, application packages, and quotas.  
+The examples listed in the Sample shell scripts section also show how to start your Azure CLI session by logging into Azure interactively. Once you have logged in, you can call commands to work with Batch Management resources, including Batch accounts, keys, application packages, and quotas.  
 
 ### Log in to your Batch account
 
@@ -106,7 +94,7 @@ You have two options for authenticating against your Batch account:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-The examples listed in the [Sample shell scripts](#sample-shell-scripts) section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
+The examples listed in the Sample shell scripts section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
 
 ## Use Azure Batch CLI extension commands
 
@@ -164,14 +152,14 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 
 * Use `-h` to get **help text** for any CLI command
 * Use `-v` and `-vv` to display **verbose** command output. When the `-vv` flag is included, the Azure CLI displays the actual REST requests and responses. These switches are handy for displaying full error output.
-* You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see [JSON files](#json-files) earlier in this article).
+* You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see JSON files earlier in this article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## Next steps
 
-* For more information about the Azure CLI, see the [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
-* For more information about Batch resources, see [Overview of Azure Batch for developers](batch-api-basics.md).
-* For more information about using Batch templates to create pools, jobs, and tasks without writing code, see [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
+* See the [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+* Learn about using Batch templates to create pools, jobs, and tasks without writing code in [Use Azure Batch CLI templates and file transfer](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

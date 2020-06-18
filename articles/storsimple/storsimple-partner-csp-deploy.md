@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple and Cloud Solutions Provider Program Overview | Microsoft Docs
+title: Deploy StorSimple Virtual Array for Cloud Solution Provider Program
 description: An overview about the StorSimple and CSP for StorSimple partners.
 services: storsimple
 documentationcenter: NA
@@ -30,13 +30,13 @@ This article describes how a CSP partner can add a customer or a new subscriptio
 Before you begin, ensure that:
 
 - You are enrolled under the CSP program.
-- You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
+- You have valid [Partner Center](https://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
 ## Add a customer
 
 If you add a customer, a subscription is automatically created. To add a customer (and automatically create a subscription), perform the following steps in the Partner portal.
 
-1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
+1. Go to the [Partner Center](https://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
 
      ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -73,7 +73,7 @@ If you add a customer, a subscription is automatically created. To add a custome
 
 In some instances, you may have an existing customer, and you need to add a subscription. To add a subscription to an existing customer, perform the following steps in the Partner portal.
 
-1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
+1. Go to the [Partner Center](https://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
 
      ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               

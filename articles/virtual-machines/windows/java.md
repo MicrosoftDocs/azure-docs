@@ -1,19 +1,11 @@
 ---
-title: Create and Manage an Azure Virtual Machine Using Java | Microsoft Docs
+title: Create and Manage an Azure Virtual Machine Using Java 
 description: Use Java and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 
@@ -35,8 +27,8 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-2. Install [Maven](http://maven.apache.org/download.cgi).
+1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
+2. Install [Maven](https://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
     ```
@@ -92,7 +84,7 @@ It takes about 20 minutes to do these steps.
       <artifactId>okio</artifactId>
       <version>1.13.0</version>
     </dependency>
-    <dependency> 
+    <dependency>
       <groupId>com.nimbusds</groupId>
       <artifactId>nimbus-jose-jwt</artifactId>
       <version>3.6</version>
@@ -113,7 +105,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 
@@ -127,7 +119,7 @@ Before you start this step, make sure that you have access to an [Active Directo
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
@@ -168,7 +160,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 2. To create the Active Directory credentials that you need to make requests, add this code to the main method of the App class:
    
     ```java
-    try {    
+    try {
         final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
         Azure azure = Azure.configure()
             .withLogLevel(LogLevel.BASIC)
@@ -185,7 +177,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 ### Create the resource group
 
-All resources must be contained in a [Resource group](../../azure-resource-manager/resource-group-overview.md).
+All resources must be contained in a [Resource group](../../azure-resource-manager/management/overview.md).
 
 To specify values for the application and create the resource group, add this code to the try block in the main method:
 
@@ -214,7 +206,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### Create the public IP address
 
-A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/public-ip-addresses.md) is needed to communicate with the virtual machine.
 
 To create the public IP address for the virtual machine, add this code to the try block in the main method:
 
@@ -297,23 +289,23 @@ input.nextLine();
 If you want to use an existing disk instead of a marketplace image, use this code: 
 
 ```java
-ManagedDisk managedDisk = azure.disks.define("myosdisk") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd") 
-    .withSizeInGB(128) 
-    .withSku(DiskSkuTypes.PremiumLRS) 
-    .create(); 
+ManagedDisk managedDisk = azure.disks.define("myosdisk")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withWindowsFromVhd("https://mystorage.blob.core.windows.net/vhds/myosdisk.vhd")
+    .withSizeInGB(128)
+    .withSku(DiskSkuTypes.PremiumLRS)
+    .create();
 
-azure.virtualMachines.define("myVM") 
-    .withRegion(Region.US_EAST) 
-    .withExistingResourceGroup("myResourceGroup") 
-    .withExistingPrimaryNetworkInterface(networkInterface) 
-    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows) 
-    .withExistingAvailabilitySet(availabilitySet) 
-    .withSize(VirtualMachineSizeTypes.StandardDS1) 
-    .create(); 
-``` 
+azure.virtualMachines.define("myVM")
+    .withRegion(Region.US_EAST)
+    .withExistingResourceGroup("myResourceGroup")
+    .withExistingPrimaryNetworkInterface(networkInterface)
+    .withSpecializedOSDisk(managedDisk, OperatingSystemTypes.Windows)
+    .withExistingAvailabilitySet(availabilitySet)
+    .withSize(VirtualMachineSizeTypes.StandardDS1)
+    .create();
+```
 
 ## Perform management tasks
 
@@ -380,7 +372,7 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  displayStatus: " + status.displayStatus());
 }
 System.out.println("Press enter to continue...");
-input.nextLine();   
+input.nextLine();
 ```
 
 ### Stop the VM
@@ -447,10 +439,10 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 1. To delete the resource group, add this code to the try block in the main method:
    
-```java
-System.out.println("Deleting resources...");
-azure.resourceGroups().deleteByName("myResourceGroup");
-```
+    ```java
+    System.out.println("Deleting resources...");
+    azure.resourceGroups().deleteByName("myResourceGroup");
+    ```
 
 2. Save the App.java file.
 

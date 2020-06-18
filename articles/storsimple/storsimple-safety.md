@@ -1,5 +1,5 @@
 ---
-title: Safety for your StorSimple device | Microsoft Docs
+title: Safely install and operate StorSimple device
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device.
 services: storsimple
 documentationcenter: ''
@@ -18,10 +18,13 @@ ms.author: alkohli
 
 ---
 # Safely install and operate your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ![Warning Icon](./media/storsimple-safety/IC740879.png)
 ![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
 
-Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](http://www.microsoft.com/download/details.aspx?id=44233) is also available.
+Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](https://www.microsoft.com/download/details.aspx?id=44233) is also available.
 
 ## Safety icon conventions
 Here are the icons that you will find when you review the safety precautions to be observed when setting up and running your Microsoft Azure StorSimple device.
@@ -63,7 +66,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 To reduce the likelihood of overheating or fire from the electrical connections:
 
 * Provide a suitable power source with electrical overload protection to meet the requirements detailed in the technical specification.
-* Do not use bifurcated power cords (“Y” leads).
+* Do not use bifurcated power cords ("Y" leads).
 * To comply with applicable safety, emission, and thermal requirements, no covers should be removed and all bays must be populated with plug-in modules or drive blanks.
 * Ensure that the equipment is used in a manner specified by the manufacturer. If this equipment is used in a manner not specified by the manufacturer, the protection provided by the equipment may be impaired.
 
@@ -92,7 +95,7 @@ To reduce the likelihood of injury, electrical shock, or death:
 
 * The rack should have a safe electrical distribution system. It must provide over-current protection for the enclosure and must not be overloaded by the total number of enclosures installed. The electrical power consumption rating shown on the nameplate should be observed.
 * The electrical distribution system must provide a reliable ground for each enclosure in the rack.
-* The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with “HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply.”
+* The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with "HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply."
 * The rack, when configured with the enclosures, must meet the safety requirements of UL 60950-1 and IEC 60950-1/EN 60950-1.
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
@@ -141,7 +144,7 @@ To reduce the risk of shorts, fire, explosion, injury, or death:
 
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
-When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 After you have reviewed these safety notices, the next steps are to unpack, rack and cable your device.
 

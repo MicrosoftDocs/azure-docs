@@ -1,11 +1,11 @@
 ---
-title: Azure CLI script sample - Route traffic for high availability of applications | Microsoft Docs
+title: Route traffic for HA of applications - Azure CLI - Traffic Manager
 description: Azure CLI script sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
-editor: tysonn
+author: rohinkoul
+manager: twooley
+
 tags: azure-infrastructure
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
-ms.author: kumud
+ms.author: rohink
 ---
 
 # Route traffic for high availability of applications using Azure CLI
@@ -46,11 +46,11 @@ This script uses the following commands to create a resource group, web app, tra
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Creates an App Service plan. This is like a server farm for your Azure web app. |
-| [az appservice web create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_create) | Creates an Azure web app within the App Service plan. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Creates an Azure Traffic Manager profile. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) | Adds a endpoint to an Azure Traffic Manager Profile. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Creates an App Service plan. This is like a server farm for your Azure web app. |
+| [az webapp web create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Creates an Azure web app within the App Service plan. |
+| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Creates an Azure Traffic Manager profile. |
+| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Adds an endpoint to an Azure Traffic Manager Profile. |
 
 ## Next steps
 

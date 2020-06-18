@@ -1,4 +1,11 @@
-| Resource | Default limit | Maximum Limit | Note |
+---
+author: rothja
+ms.service: cost-management-billing
+ms.topic: include
+ms.date: 11/09/2018    
+ms.author: jroth
+---
+| Resource | Limit | Note |
 | --- | --- | --- | --- |
-| Network Watcher | 1 per region  | 1 per region |  Network Watcher resource is created to enable access to the service. Only 1 Network Watcher resource is required per subscription per region |
-| Packet Capture sessions |10 per region | |# of sessions only, not saved captures |
+| Azure Network Watcher | 1 per region | Network Watcher is created to enable access to the service. Only one instance of Network Watcher is required per subscription per region. |
+| Packet capture sessions |10,000 per region |Number of sessions only, not saved captures. |

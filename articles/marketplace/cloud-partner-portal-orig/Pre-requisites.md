@@ -1,45 +1,16 @@
 ---
-title: Prerequisites for Application Curation | Microsoft Docs
-description: List of prerequisites for application curation.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: pbutlerm
-manager: Ricardo.Villalobos  
-editor:
-
-ms.assetid: 
+title: Prerequisites for Application Curation 
+description: Deprecated CPP article, linked to PC article; was "List of prerequisites for application curation."
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.date: 09/30/2019
+ms.author: dsindona
 ---
 
-Prerequisites for Application Curation
-===============================
+# Prerequisites for Application Curation
 
-Microsoft requires specific reviews in order to validate that the
-following requirements are met:
+The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- A partner\'s custom code meets Microsoft guidelines.
-- A Microsoft Dynamics Lifecycle Services (LCS) solution package can be successfully deployed.
-- Transactions can be completed.
-
-Currently, partners must demonstrate that these requirements have been met by doing test deployments and then sharing the results with
-Microsoft. No code will be deployed on a customer environment that Microsoft hasn\'t validated. Partners must complete the following
-curation artifacts and tests:
-
-- Code analysis report (CAR)
-- Business process modeler (BPM)/test scripts
-- Project name and description
-- Business database backup
-- Data packages and Process data packages (PDPs)
-- Methodology
-- Binaries (optional)
-- Deployable packages
-- Models (code and tests)
-- Marketing content
-
-See [Pre-requisites for app curation](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) for more info.
+Before you create a new Dynamics 365 for Operations offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) to create your offer.

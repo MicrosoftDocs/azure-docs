@@ -4,25 +4,22 @@ title: Blue screen errors when booting an Azure VM| Microsoft Docs
 description: Learn how to troubleshoot the issue that the blue screen error is received when booting| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 00/19/2018
+ms.date: 09/28/2018
 ms.author: genli
 ---
 
 # Windows shows blue screen error when booting an Azure VM
 This article describes blue screen errors that you may encounter when you boot a Windows Virtual Machine (VM) in Microsoft Azure. It provides steps to help you collect data for a support ticket. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 
@@ -54,7 +51,7 @@ To resolve this problem, you would need first to gather dump file for the crash 
 ### Locate dump file and submit a support ticket
 
 1. On the recovery VM, go to windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is F, you need to go to F:\Windows.
-2. Locate th memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file. 
+2. Locate the memory.dmp file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the dump file. 
 
 If you cannot find the dump file, move the next step to enable dump log and Serial Console.
 

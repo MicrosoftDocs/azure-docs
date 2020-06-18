@@ -1,28 +1,31 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, Node.js - Computer Vision"
+title: "Quickstart: Analyze a remote image with the REST API and Node.js"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with Node.js.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.custom: seodec18, seo-javascript-september2018, seo-javascript-october2019
 ---
-# Quickstart: Analyze a remote image using the REST API with Node.js in Computer Vision
+# Quickstart: Analyze a remote image using the Computer Vision REST API with Node.js
 
-In this quickstart, you analyze a remotely stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+In this quickstart, you'll analyze a remotely stored image to extract visual features using the Computer Vision REST API with Node.js. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual features based on image content.
 
 ## Prerequisites
 
-- You must have [Node.js](https://nodejs.org) 4.x or later installed.
-- You must have [npm](https://www.npmjs.com/) installed.
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* [Node.js](https://nodejs.org) 4.x or later 
+* [npm](https://www.npmjs.com/) 
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample
 
@@ -39,31 +42,25 @@ To create and run the sample, do the following steps:
    1. After the package is successfully installed, close the command prompt window.
 
 1. Copy the following code into a text editor.
-1. Make the following changes in code where needed:
-    1. Replace the value of `subscriptionKey` with your subscription key.
-    1. Replace the value of `uriBase` with the endpoint URL for the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method from the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of `imageUrl` with the URL of a different image that you want to analyze.
-    1. Optionally, replace the value of the `language` request parameter with a different language.
+1. Optionally, replace the value of `imageUrl` with the URL of a different image that you want to analyze.
+1. Optionally, replace the value of the `language` request parameter with a different language.
 1. Save the code as a file with a `.js` extension. For example, `analyze-image.js`.
 1. Open a command prompt window.
 1. At the prompt, use the `node` command to run the file. For example, `node analyze-image.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');
 
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
+let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
+let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
+if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase =
-    'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
+var uriBase = endpoint + 'vision/v3.0/analyze';
 
 const imageUrl =
-    'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+    'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 // Request parameters.
 const params = {
@@ -178,7 +175,7 @@ When no longer needed, delete the file, and then uninstall the npm `request` pac
 
 ## Next steps
 
-Explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Next, explore the Computer Vision APIs used to analyze an image, detect celebrities and landmarks, create a thumbnail, and extract printed and handwritten text.
 
 > [!div class="nextstepaction"]
 > [Explore the Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

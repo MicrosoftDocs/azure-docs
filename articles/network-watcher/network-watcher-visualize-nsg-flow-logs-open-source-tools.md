@@ -1,20 +1,17 @@
 ---
-title: Visualize Azure Network Watcher NSG flow logs using open source tools | Microsoft Docs
-description: This page describes how to use open source tools to visualize NSG flow logs.
+title: Visualize NSG flow logs - Elastic Stack
+titleSuffix: Azure Network Watcher
+description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor:
-
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
+ms.author: damendo
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -39,7 +36,7 @@ By connecting NSG flow logs with the Elastic Stack, we can create a Kibana dashb
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java install, refer to documentation on [Oracle's website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](https://aka.ms/azure-jdks).
 2. Download the correct binary package for your system:
 
    ```bash
@@ -133,6 +130,11 @@ For further instructions on installing Elastic search, refer to [Installation in
                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+	               "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+	               "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+	               "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+	               "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}

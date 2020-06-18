@@ -1,21 +1,17 @@
 ---
-title: Real User Measurements to Azure Traffic Manager with web pages | Microsoft Docs
-description: Set up your web pages to send Real User Measurements to Traffic Manager
+title: Real User Measurements with web pages - Azure Traffic Manager
+description: In this article, learn how to set up your web pages to send Real User Measurements to Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: jeconnoc
-editor: 
-tags: 
-
-ms.assetid: 
+author: rohinkoul
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: rohink
 ms.custom: 
 ---
 
@@ -33,7 +29,7 @@ To obtain the RUM Key using Azure portal:
 3. In the Traffic Manager profile blade, click **Real User Measurements** under **Settings**.
 4. Click **Generate Key** to create a new RUM Key.
  
-  ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generate Real User Measurements key](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figure 1: Real User Measurements Key Generation**
 
@@ -43,7 +39,7 @@ To obtain the RUM Key using Azure portal:
 
     **Figure 2: Real User Measurements Key and Measurement JavaScript**
  
-6.	Click the **Copy** button to copy the JavaScript code. 
+6. Click the **Copy** button to copy the JavaScript code. 
 
 >[!IMPORTANT]
 > Use the generated JavaScript for Real User Measurements feature to function properly. Any changes to this script or the scripts used by Real User Measurements can lead to unpredictable behavior.

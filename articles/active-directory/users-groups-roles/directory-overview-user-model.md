@@ -1,20 +1,21 @@
 ---
-title: Users, groups, licensing, and roles for large organizations in Azure Active Directory | Microsoft Docs
+title: Users, groups, licensing, and roles overview - Azure AD | Microsoft Docs
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 11/08/2019
 ms.topic: overview
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 services: active-directory
-ms.custom: it-pro
+ms.custom: "it-pro;seo-update-azuread-jan"
 
 #As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
+ms.collection: M365-identity-device-management
 ---
 # Users, groups, licensing, and roles for large organizations
 
@@ -26,7 +27,7 @@ This article introduces the Azure AD administrator to the relationship between t
 
 ## Assign users to groups
 
-You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign administrator roles in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
+You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign all administrator roles except for Global Administrator in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
 
 For additional flexibility and to reduce the work of managing group membership, you can use [dynamic groups](groups-create-rule.md) in Azure AD to expand and contract group membership automatically. You'll need an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups.
 
@@ -47,7 +48,7 @@ Many large organizations want options for their users to obtain sufficient permi
 
  Role name | Permissions summary
  --------- | -------------------
- **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view conditional access policies and devices, but not manage them.
+ **Application Administrator** | Can add and manage enterprise applications and application registrations, and configure proxy application settings. Application Administrators can view Conditional Access policies and devices, but not manage them.
  **Cloud Application Administrator** | Can add and manage enterprise applications and enterprise app registrations. This role has all of the permissions of the Application Administrator, except it can't manage application proxy settings.
 **Application Developer** | Can add and update application registrations, but can't manage enterprise applications or configure an application proxy.
 
@@ -55,7 +56,7 @@ New Azure AD administrator roles are being added. Check the Azure portal or the 
 
 ## Assign app access
 
-You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD tenant](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
+You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD organization](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
 
 Azure AD also gives you granular control of the data that flows between the app and the groups to whom you assign access. In [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), open an app and select **Provisioning** to:
 
@@ -69,4 +70,4 @@ Azure AD also gives you granular control of the data that flows between the app 
 
 If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
 
-Or you can start [creating groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning licenses](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning app access](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-a-group-directly-to-an-application-as-an-administrator?context=azure/active-directory/users-groups-roles/context/ugr-context) or [assigning administrator roles](directory-assign-admin-roles.md).
+Or you can start [creating groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning licenses](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning app access](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) or [assigning administrator roles](directory-assign-admin-roles.md).

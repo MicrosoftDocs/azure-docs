@@ -2,24 +2,40 @@
 title: include file
 description: include file
 services: virtual-machines
-author: jpconnock
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
 
 ---
 
-# Frequently asked questions about classic to Azure Resource Manager migration
+## What is the time required for migration?
+
+Planning and execution of migration greatly depends on the complexity of the architecture and could take couple of months.  
+
+## What is the definition of a new customer on IaaS VMs (classic)?
+
+Customers who did not have IaaS VMs (classic) in their subscriptions in the month of Febrauary 2020 (a month before deprecation started) are considered as new customers. 
+
+## What is the definition of an existing customer on IaaS Virtual Machines (classic)?
+
+Customer who had active or stopped but allocated IaaS VMs (Classic) in their subscriptions in the month of February 2020, are considered as an existing customer. Only these customers get until March 1, 2023 to migrate their VMs from Azure Service Manager to Azure Resource Manager. 
+
+## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
+
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support for subscription whitelisting.
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
-No. The VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure.
+Not until March 1st, 2023 for IaaS VMs (classic). The IaaS VMs (classic) are fully supported services in general availability. You can continue to use these resources to expand your footprint on Microsoft Azure. On March 1st, 2023, these VMs will be fully retired and any active or allocated VMs will be stopped & deallocated. 
+There will be no impact to other classic resources like Cloud Services (Classic), Storage Accounts (Classic), etc.   
 
 ## What happens to my VMs if I don’t plan on migrating in the near future? 
 
-We are not deprecating the existing classic APIs and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We highly recommend that you review [some of the advancements](../articles/azure-resource-manager/resource-manager-deployment-model.md) that are part of IaaS under Resource Manager.
+On March 1st, 2023, the IaaS VMs (Classic) will be fully retired and any active or allocated VMs will be stopped & deallocated. To prevent business impact, we highly recomment to start planning your migration today and complete it before March 1st, 2023. 
+We are not deprecating the existing classic APIs, Cloud Services and resource model. We want to make migration easy, considering the advanced features that are available in the Resource Manager deployment model. We recommend that you start planning to migrate these resources to Azure Resource Manager. 
 
 ## What does this migration plan mean for my existing tooling? 
 
@@ -35,7 +51,7 @@ You can abort your migration as long as the resources are in the prepared state.
 
 ## Can I roll back my migration if the commit operation fails? 
 
-You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket or create a forum post with the ClassicIaaSMigration tag on our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+You cannot abort migration if the commit operation fails. All migration operations, including the commit operation, are idempotent. So we recommend that you retry the operation after a short time. If you still face an error, create a support ticket.
 
 ## Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
 
@@ -47,10 +63,10 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 ## I backed up my classic VMs in a vault. Can I migrate my VMs from classic mode to Resource Manager mode and protect them in a Recovery Services vault?
 
-<a name="vault">When</a> you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
+When you move a VM from classic to Resource Manager mode, backups taken prior to migration will not migrate to newly migrated Resource Manager VM. However, if you wish to keep your backups of classic VMs, follow these steps before the migration. 
 
 1. In the Recovery Services vault, go to the **Protected Items** tab and select the VM. 
-2. Click [Stop Protection](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines). Leave *Delete associated backup data* option **unchecked**.
+2. Click Stop Protection. Leave *Delete associated backup data* option **unchecked**.
 
 > [!NOTE]
 > You will be charged backup instance cost till you retain data. Backup copies will be pruned as per retention range. However, last backup copy is always kept until you explicitly delete backup data. It is advised to check your retention range of the Virtual machine and trigger "Delete Backup Data" on the protected item in the vault once the retention range is over. 
@@ -74,11 +90,11 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A question page for VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 
-All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
+All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](https://feedback.azure.com).
 
 ## Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
 

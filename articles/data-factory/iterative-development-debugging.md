@@ -1,20 +1,19 @@
 ---
-title: Iterative development and debugging in Azure Data Factory | Microsoft Docs
+title: Iterative development and debugging in Azure Data Factory 
 description: Learn how to develop and debug Data Factory pipelines iteratively in the Azure portal.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
-
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
 ---
 # Iterative development and debugging with Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory lets you iteratively develop and debug Data Factory pipelines.
 
@@ -47,6 +46,10 @@ You can visualize all the debug runs that are in progress for your data factory 
 ![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+If you have active Data Flow debug sessions, those sessions will appear on the bottom part of the active debug window. You can select an active data flow session and stop the respective cluster.
+
+![Sample list of active data flow debug runs](media/data-flow/dfsessions.png)
 
 ## Monitoring debug runs
 

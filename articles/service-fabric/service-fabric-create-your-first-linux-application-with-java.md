@@ -1,25 +1,12 @@
 ---
-title: Create an Azure Service Fabric reliable actors Java application on Linux | Microsoft Docs
+title: Create an Azure Service Fabric reliable actors Java application on Linux 
 description: Learn how to create and deploy a Java Service Fabric reliable actors application in five minutes.
-services: service-fabric
-documentationcenter: java
-author: rwike77
-manager: timlt
-editor: ''
 
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2018
-ms.author: ryanwi
-
 ---
 # Create your first Java Service Fabric Reliable Actors application on Linux
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
@@ -175,7 +162,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }
@@ -217,7 +204,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer).
+`http://localhost:19080/Explorer`.
 Then, expand the **Applications** node and note that there is now an entry for your application type and another for
 the first instance of that type.
 
@@ -246,7 +233,7 @@ Actors do not do anything on their own, they require another service or client t
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screen shot below.
+2. In Service Fabric Explorer, locate the node hosting the primary replica for the actor service. In the screenshot below, it is node 3. The primary service replica handles read and write operations.  Changes in service state are then replicated out to the secondary replicas, running on nodes 0 and 1 in the screenshot below.
 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 

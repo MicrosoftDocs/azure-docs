@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Use Azure Security Center for Linux VMs in Azure | Microsoft Docs
+title: Tutorial - Use Azure Security Center for Linux VMs in Azure 
 description: In this tutorial, you learn about the Azure Security Center features to help protect and secure your Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
+
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -63,14 +62,14 @@ To set up a security policy for an entire subscription:
 
 1. On the Security Center dashboard, select **Security policy** and then select your subscription.
 2. On the **Security policy** blade, select **Security policy**. 
-3. On the ** Security policy - Security policy ** blade, turn on or turn off policy items that you want to apply to the subscription.
+3. On the **Security policy - Security policy** blade, turn on or turn off policy items that you want to apply to the subscription.
 4. When you're finished selecting your settings, select **Save** at the top of the blade. 
 
 ![Unique policy](./media/tutorial-azure-security/unique-policy.png)
 
 ## View VM configuration health
 
-After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-recommendations.md). 
+After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md). 
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated. The information is shown in an easy-to-read chart. 
 
@@ -102,9 +101,9 @@ As recommendations are remediated, they are marked as resolved.
 
 ## View detected threats
 
-In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [Azure Security Center detection capabilities](../../security-center/security-center-detection-capabilities.md).
+In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [How does Security Center detect threats?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
-The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A 60-day **free trial** is available when you move to this higher pricing tier. 
+The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A **free trial** is available when you move to this higher pricing tier. 
 
 To change the pricing tier:  
 
@@ -133,5 +132,5 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

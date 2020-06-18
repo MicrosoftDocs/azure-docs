@@ -2,12 +2,12 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.author: tomfitz
+ms.date: 02/27/2020
+ms.author: spelluru
 ---
 
 # Event Grid message delivery and retry
@@ -16,23 +16,66 @@ This article describes how Azure Event Grid handles events when delivery isn't a
 
 Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
 
-Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
+## Batched event delivery
+
+Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event. You can configure Event Grid to batch events for delivery for improved HTTP performance in high-throughput scenarios.
+
+Batched delivery has two settings:
+
+* **Max events per batch** - Maximum number of events Event Grid will deliver per batch. This number will never be exceeded, however fewer events may be delivered if no other events are available at the time of publish. Event Grid does not delay events in order to create a batch if fewer events are available. Must be between 1 and 5,000.
+* **Preferred batch size in kilobytes** - Target ceiling for batch size in kilobytes. Similar to max events, the batch size may be smaller if more events are not available at the time of publish. It is possible that a batch is larger than the preferred batch size *if* a single event is larger than the preferred size. For example, if the preferred size is 4 KB and a 10-KB event is pushed to Event Grid, the 10-KB event will still be delivered in its own batch rather than being dropped.
+
+Batched delivery in configured on a per-event subscription basis via the portal, CLI, PowerShell, or SDKs.
+
+### Azure portal: 
+![Batch delivery settings](./media/delivery-and-retry/batch-settings.png)
+
+### Azure CLI
+When creating an event subscription, use the following parameters: 
+
+- **max-events-per-batch** - Maximum number of events in a batch. Must be a number between 1 and 5000.
+- **preferred-batch-size-in-kilobytes** - Preferred batch size in kilobytes. Must be a number between 1 and 1024.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+For more information on using Azure CLI with Event Grid, see [Route storage events to web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md).
 
 ## Retry schedule and duration
 
-Event Grid uses an exponential backoff retry policy for event delivery. If an endpoint doesn't respond or returns a failure code, Event Grid retries delivery on the following schedule:
+Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
-1. 10 seconds
-2. 30 seconds
-3. 1 minute
-4. 5 minutes
-5. 10 minutes
-6. 30 minutes
-7. 1 hour
+- 10 seconds
+- 30 seconds
+- 1 minute
+- 5 minutes
+- 10 minutes
+- 30 minutes
+- 1 hour
+- Hourly for up to 24 hours
 
-Event Grid adds a small randomization to all retry steps. After one hour, event delivery is retried once an hour.
+If the endpoint responds within 3 minutes, Event Grid will attempt to remove the event from the retry queue on a best effort basis but duplicates may still be received.
+
+Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
+
+For deterministic behavior, set the event time to live and max delivery attempts in the [subscription retry policies](manage-event-delivery.md).
 
 By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
+
+## Delayed Delivery
+
+As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first 10 events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
+
+The functional purpose of delayed delivery is to protect unhealthy endpoints as well as the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
 
 ## Dead-letter events
 
@@ -55,25 +98,29 @@ Event Grid uses HTTP response codes to acknowledge receipt of events.
 
 ### Success codes
 
-The following HTTP response codes indicate that an event has been delivered successfully to your webhook. Event Grid considers delivery complete.
+Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. Upon receiving a successful status code, Event Grid considers delivery complete.
 
 - 200 OK
+- 201 Created
 - 202 Accepted
+- 203 Non-Authoritative Information
+- 204 No Content
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed.
+All other codes not in the above set (200-204) are considered failures and will be retried. Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
 
-- 400 Bad Request
-- 401 Unauthorized
-- 404 Not Found
-- 408 Request timeout
-- 413 Request Entity Too Large
-- 414 URI Too Long
-- 429 Too Many Requests
-- 500 Internal Server Error
-- 503 Service Unavailable
-- 504 Gateway Timeout
+| Status code | Retry behavior |
+| ------------|----------------|
+| 400 Bad Request | Retry after 5 minutes or more (Deadletter immediately if deadletter setup) |
+| 401 Unauthorized | Retry after 5 minutes or more |
+| 403 Forbidden | Retry after 5 minutes or more |
+| 404 Not Found | Retry after 5 minutes or more |
+| 408 Request Timeout | Retry after 2 minutes or more |
+| 413 Request Entity Too Large | Retry after 10 seconds or more (Deadletter immediately if deadletter setup) |
+| 503 Service Unavailable | Retry after 30 seconds or more |
+| All others | Retry after 10 seconds or more |
+
 
 ## Next steps
 

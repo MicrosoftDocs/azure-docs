@@ -3,12 +3,12 @@ title: CRITICAL SERVICE FAILED when booting an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot the "0x0000005A-CRITICAL SERVICE FAILED" error that occurs when booting | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -19,15 +19,12 @@ ms.author: genli
 # Windows shows "CRITICAL SERVICE FAILED" on blue screen when booting an Azure VM
 This article describes the "CRITICAL SERVICE FAILED" error that you may experience when you boot a Windows Virtual Machine (VM) in Microsoft Azure. It provides troubleshooting steps to help resolve the issues. 
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 
 A Windows VM doesn't start. When you check the boot screenshots in [Boot diagnostics](./boot-diagnostics.md), you see one of the following error messages on a blue screen:
 
-- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit http://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
+- "Your PC ran into a problem and needs to restart. You can restart. For more information about this issue and possible fixes, visit https://windows.com/stopcode. If you call a support person, give them this info: Stop code: CRITICAL SERVICE FAILED" 
 - "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you. 
 If you'd like to know more, you can search online later for this error: CRITICAL_SERVICE_FAILED"
 
@@ -91,7 +88,7 @@ To enable dump logs and Serial Console, run the following script.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the [optional step](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the optional step.
 3. Open the **Run** box and run **verifier** to start the Driver Verifier Manager tool.
 4. Select **Automatically select unsigned drivers**, and then click **Next**.
 5. You will get the list of the driver files that are unsigned. Remember the file names.
@@ -104,7 +101,7 @@ To enable dump logs and Serial Console, run the following script.
 
 ### Optional: Analyze the dump logs in Dump Crash mode
 
-To analyse the dump logs yourself, follow these steps:
+To analyze the dump logs yourself, follow these steps:
 
 1. Attach the OS disk to a recovery VM.
 2. On the OS disk that you attached, browse to **\windows\system32\config**. Copy all the files as a backup in case a rollback is required.
@@ -153,7 +150,7 @@ To analyse the dump logs yourself, follow these steps:
     PROCESS_NAME: System CURRENT_IRQL: 0 ANALYSIS_SESSION_HOST: MININT-6RMM091 ANALYSIS_SESSION_TIME: 11-15-2017 19:32:42.0841 
     ANALYSIS_VERSION: 10.0.16361.1001 amd64fre STACK_TEXT: ffffc701`1dc74948 fffff803`b2ff4b4a : 00000000`0000005a 00000000`00000001 ffffd80f`4bfe7070 ffffb00b`0513d320 : nt!KeBugCheckEx [d:\rs1\minkernel\ntos\ke\amd64\procstat.asm @ 127] ffffc701`1dc74950 fffff803`b3205df3 : ffffd80f`4bba9f58 ffffd80f`4bba9f58 ffffc701`1dc74b80 ffffd80f`00000006 : nt!IopLoadDriver+0x19f8e6 [d:\rs1\minkernel\ntos\ke\amd64\threadbg.asm @ 81] 
     RETRACER_ANALYSIS_TAG_STATUS: DEBUG_FLR_FAULTING_IP is not found THREAD_SHA1_HASH_MOD_FUNC: eb79608c07faa1af62c0e61f25ff6bc1d6dfdb25 THREAD_SHA1_HASH_MOD_FUNC_OFFSET: 96a3a314834bb4e8443a8b7201525fc5dfc1878b THREAD_SHA1_HASH_MOD: 30a3e915496deaace47137d5b90c3ecc03746bf6 FOLLOWUP_NAME: wintriag
-    MODULE_NAME: filecrypt IMAGE_NAME: filecrypt.sys DEBUG_FLR_IMAGE_TIMESTAMP: 0 IMAGE_VERSION: STACK_COMMAND: .thread ; .cxr ; kb FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys PRIMARY_PROBLEM_CLASS: 0x5A_c0000428_IMAGE_filecrypt.sys TARGET_TIME: 2017-11-13T20:51:04.000Z OSBUILD: 14393 OSSERVICEPACK: 1770 SERVICEPACK_NUMBER: 0 OS_REVISION: 0 SUITE_MASK: 144 PRODUCT_TYPE: 3 OSPLATFORM_TYPE: x64 OSNAME: Windows 10 OSEDITION: Windows 10 Server TerminalServer DataCenter OS_LOCALE: USER_LCID: 0 OSBUILD_TIMESTAMP: 2017-09-17 19:16:08 BUILDDATESTAMP_STR: 170917-1700 BUILDLAB_STR: rs1_release BUILDOSVER_STR: 10.0.14393.1770 ANALYSIS_SESSION_ELAPSED_TIME: bfc ANALYSIS_SOURCE: KM FAILURE_ID_HASH_STRING: km:0x5a_c0000428_image_filecrypt.sys FAILURE_ID_HASH: {35f25777-b01e-70a1-c502-f690dab6cb3a} FAILURE_ID_REPORT_LINK: http://go.microsoft.com/fwlink/?LinkID=397724&FailureHash=35f25777-b01e-70a1-c502-f690dab6cb3a
+    MODULE_NAME: filecrypt IMAGE_NAME: filecrypt.sys DEBUG_FLR_IMAGE_TIMESTAMP: 0 IMAGE_VERSION: STACK_COMMAND: .thread ; .cxr ; kb FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys PRIMARY_PROBLEM_CLASS: 0x5A_c0000428_IMAGE_filecrypt.sys TARGET_TIME: 2017-11-13T20:51:04.000Z OSBUILD: 14393 OSSERVICEPACK: 1770 SERVICEPACK_NUMBER: 0 OS_REVISION: 0 SUITE_MASK: 144 PRODUCT_TYPE: 3 OSPLATFORM_TYPE: x64 OSNAME: Windows 10 OSEDITION: Windows 10 Server TerminalServer DataCenter OS_LOCALE: USER_LCID: 0 OSBUILD_TIMESTAMP: 2017-09-17 19:16:08 BUILDDATESTAMP_STR: 170917-1700 BUILDLAB_STR: rs1_release BUILDOSVER_STR: 10.0.14393.1770 ANALYSIS_SESSION_ELAPSED_TIME: bfc ANALYSIS_SOURCE: KM FAILURE_ID_HASH_STRING: km:0x5a_c0000428_image_filecrypt.sys FAILURE_ID_HASH: {35f25777-b01e-70a1-c502-f690dab6cb3a} FAILURE_ID_REPORT_LINK: https://go.microsoft.com/fwlink/?LinkID=397724&FailureHash=35f25777-b01e-70a1-c502-f690dab6cb3a
     ```
 
 11.	Once the VM is working and booting normally, remove the Dump Crash settings:

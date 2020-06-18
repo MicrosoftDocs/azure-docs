@@ -1,187 +1,111 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template | Microsoft Docs'
-description: The quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
+title: Quickstart - Create an Azure Databricks workspace by Azure Resource Manager template
+description: This quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
 ms.service: azure-databricks
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
-ms.custom: mvc
-
+ms.custom: mvc, subject-armqs
+ms.date: 05/27/2020
 ---
 
-# Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template
+# Quickstart: Create an Azure Databricks workspace by using the Azure Resource Manager template
 
-This quickstart shows how to create an Azure Databricks workspace using Azure Resource Manager template. You use the workspace to create an Apache Spark cluster and run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+In this quickstart, you use an Azure Resource Manager template to create an Azure Databricks workspace. Once the workspace is created, you validate the deployment.
 
-In this quickstart, as part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+## Prerequisites
+
+To complete this article, you need to:
+
+* Have an Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 ## Create an Azure Databricks workspace
 
-In this section, you create an Azure Databricks workspace using the Azure Resource Manager template. 
+### Review the template
 
-1. Click the following image to open the template in the Azure portal.         
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-databricks-workspace/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json" target="_blank"><img src="./media/quickstart-create-databricks-workspace-resource-manager-template/deploy-to-azure.png" alt="Deploy to Azure"></a>
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-2. Provide the required values to create your Azure Databricks workspace 
+The Azure resource defined in the template is [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces): create an Azure Databricks workspace.
 
-    ![Create Azure Databricks workspace using an Azure Resource Manager template](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Create Azure Databricks workspace using an Azure Resource Manager template")
+### Deploy the template
 
-	Provide the following values: 
-     
-    |Property  |Description  |
-    |---------|---------|
-    |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
-    |**Workspace name**     | Provide a name for your Databricks workspace        |
-    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+In this section, you create an Azure Databricks workspace using the Azure Resource Manager template.
 
-3. Select **I agree to the terms and conditions stated above**, select **Pin to dashboard**, and then click **Purchase**.
+1. Select the following image to sign in to Azure and open a template. The template creates an Azure Databricks workspace.
 
-4. The workspace creation takes a few minutes. During workspace creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right side. You may need to scroll right on your dashboard to see the tile. There is also a progress bar displayed near the top of the screen. You can watch either area for progress.
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-databricks-workspace%2Fazuredeploy.json)
 
-    ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
+2. Provide the required values to create your Azure Databricks workspace
 
-## Create a Spark cluster in Databricks
+   ![Create Azure Databricks workspace using an Azure Resource Manager template](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-workspace-using-resource-manager-template.png "Create Azure Databricks workspace using an Azure Resource Manager template")
 
-1. In the Azure portal, go to the Databricks workspace that you created, and then click **Launch Workspace**.
+   Provide the following values:
 
-2. You are redirected to the Azure Databricks portal. From the portal, click **Cluster**.
+   |Property  |Description  |
+   |---------|---------|
+   |**Subscription**     | From the drop-down, select your Azure subscription.        |
+   |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
+   |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+   |**Workspace name**     | Provide a name for your Databricks workspace        |
+   |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    ![Databricks on Azure](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Databricks on Azure")
+3. Select **Review + Create**, then **Create**.
 
-3. In the **New cluster** page, provide the values to create a cluster.
+4. The workspace creation takes a few minutes. When a workspace deployment fails, the workspace is still created in a failed state. Delete the failed workspace and create a new workspace that resolves the deployment errors. When you delete the failed workspace, the managed resource group and any successfully deployed resources are also deleted.
 
-    ![Create Databricks Spark cluster on Azure](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+## Review deployed resources
 
-    Accept all other default values other than the following:
+You can either use the Azure portal to check the Azure Databricks workspace or use the following Azure CLI or Azure PowerShell script to list the resource.
 
-    * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime. 
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
-    
-    Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs. 
+### Azure CLI
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+```azurecli-interactive
+echo "Enter your Azure Databricks workspace name:" &&
+read databricksWorkspaceName &&
+echo "Enter the resource group where the Azure Databricks workspace exists:" &&
+read resourcegroupName &&
+az databricks workspace show -g $resourcegroupName -n $databricksWorkspaceName
+```
 
-## Run a Spark SQL job
+### Azure PowerShell
 
-Before you begin with this section, you must complete the following prerequisites:
-
-* [Create an Azure Blob storage account](../storage/common/storage-quickstart-create-account.md). 
-* Download a sample JSON file [from Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload the sample JSON file to the Azure Blob storage account you created. You can use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload files.
-
-Perform the following tasks to create a notebook in Databricks, configure the notebook to read data from an Azure Blob storage account, and then run a Spark SQL job on the data.
-
-1. In the left pane, click **Workspace**. From the **Workspace** drop-down, click **Create**, and then click **Notebook**.
-
-    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Create notebook in Databricks")
-
-2. In the **Create Notebook** dialog box, enter a name, select **Scala** as the language, and select the Spark cluster that you created earlier.
-
-    ![Create notebook in Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Create notebook in Databricks")
-
-    Click **Create**.
-
-3. In this step, associate the Azure Storage account with the Databricks Spark cluster. There are two ways to accomplish this association. You can mount the Azure Storage account to the Databricks Filesystem (DBFS), or directly access the Azure Storage account from the application you create.  
-
-    > [!IMPORTANT]
-    >This article uses the approach to **mount the storage with DBFS**. This approach ensures that the mounted storage gets associated with the cluster filesystem itself. Hence, any application accessing the cluster is able to use the associated storage as well. The direct-access approach is limited to the application from where you configure the access.
-    >
-    > To use the mounting approach, you must create a Spark cluster with Databricks runtime version **4.0**, which is what you chose in this article.
-
-    In the following snippet, replace `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}`, and `{YOUR STORAGE ACCOUNT ACCESS KEY}` with the appropriate values for your Azure Storage account. Paste the snippet in an empty cell in the notebook and then press SHIFT + ENTER to run the code cell.
-
-    * **Mount the storage account with DBFS (recommended)**. In this snippet, the Azure Storage account path is mounted to `/mnt/mypath`. So, in all future occurrences where you access the Azure Storage account you don't need to give the full path. You can just use `/mnt/mypath`.
-
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
-
-    * **Directly access the storage account**
-
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
-
-    For instructions on how to retrieve the storage account key, see [Manage your storage access keys](../storage/common/storage-account-manage.md#access-keys).
-
-    > [!NOTE]
-    > You can also use Azure Data Lake Store with a Spark cluster on Azure Databricks. For instructions, see [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
-
-4. Run a SQL statement to create a temporary table using data from the sample JSON data file, **small_radio_json.json**. In the following snippet, replace the placeholder values with your container name and storage account name. Paste the snippet in a code cell in the notebook, and then press SHIFT + ENTER. In the snippet, `path` denotes the location of the sample JSON file that you uploaded to your Azure Storage account.
-
-    ```sql
-    %sql 
-    DROP TABLE IF EXISTS radio_sample_data;
-    CREATE TABLE radio_sample_data
-    USING json
-    OPTIONS (
-     path "/mnt/mypath/small_radio_json.json"
-    )
-    ```
-
-    Once the command successfully completes, you have all the data from the JSON file as a table in Databricks cluster.
-
-    The `%sql` language magic command enables you to run a SQL code from the notebook, even if the notebook is of another type. For more information, see [Mixing languages in a notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
-
-5. Let's look at a snapshot of the sample JSON data to better understand the query that you run. Paste the following snippet in the code cell and press **SHIFT + ENTER**.
-
-    ```sql
-    %sql 
-    SELECT * from radio_sample_data
-    ```
-
-6. You see a tabular output like shown in the following screenshot (only some columns are shown):
-
-    ![Sample JSON data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Sample JSON data")
-
-    Among other details, the sample data captures the gender of the audience of a radio channel (column name, **gender**)  and whether their subscription is free or paid (column name, **level**).
-
-7. You now create a visual representation of this data to show for each gender, how many users have free accounts and how many are paid subscribers. From the bottom of the tabular output, click the **Bar chart** icon, and then click **Plot Options**.
-
-    ![Create bar chart](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Create bar chart")
-
-8. In **Customize Plot**, drag-and-drop values as shown in the screenshot.
-
-    ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
-
-    * Set **Keys** to **gender**.
-    * Set **Series groupings** to **level**.
-    * Set **Values** to **level**.
-    * Set **Aggregation** to **COUNT**.
-
-    Click **Apply**.
-
-9. The output shows the visual representation as depicted in the following screenshot:
-
-     ![Customize bar chart](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Customize bar chart")
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Databricks workspace exists"
+(Get-AzResource -ResourceType "Microsoft.Databricks/workspaces" -ResourceGroupName $resourceGroupName).Name
+ Write-Host "Press [ENTER] to continue..."
+```
 
 ## Clean up resources
 
-After you have finished the article, you can terminate the cluster. To do so, from the Azure Databricks workspace, from the left pane, select **Clusters**. For the cluster you want to terminate, move the cursor over the ellipsis under **Actions** column, and select the **Terminate** icon.
+If you plan to continue on to subsequent tutorials, you may wish to leave these resources in place. When no longer needed, delete the resource group, which deletes the Azure Databricks workspace and the related managed resources. To delete the resource group by using Azure CLI or Azure PowerShell:
 
-![Stop a Databricks cluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stop a Databricks cluster")
+### Azure CLI
 
-If you do not manually terminate the cluster it will automatically stop, provided you selected the **Terminate after __ minutes of inactivity** checkbox while creating the cluster. In such a case, the cluster automatically stops, if it has been inactive for the specified time.
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+### Azure PowerShell
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. You can also look at the Resource Manager template to [Create an Azure Databricks workspace with custom VNET address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address).
-
-Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this quickstart, you created an Azure Databricks workspace by using an Azure Resource Manager template and validated the deployment. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

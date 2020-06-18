@@ -1,17 +1,12 @@
 ---
 title: Manage Azure Recovery Services vaults and servers
-description: Manage jobs and alerts in an Azure Recovery Services vault.
-services: backup
-author: markgalioto
-manager: carmonm
-ms.service: backup
+description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: markgal
+ms.date: 07/08/2019
 ---
 # Monitor and manage Recovery Services vaults
 
-This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
+This article explains how to use the Recovery Services vault **Overview** dashboard to monitor and manage your Recovery Services vaults. When you open a Recovery Services vault from the list, the **Overview** dashboard for the selected vault, opens. The dashboard provides various details about the vault. There are *tiles* that show: the status of critical and warning alerts, in-progress and failed backup jobs, and the amount of locally redundant storage (LRS) and geo-redundant storage (GRS) used. If you back up Azure VMs to the vault, the [**Backup Pre-Check Status** tile displays any critical or warning items](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). The following image is the **Overview** dashboard for **Contoso-vault**. The **Backup Items** tile shows there are nine items registered to the vault.
 
 ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -19,12 +14,11 @@ The prerequisites for this article are: an Azure subscription, a Recovery Servic
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-
 ## Open a Recovery Services vault
 
 To monitor alerts, or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 
 2. In the portal, click **All services**.
 
@@ -34,7 +28,7 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. From the list of vaults, click a vault to open its **Overview** dashboard. 
+4. From the list of vaults, click a vault to open its **Overview** dashboard.
 
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -49,7 +43,7 @@ The Recovery Services vault **Overview** dashboard provides tiles for Monitoring
 The Monitoring section shows the results of predefined **Backup Alerts** and **Backup Jobs** queries. The Monitoring tiles provide up-to-date information about:
 
 * Critical and Warning alerts for Backup jobs (in the last 24 hours)
-* Pre-check status for Azure VMs - For complete information on the pre-check status, see the [Backup blog on Backup Pre-check status](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* Pre-check status for Azure VMs. For complete information on the pre-check status, see [Backup Pre-Check Status](#backup-pre-check-status).
 * The Backup jobs in progress, and jobs that have failed (in the last 24 hours).
 
 The Usage tiles provide:
@@ -63,13 +57,29 @@ Click the tiles (except Backup Storage) to open the associated menu. In the imag
 
 The Backup Alerts menu, in the image above, is filtered by: Status is Active, Severity is Critical, and time is the previous 24 hours.
 
+### Backup Pre-Check Status
+
+Backup Pre-Checks check your VMs' configuration for issues that can adversely affect backups. They aggregate this information so you can view it directly from the Recovery Services Vault dashboard and provide recommendations for corrective measures to ensure successful file-consistent or application-consistent backups. They require no infrastructure and have no additional cost.  
+
+Backup Pre-Checks run as part of the scheduled backup operations for your Azure VMs. They conclude with one of the following states:
+
+* **Passed**: This state indicates that your VM's configuration should lead to successful backups and no corrective action needs to be taken.
+* **Warning**: This state indicates one or more issues in the VM's configuration that *might* lead to backup failures. It provides *recommended* steps to ensure successful backups. For example, not having the latest VM Agent installed can cause backups to fail intermittently. This situation would provide a warning state.
+* **Critical**: This state indicates one or more critical issues in the VM's configuration that *will* lead to backup failures and provides *required* steps to ensure successful backups. For example, a network issue caused by an update to the NSG rules of a VM, will cause backups to fail, as it prevents the VM from communicating with the Azure Backup service. This situation would provide a critical state.
+
+Follow the steps below to start resolving any issues reported by Backup Pre-Checks for VM backups on your Recovery Services Vault.
+
+* Select the **Backup Pre-Check Status (Azure VMs)** tile on the Recovery Services Vault dashboard.
+* Select any VM with a Backup Pre-Check status of either **Critical** or **Warning**. This action will open the **VM details** pane.
+* Select the pane notification on the top of the pane to reveal the configuration issue description and remedial steps.
+
 ## Manage Backup alerts
 
 To access the Backup Alerts menu, in the Recovery Services vault menu, click **Backup Alerts**.
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-The Backup Alerts report lists the alerts for the vault. 
+The Backup Alerts report lists the alerts for the vault.
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -118,7 +128,7 @@ By default, all details, except **Latest Occurrence Time**, appear in the report
 
 ### Change the filter in alerts report
 
-Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts. 
+Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts.
 
 > [!NOTE]
 > Editing the Backup Alerts filter doesn't change the Critical or Warning alerts in the vault Overview dashboard.
@@ -150,7 +160,7 @@ Choose the alert severity (Critical or Warning) used to generate email. Currentl
 
 ## Manage Backup items
 
-A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. [Learn more](backup-overview.md#what-can-i-back-up) about what you can back up. To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -162,7 +172,7 @@ To explore a specific type of protected instance, click the item in the Backup M
 
 ![list of Backup type](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
+The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
 
 ![list of Backup type](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -170,7 +180,7 @@ The list of virtual machines has helpful data: the associated Resource Group, pr
 
 The **Backup Jobs** tile in the vault dashboard shows the number of jobs that are In Progress, or Failed in the last 24 hours. The tile provides a glimpse into the Backup Jobs menu.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 To see additional details about the jobs, click **In Progress** or **Failed** to open the Backup Jobs menu filtered for that state.
 
@@ -178,13 +188,13 @@ To see additional details about the jobs, click **In Progress** or **Failed** to
 
 The **Backup Jobs** menu displays information about the Item type, Operation, Status, Start Time, and Duration.  
 
-To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**. 
+To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 The list of Backup jobs opens.
 
-![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Back up items from settings](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 The Backup Jobs menu shows the status for all operations, on all backup types, for the last 24 hours. Use **Filter** to change the filters. The filters are explained in the following sections.
 
@@ -192,11 +202,11 @@ To change the filters:
 
 1. In the vault Backup Jobs menu, click **Filter**.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     The Filter menu opens.
 
-   ![Backup items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Back up items from settings](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Choose the filter settings and click **Done**. The filtered list refreshes based on the new settings.
 
@@ -245,7 +255,7 @@ The day and time when the query ends.
 
 Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
 
-To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a speadsheet using the name of the vault and date, but you can change the name.
+To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
 ## Monitor Backup usage
 
@@ -254,26 +264,7 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-
-## Frequently asked questions
-
-**Q1. How long does it take for the Azure backup agent job status to reflect in the portal?**
-
-A1. The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
-
-**Q2. When a backup job fails, how long does it take to raise an alert?**
-
-A2. An alert is raised within 20 mins of the Azure backup failure.
-
-**Q3. Is there a case where an email won’t be sent if notifications are configured?**
-
-A3. Yes. In the following situations, notifications are not sent.
-
-* If notifications are configured hourly, and an alert is raised and resolved within the hour
-* When a job is canceled
-* If a second backup job fails because the original backup job is in progress
-
-## Troubleshooting Monitoring Issues
+## Troubleshooting monitoring issues
 
 **Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
 
@@ -289,6 +280,6 @@ A3. Yes. In the following situations, notifications are not sent.
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## Next steps
+
 * [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 * To learn more about Azure Backup, see [Azure Backup Overview](backup-introduction-to-azure-backup.md)
-* Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

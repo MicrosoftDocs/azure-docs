@@ -1,28 +1,21 @@
 ---
-title: API Considerations | Microsoft Docs
+title: API Considerations | Azure Marketplace
 description: Versioning, error-handling, and authorization issues when using the marketplace APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
-
-API Considerations
-=================
+# API Considerations
 
 API versioning
 --------------
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 There may be multiple versions of the API that are available at the same
 time. Clients must indicate which version they wish to invoke use by
@@ -36,7 +29,7 @@ body.
 
 ``` json
     {
-        "error”: { 
+        "error": { 
             "code":"InvalidAPIVersion",
             "message":"Invalid api version. Allowed values are [2016-08-01-preview]"
         }

@@ -10,7 +10,7 @@ ms.author: msangapu
 ms.custom: "include file"
 ---
 
-In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) command.
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) command.
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
@@ -20,7 +20,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 { 
   "adminSiteName": null,
   "appServicePlanName": "myAppServicePlan",
@@ -31,9 +31,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "South Central US",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-```
+</pre>

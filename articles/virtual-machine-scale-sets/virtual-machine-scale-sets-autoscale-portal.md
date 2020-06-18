@@ -1,21 +1,14 @@
 ---
-title: Autoscale virtual machine scale sets in the Azure portal | Microsoft Docs
+title: Autoscale virtual machine scale sets in the Azure portal
 description: How to create autoscale rules for virtual machine scale sets in the Azure portal
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
+ms:service: virtual-machine-scale-sets
+ms.subservice: autoscale
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Automatically scale a virtual machine scale set in the Azure portal
@@ -127,4 +120,4 @@ In this article, you learned how to use autoscale rules to scale horizontally an
 
 For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

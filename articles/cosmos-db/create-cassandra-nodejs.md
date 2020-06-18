@@ -1,36 +1,34 @@
 ---
 title: 'Quickstart: Cassandra API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js
-services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/18/2020
 ---
-# Quickstart: Build a Cassandra app with Node.js and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
 
-This quickstart shows how to use Node.js and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
-
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Node.js app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
-* [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-* [Git](http://git-scm.com/)
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) version v0.10.29 or higher
+* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -40,7 +38,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Now let's clone a Cassandra API app from github, set the connection string, and run it. You see how easy it is to work with data programmatically. 
+Now let's clone a Cassandra API app from GitHub, set the connection string, and run it. You see how easy it is to work with data programmatically. 
 
 1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
 
@@ -66,7 +64,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The username and password values were set using the connection string page in the Azure portal. The `path\to\cert` provides a path to an X509 certificate. 
 
-   ```nodejs
+   ```javascript
    var ssl_option = {
         cert : fs.readFileSync("path\to\cert"),
         rejectUnauthorized : true,
@@ -77,19 +75,19 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * The `client` is initialized with contactPoint information. The contactPoint is retrieved from the Azure portal.
 
-    ```nodejs
+    ```javascript
     const client = new cassandra.Client({contactPoints: [config.contactPoint], authProvider: authProviderLocalCassandra, sslOptions:ssl_option});
     ```
 
 * The `client` connects to the Azure Cosmos DB Cassandra API.
 
-    ```nodejs
+    ```javascript
     client.connect(next);
     ```
 
 * A new keyspace is created.
 
-    ```nodejs
+    ```javascript
     function createKeyspace(next) {
     	var query = "CREATE KEYSPACE IF NOT EXISTS uprofile WITH replication = {\'class\': \'NetworkTopologyStrategy\', \'datacenter1\' : \'1\' }";
     	client.execute(query, next);
@@ -99,7 +97,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * A new table is created.
 
-   ```nodejs
+   ```javascript
    function createTable(next) {
    	var query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
     	client.execute(query, next);
@@ -109,50 +107,62 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * Key/value entities are inserted.
 
-    ```nodejs
-    ...
-       {
-          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
-        }
-    ];
-    client.batch(queries, { prepare: true}, next);
+    ```javascript
+        function insert(next) {
+            console.log("\insert");
+            const arr = ['INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (1, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (2, \'JiriK\', \'Toronto\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (3, \'IvanH\', \'Mumbai\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (4, \'IvanH\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (5, \'IvanaV\', \'Belgaum\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (6, \'LiliyaB\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (7, \'JindrichH\', \'Buenos Aires\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (8, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (9, \'JozefM\', \'Seattle\')'];
+            arr.forEach(element => {
+            client.execute(element);
+            });
+            next();
+        },
     ```
 
 * Query to get all key values.
 
-    ```nodejs
-   var query = 'SELECT * FROM uprofile.user';
-    client.execute(query, { prepare: true}, function (err, result) {
-      if (err) return next(err);
-      result.rows.forEach(function(row) {
-        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      }, this);
-      next();
-    });
+    ```javascript
+        function selectAll(next) {
+            console.log("\Select ALL");
+            var query = 'SELECT * FROM uprofile.user';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        },
     ```  
     
 * Query to get a key-value.
 
-    ```nodejs
-    function selectById(next) {
-    	console.log("\Getting by id");
-    	var query = 'SELECT * FROM uprofile.user where user_id=1';
-    	client.execute(query, { prepare: true}, function (err, result) {
-      	if (err) return next(err);
-      		result.rows.forEach(function(row) {
-        	console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      	}, this);
-      	next();
-    	});
-    }
+    ```javascript
+        function selectById(next) {
+            console.log("\Getting by id");
+            var query = 'SELECT * FROM uprofile.user where user_id=1';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        }
     ```  
 
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**. 
+1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
     Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 
@@ -190,19 +200,41 @@ Now go back to the Azure portal to get your connection string information and co
 
 3. Save `uprofile.js`.
 
+> [!NOTE]
+> If you experience a certificate related error in the later steps and are running on a Windows machine, ensure that you have followed the process for properly converting a .crt file into the Microsoft .cer format below.
+> 
+> Double-click on the .crt file to open it into the certificate display. 
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer1.gif)
+>
+> Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
+>
+> ![View and verify the output](./media/create-cassandra-nodejs/crtcer2.gif)
+>
+> Select Browse (to locate a destination) and type in a filename.
+> Select Next then Finished.
+>
+> You should now have a properly formatted .cer file. Ensure that the path in `uprofile.js` points to this file.
+
 ## Run the Node.js app
 
-1. In the git terminal window, run `npm install` to install the required npm modules.
+1. In the git terminal window, ensure you are in the sample directory you cloned earlier:
 
-2. Run `node uprofile.js` to start your node application.
+    ```bash
+    cd azure-cosmos-db-cassandra-nodejs-getting-started
+    ```
 
-3. Verify the results as expected from the command line.
+2. Run `npm install` to install the required npm modules.
+
+3. Run `node uprofile.js` to start your node application.
+
+4. Verify the results as expected from the command line.
 
     ![View and verify the output](./media/create-cassandra-nodejs/output.png)
 
-    Press CTRL + C to stop execution of the program and close the console window. 
+    Press CTRL+C to stop execution of the program and close the console window. 
 
-4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
+5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
     ![View the data in Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
 
@@ -216,9 +248,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run an app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Node.js app that creates a Cassandra database and container. You can now import additional data into your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)
-
-

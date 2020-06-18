@@ -1,136 +1,113 @@
 ---
-title: Consistency levels in Azure Cosmos DB | Microsoft Docs
+title: Consistency levels in Azure Cosmos DB
 description: Azure Cosmos DB has five consistency levels to help balance eventual consistency, availability, and latency trade-offs.
-keywords: eventual consistency, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
-author: aliuy
-manager: kfile
-
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.author: andrl
-ms.custom: H1Hack27Feb2017
-
+ms.date: 04/06/2020
 ---
-# Tunable data consistency levels in Azure Cosmos DB
-Azure Cosmos DB is designed from the ground up with global distribution in mind for every data model. It is designed to offer predictable low latency guarantees and multiple well-defined relaxed consistency models. Currently, Azure Cosmos DB provides five consistency levels: strong, bounded-staleness, session, consistent prefix, and eventual. Bounded-staleness, session, consistent prefix, and eventual are referred to as "relaxed consistency models" as they provide less consistency than strong, which is the most highly consistent model available. 
+# Consistency levels in Azure Cosmos DB
 
-Besides the **strong** and **eventual consistency** models commonly offered by distributed databases, Azure Cosmos DB offers three more carefully codified and operationalized consistency models: **bounded staleness**, **session**, and **consistent prefix**. The usefulness of each of these consistency levels has been validated against real world use cases. Collectively these five consistency levels enable you to make well-reasoned trade-offs between consistency, availability, and latency. 
+Distributed databases that rely on replication for high availability, low latency, or both, make the fundamental tradeoff between the read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: *strong* consistency and *eventual* consistency. The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a price of higher write latency (in steady state) and reduced availability (during failures). On the other hand, eventual consistency offers higher availability and better performance, but makes it hard to program applications.
 
-In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates the turnkey global distribution features.
+Azure Cosmos DB approaches data consistency as a spectrum of choices instead of two extremes. Developers can use these options to make precise choices and granular tradeoffs with respect to high availability and performance.
 
->[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
+With Azure Cosmos DB, developers can choose from five well-defined consistency levels on the consistency spectrum. These levels include *strong*, *bounded staleness*, *session*, *consistent prefix*, and *eventual* consistency. The levels are well-defined and intuitive and can be used for specific real-world scenarios. Each level provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by SLAs. The following image shows the different consistency levels as a spectrum.
 
-## Distributed databases and consistency
-Commercial distributed databases fall into two categories: databases that do not offer well-defined provable consistency choices at all, and databases that offer two extreme programmability choices (strong vs. eventual consistency). 
+![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
 
-The former burdens application developers with minutia of their replication protocols and expects them to make difficult tradeoffs between consistency, availability, latency, and throughput. The latter puts a pressure to choose one of the two extremes. Despite the abundance of research and proposals for more than 50 consistency models, the distributed database community has not been able to commercialize consistency levels beyond strong and eventual consistency. Cosmos DB allows developers to choose between five well-defined consistency models along the consistency spectrum – strong, bounded staleness, [session](http://dl.acm.org/citation.cfm?id=383631), consistent prefix, and eventual. 
+The consistency levels are region-agnostic and are guaranteed for all operations regardless of the region from which the reads and writes are served, the number of regions associated with your Azure Cosmos account, or whether your account is configured with a single or multiple write regions.
 
-![Azure Cosmos DB offers multiple, well defined (relaxed) consistency models to choose from](./media/consistency-levels/five-consistency-levels.png)
+## Scope of the read consistency
 
-The following table illustrates the specific guarantees each consistency level provides.
- 
-**Consistency Levels and guarantees**
+Read consistency applies to a single read operation scoped within a logical partition. The read operation can be issued by a remote client or a stored procedure.
 
-| Consistency Level	| Guarantees |
-| --- | --- |
-| Strong | Linearizability. Reads are guaranteed to return the most recent version of an item.|
-| Bounded Staleness	| Consistent Prefix. Reads lag behind writes by at most k prefixes or t interval |
-| Session	| Consistent Prefix. Monotonic reads, monotonic writes, read-your-writes, write-follows-reads |
-| Consistent Prefix	| Updates returned are some prefix of all the updates, with no gaps |
-| Eventual	| Out of order reads |
+## Configure the default consistency level
 
-You can configure the default consistency level on your Cosmos DB account (and later override the consistency on a specific read request). Internally, the default consistency level applies to data within the partition sets, which may span regions. About 73% of Azure Cosmos DB tenants use session consistency and 20% prefer bounded staleness. Approximately 3% of Azure Cosmos DB customers experiment with various consistency levels initially before settling on a specific consistency choice for their application. Only 2% of Azure Cosmos DB tenants override consistency levels on a per request basis. 
+You can configure the default consistency level on your Azure Cosmos account at any time. The default consistency level configured on your account applies to all Azure Cosmos databases and containers under that account. All reads and queries issued against a container or a database use the specified consistency level by default. To learn more, see how to [configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
-In Cosmos DB, reads served at session, consistent prefix and eventual consistency are twice as cheap as reads with strong or bounded staleness consistency. Cosmos DB has industry leading comprehensive SLAs including consistency guarantees along with availability, throughput, and latency. Azure Cosmos DB employs a [linearizability checker](http://dl.acm.org/citation.cfm?id=1806634), which continuously operates over the service telemetry and openly reports any consistency violations to you. For bounded staleness, Azure Cosmos DB monitors and reports any violations to k and t bounds. For all five relaxed consistency levels, Azure Cosmos DB also reports the [probabilistically bounded staleness metric](http://dl.acm.org/citation.cfm?id=2212359) directly to you.  
+## Guarantees associated with consistency levels
 
-## Service level agreements
+The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100 percent of read requests meet the consistency guarantee for any consistency level you choose. A read request meets the consistency SLA if all the consistency guarantees associated with the consistency level are satisfied. The precise definitions of the five consistency levels in Azure Cosmos DB using the TLA+ specification language are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo.
 
-Azure Cosmos DB offers comprehensive 99.99% [SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/) which guarantee throughput, consistency, availability, and latency for Azure Cosmos DB database accounts scoped to a single Azure region configured with any of the five consistency levels, or database accounts spanning multiple Azure regions, configured with any of the four relaxed consistency levels. Furthermore, independent of the choice of a consistency level, Azure Cosmos DB offers a 99.999% SLA for read availability for database accounts spanning two or more Azure regions.
+The semantics of the five consistency levels are described here:
 
-## Scope of consistency
-The granularity of consistency is scoped to a single user request. A write request may correspond to an insert, replace, upsert, or delete transaction. As with writes, a read/query transaction is also scoped to a single user request. The user may be required to paginate over a large result-set, spanning multiple partitions, but each read transaction is scoped to a single page and served from within a single partition.
+- **Strong**: Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
 
-## Consistency levels
-You can configure a default consistency level on your database account that applies to all containers (and databases) under your Cosmos DB account. By default, all reads and queries issued against the user-defined resources use the default consistency level specified on the database account. You can relax the consistency level of a specific read/query request using in each of the supported APIs. There are five types of consistency levels supported by the Azure Cosmos DB replication protocol that provide a clear trade-off between specific consistency guarantees and performance, as described in this section.
+  The following graphic illustrates the strong consistency with musical notes. After the data is written to the "West US 2" region, when you read the data from other regions, you get the most recent value:
 
-<a id="strong"></a>
-**Strong**: 
+  ![video](media/consistency-levels/strong-consistency.gif)
 
-* Strong consistency offers a [linearizability](https://aphyr.com/posts/313-strong-consistency-models) guarantee with the reads guaranteed to return the most recent version of an item. 
-* Strong consistency guarantees that a write is only visible after it is committed durably by the majority quorum of replicas. A write is either synchronously committed durably by both the primary and the quorum of secondaries, or it is aborted. A read is always acknowledged by the majority read quorum, a client can never see an uncommitted or partial write and is always guaranteed to read the latest acknowledged write. 
-* Azure Cosmos DB accounts that are configured to use strong consistency cannot associate more than one Azure region with their Azure Cosmos DB account.  
-* The cost of a read operation (in terms of [request units](request-units.md) consumed) with strong consistency is higher than session and eventual, but the same as bounded staleness.
+- **Bounded staleness**: The reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
 
-<a id="bounded-staleness"></a>
-**Bounded staleness**: 
+- The number of versions (*K*) of the item
+- The time interval (*T*) by which the reads might lag behind the writes
 
-* Bounded staleness consistency guarantees that the reads may lag behind writes by at most *K* versions or prefixes of an item or *t* time-interval. 
-* Therefore, when choosing bounded staleness, the "staleness" can be configured in two ways: number of versions *K* of the item by which the reads lag behind the writes, and the time interval *t* 
-* Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the "staleness window." 
-* Bounded staleness provides a stronger consistency guarantee than session, consistent-prefix, or eventual consistency. For globally distributed applications, we recommend you use bounded staleness for scenarios where you would like to have strong consistency but also want 99.99% availability and low latency.   
-* Azure Cosmos DB accounts that are configured with bounded staleness consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
-* The cost of a read operation (in terms of RUs consumed) with bounded staleness is higher than session and eventual consistency, but the same as strong consistency.
+Bounded staleness offers total global order outside of the "staleness window." When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency.
 
-<a id="session"></a>
-**Session**: 
+Inside the staleness window, Bounded Staleness provides the following consistency guarantees:
 
-* Unlike the global consistency models offered by strong and bounded staleness consistency levels, session consistency is scoped to a client session. 
-* Session consistency is ideal for all scenarios where a device or user session is involved since it guarantees monotonic reads, monotonic writes, and read your own writes (RYW) guarantees. 
-* Session consistency provides predictable consistency for a session, and maximum read throughput while offering the lowest latency writes and reads. 
-* Azure Cosmos DB accounts that are configured with session consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
-* The cost of a read operation (in terms of RUs consumed) with session consistency level is less than strong and bounded staleness, but more than eventual consistency.
+- Consistency for clients in the same region for a single-master account = Strong
+- Consistency for clients in different regions for a single-master account = Consistent Prefix
+- Consistency for clients writing to a single region for a multi-master account = Consistent Prefix
+- Consistency for clients writing to different regions for a multi-master account = Eventual
 
-<a id="consistent-prefix"></a>
-**Consistent Prefix**: 
+  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
 
-* Consistent prefix guarantees that in absence of any further writes, the replicas within the group eventually converge. 
-* Consistent prefix guarantees that reads never see out of order writes. If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out of order like `A,C` or `B,A,C`.
-* Azure Cosmos DB accounts that are configured with consistent prefix consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
+  ![video](media/consistency-levels/bounded-staleness-consistency.gif)
 
-<a id="eventual"></a>
-**Eventual**: 
+- **Session**:  Within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
 
-* Eventual consistency guarantees that in absence of any further writes, the replicas within the group eventually converge. 
-* Eventual consistency is the weakest form of consistency where a client may get the values that are older than the ones it had seen before.
-* Eventual consistency provides the weakest read consistency but offers the lowest latency for both reads and writes.
-* Azure Cosmos DB accounts that are configured with eventual consistency can associate any number of Azure regions with their Azure Cosmos DB account. 
-* The cost of a read operation (in terms of RUs consumed) with the eventual consistency level is the lowest of all the Azure Cosmos DB consistency levels.
+Clients outside of the session performing writes will see the following guarantees:
 
-## Configuring the default consistency level
-1. In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **Azure Cosmos DB**.
-2. In the **Azure Cosmos DB** page, select the database account to modify.
-3. In the account page, click **Default consistency**.
-4. In the **Default Consistency** page, select the new consistency level and click **Save**.
-   
-    ![Screen shot highlighting the Settings icon and Default Consistency entry](./media/consistency-levels/database-consistency-level-1.png)
+- Consistency for clients in same region for a single-master account = Consistent Prefix
+- Consistency for clients in different regions for a single-master account = Consistent Prefix
+- Consistency for clients writing to a single region for a multi-master account = Consistent Prefix
+- Consistency for clients writing to multiple regions for a multi-master account = Eventual
 
-## Consistency levels for queries
-By default, for user-defined resources, the consistency level for queries is the same as the consistency level for reads. By default, the index is updated synchronously on each insert, replace, or delete of an item to the Cosmos DB container. This enables the queries to honor the same consistency level as that of point reads. While Azure Cosmos DB is write optimized and supports sustained volumes of writes, synchronous index maintenance and serving consistent queries, you can configure certain containers to update their index lazily. Lazy indexing further boosts the write performance and is ideal for bulk ingestion scenarios when a workload is primarily read-heavy.  
+  Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
-| Indexing Mode | Reads | Queries |
-| --- | --- | --- |
-| Consistent (default) |Select from strong, bounded staleness, session, consistent prefix, or eventual |Select from strong, bounded staleness, session, or eventual |
-| Lazy |Select from strong, bounded staleness, session, consistent prefix, or eventual |Eventual |
-| None |Select from strong, bounded staleness, session, consistent prefix, or eventual |Not applicable |
+  ![video](media/consistency-levels/session-consistency.gif)
 
-As with read requests, you can lower the consistency level of a specific query request in each API.
+- **Consistent prefix**: Updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
 
-## Consistency levels for the MongoDB API
+If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out-of-order permutations like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important. 
 
-Azure Cosmos DB currently implements MongoDB version 3.4, which has two consistency settings, strong and eventual. Because Azure Cosmos DB is multi-api, the consistency settings are applicable at the account level and enforcement of the consistency is controlled by each API.  Until MongoDB 3.6, there was no concept of a session consistency, so if you set a MongoDB API account to use session consistency, the consistency is downgraded to eventual when using MongoDB APIs. If you need a read-your-own-write guarantee for a MongoDB API account, the default consistency level for the account should be set to strong or bounded staleness.
+Below are the consistency guarantees for Consistent Prefix:
+
+- Consistency for clients in same region for a single-master account = Consistent Prefix
+- Consistency for clients in different regions for a single-master account = Consistent Prefix
+- Consistency for clients writing to a single region for a multi-master account = Consistent Prefix
+- Consistency for clients writing to multiple regions for a multi-master account = Eventual
+
+The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes:
+
+  ![video](media/consistency-levels/consistent-prefix.gif)
+
+- **Eventual**: There's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
+
+  ![video](media/consistency-levels/eventual-consistency.gif)
+
+## Additional reading
+
+To learn more about consistency concepts, read the following articles:
+
+- [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla)
+- [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+- [Replicated Data Consistency Explained Through Baseball (whitepaper) by Doug Terry](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/)
+- [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631)
+- [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+- [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 ## Next steps
-If you'd like to do more reading about consistency levels and tradeoffs, we recommend the following resources:
 
-* [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
-* [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* [Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation](http://dl.acm.org/citation.cfm?id=1806634)
-* [Probabilistically bounded staleness for practical partial quorums](http://dl.acm.org/citation.cfm?id=2212359)
+To learn more about consistency levels in Azure Cosmos DB, read the following articles:
+
+- [Choose the right consistency level for your application](consistency-levels-choosing.md)
+- [Consistency levels across Azure Cosmos DB APIs](consistency-levels-across-apis.md)
+- [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+- [Configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level)
+- [Override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level)

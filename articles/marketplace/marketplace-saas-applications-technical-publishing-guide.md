@@ -1,35 +1,22 @@
 ---
-title: Azure Marketplace SaaS Applications Technical Publishing Guide
-description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
+title: SaaS applications publishing guide - Microsoft commercial marketplace
+description: Requirements and resources for publishing publishing SaaS application offers to Microsoft AppSource and Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter:
-author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
-ms.topic: article
-ms.date: 07/09/2018
-ms.author: keithcharlie
-
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/23/2020
+ms.author: dsindona
 ---
 
-# SaaS applications Offer Publishing Guide
+# SaaS applications offer publishing guide
 
-SaaS applications can be published in the marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This guide explains these three options, including requirements for each. 
+You can publish SaaS applications in the commercial marketplace with three different calls to action: "Contact Me," "Try it now," and "Get it Now." This article explains these three options, including requirements for each. 
 
 ## Offer overview  
 
-SaaS applications are available in both Azure Storefronts The following table describes the current available options:
-
-| Storefront option | Listing | Trial/Transact |  
-| --- | --- | --- |  
-| AppSource | Yes (Contact Me) | Yes (PowerBI/Dynamics) |
-| Azure marketplace | No | Yes (SaaS Apps) |   
+SaaS applications are available in Microsoft AppSource and Azure Marketplace.  Both storefronts support list, trial, and transact offers.
 
 **List:**  The Listing publishing option consists of a Contact Me offer type and is used when a Trial- or Transaction-level participation is not feasible. The benefit of this approach is that it enables publishers with a solution in-market to immediately begin receiving leads that can be turned into deals to increase your business.  
 **Trial/Transaction:**  The customer has the option to directly buy or request a trial for your solution. Providing a Trial experience increases the engagement level offered to customers and enables customers to explore your solution before buying. With a Trial experience, you will have better chances of promotion in the storefronts, and you should expect more and richer leads from customer engagements. Trials must include free support at least for the duration of the trial period.  
@@ -37,7 +24,7 @@ SaaS applications are available in both Azure Storefronts The following table de
 | SaaS Apps Offer | Business Requirements | Technical Requirements |  
 | --- | --- | --- |  
 | **Contact Us** | Yes | No |  
-| **PowerBI / Dynamics** | Yes | Yes (Azure AD integration) |  
+| **Power BI / Dynamics** | Yes | Yes (Azure AD integration) |  
 | **SaaS Apps**| Yes | Yes (Azure AD integration) |     
 
 ## SaaS List
@@ -91,14 +78,14 @@ For video tutorials, review the following:
 * [Microsoft Azure Videos focused on Active Directory](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Free Azure Active Directory training is available at  
-* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 In addition, Azure Active Directory provides a site to check for Service Updates   
 * [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## Using Azure Active Directory to enable trials  
 
-Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft authenticates all Marketplace users with Azure AD, so when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Using Azure AD to enable 1-click authentication to your app or Trial does the following:  
 * Streamlines the customer experience from Marketplace to Trial.  
@@ -108,13 +95,13 @@ Using Azure AD to enable 1-click authentication to your app or Trial does the fo
 
 ## Certifying your Azure AD integration for Marketplace  
 
-You can certify your Azure AD integration in a few different ways, depending on whether your application is single-tenant or multi-tenant, and whether you are new to Azure AD federated single sign-on (SSO), or already support it.  
+Certify your Azure AD integration in a few different ways, depending on whether your application is single-tenant or multi-tenant, and whether you are new to Azure AD federated single sign-on (SSO), or already support it.  
 
 **For multi-tenant applications:**  
 
 If you already support Azure AD, do the following:
-1.	Register your application in the Azure portal
-2.	Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+1.    Register your application in the Azure portal
+2.    Enable the multi-tenancy support feature in Azure AD to get a 'one-click' trial experience. More specific information can be found [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 If you are new to Azure AD Federated SSO, do the following: 
 1.  Register your application in the Azure portal
@@ -130,22 +117,26 @@ If you are new to Azure AD Federated SSO, do the following:
 ## SaaS Subscriptions
 
 Use SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. The following requirements must be met for your SaaS app:
-- Price and bill the service at a flat, monthly rate.
+- Price and bill the service at a flat (monthly or yearly), or at a per-user rate.
 - Provide a method to upgrade or cancel the service at any time.
-Microsoft hosts the commerce transaction. Microsoft bills your customer on your behalf. To use bill a SaaS App as a subscription, you must enable you own subscription management service API. Your subscription management service API must communicate directly with the Azure Resource Manager APIs. Your subscription management service API must support service provisioning, upgrading, and canceling.
+Microsoft hosts the commerce transaction. Microsoft bills your customer on your behalf. To offer a SaaS App as a subscription, you must integrate with the SaaS fulfillment APIs.  Your service must support provisioning, upgrading, and canceling.
 
 | Requirement | Details |  
 |:--- |:--- |  
-|Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time. |  
-|Cancelation | Your offer is cancelable by the customer at any time. |  
+|Billing and metering | Your offer is priced based on the pricing model you select before publishing (flat rate or per-user).  If using the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. |  
+|Cancellation | Your offer is cancelable by the customer at any time. |  
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 
-## Next Steps
-If you haven't already done so, 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
-- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace
+## Next steps
+If you haven't already done so,
 
-If you're registered and are creating a new offer or working on an existing one,
+* [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
 
-- [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer
+To register in Partner Center, start creating a new offer or working on an existing one:
+
+* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
+* See [create a SaaS application offer](./partner-center-portal/create-new-saas-offer.md) for more information.

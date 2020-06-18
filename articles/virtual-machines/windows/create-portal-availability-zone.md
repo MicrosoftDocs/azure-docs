@@ -1,21 +1,13 @@
 ---
-title: Create a zoned Windows VM with the Azure portal | Microsoft Docs
+title: Create a zoned Windows VM with the Azure portal 
 description: Create a Windows VM in an availability zone with the Azure portal
-services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
+author: cynthn
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: 
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 03/27/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: 
 ---
 
@@ -23,11 +15,11 @@ ms.custom:
 
 This article steps through using the Azure portal to create a virtual machine in an Azure availability zone. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
+To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-region.md).
 
-## Log in to Azure 
+## Sign in to Azure 
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machine
 
@@ -35,7 +27,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. 
 
-3. Enter the virtual machine information. The user name and password entered here is used to log in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choose a Location such as East US 2 that supports availability zones. When complete, click **OK**.
+3. Enter the virtual machine information. The user name and password entered here is used to sign in to the virtual machine. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). Choose a Location such as East US 2 that supports availability zones. When complete, click **OK**.
 
     ![Enter basic information about your VM in the portal blade](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
@@ -71,4 +63,4 @@ You can confirm the zone settings for these resources in the portal.
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.

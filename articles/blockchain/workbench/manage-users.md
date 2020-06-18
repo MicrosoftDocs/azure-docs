@@ -1,16 +1,10 @@
 ---
-title: Manage Users in Azure Blockchain Workbench
+title: Manage users in Azure Blockchain Workbench
 description: How to manage users in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: zeyadr
-manager: femila
-#customer intent: As a administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
+ms.reviewer: brendal
+#Customer intent: As an administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
 ---
 # Manage Users in Azure Blockchain Workbench
 
@@ -44,7 +38,7 @@ Once users have been added to the directory, the next step is to choose which us
 To add users to the **Administrator** group in the Azure AD directory:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top right corner.
+2.  Verify you are in the Azure AD tenant associated to Blockchain Workbench by selecting your account in the top-right corner.
 3.  Select **Azure Active Directory >  Enterprise applications**.
 4.  Select the Azure AD client application for Blockchain Workbench
     

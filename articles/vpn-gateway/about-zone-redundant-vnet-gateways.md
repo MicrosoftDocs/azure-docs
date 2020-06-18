@@ -1,13 +1,14 @@
 ---
-title: 'About zone-redundant virtual network gateways in Azure Availability Zones | Microsoft Docs'
+title: 'About zone-redundant virtual network gateways in Azure Availability Zones'
 description: Learn about VPN Gateway and ExpressRoute gateways in Availability Zones.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
 
 ---
@@ -22,7 +23,7 @@ To automatically deploy your virtual network gateways across availability zones,
 <br>
 <br>
 
-![zone-redunant gateways graphic](./media/create-zone-redundant-vnet-gateway/zonered.png)
+![zone-redundant gateways graphic](./media/create-zone-redundant-vnet-gateway/zonered.png)
 
 ### <a name="zgw"></a>Zonal gateways
 
@@ -35,21 +36,9 @@ To deploy gateways in a specific zone, you can use zonal gateways. When you depl
 
 ## <a name="gwskus"></a>Gateway SKUs
 
-Zone-redundant and zonal gateways are available as new gateway SKUs. We have added new virtual network gateway SKUs in Azure AZ regions. These SKUs are similar to the corresponding existing SKUs for ExpressRoute and VPN Gateway, except that they are specific to zone-redundant and zonal gateways.
+Zone-redundant and zonal gateways are available as new gateway SKUs. We have added new virtual network gateway SKUs in Azure AZ regions. These SKUs are similar to the corresponding existing SKUs for ExpressRoute and VPN Gateway, except that they are specific to zone-redundant and zonal gateways. You can identify these SKUs by the "AZ" in the SKU name.
 
-The new gateway SKUs are:
-
-### VPN Gateway
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+For information about gateway SKUs, see [VPN gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku) and [ExpressRoute gateway SKUs](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>Public IP SKUs
 
@@ -82,7 +71,7 @@ Yes, you can use the Azure portal to deploy the new SKUs. However, you will see 
 
 ### What regions are available for me to use the new SKUs?
 
-The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, and West Europe regions. Going forward, we will make the Zone-Redundant Gateways available to you in other Azure Public Regions.
+The new SKUs are available in Azure regions that have Azure Availability Zones - Central US, France Central, North Europe, West Europe, and West US 2 regions, East US, East US 2, Southeast Asia, Japan East, UK South. Going forward, we will make zone-redundant gateways available to you in other Azure Public Regions.
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 
@@ -92,6 +81,6 @@ Migrating your existing virtual network gateways to zone-redundant or zonal gate
 
 Co-existence of both VPN and Express Route gateways in the same virtual network is supported. However, you should reserve a /27 IP address range for the gateway subnet.
 
-## Next Steps
+## Next steps
 
 [Create a zone-redundant virtual network gateway](create-zone-redundant-vnet-gateway.md)

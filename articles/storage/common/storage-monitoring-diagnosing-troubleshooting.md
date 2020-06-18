@@ -1,13 +1,14 @@
 ---
 title: Monitor, diagnose, and troubleshoot Azure Storage | Microsoft Docs
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
-services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 05/11/2017
-ms.author: fhryo-msft
-ms.component: common
+ms.topic: conceptual
+ms.date: 09/23/2019
+ms.author: normesta
+ms.reviewer: fryu
+ms.subservice: common
+ms.custom: monitoring
 ---
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -19,7 +20,7 @@ To manage such applications successfully you should monitor them proactively and
 
 > [!NOTE]
 > Azure Files does not support logging at this time.
-> 
+>
 
 For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md).
 
@@ -92,9 +93,11 @@ The section "[Troubleshooting guidance]" provides troubleshooting guidance for s
 The "[Appendices]" include information about using other tools such as Wireshark and Netmon for analyzing network packet data, Fiddler for analyzing HTTP/HTTPS messages, and Microsoft Message Analyzer for correlating log data.
 
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
-If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics, you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](http://go.microsoft.com/fwlink/?LinkId=510865).
+If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics, you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-You can choose which hourly metrics you want to display in the [Azure portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+You can choose which hourly metrics you want to display in the [Azure portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold. For more information, see [Receive Alert Notifications](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
+
+We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights/storage-insights-overview.md) (preview). It is a feature of Azure Monitor that offers comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. It does not require you to enable or configure anything, and you can immediately view these metrics from the pre-defined interactive charts and other visualizations included.
 
 The storage service collects metrics using a best effort, but may not record every storage operation.
 
@@ -117,24 +120,24 @@ The remainder of this section describes what metrics you should monitor and why.
 You can use the [Azure portal](https://portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. Monitoring enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
 The [Azure portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
-Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](http://status.azure.com).
+Note: This information was previously available, along with historical data, on the [Azure Service Dashboard](https://status.azure.com).
 
-While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Azure DevOps are examples of this approach. For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
+While the [Azure portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) and Application Insights for Azure DevOps are examples of this approach. For more information about Application Insights for Azure DevOps, see the appendix "[Appendix 5: Monitoring with Application Insights for Azure DevOps](#appendix-5)."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity
-Storage Metrics only stores capacity metrics for the blob service because blobs typically account for the largest proportion of stored data (at the time of writing, it is not possible to use Storage Metrics to monitor the capacity of your tables and queues). You can find this data in the **$MetricsCapacityBlob** table if you have enabled monitoring for the Blob service. Storage Metrics records this data once per day, and you can use the value of the **RowKey** to determine whether the row contains an entity that relates to user data (value **data**) or analytics data (value **analytics**). Each stored entity contains information about the amount of storage used (**Capacity** measured in bytes) and the current number of containers (**ContainerCount**) and blobs (**ObjectCount**) in use in the storage account. For more information about the capacity metrics stored in the **$MetricsCapacityBlob** table, see [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx).
+Storage Metrics only stores capacity metrics for the blob service because blobs typically account for the largest proportion of stored data (at the time of writing, it is not possible to use Storage Metrics to monitor the capacity of your tables and queues). You can find this data in the **$MetricsCapacityBlob** table if you have enabled monitoring for the Blob service. Storage Metrics records this data once per day, and you can use the value of the **RowKey** to determine whether the row contains an entity that relates to user data (value **data**) or analytics data (value **analytics**). Each stored entity contains information about the amount of storage used (**Capacity** measured in bytes) and the current number of containers (**ContainerCount**) and blobs (**ObjectCount**) in use in the storage account. For more information about the capacity metrics stored in the **$MetricsCapacityBlob** table, see [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
 > You should monitor these values for an early warning that you are approaching the capacity limits of your storage account. In the Azure portal, you can add alert rules to notify you if aggregate storage use exceeds or falls below thresholds that you specify.
-> 
-> 
+>
+>
 
-For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+For help estimating the size of various storage objects such as blobs, see the blog post [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 ### <a name="monitoring-availability"></a>Monitoring availability
 You should monitor the availability of the storage services in your storage account by monitoring the value in the **Availability** column in the hourly or minute metrics tables — **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. The **Availability** column contains a percentage value that indicates the availability of the service or the API operation represented by the row (the **RowKey** shows if the row contains metrics for the service as a whole or for a specific API operation).
 
-Any value less than 100% indicates that some storage requests are failing. You can see why they are failing by examining the other columns in the metrics data that show the numbers of requests with different error types such as **ServerTimeoutError**. You should expect to see **Availability** fall temporarily below 100% for reasons such as transient server timeouts while the service moves partitions to better load-balance request; the retry logic in your client application should handle such intermittent conditions. The article [Storage Analytics Logged Operations and Status Messages](http://msdn.microsoft.com/library/azure/hh343260.aspx) lists the transaction types that Storage Metrics includes in its **Availability** calculation.
+Any value less than 100% indicates that some storage requests are failing. You can see why they are failing by examining the other columns in the metrics data that show the numbers of requests with different error types such as **ServerTimeoutError**. You should expect to see **Availability** fall temporarily below 100% for reasons such as transient server timeouts while the service moves partitions to better load-balance request; the retry logic in your client application should handle such intermittent conditions. The article [Storage Analytics Logged Operations and Status Messages](https://msdn.microsoft.com/library/azure/hh343260.aspx) lists the transaction types that Storage Metrics includes in its **Availability** calculation.
 
 In the [Azure portal](https://portal.azure.com), you can add alert rules to notify you if **Availability** for a service falls below a threshold that you specify.
 
@@ -185,15 +188,15 @@ Users of your application may notify you of errors reported by the client applic
 
 > [!NOTE]
 > Remember that you should expect to see some intermittent errors: for example, errors due to transient network conditions, or application errors.
-> 
-> 
+>
+>
 
 The following resources are useful for understanding storage-related status and error codes:
 
-* [Common REST API Error Codes](http://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Blob Service Error Codes](http://msdn.microsoft.com/library/azure/dd179439.aspx)
-* [Queue Service Error Codes](http://msdn.microsoft.com/library/azure/dd179446.aspx)
-* [Table Service Error Codes](http://msdn.microsoft.com/library/azure/dd179438.aspx)
+* [Common REST API Error Codes](https://msdn.microsoft.com/library/azure/dd179357.aspx)
+* [Blob Service Error Codes](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Queue Service Error Codes](https://msdn.microsoft.com/library/azure/dd179446.aspx)
+* [Table Service Error Codes](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [File Service Error Codes](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
 ### <a name="storage-emulator-issues"></a>Storage emulator issues
@@ -202,22 +205,22 @@ The Azure SDK includes a storage emulator you can run on a development workstati
 The "[Troubleshooting guidance]" section of this guide describes some common issues encountered using the storage emulator.
 
 ### <a name="storage-logging-tools"></a>Storage logging tools
-Storage Logging provides server-side logging of storage requests in your Azure storage account. For more information about how to enable server-side logging and access the log data, see [Enabling Storage Logging and Accessing Log Data](http://go.microsoft.com/fwlink/?LinkId=510867).
+Storage Logging provides server-side logging of storage requests in your Azure storage account. For more information about how to enable server-side logging and access the log data, see [Enabling Storage Logging and Accessing Log Data](https://go.microsoft.com/fwlink/?LinkId=510867).
 
-The Storage Client Library for .NET enables you to collect client-side log data that relates to storage operations performed by your application. For more information, see [Client-side Logging with the .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkId=510868).
+The Storage Client Library for .NET enables you to collect client-side log data that relates to storage operations performed by your application. For more information, see [Client-side Logging with the .NET Storage Client Library](https://go.microsoft.com/fwlink/?LinkId=510868).
 
 > [!NOTE]
 > In some circumstances (such as SAS authorization failures), a user may report an error for which you can find no request data in the server-side Storage logs. You can use the logging capabilities of the Storage Client Library to investigate if the cause of the issue is on the client or use network monitoring tools to investigate the network.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Using network logging tools
 You can capture the traffic between the client and server to provide detailed information about the data the client and server are exchanging and the underlying network conditions. Useful network logging tools include:
 
-* [Fiddler](http://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](http://www.microsoft.com/download/details.aspx?id=4865) and [Wireshark](http://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
+* [Fiddler](https://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) and [Wireshark](https://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
 * Microsoft Message Analyzer is a tool from Microsoft that supersedes Netmon and that in addition to capturing network packet data, helps you to view and analyze the log data captured from other tools. For more information, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic](#appendix-3)".
-* If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](http://www.elifulkerson.com/projects/tcping.php) to check connectivity.
+* If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](https://www.elifulkerson.com/projects/tcping.php) to check connectivity.
 
 In many cases, the log data from Storage Logging and the Storage Client Library will be sufficient to diagnose an issue, but in some scenarios, you may need the more detailed information that these network logging tools can provide. For example, using Fiddler to view HTTP and HTTPS messages enables you to view header and payload data sent to and from the storage services, which would enable you to examine how a client application retries storage operations. Protocol analyzers such as Wireshark operate at the packet level enabling you to view TCP data, which would enable you to troubleshoot lost packets and connectivity issues. Message Analyzer can operate at both HTTP and TCP layers.
 
@@ -237,11 +240,11 @@ The Storage Client Library automatically generates a unique client request ID fo
 > [!NOTE]
 > It is possible for multiple requests to share the same client request ID because the client can assign this value (although the Storage Client Library assigns a
 > new value automatically). When the client retries, all attempts share the same client request ID. In the case of a batch sent from the client, the batch has a single client request ID.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>Server request ID
-The storage service automatically generates server request ids.
+The storage service automatically generates server request IDs.
 
 * In the server-side Storage Logging log, the server request ID appears the **Request ID header** column.
 * In a network trace such as one captured by Fiddler, the server request ID appears in response messages as the **x-ms-request-id** HTTP header value.
@@ -249,8 +252,8 @@ The storage service automatically generates server request ids.
 
 > [!NOTE]
 > The storage service always assigns a unique server request ID to every request it receives, so every retry attempt from the client and every operation included in a batch has a unique server request ID.
-> 
-> 
+>
+>
 
 If the Storage Client Library throws a **StorageException** in the client, the **RequestInformation** property contains a **RequestResult** object that includes a **ServiceRequestID** property. You can also access a **RequestResult** object from an **OperationContext** instance.
 
@@ -346,13 +349,13 @@ The storage service only calculates the metric **AverageE2ELatency** for success
 
 > [!NOTE]
 > You can also view **E2ELatency** and **ServerLatency** for individual storage operations in the Storage Logging log data.
-> 
-> 
+>
+>
 
 #### Investigating client performance issues
 Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
-For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
+For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information, see the post [Nagle's Algorithm is Not Friendly towards Small Requests](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -362,7 +365,7 @@ ServicePoint queueServicePoint = ServicePointManager.FindServicePoint(storageAcc
 queueServicePoint.UseNagleAlgorithm = false;
 ```
 
-You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory. As a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](http://msdn.microsoft.com/library/7fe0dd2y).
+You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory. As a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### Investigating network latency issues
 Typically, high end-to-end latency caused by the network is due to transient conditions. You can investigate both transient and persistent network issues such as dropped packets by using tools such as Wireshark or Microsoft Message Analyzer.
@@ -397,8 +400,8 @@ High **AverageServerLatency** values can also be a symptom of poorly designed ta
 
 > [!NOTE]
 > You can find a comprehensive checklist performance checklist here: [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>You are experiencing unexpected delays in message delivery on a queue
 If you are experiencing a delay between the time an application adds a message to a queue and the time it becomes available to read from the queue, then you should take the following steps to diagnose the issue:
@@ -410,7 +413,7 @@ If you are experiencing a delay between the time an application adds a message t
 * Examine the Storage Logging logs for any queue operations that have higher than expected **E2ELatency** and **ServerLatency** values over a longer period of time than usual.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Metrics show an increase in PercentThrottlingError
-Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
+Throttling errors occur when you exceed the scalability targets of a storage service. The storage service throttles to ensure that no single client or tenant can use the service at the expense of others. For more information, see [Scalability and performance targets for standard storage accounts](scalability-targets-standard-account.md) for details on scalability targets for storage accounts and performance targets for partitions within storage accounts.
 
 If the **PercentThrottlingError** metric show an increase in the percentage of requests that are failing with a throttling error, you need to investigate one of two scenarios:
 
@@ -420,12 +423,12 @@ If the **PercentThrottlingError** metric show an increase in the percentage of r
 An increase in **PercentThrottlingError** often occurs at the same time as an increase in the number of storage requests, or when you are initially load testing your application. This may also manifest itself in the client as "503 Server Busy" or "500 Operation Timeout" HTTP status messages from storage operations.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Transient increase in PercentThrottlingError
-If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you implement an exponential (not linear) back-off strategy for retries in your client. Back-off retries reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see [Microsoft.WindowsAzure.Storage.RetryPolicies Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+If you are seeing spikes in the value of **PercentThrottlingError** that coincide with periods of high activity for the application, you implement an exponential (not linear) back-off strategy for retries in your client. Back-off retries reduce the immediate load on the partition and help your application to smooth out spikes in traffic. For more information about how to implement retry policies using the Storage Client Library, see the [Microsoft.Azure.Storage.RetryPolicies namespace](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > You may also see spikes in the value of **PercentThrottlingError** that do not coincide with periods of high activity for the application: the most likely cause here is the storage service moving partitions to improve load balancing.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanent increase in PercentThrottlingError error
 If you are seeing a consistently high value for **PercentThrottlingError** following a permanent increase in your transaction volumes, or when you are performing your initial load tests on your application, then you need to evaluate how your application is using storage partitions and whether it is approaching the scalability targets for a storage account. For example, if you are seeing throttling errors on a queue (which counts as a single partition), then you should consider using additional queues to spread the transactions across multiple partitions. If you are seeing throttling errors on a table, you need to consider using a different partitioning scheme to spread your transactions across multiple partitions by using a wider range of partition key values. One common cause of this issue is the prepend/append anti-pattern where you select the date as the partition key and then all data on a particular day is written to one partition: under load, this can result in a write bottleneck. Either consider a different partitioning design or evaluate whether using blob storage might be a better solution. Also check whether throttling is occurring as a result of spikes in your traffic and investigate ways of smoothing your pattern of requests.
@@ -436,16 +439,16 @@ Inefficient query design can also cause you to hit the scalability limits for ta
 
 > [!NOTE]
 > Your performance testing should reveal any inefficient query designs in your application.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Metrics show an increase in PercentTimeoutError
 Your metrics show an increase in **PercentTimeoutError** for one of your storage services. At the same time, the client receives a high volume of "500 Operation Timeout" HTTP status messages from storage operations.
 
 > [!NOTE]
 > You may see timeout errors temporarily as the storage service load balances requests by moving a partition to a new server.
-> 
-> 
+>
+>
 
 The **PercentTimeoutError** metric is an aggregation of the following metrics: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError**, and **SASServerTimeoutError**.
 
@@ -463,15 +466,15 @@ If your client application is throwing HTTP 403 (Forbidden) errors, a likely cau
 
 | Source | Verbosity | Verbosity | Client request ID | Operation text |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Starting synchronous request to https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Waiting for response. |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |Exception thrown during the operation: The remote server returned an error: (403) Forbidden.. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |Checking if the operation should be retried. Retry count = 0, HTTP status code = 403, Exception = The remote server returned an error: (403) Forbidden.. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab -… |The next location has been set to Primary, based on the location mode. |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Starting operation with location Primary per location mode PrimaryOnly. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Starting synchronous request to <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Waiting for response. |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown while waiting for response: The remote server returned an error: (403) Forbidden. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Response received. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Warning |2 |85d077ab -… |Exception thrown during the operation: The remote server returned an error: (403) Forbidden.. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Checking if the operation should be retried. Retry count = 0, HTTP status code = 403, Exception = The remote server returned an error: (403) Forbidden.. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab -… |The next location has been set to Primary, based on the location mode. |
+| Microsoft.Azure.Storage |Error |1 |85d077ab -… |Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. |
 
 In this scenario, you should investigate why the SAS token is expiring before the client sends the token to the server:
 
@@ -480,7 +483,7 @@ In this scenario, you should investigate why the SAS token is expiring before th
 * Does the version parameter in the SAS key (for example **sv=2015-04-05**) match the version of the Storage Client Library you are using? We recommend that you always use the latest version of the [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/).
 * If you regenerate your storage access keys, any existing SAS tokens may be invalidated. This issue may arise if you generate SAS tokens with a long expiry time for client applications to cache.
 
-If you are using the Storage Client Library to generate SAS tokens, then it is easy to build a valid token. However, if you are using the Storage REST API and constructing the SAS tokens by hand, see [Delegating Access with a Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx).
+If you are using the Storage Client Library to generate SAS tokens, then it is easy to build a valid token. However, if you are using the Storage REST API and constructing the SAS tokens by hand, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>The client is receiving HTTP 404 (Not found) messages
 If the client application receives an HTTP 404 (Not found) message from the server, this implies that the object the client was attempting to use (such as an entity, table, blob, container, or queue) does not exist in the storage service. There are a number of possible reasons for this, such as:
@@ -509,24 +512,24 @@ Log entries:
 
 | Request ID | Operation Text |
 | --- | --- |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| 07b26a5d-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Waiting for response. |
 | 07b26a5d-... |Response received. Status code = 202, Request ID = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | 07b26a5d-... |Downloading response body. |
 | 07b26a5d-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
-| de8b1c3c-... |Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |Starting synchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparing to write request data. |
 | e2d06d78-... |Exception thrown while waiting for response: The remote server returned an error: (404) Not Found.. |
@@ -534,7 +537,7 @@ Log entries:
 | e2d06d78-... |Response headers were processed successfully, proceeding with the rest of the operation. |
 | e2d06d78-... |Downloading response body. |
 | e2d06d78-... |Operation completed successfully. |
-| e2d06d78-... |Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |Starting asynchronous request to `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Waiting for response. |
 | de8b1c3c-... |Writing request data. |
@@ -559,12 +562,12 @@ The following table shows a sample server-side log message from the Storage Logg
 | --- | --- |
 | Request start time | 2014-05-30T06:17:48.4473697Z |
 | Operation type     | GetBlobProperties            |
-| Request status     | SASAuthorizationError		|
-| HTTP status code   | 404							|
+| Request status     | SASAuthorizationError        |
+| HTTP status code   | 404                            |
 | Authentication type| Sas                          |
-| Service type       | Blob 						|
-| Request URL		 | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| &nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| Service type       | Blob                         |
+| Request URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request ID header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Client request ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -581,12 +584,12 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > You can use the F12 Developer Tools in Internet Explorer to trace the messages exchanged between the browser and the storage service when you are troubleshooting client-side JavaScript issues.
-> 
-> 
+>
+>
 
-These errors occur because the web browser implements the [same origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from.
+These errors occur because the web browser implements the [same origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) security restriction that prevents a web page from calling an API in a different domain from the domain the page comes from.
 
-To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see [Cross-Origin Resource Sharing (CORS) Support for Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
+To work around the JavaScript issue, you can configure Cross Origin Resource Sharing (CORS) for the storage service the client is accessing. For more information, see [Cross-Origin Resource Sharing (CORS) Support for Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
 The following code sample shows how to configure your blob service to allow JavaScript running in the Contoso domain to access a blob in your blob storage service:
 
@@ -632,15 +635,15 @@ The code in the client application deletes and then immediately recreates a blob
 The client application should use unique container names whenever it creates new containers if the delete/recreate pattern is common.
 
 ### <a name="metrics-show-low-percent-success"></a>Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors
-The **PercentSuccess** metric captures the percent of operations that were successful based on their HTTP Status Code. Operations with status codes of 2XX count as successful, whereas operations with status codes in 3XX, 4XX and 5XX ranges are counted as unsuccessful and lower the **PercentSucess** metric value. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**.
+The **PercentSuccess** metric captures the percent of operations that were successful based on their HTTP Status Code. Operations with status codes of 2XX count as successful, whereas operations with status codes in 3XX, 4XX and 5XX ranges are counted as unsuccessful and lower the **PercentSuccess** metric value. In the server-side storage log files, these operations are recorded with a transaction status of **ClientOtherErrors**.
 
 It is important to note that these operations have completed successfully and therefore do not affect other metrics such as availability. Some examples of operations that execute successfully but that can result in unsuccessful HTTP status codes include:
 
 * **ResourceNotFound** (Not Found 404), for example from a GET request to a blob that does not exist.
-* **ResouceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
+* **ResourceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
 * **ConditionNotMet** (Not Modified 304), for example from a conditional operation such as when a client sends an **ETag** value and an HTTP **If-None-Match** header to request an image only if it has been updated since the last operation.
 
-You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](http://msdn.microsoft.com/library/azure/dd179357.aspx).
+You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](https://msdn.microsoft.com/library/azure/dd179357.aspx).
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>Capacity metrics show an unexpected increase in storage capacity usage
 If you see sudden, unexpected changes in capacity usage in your storage account, you can investigate the reasons by first looking at your availability metrics; for example, an increase in the number of failed delete requests might lead to an increase in the amount of blob storage you are using as application-specific cleanup operations you might have expected to be freeing up space may not be working as expected (for example, because the SAS tokens used for freeing up space have expired).
@@ -703,12 +706,12 @@ For more information about using Microsoft Message Analyzer, see "[Appendix 3: U
 The appendices describe several tools that you may find useful when you are diagnosing and troubleshooting issues with Azure Storage (and other services). These tools are not part of Azure Storage and some are third-party products. As such, the tools discussed in these appendices are not covered by any support agreement you may have with Microsoft Azure or Azure Storage, and therefore as part of your evaluation process you should examine the licensing and support options available from the providers of these tools.
 
 ### <a name="appendix-1"></a>Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic
-[Fiddler](http://www.telerik.com/fiddler) is a useful tool for analyzing the HTTP and HTTPS traffic between your client application and the Azure storage service you are using.
+[Fiddler](https://www.telerik.com/fiddler) is a useful tool for analyzing the HTTP and HTTPS traffic between your client application and the Azure storage service you are using.
 
 > [!NOTE]
 > Fiddler can decode HTTPS traffic; you should read the Fiddler documentation carefully to understand how it does this, and to understand the security implications.
-> 
-> 
+>
+>
 
 This appendix provides a brief walkthrough of how to configure Fiddler to capture traffic between the local machine where you have installed Fiddler and the Azure storage services.
 
@@ -722,15 +725,15 @@ To limit the amount of traffic that Fiddler captures, you can use filters that y
 ![][5]
 
 ### <a name="appendix-2"></a>Appendix 2: Using Wireshark to capture network traffic
-[Wireshark](http://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
+[Wireshark](https://www.wireshark.org/) is a network protocol analyzer that enables you to view detailed packet information for a wide range of network protocols.
 
 The following procedure shows you how to capture detailed packet information for traffic from the local machine where you installed Wireshark to the table service in your Azure storage account.
 
 1. Launch Wireshark on your local machine.
 2. In the **Start** section, select the local network interface or interfaces that are connected to the internet.
 3. Click **Capture Options**.
-4. Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. Check out the [complete list of Capture Filters](http://wiki.wireshark.org/CaptureFilters).
-   
+4. Add a filter to the **Capture Filter** textbox. For example, **host contosoemaildist.table.core.windows.net** will configure Wireshark to capture only packets sent to or from the table service endpoint in the **contosoemaildist** storage account. Check out the [complete list of Capture Filters](https://wiki.wireshark.org/CaptureFilters).
+
    ![][6]
 5. Click **Start**. Wireshark will now capture all the packets send to or from the table service endpoint as you use your client application on your local machine.
 6. When you have finished, on the main menu click **Capture** and then **Stop**.
@@ -740,14 +743,14 @@ WireShark will highlight any errors that exist in the **packetlist** window. You
 
 ![][7]
 
-You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+You can also choose to view the TCP data as the application layer sees it by right-clicking on the TCP data and selecting **Follow TCP Stream**. This is useful if you captured your dump without a capture filter. For more information, see [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> For more information about using Wireshark, see the [Wireshark Users Guide](http://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+> For more information about using Wireshark, see the [Wireshark Users Guide](https://www.wireshark.org/docs/wsug_html_chunked).
+>
+>
 
 ### <a name="appendix-3"></a>Appendix 3: Using Microsoft Message Analyzer to capture network traffic
 You can use Microsoft Message Analyzer to capture HTTP and HTTPS traffic in a similar way to Fiddler, and capture network traffic in a similar way to Wireshark.
@@ -761,12 +764,12 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > A space character separates the hostnames.
-> 
-> 
+>
+>
 
 When you are ready to start collecting trace data, click the **Start With** button.
 
-For more information about the Microsoft Message Analyzer **Web Proxy** trace, see [Microsoft-PEF-WebProxy Provider](http://technet.microsoft.com/library/jj674814.aspx).
+For more information about the Microsoft Message Analyzer **Web Proxy** trace, see [Microsoft-PEF-WebProxy Provider](https://technet.microsoft.com/library/jj674814.aspx).
 
 The built-in **Web Proxy** trace in Microsoft Message Analyzer is based on Fiddler; it can capture client-side HTTPS traffic and display unencrypted HTTPS messages. The **Web Proxy** trace works by configuring a local proxy for all HTTP and HTTPS traffic that gives it access to unencrypted messages.
 
@@ -781,10 +784,10 @@ When you create the trace session in Microsoft Message Analyzer, you can specify
 
 ![][10]
 
-For more information about the Microsoft Message Analyzer Local Link Layer trace, see [Microsoft-PEF-NDIS-PacketCapture Provider](http://technet.microsoft.com/library/jj659264.aspx).
+For more information about the Microsoft Message Analyzer Local Link Layer trace, see [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Appendix 4: Using Excel to view metrics and log data
-Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at [Storage Analytics Log Format](http://msdn.microsoft.com/library/azure/hh343259.aspx) and [Storage Analytics Metrics Table Schema](http://msdn.microsoft.com/library/azure/hh343264.aspx).
+Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 To import your Storage Logging data into Excel after you download it from blob storage:
 
@@ -800,7 +803,18 @@ You can also use the Application Insights feature for Azure DevOps as part of yo
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, Microsoft can send you an email. You can monitor both .NET and Java web services.
 
-You can find more information at [What is Application Insights](../../application-insights/app-insights-overview.md).
+You can find more information at [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
+
+## Next steps
+
+For more information about analytics in Azure Storage, see these resources:
+
+* [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md)
+* [Storage analytics](storage-analytics.md)
+* [Storage analytics metrics](storage-analytics-metrics.md)
+* [Storage analytics metrics table schema](/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [Storage analytics logs](storage-analytics-logging.md)
+* [Storage analytics log format](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduction]: #introduction

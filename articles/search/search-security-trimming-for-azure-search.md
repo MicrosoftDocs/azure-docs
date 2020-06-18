@@ -1,18 +1,19 @@
 ---
-title: "Security filters for trimming results in Azure Search | Microsoft Docs"
-description: Access control on Azure Search content using security filters and user identities.
-ms.service: search
+title: Security filters for trimming results
+titleSuffix: Azure Cognitive Search
+description: Security privileges at the document level for Azure Cognitive Search search results, using security filters and user identities.
+
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.topic: conceptual
-services: search
-ms.date: "08/07/2017"
-author: "revitalbarletz"
-ms.author: "revitalb"
-manager: "jlembicz"
+ms.date: 06/04/2020
 ---
 
-# Security filters for trimming results in Azure Search
+# Security filters for trimming results in Azure Cognitive Search
 
-You can apply security filters to trim search results in Azure Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
+You can apply security filters to trim search results in Azure Cognitive Search based on user identity. This search experience generally requires comparing the identity of whoever requests the search against a field containing the principles who have permissions to the document. When a match is found, the user or principal (such as a group or role) has access to that document.
 
 One way to achieve security filtering is through a complicated disjunction of equality expressions: for example, `Id eq 'id1' or Id eq 'id2'`, and so forth. This approach is error-prone, difficult to maintain, and in cases where the list contains hundreds or thousands of values, slows down query response time by many seconds. 
 
@@ -29,7 +30,7 @@ This article shows you how to accomplish security filtering using the following 
 
 ## Prerequisites
 
-This article assumes you have an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Search service](https://docs.microsoft.com/azure/search/search-create-service-portal), and [Azure Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+This article assumes you have an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), [Azure Cognitive Search service](https://docs.microsoft.com/azure/search/search-create-service-portal), and [Azure Cognitive Search Index](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
 ## Create security field
 
@@ -55,7 +56,7 @@ Let's assume that we have an index of secured files, and each file is accessible
 Issue an HTTP POST request to your index's URL endpoint. The body of the HTTP request is a JSON object containing the documents to be added:
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -107,13 +108,13 @@ For full details on adding or updating documents, you can read [Edit documents](
 
 In order to trim documents based on `group_ids` access, you should issue a search query with a `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, where 'group_id1, group_id2,...' are the groups to which the search request issuer belongs.
 This filter matches all documents for which the `group_ids` field contains one of the given identifiers.
-For full details on searching documents using Azure Search, you can read [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+For full details on searching documents using Azure Cognitive Search, you can read [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Note that this sample shows how to search documents using a POST request.
 
 Issue the HTTP POST request:
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -146,10 +147,10 @@ You should get the documents back where `group_ids` contains either "group_id1" 
 ```
 ## Conclusion
 
-This is how you can filter results based on user identity and Azure Search `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
+This is how you can filter results based on user identity and Azure Cognitive Search `search.in()` function. You can use this function to pass in principle identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
  
 ## See also
 
-+ [Active Directory identity-based access control using Azure Search filters](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filters in Azure Search](search-filters.md)
-+ [Data security and access control in Azure Search operations](search-security-overview.md)
++ [Active Directory identity-based access control using Azure Cognitive Search filters](search-security-trimming-for-azure-search-with-aad.md)
++ [Filters in Azure Cognitive Search](search-filters.md)
++ [Data security and access control in Azure Cognitive Search operations](search-security-overview.md)

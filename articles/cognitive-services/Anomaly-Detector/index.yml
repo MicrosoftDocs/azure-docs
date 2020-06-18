@@ -1,0 +1,120 @@
+### YamlMime:Landing
+
+title: Anomaly Detector API Documentation 
+summary: Learn how to use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+
+metadata:
+  title: Anomaly Detector API - Tutorials, quickstarts, API reference
+  titleSuffix: Azure Cognitive Services
+  description: Use the Anomaly Detector API to monitor data over time and detect anomalies with machine learning. Get insight into your data, regardless of volume, industry, or scenario. 
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: anomaly-detector
+  ms.topic: landing-page
+  ms.date: 09/10/2019
+  ms.author: aahi
+
+landingContent:
+- title: About the Anomaly Detector API
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Anomaly Detector API?
+          url: overview.md
+    - linkListType: get-started
+      links:
+        - text: Anomaly Detector demo
+          url: https://aka.ms/adDemo
+    - linkListType: video
+      links:
+        - text: Introducing the Anomaly Detector API
+          url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
+        - text: Algorithms used by the Anomaly Detection API 
+          url: https://www.youtube.com/embed/ERTaAnwCarM
+    - linkListType: reference
+      links:
+        - text: Introducing Azure Anomaly Detector API
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+        - text: Overview of SR-CNN algorithm
+          url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798  
+        - text: Algorithm used in anomaly detection (KDD paper)
+          url: https://arxiv.org/abs/1906.03821
+
+- title: "Detect anomalies in your data"
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Using JavaScript
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
+        - text: Using Python
+          url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+    - linkListType: tutorial
+      links:
+        - text: Visualize anomalies using batch detection and Power BI
+          url: tutorials/batch-anomaly-detection-powerbi.md
+        - text: Detect Anomalies in streaming data using Azure Databricks
+          url: tutorials/anomaly-detection-streaming-databricks.md
+    - linkListType: video
+      links:
+        - text: Anomaly detection on streaming data using Azure Databricks
+          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
+
+- title: Optimize your detection results
+  linkLists:
+    - linkListType: concept
+      links:
+        - text: Adjust anomaly detection modes and parameters for your data.
+          url: how-to/identify-anomalies.md
+        - text: Use best practices to optimize your anomaly detection results.
+          url: concepts/anomaly-detection-best-practices.md
+    - linkListType: video
+      links:
+        - text: Anomaly Detector best practices
+          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices 
+
+- title: Use Docker containers
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Install and run Anomaly Detector containers
+          url: anomaly-detector-container-howto.md
+        - text: Configure Anomaly Detector containers
+          url: anomaly-detector-container-configuration.md
+        - text: Deploy a container instance to Azure
+          url: how-to/deploy-anomaly-detection-on-container-instances.md
+    - linkListType: video
+      links:
+        - text: Bring Anomaly Detector on-premises with containers support
+          url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
+
+- title: Join the Anomaly Detector community 
+  linkLists:
+    - linkListType: learn
+      links:
+        - text: Join the Anomaly Detector Advisors group on Microsoft Teams
+          url: https://aka.ms/adadvisorsjoin
+        - text: Featured user-generated content
+          url: user-generated-content.md
+
+- title: Reference
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: REST API
+          url: https://aka.ms/anomaly-detector-rest-api-ref
+        - text: .NET SDK
+          url: https://aka.ms/anomaly-detector-dotnet-ref
+        - text: .Python SDK
+          url: https://go.microsoft.com/fwlink/?linkid=2090370
+        - text: Go SDK
+          url: https://go.microsoft.com/fwlink/?linkid=2089915
+        - text: Node.js SDK
+          url: https://go.microsoft.com/fwlink/?linkid=2090788
+        - text: Azure PowerShell
+          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+        - text: Azure CLI
+          url: /cli/azure/cognitiveservices#az-cognitiveservices-list

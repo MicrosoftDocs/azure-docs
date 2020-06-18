@@ -1,52 +1,44 @@
 ---
-title: Add a data disk to Linux VM using the Azure CLI | Microsoft Docs
+title: Add a data disk to Linux VM using the Azure CLI 
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
+author: roygara
+manager: twooley
 ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
+ms.topic: how-to
 ms.date: 06/13/2018
-ms.author: cynthn
-ms.custom: H1Hack27Feb2017
+ms.author: rogarana
+ms.subservice: disks
 ---
 # Add a disk to a Linux VM
-This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
+This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.
 
 
 ## Attach a new disk to a VM
 
-If you want to add a new, empty data disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is 50 Gb in size:
+If you want to add a new, empty data disk on your VM, use the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) command with the `--new` parameter. If your VM is in an Availability Zone, the disk is automatically created in the same zone as the VM. For more information, see [Overview of Availability Zones](../../availability-zones/az-overview.md). The following example creates a disk named *myDataDisk* that is 50 Gb in size:
 
 ```azurecli
 az vm disk attach \
    -g myResourceGroup \
    --vm-name myVM \
-   --disk myDataDisk \
+   --name myDataDisk \
    --new \
    --size-gb 50
 ```
 
-## Attach an existing disk 
+## Attach an existing disk
 
-To attach an existing disk, find the disk ID and pass the ID to the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) command. The following example queries for a disk named *myDataDisk* in *myResourceGroup*, then attaches it to the VM named *myVM*:
+To attach an existing disk, find the disk ID and pass the ID to the [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest) command. The following example queries for a disk named *myDataDisk* in *myResourceGroup*, then attaches it to the VM named *myVM*:
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 
-az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
+az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-
 ## Connect to the Linux VM to mount the new disk
-To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*: 
+
+To partition, format, and mount your new disk so your Linux VM can use it, SSH into your VM. For more information, see [How to use SSH with Linux on Azure](mac-create-ssh-keys.md). The following example connects to a VM with the public DNS entry of *mypublicdns.westus.cloudapp.azure.com* with the username *azureuser*:
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -68,7 +60,10 @@ The output is similar to the following example:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Here, *sdc* is the disk that we want. Partition the disk with `fdisk`, make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+> [!NOTE]
+> It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
+
+Here, *sdc* is the disk that we want. Partition the disk with `parted`, if the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, if it is under 2TiB, then you can use either MBR or GPT partitioning. If you're using MBR partitioning, you can use `fdisk`. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -116,6 +111,10 @@ The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
 Syncing disks.
+```
+Use the below command to update the kernel:
+```
+partprobe 
 ```
 
 Now, write a file system to the partition with the `mkfs` command. Specify your filesystem type and the device name. The following example creates an *ext4* filesystem on the */dev/sdc1* partition that was created in the preceding steps:
@@ -192,8 +191,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
-> 
+>
 > The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+>
+> The Azure VM Serial Console can be used for console access to your VM if modifying fstab has resulted in a boot failure. More details are available in the [Serial Console documentation](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
@@ -206,14 +207,14 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
-  
+
     **Ubuntu**
-  
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
+
     **RHEL/CentOS**
 
     ```bash
@@ -222,9 +223,10 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
     ```
 
 ## Troubleshooting
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next steps
+
 * To ensure your Linux VM is configured correctly, review the [Optimize your Linux machine performance](optimization.md) recommendations.
 * Expand your storage capacity by adding additional disks and [configure RAID](configure-raid.md) for additional performance.
-

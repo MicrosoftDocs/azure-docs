@@ -1,23 +1,23 @@
 ---
-title: Return N-Best Translations - Translator Text API
-titlesuffix: Azure Cognitive Services
-description: Return N-Best translations using the Microsoft Translator Text API.
+title: Return N-Best Translations - Translator
+titleSuffix: Azure Cognitive Services
+description: Return N-Best translations using the Translator.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
+ms.author: swmachan
+ROBOTS: NOINDEX
 ---
 # How to return N-Best translations
 
 > [!NOTE]
-> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+> This method is deprecated. It is not available in V3.0 of the Translator.
 
-The GetTranslations() and GetTranslationsArray() methods of the Microsoft Translator API include an optional Boolean flag "IncludeMultipleMTAlternatives".
+The GetTranslations() and GetTranslationsArray() methods of the Translator include an optional Boolean flag "IncludeMultipleMTAlternatives".
 The method will return up to maxTranslations alternatives where the delta is supplied from the N-Best list of the translator engine.
 
 The signature is:

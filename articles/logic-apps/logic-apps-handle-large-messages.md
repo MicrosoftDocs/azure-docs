@@ -1,20 +1,12 @@
 ---
-title: Handle large messages - Azure Logic Apps | Microsoft Docs
-description: Learn how to handle large message sizes with chunking in Azure Logic Apps
+title: Handle large messages by using chunking
+description: Learn how to handle large message sizes by using chunking in automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
-documentationcenter:
-author: shae-hurst
-manager: jeconnoc
-editor:
-
-ms.assetid:
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang:
-ms.tgt_pltfrm: 
+ms.suite: integration
+author: DavidCBerry13
+ms.author: daberry
 ms.topic: article
-ms.date: 4/27/2018
-ms.author: shhurst
+ms.date: 12/03/2019
 ---
 
 # Handle large messages with chunking in Azure Logic Apps
@@ -29,8 +21,9 @@ Logic Apps can consume large messages but *only* in chunks.
 This condition means connectors must also support chunking, or the underlying 
 HTTP message exchange between Logic Apps and these services must use chunking.
 
-This article shows how you can set up chunking 
-support for messages that are larger than the limit.
+This article shows how you can set up chunking for actions handling messages that are 
+larger than the limit. Logic App  triggers don't 
+support chunking because of the increased overhead of exchanging multiple messages. 
 
 ## What makes messages "large"?
 
@@ -66,6 +59,14 @@ Logic Apps splits any message larger than 30 MB into smaller chunks.
 For connectors that support chunking, the underlying chunking protocol is invisible to end users. 
 However, not all connectors support chunking, so these connectors generate runtime 
 errors when incoming messages exceed the connectors' size limits.
+
+> [!NOTE]
+> For actions that use chunking, you can't pass the trigger body or use expressions such as 
+> `@triggerBody()?['Content']` in those actions. Instead, for text or JSON file content, 
+> you can try using the [**Compose** action](../logic-apps/logic-apps-perform-data-operations.md#compose-action) 
+> or [create a variable](../logic-apps/logic-apps-create-variables-store-values.md) to handle that content. 
+> If the trigger body contains other content types, such as media files, you need to perform 
+> other steps to handle that content.
 
 <a name="set-up-chunking"></a>
 
@@ -191,7 +192,7 @@ includes this information about the content that your logic app wants to upload 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
-   | **Location** | String | No | The URL location where to send the HTTP PATCH messages |
+   | **Location** | String | Yes | The URL location where to send the HTTP PATCH messages |
    ||||
 
 3. Your logic app creates and sends follow-up HTTP PATCH messages - each with this information:
@@ -209,7 +210,13 @@ includes this information about the content that your logic app wants to upload 
      |||||
 
 4. After each PATCH request, the endpoint confirms the receipt 
-for each chunk by responding with the "200" status code.
+for each chunk by responding with the "200" status code and the following response headers:
+
+   | Endpoint response header field | Type | Required | Description |
+   |--------------------------------|------|----------|-------------|
+   | **Range** | String | Yes | The byte range for content that has been received by the endpoint, for example: "bytes=0-1023" |   
+   | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
+   ||||
 
 For example, this action definition shows an HTTP POST 
 request for uploading chunked content to an endpoint. 

@@ -4,7 +4,7 @@ description: This topic explains how to use setRuntimeProperties to use multiple
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: xpouyat;anilmur;juliako
+ms.date: 03/18/2019
+ms.author: xpouyat
+ms.reviewer: anilmur;juliako
 
 ---
 # Using multiple input files and component properties with Premium Encoder
@@ -426,11 +427,11 @@ You can download the sample workflow from [GitHub](https://github.com/Azure/azur
 
 ## Example 2 : Multiple audio language encoding
 
-An example of multiple audio language encoding workfkow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+An example of multiple audio language encoding workflow is available in [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 This folder contains a sample workflow which can be used to encode a MXF file to a multi MP4 files asset with multiple audio tracks.
 
-This workflow assumes that the MXF file contains one audio track ; the additional audio tracks should be passed as seperate audio files (WAV or MP4...).
+This workflow assumes that the MXF file contains one audio track ; the additional audio tracks should be passed as separate audio files (WAV or MP4...).
 
 To encode, please follow these steps:
 
@@ -462,12 +463,12 @@ To encode, please follow these steps:
 * The encoded asset will contain multi language audio tracks and these tracks should be selectable in Azure Media Player.
 
 ## See also
-* [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [How to use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [How to use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Encoding on-demand content with Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formats and codecs](media-services-premium-workflow-encoder-formats.md)
 * [Sample workflow files](https://github.com/Azure/azure-media-services-samples)
-* [Azure Media Services Explorer tool](http://aka.ms/amse)
+* [Azure Media Services Explorer tool](https://aka.ms/amse)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

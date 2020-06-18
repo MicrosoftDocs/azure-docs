@@ -1,20 +1,13 @@
 ---
-title: 'Connect your on-premises network to an Azure virtual network: Site-to-Site VPN: Portal | Microsoft Docs'
+title: 'Connect on-premises network to Azure virtual network: Site-to-Site VPN: Portal'
 description: Steps to create an IPsec connection from your on-premises network to an Azure virtual network over the public Internet. These steps will help you create a cross-premises Site-to-Site VPN Gateway connection using the portal.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services 
-ms.date: 04/04/2018
+ms.topic: how-to
+ms.date: 03/03/2020
 ms.author: cherylmc
 
 ---
@@ -39,60 +32,68 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 Verify that you have met the following criteria before beginning your configuration:
 
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
-* Verify that you have an externally facing public IPv4 address for your VPN device. This IP address cannot be located behind a NAT.
+* Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to. 
 
 ### <a name="values"></a>Example values
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **VNet Name:** TestVNet1
+* **Virtual network name:** VNet1
 * **Address Space:** 10.1.0.0/16
 * **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
-* **Location:** East US
+* **Region:** East US
 * **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
-* **Gateway Subnet name:** GatewaySubnet (this will auto-fill in the portal)
-* **Gateway Subnet address range:** 10.1.255.0/27
-* **DNS Server:** 8.8.8.8 - Optional. The IP address of your DNS server.
-* **Virtual Network Gateway Name:** VNet1GW
-* **Public IP:** VNet1GWIP
-* **VPN Type:** Route-based
-* **Connection Type:** Site-to-site (IPsec)
-* **Gateway Type:** VPN
-* **Local Network Gateway Name:** Site1
-* **Connection Name:** VNet1toSite1
+* **Gateway subnet address range:** 10.1.255.0/27
+* **Virtual network gateway name:** VNet1GW
+* **Public IP address name:** VNet1GWpip
+* **VPN type:** Route-based
+* **Connection type:** Site-to-site (IPsec)
+* **Gateway type:** VPN
+* **Local network gateway name:** Site1
+* **Connection name:** VNet1toSite1
 * **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="dns"></a>2. Specify a DNS server
+## <a name="VNetGateway"></a>2. Create the VPN gateway
 
-DNS is not required to create a Site-to-Site connection. However, if you want to have name resolution for resources that are deployed to your virtual network, you should specify a DNS server. This setting lets you specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server. For more information about name resolution, see [Name Resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>3. Create the gateway subnet
+### Example settings
 
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
+* **Instance details > Region:** East US
+* **Virtual Network > Virtual network:** VNet1
+* **Instance details > Name:** VNet1GW
+* **Instance details > Gateway type:** VPN
+* **Instance details > VPN type:** Route-based
+* **Virtual Network > Gateway subnet address range:** 10.1.255.0/27
+* **Public IP address > Public IP address name:** VNet1GWpip
 
-[!INCLUDE [Add a gateway subnet](../../includes/vpn-gateway-add-gateway-subnet-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="VNetGateway"></a>4. Create the VPN gateway
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gateway-portal-include.md)]
-
-## <a name="LocalNetworkGateway"></a>5. Create the local network gateway
+## <a name="LocalNetworkGateway"></a>3. Create the local network gateway
 
 The local network gateway typically refers to your on-premises location. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
+**Example values**
+
+* **Name:** Site1
+* **Resource Group:** TestRG1
+* **Location:** East US
+
+
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>6. Configure your VPN device
+## <a name="VPNDevice"></a>4. Configure your VPN device
 
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
@@ -101,13 +102,13 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>7. Create the VPN connection
+## <a name="CreateConnection"></a>5. Create the VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>8. Verify the VPN connection
+## <a name="VerifyConnection"></a>6. Verify the VPN connection
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 

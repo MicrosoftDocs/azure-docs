@@ -1,13 +1,14 @@
 ---
 title: Understand the Azure IoT Hub identity registry | Microsoft Docs
 description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: dobett
+ms.custom: [amqp, mqtt]
 ---
 
 # Understand the identity registry in your IoT hub
@@ -24,7 +25,9 @@ Use the identity registry when you need to:
 * Control per-device/per-module access to your hub's device or module-facing endpoints.
 
 > [!NOTE]
-> The identity registry does not contain any application-specific metadata.
+> * The identity registry does not contain any application-specific metadata.
+> * Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
+>
 
 ## Identity registry operations
 
@@ -35,7 +38,6 @@ The IoT Hub identity registry exposes the following operations:
 * Retrieve device or module identity by ID
 * Delete device or module identity
 * List up to 1000 identities
-> Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
 * Export device identities to Azure blob storage
 * Import device identities from Azure blob storage
 
@@ -72,6 +74,8 @@ Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-
 Use asynchronous operations on the [IoT Hub resource provider endpoint](iot-hub-devguide-endpoints.md) to import device identities in bulk to an IoT hub's identity registry. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
 
 For more information about the import and export APIs, see [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities](iot-hub-bulk-identity-mgmt.md).
+
+Device identities can also be exported and imported from an IoT Hub via the Service API via either the [REST API](/rest/api/iothub/service/jobclient/createimportexportjob) or one of the IoT Hub [Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks).
 
 ## Device provisioning
 
@@ -177,7 +181,7 @@ Device identities are represented as JSON documents with the following propertie
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optional |A composite object containing authentication information and security materials. |
@@ -192,14 +196,17 @@ Device identities are represented as JSON documents with the following propertie
 > [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId**.
+
 ## Module identity properties
 
 Module identities are represented as JSON documents with the following properties:
 
 | Property | Options | Description |
 | --- | --- | --- |
-| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
+| moduleId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters plus certain special characters: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This value is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |optional |A composite object containing authentication information and security materials. |
@@ -210,6 +217,9 @@ Module identities are represented as JSON documents with the following propertie
 | connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
+
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId** and **moduleId**.
 
 ## Additional reference material
 

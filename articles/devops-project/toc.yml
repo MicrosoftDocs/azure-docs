@@ -1,8 +1,8 @@
-- name: Azure DevOps Projects Documentation
+- name: Azure DevOps Starter Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DevOps Project?
+  - name: What is Azure DevOps Starter?
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -30,7 +30,7 @@
     maintainContext: true
 - name: Tutorials
   items:
-  - name: 1 - GitHub and DevOps Project
+  - name: 1 - GitHub and DevOps Starter
     href: azure-devops-project-github.md
     maintainContext: true
   - name: 2 - Deploy to VMs
@@ -45,4 +45,10 @@
   - name: 5 - Deploy to Azure Service Fabric
     href: azure-devops-project-service-fabric.md
     maintainContext: true
+  - name: 6- Deploy to Azure Cosmos DB
+    href: azure-devops-project-cosmos-db.md
+    maintainContext: true
+  - name: 7- Deploy to Azure Functions
+    href: azure-devops-project-functions.md
+    maintainContext: true  
     

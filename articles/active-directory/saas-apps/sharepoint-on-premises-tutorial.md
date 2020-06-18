@@ -4,320 +4,294 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
-ms.author: jeedes
+ms.topic: tutorial
+ms.date: 01/15/2020
+ms.author: miguego
+
 
 ---
-# Tutorial: Azure Active Directory integration with SharePoint on-premises
+# Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises
 
-In this tutorial, you learn how to integrate SharePoint on-premises with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate SharePoint on-premises with Azure Active Directory (Azure AD). When you integrate SharePoint on-premises with Azure AD, you can:
 
-Integrating SharePoint on-premises with Azure AD provides you with the following benefits:
+* Control who has access to SharePoint on-premises in Azure AD.
+* Enable your users to be automatically signed in to SharePoint on-premises with their Azure AD accounts.
+* Manage your accounts in the Azure portal.
 
-- You can control in Azure AD who has access to SharePoint on-premises.
-- You can enable your users to automatically get signed-on to SharePoint on-premises (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
-To configure Azure AD integration with SharePoint on-premises, you need the following items:
+To configure Azure AD integration with SharePoint on-premises, you need these items:
 
-- An Azure AD subscription
-- A SharePoint on-premises single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* A SharePoint 2013 farm or newer.
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment.
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on (SSO) in a test environment. Users from Azure AD are able to access your SharePoint on-premises.
 
-1. Adding SharePoint on-premises from the gallery
-2. Configuring and testing Azure AD single sign-on
-
-## Adding SharePoint on-premises from the gallery
+## Create enterprise applications in the Azure portal
 
 To configure the integration of SharePoint on-premises into Azure AD, you need to add SharePoint on-premises from the gallery to your list of managed SaaS apps.
 
-**To add SharePoint on-premises from the gallery, perform the following steps:**
+To add SharePoint on-premises from the gallery:
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the [Azure portal](https://portal.azure.com), on the leftmost pane, select **Azure Active Directory**.
 
-	![The Azure Active Directory button][1]
+   > [!NOTE]
+   > If the element isn't available, you can also open it through the **All services** link at the top of the leftmost pane. In the following overview, the **Azure Active Directory** link is located in the **Identity** section. You can also search for it by using the filter box.
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+1. Go to **Enterprise applications**, and then select **All applications**.
 
-	![The Enterprise applications blade][2]
+1. To add a new application, select **New application** at the top of the dialog box.
 
-3. To add new application, click **New application** button on the top of dialog.
+1. In the search box, enter **SharePoint on-premises**. Select **SharePoint on-premises** from the result pane.
 
-	![The New application button][3]
+    <kbd>![SharePoint on-premises in the results list](./media/sharepoint-on-premises-tutorial/search-new-app.png)</kbd>
 
-4. In the search box, type **SharePoint on-premises**, select **SharePoint on-premises** from result panel then click **Add** button to add the application.
+1. Specify a name for your SharePoint on-premises instance, and select **Add** to add the application.
 
-	![SharePoint on-premises in the results list](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
+1. In the new enterprise application, select **Properties**, and check the value for **User assignment required?**.
 
-## Configure and test Azure AD single sign-on
+   <kbd>![User assignment required? toggle](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
 
-In this section, you configure and test Azure AD single sign-on with SharePoint on-premises based on a test user called "Britta Simon".
+   In this scenario, the value is set to **No**.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in SharePoint on-premises is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in SharePoint on-premises needs to be established.
+## Configure and test Azure AD
 
-To configure and test Azure AD single sign-on with SharePoint on-premises, you need to complete the following building blocks:
+In this section, you configure Azure AD SSO with SharePoint on-premises. For SSO to work, you establish a link relationship between an Azure AD user and the related user in SharePoint on-premises.
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Grant access to SharePoint on-premises test user](#grant-access-to-sharePoint-on-premises-test-user)** - to have a counterpart of Britta Simon in SharePoint on-premises that is linked to the Azure AD representation of user.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+To configure and test Azure AD SSO with SharePoint on-premises, complete these building blocks:
+
+- [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+- [Configure SharePoint on-premises](#configure-sharepoint-on-premises) to configure the SSO settings on the application side.
+- [Create an Azure AD test user in the Azure portal](#create-an-azure-ad-test-user-in-the-azure-portal) to create a new user in Azure AD for SSO.
+- [Create an Azure AD security group in the Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal) to create a new security group in Azure AD for SSO.
+- [Grant permissions to an Azure AD account in SharePoint on-premises](#grant-permissions-to-an-azure-ad-account-in-sharepoint-on-premises) to give permissions to an Azure AD user.
+- [Grant permissions to an Azure AD group in SharePoint on-premises](#grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises) to give permissions to an Azure AD group.
+- [Grant access to a guest account to SharePoint on-premises in the Azure portal](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal) to give permissions to a guest account in Azure AD for SharePoint on-premises.
+- [Configure the trusted identity provider for multiple web applications](#configure-the-trusted-identity-provider-for-multiple-web-applications) to use the same trusted identity provider for multiple web applications.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your SharePoint on-premises application.
+In this section, you enable Azure AD SSO in the Azure portal.
 
-**To configure Azure AD single sign-on with SharePoint on-premises, perform the following steps:**
+To configure Azure AD SSO with SharePoint on-premises:
 
-1. In the Azure portal, on the **SharePoint on-premises** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+1. In the **Select a Single sign-on method** dialog box, select the **SAML** mode to enable SSO.
+ 
+1. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box.
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+1. In the **Basic SAML Configuration** section, follow these steps:
 
-	![Single sign-on dialog box](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
+    ![SharePoint on-premises domain and URLs SSO information](./media/sharepoint-on-premises-tutorial/sp-identifier-reply.png)
 
-3. On the **SharePoint on-premises Domain and URLs** section, perform the following steps:
+    1. In the **Identifier** box, enter a URL by using this pattern:
+    `urn:<sharepointFarmName>:<federationName>`.
 
-	![SharePoint on-premises Domain and URLs single sign-on information](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
+    1. In the **Reply URL** box, enter a URL by using this pattern:
+    `https://<YourSharePointSiteURL>/_trust/`.
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<YourSharePointServerURL>/_trust/default.aspx`
-
-    b. In the **Identifier** textbox, type the URL: `urn:sharepoint:federation`
-
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<YourSharePointServerURL>/_trust/default.aspx`
-
-4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
-
-	![The Certificate download link](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
-
-	> [!Note]
-	> Please note down the file path to which you have downloaded the certificate file, as you need to use it later in the PowerShell script for configuration.
-
-5. Click **Save** button.
-
-	![Configure Single Sign-On Save button](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
-
-6. On the **SharePoint on-premises Configuration** section, click **Configure SharePoint on-premises** to open **Configure sign-on** window. Copy the **SAML Entity ID** from the **Quick Reference section.** For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
-
-    > [!Note]
-    > _my_directory_id_ is the tenant id of Azure Ad subcription.
-
-	![SharePoint on-premises Configuration](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
+    1. In the **Sign on URL** box, enter a URL by using this pattern:
+    `https://<YourSharePointSiteURL>/`.
+	1. Select **Save**.
 
 	> [!NOTE]
-	> Sharepoint On-Premises application uses SAML 1.1 token, so Azure AD expects WS Fed request from SharePoint server and after authentication, it issues the SAML 1.1. token.
+	> These values aren't real. Update these values with the actual sign-on URL, identifier, and reply URL.
 
-7. In a different web browser window, log in to your SharePoint on-premises company site as an administrator.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Certificate (Base64)** from the given options based on your requirements and save it on your computer.
 
-8. **Configure a new trusted identity provider in SharePoint Server 2016**
+	![The certificate download link](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
 
-	Sign into the SharePoint Server 2016 server and open the SharePoint 2016 Management Shell. Fill in the values of $realm (Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal), $wsfedurl (Single Sign-On Service URL), and $filepath (file path to which you have downloaded the certificate file) from Azure portal and run the following commands to configure a new trusted identity provider.
+1. In the **Set up SharePoint on-premises** section, copy the appropriate URLs based on your requirement:
+    
+	- **Login URL**
+	
+	    Copy the login URL and replace **/saml2** at the end with **/wsfed** so that it looks like https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed. (This URL isn't accurate.)
 
-	> [!TIP]
-	> If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps). 
+    - **Azure AD Identifier**
+	- **Logout URL**
 
+    > [!NOTE]
+    > This URL can't be used as is in SharePoint. You must replace **/saml2** with **/wsfed**. The SharePoint on-premises application uses a SAML 1.1 token, so Azure AD expects a WS Fed request from the SharePoint server. After authentication, it issues the SAML 1.1 token.
+
+### Configure SharePoint on-premises
+
+1. Create a new trusted identity provider in SharePoint Server 2016.
+
+    Sign in to the SharePoint server, and open the SharePoint Management Shell. Fill in the values:
+    - **$realm** is the identifier value from the SharePoint on-premises domain and URLs section in the Azure portal.
+    - **$wsfedurl** is the SSO service URL.
+    - **$filepath** is the file path to which you have downloaded the certificate file from the Azure portal.
+
+    Run the following commands to configure a new trusted identity provider.
+
+    > [!TIP]
+    > If you're new to using PowerShell or want to learn more about how PowerShell works, see [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
+
+
+    ```
+    $realm = "urn:sharepoint:sps201x"
+    $wsfedurl="https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed"
+    $filepath="C:\temp\SharePoint 2019 OnPrem.cer"
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
+    New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
+    $map1 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+    $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
+    $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "Azure AD SharePoint server 201x" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map1,$map2 -SignInUrl $wsfedurl -IdentifierClaim $map1.InputClaimType
 	```
-	$realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
-	$wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
-	$filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
-	$cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
-	New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
-	$map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
-	$map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" -IncomingClaimTypeDisplayName "GivenName" -SameAsIncoming
-	$map3 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" -IncomingClaimTypeDisplayName "SurName" -SameAsIncoming
-	$map4 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" -IncomingClaimTypeDisplayName "Email" -SameAsIncoming
-	$ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "SharePoint secured by Azure AD" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map,$map2,$map3,$map4 -SignInUrl $wsfedurl -IdentifierClaim "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-	```
+1. Enable the trusted identity provider for your application.
 
-	Next, follow these steps to enable the trusted identity provider for your application:
+	1. In **Central Administration**, go to **Manage Web Application** and select the web application that you want to secure with Azure AD.
 
-	a. In Central Administration, navigate to **Manage Web Application** and select the web application that you wish to secure with Azure AD.
+	1. On the ribbon, select **Authentication Providers** and choose the zone that you want to use.
 
-	b. In the ribbon, click **Authentication Providers** and choose the zone that you wish to use.
+	1. Select **Trusted Identity provider**, and select the identify provider you just registered named *AzureAD*.
 
-	c. Select **Trusted Identity provider** and select the identify provider you just registered named *AzureAD*.
+	1. Select **OK**.
 
-	d. On the sign-in page URL setting, select **Custom sign in page** and provide the value “/_trust/”.
+	![Configuring your authentication provider](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
-	e. Click **OK**.
+### Create an Azure AD test user in the Azure portal
 
-	![Configuring your authentication provider](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+The objective of this section is to create a test user in the Azure portal.
 
-	> [!NOTE]
-	> Some of the external users will not able to use this single sign-on integration as their UPN will have mangled value something like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow customers app config on how to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
+1. In the Azure portal, on the leftmost pane, select **Azure Active Directory**. In the **Manage** pane, select **Users**.
 
-### Create an Azure AD test user
+1. Select **All users** > **New user** at the top of the screen.
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+1. Select **Create User**, and in the user properties, follow these steps. You might be able to create users in your Azure AD by using your tenant suffix or any verified domain. 
 
-   ![Create an Azure AD test user][100]
+    1. In the **Name** box, enter the user name. We used **TestUser**.
+  
+    1. In the **User name** box, enter `TestUser@yourcompanydomain.extension`. This example shows `TestUser@contoso.com`.
 
-**To create a test user in Azure AD, perform the following steps:**
+       ![The User dialog box](./media/sharepoint-on-premises-tutorial/user-properties.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+    1. Select the **Show password** check box, and then write down the value that appears in the **Password** box.
 
-    ![The Azure Active Directory button](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
+    1. Select **Create**.
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+    1. You can now share the site with TestUser@contoso.com and permit this user to access it.
 
-    ![The "Users and groups" and "All users" links](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
+### Create an Azure AD security group in the Azure portal
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+1. Select **Azure Active Directory** > **Groups**.
 
-    ![The Add button](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
+1. Select **New group**.
 
-4. In the **User** dialog box, perform the following steps:
+1. Fill in the **Group type**, **Group name**, **Group description**, and **Membership type** boxes. Select the arrows to select members, and then search for or select the members you want to add to the group. Choose **Select** to add the selected members, and then select **Create**.
 
-    ![The User dialog box](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
+![Create an Azure AD security group](./media/sharepoint-on-premises-tutorial/new-group.png)
 
-    a. In the **Name** box, type **BrittaSimon**.
+### Grant permissions to an Azure AD account in SharePoint on-premises
 
-    b. In the **User name** box, type the email address of user Britta Simon.
+To grant access to an Azure AD user in SharePoint on-premises, share the site collection or add the Azure AD user to one of the site collection's groups. Users can now sign in to SharePoint 201x by using identities from Azure AD, but there are still opportunities for improvement to the user experience. For instance, searching for a user presents multiple search results in the people picker. There's a search result for each of the claims types that are created in the claim mapping. To choose a user by using the people picker, you must enter their user name exactly and choose the **name** claim result.
 
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+![Claims search results](./media/sharepoint-on-premises-tutorial/claims-search-results.png)
 
-    d. Click **Create**.
+There's no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type. This situation can prevent users from successfully accessing resources.
 
-### Grant access to SharePoint on-premises test user
+To fix this scenario with the people picker, an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) provides a custom claims provider for SharePoint 2013, 2016, and 2019. It uses the Microsoft Graph API to resolve what users enter and perform validation. For more information, see [AzureCP](https://yvand.github.io/AzureCP/).
 
-The users who will log into Azure AD and access SharePoint must be granted access to the application  Use the following steps to set the permissions to access the web application.
+  > [!NOTE]
+  > Without AzureCP, you can add groups by adding the Azure AD group's ID, but this method isn't user friendly and reliable. Here's how it looks:
+  > 
+  >![Add an Azure AD group to a SharePoint group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  
+### Grant permissions to an Azure AD group in SharePoint on-premises
 
-1. In Central Administration, click **Application Management**.
+To assign Azure AD security groups to SharePoint on-premises, it's necessary to use a custom claims provider for SharePoint server. This example uses AzureCP.
 
-2. On the **Application Management** page, in the **Web Applications** section, click **Manage web applications**.
+ > [!NOTE]
+ > AzureCP isn't a Microsoft product and isn't supported by Microsoft Support. To download, install, and configure AzureCP on the on-premises SharePoint farm, see the [AzureCP](https://yvand.github.io/AzureCP/) website. 
 
-3. Click the appropriate web application, and then click **User Policy**.
+1. Configure AzureCP on the SharePoint on-premises farm or an alternative custom claims provider solution. To configure AzureCP, see this [AzureCP](https://yvand.github.io/AzureCP/Register-App-In-AAD.html) website.
 
-4. In Policy for Web Application, click **Add Users**.
+1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
 
-	![Searching for a user by their name claim](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
+1. On the **Set up Single Sign-On with SAML** page, edit the **User Attributes & Claims** section.
 
-5. In the **Add Users** dialog box, click the appropriate zone in **Zones**, and then click **Next**.
+1. Select **Add a group claim**.
 
-6. In the **Policy for Web Application** dialog box, in the **Choose Users** section, click the **Browse** icon.
+1. Select which groups associated with the user should be returned in the claim. In this case, select **All groups**. In the **Source attribute** section, select **Group ID** and select **Save**.
 
-7. In the **Find** textbox, type the **user principal name(UPN)** value for which you have configured the SharePoint on-premises application in the Azure AD and click **Search**. </br>Example: *brittasimon@contoso.com*.
+To grant access to the Azure AD security group in SharePoint on-premises, share the site collection or add the Azure AD security group to one of the site collection's groups.
 
-8. Under the AzureAD heading in the list view, select the name property and click **Add** then click **OK** to close the dialog.
+1. Browse to **SharePoint Site Collection**. Under **Site Settings** for the site collection, select **People and groups**. 
 
-9. In Permissions, click **Full Control**.
+1. Select the SharePoint group, and then select **New** > **Add Users to this Group**. As you type the name of your group, the people picker displays the Azure AD security group.
 
-	![Granting full control to a claims user](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
+    ![Add an Azure AD group to a SharePoint group](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
 
-10. Click **Finish**, and then click **OK**.
+### Grant access to a guest account to SharePoint on-premises in the Azure portal
 
-### Configuring one trusted identity provider for multiple web applications
+You can grant access to your SharePoint site to a guest account in a consistent way because the UPN now gets modified. For example, the user `jdoe@outlook.com` is represented as `jdoe_outlook.com#ext#@TENANT.onmicrosoft.com`. To share your site with external users, you need to add some modifications in your **User Attributes & Claims** section in the Azure portal.
 
-The configuration works for a single web application, but needs additional configuration if you intend to use the same trusted identity provider for multiple web applications. For example, assume we had extended a web application to use the URL `https://portal.contoso.local` and now want to authenticate the users to `https://sales.contoso.local` as well. To do this, we need to update the identity provider to honor the WReply parameter and update the application registration in Azure AD to add a reply URL.
+1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
 
-1. In the Azure Portal, open the Azure AD directory. Click **App registrations**, then click **View all applications**. Click the application that you created previously (SharePoint SAML Integration).
+1. On the **Set up Single Sign-On with SAML** page, edit the **User Attributes & Claims** section.
 
-2. Click **Settings**.
+1. In the **Required claim** zone, select **Unique User Identifier (Name ID)**.
 
-3. In the settings blade, click **Reply URLs**. 
+1. Change the **Source Attribute** property to the value **user.localuserprincipalname**, and select **Save**.
 
-4. Add the URL for the additional web application with `/_trust/default.aspx` appended to the URL (such as `https://sales.contoso.local/_trust/default.aspx`) and click **Save**.
+    ![User Attributes & Claims initial](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
-5. On the SharePoint server, open the **SharePoint 2016 Management Shell** and execute the following commands, using the name of the trusted identity token issuer that you used previously.
+1. Using the ribbon, go back to **SAML-based Sign-on**. Now the **User Attributes & Claims** section looks like this: 
 
+    ![User Attributes & Claims final](./media/sharepoint-on-premises-tutorial/user-attributes-claims-final.png)
+
+    > [!NOTE]
+    > A surname and given name aren't required in this setup.
+
+1. In the Azure portal, on the leftmost pane, select **Azure Active Directory** and then select **Users**.
+
+1. Select **New Guest User**.
+
+1. Select the **Invite User** option. Fill in the user properties, and select **Invite**.
+
+1. You can now share the site with MyGuestAccount@outlook.com and permit this user to access it.
+
+    ![Sharing a site with a guest account](./media/sharepoint-on-premises-tutorial/sharing-guest-account.png)
+
+### Configure the trusted identity provider for multiple web applications
+
+The configuration works for a single web application, but additional configuration is needed if you intend to use the same trusted identity provider for multiple web applications. For example, assume you extended a web application to use the URL `https://sales.contoso.com` and you now want to authenticate users to `https://marketing.contoso.com`. To do this, update the identity provider to honor the WReply parameter and update the application registration in Azure AD to add a reply URL.
+
+1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
+
+1. On the **Set up Single Sign-On with SAML** page, edit **Basic SAML Configuration**.
+
+    ![Basic SAML Configuration](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
+
+1. For **Reply URL (Assertion Consumer Service URL)**, add the URL for the additional web applications and select **Save**.
+
+    ![Edit the basic SAML configuration](./media/sharepoint-on-premises-tutorial/reply-url-for-web-application.png)
+
+1. On the SharePoint server, open the SharePoint 201x Management Shell and run the following commands. Use the name of the trusted identity token issuer that you used previously.
 	```
 	$t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
 	$t.UseWReplyParameter=$true
 	$t.Update()
 	```
-6. In Central Administration, go to the web application and enable the existing trusted identity provider. Remember to also configure the sign-in page URL as a custom sign in page `/_trust/`.
+1. In **Central Administration**, go to the web application and enable the existing trusted identity provider.
 
-7. In Central Administration, click the web application and choose **User Policy**. Add a user with the appropriate permissions as demonstrated previously in this article.
-
-### Fixing People Picker
-
-Users can now log into SharePoint 2016 using identities from Azure AD, but there are still opportunities for improvement to the user experience. For instance, searching for a user presents multiple search results in the people picker. There is a search result for each of the 3 claim types that were created in the claim mapping. To choose a user using the people picker, you must type their user name exactly and choose the **name** claim result.
-
-![Claims search results](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
-
-There is no validation on the values you search for, which can lead to misspellings or users accidentally choosing the wrong claim type to assign such as the **SurName** claim. This can prevent users from successfully accessing resources.
-
-To assist with this scenario, there is an open-source solution called [AzureCP](https://yvand.github.io/AzureCP/) that provides a custom claims provider for SharePoint 2016. It will use the Azure AD Graph to resolve what users enter and perform validation. Learn more at [AzureCP](https://yvand.github.io/AzureCP/).
-
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to SharePoint on-premises.
-
-![Assign the user role][200]
-
-**To assign Britta Simon to SharePoint on-premises, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201]
-
-2. In the applications list, select **SharePoint on-premises**.
-
-	![The SharePoint link in the Applications list](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
-
-3. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-6. Click **Select** button on **Users and groups** dialog.
-
-7. Click **Assign** button on **Add Assignment** dialog.
-
-### Test single sign-on
-
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-
-When you click the SharePoint on-premises tile in the Access Panel, you should get automatically signed-on to your SharePoint on-premises application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+You might have other scenarios where you want to give access to your SharePoint on-premises instance for your internal users. For this scenario, you have to deploy Microsoft Azure Active Directory Connect to permit syncing your on-premises users with Azure AD. This setup is discussed in another article.
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Using Azure AD for SharePoint Server Authentication](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
-
-<!--Image references-->
-
-[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
-
-[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
-
-[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is hybrid identity with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)

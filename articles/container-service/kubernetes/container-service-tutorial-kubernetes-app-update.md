@@ -1,20 +1,21 @@
 ---
-title: Azure Container Service tutorial - Update application
+title: (DEPRECATED) Azure Container Service tutorial - Update application
 description: Azure Container Service tutorial - Update Application
-services: container-service
-author: neilpeterson
-manager: jeconnoc
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Update an application in Kubernetes
+# (DEPRECATED) Update an application in Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Update an application in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 After an application has been deployed in Kubernetes, it can be updated by specifying a new container image or image version. When doing so, the update is staged so that only a portion of the deployment is concurrently updated. This staged update enables the application to keep running during the update. It also provides a rollback mechanism if a deployment failure occurs. 
 
@@ -48,7 +49,7 @@ vi azure-vote/azure-vote/config_file.cfg
 
 Change the values for `VOTE1VALUE` and `VOTE2VALUE`, and then save the file.
 
-```bash
+```plaintext
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -68,7 +69,7 @@ docker-compose up --build -d
 
 ## Test application locally
 
-Browse to http://localhost:8080 to see the updated application.
+Browse to `http://localhost:8080` to see the updated application.
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -104,7 +105,7 @@ kubectl get pod
 
 Output:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -115,25 +116,25 @@ azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 If you do not have multiple pods running the azure-vote-front image, scale the `azure-vote-front` deployment.
 
 
-```azurecli-interactive
+```bash
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
 To update the application, use the [kubectl set](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set) command. Update `<acrLoginServer>` with the login server or host name of your container registry.
 
-```azurecli-interactive
+```bash
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
 To monitor the deployment, use the [kubectl get pod](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command. As the updated application is deployed, your pods are terminated and re-created with the new container image.
 
-```azurecli-interactive
+```bash
 kubectl get pod
 ```
 
 Output:
 
-```bash
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running   0          5m
 azure-vote-front-1297194256-tpjlg   1/1       Running   0         1m
@@ -145,7 +146,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 Get the external IP address of the `azure-vote-front` service.
 
-```azurecli-interactive
+```bash
 kubectl get service azure-vote-front
 ```
 

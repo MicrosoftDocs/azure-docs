@@ -1,28 +1,31 @@
 ---
-title: How to use Azure Service Bus topics and subscriptions with Node.js | Microsoft Docs
-description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
+title: 'Use Azure Service Bus topics with azure/service-bus Node.js package'
+description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app using the azure/service-bus package.'
 services: service-bus-messaging
 documentationcenter: nodejs
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 08/10/2018
-ms.author: spelluru
+ms.topic: quickstart
+ms.date: 01/16/2020
+ms.author: aschhab
 
 ---
-# How to Use Service Bus topics and subscriptions with Node.js
+# Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
+In this tutorial, you learn how to create Node.js applications to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the `azure-sb` package.
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+> [!IMPORTANT]
+> The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). 
+> 
+> To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
-This guide describes how to use Service Bus topics and subscriptions
-from Node.js applications. The scenarios covered include:
+The scenarios covered here include:
 
 - Creating topics and subscriptions 
 - Creating subscription filters 
@@ -30,10 +33,14 @@ from Node.js applications. The scenarios covered include:
 - Receiving messages from a subscription
 - Deleting topics and subscriptions 
 
-For more information about topics
-and subscriptions, see [Next steps](#next-steps) section.
+For more information about topics and subscriptions, see [Next steps](#next-steps) section.
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## Prerequisites
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to create a Service Bus **namespace** and get the **connection string**.
+
+    > [!NOTE]
+    > You will create a **topic** and a **subscription** to the topic by using **Node.js** in this quickstart. 
 
 ## Create a Node.js application
 Create a blank Node.js application. For instructions on creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] using Windows PowerShell, or Web Site with WebMatrix.
@@ -62,7 +69,7 @@ communicate with the Service Bus REST services.
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
 3. You can manually run the **ls** command to verify that a
-   **node\_modules** folder was created. Inside that folder find the
+   **node\_modules** folder was created. Inside that folder, find the
    **azure** package, which contains the libraries you need to access
    Service Bus topics.
 
@@ -74,9 +81,9 @@ var azure = require('azure');
 ```
 
 ### Set up a Service Bus connection
-The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained from the earlier step, "Obtain the credentials." If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
+The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained as part of the [prerequisites](#prerequisites). If you need instructions for getting the connection string again, see [Get the connection string](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
 
-For an example of setting the environment variables for an Azure Cloud Service, see [Node.js Cloud Service with Storage][Node.js Cloud Service with Storage].
+For an example of setting the environment variables for an Azure Cloud Service, see [Set environment variables](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -139,7 +146,7 @@ function (returnObject, finalCallback, next)
 
 In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke next (if it exists) to continue processing other filters, or invoke `finalCallback` to end the service invocation.
 
-Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following code creates a **ServiceBusService** object that uses the **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -153,13 +160,13 @@ restricts the set of messages delivered to the subscription's virtual
 queue.
 
 > [!NOTE]
-> Subscriptions are persistent until
+> By default, subscriptions are persistent until
 > either they, or the topic they are associated with, are deleted. If your
 > application contains logic to create a subscription, it should first
 > check if the subscription exists by using the
 > `getSubscription` method.
 >
->
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter used when a subscription is created. When you use the **MatchAll**
@@ -289,7 +296,7 @@ the `sendTopicMessage` and any required standard properties are populated by def
 
 The following example demonstrates how to send five test messages to
 `MyTopic`. The `messagenumber` property value of each
-message varies on the iteration of the loop (this determines which
+message varies on the iteration of the loop (this property determines which
 subscriptions receive it):
 
 ```javascript
@@ -327,8 +334,7 @@ deleting it from the subscription.
 
 The default behavior of reading and deleting the message as part of the
 receive operation is the simplest model, and works best for scenarios in
-which an application can tolerate not processing a message in the event
-of a failure. To understand this behavior, consider a scenario in which the
+which an application can tolerate not processing a message when there is a failure. To understand this behavior, consider a scenario in which the
 consumer issues the receive request and then crashes before processing
 it. Because Service Bus has marked the message as being consumed,
 then when the application restarts and begins consuming messages again,
@@ -399,7 +405,7 @@ to handle duplicate message delivery. You can use the
 delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent, and must be explicitly deleted
+Topics and subscriptions are persistent unless the [autoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
 either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
@@ -424,7 +430,10 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## Next Steps
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
+## Next steps
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions][Queues, topics, and subscriptions].
@@ -435,7 +444,7 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Azure portal]: https://portal.azure.com
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Create and deploy a Node.js application to an Azure Web Site]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md

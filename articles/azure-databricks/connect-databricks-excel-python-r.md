@@ -1,20 +1,15 @@
 ---
-title: 'Connect to Azure Databricks from Excel, Python, or R | Microsoft Docs'
+title: 'Connect to Azure Databricks from Excel, Python, or R '
 description: Learn how to use the Simba driver to connect Azure Databricks to Excel, Python, or R.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-
+ms.author: mamccrea
+ms.custom: tracking-python
 ---
 
 # Connect to Azure Databricks from Excel, Python, or R
@@ -27,7 +22,7 @@ In this article, you learn how to use the Databricks ODBC driver to connect Azur
 
 * Download the Databricks ODBC driver from [Databricks driver download page](https://databricks.com/spark/odbc-driver-download). Install the 32-bit or 64-bit version depending on the application from where you want to connect to Azure Databricks. For example, to connect from Excel, install the 32-bit version of the driver. To connect from R and Python, install the 64-bit version of the driver.
 
-* Set up a personal access token in Databricks. For instructions, see [Token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+* Set up a personal access token in Databricks. For instructions, see [Token management](/azure/databricks/dev-tools/api/latest/authentication).
 
 ## Set up a DSN
 
@@ -98,12 +93,12 @@ Once you have the data in your Excel workbook, you can perform analytical operat
 ## Connect from R
 
 > [!NOTE]
-> This section provides information on how to integrate an R Studio client running on your desktop with Azure Databricks. For instructions on how to use R Studio on the Azure Databricks cluster itself, see [R Studio on Azure Databricks](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
+> This section provides information on how to integrate an R Studio client running on your desktop with Azure Databricks. For instructions on how to use R Studio on the Azure Databricks cluster itself, see [R Studio on Azure Databricks](/azure/databricks/spark/latest/sparkr/rstudio).
 
 In this section, you use an R language IDE to reference data available in Azure Databricks. Before you begin, you must have the following installed on the computer.
 
 * An IDE for R language. This article uses RStudio for Desktop. You can install it from [R Studio download](https://www.rstudio.com/products/rstudio/download/).
-* If you use RStudio for Desktop as your IDE, also install Microsoft R Client from [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* If you use RStudio for Desktop as your IDE, also install Microsoft R Client from [https://aka.ms/rclient/](https://aka.ms/rclient/). 
 
 Open RStudio and do the following steps:
 
@@ -153,7 +148,7 @@ The following code snippet performs these tasks:
 import pyodbc
 
 # establish a connection using the DSN you created earlier
-conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit = True)
+conn = pyodbc.connect("DSN=<ENTER DSN NAME HERE>", autocommit=True)
 
 # run a SQL query using the connection you created
 cursor = conn.cursor()
@@ -162,11 +157,10 @@ cursor.execute("SELECT * FROM radio_sample_data")
 # print the rows retrieved by the query.
 for row in cursor.fetchall():
     print(row)
-
 ```
 
 ## Next steps
 
-* To learn about sources from where you can import data into Azure Databricks, see [Data sources for Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)
+* To learn about sources from where you can import data into Azure Databricks, see [Data sources for Azure Databricks](/azure/databricks/data/data-sources/index)
 
 

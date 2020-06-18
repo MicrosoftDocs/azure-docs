@@ -1,28 +1,19 @@
 ---
-title: GDPR Compliance| Microsoft Docs
+title: GDPR Compliance | Azure Marketplace
 description: Cloud Partner Portal and GDPR.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: dsindona
 ---
 
 
 Cloud Partner Portal GDPR compliance
 ====================================
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)is
-a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
+[General Data Protection Regulation (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) is a European Union (EU) data protection and privacy law. The GDPR imposes rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents.
 
 Cloud Partner Portal provides detailed information regarding its processing of customer data and the security measures used to protect that data. This information is accessible via its in-product experiences.
 
@@ -46,6 +37,6 @@ Related links
 
 -   [How and where Microsoft sends customers\' data, including geo locations](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [Sub-contractors who have access to customers\' data](https://aka.ms/Online_Serv_Subcontractor_List)
--   [Details on Azure security measures administered by Microsoft](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [Details on Azure security measures administered by Microsoft](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 -   [Details regarding Microsoft\'s privacy reviews process, conducted for all products, including all Azure services](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [What data Microsoft collects and processes from customer systems and end users](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

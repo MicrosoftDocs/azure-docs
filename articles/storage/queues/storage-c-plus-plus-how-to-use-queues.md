@@ -1,26 +1,26 @@
 ---
-title: How to use queue storage (C++) | Microsoft Docs
-description: Learn how to use the queue storage service in Azure. Samples are written in C++.
-services: storage
-author: cbrooksmsft
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: cpp
-ms.topic: article
+title: How to use Queue storage (C++) - Azure Storage
+description: Learn how to use the Queue storage service in Azure. Samples are written in C++.
+author: mhopkins-msft
+
+ms.author: mhopkins
 ms.date: 05/11/2017
-ms.author: cbrooksmsft
-ms.component: queues
+ms.service: storage
+ms.subservice: queues
+ms.topic: how-to
+ms.reviewer: dineshm
 ---
+
 # How to use Queue Storage from C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
+This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -35,12 +35,14 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
 
-```  
-Install-Package wastorage
+```powershell
+.\vcpkg.exe install azure-storage-cpp
 ```
+
+You can find a guide for how to build the source code and export to NuGet in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ## Configure your application to access Queue Storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  
@@ -144,7 +146,7 @@ You can change the contents of a message in-place in the queue. If the message r
 
 ```cpp
 // Retrieve storage account from connection-string.
-azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_conection_string);
+azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
@@ -260,5 +262,5 @@ Now that you've learned the basics of Queue storage, follow these links to learn
 * [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
+* [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

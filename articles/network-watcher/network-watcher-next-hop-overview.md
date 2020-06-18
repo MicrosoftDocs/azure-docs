@@ -3,10 +3,7 @@ title: Introduction to next hop in Azure Network Watcher | Microsoft Docs
 description: This article provides an overview of the Network Watcher next hop capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
-
+author: damendo
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
 ms.devlang: na
@@ -14,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
 # Use next hop to diagnose virtual machine routing problems
@@ -38,4 +35,4 @@ To learn more about each next hop type, see [Routing overview](../virtual-networ
 
 ## Next steps
 
-To learn how to use next hop to diagnose VM network routing problems, see [Diagnose VM network routing problems](diagnose-vm-network-routing-problem.md).
+To learn how to use next hop to diagnose VM network routing problems, see Diagnose VM network routing problems using the [Azure portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), or the [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

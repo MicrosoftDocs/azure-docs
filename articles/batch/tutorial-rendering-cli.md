@@ -1,14 +1,8 @@
 ---
-title: Render a scene in the cloud - Azure Batch 
+title: Render a scene in the cloud
 description: Tutorial - How to render an Autodesk 3ds Max scene with Arnold using the Batch Rendering Service and Azure Command-Line Interface
-services: batch
-author: dlepow
-manager: jeconnoc
-
-ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
-ms.author: danlep
+ms.date: 03/05/2020
 ms.custom: mvc
 ---
 
@@ -27,9 +21,9 @@ In this tutorial, you render a 3ds Max scene with Batch using the [Arnold](https
 
 ## Prerequisites
 
-You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.
+You need a pay-as-you-go subscription or other Azure purchase option to use rendering applications in Batch on a pay-per-use basis. **Pay-per-use licensing isn't supported if you use a free Azure offer that provides a monetary credit.**
 
-The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright © Autodesk, Inc.)
+The sample 3ds Max scene for this tutorial is on [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), along with a sample Bash script and JSON configuration files. The 3ds Max scene is from the [Autodesk 3ds Max sample files](https://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Autodesk 3ds Max sample files are available under a Creative Commons Attribution-NonCommercial-Share Alike license. Copyright &copy; Autodesk, Inc.)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -120,7 +114,7 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.2.1"
+      "version": "1.3.8"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
@@ -164,20 +158,20 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. Create the token with the [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) command. This example creates a token to write to any blob container in the account, and the token expires on November 15, 2018:
+To write output files to the container, Batch needs to use a Shared Access Signature (SAS) token. Create the token with the [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas) command. This example creates a token to write to any blob container in the account, and the token expires on November 15, 2020:
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2020-11-15
 ```
 
 Take note of the token returned by the command, which looks similar to the following. You use this token in a later step.
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## Render a single-frame scene
@@ -213,7 +207,7 @@ Modify the `blobSource` and `containerURL` elements in the JSON file so that the
   "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "httpUrl": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
         "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
@@ -313,7 +307,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-The tasks generate output files named *dragon0002.jpg* - *dragon0007.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch) command. For example:
+The tasks generate output files named *dragon0002.jpg* - *dragon0007.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob) command. For example:
 
 ```azurecli-interactive
 az storage blob download-batch \

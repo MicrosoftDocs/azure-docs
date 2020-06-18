@@ -1,21 +1,13 @@
 ---
-title: Troubleshoot issues with shared images in Azure | Microsoft Docs
+title: Troubleshoot issues with shared images in Azure 
 description: Learn how to troubleshoot issues with shared image galleries.
-services: virtual-machine-windows
-documentationcenter: virtual-machine-scale-sets
 author: axayjo
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machine-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm:
+ms.service: virtual-machines-windows
+ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 09/20/2018
-ms.author: akjosh; cynthn
+ms.date: 04/25/2019
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: 
 ---
 

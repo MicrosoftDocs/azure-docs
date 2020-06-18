@@ -1,6 +1,6 @@
 ---
 title: Connected Factory solution FAQ - Azure | Microsoft Docs
-description: Frequently asked questions for the Connected Factory solution accelerator
+description: This article answers the frequently asked questions for the Connected Factory solution accelerator. It includes links to the GitHub repository.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -22,7 +22,7 @@ The source code is stored in the following GitHub repository:
 
 ### What is OPC UA?
 
-OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates the functionality of the OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation](http://opcfoundation.org/) is a not-for-profit organization with more than 440 members. The goal of the organization is to use OPC specifications to facilitate multi-vendor, multi-platform, secure and reliable interoperability through:
+OPC Unified Architecture (UA), released in 2008, is a platform-independent, service-oriented interoperability standard. OPC UA is used by various industrial systems and devices such as industry PCs, PLCs, and sensors. OPC UA integrates the functionality of the OPC Classic specifications into one extensible framework with built-in security. It is a standard that is driven by the OPC Foundation. The [OPC Foundation](https://opcfoundation.org/) is a not-for-profit organization with more than 440 members. The goal of the organization is to use OPC specifications to facilitate multi-vendor, multi-platform, secure and reliable interoperability through:
 
 * Infrastructure
 * Specifications
@@ -73,7 +73,7 @@ If you deployed the solution from www.azureiotsolutions.com, you cannot sign in 
 1. To start all simulation containers:
     * Export a shell variable with the name **IOTHUB_CONNECTIONSTRING**. Use the value of the **IotHubOwnerConnectionString** setting in the `<name of your deployment>.config.user` file. For example:
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -106,7 +106,7 @@ The simulation self registers the following devices:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool, you can check which devices are registered with the IoT hub your solution is using. To use device explorer, you need the connection string for the IoT hub in your deployment. To use the IoT extension for Azure CLI, you need your IoT Hub name.
+Using the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) or [the IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) tool, you can check which devices are registered with the IoT hub your solution is using. To use device explorer, you need the connection string for the IoT hub in your deployment. To use the IoT extension for Azure CLI, you need your IoT Hub name.
 
 ### How can I get log data from the simulation components?
 
@@ -120,7 +120,7 @@ Alternatively log in to the VM via SSH and inspect the log files at runtime.
 
 ### How can I check if the simulation is sending data to the cloud?
 
-With the [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) or the [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Inspect the data sent by one of the publisher devices:
 
@@ -135,33 +135,21 @@ If you see no data sent to IoT Hub, then there is an issue with the simulation. 
 
 ### How do I enable an interactive map in my Connected Factory solution?
 
-To enable an interactive map in your Connected Factory solution, you must have an existing Bing Maps API for Enterprise plan.
+To enable an interactive map in your Connected Factory solution, you must have an Azure Maps account.
 
-When deploying from [www.azureiotsolutions.com](http://www.azureiotsolutions.com), the deployment process verifies that your subscription has an enabled Bing Maps API for Enterprise plan and automatically deploys an interactive map into Connected Factory. If this is not the case, you can still enable an interactive map in your deployment as follows:
+When deploying from [www.azureiotsolutions.com](https://www.azureiotsolutions.com), the deployment process adds an Azure Maps account to the resource group that contains the solution accelerator services.
 
-When you deploy using the `build.ps1` script in the Connected Factory GitHub repository and you have a Bing Maps API for Enterprise plan, set the environment variable `$env:MapApiQueryKey` in the build window to the query key of your plan. The interactive map is then enabled automatically.
+When you deploy using the `build.ps1` script in the Connected Factory GitHub repository set the environment variable `$env:MapApiQueryKey` in the build window to the [key of your Azure Maps account](../azure-maps/how-to-manage-account-keys.md). The interactive map is then enabled automatically.
 
-If you don't have a Bing Maps API for Enterprise plan, deploy the Connected Factory solution from [www.azureiotsolutions.com](http://www.azureiotsolutions.com) or using the `build.ps1` script. Then add a Bing Maps API for Enterprise plan to your subscription as explained in [How do I create a Bing Maps API for Enterprise account?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Look up the query key of this account as explained in [How to obtain your Bing Maps API for Enterprise QueryKey](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) and save this key. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **App settings**. Set the **MapApiQueryKey** to the query key you obtained. Save the settings and then navigate to **Overview** and restart the App Service.
+You can also add an Azure Maps account key to your solution accelerator after deployment. Navigate to the Azure portal and access the App Service resource in your Connected Factory deployment. Navigate to **Application settings**, where you find a section **Application settings**. Set the **MapApiQueryKey** to the [key of your Azure Maps account](../azure-maps/how-to-manage-account-keys.md). Save the settings and then navigate to **Overview** and restart the App Service.
 
-### How do I create a Bing Maps API for Enterprise account
+### How do I create an Azure Maps account?
 
-You can get a free *Internal Transactions Level 1 Bing Maps for Enterprise* plan. However, you can only add two of these plans to an Azure subscription. If you don't have a Bing Maps API for Enterprise account, create one in the Azure portal by clicking **+ Create a resource**. Then search for **Bing Maps API for Enterprise** and follow the prompts to create it.
+See, [How to manage your Azure Maps account and keys](../azure-maps/how-to-manage-account-keys.md).
 
-![Bing key](./media/iot-accelerators-faq-cf/bing.png)
+### How to obtain your Azure Maps account key
 
-### How to obtain your Bing Maps API for Enterprise QueryKey
-
-Once you have created your Bing Maps API for Enterprise plan, add a Bing Maps for Enterprise resource to the resource group of your Connected Factory solution in the Azure portal.
-
-1. In the Azure portal, navigate to the resource group that contains your Bing Maps API for Enterprise plan.
-
-1. Click **All Settings**, then **Key Management**.
-
-1. There are two keys: **MasterKey** and **QueryKey**. Copy the **QueryKey** value.
-
-1. To have the key picked up by the `build.ps1` script, set the environment variable `$env:MapApiQueryKey` in your PowerShell environment to the **QueryKey** of your plan. The build script then automatically adds the value to the settings of the App Service.
-
-1. Run a local or cloud deployment using the `build.ps1` script.
+See, [How to manage your Azure Maps account and keys](../azure-maps/how-to-manage-account-keys.md).
 
 ### How do enable the interactive map while debugging locally?
 
@@ -181,15 +169,15 @@ To send telemetry data from non OPC UA devices to Connected Factory:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

@@ -1,52 +1,55 @@
 ---
-title: Web Activity in Azure Data Factory | Microsoft Docs
-description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline. 
+title: Web Activity in Azure Data Factory 
+description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.author: shlo
-
+ms.date: 12/19/2018
 ---
+
 # Web activity in Azure Data Factory
-Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+
+Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
+
+> [!NOTE]
+> Web Activity can call only publicly exposed URLs. It’s not supported for URLs that are hosted in a private virtual network.
 
 ## Syntax
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -85,32 +88,52 @@ The following table shows the requirements for JSON content:
 
 ## Authentication
 
+Below are the supported authentication types in the web activity.
+
 ### None
+
 If authentication is not required, do not include the "authentication" property.
 
 ### Basic
-Specify user name and password to use with the basic authentication. 
+
+Specify user name and password to use with the basic authentication.
 
 ```json
-"authentication":{  
-   "type":"Basic,
+"authentication":{
+   "type":"Basic",
    "username":"****",
    "password":"****"
 }
 ```
 
 ### Client certificate
-Specify base64-encoded contents of a PFX file and the password. 
+
+Specify base64-encoded contents of a PFX file and the password.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
+
+### Managed Identity
+
+Specify the resource uri for which the access token will be requested using the managed identity for the data factory. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](/azure/active-directory/managed-identities-azure-resources/overview).
+
+```json
+"authentication": {
+	"type": "MSI",
+	"resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> If your data factory is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. Azure Data Factory doesn't store passwords in git.
+
 ## Request payload schema
-When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload: 
+When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:
 
 ```json
 {
@@ -129,11 +152,11 @@ When you use the POST/PUT method, the body property represents the payload that 
             }
         }]
     }
-} 
+}
 ```
 
 ## Example
-In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the Azure SQL server and returns the name of the instance of SQL server. 
+In this example, the web activity in the pipeline calls a REST end point. It passes an Azure SQL linked service and an Azure SQL dataset to the endpoint. The REST end point uses the Azure SQL connection string to connect to the logical SQL server and returns the name of the instance of SQL server.
 
 ### Pipeline definition
 
@@ -227,7 +250,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other control flow activities supported by Data Factory:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [For Each Activity](control-flow-for-each-activity.md)

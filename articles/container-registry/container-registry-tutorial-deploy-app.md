@@ -1,17 +1,12 @@
 ---
-title: Azure Container Registry tutorial - Deploy web app from Azure Container Registry
-description: Deploy a Linux-based web app using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
+title: Tutorial - Deploy from geo-replicated registry
+description: Deploy a Linux-based web app to two different Azure regions using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Tutorial: Deploy web app from Azure Container Registry
+# Tutorial: Deploy a web app from a geo-replicated Azure container registry
 
 This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-registry.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you take advantage of the network-close aspect of the geo-replicated registry by deploying the container to Web App instances in two different Azure regions. Each instance then pulls the container image from the closest registry.
 
@@ -50,7 +45,11 @@ Under **Web App for Containers** that's displayed after you select "Deploy to we
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-westus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
 | **App service plan/Location** | Create a new plan named `plan-westus` in the **West US** region. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Operating system** | Linux |
+
+> [!NOTE]
+> When you create a new app service plan to deploy your containerized app, a default plan is automatically selected to host your application. The default plan depends on the operating system setting.
 
 Select **Create** to provision the web app to the *West US* region.
 
@@ -79,7 +78,8 @@ Use the procedure outlined in the previous section to deploy a second web app to
 | **Site Name** | A globally unique name for the web app. In this example, we use the format `<acrName>-eastus` to easily identify the registry and region the web app is deployed from. |
 | **Resource Group** | **Use existing** > `myResourceGroup` |
 | **App service plan/Location** | Create a new plan named `plan-eastus` in the **East US** region. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Operating system** | Linux |
 
 Select **Create** to provision the web app to the *East US* region.
 

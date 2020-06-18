@@ -1,28 +1,33 @@
 ---
-title: Media Encoder Standard formats and codecs
-description: This topic gives an overview of Media Encoder Standard formats and codecs.
+title: Media Encoder Standard formats and codecs - Azure
+description: This article provides an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
-ms.author: juliako;anilmur
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
 # Media Encoder Standard Formats and Codecs
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-media-encoder-standard-formats.md)
+> * [Version 3](../latest/media-encoder-standard-formats.md)
+
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
-## Input Container/File Formats
+## Input container/file Formats
 | File formats (file extensions) | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
 | MXF    (.mxf) |Yes |
 | GXF    (.gxf) |Yes |
@@ -49,11 +54,9 @@ or
 
 * MXF, GXF, and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
-Support for explicit/user-supplied channel mapping will be provided in the near future.
-
 ## Input video codecs
 | Input video codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
 | DVCPro/DVCProHD (in MXF) |Yes |
@@ -72,18 +75,18 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
-| HEVC/H.265| Main Profile|
+| HEVC/H.265| Main and Main 10 (&#42;) Profiles<br/>Main 10 Profile support is intended for 8bit 4:2:0 content. |
 
-## Input Audio Codecs
+## Input audio codecs
 | Input Audio Codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
 | MPEG Layer 2 |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Yes |
 | Windows Media Audio |Yes |
 | WAV/PCM |Yes |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |
 | AMR (adaptive multi-rate) |Yes |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |
@@ -91,7 +94,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Dolby® Digital (AC3) |No |
 | Dolby® Digital Plus (E-AC3) |No |
 
-## Output Formats and codecs
+## Output formats and codecs
 The following table lists the codecs and file formats that are supported for export.
 
 | File Format | Video Codec | Audio Codec |

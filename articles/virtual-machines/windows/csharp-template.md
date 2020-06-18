@@ -1,24 +1,17 @@
 ---
-title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
+title: Deploy a VM using C# and a Resource Manager template 
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
+
 This article shows you how to deploy an Azure Resource Manager template using C#. The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
 For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
@@ -40,7 +33,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 1. Click **Tools** > **Nuget Package Manager**, and then click **Package Manager Console**.
 2. Type these commands in the console:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -161,7 +154,7 @@ In this step, you create a template file that deploys the resources and a parame
 
 ### Create the parameters file
 
-To specify values for the resource parameters that are defined in the template, you create a parameters file that contains the values.
+To specify values for the resource parameters in the template, you create a parameters file that contains the values.
 
 1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *Parameters.json*, and then click **Add**.
 2. Add this JSON code to the file that you created:
@@ -181,7 +174,7 @@ To specify values for the resource parameters that are defined in the template, 
 
 ### Create the authorization file
 
-Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
+Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
 
 1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
 2. Add these authorization properties:
@@ -194,23 +187,25 @@ Before you can deploy a template, make sure that you have access to an [Active D
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
 
 3. Save the azureauth.properties file.
-4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example the following PowerShell command can be used:
+4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example you can use the following PowerShell command:
 
+    ```powershell
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
-    ```
+
     
+
 ## Create the management client
 
-1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
+1. Open the Program.cs file for the project that you created. Then, add these using statements to the existing statements at top of the file:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -222,7 +217,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
 
 2. To create the management client, add this code to the Main method:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -237,7 +232,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
 
 To specify values for the application, add code to the Main method:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -252,7 +247,7 @@ The template and parameters are deployed from a storage account in Azure. In thi
 
 To create the account, add this code to the Main method:
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -292,7 +287,7 @@ Deploy the template and parameters from the storage account that was created.
 
 To deploy the template, add this code to the Main method:
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.windows.net/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.windows.net/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -311,7 +306,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 To delete the resource group, add this code to the Main method:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -324,5 +319,6 @@ It should take about five minutes for this console application to run completely
 2. Before you press **Enter** to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal. Click the deployment status to see information about the deployment.
 
 ## Next steps
+
 * If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 * Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).

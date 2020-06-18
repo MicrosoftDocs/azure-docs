@@ -1,20 +1,19 @@
 ---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
-description: Description of Service Bus messaging and Event Grid integration
+description: This article provides a description of how Azure Service Bus messaging integrates with Azure Event Grid. 
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
+author: axisc
+editor: spelluru
 
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
-ms.date: 09/15/2018
-ms.author: spelluru
+ms.topic: conceptual
+ms.date: 01/27/2020
+ms.author: aschhab
 
 ---
 # Azure Service Bus to Event Grid integration overview
@@ -31,18 +30,18 @@ To enable the feature, you need the following items:
 
 ![19][]
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Verify that you have contributor access
-
-Go to your Service Bus namespace, and then select **Access control (IAM)**, as shown here:
-
-![1][]
+Go to your Service Bus namespace, and then select **Access control (IAM)**, and select **Role assignments** tab. Verify that you have the contributor access to the namespace. 
 
 ### Events and event schemas
 
 Service Bus today sends events for two scenarios:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
@@ -114,7 +113,7 @@ If you want to get events only from, for example, one queue or one subscription 
 
 You can create Event Grid subscriptions for Service Bus namespaces in three different ways:
 
-* In the [Azure portal](#portal-instructions)
+* In the Azure portal
 * In [Azure CLI](#azure-cli-instructions)
 * In [PowerShell](#powershell-instructions)
 
@@ -142,32 +141,34 @@ Execute the following code:
  ```azurecli-interactive
 az login
 
-az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+az account set -s "<Azure subscription name>"
 
-$namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
+namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv
 
-az eventgrid event-subscription create --resource-id $namespaceid --name “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” --endpoint “<your_function_url>” --subject-ends-with “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+az eventgrid event-subscription create --resource-id $namespaceid --name "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" --endpoint "<your_function_url>" --subject-ends-with "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
+
+If you are using BASH 
 
 ## PowerShell instructions
 
-Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/install-Az-ps). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
-```PowerShell-interactive
-Connect-AzureRmAccount
+```powershell-interactive
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
+Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
 # This might be installed already
-Install-Module AzureRM.ServiceBus
+Install-Module Az.ServiceBus
 
-$NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
+$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>" -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith "<YOUR SERVICE BUS SUBSCRIPTION NAME>"
 ```
 
-From here, you can explore the other setup options or [test that events are flowing](#test-that-events-are-flowing).
+From here, you can explore the other setup options or test that events are flowing.
 
 ## Next steps
 
@@ -175,7 +176,7 @@ From here, you can explore the other setup options or [test that events are flow
 * Learn more about [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Learn more about [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

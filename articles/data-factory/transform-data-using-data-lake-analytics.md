@@ -1,25 +1,25 @@
 ---
-title: Transform data using U-SQL script - Azure | Microsoft Docs
+title: Transform data using U-SQL script
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.author: abnarain
-
 ---
+
 # Transform data by running U-SQL scripts on Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-usql-activity.md)
 > * [Current version](transform-data-using-data-lake-analytics.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
 
@@ -128,7 +128,7 @@ The following table describes names and descriptions of properties that are spec
 | runtimeVersion      | Runtime version of the U-SQL engine to use. | No       |
 | compilationMode     | <p>Compilation mode of U-SQL. Must be one of these values: **Semantic:** Only perform semantic checks and necessary sanity checks, **Full:** Perform the full compilation, including syntax check, optimization, code generation, etc., **SingleBox:** Perform the full compilation, with TargetType setting to SingleBox. If you don't specify a value for this property, the server determines the optimal compilation mode. | No |
 
-Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample-u-sql-script) for the script definition. 
+See [SearchLogProcessing.txt](#sample-u-sql-script) for the script definition. 
 
 ## Sample U-SQL script
 
@@ -159,7 +159,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-In above script example, the input and output to the script is defined in **@in** and **@out** parameters. The values for **@in** and **@out** parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
+In above script example, the input and output to the script is defined in **\@in** and **\@out** parameters. The values for **\@in** and **\@out** parameters in the U-SQL script are passed dynamically by Data Factory using the ‘parameters’ section. 
 
 You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
 

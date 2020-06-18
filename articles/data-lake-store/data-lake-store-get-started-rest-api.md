@@ -1,18 +1,12 @@
 ---
-title: 'REST API: Account management operations on Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Use Azure Data Lake Storage Gen1 and WebHDFS REST API to perform account management operations in the Data Lake Storage Gen1 account
-services: data-lake-store
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+title: Manage an Azure Data Lake Storage Gen1 account with REST
+description: Use the WebHDFS REST API to perform account management operations on an Azure Data Lake Storage Gen1 account.
 
-ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Account management operations on Azure Data Lake Storage Gen1 using REST API
@@ -28,7 +22,7 @@ In this article, you learn how to perform account management operations on Azure
 ## Prerequisites
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
+* **[cURL](https://curl.haxx.se/)**. This article uses cURL to demonstrate how to make REST API calls against a Data Lake Storage Gen1 account.
 
 ## How do I authenticate using Azure Active Directory?
 You can use two approaches to authenticate using Azure Active Directory.

@@ -3,25 +3,26 @@ title: 'Azure AD Connect and Azure AD Connect Health installation roadmap. | Mic
 description: This document provides an overview of the installation options and paths available for installing Azure AD Connect and Connect Health.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
-#Azure AD Connect and Azure AD Connect Health installation roadmap
+# Azure AD Connect and Azure AD Connect Health installation roadmap
 
 ## Install Azure AD Connect
 
 > [!IMPORTANT]
 > Microsoft doesn't support modifying or operating Azure AD Connect sync outside of the actions that are formally documented. Any of these actions might result in an inconsistent or unsupported state of Azure AD Connect sync. As a result, Microsoft can't provide technical support for such deployments.
 
-You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+You can find the download for Azure AD Connect on [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Solution | Scenario |
 | --- | --- |
@@ -36,14 +37,14 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 ### Next steps to Install Azure AD Connect
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](./how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|After installation | [Verify the installation and assign licenses ](how-to-connect-post-installation.md)|
+|After installation | [Verify the installation and assign licenses](how-to-connect-post-installation.md)|
 
 ### Learn more about Install Azure AD Connect
-You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-operations.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-operations.md#staging-mode) server.
+You also want to prepare for [operational](how-to-connect-sync-operations.md) concerns. You might want to have a stand-by server so you easily can fail over if there is a [disaster](how-to-connect-sync-staging-server.md#disaster-recovery). If you plan to make frequent configuration changes, you should plan for a [staging mode](how-to-connect-sync-staging-server.md) server.
 
 |Topic |Link|  
 | --- | --- |
@@ -62,7 +63,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password writeback](../authentication/quickstart-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
-[Device writeback](how-to-connect-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
+[Device writeback](how-to-connect-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for Conditional Access.
 
 The [prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) feature is turned on by default and protects your cloud directory from numerous deletes at the same time. By default it allows 500 deletes per run. You can change this setting depending on your organization size.
 
@@ -102,7 +103,7 @@ The configuration model in sync is called [declarative provisioning](concept-azu
 
 Azure AD Connect provides several features that simplify federating with Azure AD using AD FS and managing your federation trust. Azure AD Connect supports AD FS on Windows Server 2012R2 or later.
 
-[Update SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
+[Update TLS/SSL certificate of AD FS farm](how-to-connect-fed-ssl-update.md) even if you are not using Azure AD Connect to manage your federation trust.
 
 [Add an AD FS server](how-to-connect-fed-management.md#addadfsserver) to your farm to expand the farm as required.
 
@@ -136,12 +137,12 @@ To get started with Azure AD Connect Health, use the following steps:
 ## Download and install Azure AD Connect Health Agent
 * Make sure that you [satisfy the requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
-    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Download Azure AD Connect Health Agent for AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
-    * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
+    * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
-    * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Download Azure AD Connect Health Agent for AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [See the installation instructions](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 
@@ -159,11 +160,11 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 * **Active Directory Domain Services**: This option shows all the AD DS forests that Azure AD Connect Health is currently monitoring. When you select a forest, the blade that opens shows information about that forest. This information includes an overview of essential information, the Domain Controllers dashboard, the Replication Status dashboard, alerts, and monitoring. Read more about the capabilities at [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md).
 * **Configure**: This section includes options to turn the following on or off:
 
-  - **Settings** entry includes basic configurations of your agents. Auto upgrade setting enables automatically update the Azure AD Connect Health agent to the latest version: You will be automatically updated to the latest versions of the Azure AD Connect Health Agent when they become available. This is enabled by default. Allow Microsoft access to your Azure AD directory’s health data for troubleshooting purposes only: If this is enabled, Microsoft can see the same data that you see. This information can help with troubleshooting and assistance with issues. This is disabled by default.
+   - The **automatic update** of the Azure AD Connect Health agent to the latest version: the Azure AD Connect Health agent is automatically updated whenever new versions are available. This option is enabled by default.
+   - **Access to data** from the Azure AD directory integrity by Microsoft only for troubleshooting purposes: if this option is enabled, Microsoft can access the same data viewed by the user. This information can be useful for troubleshooting and to provide the necessary assistance. This option is disabled by default
 * **Role based access control (IAM)** is the section to manage the access to Connect Health data in role base. 
 
 ## Next Steps
-
 
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
 - [Express settings](how-to-connect-install-express.md)
@@ -173,6 +174,3 @@ The Azure AD Connect Health portal shows views of alerts, performance monitoring
 - [Azure AD Connect and federation](how-to-connect-fed-whatis.md)
 - [Install Azure AD Connect Health agents](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md)
-
-
-

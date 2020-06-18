@@ -4,14 +4,15 @@ description: Learn how to configure private IP addresses for virtual machines (C
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
+manager: dcscontentpm
+
 tags: azure-service-management
 
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
@@ -113,7 +114,7 @@ Expected output:
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
 ## How to add a static private IP address to an existing VM
-To add a static private IP address to the VM created using the script above, runt he following command:
+To add a static private IP address to the VM created using the script above, run the following command:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |

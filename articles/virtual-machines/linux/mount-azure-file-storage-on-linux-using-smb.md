@@ -1,21 +1,12 @@
 ---
-title: Mount Azure File storage on Linux VMs using SMB | Microsoft Docs
+title: Mount Azure File storage on Linux VMs using SMB 
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
@@ -33,15 +24,15 @@ This guide requires that you're running the Azure CLI version 2.0.4 or later. Ru
 
 Create a resource group named *myResourceGroup* in the *East US* location.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
-```bash
+```azurecli
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
     --name "mystorageacct$RANDOM" \
@@ -54,9 +45,9 @@ STORAGEACCT=$(az storage account create \
 
 When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, so you always have at least one unused storage account key ready to switch to.
 
-View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example stores the value of key 1 in the **STORAGEKEY** variable.
+View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys). This example stores the value of key 1 in the **STORAGEKEY** variable.
 
-```bash
+```azurecli
 STORAGEKEY=$(az storage account keys list \
     --resource-group "myResourceGroup" \
     --account-name $STORAGEACCT \
@@ -65,13 +56,13 @@ STORAGEKEY=$(az storage account keys list \
 
 ## Create a file share
 
-Create the File storage share using [az storage share create](/cli/azure/storage/share#create). 
+Create the File storage share using [az storage share create](/cli/azure/storage/share). 
 
 Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 This example creates a share named *myshare* with a 10-GiB quota. 
 
-```bash
+```azurecli
 az storage share create --name myshare \
     --quota 10 \
     --account-name $STORAGEACCT \
@@ -97,6 +88,7 @@ Mount the Azure file share to the local directory.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+The above command uses the [mount](https://linux.die.net/man/8/mount) command to mount the Azure file share and options specific to [cifs](https://linux.die.net/man/8/mount.cifs). Specifically, the file_mode and dir_mode options set files and directories to permission `0777`. The `0777` permission gives read, write, and execute permissions to all users. You can change these permissions by replacing the values with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod). You can also use other [cifs](https://linux.die.net/man/8/mount.cifs) options such as gid or uid. 
 
 
 ## Persist the mount
@@ -106,11 +98,12 @@ When you reboot the Linux VM, the mounted SMB share is unmounted during shutdown
 ```bash
 //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
 For increased security in production environments, you should store your credentials outside of fstab.
 
 ## Next steps
 
 - [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [Add a disk to a Linux VM](add-disk.md)
-- [Encrypt disks on a Linux VM by using the Azure CLI](encrypt-disks.md)
+- [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md)
 

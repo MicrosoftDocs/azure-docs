@@ -1,13 +1,12 @@
 ---
 title: Manage registered servers with Azure File Sync | Microsoft Docs
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2018
-ms.author: wgries
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Manage registered servers with Azure File Sync
@@ -21,17 +20,17 @@ Registering a server with Azure File Sync establishes a trust relationship betwe
 ### Prerequisites
 To register a server with a Storage Sync Service, you must first prepare your server with the necessary prerequisites:
 
-* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
+* Your server must be running a supported version of Windows Server. For more information, see [Azure File Sync system requirements and interoperability](storage-sync-files-planning.md#windows-file-server-considerations).
 * Ensure that a Storage Sync Service has been deployed. For more information on how to deploy a Storage Sync Service, see [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md).
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.
     
     ![Server Manager UI with the IE Enhanced Security Configuration highlighted](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Ensure that the AzureRM PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the AzureRM module. More details on how to install the AzureRM module can be found on the [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the Az module. More details on how to install the Az module can be found on the [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > We recommend using the newest version of the AzureRM PowerShell module to register/unregister a server. If the AzureRM package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
+    > We recommend using the newest version of the Az PowerShell module to register/unregister a server. If the Az package has been previously installed on this server (and the PowerShell version on this server is 5.* or greater), you can use the `Update-Module` cmdlet to update this package. 
 * If you utilize a network proxy server in your environment, configure proxy settings on your server for the sync agent to utilize.
     1. Determine your proxy IP address and port number
     2. Edit these two files:
@@ -95,10 +94,8 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 #### Register the server with PowerShell
 You can also perform server registration via PowerShell. This is the only supported way of server registration for Cloud Solution Provider (CSP) subscriptions:
 
-```PowerShell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```powershell
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 ### Unregister the server with Storage Sync Service
@@ -110,7 +107,7 @@ There are several steps that are required to unregister a server with a Storage 
 #### (Optional) Recall all tiered data
 If you would like files that are currently tiered to be available after removing Azure File Sync (i.e. this is a production, not a test, environment), recall all files on each volume containing server endpoints. Disable cloud tiering for all server endpoints, and then run the following PowerShell cmdlet:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -128,18 +125,16 @@ Before unregistering the server on the Storage Sync Service, all server endpoint
 
 This can also be accomplished with a simple PowerShell script:
 
-```PowerShell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+```powershell
+Connect-AzAccount
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$storageSyncServiceName = "<your-storage-sync-service>"
+$resourceGroup = "<your-resource-group>"
 
-$StorageSyncService = "<your-storage-sync-service>"
-
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
-    $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $storageSyncServiceName | ForEach-Object { 
+    $syncGroup = $_; 
+    Get-AzStorageSyncServerEndpoint -ParentObject $syncGroup | Where-Object { $_.ServerEndpointName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -InputObject $_ 
     } 
 }
 ```
@@ -159,24 +154,27 @@ Since Azure File Sync will rarely be the only service running in your datacenter
 > Setting limits too low will impact the performance of Azure File Sync synchronization and recall.
 
 ### Set Azure File Sync network limits
-You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets. 
+You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
+
+> [!Note]  
+> Network limits do not apply when a tiered file is accessed or the Invoke-StorageSyncFileRecall cmdlet is used.
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 You can see your limit by using the following cmdlet:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 To remove network limits, use `Remove-StorageSyncNetworkLimit`. For example, the following command removes all network limits:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
@@ -185,5 +183,6 @@ When Azure File Sync is hosted in a virtual machine running on a Windows Server 
 
 ## See also
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)

@@ -1,13 +1,11 @@
 ---
-title: Server concepts in Azure Database for MariaDB
+title: Servers - Azure Database for MariaDB
 description: This topic provides considerations and guidelines for working with Azure Database for MariaDB servers.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 3/18/2020
 ---
 # Server concepts in Azure Database for MariaDB
 This article provides considerations and guidelines for working with Azure Database for MariaDB servers.
@@ -32,6 +30,7 @@ Within an Azure Database for MariaDB server, you can create one or multiple data
 ## How do I secure an Azure Database for MariaDB server?
 
 The following elements help ensure safe access to your database.
+
 |||
 | :--| :--|
 | **Authentication and authorization** | Azure Database for MariaDB server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |

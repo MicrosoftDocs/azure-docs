@@ -1,21 +1,14 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: Azure portal | Microsoft Docs'
-description: Connect a VNet to an Azure ExpressRoute Circuit. How-to steps.
+title: 'ExpressRoute: Link a VNet to a circuit: Azure portal'
+description: Connect a VNet to an Azure ExpressRoute circuit. How-to steps.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: how-to
+ms.date: 09/17/2019
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using the portal
@@ -23,7 +16,7 @@ ms.author: cherylmc
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -35,7 +28,7 @@ This article helps you create a connection to link a virtual network to an Azure
 
 * You must have an active ExpressRoute circuit.
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider.
-  * Ensure that you have Azure private peering configured for your circuit. See the [Configure routing](expressroute-howto-routing-portal-resource-manager.md) article for routing instructions.
+  * Ensure that you have Azure private peering configured for your circuit. See the [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md) article for peering and routing instructions.
   * Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
   * Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to [create a virtual network gateway for ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). A virtual network gateway for ExpressRoute uses the GatewayType 'ExpressRoute', not VPN.
 
@@ -45,7 +38,7 @@ This article helps you create a connection to link a virtual network to an Azure
 
 * You can link a virtual network outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
-* You can [view a video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
+* You can [view a video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit) before beginning to better understand the steps.
 
 ## Connect a VNet to a circuit - same subscription
 
@@ -55,15 +48,16 @@ This article helps you create a connection to link a virtual network to an Azure
 
 ### To create a connection
 
-1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
+1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
 
-  ![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   [![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "View Circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** page, and then configure the values.
 
-  ![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   [![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Add Connection Screenshot")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. After your connection has been successfully configured, your connection object will show the information for the connection.
 
-  ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+   ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+
 
 ## Connect a VNet to a circuit - different subscription
 
@@ -92,12 +86,16 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
+> [!NOTE]
+> Each connection requires a separate authorization.
+>
+
 1. In the ExpressRoute page, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 
-  ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Once the configuration is saved, copy the **Resource ID** and the **Authorization Key**.
 
-  ![Authorization key](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+   ![Authorization key](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **To delete a connection authorization**
 
@@ -111,18 +109,18 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 1. Click the **+New** button.
 
-  ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![Click New](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Search for **"Connection"** in the Marketplace, select it, and click **Create**.
 
-  ![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+   ![Search for connection](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Make sure the **Connection type** is set to "ExpressRoute".
 4. Fill in the details, then click **OK** in the Basics page.
 
-  ![Basics page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Basics page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. In the **Settings** page, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
-6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**.
+6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Click **OK**. The **Peer Circuit URI** is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
 
-  ![Settings page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Settings page](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Review the information in the **Summary** page and click **OK**.
 
 **To release a connection authorization**

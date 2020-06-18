@@ -1,5 +1,5 @@
-﻿---
-title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
+---
+title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline '
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
 documentationcenter: ''
@@ -10,8 +10,6 @@ editor:
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -22,7 +20,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -46,9 +43,12 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to: 
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
   1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
@@ -58,24 +58,24 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
-	```PowerShell 
-	Connect-AzureRmAccount
-	```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Run the following command to view all the subscriptions for this account:
 
-	```PowerShell     
-	Get-AzureRmSubscription
-	``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
      
-	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-	```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
 
-	```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+     ```PowerShell     
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     ```
      
       If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
      
@@ -99,7 +99,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 ```JSON
 {
@@ -115,9 +115,9 @@ Create following JSON files in the folder where curl.exe is located.
 
 For details about JSON properties, see [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### azuersqllinkedservice.json
+### azuresqllinkedservice.json
 > [!IMPORTANT]
-> Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
+> Replace **servername**, **databasename**, **username**, and **password** with name of your server, name of SQL database, user account, and password for the account.  
 > 
 >
 
@@ -281,7 +281,7 @@ Note the following points:
  
 Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2017-02-03", which is equivalent to "2017-02-03T00:00:00Z"
  
-Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
  
 If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
  
@@ -332,18 +332,18 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 	> Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
    
 	```PowerShell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
-	```
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@datafactory.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF0411?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
    
 	```PowerShell
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
    
-	```
+    ```
 	Write-Host $results
-	```
+    ```
 
 Note the following points:
 
@@ -361,13 +361,13 @@ Note the following points:
   * In Azure PowerShell, run the following command to register the Data Factory provider: 
 
 	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
 	```PowerShell
-	Get-AzureRmResourceProvider
-	```
+	Get-AzResourceProvider
+    ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
 Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link source and destination data stores to your data store. Then, define input and output datasets to represent data in linked data stores. Finally, create the pipeline with an activity that uses these datasets.
@@ -386,36 +386,36 @@ In this step, you link your Azure storage account to your data factory. You spec
 
 	```PowerShell   
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
 	```PowerShell   
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
 	```PowerShell   
 	Write-Host $results
-	```
+    ```
 
 ### Create Azure SQL linked service
-In this step, you link your Azure SQL database to your data factory. You specify the Azure SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
+In this step, you link your Azure SQL database to your data factory. You specify the logical SQL server name, database name, user name, and user password in this section. See [Azure SQL linked service](data-factory-azure-sql-connector.md#linked-service-properties) for details about JSON properties used to define an Azure SQL linked service.
 
 1. Assign the command to variable named **cmd**. 
    
 	```PowerShell
-	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
-	```
+	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azuresqllinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```
 2. Run the command by using **Invoke-Command**.
    
 	```PowerShell
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
    
 	```PowerShell
 	Write-Host $results
-	```
+    ```
 
 ## Create datasets
 In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named AzureBlobInput and AzureSqlOutput that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively.
@@ -431,17 +431,17 @@ In this step, you create a dataset named AzureBlobInput that points to a blob fi
 
 	```PowerSHell   
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
    
 	```PowerShell
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
 	```PowerShell
 	Write-Host $results
-	```
+    ```
 
 ### Create output dataset
 The Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. The output SQL table dataset (OututDataset) you create in this step specifies the table in the database to which the data from the blob storage is copied.
@@ -450,17 +450,17 @@ The Azure SQL Database linked service specifies the connection string that Data 
 
 	```PowerShell   
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 	
 	```PowerShell   
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
    
 	```PowerShell
 	Write-Host $results
-	``` 
+    ``` 
 
 ## Create pipeline
 In this step, you create a pipeline with a **copy activity** that uses **AzureBlobInput** as an input and **AzureSqlOutput** as an output.
@@ -471,17 +471,17 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 
 	```PowerShell   
 	$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
-	```
+    ```
 2. Run the command by using **Invoke-Command**.
 
 	```PowerShell   
 	$results = Invoke-Command -scriptblock $cmd;
-	```
+    ```
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
 
 	```PowerShell   
 	Write-Host $results
-	```
+    ```
 
 **Congratulations!** You have successfully created an Azure data factory, with a pipeline that copies data from Azure Blob Storage to Azure SQL database.
 

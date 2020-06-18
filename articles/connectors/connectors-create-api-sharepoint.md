@@ -1,16 +1,12 @@
 ---
-title: Connect to SharePoint from Azure Logic Apps | Microsoft Docs
+title: Connect to SharePoint from Azure Logic Apps
 description: Automate tasks and workflows that monitor and manage resources in SharePoint Online or SharePoint Server on premises by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
+tags: connectors
 ---
 
 # Monitor and manage SharePoint resources with Azure Logic Apps
@@ -44,7 +40,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your SharePoint site address and user credentials
 
@@ -100,7 +96,7 @@ Under the triggers list, select the trigger you want.
 1. When you're prompted to sign in, 
 provide the necessary connection information. 
 If you're using SharePoint Server, 
-make sure you select **Connect via on-premise data gateway**. 
+make sure you select **Connect via on-premises data gateway**. 
 When you're done, choose **Create**.
 
 1. Provide the necessary details for your selected trigger 
@@ -114,8 +110,8 @@ review the connector's [reference page](/connectors/sharepoint/).
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

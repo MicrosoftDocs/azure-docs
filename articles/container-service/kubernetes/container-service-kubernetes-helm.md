@@ -1,20 +1,21 @@
 ---
-title: Deploy containers with Helm in Azure Kubernetes
+title: (DEPRECATED) Deploy containers with Helm in Azure Kubernetes
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in Azure Container Service 
-services: container-service
 author: sauryadas
-manager: jeconnoc
 
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ---
 
-# Use Helm to deploy containers on a Kubernetes cluster
+# (DEPRECATED) Use Helm to deploy containers on a Kubernetes cluster
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Install applications with Helm in Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as Apt-get and Yum, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources. This article shows you how to work with Helm on a Kubernetes cluster deployed in Azure Container Service.
 
@@ -29,7 +30,7 @@ Helm has two components:
 
 * [Install and configure `kubectl`](../container-service-connect.md) on a local computer
 
-* [Install Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) on a local computer
+* [Install Helm](https://helm.sh/docs/intro/quickstart/) on a local computer
 
 ## Helm basics 
 
@@ -144,5 +145,5 @@ You can now use standard SQL commands to create databases, tables, etc. For exam
  
 ## Next steps
 
-* For more information about managing Kubernetes charts, see the [Helm documentation](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* For more information about managing Kubernetes charts, see the [Helm documentation](https://helm.sh/docs/). 
 

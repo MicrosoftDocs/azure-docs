@@ -1,12 +1,12 @@
 ---
-title: Use alerts and fix device issues in the remote monitoring solution tutorial - Azure | Microsoft Docs
+title: Use alerts in the Remote Monitoring solution - Azure | Microsoft Docs 
 description: This tutorial shows you how to Use alerts to identify and fix issues with devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -81,6 +81,6 @@ You can check that the temperature of the device has fallen by viewing the telem
 
 ## Next steps
 
-This tutorial showed you how to use alerts to identify issues with your devices and how to act on those devices to resolve the issues. To learn how to connect a physical device to your solution accelerator, continue to the how-to articles.
+This tutorial showed you how to use alerts to identify issues with your devices and how to act on those devices to resolve the issues. To learn how to connect a real device to your solution accelerator, continue to the how-to articles.
 
 Now you have learned how to manage device issues, the suggested next step is to learn how to [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).

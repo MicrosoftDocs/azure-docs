@@ -1,21 +1,9 @@
 ---
-title: Azure Service Fabric DNS service | Microsoft Docs
+title: Azure Service Fabric DNS service 
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
-services: service-fabric
-documentationcenter: .net
-author: msfussell
-manager: timlt
-editor: vturecek
 
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 7/20/2018
-ms.author: msfussell
-
 ---
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
@@ -39,6 +27,9 @@ The following diagram shows how the DNS service works for partitioned stateful s
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 
 ## Enabling the DNS service
+> [!NOTE]
+> DNS service for Service Fabric services is not yet supported on Linux.
+
 When you create a cluster using the portal, the DNS service is enabled by default in the **Include DNS service** check box on the **Cluster configuration** menu:
 
 ![Enabling DNS service through the portal](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -46,7 +37,7 @@ When you create a cluster using the portal, the DNS service is enabled by defaul
 If you're not using the portal to create your cluster or if you're updating an existing cluster, you'll need to enable the DNS service in a template:
 
 - To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create your own Resource Manager template. 
-- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 After you have a template, you can enable the DNS service with the following steps:
 
@@ -66,16 +57,16 @@ After you have a template, you can enable the DNS service with the following ste
 
    - To enable the DNS service with default settings, add it to the `addonFeatures` section inside the `properties` section as shown in the following example:
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -104,8 +95,13 @@ After you have a template, you can enable the DNS service with the following ste
               ]
             }
        ```
-1. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
+3. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
+> [!NOTE]
+> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+
+> [!NOTE]
+> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
 
 ## Setting the DNS name for your service
 You can set a DNS name for your services either declaratively for default services in the ApplicationManifest.xml file or through PowerShell commands.
@@ -128,7 +124,7 @@ Once the application is deployed, the service instance in the Service Fabric exp
 
 ![service endpoints](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -172,7 +168,7 @@ DNS queries that target a partition are formatted as follows:
 Where:
 
 - *First-Label-Of-Partitioned-Service-DNSName* is the first part of your service DNS name.
-- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "-". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is "--". To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* is the name of the partition. 
 - *PartitionSuffix* is a value that can be set in the DnsService section of the cluster manifest or through the cluster's Resource Manager template. The default value is empty string. To learn more, see  [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* is the remaining part of your service DNS name.
@@ -247,6 +243,8 @@ public class ValuesController : Controller
 
 ## Known Issues
 * For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update. 
+
+* DNS service for Service Fabric services is not yet supported on Linux. DNS service is supported for containers on Linux. Manual resolution using Fabric Client/ServicePartitionResolver is the available alternative.
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)

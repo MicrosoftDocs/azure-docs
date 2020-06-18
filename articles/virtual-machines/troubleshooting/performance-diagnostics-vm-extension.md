@@ -4,25 +4,25 @@ description: Introduces Azure Performance Diagnostics VM Extension for Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---
 # Azure Performance Diagnostics VM Extension for Windows
 
-Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](http://aka.ms/perfinsights).
+Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-    > If you want to run diagnostics on your VM from the Azure portal for non-classic VMs, it is recommended to use the new experience. For more information, see [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md) 
+> If you want to run diagnostics on your VM from the Azure portal for non-classic VMs, it is recommended to use the new experience. For more information, see [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md) 
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ The following JSON shows the schema for Azure Performance Diagnostics VM Extensi
 
 Follow these instructions to install the extension on Windows virtual machines:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select the virtual machine where you want to install this extension.
 
     ![Screenshot of Azure portal, with Virtual machines highlighted](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -95,7 +95,7 @@ Follow these instructions to install the extension on Windows virtual machines:
 4. Select **Azure Performance Diagnostics**, review the terms and conditions, and select **Create**.
 
     ![Screenshot of New resource screen, with Azure Performance Diagnostics highlighted](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Provide the parameter values for the installation, and select **OK** to install the extension. For more information about supported scenarios, see [How to use PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Screenshot of Install extension dialog box](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. When the installation is successful, you see a message indicating this status.
@@ -108,7 +108,7 @@ Follow these instructions to install the extension on Windows virtual machines:
 ## Remove the extension
 To remove the extension from a virtual machine, follow these steps:
 
-1. Sign in to the [Azure portal](http://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
+1. Sign in to the [Azure portal](https://portal.azure.com), select the virtual machine from which you want to remove this extension, and then select the **Extensions** blade. 
 2. Select the (**…**) for the Performance Diagnostics Extension entry from the list, and select **Uninstall**.
 
     ![Screenshot of Extensions blade, with Uninstall highlighted](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -119,9 +119,9 @@ To remove the extension from a virtual machine, follow these steps:
 ## Template deployment
 Azure virtual machine extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template. This runs the Azure Performance Diagnostics VM extension during an Azure Resource Manager template deployment. Here is a sample template:
 
-````
+```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {
@@ -203,18 +203,18 @@ Azure virtual machine extensions can be deployed with Azure Resource Manager tem
     }
   ]
 }
-````
+```
 
 ## PowerShell deployment
-The `Set-AzureRmVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
+The `Set-AzVMExtension` command can be used to deploy Azure Performance Diagnostics VM Extension to an existing virtual machine.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
-Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
+Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Performance.Diagnostics" `
@@ -223,10 +223,10 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## Information on the data captured
-The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](http://aka.ms/perfinsights).
+The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](https://aka.ms/perfinsights).
 
 ## View and share the results
 

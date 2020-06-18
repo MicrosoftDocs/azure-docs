@@ -1,134 +1,165 @@
 ---
-title: "Create a Kubernetes dev space in the cloud | Microsoft Docs"
-titleSuffix: Azure Dev Spaces
-author: "stepro"
+title: "Debug and iterate on Kubernetes: Visual Studio Code & Java"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-ms.author: "stephpr"
-ms.date: "09/26/2018"
-ms.topic: "quickstart"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "mmontwil"
+ms.date: 07/08/2019
+ms.topic: quickstart
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Java application on Azure Kubernetes Service"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, service mesh, service mesh routing, kubectl, k8s"
+manager: gwallace
 ---
-# Quickstart: Create a Kubernetes dev space with Azure Dev Spaces (Java and VS Code)
+# Quickstart: Debug and iterate on Kubernetes with Visual Studio Code and Java - Azure Dev Spaces
 
-In this guide, you will learn how to:
-
-- Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
-- Iteratively develop code in containers using VS Code and the command line.
-- Debug the code in your dev space from VS Code.
-
-> [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore.md).
+In this quickstart, you set up Azure Dev Spaces with a managed Kubernetes cluster, and use a Java app in Visual Studio Code to iteratively develop and debug code in containers. Azure Dev Spaces lets you debug and test all the components of your application in Azure Kubernetes Service (AKS) with minimal development machine setup. 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Java Development Kit (JDK) 1.8.0+](https://aka.ms/azure-jdks).
+- [Maven 3.5.0+](https://maven.apache.org/download.cgi).
 - [Visual Studio Code](https://code.visualstudio.com/download).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 or higher.
-- A Kubernetes cluster running Kubernetes 1.10.3 or later, in the EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast region, with **Http Application Routing** enabled.
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extensions for Visual Studio Code.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- [Git](https://www.git-scm.com/downloads).
 
-    ```cmd
-    az group create --name MyResourceGroup --region <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
-    ```
+## Create an Azure Kubernetes Service cluster
 
-## Set up Azure Dev Spaces
+You need to create an AKS cluster in a [supported region][supported-regions]. The following commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-1. Set up Dev Spaces on your AKS cluster: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Download the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
-1. Download the [Java Debugger for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) extension for VS Code. Click Install once on the extension's Marketplace page, and again in VS Code.
-
-## Build and run code in Kubernetes
-
-1. Download sample code from GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. Change directory to the webfrontend folder: `cd dev-spaces/samples/java/getting-started/webfrontend`
-1. Generate Docker and Helm chart assets: `azds prep --public`
-1. Build and run your code in AKS. In the terminal window from the **webfrontend folder**, run this command: `azds up`
-1. Scan the console output for information about the URL that was created by the `up` command. It will be in the form:
-
-   ```output
-    (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-    Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
-   ```
-
-   Open this URL in a browser window, and you should see the web app load.
-
-   > [!Note]
-   > On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative http://localhost:<portnumber> URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
-
-### Update a code file
-
-1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
-1. Open the code file named `src/main/java/com/ms/sample/webfrontend/Application.java` and edit the greeting message: `return "Hello from webfrontend in Azure!";`
-1. Save the file.
-1. Run  `azds up` in the terminal window.
-
-This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, simply refresh the browser.
-
-But there is an even *faster method* for developing code, which you'll explore in the next section.
-
-## Debug a container in Kubernetes
-
-In this section, you'll use VS Code to directly debug your container running in Azure. You'll also learn how to get a faster edit-run-test loop.
-
-![](./media/common/edit-refresh-see.png)
-
-### Initialize debug assets with the VS Code extension
-You first need to configure your code project so VS Code will communicate with the dev space in Azure. The VS Code extension for Azure Dev Spaces provides a helper command to set up debug configuration.
-
-Open the **Command Palette** (using the **View | Command Palette** menu), and use auto-complete to type and select this command: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
-
-This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
-
-![](./media/common/command-palette.png)
-
-### Select the AZDS debug configuration
-1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **Launch Java Program (AZDS)** as the active debug configuration.
-
-![](media/get-started-java/debug-configuration.png)
-
-> [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
-
-### Debug the container in Kubernetes
-Hit **F5** to debug your code in Kubernetes.
-
-As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
-
-> [!Tip]
-> The VS Code status bar will display a clickable URL.
-
-Set a breakpoint in a server-side code file, for example within the `greeting()` function in the `src/main/java/com/ms/sample/webfrontend/Application.java` source file. Refreshing the browser page causes the breakpoint to be hit.
-
-You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
-
-### Edit code and refresh
-With the debugger active, make a code edit. For example, modify the greeting in `src/main/java/com/ms/sample/webfrontend/Application.java`. 
-
-```java
-public String greeting()
-{
-    return "I'm debugging Java code in Azure!";
-}
+```azurecli
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+## Enable Azure Dev Spaces on your AKS cluster
 
-![](media/get-started-java/debug-action-refresh.png)
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The following command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
-Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You can't install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
-Refresh the web app in the browser. You should see your custom message appear in the UI.
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
-**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!**
+```output
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
+
+## Get sample application code
+
+In this article, you use the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces) to demonstrate using Azure Dev Spaces.
+
+Clone the application from GitHub.
+
+```cmd
+git clone https://github.com/Azure/dev-spaces
+```
+
+## Prepare the sample application in Visual Studio Code
+
+Open Visual Studio Code, select **File** then **Open**, navigate to the *dev-spaces/samples/java/getting-started/webfrontend* directory, and select **Open**.
+
+You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Palette.
+
+To open the Command Palette in Visual Studio Code, select **View** then **Command Palette**. Begin typing `Azure Dev Spaces` and select **Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces**.
+
+![Prepare configuration files for Azure Dev Spaces](./media/common/command-palette.png)
+
+When Visual Studio Code also prompts you to configure your base images, exposed port and public endpoint, choose `Azul Zulu OpenJDK for Azure (Free LTS)` for the base image, `8080` for the exposed port, and `Yes` to enable a public endpoint.
+
+![Select base image](media/get-started-java/select-base-image.png)
+
+![Select exposed port](media/get-started-java/select-exposed-port.png)
+
+![Select public endpoint](media/get-started-java/select-public-endpoint.png)
+
+This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
+
+> [!TIP]
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and run.
+
+## Build and run code in Kubernetes from Visual Studio Code
+
+Select the **Debug** icon on the left and select **Launch Java Program (AZDS)** at the top.
+
+![Launch Java Program](media/get-started-java/debug-configuration.png)
+
+This command builds and runs your service in Azure Dev Spaces. The **Terminal** window at the bottom shows the build output and URLs for your service running Azure Dev Spaces. The **Debug Console** shows the log output.
+
+> [!Note]
+> If you don't see any Azure Dev Spaces commands in the **Command Palette**, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/java/getting-started/webfrontend* directory in Visual Studio Code.
+
+You can see the service running by opening the public URL.
+
+Select **Debug** then **Stop Debugging** to stop the debugger.
+
+## Update code
+
+To deploy an updated version of your service, you can update any file in your project and rerun **Launch Java Program (AZDS)**. For example:
+
+1. If your application is still running, select **Debug** then **Stop Debugging** to stop it.
+1. Update [line 19 in `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) to:
+    
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
+1. Save your changes.
+1. Rerun **Launch Java Program (AZDS)**.
+1. Navigate to your running service and observe your changes.
+1. Select **Debug** then **Stop Debugging** to stop your application.
+
+## Setting and using breakpoints for debugging
+
+Start your service using **Launch Java Program (AZDS)**. This also runs your service in debugging mode.
+
+Navigate back to the **Explorer** view by selecting **View** then **Explorer**. Open *src/main/java/com/ms/sample/webfrontend/Application.java* and click somewhere on line 19 to put your cursor there. To set a breakpoint press **F9** or select **Debug** then **Toggle Breakpoint**.
+
+Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 19 is highlighted. The breakpoint you set has paused the service at line 19. To resume the service, press **F5** or select **Debug** then **Continue**. Return to your browser and notice the message is now displayed.
+
+While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
+
+Remove the breakpoint by putting your cursor on line 19 in *src/main/java/com/ms/sample/webfrontend/Application.java* and pressing **F9**.
+
+## Update code from Visual Studio Code
+
+While the service is running in debugging mode, update line 19 in *src/main/java/com/ms/sample/webfrontend/Application.java*. For example:
+```java
+return "Hello from webfrontend in Azure while debugging!";
+```
+
+Save the file. Select **Debug** then **Restart Debugging** or in the **Debug toolbar**, select the **Restart Debugging** button.
+
+![Refresh Debugging](media/common/debug-action-refresh.png)
+
+Open your service in a browser and notice your updated message is displayed.
+
+Instead of rebuilding and redeploying a new container image each time code edits are made, Azure Dev Spaces incrementally recompiles code within the existing container to provide a faster edit/debug loop.
+
+## Clean up your Azure resources
+
+```azurecli
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-java.md)
+> [Working with multiple containers and team development](multi-service-java.md)
+
+
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

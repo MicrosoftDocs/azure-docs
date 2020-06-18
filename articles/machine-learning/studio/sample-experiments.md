@@ -1,36 +1,31 @@
 ---
-title: Create experiments from machine learning examples - Azure | Microsoft Docs
-description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning.
-keywords: machine learning examples, sample experiment, machine learning sample, AI examples
+title: Kickstart experiments from examples
+titleSuffix: ML Studio (classic) - Azure
+description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio (classic).
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.subservice: studio
+ms.topic: sample
+
+author: likebupt
+ms.author: keli19
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-
 ---
-# Create machine learning experiments from working examples in Azure AI Gallery
+# Create Azure Machine Learning Studio (classic) experiments from working examples in Azure AI Gallery
 
-Learn how to start with example experiments from [Azure AI Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-The gallery has example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
+Learn how to start with example experiments from [Azure AI Gallery](https://gallery.azure.ai/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
+
+The gallery has example experiments by the Microsoft Azure Machine Learning Studio (classic) team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Find an experiment to copy in Azure AI Gallery
-To see what experiments are available, go to the [Gallery](https://gallery.cortanaintelligence.com/) and click **Experiments** at the top of the page.
+To see what experiments are available, go to the [Gallery](https://gallery.azure.ai/) and click **Experiments** at the top of the page.
 
 ### Find the newest or most popular experiments
 On this page, you can see **Recently added** experiments, or scroll down to look at **What's popular** or the latest **Popular Microsoft experiments**.
@@ -50,20 +45,14 @@ To browse all experiments:
 
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
-    > [!NOTE]
-    > When you open an experiment in Machine Learning Studio for the first time, you can try it for free or buy an Azure subscription. [Learn about the Machine Learning Studio free trial vs. paid service](https://azure.microsoft.com/pricing/details/machine-learning/)
-    >
-    >
-
 ## Create a new experiment using an example as a template
-You also can create a new experiment in Machine Learning Studio using a Gallery example as a template.
+You also can create a new experiment in Machine Learning Studio (classic) using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the example content and click one.
 
-A new experiment is created in your Machine Learning Studio workspace using the example experiment as a template.
+A new experiment is created in your Machine Learning Studio (classic) workspace using the example experiment as a template.
 
 ## Next steps
 * [Import data from various sources](import-data.md)
-* [Quickstart tutorial for the R language in Machine Learning](r-quickstart.md)
-* [Deploy a Machine Learning web service](publish-a-machine-learning-web-service.md)
+* [Deploy a Machine Learning web service](deploy-a-machine-learning-web-service.md)

@@ -2,7 +2,7 @@
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -40,7 +40,7 @@ To configure PlayReady licenses by using Media Services, you must configure the 
 The following example shows the simplest (and most common) template that configures a basic streaming license. With this license, your clients can play back your PlayReady-protected content.
 
     <?xml version="1.0" encoding="utf-8"?>
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" 
                                       xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
       <LicenseTemplates>
         <PlayReadyLicenseTemplate>
@@ -77,11 +77,11 @@ As the "top-level" class in the template hierarchy, the response template includ
 > 
 > 
 
-For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
+For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>PlayReady license template XML schema
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xs:complexType name="AgcAndColorStripeRestriction">
         <xs:sequence>
@@ -302,6 +302,9 @@ For an example of the protection levels that Silverlight supports, see [Silverli
     </xs:schema>
 
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

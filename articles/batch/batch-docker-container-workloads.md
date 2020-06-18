@@ -1,28 +1,19 @@
 ---
-title: Container workloads on Azure Batch | Microsoft Docs
-description: Learn how to run applications from container images on Azure Batch.
-services: batch
-author: dlepow
-manager: jeconnoc
-
-ms.service: batch
-ms.devlang: multiple
-ms.topic: article
-ms.workload: na
-ms.date: 06/04/2018
-ms.author: danlep
-
+title: Container workloads
+description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
+ms.topic: how-to
+ms.date: 05/20/2020
+ms.custom: seodec18
 ---
-
 # Run container applications on Azure Batch
 
-Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool. 
+Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
 
 You should be familiar with container concepts and how to create a Batch pool and job. The code examples use the Batch .NET and Python SDKs. You can also use other Batch SDKs and tools, including the Azure portal, to create container-enabled Batch pools and to run container tasks.
 
 ## Why use containers?
 
-Using containers provides an easy way to run Batch tasks without having to manage an environment and dependencies to run applications. Containers deploy applications as lightweight, portable, self-sufficient units that can run in several different environments. For example, you can build and test a container locally, then upload the container image to a registry in Azure or elsewhere. The container deployment model ensures that the runtime environment of your application is always correctly installed and configured wherever you host the application. Container-based tasks in Batch can also take advantage of features of non-container tasks, including application packages and management of resource files and output files. 
+Using containers provides an easy way to run Batch tasks without having to manage an environment and dependencies to run applications. Containers deploy applications as lightweight, portable, self-sufficient units that can run in several different environments. For example, build and test a container locally, then upload the container image to a registry in Azure or elsewhere. The container deployment model ensures that the runtime environment of your application is always correctly installed and configured wherever you host the application. Container-based tasks in Batch can also take advantage of features of non-container tasks, including application packages and management of resource files and output files.
 
 ## Prerequisites
 
@@ -35,7 +26,7 @@ Using containers provides an easy way to run Batch tasks without having to manag
 
 * **Accounts**: In your Azure subscription, you need to create a Batch account and optionally an Azure Storage account.
 
-* **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from images detailed in the following section, "Supported virtual machine images." If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md). 
+* **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from images detailed in the following section, "Supported virtual machine images." If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
 ### Limitations
 
@@ -45,33 +36,37 @@ Using containers provides an easy way to run Batch tasks without having to manag
 
 ## Supported virtual machine images
 
-Use one of the following supported Windows or Linux images to create a pool of VM compute nodes for container workloads. For more information about Marketplace images that are compatible with Batch, see [list of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images). 
+Use one of the following supported Windows or Linux images to create a pool of VM compute nodes for container workloads. For more information about Marketplace images that are compatible with Batch, see [list of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images).
 
-### Windows images
+### Windows support
 
-For Windows container workloads, Batch currently supports the **Windows Server 2016 Datacenter with Containers** image in the Azure Marketplace. Only Docker container images are supported on Windows.
+Batch supports Windows server images that have container support designations. Typically these image sku names are suffixed with `-with-containers` or `-with-containers-smalldisk`. Additionally, [the API to list all supported images in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) will denote a `DockerCompatible` capability if the image supports Docker containers.
 
 You can also create custom images from VMs running Docker on Windows.
 
-### Linux images
+### Linux support
 
-For Linux container workloads, Batch currently supports the following Linux images published by Microsoft Azure Batch in the Azure Marketplace:
+For Linux container workloads, Batch currently supports the following Linux images published by Microsoft Azure Batch in the Azure Marketplace without the need for a custom image.
 
-* **CentOS for Azure Batch container pools**
+#### VM sizes without RDMA
 
-* **CentOS (with RDMA drivers) for Azure Batch container pools**
+- Publisher: `microsoft-azure-batch`
+  - Offer: `centos-container`
+  - Offer: `ubuntu-server-container`
 
-* **Ubuntu Server for Azure Batch container pools**
+#### VM sizes with RDMA
 
-* **Ubuntu Server (with RDMA drivers) for Azure Batch container pools**
+- Publisher: `microsoft-azure-batch`
+  - Offer: `centos-container-rdma`
+  - Offer: `ubuntu-server-container-rdma`
 
-These images are only supported for use in Azure Batch pools. They feature:
+These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
-* A pre-installed [Moby](https://github.com/moby/moby) container runtime 
+* A pre-installed Docker-compatible [Moby](https://github.com/moby/moby) container runtime
 
-* Pre-installed NVIDIA GPU drivers, to streamline deployment on Azure N-series VMs
+* Pre-installed NVIDIA GPU drivers and NVIDIA container runtime, to streamline deployment on Azure N-series VMs
 
-* Images with or without pre-installed RDMA drivers; these drivers allow pool nodes to access the Azure RDMA network when deployed on RDMA-capable VM sizes  
+* Pre-installed/pre-configured image with support for Infiniband RDMA VM sizes for images with the suffix of `-rdma`. Currently these images do not support SR-IOV IB/RDMA VM sizes.
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
@@ -86,7 +81,7 @@ Additional considerations for using a custom Linux image:
 
 ## Container configuration for Batch pool
 
-To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/azure.batch) API.)
+To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. (This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/overview/azure/batch) API.)
 
 You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you pre-load container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
 
@@ -100,47 +95,16 @@ To configure a container-enabled pool without prefetched container images, defin
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='16-04-lts',
-        version='latest')
-
-"""
-Specify container configuration. This is required even though there are no prefetched images.
-"""
-
-container_conf = batch.models.ContainerConfiguration()
-
-new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-            image_reference=image_ref_to_use,
-            container_configuration=container_conf,
-            node_agent_sku_id='batch.node.ubuntu 16.04'),
-        vm_size='STANDARD_D1_V2',
-        target_dedicated_nodes=1)
-...
-```
-
-
-### Prefetch images for container configuration
-
-To prefetch container images on the pool, add the list of container images (`container_image_names`, in Python) to the `ContainerConfiguration`. 
-
-The following basic Python example shows how to prefetch a standard Ubuntu container image from [Docker Hub](https://hub.docker.com).
-
-```python
-image_ref_to_use = batch.models.ImageReference(
     publisher='microsoft-azure-batch',
     offer='ubuntu-server-container',
     sku='16-04-lts',
     version='latest')
 
 """
-Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
+Specify container configuration. This is required even though there are no prefetched images.
 """
 
-container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+container_conf = batch.models.ContainerConfiguration()
 
 new_pool = batch.models.PoolAddParameter(
     id=pool_id,
@@ -154,35 +118,75 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-The following example C# example assumes that you want to prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com). This example includes a start task that runs in the VM host on the pool nodes. You might run a start task in the host, for example, to mount a file server that can be accessed from the containers.
+### Prefetch images for container configuration
+
+To prefetch container images on the pool, add the list of container images (`container_image_names`, in Python) to the `ContainerConfiguration`.
+
+The following basic Python example shows how to prefetch a standard Ubuntu container image from [Docker Hub](https://hub.docker.com).
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
+
+"""
+Specify container configuration, fetching the official Ubuntu container image from Docker Hub.
+"""
+
+container_conf = batch.models.ContainerConfiguration(
+    container_image_names=['ubuntu'])
+
+new_pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
+...
+```
+
+
+The following C# example assumes that you want to prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com). This example includes a start task that runs in the VM host on the pool nodes. You might run a start task in the host, for example, to mount a file server that can be accessed from the containers.
 
 ```csharp
-
 ImageReference imageReference = new ImageReference(
     publisher: "microsoft-azure-batch",
     offer: "ubuntu-server-container",
     sku: "16-04-lts",
     version: "latest");
 
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "https://hub.docker.com",
+    userName: "UserName",
+    password: "YourPassword"                
+);
+
 // Specify container configuration, prefetching Docker images
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> { "tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry };
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Set a native host command line start task
-StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
+StartTask startTaskContainer = new StartTask( commandLine: "<native-host-command-line>" );
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 4,
     virtualMachineSize: "Standard_NC6",
-    virtualMachineConfiguration: virtualMachineConfiguration, startTaskContainer);
+    virtualMachineConfiguration: virtualMachineConfiguration);
+
+// Start the task in the pool
+pool.StartTask = startTaskContainer;
 ...
 ```
 
@@ -193,22 +197,22 @@ You can also prefetch container images by authenticating to a private container 
 
 ```csharp
 // Specify a container registry
-ContainerRegistry containerRegistry = new ContainerRegistry (
-	registryServer: "myContainerRegistry.azurecr.io",
-    username: "myUserName",
+ContainerRegistry containerRegistry = new ContainerRegistry(
+    registryServer: "myContainerRegistry.azurecr.io",
+    userName: "myUserName",
     password: "myPassword");
 
 // Create container configuration, prefetching Docker images from the container registry
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    containerImageNames: new List<string> {
-        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
-    containerRegistries: new List<ContainerRegistry> { containerRegistry } );
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+containerConfig.ContainerImageNames = new List<string> {
+        "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" };
+containerConfig.ContainerRegistries = new List<ContainerRegistry> { containerRegistry } );
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
     imageReference: imageReference,
-    containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -219,56 +223,82 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## Container settings for the task
 
-To run container tasks on the compute nodes, you must specify container-specific settings such as task run options, images to use, and registry.
+To run a container task on a container-enabled pool, specify container-specific settings. Settings include the image to use, registry, and container run options.
 
-Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class.
+* Use the `ContainerSettings` property of the task classes to configure container-specific settings. These settings are defined by the [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) class. Note that the `--rm` container option doesn't require an additional `--runtime` option since it is taken care of by Batch.
 
-If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
+* If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 
-The command line for an Azure Batch container task executes in a working directory in the container that is very similar to the environment Batch sets up for a regular (non-container) task:
+### Container task command line
 
-* All directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container
+When you run a container task, Batch automatically uses the [docker create](https://docs.docker.com/engine/reference/commandline/create/) command to create a container using the image specified in the task. Batch then controls task execution in the container.
+
+As with non-container Batch tasks, you set a command line for a container task. Because Batch automatically creates the container, the command line only specifies the command or commands that will run in the container.
+
+If the container image for a Batch task is configured with an [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) script, you can set your command line to either use the default ENTRYPOINT or override it:
+
+* To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
+
+* To override the default ENTRYPOINT, or if the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`.
+
+Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are additional arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for additional options.
+
+### Container task working directory
+
+A Batch container task executes in a working directory in the container that is very similar to the directory Batch sets up for a regular (non-container) task. Note that this working directory is different from the [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) if configured in the image, or the default container working directory (`C:\`  on a Windows container, or `/` on a Linux container).
+
+For a Batch container task:
+
+* All directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` on the host node (the root of Azure Batch directories) are mapped into the container
 * All task environment variables are mapped into the container
-* The application working directory is set the same as for a regular task, so you can use features such as application packages and resource files
+* The task working directory `AZ_BATCH_TASK_WORKING_DIR` on the node is set the same as for a regular task and mapped into the container.
 
-Because Batch changes the default working directory in your container, the task runs in a location different from the typical container entry point (for example, `c:\` by default on a Windows container, or `/` on Linux). Make sure that your task command line or container entry point specifies an absolute path, if it isn't already configured that way.
+These mappings allow you to work with container tasks in much the same way as non-container tasks. For example, install applications using application packages, access resource files from Azure Storage, use task environment settings, and persist task output files after the container stops.
 
-The following Python snippet shows a basic command line running in an Ubuntu container pulled from Docker Hub. The container run options are additional arguments to the `docker create` command that the task runs. Here, the `--rm` option removes the container after the task finishes.
+### Troubleshoot container tasks
+
+If your container task doesn't run as expected, you might need to get information about the WORKDIR or ENTRYPOINT configuration of the container image. To see the configuration, run the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command.
+
+If needed, adjust the settings of the container task based on the image:
+
+* Specify an absolute path in the task command line. If the image's default ENTRYPOINT is used for the task command line, ensure that an absolute path is set.
+
+* In the task's container run options, change the working directory to match the WORKDIR in the image. For example, set `--workdir /app`.
+
+## Container task examples
+
+The following Python snippet shows a basic command line running in a container created from a fictitious image pulled from Docker Hub. Here, the `--rm` container option removes the container after the task finishes, and the `--workdir` option sets a working directory. The command line overrides the container ENTRYPOINT with a simple shell command that writes a small file to the task working directory on the host.
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage',
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
-
 ```
 
 The following C# example shows basic container settings for a cloud task:
 
 ```csharp
 // Simple container task command
-
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
     id: "Task1",
-    containerSettings: cmdContainerSettings,
-    commandLine: cmdLine); 
+    commandline: cmdLine);
+containerTask.ContainerSettings = cmdContainerSettings;
 ```
-
 
 ## Next steps
 
@@ -276,6 +306,6 @@ CloudTask containerTask = new CloudTask (
 
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 
-* For more information on using custom images, see [Use a managed custom image to create a pool of virtual machines ](batch-custom-images.md).
+* For more information on using custom images, see [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
 * Learn more about the [Moby project](https://mobyproject.org/), a framework for creating container-based systems.

@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 #### To stop and start a cloud appliance
 
 1. To stop a cloud appliance, go to the VM for your cloud appliance.

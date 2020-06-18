@@ -1,22 +1,11 @@
 ---
-title: Azure Service Fabric Auto Scaling Services and Containers | Microsoft Docs
+title: Azure Service Fabric Auto Scaling Services and Containers 
 description: Azure Service Fabric allows you to set auto scaling policies for services and containers.
-services: service-fabric
-documentationcenter: .net
 author: radicmilos
-manager: 
-editor: nipuzovi
 
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-
-
 ---
 # Introduction to Auto Scaling
 Auto scaling is an additional capability of Service Fabric to dynamically scale your services based on the load that services are reporting, or based on their usage of resources. Auto scaling gives great elasticity and enables provisioning of additional instances or partitions of your service on demand. The entire auto scaling process is automated and transparent, and once you set up your policies on a service there is no need for manual scaling operations at the service level. Auto scaling can be turned on either at service creation time, or at any time by updating the service.
@@ -25,7 +14,9 @@ A common scenario where auto-scaling is useful is when the load on a particular 
 * If all instances of my gateway are using more than two cores on average, then scale the gateway service out by adding one more instance. Do this every hour, but never have more than seven instances in total.
 * If all instances of my gateway are using less than 0.5 cores on average, then scale the service in by removing one instance. Do this every hour, but never have fewer than three instances in total.
 
-Auto scaling is supported for both containers and regular Service Fabric services. The rest of this article describes the scaling policies, ways to enable or to disable auto scaling, and gives examples on how to use this feature.
+Auto scaling is supported for both containers and regular Service Fabric services. In order to use auto scaling, you need to be running on version 6.2 or above of the Service Fabric runtime. 
+
+The rest of this article describes the scaling policies, ways to enable or to disable auto scaling, and gives examples on how to use this feature.
 
 ## Describing auto scaling
 Auto scaling policies can be defined for each service in a Service Fabric cluster. Each scaling policy consists of two parts:
@@ -38,7 +29,7 @@ All triggers that are currently supported work either with [logical load metrics
 There are two mechanisms that are currently supported for auto scaling. The first one is meant for stateless services or for containers where auto scaling is performed by adding or removing [instances](service-fabric-concepts-replica-lifecycle.md). For both stateful and stateless services, auto scaling can also be performed by adding or removing named [partitions](service-fabric-concepts-partitioning.md) of the service.
 
 > [!NOTE]
-> Currently there is support for only one scaling policy per service.
+> Currently there is support for only one scaling policy per service, and only one scaling trigger per scaling policy.
 
 ## Average partition load trigger with instance based scaling
 The first type of trigger is based on the load of instances in a stateless service partition. Metric loads are first smoothed to obtain the load for every instance of a partition, and then these values are averaged across all instances of the partition. There are three factors that determine when the service will be scaled:
@@ -117,7 +108,7 @@ The second trigger is based on the load of all partitions of one service. Metric
 * _Upper load threshold_ is a value that determines when the service will be **scaled out**. If the average load of all partitions of the service is higher than this value, then the service will be scaled out.
 * _Scaling interval_ determines how often the trigger will be checked. Once the trigger is checked, if scaling is needed the mechanism will be applied. If scaling is not needed, then no action will be taken. In both cases, trigger will not be checked again before scaling interval expires again.
 
-This trigger can be used both with stateful and stateless services. The only mechanism that can be used with this trigger is AddRemoveIncrementalNamedParitionScalingMechanism. When service is scaled out then a new partition is added, and when service is scaled in one of existing partitions is removed. There are restrictions that will be checked when service is created or updated and service creation/update will fail if these conditions are not met:
+This trigger can be used both with stateful and stateless services. The only mechanism that can be used with this trigger is AddRemoveIncrementalNamedPartitionScalingMechanism. When service is scaled out then a new partition is added, and when service is scaled in one of existing partitions is removed. There are restrictions that will be checked when service is created or updated and service creation/update will fail if these conditions are not met:
 * Named partition scheme must be used for the service.
 * Partition names must be consecutive integer numbers, like "0", "1", ...
 * First partition name must be "0".
@@ -134,16 +125,19 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 * _Minimum Instance Count_ defines the lower limit for scaling. If number of partitions of the service reaches this limit, then service will not be scaled in regardless of the load.
 
 > [!WARNING] 
-> When AddRemoveIncrementalNamedParitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale up operation, new partitions will be empty, and in case of scale down operation, **partition will be deleted together with all the data that it contains**.
+> When AddRemoveIncrementalNamedPartitionScalingMechanism is used with stateful services, Service Fabric will add or remove partitions **without notification or warning**. Repartitioning of data will not be performed when scaling mechanism is triggered. In case of scale out operation, new partitions will be empty, and in case of scale in operation, **partition will be deleted together with all the data that it contains**.
 
 ## Setting auto scaling policy
 
 ### Using application manifest
 ``` xml
+<NamedPartition>
+    <Partition Name="0" />
+</NamedPartition>
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -152,7 +146,7 @@ Same as with mechanism that uses scaling by adding or removing instances, there 
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -168,7 +162,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### Using Powershell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

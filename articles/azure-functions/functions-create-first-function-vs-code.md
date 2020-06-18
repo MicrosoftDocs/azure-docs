@@ -1,200 +1,194 @@
 ---
 title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, compute, serverless architecture
-
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
-ms.author: glenga
-ms.custom: mvc, devcenter
-
+ms.date: 01/10/2020
+ms.custom: mvc, devcenter, seo, tracking-python
+zone_pivot_groups: programming-languages-set-functions
 ---
-# Create your first function using Visual Studio Code
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
+# Quickstart: Create a function in Azure using Visual Studio Code
 
-In this article, you learn how to use the [Azure Functions extension for Visual Studio Code] to create and test a "hello world" function on your local computer using Microsoft Visual Studio Code. You then publish the function code to Azure from Visual Studio Code.
+::: zone pivot="programming-language-csharp"  
+In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+In this article, you use Visual Studio Code to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+In this article, you use Visual Studio Code to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
 
-![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
 
-The extension currently supports C#, JavaScript, and Java functions. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
+::: zone-end
+::: zone pivot="programming-language-java"  
+> [!NOTE]
+> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+::: zone-end  
 
-## Prerequisites
+## Configure your environment
 
-To complete this quickstart:
+Before you get started, make sure you have the following requirements in place:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2), which is still in preview.
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
++ [Node.js](https://nodejs.org/), required by Windows for npm. Only [Active LTS and Maintenance LTS versions](https://nodejs.org/about/releases/). Use the `node --version` command to check your version.
+    Not required for local development on macOS and Linux.   
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (10.14.1 recommended). Use the `node --version` command to check your version.
+::: zone-end 
+::: zone pivot="programming-language-python"
++ [Python 3.8](https://www.python.org/downloads/release/python-381/), [Python 3.7](https://www.python.org/downloads/release/python-375/), [Python 3.6](https://www.python.org/downloads/release/python-368/) are supported by Azure Functions (x64).
+::: zone-end   
+::: zone pivot="programming-language-powershell"
++ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-* Install the specific requirements for your chosen language:
++ The [.NET Core SDK 2.2+](https://www.microsoft.com/net/download)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
 
-    | Language | Extension |
-    | -------- | --------- |
-    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
++ [Apache Maven](https://maven.apache.org), version 3.0 or above.
+::: zone-end  
++ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
+::: zone pivot="programming-language-csharp"  
++ The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-python"
++ The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-powershell"
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+::: zone-end  
 
-    \* Also required by Core Tools.
++ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## <a name="create-an-azure-functions-project"></a>Create your local project 
 
-## Install the Azure Function extension
+In this section, you use Visual Studio Code to create a local Azure Functions project in your chosen language. Later in this article, you'll publish your function code to Azure. 
 
-The Azure Functions extension is used to create, test, and deploy functions to Azure.
+1. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, select the **Create new project...** icon.
 
-1. In Visual Studio Code, open **Extensions** and search for `azure functions`, or [open this link in Visual Studio Code](vscode:extension/ms-azuretools.vscode-azurefunctions).
+    ![Choose Create a new project](media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Select **Install** to install the extension to Visual Studio Code. 
-
-    ![Install the extension for Azure Functions](./media/functions-create-first-function-vs-code/vscode-install-extension.png)
-
-1. Restart Visual Studio Code and select the Azure icon on the Activity bar. You should see an Azure Functions area in the Side Bar.
-
-    ![Azure Functions area in the Side Bar](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
-
-## Create an Azure Functions project
-
-The Azure Functions project template in Visual Studio Code creates a project that can be published to a function app in Azure. A function app lets you group functions as a logical unit for management, deployment, and sharing of resources.
-
-1. In Visual Studio Code, select the Azure logo to display the **Azure: Functions** area, and then select the Create New Project icon.
-
-    ![Create a function app project](./media/functions-create-first-function-vs-code/create-function-app-project.png)
-
-1. Choose a location for your project workspace and choose **Select**.
+1. Choose a directory location for your project workspace and choose **Select**.
 
     > [!NOTE]
-    > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
 
-1. Select the language for your function app project. In this article, JavaScript is used.
-    ![Choose project language](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
+1. Provide the following information at the prompts:
 
-1. When prompted, choose **Add to workspace**.
+    ::: zone pivot="programming-language-csharp"
+    + **Select a language for your function project**: Choose `C#`.
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript"
+    + **Select a language for your function project**: Choose `JavaScript`.
+    ::: zone-end
+    ::: zone pivot="programming-language-typescript"
+    + **Select a language for your function project**: Choose `TypeScript`.
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    + **Select a language for your function project**: Choose `PowerShell`.
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    + **Select a language for your function project**: Choose `Python`.
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+    + **Select a Python alias to create a virtual environment**: Choose the location of your Python interpreter. If the location isn't shown, type in the full path to your Python binary.  
+    ::: zone-end
 
-## Create an HTTP triggered function
+    ::: zone pivot="programming-language-java"  
+    + **Select a language for your function project**: Choose `Java`.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+    + **Provide a group ID**: Choose `com.function`.
 
-    ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
+    + **Provide an artifact ID**: Choose `myFunction`.
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template.
+    + **Provide a version**: Choose `1.0-SNAPSHOT`.
 
-    ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
+    + **Provide a package name**: Choose `com.function`.
 
-1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
+    + **Provide an app name**: Choose `myFunction-12345`.
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+    + **Select a template for your project's first function**: Choose `HTTP trigger`.
+    
+    + **Provide a function name**: Type `HttpExample`.
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp"
+    + **Provide a namespace**: Type `My.Functions`. 
+    ::: zone-end  
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+    + **Authorization level**: Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    ::: zone-end  
+    + **Select how you would like to open your project**: Choose `Add to workspace`.
 
-    ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+1. Using this information, Visual Studio Code generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. To learn more about files that are created, see [Generated project files](functions-develop-vs-code.md#generated-project-files). 
 
-    A function is created in your chosen language using the template for an HTTP-triggered function.
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python,programming-language-java"
 
-    ![HTTP triggered function template in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
-You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+::: zone-end
 
-Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
+::: zone pivot="programming-language-powershell"
 
-## Test the function locally
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
+::: zone-end
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+After you've verified that the function runs correctly on your local computer, it's time to use Visual Studio Code to publish the project directly to Azure. 
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. Execution is paused when the breakpoint is hit.
+## Run the function in Azure
 
-    ![Function hitting breakpoint in Visual Studio Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
+1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (macOS) on **HttpExample**, and then choose **Copy function URL**.
 
-1. When you continue the execution, the following shows the response in the browser to the GET request:
+    ![Copy the function URL for the new HTTP trigger](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-    ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
+1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
-1. To stop debugging, press Shift + F1.
-
-After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
-
-## Sign in to Azure
-
-Before you can publish your app, you must sign in to Azure.
-
-1. In the **Azure: Functions** area, choose **Sign in to Azure...**. If you don't already have one, you can **Create a free Azure account**.
-
-    ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-sign-into-azure.png)
-
-1. When prompted, select **Copy & Open**, or copy the displayed code and open <https://aka.ms/devicelogin> in your browser.
-
-1. Paste the copied code in the **Device Login** page, verify the sign-in for Visual Studio Code, then select **Continue**.  
-
-1. Complete the sign-in using your Azure account credentials. After you have successfully signed in, you can close the browser.
-
-## Publish the project to Azure
-
-Visual Studio Code lets you publish your functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription. 
-
-This article assumes that you are creating a new function app. Publishing to an existing function app overwrites the content of that app in Azure.
-
-1. In the **Azure: Functions** area, select the Deploy to Function App icon.
-
-    ![Function app settings](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
-
-1. Choose the project folder, which is your current workspace.
-
-1. If you have more than one subscription, choose the one you want to host your function app, then choose **+ Create New Function App**.
-
-1. Type a globally unique name that identifies your function app and press Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
-
-1. Choose **+ Create New Resource Group**, type a resource group name, like `myResourceGroup`, and press enter. You can also use an existing resource group.
-
-1. Choose **+Create New Storage Account**, type a globally unique name of the new storage account used by your function app and press Enter. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
-
-1. Choose a location in a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access.
-
-    Function app creation starts after you choose your location. A notification is displayed after your function app is created and the deployment package is applied.
-
-1. Select **View Output** in the notifications to view the creation and deployment results, including the Azure resources that you created.
-
-    ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-notifications.png)
-
-1. Make a note of the URL of the new function app in Azure. You use this to test your function after the project is published to Azure.
-
-    ![Function app creation output](./media/functions-create-first-function-vs-code/function-create-output.png)
-
-1. Back in the **Azure: Functions** area, you see the new function app displayed under your subscription. When you expand this node, you see the functions in the function app, as well as application settings and function proxies.
-
-    ![Function app settings](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
-
-    From your function app node, type Ctrl and click (right-click) to choose to perform various management and configuration tasks against the function app in Azure. You can also choose to view the function app in the Azure portal.
-
-## Test your function in Azure
-
-1. Copy the URL of the HTTP trigger from the **Output** panel. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
-
-    The URL that calls your HTTP-triggered function should be in the following format:
-
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
-
-1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
+        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+        
+    The following example shows the response in the browser to the remote GET request returned by the function: 
 
     ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 
+## Clean up resources
+
+When you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), you'll need to keep all your resources in place to build on what you've already done.
+
+Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
+
+[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+
+To learn more about Functions costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
-
-Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
 
 > [!div class="nextstepaction"]
-> [Code and test locally](functions-run-local.md)
+> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

@@ -1,21 +1,16 @@
 ---
-title: Azure Single Sign Out SAML Protocol | Microsoft Docs
+title: Azure Single Sign Out SAML Protocol
 description: This article describes the Single Sign-Out SAML Protocol in Azure Active Directory
 services: active-directory
-documentationcenter: .net
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
-ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ---
@@ -67,7 +62,7 @@ Azure AD sends a `LogoutResponse` in response to a `LogoutRequest` element. The 
 Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `LogoutResponse` element. It also sets the `InResponseTo` element to the value of the `ID` attribute of the `LogoutRequest` that elicited the response.
 
 ### Issuer
-Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where <TenantIdGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets this value to `https://login.microsoftonline.com/<TenantIdGUID>/` where \<TenantIdGUID> is the tenant ID of the Azure AD tenant.
 
 To evaluate the value of the `Issuer` element, use the value of the **App ID URI** provided during application registration.
 

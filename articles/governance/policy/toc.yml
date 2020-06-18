@@ -2,197 +2,191 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Policy
+  - name: What is Azure Policy?
+    displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Assign a policy - Portal
+    displayName: assign, compliance
     href: assign-policy-portal.md
-  - name: Assign a policy - PowerShell
+  - name: Assign a policy - Azure PowerShell
+    displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Assign a policy - Azure CLI
+    displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Assign a policy - ARM template
+    displayName: assign, compliance, resource manager
+    href: assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
+    displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
+  - name: Manage tag governance
+    displayName: modify, append, effects
+    href: ./tutorials/govern-tags.md
 - name: Samples
-  href: ./samples/index.md
   items:
-  - name: General
+  - name: Index
+    displayName: list, builtins
+    href: ./samples/index.md
+  - name: Built-in policies
+    href: ./samples/built-in-policies.md
+  - name: Built-in initiatives
+    href: ./samples/built-in-initiatives.md
+  - name: Patterns of use
     items:
-    - name: Naming
-      items:
-      - name: Allow multiple name patterns
-        href: samples/allow-multiple-name-patterns.md
-      - name: Require like pattern
-        href: samples/enforce-like-pattern.md
-      - name: Require match pattern
-        href: samples/enforce-match-pattern.md
-      - name: Require tag match pattern
-        href: samples/enforce-tag-match-pattern.md
+    - name: Logical operators
+      href: ./samples/pattern-logical-operators.md
+    - name: Fields
+      href: ./samples/pattern-fields.md
+    - name: Parameters
+      href: ./samples/pattern-parameters.md
+    - name: Effect details
+      href: ./samples/pattern-effect-details.md
     - name: Tags
-      items:
-      - name: Apply tag and its default value
-        href: samples/apply-tag-def-val.md
-      - name: Billing tags policy initiative
-        href: samples/billing-tags-policy-init.md
-      - name: Enforce tag and its value
-        href: samples/enforce-tag-val.md
-      - name: Enforce tag and its value on resource groups
-        href: samples/enforce-tag-rg.md
-    - name: Locations
-      items:
-      - name: Allowed locations
-        href: samples/allowed-locs.md
-    - name: Resource types
-      items:
-      - name: Allowed resource types
-        href: samples/allowed-res-types.md
-      - name: Not allowed resource types
-        href: samples/not-allowed-res-type.md
-  - name: Compute
+      href: ./samples/pattern-tags.md
+    - name: Value operator
+      href: ./samples/pattern-value-operator.md
+    - name: Count operator
+      href: ./samples/pattern-count-operator.md
+    - name: Group into initiative
+      href: ./samples/pattern-group-with-initiative.md
+    - name: Deploy resources
+      href: ./samples/pattern-deploy-resources.md
+  - name: Regulatory Compliance built-ins
     items:
-    - name: Virtual machines
-      items:
-      - name: Allow custom VM image from a resource group
-        href: samples/allow-custom-vm-image.md
-      - name: Allowed SKUs for storage accounts and virtual machines
-        href: samples/allowed-skus-storage.md
-      - name: Approved VM images
-        href: samples/allowed-custom-images.md
-      - name: Audit if extension does not exist
-        href: samples/audit-ext-not-exist.md
-      - name: Not allowed VM extensions
-        href: samples/not-allowed-vm-ext.md
-    - name: Virtual machine scale sets
-      items:
-      - name: Audit when VM does not use managed disk
-        href: samples/create-vm-managed-disk.md
-      - name: Create VM using managed disk
-        href: samples/use-managed-disk-vm.md
-      - name: Deny hybrid use benefit
-        href: samples/deny-hybrid-use.md
-      - name: Only allow a certain VM platform image
-        href: samples/allow-certain-vm-image.md
-  - name: Data Lake
-    items:
-    - name: Enforce Data Lake Store encryption
-      href: samples/enforce-datalakestore-encryption.md
-  - name: Monitoring
-    items:
-    - name: Audit diagnostic setting
-      href: samples/audit-diag-setting.md
-  - name: Network
-    items:
-    - name: Network interfaces
-      items:
-      - name: NSG X on every NIC
-        href: samples/nsg-on-nic.md
-      - name: Use approved subnet for VM network interfaces
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Use approved vNet for VM network interfaces
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Virtual networks
-      items:
-      - name: Allowed application gateway SKUs
-        href: samples/allowed-app-gate-sku.md
-      - name: No network peering to ER network
-        href: samples/no-peering-er-net.md
-      - name: No user-defined route table
-        href: samples/no-user-def-route-table.md
-      - name: NSG X on every subnet
-        href: samples/nsg-on-subnet.md
-      - name: Use approved subnet for VM network interfaces
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Use approved vNet for VM network interfaces
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Network security groups
-      items:
-      - name: NSG X on every NIC
-        href: samples/nsg-on-nic.md
-      - name: NSG X on every subnet
-        href: samples/nsg-on-subnet.md
-    - name: Express Routes
-      items:
-      - name: Allowed Express Route bandwidth
-        href: samples/allowed-er-band.md
-      - name: Allowed Express Route SKUs
-        href: samples/allowed-er-skus.md
-      - name: Allowed peering location for Express Route
-        href: samples/allowed-peering-er.md
-    - name: Network Watchers
-      items:
-      - name: Audit if Network Watchers is not enabled for region
-        href: samples/net-watch-not-enabled.md
-    - name: Application gateways
-      items:
-      - name: Allowed application gateway SKUs
-        href: samples/allowed-app-gate-sku.md
-  - name: SQL
-    items:
-    - name: SQL Servers
-      items:
-      - name: Audit no Azure Active Directory administrator
-        href: samples/audit-no-aad-admin.md
-      - name: Audit Server level threat detection setting
-        href: samples/audit-sql-ser-threat-det-setting.md
-      - name: Audit SQL Server audit settings
-        href: samples/sql-server-audit.md
-      - name: Audit SQL Server level audit setting
-        href: samples/audit-sql-ser-leve-audit-setting.md
-      - name: Require SQL Server version 12.0
-        href: samples/req-sql-12.md
-    - name: SQL Databases
-      items:
-      - name: Allowed SQL DB SKUs
-        href: samples/allowed-sql-db-skus.md
-      - name: Audit SQL DB level threat detection setting
-        href: samples/audit-db-threat-det-setting.md
-      - name: Audit SQL DB encryption
-        href: samples/sql-database-encryption-audit.md
-      - name: Audit SQL DB level audit setting
-        href: samples/audit-sql-db-audit-setting.md
-      - name: Audit transparent data encryption status
-        href: samples/audit-trans-data-enc-status.md
-  - name: Storage
-    items:
-    - name: Allowed SKUs for storage account and VMs
-      href: samples/allowed-skus-storage.md
-    - name: Allowed storage account SKUs
-      href: samples/allowed-stor-acct-skus.md
-    - name: Deny cool access tiering for storage accounts
-      href: samples/deny-cool-access-tiering.md
-    - name: Ensure HTTPS traffic only for storage account
-      href: samples/ensure-https-stor-acct.md
-    - name: Ensure storage file encryption
-      href: samples/ensure-store-file-enc.md
-    - name: Require storage account encryption
-      href: samples/req-store-acct-enc.md
+    - name: Azure Security Benchmark
+      href: ./samples/azure-security-benchmark.md
+    - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+      href: ./samples/cis-azure-1-1-0.md
+    - name: NIST SP 800-53 R4
+      href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      href: ./samples/nist-sp-800-171-r2.md
 - name: Concepts
   items:
-  - name: Azure Policy definition structure
+  - name: Definition structure
+    displayName: parameters, location, rule, alias, initiatives
     href: ./concepts/definition-structure.md
-  - name: Understand Policy effects
+  - name: Understand effects
+    displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Initiative structure
+    displayName: parameters, groups, domains, policies
+    href: ./concepts/initiative-definition-structure.md
+  - name: Assignment structure
+    displayName: parameters, enforcementmode, policyDefinitionId
+    href: ./concepts/assignment-structure.md
+  - name: Evaluate the impact of a new policy
+    displayName: audit, enforcementmode, compliance
+    href: ./concepts/evaluate-impact.md
+  - name: Regulatory Compliance
+    displayName: standards, domains, controls
+    href: ./concepts/regulatory-compliance.md
+  - name: Design Policy as Code workflows
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./concepts/policy-as-code.md
+  - name: Azure Policy for Kubernetes (preview)
+    displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+    href: ./concepts/policy-for-kubernetes.md
   - name: Audit VMs with Guest Configuration
+    displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: How-to guides
   items:
+  - name: Azure Policy extension for VS Code
+    displayName: visual studio code
+    href: ./how-to/extension-for-vscode.md
   - name: Programmatically create policies
+    displayName: assign, definition
     href: ./how-to/programmatically-create.md
-  - name: Getting compliance data
-    href: ./how-to/getting-compliance-data.md
+  - name: Author policies for array properties
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
+  - name: Create a Guest Configuration policy on Windows
+    displayName: powershell, dsc, chef, windows
+    href: ./how-to/guest-configuration-create.md
+  - name: Create a Guest Configuration policy on Linux
+    displayName: powershell, dsc, chef, linux
+    href: ./how-to/guest-configuration-create-linux.md
+  - name: Get compliance data
+    displayName: evaluation, scan, summarize, query, events, log analytics
+    href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, compliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
+    displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Azure Key Vault integration
+    items:
+    - name: Integrate Key Vault with Azure Policy
+      displayName: key vault, certificate, key
+      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Lighthouse integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: lighthouse, scale, deploy
+      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Deploy a policy that can be remediated
+      displayName: lighthouse, scale, remediate
+      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+  - name: Azure Monitor integration
+    items:
+    - name: Deploy Azure Monitor at scale
+      displayName: monitor, diagnostic settings, dependency agent
+      href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Enable Azure Monitor for VMs (preview)
+      displayName: monitor, insights, log analytics, builtin
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Troubleshoot
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/policy
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources/#policies
-  - name: REST API
+    items:
+    - name: Policy
+      href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
+    - name: Guest Configuration
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: Azure SDK for .NET
+    items:
+    - name: Assignments
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - name: Policy Definitions
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: Azure SDK for Java
+    items:
+    - name: Assignments
+      href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+    - name: Policy Definitions
+      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+  - name: Azure SDK for Node
+    items:
+    - name: Policy
+      href: /javascript/api/@azure/arm-policy
+    - name: Policy Insights
+      href: /javascript/api/@azure/arm-policyinsights
+  - name: Azure SDK for Python
+    items:
+    - name: Policy
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy
+    - name: Policy client
+      href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
+    - name: Policy Insights
+      href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
+  - name: REST
     items:
     - name: Events
       href: /rest/api/policy-insights/policyevents
@@ -204,17 +198,45 @@
       href: /rest/api/resources/policydefinitions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
+    - name: Policy Tracked Resources
+      href: /rest/api/policy-insights/policytrackedresources
+    - name: Remediations
+      href: /rest/api/policy-insights/remediations
+    - name: Guest Configuration
+      href: /rest/api/guestconfiguration/
+  - name: Resource Manager templates
+    items:
+    - name: Assignments
+      href: /azure/templates/microsoft.authorization/policyassignments
+    - name: Policy Definitions
+      href: /azure/templates/microsoft.authorization/policydefinitions
+    - name: Initiatives Definitions
+      href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
+  - name: GitHub - Community Policy repo
+    href: https://github.com/Azure/Community-Policy
+  - name: Microsoft Q&A for Azure Policy
+    href: /answers/topics/azure-policy.html
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Guest Configuration videos
+    items:
+    - name: Getting Started
+      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
+    - name: Understanding Initiatives
+      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
+    - name: Assign Policy
+      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
+    - name: Remediation Task
+      href: https://www.youtube.com/watch?v=URE4DUYMgmg
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Video - Ignite 2017
-    href: https://myignite.microsoft.com/videos/54781
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
+    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055

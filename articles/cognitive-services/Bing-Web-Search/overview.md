@@ -1,28 +1,29 @@
 ---
-title: What is Bing Web Search?
+title: What is the Bing Web Search API?
 titleSuffix: Azure Cognitive Services
-description: The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
+description: The Bing Web Search API is a RESTful service that provides instant answers to web search queries. Configure results to include web pages, images, videos, news, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 08/14/2018
-ms.author: erhopf
+ms.date: 03/31/2020
+ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# What is Bing Web Search?
+# What is the Bing Web Search API?
 
-The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
+The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Bing Web Search provides the results as JSON based on search relevance and your Bing Web Search subscriptions.
 
-This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services#cognitive-services-apis) for a complete list of Bing Search APIs.
+This API is optimal for applications that need access to all content that is relevant to a user's search query. If you're building an application that requires only a specific type of result, consider using the [Bing Image Search API](../Bing-Image-Search/overview.md), [Bing Video Search API](../Bing-Video-Search/search-the-web.md), or [Bing News Search API](../Bing-News-Search/search-the-web.md). See [Cognitive Services APIs](https://docs.microsoft.com/azure/cognitive-services) for a complete list of Bing Search APIs.
 
 Want to see how it works? Try our [Bing Web Search API demo](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/).
 
 ## Features  
 
-In addition to instant answers, Bing Web Search provides additional features and functionality that allow you to customize search results for your users.
+Bing Web Search doesn't only give you access to instant answers. It also provides additional features and functionality that allow you to customize search results for your users.
 
 | Feature | Description |
 |---------|-------------|
@@ -34,15 +35,15 @@ In addition to instant answers, Bing Web Search provides additional features and
 
 ## Workflow
 
-The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the [REST API](quickstarts/python.md) or the [Bing Web Search SDKs](web-sdk-python-quickstart.md).  
+The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the [REST API](quickstarts/python.md) or the [Bing Web Search client libraries](./quickstarts/client-libraries.md).
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. [Create an Azure resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. Send a [request to the Bing Web Search API](quickstarts/python.md).
 3. Parse the JSON response.
 
 ## Next steps
 
-* Use our [Python quickstart](quickstarts/python.md) to make your first call to the Bing Web Search API.  
+* Use our [Python quickstart](./quickstarts/client-libraries.md?pivots=programming-language-python) to make your first call to the Bing Web Search API.  
 * [Build a single-page web app](tutorial-bing-web-search-single-page-app.md).
-* Review [Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentation.  
+* Review [Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation.  
 * Learn more about [use and display requirements](UseAndDisplayRequirements.md) for Bing Web Search.  

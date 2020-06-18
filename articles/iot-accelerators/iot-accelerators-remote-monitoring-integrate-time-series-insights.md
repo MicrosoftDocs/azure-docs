@@ -1,9 +1,9 @@
 ---
-title: Integrate Azure Time Series Insights with Remote Monitoring | Microsoft Docs
+title: Integrate Time Series Insights with Remote Monitoring - Azure | Microsoft Docs
 description: In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that doesn't already include Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
@@ -44,7 +44,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Next, deploy Time Series Insights as an additional resource into your Remote Monitoring solution and connect it to the IoT hub.
 
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
 
@@ -91,7 +91,8 @@ Create a new event source to connect to your IoT hub. Make sure that you use the
     | Iot hub policy name | **iothubowner** Ensure the policy used is an owner policy. |
     | Iot hub policy key | This field is populated automatically. |
     | Iot hub consumer group | **timeseriesinsights** |
-    | Event serialization format | **JSON**     | Timestamp property name | Leave blank |
+    | Event serialization format | **JSON**     | 
+    | Timestamp property name | Leave blank |
 
     ![Create Event Source](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -159,12 +160,13 @@ The next step is to configure the Azure Stream Analytics Manager microservice to
 
 .NET: 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -173,13 +175,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 Pull the latest Telemetry microservice by typing the following command into the command prompt:
 
 .NET:
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java:
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -187,7 +190,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 To easily view your data in the Time Series Insights explorer, we recommend customizing the UI to easily link to the environment. To do so, pull the latest changes to the Web UI using the following command:
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -207,7 +210,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Navigate to **Settings** > **Keys** and then create a new key for your application. Make sure to copy the Key Value to safe location.
 
-1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from Github repo using the latest tag. 
+1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from GitHub repo using the latest tag. 
 
 1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -215,7 +218,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Add the following environment variables to each microservice in the docker compose yaml file and the `env-setup` script in the VM:
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -229,6 +232,9 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Restart the docker containers using `sudo ./start.sh` from the VM.
 
+> [!NOTE]
+> The above configuration of environment variables is valid for Remote Monitoring versions before 1.0.2
+
 ### Standard deployments
 
 Configure the environment of `standard` deployment for the updated micro services above
@@ -239,7 +245,7 @@ Configure the environment of `standard` deployment for the updated micro service
 
 1. Find the configuration map to add the following new environment variables for TSI:
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -247,7 +253,7 @@ Configure the environment of `standard` deployment for the updated micro service
 
 4. Edit the template yaml file for telemetry service pod:
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -277,7 +283,7 @@ Configure the environment of `standard` deployment for the updated micro service
 
 5. Edit the template yaml file for ASA manager service pod:
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:
@@ -287,6 +293,6 @@ Configure the environment of `standard` deployment for the updated micro service
 
 ## Next steps
 
-* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](/tutorials).
+* To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

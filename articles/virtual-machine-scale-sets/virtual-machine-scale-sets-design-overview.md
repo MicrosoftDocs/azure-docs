@@ -1,22 +1,15 @@
 ---
-title: Design Considerations for Azure Virtual Machine Scale Sets | Microsoft Docs
-description: Learn about design considerations for your Azure Virtual Machine Scale Sets
+title: Design Considerations for Azure Virtual Machine Scale Sets
+description: Learn about the design considerations for your Azure Virtual Machine Scale Sets. Compare scale sets features with VM features.
 keywords: linux virtual machine,virtual machine scale sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: gatneil
-manager: jeconnoc
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.subservice: management
 ms.date: 06/01/2017
-ms.author: negat
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Design Considerations For Scale Sets
@@ -29,8 +22,8 @@ Generally, scale sets are useful for deploying highly available infrastructure w
 
 - Once you specify the scale set configuration, you can update the *capacity* property to deploy more VMs in parallel. This process is better than writing a script to orchestrate deploying many individual VMs in parallel.
 - You can [use Azure Autoscale to automatically scale a scale set](./virtual-machine-scale-sets-autoscale-overview.md) but not individual VMs.
-- You can [reimage scale set VMs](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- You can [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
+- You can [reimage scale set VMs](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) but [not individual VMs](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- You can [overprovision](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) scale set VMs for increased reliability and quicker deployment times. You cannot overprovision individual VMs unless you write custom code to perform this action.
 - You can specify an [upgrade policy](./virtual-machine-scale-sets-upgrade-scale-set.md) to make it easy to roll out upgrades across VMs in your scale set. With individual VMs, you must orchestrate updates yourself.
 
 ### VM-specific features
@@ -67,7 +60,7 @@ A scale set built on a Marketplace image (also known as a platform image) and co
 
 A scale set configured with user-managed storage accounts is currently limited to 100 VMs (and 5 storage accounts are recommended for this scale).
 
-A scale set built on a custom image (one built by you) can have a capacity of up to 300 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
+A scale set built on a custom image (one built by you) can have a capacity of up to 600 VMs when configured with Azure Managed disks. If the scale set is configured with user-managed storage accounts, it must create all OS disk VHDs within one storage account. As a result, the maximum recommended number of VMs in a scale set built on a custom image and user-managed storage is 20. If you turn off overprovisioning, you can go up to 40.
 
 For more VMs than these limits allow, you need to deploy multiple scale sets as shown in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

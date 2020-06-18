@@ -1,18 +1,17 @@
 ---
-title: Monitor Azure DC/OS cluster - Dynatrace
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Dynatrace
 description: Monitor an Azure Container Service DC/OS cluster with Dynatrace. Deploy the Dynatrace OneAgent by using the DC/OS dashboard.
-services: container-service
 author: MartinGoodwell
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Dynatrace SaaS/Managed
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Dynatrace SaaS/Managed
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this article, we show you how to deploy the [Dynatrace](https://www.dynatrace.com/) OneAgent to monitor all the agent nodes in your Azure Container Service cluster. You need an account with Dynatrace SaaS/Managed for this configuration. 
 
@@ -29,7 +28,7 @@ The following figure shows the Dynatrace UI:
 ## Configure a Dynatrace deployment with Marathon
 These steps show you how to configure and deploy Dynatrace applications to your cluster with Marathon.
 
-1. Access your DC/OS UI via [http://localhost:80/](http://localhost:80/). Once in the DC/OS UI, navigate to the **Universe** tab and then search for **Dynatrace**.
+1. Access your DC/OS UI via `http://localhost:80/`. Once in the DC/OS UI, navigate to the **Universe** tab and then search for **Dynatrace**.
 
     ![Dynatrace in DC/OS Universe](./media/container-service-monitoring-dynatrace/dynatrace-universe.png)
 

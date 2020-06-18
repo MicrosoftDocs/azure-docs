@@ -6,9 +6,9 @@
     href: pim-configure.md
 - name: Concepts
   items:
-  - name: Subscription requirements
+  - name: License requirements
     href: subscription-requirements.md
-  - name: Directory roles you can manage
+  - name: Roles you cannot manage
     href: pim-roles.md
   - name: Secure privileged access
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -18,31 +18,37 @@
     href: pim-resource-roles-overview-dashboards.md
   - name: Email notifications
     href: pim-email-notifications.md
-  - name: Assignment types
-    href: pim-resource-roles-eligible-visibility.md
-  - name: Security wizard
-    href: pim-security-wizard.md
+  - name: Microsoft Graph APIs
+    href: pim-apis.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Deploy PIM
+    href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
-  - name: Activate my roles
-    items:
-    - name: Activate my directory roles
-      href: pim-how-to-activate-role.md
-    - name: Activate my resource roles
-      href: pim-resource-roles-activate-your-roles.md
   - name: Configure PIM
     items:
+    - name: Security wizard
+      href: pim-security-wizard.md
     - name: Discover Azure resources
       href: pim-resource-roles-discover-resources.md
     - name: Grant access to others to manage PIM
       href: pim-how-to-give-access-to-pim.md
-    - name: Enable subscription management
-      href: pim-resource-roles-enable-subscription-management.md
-  - name: Manage directory roles
+    - name: Elevate access to manage all subscriptions
+      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Activate my roles
     items:
+    - name: Activate my Azure AD roles
+      href: pim-how-to-activate-role.md
+    - name: Activate my Azure resource roles
+      href: pim-resource-roles-activate-your-roles.md
+  - name: Manage Azure AD roles
+    items:
+    - name: Feature update
+      href: azure-ad-roles-features.md
+    - name: PowerShell for Azure AD roles
+      href: powershell-for-azure-ad-roles.md
     - name: Assign roles
       href: pim-how-to-add-role-to-user.md
     - name: Approve requests
@@ -51,12 +57,24 @@
       href: pim-how-to-change-default-settings.md
     - name: Configure alerts
       href: pim-how-to-configure-security-alerts.md
+    - name: Custom roles preview
+      items:
+      - name: Activate a custom role
+        href: azure-ad-custom-roles-activate.md
+      - name: Assign a custom role
+        href: azure-ad-custom-roles-assign.md
+      - name: Remove a role assignment
+        href: azure-ad-custom-roles-update-remove.md
+      - name: Configure custom roles
+        href: azure-ad-custom-roles-configure.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
-  - name: Manage resource roles
+  - name: Manage Azure roles
     items:
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
+    - name: Invite external users
+      href: pim-resource-roles-external-users.md
     - name: Approve requests
       href: pim-resource-roles-approval-workflow.md
     - name: Extend or renew roles
@@ -65,27 +83,37 @@
       href: pim-resource-roles-configure-role-settings.md
     - name: Configure alerts
       href: pim-resource-roles-configure-alerts.md
-    - name: View who has access
-      href: azure-pim-resource-rbac.md
     - name: View audit history
-      href: pim-resource-roles-use-the-audit-log.md
+      href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Review access
+  - name: Troubleshoot PIM
+    href: pim-troubleshoot.md
+  - name: Access reviews
     items:
-    - name: Directory roles
+    - name: Azure AD roles
       items:
-      - name: Review my directory roles
-        href: pim-how-to-perform-security-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-how-to-start-security-review.md
+      - name: Review access
+        href: pim-how-to-perform-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
-    - name: Resource roles
+    - name: Azure roles
       items:
-      - name: Review my resource roles
-        href: pim-resource-roles-perform-access-review.md
-      - name: Start an access review
+      - name: Create an access review
         href: pim-resource-roles-start-access-review.md
+      - name: Review access
+        href: pim-resource-roles-perform-access-review.md
       - name: Complete an access review
         href: pim-resource-roles-complete-access-review.md
+- name: Reference
+  items:
+  - name: Graph API  
+    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
+  - name: Azure AD CLI    
+    href: https://docs.microsoft.com/cli/azure/ad
+  - name:  Azure AD PowerShell for Graph
+    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+  - name: Azure AD service limits
+    href: ../users-groups-roles/directory-service-limits-restrictions.md

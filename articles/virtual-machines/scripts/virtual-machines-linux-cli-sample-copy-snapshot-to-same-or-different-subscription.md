@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI| Microsoft Docs
-description: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI
+title: Copy managed disk snapshot to a subscription - CLI Sample
+description: Azure CLI Script Sample - Copy (or move) snapshot of a managed disk to same or different subscription with CLI
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -21,8 +21,11 @@ ms.custom: mvc
 
 # Copy snapshot of a managed disk to same or different subscription with CLI
 
-This script copies a snapshot of a managed disk to same or different subscription. Use this script to move a snapshot to different subscription in the same region as the parent snapshot.
+This script copies a snapshot of a managed disk to same or different subscription. Use this script for the following scenarios:
 
+1. Migrate a snapshot in Premium storage (Premium_LRS) to Standard storage (Standard_LRS or Standard_ZRS) to reduce your cost.
+1. Migrate a snapshot from locally redundant storage (Premium_LRS, Standard_LRS) to zone redundant storage (Standard_ZRS) to benefit from the higher reliability of ZRS storage.
+1. Move a snapshot to different subscription in the same region for longer retention.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -39,13 +42,13 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_create) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
+| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
+| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
 
 ## Next steps
 
-[Create a virtual machine from a snapshot](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Create a virtual machine from a snapshot](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

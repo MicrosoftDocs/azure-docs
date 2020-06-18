@@ -1,27 +1,29 @@
 ---
-title: Programmatically monitor an Azure data factory | Microsoft Docs
+title: Programmatically monitor an Azure data factory 
 description: Learn how to monitor a pipeline in a data factory by using different software development kits (SDKs).
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: anandsub
+ms.custom: tracking-python
 ---
 # Programmatically monitor an Azure data factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Data range
 
-Data Factory only stores pipeline run data for 45 days. When you query programmatically for data about Data Factory pipeline runs - for example, with the PowerShell command `Get-AzureRmDataFactoryV2PipelineRun` - there are no maximum dates for the optional `LastUpdatedAfter` and `LastUpdatedBefore` parameters. But if you query for data for the past year, for example, the query does not return an error, but only returns pipeline run data from the last 45 days.
+Data Factory only stores pipeline run data for 45 days. When you query programmatically for data about Data Factory pipeline runs - for example, with the PowerShell command `Get-AzDataFactoryV2PipelineRun` - there are no maximum dates for the optional `LastUpdatedAfter` and `LastUpdatedBefore` parameters. But if you query for data for the past year, for example, the query does not return an error, but only returns pipeline run data from the last 45 days.
 
 If you want to persist pipeline run data for more than 45 days, set up your own diagnostic logging with [Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -69,11 +71,13 @@ For a complete walkthrough of creating and monitoring a pipeline using Python SD
 To monitor the pipeline run, add the following code:
 
 ```python
-#Monitor the pipeline run
+# Monitor the pipeline run
 time.sleep(30)
-pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+pipeline_run = adf_client.pipeline_runs.get(
+    rg_name, df_name, run_response.run_id)
 print("\n\tPipeline run status: {}".format(pipeline_run.status))
-activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
+    rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
 print_activity_run_details(activity_runs_paged[0])
 ```
 
@@ -101,7 +105,7 @@ For a complete walkthrough of creating and monitoring a pipeline using REST API,
     ```
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
-    ```PowerShell
+    ```powershell
     $request = "https://management.azure.com/subscriptions/${subsId}/resourceGroups/${resourceGroup}/providers/Microsoft.DataFactory/factories/${dataFactoryName}/pipelineruns/${runId}/activityruns?api-version=${apiVersion}&startTime="+(Get-Date).ToString('yyyy-MM-dd')+"&endTime="+(Get-Date).AddDays(1).ToString('yyyy-MM-dd')+"&pipelineName=Adfv2QuickStartPipeline"
     $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
     $response | ConvertTo-Json
@@ -116,7 +120,7 @@ For a complete walkthrough of creating and monitoring a pipeline using PowerShel
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -134,7 +138,7 @@ For a complete walkthrough of creating and monitoring a pipeline using PowerShel
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -144,7 +148,7 @@ For a complete walkthrough of creating and monitoring a pipeline using PowerShel
     $result.Error -join "`r`n"
     ```
 
-For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/az.datafactory).
 
 ## Next steps
 See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines. 

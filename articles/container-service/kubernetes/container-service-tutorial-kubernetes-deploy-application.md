@@ -1,20 +1,21 @@
 ---
-title: Azure Container Service tutorial - Deploy Application
+title: (DEPRECATED) Azure Container Service tutorial - Deploy Application
 description: Azure Container Service tutorial - Deploy Application
-services: container-service
-author: neilpeterson
-manager: jeconnoc
+author: iainfoulds
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 
-# Run applications in Kubernetes
+# (DEPRECATED) Run applications in Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this tutorial that uses Azure Kubernetes Service, see [Tutorial: Run applications in Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. Steps completed include:
 
@@ -65,13 +66,13 @@ Save and close the file.
 
 Use the [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) command to run the application. This command parses the manifest file and create the defined Kubernetes objects.
 
-```azurecli-interactive
+```console
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 Output:
 
-```bash
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -84,13 +85,13 @@ A [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/s
 
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 Initially, the **EXTERNAL-IP** for the `azure-vote-front` service appears as `pending`. Once the EXTERNAL-IP address has changed from `pending` to an `IP address`, use `CTRL-C` to stop the kubectl watch process.
 
-```bash
+```output
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m

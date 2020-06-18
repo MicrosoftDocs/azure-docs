@@ -1,35 +1,29 @@
 ---
-title: Troubleshooting common authentication errors | Microsoft Docs
+title: Troubleshooting common authentication errors | Azure Marketplace
 description: Provides assistance with common authentication errors when using the Cloud Partner Portal APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
+author: dsindona
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
-Troubleshooting common authentication errors
-------------------------------------------
+# Troubleshooting common authentication errors
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 This article provides assistance with common authentication errors when using the Cloud Partner Portal APIs.
 
-### Unauthorized error
+## Unauthorized error
 
 If you consistently get `401 unauthorized` errors, verify that you have a valid access token.  If you have not already done so, create a basic Azure Active Directory (Azure AD) application and a service principal as described in [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Then, use the application or a simple HTTP POST request to verify your access.  You will include the Tenant ID, Application ID, Object ID, and the secret key to obtain the access token as shown in the following image:
 
 ![Troubleshooting the 401 error](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### Forbidden error
+## Forbidden error
 
 If you get a `403 forbidden` error, make sure that the correct service
 principal has been added to your publisher account in the Cloud Partner Portal.
