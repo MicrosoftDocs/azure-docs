@@ -17,6 +17,8 @@ Use the QnA Maker client library for .NET to:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
+[!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
+
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
@@ -59,7 +61,7 @@ Build succeeded.
 Within the application directory, install the QnA Maker client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.1.0
+dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 2.0.0-preview.1
 ```
 
 
@@ -151,7 +153,7 @@ Call the [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cog
 
 The final line of the following code returns the knowledge base ID from the response from MonitorOperation.
 
-[!code-csharp[Create a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=CreateKBMethod&highlight=37-38)]
+[!code-csharp[Create a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=CreateKBMethod&highlight=31)]
 
 Make sure the include the [`MonitorOperation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully create a knowledge base.
 
