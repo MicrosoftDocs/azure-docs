@@ -1,5 +1,5 @@
 ---
-title: Go Live | Azure Marketplace
+title: Go Live API - Azure Marketplace
 description: The Go Live API initiates the offer live listing process.
 author: dsindona
 ms.service: marketplace
@@ -12,7 +12,7 @@ ms.author: dsindona
 # Go Live
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
 
 This API starts the process for pushing an app to production. This operation is usually
 long-running. This call uses the notification email list

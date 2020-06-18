@@ -1,6 +1,6 @@
 ---
-title: Retrieve offers API | Azure Marketplace
-description: API retrieves a summarized list of offers under a publisher namespace.
+title: Retrieve offers API - Azure Marketplace
+description: API to retrieve a summarized list of offers under a publisher namespace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,7 +14,7 @@ Retrieve offers
 ===============
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
 
 Retrieves a summarized list of offers under a publisher namespace.
 
