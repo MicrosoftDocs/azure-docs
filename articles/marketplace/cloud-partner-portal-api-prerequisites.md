@@ -59,7 +59,7 @@ Use the following steps to add the service principal:
 -   The **Role** associated with the account, which will be used for
     RBAC.
 
-     ![Add a managed app to the portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
+     ![Add a managed app to the portal](./media/cloud-partner-portal-api-prerequisites/managed-app.png)
 
 1. Click **Add** to add the service principal to your account.
 
