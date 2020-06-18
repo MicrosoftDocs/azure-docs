@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/18/2020
 ---
 # AI enrichment in Azure Cognitive Search
 
-AI enrichment is a capability of Azure Cognitive Search indexing used to extract text from images, blobs, and other unstructured data sources. Enrichment and extraction make your content more searchable in an [index](search-what-is-an-index.md) or [knowledge store](knowledge-store-concept-intro.md). 
+AI enrichment is an extension of [indexers](search-indexer-overview.md) that can be used to extract text from images, blobs, and other unstructured data sources. Enrichment and extraction make your content more searchable in indexer output objects, either a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md). 
 
-Extraction and enrichment are implemented using *cognitive skills* attached to the indexing pipeline. You can use built-in skills from Microsoft or embed external processing into a [*custom skill*](cognitive-search-create-custom-skill-example.md) that you create. Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
+Extraction and enrichment are implemented using *cognitive skills* attached to the indexer-driven pipeline. You can use built-in skills from Microsoft or embed external processing into a [*custom skill*](cognitive-search-create-custom-skill-example.md) that you create. Examples of a custom skill might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 Built-in skills fall into these categories: 
 
