@@ -123,7 +123,7 @@ Download the **New-OnPremiseHybridWorker.ps1** script from the [PowerShell Galle
 
 ### Step 2 - Open Windows PowerShell command line shell
 
-Open **Windows PowerShell** from the **Start** screen in Administrator mode.
+From the **Start Menu** click **Start**, type **PowerShell**, right-click **Windows PowerShell**, and then click **Run as administrator**.
 
 ### Step 3 - Run the PowerShell script
 
