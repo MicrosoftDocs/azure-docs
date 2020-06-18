@@ -3703,7 +3703,7 @@ Azure service: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### Microsoft.Databricks
 
-Azure service: [Azure Databricks](../azure-databricks/index.yml)
+Azure service: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

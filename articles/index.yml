@@ -76,7 +76,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - analytics
-      url: azure-databricks/index.yml
+      url: databricks/index.yml
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
