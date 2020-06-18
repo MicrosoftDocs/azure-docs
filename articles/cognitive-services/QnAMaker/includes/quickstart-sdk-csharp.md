@@ -124,7 +124,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Authenticate the client for authoring the knowledge base
 
-In a new method, instantiate a client object with your key, and use it with your resource to construct the endpoint to create an [QnAMakerClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) with your endpoint and key. Create an ServiceClientCredentials](https://docs.microsoft.com/en-us/dotnet/api/microsoft.rest.serviceclientcredentials?view=azure-dotnet) object.
+In a new method, instantiate a client object with your key, and use it with your resource to construct the endpoint to create an [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) with your endpoint and key. Create an ServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.rest.serviceclientcredentials?view=azure-dotnet) object.
 
 [!code-csharp[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=AuthorizationAuthor)]
 

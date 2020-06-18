@@ -107,7 +107,7 @@ Create a variable for your resource's Azure key and resource name. Both the auth
 > You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure key storage.
 
-Next, create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient]https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) object.
+Next, create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient]https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) object.
 
 |variable|Example|
 |--|--|
