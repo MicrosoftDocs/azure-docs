@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
