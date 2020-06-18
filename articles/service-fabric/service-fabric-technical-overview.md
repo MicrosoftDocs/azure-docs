@@ -164,7 +164,7 @@ Different environments have different levels of support for frameworks and deplo
 
 The following table describes the different application models and the tooling that exists for them against Service Fabric.
 
-| Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | Powershell|
+| Type of Application | Described By | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Service Fabric Mesh Applications | Resource Model (YAML & JSON) | VS 2017 |Not supported |Not supported | Supported - Mesh environment only | Not Supported|
 |Service Fabric Native Applications | Native Application Model (XML) | VS 2017 and VS 2015| Supported|Supported|Supported|Supported|

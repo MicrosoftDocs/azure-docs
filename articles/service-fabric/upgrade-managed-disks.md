@@ -25,7 +25,7 @@ Here are the [templates and cmdlets](https://github.com/microsoft/service-fabric
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) the Azure resource manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) the Azure Resource Manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
