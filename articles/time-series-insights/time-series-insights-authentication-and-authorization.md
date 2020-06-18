@@ -84,7 +84,7 @@ Per **step 3**, separating your application's and your user credentials allows y
    1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
 > [!IMPORTANT]
-> If you are using [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/en-us/azure/active-directory/azuread-dev/active-directory-authentication-libraries) read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) 
+> If you are using [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
 
     See our [Manage GA reference data for an Azure Time Series Insights environment using C#](time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
