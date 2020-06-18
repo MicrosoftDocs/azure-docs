@@ -105,7 +105,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Etisalat UAE** |Supported |Supported |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Supported |Supported |Taipei|
-| **GÉANT** |Supported |Supported |Amsterdam, Frankfurt, Marseille |
+| **GÉANT** |Supported |Supported |Amsterdam, Dublin, Frankfurt, Marseille |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
 | **Intelsat** | Supported | Supported | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, Chicago, Hong Kong, London, New York, Paris, Silicon Valley, Singapore, Washington DC, Zurich |
