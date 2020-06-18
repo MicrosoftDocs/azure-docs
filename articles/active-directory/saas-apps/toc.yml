@@ -242,7 +242,9 @@
       - name: Brightspace by Desire2Learn
         href: brightspace-desire2learn-tutorial.md
       - name: Britive
-        href: britive-tutorial.md      
+        href: britive-tutorial.md
+      - name: BrowserStack Single Sign-on
+        href: browserstack-single-sign-on-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: Bynder
