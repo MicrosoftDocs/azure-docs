@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create an Azure Cognitive Services using ARM templates | Microsoft Docs"
+title: "Quickstart: Create an Azure Cognitive Services resource using ARM templates | Microsoft Docs"
 description: Get started with using an Azure Resource Manager template to deploy a Cognitive Services resource.
 services: cognitive-services
 author: aahill
@@ -11,7 +11,7 @@ ms.author: aahi
 ms.custom: subject-armqs
 ---
 
-# Create a Cognitive Services resource Using an Azure Resource Manager template
+# Create a Cognitive Services resource using an Azure Resource Manager template
 
 Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. This multi-service resource lets you:
 * Access multiple Azure Cognitive Services with a single key and endpoint.
@@ -24,7 +24,7 @@ Use this article to create and deploy a Cognitive Services resource, using an Az
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-## Create a Cognitive Services resource.
+## Create a Cognitive Services resource
 
 ### Review the template
 
@@ -125,7 +125,7 @@ az group delete --name $resourceGroupName
 
 ---
 
-## See also
+## Next steps
 
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
 * [What is Azure Cognitive Services?](Welcome.md)
