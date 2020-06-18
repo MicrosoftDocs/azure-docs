@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
+ms.date: 6/18/2020
 
 ---
 
@@ -67,11 +67,11 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option.  Expres
 
 As mentioned, VNet peering is one way to access your private cluster. To use VNet peering you need to set up a link between virtual network and the private DNS zone.
     
-1. Go to the MC_* resource group in the Azure portal.  
+1. Go to the node resource group in the Azure portal.  
 2. Select the private DNS zone.   
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-5. Go back to the MC_* resource group in the Azure portal.  
+5. Navigate to your resource group with your Kubernetes VNet inside the Azure portal.  
 6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
