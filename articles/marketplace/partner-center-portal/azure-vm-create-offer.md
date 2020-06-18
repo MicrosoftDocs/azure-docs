@@ -113,7 +113,7 @@ When you're publishing your offer to the commercial marketplace with Partner Cen
 
 On the **Properties** page, you define the categories that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
-### Categories
+### Category
 
 Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. You can select:
 
