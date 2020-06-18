@@ -7,7 +7,7 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ---
 # What is Azure Private Endpoint?
@@ -51,6 +51,7 @@ A private link resource is the destination target of a given private endpoint. T
 |Private link resource name  |Resource type   |Subresources  |
 |---------|---------|---------|
 |**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
