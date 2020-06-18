@@ -1,24 +1,23 @@
 ---
 title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-ms.date: 09/07/2018
+ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
 
-To monitor and manage large-scale Azure Batch solutions, you need accurate counts of resources in various states. Azure Batch provides efficient operations to get these counts for Batch *tasks* and *compute nodes*. Use these operations instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes.
+To monitor and manage large-scale Azure Batch solutions, you may need to determine counts of resources in various states. Azure Batch provides efficient operations to get counts for Batch *tasks* and *compute nodes*. You can use these operations instead of potentially time-consuming list queries that return detailed information about large collections of tasks or nodes.
 
-* [Get Task Counts][rest_get_task_counts] gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. 
+- [Get Task Counts][rest_get_task_counts] gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. 
 
   By counting tasks in each state, you can more easily display job progress to a user, or detect unexpected delays or failures that may affect the job. Get Task Counts is available as of Batch Service API version 2017-06-01.5.1 and related SDKs and tools.
 
-* [List Pool Node Counts][rest_get_node_counts] gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. 
+- [List Pool Node Counts][rest_get_node_counts] gets the number of dedicated and low-priority compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others.
 
-  By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools. List Pool Node Counts is available as of Batch Service API version 2018-03-01.6.1
- and related SDKs and tools.
+  By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools. List Pool Node Counts is available as of Batch Service API version 2018-03-01.6.1 and related SDKs and tools.
 
-If you're using a version of the service that doesn't support the task count or node count operations, use a list query instead to count these resources. Also use a list query to get information about other Batch resources such as applications, files, and jobs. For more information about applying filters to list queries, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
+Note that at times, the numbers returned by these operations may not be up to date. If you need to be sure that a count is accurate, use a list query to count these resources. List queries also let you get information about other Batch resources such as applications. For more information about applying filters to list queries, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 ## Task state counts
 
@@ -30,7 +29,7 @@ The Get Task Counts operation counts tasks by the following states:
 - **Succeeded** - A task whose result of task execution is `success`. Batch determines whether a task has succeeded or failed by checking the `TaskExecutionResult` property of the [executionInfo][rest_get_exec_info] property.
 - **Failed** A task whose result of task execution is `failure`.
 
-The following .NET code sample shows how to retrieve task counts by state: 
+The following .NET code sample shows how to retrieve task counts by state:
 
 ```csharp
 var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
@@ -45,8 +44,7 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 You can use a similar pattern for REST and other supported languages to get task counts for a job. 
 
 > [!NOTE]
-> Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts for consistency with the states reported in the List Tasks API. A value of `validated` indicates only that Batch checked for consistency at least once for the job. The value of the `validationStatus` property does not indicate whether the counts that Get Task Counts returns are currently up-to-date.
->
+> Batch Service API versions before 2018-08-01.7.0 also return a `validationStatus` property in the Get Task Counts response. This property indicates whether Batch checked the state counts for consistency with the states reported in the List Tasks API. A value of `validated` indicates only that Batch checked for consistency at least once for the job. The value of the `validationStatus` property does not indicate whether the counts that Get Task Counts returns are currently up to date.
 
 ## Node state counts
 
@@ -86,6 +84,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 The following C# snippet shows how to list node counts for a given pool in the current account.
 
 ```csharp
@@ -108,12 +107,11 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 ```
 
 You can use a similar pattern for REST and other supported languages to get node counts for pools.
- 
+
 ## Next steps
 
-* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
-* For information about applying filters to queries that list Batch resources, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
-
+- Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
+- Learn about applying filters to queries that list Batch resources, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 
 [rest_get_task_counts]: /rest/api/batchservice/job/gettaskcounts
 [rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

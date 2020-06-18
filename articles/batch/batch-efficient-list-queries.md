@@ -2,21 +2,22 @@
 title: Design efficient list queries
 description: Increase performance by filtering your queries when requesting information on Batch resources like pools, jobs, tasks, and compute nodes.
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 06/18/2020
 ms.custom: seodec18
 ---
 
 # Create queries to list Batch resources efficiently
 
-Here you'll learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, compute nodes, and other resources with the [Batch .NET][api_net] library.
-
 Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
 
+You can increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, compute nodes, and other resources with the [Batch .NET][api_net] library.
+
 > [!NOTE]
-> The Batch service provides special API support for the common scenarios of counting tasks in a job, and counting compute nodes in Batch pool. Instead of using a list query for these, you can call the [Get Task Counts][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] operations. These operations are more efficient than a list query, but return more limited information. See [Count tasks and compute nodes by state](batch-get-resource-counts.md). 
+> The Batch service provides API support for the common scenarios of counting tasks in a job, and counting compute nodes in Batch pool. Instead of using a list query for these, you can call the [Get Task Counts][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] operations. These operations are more efficient than a list query, but return more limited information that may not always be up to date. For more information, see [Count tasks and compute nodes by state](batch-get-resource-counts.md).
 
 
-## Meet the DetailLevel
+## Specify a detail level
+
 In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. When you request information on these resources, a potentially large amount of data must "cross the wire" from the Batch service to your application on each query. By limiting the number of items and type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
 
 This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
@@ -45,49 +46,51 @@ In this example scenario, if there are thousands of tasks in the job, the result
 
 > [!IMPORTANT]
 > We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
-> 
-> 
 
 ## Filter, select, and expand
+
 The [Batch .NET][api_net] and [Batch REST][api_rest] APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You do so by specifying **filter**, **select**, and **expand strings** when performing list queries.
 
 ### Filter
-The filter string is an expression that reduces the number of items that are returned. For example, list only the running tasks for a job, or list only compute nodes that are ready to run tasks.
 
-* The filter string consists of one or more expressions, with an expression that consists of a property name, operator, and value. The properties that can be specified are specific to each entity type that you query, as are the operators that are supported for each property.
-* Multiple expressions can be combined by using the logical operators `and` and `or`.
-* This example filter string lists only the running "render" tasks: `(state eq 'running') and startswith(id, 'renderTask')`.
+The filter string is an expression that reduces the number of items that are returned. For example, you can list only the running tasks for a job, or list only compute nodes that are ready to run tasks.
+
+The filter string consists of one or more expressions, with an expression that consists of a property name, operator, and value. The properties that can be specified are specific to each entity type that you query, as are the operators that are supported for each property.  Multiple expressions can be combined by using the logical operators `and` and `or`.
+
+This example filter string lists only the running "render" tasks: `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### Select
-The select string limits the property values that are returned for each item. You specify a list of property names, and only those property values are returned for the items in the query results.
 
-* The select string consists of a comma-separated list of property names. You can specify any of the properties for the entity type you are querying.
-* This example select string specifies that only three property values should be returned for each task: `id, state, stateTransitionTime`.
+The select string limits the property values that are returned for each item. You specify a list of comma-separated property names, and only those property values are returned for the items in the query results.You can specify any of the properties for the entity type you are querying.
+
+This example select string specifies that only three property values should be returned for each task: `id, state, stateTransitionTime`.
 
 ### Expand
-The expand string reduces the number of API calls that are required to obtain certain information. When you use an expand string, more information about each item can be obtained with a single API call. Rather than first obtaining the list of entities, then requesting information for each item in the list, you use an expand string to obtain the same information in a single API call. Less API calls means better performance.
 
-* Similar to the select string, the expand string controls whether certain data is included in list query results.
-* The expand string is only supported when it is used in listing jobs, job schedules, tasks, and pools. Currently, it only supports statistics information.
-* When all properties are required and no select string is specified, the expand string *must* be used to get statistics information. If a select string is used to obtain a subset of properties, then `stats` can be specified in the select string, and the expand string does not need to be specified.
-* This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
+The expand string reduces the number of API calls that are required to obtain certain information. When you use an expand string, more information about each item can be obtained with a single API call. Rather than first obtaining the list of entities, then requesting information for each item in the list, you use an expand string to obtain the same information in a single API call, helping to improve performance by reducing API calls.
+
+Similar to the select string, the expand string controls whether certain data is included in list query results. When all properties are required and no select string is specified, the expand string *must* be used to get statistics information. If a select string is used to obtain a subset of properties, then `stats` can be specified in the select string, and the expand string does not need to be specified.
+
+The expand string is only supported when it is used in listing jobs, job schedules, tasks, and pools. Currently, it only supports statistics information.
+
+This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
 
 > [!NOTE]
 > When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). See the tables below for property mappings between the .NET and REST APIs.
-> 
-> 
 
 ### Rules for filter, select, and expand strings
-* Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API--even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
-* All property names are case-sensitive, but property values are case insensitive.
-* Date/time strings can be one of two formats, and must be preceded with `DateTime`.
+
+- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API, even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
+- All property names are case-sensitive, but property values are case insensitive.
+- Date/time strings can be one of two formats, and must be preceded with `DateTime`.
   
-  * W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
-* Boolean strings are either `true` or `false`.
-* If an invalid property or operator is specified, a `400 (Bad Request)` error will result.
+  - W3C-DTF format example: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  - RFC 1123 format example: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+- Boolean strings are either `true` or `false`.
+- If an invalid property or operator is specified, a `400 (Bad Request)` error will result.
 
 ## Efficient querying in Batch .NET
+
 Within the [Batch .NET][api_net] API, the [ODATADetailLevel][odata] class is used for supplying filter, select, and expand strings to list operations. The ODataDetailLevel class has three public string properties that can be specified in the constructor, or set directly on the object. You then pass the ODataDetailLevel object as a parameter to the various list operations such as [ListPools][net_list_pools], [ListJobs][net_list_jobs], and [ListTasks][net_list_tasks].
 
 * [ODATADetailLevel][odata].[FilterClause][odata_filter]: Limit the number of items that are returned.
@@ -124,15 +127,14 @@ List<CloudPool> testPools =
 
 > [!TIP]
 > An instance of [ODATADetailLevel][odata] that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), to limit the amount of data that is returned.
-> 
-> 
 
 ## Batch REST to .NET API mappings
-Property names in filter, select, and expand strings *must* reflect their REST API counterparts, both in name and case. The tables below provide mappings between the .NET and REST API counterparts.
+Property names in filter, select, and expand strings must reflect their REST API counterparts, both in name and case. The tables below provide mappings between the .NET and REST API counterparts.
 
 ### Mappings for filter strings
-* **.NET list methods**: Each of the .NET API methods in this column accepts an [ODATADetailLevel][odata] object as a parameter.
-* **REST list requests**: Each REST API page linked to in this column contains a table that specifies the properties and operations that are allowed in *filter* strings. You will use these property names and operations when you construct an [ODATADetailLevel.FilterClause][odata_filter] string.
+
+- **.NET list methods**: Each of the .NET API methods in this column accepts an [ODATADetailLevel][odata] object as a parameter.
+- **REST list requests**: Each REST API page linked to in this column contains a table that specifies the properties and operations that are allowed in *filter* strings. You will use these property names and operations when you construct an [ODATADetailLevel.FilterClause][odata_filter] string.
 
 | .NET list methods | REST list requests |
 | --- | --- |
@@ -148,8 +150,9 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 | [PoolOperations.ListPools][net_list_pools] |[List the pools in an account][rest_list_pools] |
 
 ### Mappings for select strings
-* **Batch .NET types**: Batch .NET API types.
-* **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You will use these same property names when you construct an [ODATADetailLevel.SelectClause][odata_select] string.
+
+- **Batch .NET types**: Batch .NET API types.
+- **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You will use these same property names when you construct an [ODATADetailLevel.SelectClause][odata_select] string.
 
 | Batch .NET types | REST API entities |
 | --- | --- |
@@ -161,6 +164,7 @@ Property names in filter, select, and expand strings *must* reflect their REST A
 | [CloudTask][net_task] |[Get information about a task][rest_get_task] |
 
 ## Example: construct a filter string
+
 When you construct a filter string for [ODATADetailLevel.FilterClause][odata_filter], consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
 
 | Property | Operations allowed | Type |
@@ -226,8 +230,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ```
 
 ## Next steps
-### Parallel node tasks
-[Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md) is another article related to Batch application performance. Some types of workloads can benefit from executing parallel tasks on larger--but fewer--compute nodes. Check out the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the article for details on such a scenario.
+
+- Learn how to [Maximize Azure Batch compute resource usage with concurrent node tasks](batch-parallel-node-tasks.md). Some types of workloads can benefit from executing parallel tasks on larger (but fewer) compute nodes. Check out the [example scenario](batch-parallel-node-tasks.md#example-scenario) in the article for details on such a scenario.
+- Learn how to [Monitor Batch solutions by counting tasks and nodes by state](batch-get-resource-counts.md)
 
 
 [api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
