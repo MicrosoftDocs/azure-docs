@@ -16,9 +16,9 @@ ms.author: travisw
 
 Voice applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
 
-**Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios. 
+**Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
-Custom Commands is best suited for task completion or command-and-control scenarios, particularly well-matched for Internet of Things (IoT), ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, allowing you to build the best in-room voice-controlled experiences for your guests, manage inventory in your store and control in-car functionality while on the move.
+Custom Commands is best suited for task completion or command-and-control scenarios, particularly well-matched for Internet of Things (IoT) devices, ambient and headless devices. Examples include solutions for Hospitality, Retail and Automotive industries, allowing you to build the best in-room voice-controlled experiences for your guests, manage inventory in your store and control in-car functionality while on the move.
 
 > [!TIP]
 > View our sample demos on our landing page at [https://speech.microsoft.com/customcommands](https://speech.microsoft.com/customcommands).
@@ -31,8 +31,7 @@ Good candidates for Custom Commands have a fixed vocabulary with well-defined se
 
 ## Getting started with Custom Commands
 
-Our goal with Custom Commands is to reduce your cognitive load to learn all the different technologies and focus building your voice commanding app. First step for using Custom Commands to <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. You can author your Custom Commands app on the Speech Studio and publish it, after which an on-device application can communicate with it using the Speech SDK. [Get started by following our quickstart guide](quickstart-custom-commands-application.md).
-
+Our goal with Custom Commands is to reduce your cognitive load to learn all the different technologies and focus building your voice commanding app. First step for using Custom Commands to <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>. You can author your Custom Commands app on the Speech Studio and publish it, after which an on-device application can communicate with it using the Speech SDK.
 
 #### Authoring flow for Custom Commands
    ![Authoring flow for Custom Commands](media/voice-assistants/custom-commands-flow.png "The Custom Commands authoring flow")
@@ -41,13 +40,7 @@ Follow our quickstart to have your first Custom Commands app running code in les
 
 * [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md)
 
-Once you are done with the quickstart, explore our how-tos guides.
-
-* [Create application with simple commands](how-to-custom-commands-create-application-with-simple-commands.md)
-* [Add parameters to your commands](how-to-custom-commands-add-parameters-to-commands.md)
-* [Add validations to parameters and prompts for correction](how-to-custom-commands-add-parameter-configuration.md)
-* [Integrate using the Speech SDK](how-to-custom-commands-setup-speech-sdk.md)
-* [Setup Continuous Deployment for your Custom Commands app using Azure DevOps](how-to-custom-commands-deploy-cicd.md)
+Once you're done with the quickstart, explore our how-to guides for detailed steps for designing, developing, debugging, deploying and integrating a Custom Commands application.
 
 ## Building Voice Assistants with Custom Commands
 > [!VIDEO https://www.youtube.com/embed/1zr0umHGFyc]
