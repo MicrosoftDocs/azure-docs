@@ -53,7 +53,7 @@ Migration is the process of changing authoring authentication from an email acco
 |Portal|Purpose|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* Create prediction and authoring resources.<br>* Assign contributors on resources.|
-|[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authroing resource to another.  |
+|[LUIS](https://www.luis.ai)|* Migrate to new authoring resources.<br>* Create new authoring resource in the migration flow.<br>* Assign or unassign prediction and authoring resources to apps from **Manage -> Azure resources** page. <br>* Move applications from one authoring resource to another.  |
 
 > [!Note]
 > **Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
@@ -74,21 +74,20 @@ Migration is the process of changing authoring authentication from an email acco
 3. Optionally, if any of your apps have collaborators, you are prompted to **send them an email** letting them know about the migration. This is an optional step.
 
    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before        sending it. The email template includes the exact app ID and app name.
+   
+   ```html
+   Dear Sir/Madam,
 
-        ```html
-        Dear Sir/Madam,
+   I will be migrating my LUIS account to Azure. Consequently, you will no longer have access to the following app:
 
-        I will be migrating my LUIS account to Azure. Consequently, you will no longer have access to the following app:
-
-        App Id: <app-ID-omitted>
-        App name: Human Resources
-
-        Thank you
-        ```
+   App Id: <app-ID-omitted>
+   App name: Human Resources
+      
+   Thank you
+   ```
    
    > [!Note]
-   > Once you have migrated your account to Azure, your apps will no longer be available to collaborators.
-
+   > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
 4. Optionally, if you are a collaborator on any application, you are prompted to **export a copy of the apps** by selecting this option during the migration flow. Once you select the option, you will find the page below where you click on the download button on the left to export the apps you want. You may import these apps back after you migrate as they will not be automatically migrated with you. This is an optional step.
 
@@ -110,7 +109,7 @@ If you want to create a new authoring resource, select **create a new Authoring 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
 * **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
 * **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
-* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the furtherest to the right avatar which contains your initials.
+* **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the rightmost avatar which contains your initials.
 
 After you enter the above information, select **Done**.
 
@@ -221,7 +220,7 @@ It is recommended to:
 ## Troubleshooting migration process
 
 When you try to migrate but can not find your Azure subscription in the dropdown list:
-* Ensure you have a valid azure subscription that is authorized to create Cognitive Services resources. Go to [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you do not have one, [create a free trial](https://azure.microsoft.com/free/).
+* Ensure you have a valid Azure subscription that is authorized to create Cognitive Services resources. Go to [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you do not have one, [create a free trial](https://azure.microsoft.com/free/).
 * Ensure that you are in the proper tenant associated with your valid subscription. You can switch tenants from the further left avatar in the toolbar below:
 ![Switch tenants.](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
