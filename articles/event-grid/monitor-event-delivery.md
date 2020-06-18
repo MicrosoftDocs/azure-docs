@@ -107,7 +107,7 @@ The following procedure shows you how to create an alert on **dead-lettered even
     
     You can also create alerts by using the **Metrics** page. The steps are similar. 
 
-    :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" :::
+    :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Metrics page - Create alert button":::   
     
 2. On the **Create alert rule** page, verify that your topic is selected for the resource. Then, click **Select condition**. 
 
@@ -139,7 +139,7 @@ The following procedure shows you how to create an alert on **dead-lettered even
 7. Back on the **Create alert rule** page, enter a name for the alert rule, and then select **Create alert rule**.
 
     :::image type="content" source="./media/monitor-event-delivery/alert-rule-name.png" alt-text="Alert rule name":::  
-8. Now, on the **Alerts** page of the topic, you see a link to manage alert rules. 
+8. Now, on the **Alerts** page of the topic, you see a link to manage alert rules if there are no alerts yet. If there are alerts, select **Manager alert rules** on the toolbar.  
 
     :::image type="content" source="./media/monitor-event-delivery/manage-alert-rules.png" alt-text="Manage alerts":::
 
