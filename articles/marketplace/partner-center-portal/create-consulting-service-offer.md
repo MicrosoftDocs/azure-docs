@@ -91,7 +91,7 @@ This page lets you set the primary product that your consulting service offer be
     - **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements.
     - **Workshop**: An interactive engagement conducted on a customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
 
-3. If you selected **Azure** as primary product, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step. Here's the list of Solution Areas:
+3. If you selected **Azure** as primary product, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
 
     | Solution Area | | | |
     | --- | --- | --- | --- |
