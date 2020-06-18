@@ -7,7 +7,7 @@ author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Managed Applications
+# Azure Policy built-in definitions for Azure Managed Applications
 
 This page is an index of [Azure Policy](../../governance/policy/overview.md) built-in policy
 definitions for Azure Managed Applications. For additional Azure Policy built-ins for other

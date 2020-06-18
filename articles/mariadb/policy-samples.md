@@ -8,7 +8,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Database for MariaDB
+# Azure Policy built-in definitions for Azure Database for MariaDB
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Database for MariaDB. For additional Azure Policy built-ins for other

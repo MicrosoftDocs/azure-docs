@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-hyper-v.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) to work with Azure Migrate.
-    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) hosts and VMs assessment.
+    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) hosts and VMs assessment.
     - [Verify](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) what you need in order to deploy the Azure Migrate appliance for Hyper-V assessment.
 
 ## Set up an Azure Migrate project
@@ -97,7 +97,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.93 MB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Hyper-V (8.93 GB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - For Azure Government:
 
@@ -169,10 +169,7 @@ Set up the appliance for the first time.
 
 ### Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. This requires the following:
-
-- You enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running a script](tutorial-prepare-hyper-v.md#prepare-with-a-script) that does this.
-- Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
+If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. To do this, you enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials), or by [running a script](tutorial-prepare-hyper-v.md#run-the-script) that does this.
 
 Enable on the appliance as follows:
 
@@ -181,7 +178,7 @@ Enable on the appliance as follows:
 On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Example: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
