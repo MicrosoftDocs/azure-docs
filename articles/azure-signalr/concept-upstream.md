@@ -71,7 +71,7 @@ When select *ManagedIdentity*, you must enable Managed Identity in SignalR Servi
 
     :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream settings":::
 
-5. To set *Upstream Authentication*, make sure you have enabled managed identity first, and then select *Use Managed Identity* under *Upstream Authentication*. According to your needs, you can choose any options under *Auth Resource ID*. See [How to enable managed identity](howto-use-managed-identity) for details.
+5. To set *Upstream Authentication*, make sure you have enabled managed identity first, and then select *Use Managed Identity* under *Upstream Authentication*. According to your needs, you can choose any options under *Auth Resource ID*. See [How to enable managed identity](howto-use-managed-identity.md) for details.
 
 ### Create Upstream settings via ARM template
 
