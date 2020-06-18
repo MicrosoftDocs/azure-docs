@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
 
