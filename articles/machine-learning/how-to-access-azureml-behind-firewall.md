@@ -49,18 +49,6 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
-### Hosts for Azure Government cloud
-
-| **Host name** | **Purpose** |
-| ---- | ---- |
-| **\*.ml.azure.us** | Azure Machine Learning |
-
-### Hosts for Azure China 21Vianet
-
-| **Host name** | **Purpose** |
-| ---- | ---- |
-| **\*.ml.azure.cn** | Azure Machine Learning |
-
 ## Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
