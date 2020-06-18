@@ -41,7 +41,7 @@
 
 1. **Control** + **Click** on the *google-services.json* file from within the `PushDemo.Android` project, then ensure **GoogleServicesJson** is set as the **Build Action**.
 
-### Handle Push Notifications for Android
+### Handle push notifications for Android
 
 1. **Control** + **Click** on the `PushDemo.Android` project, choose **New Folder** from the **Add** menu, then click **Add** using *Services* as the **Folder Name**.
 

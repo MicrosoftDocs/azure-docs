@@ -26,7 +26,7 @@
 
 1. In **PushDemo.iOS**, open **Entitlements.plist** and ensure that **Enable Push Notifications** is checked when viewed in the **Entitlements** tab. Then, ensure the **APS Environment** setting is set to **development** when viewed in the **Source** tab.
 
-### Handle Push Notifications for iOS
+### Handle push notifications for iOS
 
 1. **Control** + **Click** on the **PushDemo.iOS** project, choose **New Folder** from the **Add** menu, then click **Add** using *Services* as the **Folder Name**.
 

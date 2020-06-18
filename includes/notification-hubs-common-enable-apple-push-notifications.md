@@ -38,7 +38,7 @@ To send push notifications to an iOS app, register your application with Apple, 
 
 1. In the **Certificates, Identifiers & Profiles** page, under **Identifiers**, locate the App ID line item that you created. Then, select its row to display the **Edit your App ID Configuration** screen.
 
-#### Creating a Certificate for Notification Hubs
+#### Creating a certificate for Notification Hubs
 
 A certificate is required to enable the notification hub to work with **Apple Push Notification Services (APNS)** and can be provided in one of two ways:
 

@@ -230,7 +230,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 1. **Control** + **Click** on the **PushDemoApi** project, choose **New Folder** from the **Add** menu, then click **Add** using *Models* as the **Folder Name**.
 
-1. **Control** + **Click** on the **Models** folder, then choose **New File...*** from the **Add** menu.
+1. **Control** + **Click** on the **Models** folder, then choose **New File...** from the **Add** menu.
 
 1. Select **General** > **Empty Class**, enter *PushTemplates.cs* for the **Name**, then click **New** adding the following implementation.
 

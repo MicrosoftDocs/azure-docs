@@ -55,7 +55,7 @@ Review the previous troubleshooting suggestions where applicable based on the st
 
 Set a breakpoint on the lines that return these specific status codes for the respective API. Then try calling the backend service when debugging locally.
 
-Validate the backend service is working as expected via **[Postman](https://www.postman.com/downloads)** using the appropriate payload. Use the actual payload created by the client code for the platform in question. 
+Validate the backend service is working as expected via **[Postman](https://www.postman.com/downloads)** using the appropriate payload. Use the actual payload created by the client code for the platform in question.
 
 Review the platform-specific configuration sections to ensure that no steps have been missed. Check that suitable values are being resolved for `installation id` and `token` variables for the appropriate platform.
 

@@ -35,7 +35,7 @@ In this section, you create a notification hub and configure authentication with
     **Pricing Tier:** Keep the default **Free** option  
 
     > [!NOTE]
-    > Unless you have reached the maximum number of hubs on the free tier).
+    > Unless you have reached the maximum number of hubs on the free tier.
 
 1. Once the **Notification Hub** has been provisioned, navigate to that resource.
 1. Navigate to your new **Notification Hub**.

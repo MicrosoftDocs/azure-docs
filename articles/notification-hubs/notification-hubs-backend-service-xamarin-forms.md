@@ -67,7 +67,7 @@ In this section, you set up **[Firebase Cloud Messaging (FCM)](https://firebase.
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-common-enable-apple-push-notifications.md)]
 
-[!INCLUDE [Create a notification hub](../../includes/notification-hubs-common-create-a-notification-hub.md)]
+[!INCLUDE [Create a notification hub](../../includes/notification-hubs-common-create-notification-hub.md)]
 
 [!INCLUDE [Configure your notification hub with APNs information](../../includes/notification-hubs-common-configure-with-apns-information.md)]
 
@@ -101,7 +101,7 @@ You can now test sending notifications via the backend service.
 
 [!INCLUDE [Testing the solution](../../includes/notification-hubs-backend-service-testing.md)]
 
-## Next Steps
+## Next steps
 
 You should now have a basic Xamarin.Forms app connected to a notification hub via a backend service and can send and receive notifications.
 
@@ -111,7 +111,7 @@ You should now have a basic Xamarin.Forms app connected to a notification hub vi
 
 [!INCLUDE [Troubleshooting](../../includes/notification-hubs-backend-service-troubleshooting.md)]
 
-## Related Links
+## Related links
 
 * [Azure Notification Hubs overview](notification-hubs-push-notification-overview.md)
 * [Installing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
