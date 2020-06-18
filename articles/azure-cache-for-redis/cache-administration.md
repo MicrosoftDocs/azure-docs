@@ -12,12 +12,6 @@ ms.author: yegu
 # How to administer Azure Cache for Redis
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Cache for Redis instances.
 
-> [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
->
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Reboot
@@ -68,7 +62,7 @@ If you reboot just one of the nodes, data is not typically lost, but it still ma
 Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## Schedule updates
-The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. A maintenance window allows you to control the day and time of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will a best effort to start and complete updating Redis server software within the specified time window you define.
+The **Schedule updates** blade allows you to designate a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will a best effort to start and finish updating Redis server software within the specified time window you define.
 
 > [!NOTE] 
 > The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
