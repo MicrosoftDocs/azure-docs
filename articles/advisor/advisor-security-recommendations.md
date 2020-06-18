@@ -25,7 +25,7 @@ To learn more about Advisor recommendations, see:
 * [Get started with Advisor](advisor-get-started.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
 
  
