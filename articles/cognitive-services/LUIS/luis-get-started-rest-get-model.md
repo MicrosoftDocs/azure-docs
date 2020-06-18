@@ -9,13 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 06/015/2020
-ms.author: roy-har
+ms.date: 06/17/2020
+ms.author: v-royha
 zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
-
-[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)
 
 # Quickstart: Change model with REST APIs
 
@@ -27,6 +25,8 @@ By following this quickstart, you will perform three REST calls in sequence.
 - Next, you will begin a training session for the Pizza app, using the [REST Train application version](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) call.
 - Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c46) call.
 
+[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)
+
 ## Prerequisites
 
 * A free [LUIS](https://www.luis.ai) account.
@@ -37,7 +37,7 @@ By following this quickstart, you will perform three REST calls in sequence.
 
 ## Create Pizza app
 
-[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
+[!INCLUDE [Create pizza app](../includes/get-started-get-intent-create-pizza-app.md)]
 
 ## Create a JSON file to train the Pizza app
 

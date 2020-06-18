@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 06/15/2020
-ms.author: roy-har
+ms.date: 06/17/2020
+ms.author: v-royha
 
 zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
-
 # Quickstart: Get intent with REST APIs
 
 This quickstart will show you how to use a LUIS app to determine a user's intention from conversational text. You will use cURL to send the user's intention as text to the Pizza app's HTTP prediction endpoint. At the endpoint, LUIS applies the Pizza app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.
+
+[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ This quickstart will show you how to use a LUIS app to determine a user's intent
 
 ## Create Pizza app
 
-[!INCLUDE [Create pizza app](get-started-get-intent-create-pizza-app.md)]
+[!INCLUDE [Create pizza app](../includes/get-started-get-intent-create-pizza-app.md)]
 
 ## Get intent from the prediction endpoint
 
@@ -262,4 +262,4 @@ Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../get-started-get-model-rest-apis.md)
+> [Add utterances and train](../luis-get-started-rest-get-model.md)
