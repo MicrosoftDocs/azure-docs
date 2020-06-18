@@ -34,7 +34,7 @@ At this time, linked service parameterization is supported in the Data Factory U
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure SQL Database
-- Azure Synapse Analytics (formatly SQL DW)
+- Azure Synapse Analytics (formerly SQL DW)
 - MySQL
 - Oracle
 - SQL Server
