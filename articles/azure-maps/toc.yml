@@ -227,7 +227,7 @@
     items:
     - name: Drawing package requirements
       href: drawing-requirements.md
-    - name: Dynamic maps StylesObject schema
+    - name: Dynamic maps StylesObject
       href: schema-stateset-stylesobject.md
     - name: Vehicle consumption model
       href: consumption-model.md
