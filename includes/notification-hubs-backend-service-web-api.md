@@ -8,7 +8,7 @@
 
 ### Create a web project
 
-1. Select **File** > **New Solution**.
+1. In **Visual Studio**, select **File** > **New Solution**.
 
 1. Select **.NET Core** > **App** > **ASP.NET Core** > **API** > **Next**.
   
@@ -16,7 +16,7 @@
 
 1. Enter *PushDemoApi* for the **Project Name** and then select **Create**.
 
-1. Start debugging (**COMMAND** + **ENTER**) to test the templated app.
+1. Start debugging (**Command** + **Enter**) to test the templated app.
 
     > [!NOTE]
     > The templated app is configured to use the **WeatherForecastController** as the *launchUrl*. This is set in **Properties** > **launchSettings.json**.  
@@ -574,7 +574,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 1. In **launchSettings.json** (within the **Properties** folder), change the **launchUrl** from `weatherforecast` to *api/notifications* to match the URL specified in the **RegistrationsController** **Route** attribute.
 
-1. Start debugging (**COMMAND** + **ENTER**) to validate the app is working with the new **NotificationsController** and returns a **401 Unauthorized** status.
+1. Start debugging (**Command** + **Enter**) to validate the app is working with the new **NotificationsController** and returns a **401 Unauthorized** status.
 
     > [!NOTE]
     > Visual Studio may not automatically launch the app in the browser. You will use [Postman](https://www.postman.com/downloads) to test the API from this point on.
@@ -584,6 +584,9 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
     ```bash
     https://localhost:5001/api/notifications
     ```
+
+    > [!NOTE]
+    > The localhost address should match the **applicationUrl** value found in **Properties** > **launchSettings.json**. The default should be `https://localhost:5001;http://localhost:5000` however this is something to verify if you receive a 404 response.
 
 1. If you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section, be sure to configure the request headers  to include your **apikey** value.
 
@@ -665,7 +668,7 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **Create a resource**, then search for and choose **API App**, the click **Create**.
+1. Click **Create a resource**, then search for and choose **API App**, then click **Create**.
 
 1. Update the following fields, then click **Create**.
 
@@ -682,7 +685,7 @@ You now create an [API App](https://azure.microsoft.com/services/app-service/api
     Create a new **App Service Plan**  
 
     > [!NOTE]
-    > Change from the default option if you want **SSL** support. Otherwise, you will need to take the appropriate steps when working with the mobile app to enable you to work with a non **https** endpoint.
+    > Change from the default option to a plan that includes **SSL** support. Otherwise, you will need to take the appropriate steps when working with the mobile app to prevent **http** requests from getting blocked.
 
     **Application Insights:**  
     Keep the suggested option (a new resource will be created using that name) or pick an existing resource.

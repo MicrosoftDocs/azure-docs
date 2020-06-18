@@ -157,7 +157,7 @@
     }
     ```
 
-1. In **MainActivity.cs**, add the `Firebase.Iid` and **using Android.Gms.Common** namespaces to the top of the file.
+1. In **MainActivity.cs**, add the `Firebase.Iid` and `Android.Gms.Common` namespaces to the top of the file.
 
     ```csharp
     using Firebase.Iid;
@@ -176,7 +176,7 @@
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     ```
 
-1. Implement the **IOnSuccessListener** interface.
+1. Implement the **IOnSuccessListener** interface to retrieve and store the **Firebase** token.
 
     ```csharp
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity, Android.Gms.Tasks.IOnSuccessListener

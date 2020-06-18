@@ -77,3 +77,7 @@
 1. With the app still open, click the **Send** button in **[Postman](https://www.postman.com/downloads)**.
 
 1. Validate that you get a **200 OK** response in **[Postman](https://www.postman.com/downloads)** and that the alert appears in the app showing **ActionB action received** instead of **ActionA action received**.
+
+1. Close the **PushDemo** app, then click the **Send** button again in **[Postman](https://www.postman.com/downloads)**.
+
+1. Validate that you get a **200 OK** response in **[Postman](https://www.postman.com/downloads)** and that the silent notification doesn't appear in the notification area.

@@ -47,15 +47,15 @@ Or when testing locally:
 
 When specifying the base address in the client app, ensure it ends with a `/`. The base address should indicatively be `https://<api_name>.azurewebsites.net/` or `https://localhost:5001/` when testing locally.
 
-#### Unable to register with notification hub error message is displayed
+#### Unable to register and a notification hub error message is displayed
 
-Verify that the test device has network connectivity. Then determine the Http response status code by setting a breakpoint to inspect the **StatusCode** property value in the **HttpResponse**.
+Verify that the test device has network connectivity. Then, determine the Http response status code by setting a breakpoint to inspect the **StatusCode** property value in the **HttpResponse**.
 
 Review the previous troubleshooting suggestions where applicable based on the status code.
 
 Set a breakpoint on the lines that return these specific status codes for the respective API. Then try calling the backend service when debugging locally.
 
-Validate the backend service is working as expected via **[Postman](https://www.postman.com/downloads)** using the appropriate payload. Use the actual payload created by the client code for the platform in question. Validate that the *templates* are in the correct format. Check the templates don't contain typos such as unexpected escape characters, and are accepted by the backend service.
+Validate the backend service is working as expected via **[Postman](https://www.postman.com/downloads)** using the appropriate payload. Use the actual payload created by the client code for the platform in question. 
 
 Review the platform-specific configuration sections to ensure that no steps have been missed. Check that suitable values are being resolved for `installation id` and `token` variables for the appropriate platform.
 

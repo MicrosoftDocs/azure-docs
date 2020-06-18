@@ -121,7 +121,7 @@
     const int SupportedVersionMinor = 0;
     ```
 
-1. Add private properties and their respective backing fields to store a reference to the **NSData** device token, the **IPushDemoNotificationActionService**. and the **INotificationRegistrationService** implementation.
+1. Add private properties and their respective backing fields to store a reference to the **NSData** device token along with the **IPushDemoNotificationActionService** and **INotificationRegistrationService** implementations.
 
     ```csharp
     NSData _deviceToken;
@@ -189,7 +189,7 @@
     }
     ```
 
-1. Add the **ProcessNotificationActions** method for processing the **NSDictionary** notification data.
+1. Add the **ProcessNotificationActions** method for processing the **NSDictionary** notification data and conditionally calling **NotificationActionService.TriggerAction**.
 
     ```csharp
     void ProcessNotificationActions(NSDictionary userInfo)

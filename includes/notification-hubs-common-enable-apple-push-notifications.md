@@ -40,13 +40,13 @@ To send push notifications to an iOS app, register your application with Apple, 
 
 #### Creating a Certificate for Notification Hubs
 
-A certificate is required to enable the notification hub to work with **APNS** and can be provided in one of two ways:
+A certificate is required to enable the notification hub to work with **Apple Push Notification Services (APNS)** and can be provided in one of two ways:
 
 1. [Creating a p12 push certificate that can be uploaded directly to Notification Hub](#option-1-creating-a-p12-push-certificate-that-can-be-uploaded-directly-to-notification-hub) (*the original approach*)
 
 1. [Creating a p8 certificate that can be used for token-based authentication](#option-2-creating-a-p8-certificate-that-can-be-used-for-token-based-authentication) (*the newer and recommended approach*)
 
-The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches either will work for the purposes of this tutorial.
+The newer approach has a number of benefits as documented in [Token-based (HTTP/2) authentication for APNS](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-http2-token-authentification). Fewer steps are required but is also mandated for specific scenarios. However, steps have been provided for both approaches since either will work for the purposes of this tutorial.
 
 ##### OPTION 1: Creating a p12 push certificate that can be uploaded directly to Notification Hub
 
@@ -121,10 +121,10 @@ The newer approach has a number of benefits as documented in [Token-based (HTTP/
 1. Back in **Certificates, Identifiers & Profiles**, click **Keys**.
 
    > [!NOTE]
-   > If you already have a key configured for **APNs**, you can re-use the p8 certificate that you downloaded right after it was created. If so, you can ignore steps **3** through **5**.
+   > If you already have a key configured for **APNS**, you can re-use the p8 certificate that you downloaded right after it was created. If so, you can ignore steps **3** through **5**.
 
 1. Click the **+** button (or the **Create a key** button) to create a new key.
-1. Provide a suitable **Key Name** value, then check the **Apple Push Notifications service (APNs)** option, and then click **Continue**, followed by **Register** on the next screen.
+1. Provide a suitable **Key Name** value, then check the **Apple Push Notifications service (APNS)** option, and then click **Continue**, followed by **Register** on the next screen.
 1. Click **Download** and then move the **p8** file (prefixed with *AuthKey_*) to a secure local directory, then click **Done**.
 
    > [!NOTE]
@@ -141,7 +141,7 @@ The newer approach has a number of benefits as documented in [Token-based (HTTP/
     > [!NOTE]
     > This is the **token value** that will be used later to configure **Notification Hub**.
 
-At the end of these steps, you should have the following information for use later in [Configure your notification hub with APNs information](#configure-your-notification-hub-with-apns-information):
+At the end of these steps, you should have the following information for use later in [Configure your notification hub with APNS information](#configure-your-notification-hub-with-apns-information):
 
 * **Team ID** (see step 1)
 * **Bundle ID** (see step 1)

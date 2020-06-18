@@ -60,7 +60,7 @@
     > [!NOTE]
     > This is a trimmed-down version of the [ServiceContainer](https://github.com/xamcat/mobcat-library/blob/master/MobCAT/ServiceContainer.cs) class from the [XamCAT](https://github.com/xamcat/mobcat-library) repository. It will be used as a light-weight IoC (Inversion of Control) container.
 
-1. Add a new folder to the **PushDemo** project called *Models* then add an **Empty Class** to that folder called *DeviceInstallation.cs** with the following implementation.
+1. Add a new folder to the **PushDemo** project called *Models* then add an **Empty Class** to that folder called *DeviceInstallation.cs* with the following implementation.
 
     ```csharp
     using System.Collections.Generic;
@@ -103,7 +103,7 @@
     > [!NOTE]
     > This interface will be implemented and bootstrapped by each target later to provide the platform-specific **DeviceInstallation** information required by the backend service.
 
-1. Add an **Empty Enumeration** to the **Models** folder called *PushDemoAction.cs** with the following implementation.
+1. Add an **Empty Enumeration** to the **Models** folder called *PushDemoAction.cs* with the following implementation.
 
     ```csharp
     namespace PushDemo.Models
@@ -168,7 +168,7 @@
     > [!NOTE]
     > This type is specific to the **PushDemo** application and uses the **PushDemoAction** enumeration to identify the action that is being triggered in a strongly-typed manner.
 
-1. Add an **Empty Class** to the **Services** folder called *NotificationRegistrationService.cs* implementing the *INotificationRegistrationService* with the following implementation.
+1. Add an **Empty Class** to the **Services** folder called *NotificationRegistrationService.cs* implementing the *INotificationRegistrationService* with the following code.
 
     ```csharp
     using System;
@@ -270,7 +270,7 @@
     > [!NOTE]
     > The **apiKey** argument is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 
-1. Add an **Empty Class** to the **Services** folder called *PushDemoNotificationActionService.cs* implementing the *IPushDemoNotificationActionService* with the following implementation.
+1. Add an **Empty Class** to the **Services** folder called *PushDemoNotificationActionService.cs* implementing the *IPushDemoNotificationActionService* with the following code.
 
     ```csharp
     using System;
@@ -351,7 +351,7 @@
     ```
 
     > [!NOTE]
-    > Replace the placeholder values with your own. You should have made a note of these when you build the backend service. The **API App** URL should be ``https://<api_app_name>.azurewebsites.net/``. Remember to add ``*.local_secrets.*`` to your gitignore file to avoid committing this file.
+    > Replace the placeholder values with your own. You should have made a note of these when you built the backend service. The **API App** URL should be ``https://<api_app_name>.azurewebsites.net/``. Remember to add ``*.local_secrets.*`` to your gitignore file to avoid committing this file.
     >
     > The **ApiKey** field is only required if you chose to complete the [Authenticate clients using an API Key](#authenticate-clients-using-an-api-key-optional) section.
 

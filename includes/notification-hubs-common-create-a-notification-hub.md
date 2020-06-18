@@ -12,7 +12,7 @@ In this section, you create a notification hub and configure authentication with
 
 1. Sign in to [Azure](https://portal.azure.com).
 
-1. Click **Create a resource**, then search for and choose **Notification Hub**, the click **Create**.
+1. Click **Create a resource**, then search for and choose **Notification Hub**, then click **Create**.
 
 1. Update the following fields, then click **Create**:
 
