@@ -38,7 +38,7 @@ For example, the following JSON shows a policy that limits where resources are d
     "properties": {
         "displayName": "Allowed locations",
         "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "mode": "all",
+        "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
             "category": "Locations"
