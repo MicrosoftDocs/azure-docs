@@ -13,7 +13,7 @@ ms.custom: subject-armqs
 
 # Create a Cognitive Services resource Using an Azure Resource Manager template
 
-Use this article to create and deploy a Cognitive Services resource, using an [Azure Resource Manager (ARM) template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -26,7 +26,7 @@ Use this article to create and deploy a Cognitive Services resource, using an [A
 
 ### Review the template
 
-The template used in this quickstart is from [Azure quickstart ARM templates](https://azure.microsoft.com/en-us/resources/templates/101-cognitive-services-universalkey/).
+The template used in this quickstart is from [Azure quickstart ARM templates](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
@@ -63,6 +63,9 @@ One Azure resource is defined in the template:
 > [!NOTE]
 > `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](https://docs.microsoft.com/cli/azure/deployment/group).
 
+Run the following script using the Azure Command Line Interface (CLI) [On your local machine](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or in a browser with the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
+
+
 ```azurecli-interactive
 read -p "Enter a name for your new resource group:" resourceGroupName &&
 read -p "Enter the location (i.e. centralus):" location &&
@@ -87,6 +90,8 @@ When your deployment finishes, you will be able to click the **Go to resource** 
 
 # [Azure CLI](#tab/CLI)
 
+Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier. 
+
 ```azurecli-interactive
 echo "Enter the resource group where the Cognitive Services resource exists:" &&
 read resourceGroupName &&
@@ -107,6 +112,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
 
 # [Azure CLI](#tab/CLI)
+
+Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier. 
 
 ```azurecli-interactive
 echo "Enter the resource group name, for deletion:" &&
