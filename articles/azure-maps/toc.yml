@@ -227,6 +227,8 @@
     items:
     - name: Drawing package requirements
       href: drawing-requirements.md
+    - name: Dynamic maps StylesObject schema
+      href: schema-stateset-stylesobject.md
     - name: Vehicle consumption model
       href: consumption-model.md
     - name: Extend GeoJSON format
