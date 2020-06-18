@@ -34,7 +34,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Support getting logs of init container.
-    + Added `az ml run submit-notebook` command for running Jupyter notebooks as experiment runs.
   + **azureml-automl-core**
     + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
     + Added a new type of user exception `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException` which is raised if the cache store contents have been tampered with
