@@ -59,7 +59,18 @@ Below are the metrics you will find displayed in the azure portal, along with th
 ### Authentication
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
+| APIRequests |  Count of incoming API requests and their status |  |
+| IssuingTokenLatency| Total time it takes to issue a new access token | In milliseconds |
+| RevokeTokenLatency | Total time it takes to revoke tokens for a user | In milliseconds | 
+| TypeAuthenticationArtifact | Type of authentication artifact used per request and status code | HMAC/SAS/MI etc |
+| Scopes | Number of combination of scopes used per request to issue access token | Chat, PSTN, Voip etc  | 
 
+### Identity
+| Metric name | Definition | Notes |
+|-----|:------------:| :------------:|
+| APIRequests |  Count of incoming API requests and their status |  |
+| GenerateIdentityLatency| Total time it takes to generate new identity | In milliseconds |
+| DeleteUserLatency | Total time it takes to mark user as deleted | In milliseconds | 
 
 ## Related Topics
 
