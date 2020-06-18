@@ -36,6 +36,8 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+  - name: Pricing concepts
+    href: pricing-concepts.md
   - name: Routing
     items:
     - name: About virtual hub routing
