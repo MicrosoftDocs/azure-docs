@@ -119,7 +119,7 @@ To copy data from SAP Cloud for Customer, set the source type in the copy activi
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSource**  | Yes |
 | query | Specify the custom OData query to read data. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:05:00** (5 minutes). | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 Sample query to get data for a specific day:
 `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
