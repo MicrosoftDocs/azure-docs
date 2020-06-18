@@ -35,6 +35,10 @@ You can use Azure file shares on a Windows installation that is running either i
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
+## Prerequisites 
+
+Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
 ## Using an Azure file share with Windows
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
