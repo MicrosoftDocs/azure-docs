@@ -122,7 +122,7 @@ You can use the API to either upload a CSV or manage your audience directly (wit
 
 Here's how to programmatically update your audience list:
 
-1. [Retrieve your offer](cloud-partner-portal-api-retrieve-specific-offer.md) data:
+1. [Retrieve your offer](../cloud-partner-portal-api-retrieve-specific-offer.md) data:
 
     ```
     GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
@@ -179,7 +179,7 @@ Here's how to programmatically update your audience list:
 
     a. For each restricted audience object, add or delete entries in the `restrictedAudience.manualEntries` list as needed.
 
-4. When finished updating all the *restrictedAudience* objects for each SKU of your private offer, [update the offer](cloud-partner-portal-api-creating-offer.md):
+4. When finished updating all the *restrictedAudience* objects for each SKU of your private offer, [update the offer](../cloud-partner-portal-api-creating-offer.md):
 
     ```
     PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
