@@ -12,8 +12,6 @@ ms.reviewer: azfuncdf, antchu
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
-
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
 ![Running durable function in Azure](./media/quickstart-python-vscode/functions-vs-code-complete.png)
@@ -48,7 +46,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a language for your function app project | Python | Create a local Node.js Functions project. |
+    | Select a language for your function app project | Python | Create a local Python Functions project. |
     | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Python version | Python 3.6, 3.7, or 3.8 | VS Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
@@ -56,26 +54,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A package.json file is also created in the root folder.
-
-### Enable Azure Functions V2 compatibility mode
-
-Currently, Python Durable Functions require Azure Functions V2 compatibility mode to be enabled.
-
-1. Open *local.settings.json* to edit the settings used when running the app locally.
-
-1. Add a setting named `FUNCTIONS_V2_COMPATIBILITY_MODE` with a value of `true`.
-
-    ```json
-    {
-        "IsEncrypted": false,
-        "Values": {
-            "AzureWebJobsStorage": "",
-            "FUNCTIONS_WORKER_RUNTIME": "node",
-            "FUNCTIONS_V2_COMPATIBILITY_MODE": "true"
-        }
-    }
-    ```
+A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
 ## Install azure-functions-durable from PyPI
 
@@ -84,18 +63,24 @@ When you created the project, the Azure Functions VS Code extension automaticall
 1. Open `requirements.txt` in the editor and change its content to the following:
 
     ```
-    azure-functions>=1.2.0
-    azure-functions-durable>=1.0.0b4
+    azure-functions
+    azure-functions-durable>=1.0.0b5
     ```
-
-    Durable Functions requires `azure-functions` version 1.2.0 or greater.
 
 1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
 
 1. In the integrated terminal, activate the virtual environment in the current folder:
 
+    **Linux or macOS**
+
     ```bash
     source .venv/bin/activate
+    ```
+
+    **Windows**
+
+    ```powershell
+    .venv\scripts\activate
     ```
 
     ![Activate virtual environment](media/quickstart-python-vscode/activate-venv.png)
@@ -106,9 +91,9 @@ When you created the project, the Azure Functions VS Code extension automaticall
     python -m pip install -r requirements.txt
     ```
 
-## Creating your functions
+## Create your functions
 
-The most basic Durable Functions app contains three functions:
+A basic Durable Functions app contains three functions:
 
 * *Orchestrator function* - describes a workflow that orchestrates other functions.
 * *Activity function* - called by the orchestrator function, performs work, and optionally returns a value.
@@ -142,7 +127,7 @@ Next, you'll add the referenced `Hello` activity function.
     | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/\_\_init__.py* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/\_\_init__.py* to see that it takes a name as input and returns a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
 
 Finally, you'll add an HTTP triggered function that starts the orchestration.
 
@@ -164,7 +149,7 @@ You now have a Durable Functions app that can be run locally and deployed to Azu
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. If you don't have it installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
 
 1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
@@ -189,13 +174,13 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local output](media/quickstart-python-vscode/functions-f5.png)
 
-1. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Using your browser or a tool like [Postman](https://www.getpostman.com/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   The request will query the orchestration instance for the status. You should get an eventual response, which shows the instance has completed, and includes the outputs or results of the durable function. It looks like: 
 
     ```json
     {
@@ -221,20 +206,6 @@ After you've verified that the function runs correctly on your local computer, i
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-sign-in-vs-code.md)]
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
-
-### Enable Azure Functions V2 compatibility mode
-
-The same Azure Functions V2 compatibility that you enabled locally needs to be enabled in the app in Azure.
-
-1. Using the command palette, search for and select `Azure Functions: Edit Setting...`.
-
-1. Follow the prompts to locate your function app in your Azure subscription.
-
-1. Select `Create new App Setting...`.
-
-1. Enter a new setting key of `FUNCTIONS_V2_COMPATIBILITY_MODE`.
-
-1. Enter a setting value of `true`.
 
 ## Test your function in Azure
 
