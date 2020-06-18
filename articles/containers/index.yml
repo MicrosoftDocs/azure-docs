@@ -42,19 +42,15 @@ conceptualContent:
     # Card
     - title: Test and develop AKS applications
       links:
-        - url: /azure/dev-spaces/about
-          itemType: overview
-          text: What is Azure Dev Spaces?
-        - url: /azure/dev-spaces/quickstart-netcore
-          itemType: quickstart
-          text: Run and debug a microservice
-        - url: /azure/dev-spaces/quickstart-team-development
-          itemType: quickstart
-          text: Collaborate on a set of microservices with a team
-      # footerLink (optional)
-      footerLink:
-        url: /azure/dev-spaces/ 
-        text: See more
+        - url: /azure/dev-spaces/how-dev-spaces-works-local-process-kubernetes
+          itemType: concept
+          text: How Local Process with Kubernetes works
+        - url: /azure/dev-spaces/how-to/local-process-kubernetes-vs-code
+          itemType: how-to-guide
+          text: Use Local Process with Kubernetes with Visual Studio Code
+        - url: /azure/dev-spaces/how-to/local-process-kubernetes-visual-studio
+          itemType: how-to-guide
+          text: Use Local Process with Kubernetes with Visual Studio
     # Card
     - title: Create cloud apps for web and mobile
       links:
