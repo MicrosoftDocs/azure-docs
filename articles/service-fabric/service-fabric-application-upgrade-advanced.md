@@ -15,9 +15,9 @@ Similarly, service types can be removed from an application as part of an upgrad
 
 ## Avoid connection drops during stateless service planned downtime (preview)
 
-For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped due to the exposed endpoint is removed after the instance goes down, which results in forced connection closures.
+For planned stateless instance downtimes, such as application/cluster upgrade or node deactivation, connections can get dropped as the exposed endpoint is removed after the instance goes down, which results in forceful connection closures.
 
-To avoid this, configure the *RequestDrain* feature by adding an *instance close delay duration* in the service configuration to allow drain while receiving requests from other services within the cluster and are using Reverse Proxy or using resolve API with notification model for updating endpoints. This ensures that the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down.
+To avoid this, configure the *RequestDrain* feature by adding an *instance close delay duration* in the service configuration to allow existing requests from within the cluster to drain on the exposed endpoints. This is achieved as the endpoint advertised by the stateless instance is removed *before* the delay starts prior to closing the instance. This delay enables existing requests to drain gracefully before the instance actually goes down. Clients are notified of the endpoint change by a callback function at the time of starting the delay, so that they can re-resolve the endpoint and avoid sending new requests to the instance which is going down. These requests could be originating from clients using [Reverse Proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) or using service endpoint resolution api's with the notification model ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) for updating the endpoints.
 
 ### Service configuration
 
@@ -88,7 +88,7 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 The overridden delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a delay of `0` in order to skip any preconfigured upgrade delays.
 
 > [!NOTE]
-> * The setting to drain requests is not honored for requests from Azure Load balancer.
+> * The settings to drain requests will not be able to prevent the Azure Load balancer from sending new requests to the endpoints which are undergoing drain.
 > * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
 > * The settings are not honored when the upgrade is an impactless one i.e when the replicas will not be brought down during the upgrade.
 >
