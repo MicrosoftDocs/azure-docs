@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/18/2020
 ms.author: cherylmc
 
 ---
@@ -40,13 +40,17 @@ You can set up the routing configuration for a virtual network connection during
 
 Each connection is associated to one route table. Associating a connection to a route table allows the traffic to be sent to the destination indicated as routes in the route table. The routing configuration of the connection will show the associated route table.  Multiple connections can be associated to the same route table. All VPN, ExpressRoute, and User VPN connections are associated to the same (defaut) route table.
 
-By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes. 
+By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
+
+:::image type="content" source="./media/about-virtual-hub-routing/association.png" alt-text="Association":::
 
 ### <a name="propagation"></a>Propagation
 
 Connections dynamically propagate routes to a route table. With a VPN connection, ExpressRoute connection, or P2S configuration connection, routes are propagated from the virtual hub to the on-premises router using BGP. Routes can be propagated to one or multiple route tables.
 
 A **None route table** is also available for each virtual hub. Propagating to the None route table implies that no routes are required to be propagated from the connection. VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables.
+
+:::image type="content" source="./media/about-virtual-hub-routing/propagation.png" alt-text="Propagation":::
 
 ### <a name="static"></a>Configuring static routes in a virtual network connection
 
