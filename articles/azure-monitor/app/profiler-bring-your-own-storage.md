@@ -28,7 +28,7 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 ## Prerequisites
 * Make sure to create your Storage Account in the same location as your Application Insights Resource. Ex. If your Application Insights resource is in West US 2, your Storage Account must be also in West US 2. 
-* Grant the "Storage Blob Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the Access Control (IAM) UI.
+* Grant the "Storage Blob Data Contributor" role to the AAD application "Diagnostic Services Trusted Storage Access" in your storage account via the Access Control (IAM) UI.
 * If Private Link enabled, configure the additional setting to allow connection to our Trusted Microsoft Service from your Virtual Network. 
 
 ## How to enable BYOS

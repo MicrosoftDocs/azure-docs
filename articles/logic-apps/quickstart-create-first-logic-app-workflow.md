@@ -43,9 +43,9 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
+   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". <p><p>**Note**: Names for logic apps must be unique across regions. |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". <p><p>**Note**: Names for resource groups must be unique across regions. |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
