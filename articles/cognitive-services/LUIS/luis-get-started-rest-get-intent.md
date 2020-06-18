@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Get intent with REST APIs
+# Quickstart: Use cURL and REST to get intent
 
 This quickstart will show you how to use a LUIS app to determine a user's intention from conversational text. You will use cURL to send the user's intention as text to the Pizza app's HTTP prediction endpoint. At the endpoint, LUIS applies the Pizza app's model to analyze the natural language text for meaning, determining overall intent and extracting data relevant to the app's subject domain.
 

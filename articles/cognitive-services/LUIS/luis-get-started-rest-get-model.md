@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-one
 #Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Change model with REST APIs
+# Quickstart: Use cURL and REST to change model
 
 This quickstart will show you how to add example utterances to a Pizza app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
 
