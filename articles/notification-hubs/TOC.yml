@@ -60,6 +60,12 @@
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Push localized notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+  - name: Cross-Platform
+    items:
+    - name: Send push notifications via a backend service
+      items:
+      - name: Xamarin.Forms
+        href: notification-hubs-backend-service-xamarin-forms.md
   - name: Windows Phone
     items:
     - name: Push notifications to apps

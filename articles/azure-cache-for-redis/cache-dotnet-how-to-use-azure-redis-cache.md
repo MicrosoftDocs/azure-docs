@@ -32,7 +32,7 @@ Edit the *CacheSecrets.config* file and add the following contents:
 
 ```xml
 <appSettings>
-    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
 </appSettings>
 ```
 
@@ -147,9 +147,18 @@ Add the following code for the `Main` procedure of the `Program` class for your 
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
             // Get the client list, useful to see if connection list is growing...
+            // Note that this requires the allowAdmin=true
             cacheCommand = "CLIENT LIST";
             Console.WriteLine("\nCache command  : " + cacheCommand);
-            Console.WriteLine("Cache response : \n" + cache.Execute("CLIENT", "LIST").ToString().Replace("id=", "id="));
+            var endpoint = (System.Net.DnsEndPoint) Connection.GetEndPoints()[0];
+            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+
+            var clients = server.ClientList(); 
+            Console.WriteLine("Cache response :");
+            foreach (var client in clients)
+            {
+                Console.WriteLine(client.Raw);
+            }
 
             lazyConnection.Value.Dispose();
         }
