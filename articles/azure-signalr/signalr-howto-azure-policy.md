@@ -17,20 +17,17 @@ This article introduces built-in policies (preview) for Azure SignalR Service. U
 
 There are no charges for using Azure Policy.
 
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
-
 ## Built-in policy definitions
 
 The following built-in policy definitions are specific to Azure SignalR Service:
 
 [!INCLUDE [azure-policy-samples-policies-signalr](../../includes/policy/samples/bycat/policies-signalr.md)]
 
-See also the built-in network policy definition: [[Preview]: Azure SignalR Service should use private links](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f).
+See also the built-in network policy definition: [\[Preview\]: Azure SignalR Service should use private links](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F53503636-bcc9-4748-9663-5348217f160f).
 
-## Assign policies
+## Assign policy definitions
 
-* Assign policies using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
+* Assign policy definitions using the [Azure portal](../governance/policy/assign-policy-portal.md), [Azure CLI](../governance/policy/assign-policy-azurecli.md), a [Resource Manager template](../governance/policy/assign-policy-template.md), or the Azure Policy SDKs.
 * Scope a policy assignment to a resource group, a subscription, or an [Azure management group](../governance/management-groups/overview.md). SignalR policy assignments apply to existing and new SignalR resources within the scope.
 * Enable or disable [policy enforcement](../governance/policy/concepts/assignment-structure.md#enforcement-mode) at any time.
 
