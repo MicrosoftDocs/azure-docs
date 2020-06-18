@@ -12,6 +12,8 @@
     href: language-support.md
   - name: Region support
     href: regions.md
+  - name: What's new in docs? 
+    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
