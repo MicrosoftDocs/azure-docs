@@ -146,35 +146,9 @@
         => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
     ```
 
-1. Add the **RequestRemoteNotifications** and **RegisterForRemoteNotifications** methods to request authorization for remote notifications and register with **APNS**.
+1. Add the **RegisterForRemoteNotifications** method to register user notification settings and then for remote notifications with **APNS**.
 
     ```csharp
-    void RequestRemoteNotifications()
-    {
-        UNUserNotificationCenter.Current.GetNotificationSettings((settings) => {
-            var alertsAllowed = (settings.AlertSetting == UNNotificationSetting.Enabled);
-            var badgeAllowed = (settings.BadgeSetting == UNNotificationSetting.Enabled);
-            var soundAllowed = (settings.SoundSetting == UNNotificationSetting.Enabled);
-
-            if (!alertsAllowed || !badgeAllowed || !soundAllowed)
-            {
-                UNUserNotificationCenter.Current.RequestAuthorization(
-                    UNAuthorizationOptions.Alert |
-                    UNAuthorizationOptions.Badge |
-                    UNAuthorizationOptions.Sound,
-                    (approvalGranted, error) =>
-                    {
-                        if (approvalGranted && error == null)
-                            RegisterForRemoteNotifications();
-                    });
-            }
-            else
-            {
-                RegisterForRemoteNotifications();
-            }
-        });
-    }
-
     void RegisterForRemoteNotifications()
     {
         MainThread.BeginInvokeOnMainThread(() =>
@@ -283,11 +257,21 @@
     > [!NOTE]
     > This is very much a placeholder. You will want to implement proper logging and error handling for production scenarios.
 
-1. Update the **FinishedLaunching** method to conditionally call **RequestRemoteNotifications** then `Bootstrap.Begin` before the call to **LoadApplication**. Pass in the requisite **Func** dependencies to the **DeviceInstallationService**.
+1. Update the **FinishedLaunching** method to conditionally request authorization and register for remote notifications after `Forms.Init()`. Then, call `Bootstrap.Begin` before the call to **LoadApplication** passing in the requisite **Func** dependencies to the **DeviceInstallationService**.
 
     ```csharp
     if (NotificationsSupported)
-        RequestRemoteNotifications();
+    {
+        UNUserNotificationCenter.Current.RequestAuthorization(
+                UNAuthorizationOptions.Alert |
+                UNAuthorizationOptions.Badge |
+                UNAuthorizationOptions.Sound,
+                (approvalGranted, error) =>
+                {
+                    if (approvalGranted && error == null)
+                        RegisterForRemoteNotifications();
+                });
+    }
 
     Bootstrap.Begin(() => new DeviceInstallationService(
         () => _deviceToken,
