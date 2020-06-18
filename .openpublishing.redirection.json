@@ -48368,12 +48368,12 @@
     {
       "source_path": "articles/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-emulator-visual-studio.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
