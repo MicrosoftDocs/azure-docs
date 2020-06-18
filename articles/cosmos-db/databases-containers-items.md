@@ -16,7 +16,7 @@ After you create an [Azure Cosmos DB account](account-overview.md) under your Az
 
 The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities":::
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
 
 ## Azure Cosmos databases
 

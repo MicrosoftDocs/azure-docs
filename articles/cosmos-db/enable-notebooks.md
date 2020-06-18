@@ -17,30 +17,35 @@ ms.author: dech
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to enable this feature for your Azure Cosmos DB account.
 
 ## Enable notebooks in a new Cosmos account
+
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select **Create a resource** > **Databases** > **Azure Cosmos DB**.
 1. On the **Create Azure Cosmos DB Account** page, select **Notebooks**. 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Select notebooks option in Azure Cosmos DB Create blade":::
+
 1. Select **Review + create**. You can skip the **Network** and **Tags** option. 
 1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**. 
 
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="The Azure portal Notifications pane":::
-1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="The Azure portal Notifications pane":::
 
-    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="The Azure Cosmos DB account page":::
+1. Select **Go to resource** to go to the Azure Cosmos DB account page.
+
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="The Azure Cosmos DB account page":::
 
 1. Navigate to the **Data Explorer** pane. You should now see your notebooks workspace.
 
     :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="New Azure Cosmos DB notebooks workspace":::
 
 ## Enable notebooks in an existing Cosmos account
+
 You can also enable notebooks on existing accounts. This step needs to be done only once per account.
 
 1. Navigate to the **Data Explorer** pane in your Cosmos account.
 1. Select **Enable Notebooks**.
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Create a new notebooks workspace in Data Explorer":::
+
 1. This will prompt you to create a new notebooks workspace. Select **Complete setup.**
 1. Your account is now enabled to use notebooks!
 

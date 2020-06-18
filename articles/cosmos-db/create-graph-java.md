@@ -100,6 +100,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     Copy the first portion of the URI value.
 
     :::image type="content" source="./media/create-graph-java/copy-access-key-azure-portal.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
+
 2. Open the *src/remote.yaml* file and paste the unique ID value over `$name$` in `hosts: [$name$.graphs.azure.com]`.
 
     Line 1 of *remote.yaml* should now look similar to 

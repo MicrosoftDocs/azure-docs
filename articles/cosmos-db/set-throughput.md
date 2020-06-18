@@ -35,7 +35,7 @@ We recommend that you configure throughput at the container granularity when you
 
 The following image shows how a physical partition hosts one or more logical partitions of a container:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition" border="false":::
 
 ## Set throughput on a database
 
@@ -67,7 +67,7 @@ If your Azure Cosmos DB account already contains a shared throughput database wi
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition" border="false":::
 
 ## Set throughput on a database and a container
 

@@ -15,7 +15,7 @@ Azure Cosmos DB approaches data consistency as a spectrum of choices instead of 
 
 With Azure Cosmos DB, developers can choose from five well-defined consistency levels on the consistency spectrum. These levels include *strong*, *bounded staleness*, *session*, *consistent prefix*, and *eventual* consistency. The levels are well-defined and intuitive and can be used for specific real-world scenarios. Each level provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by SLAs. The following image shows the different consistency levels as a spectrum.
 
-:::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistency as a spectrum":::
+:::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistency as a spectrum" border="false" :::
 
 The consistency levels are region-agnostic and are guaranteed for all operations regardless of the region from which the reads and writes are served, the number of regions associated with your Azure Cosmos account, or whether your account is configured with a single or multiple write regions.
 

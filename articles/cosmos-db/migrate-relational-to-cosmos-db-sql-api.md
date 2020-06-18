@@ -21,7 +21,7 @@ One common transformation is denormalizing data by embedding related subitems wi
 Assume we have the following two tables in our SQL database, Orders and OrderDetails.
 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="Order Details":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="Order Details" border="false" :::
 
 We want to combine this one-to-few relationship into one JSON document during migration. To do this, we can create a T-SQL query using "FOR JSON" as below:
 

@@ -61,7 +61,7 @@ To start the Azure Cosmos Emulator, select the Start button or press the Windows
 
 ![Select the Start button or press the Windows key, begin typing **Azure Cosmos Emulator**, and select the emulator from the list of applications](./media/local-emulator/database-local-emulator-start.png)
 
-When the emulator is running, you'll see an icon in the Windows taskbar notification area. :::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB local emulator task bar notification":::
+When the emulator is running, you'll see an icon in the Windows taskbar notification area. ![Azure Cosmos DB local emulator task bar notification](./media/local-emulator/database-local-emulator-taskbar.png)
 
 The Azure Cosmos Emulator by default runs on the local machine ("localhost") listening on port 8081.
 

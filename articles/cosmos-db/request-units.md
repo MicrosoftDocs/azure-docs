@@ -20,7 +20,7 @@ The cost to read a 1 KB item is 1 Request Unit (or 1 RU). A minimum of 10 RU/s i
 
 The following image shows the high-level idea of RUs:
 
-:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units":::
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
 To manage and plan capacity, Azure Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can examine the response header to track the number of RUs that are consumed by any database operation. When you understand the [factors that affect RU charges](request-units.md#request-unit-considerations) and your application's throughput requirements, you can run your application cost effectively.
 

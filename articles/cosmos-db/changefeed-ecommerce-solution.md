@@ -24,7 +24,7 @@ Interested in watching a video about the solution before getting started, see th
 ## Solution components
 The following diagram represents the data flow and components involved in the solution:
 
-:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Project visual":::
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Project visual" border="false":::
  
 1. **Data Generation:** Data simulator is used to generate retail data that represents events such as a user viewing an item, adding an item to their cart, and purchasing an item. You can generate large set of sample data by using the data generator. The generated sample data contains documents in the following format:
    

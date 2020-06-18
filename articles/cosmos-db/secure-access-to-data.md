@@ -48,7 +48,7 @@ The process of rotating your master key is simple.
 4. Validate the new primary key works against all resource. Key rotation process can take any where from less than a minute to hours depending on the size of the Cosmos DB account.
 5. Replace the secondary key with the new primary key.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Master key rotation in the Azure portal - demonstrating NoSQL database security":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Master key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
 
 ### Code sample to use a master key
 
@@ -92,7 +92,7 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 7. The phone app can continue to use the resource token to directly access Cosmos DB resources with the permissions defined by the resource token and for the interval allowed by the resource token.
 8. When the resource token expires, subsequent requests receive a 401 unauthorized exception.  At this point, the phone app re-establishes the identity and requests a new resource token.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB resource tokens workflow":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB resource tokens workflow" border="false":::
 
 Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the source code for our [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) or [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 

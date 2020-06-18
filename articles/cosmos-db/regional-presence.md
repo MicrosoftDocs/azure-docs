@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 Azure Cosmos DB is a foundational service in Azure, and, by default, is always available in all regions, where Azure is available. Currently, Azure is available in [54 regions](https://azure.microsoft.com/global-infrastructure/regions/) worldwide. 
 
-[:::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regions where Azure Cosmos DB is available":::](./media/regional-presence/regional-presence.png#lightbox)
+:::image type="content" source="./media/regional-presence/regional-presence.png" alt-text="Regions where Azure Cosmos DB is available" lightbox="./media/regional-presence/regional-presence.png" border="false":::
 
 Cosmos DB is available in all five distinct Azure cloud environments available to customers:
 

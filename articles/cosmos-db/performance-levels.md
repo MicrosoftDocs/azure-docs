@@ -71,7 +71,7 @@ In each of these cases, after you migrate the collection, you will be able to cu
 
 Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East region, and you migrate these 10 S1 collections to 10 single partition collections at 400 RU/sec (the minimum level). Your bill will look as follows if you keep the 10 single partition collections for a full month:
 
-:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection":::
+:::image type="content" source="./media/performance-levels/s1-vs-standard-pricing.png" alt-text="How S1 pricing for 10 collections compares to 10 collections using pricing for a single partition collection" border="false":::
 
 <a name="more-storage-needed"></a>
 

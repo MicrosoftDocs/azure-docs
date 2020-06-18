@@ -191,6 +191,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL query defined. 
 
 To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the container to sample. 
+
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
 
 
@@ -231,9 +232,9 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. To visualize the data in Power BI desktop, check the box in front of the table name, and then click **Load**.
 
-1. In Power BI Desktop, on the far left, select the Data tab :::image type="content" source="./media/odbc-driver/odbc-driver-data-tab.png" alt-text="Data tab in Power BI Desktop"::: to confirm your data was imported.
+1. In Power BI Desktop, on the far left, select the Data tab ![Data tab in Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) to confirm your data was imported.
 
-1. You can now create visuals using Power BI by clicking on the Report tab :::image type="content" source="./media/odbc-driver/odbc-driver-report-tab.png" alt-text="Report tab in Power BI Desktop":::, clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. You can now create visuals using Power BI by clicking on the Report tab ![Report tab in Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
 ## Troubleshooting
 

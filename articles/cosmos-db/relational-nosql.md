@@ -25,7 +25,7 @@ In these scenarios, [distributed databases](https://en.wikipedia.org/wiki/Distri
 
 If your transactional volumes are reaching extreme levels, such as many thousands of transactions per second, you should consider a distributed NoSQL database. Consider Azure Cosmos DB for maximum efficiency, ease of maintenance, and reduced total cost of ownership.
 
-:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Backend":::
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Backend" border="false":::
 
 ## Hierarchical data
 

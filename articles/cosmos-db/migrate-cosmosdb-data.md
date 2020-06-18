@@ -41,7 +41,7 @@ The custom tool uses the bulk executor library and supports scaling out across m
 The following image describes the migration process using this custom tool. The tool is running on a set of virtual machines, and each virtual machine queries the tracking collection in Azure Cosmos DB to acquire a lease on one of the source data partitions. Once this is done, the source data partition is read by the tool and ingested into Azure Cosmos DB by using the bulk executor library. Next, the tracking collection is updated to record the progress of data ingestion and any errors encountered. After a data partition is processed, the tool attempts to query for the next available source partition. It continues to process the next source partition until all the data is migrated. The source code for the tool is available [here](https://github.com/Azure-Samples/azure-cosmosdb-bulkingestion).  
 
  
-:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Migration Tool Setup":::
+:::image type="content" source="./media/migrate-cosmosdb-data/migrationsetup.png" alt-text="Migration Tool Setup" border="false":::
  
 
  

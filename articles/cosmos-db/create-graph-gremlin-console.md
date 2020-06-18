@@ -57,28 +57,31 @@ You also need to install the [Gremlin Console](https://tinkerpop.apache.org/down
     connectionPool|{enableSsl: true}|Your connection pool setting for TLS.
     serializer|{ className: org.apache.tinkerpop.gremlin.<br>driver.ser.GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Set to this value and delete any `\n` line breaks when pasting in the value.
 
-    For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
-:::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
+   For the hosts value, copy the **Gremlin URI** value from the **Overview** page:
 
-    For the password value, copy the **Primary key** from the **Keys** page:
-:::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="View and copy the Gremlin URI value on the Overview page in the Azure portal":::
 
-Your remote-secure.yaml file should look like this:
+   For the password value, copy the **Primary key** from the **Keys** page:
 
-```
-hosts: [your_database_server.gremlin.cosmos.azure.com] 
-port: 443
-username: /dbs/your_database_account/colls/your_collection
-password: your_primary_key
-connectionPool: {
-  enableSsl: true
-}
-serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, config: { serializeResultToString: true }}
-```
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="View and copy your primary key in the Azure portal, Keys page":::
 
-make sure to wrap the value of hosts parameter within brackets []. 
+   Your remote-secure.yaml file should look like this:
+
+   ```
+   hosts: [your_database_server.gremlin.cosmos.azure.com] 
+   port: 443
+   username: /dbs/your_database_account/colls/your_collection
+   password: your_primary_key
+   connectionPool: {
+     enableSsl: true
+   }
+   serializer: { className: org.apache.tinkerpop.gremlin.driver.   ser.GraphSONMessageSerializerV2d0, config: {    serializeResultToString: true }}
+   ```
+
+   make sure to wrap the value of hosts parameter within brackets []. 
 
 1. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+
 1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
 
     > [!TIP]

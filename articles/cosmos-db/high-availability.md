@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Physical partitioning":::
+:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Physical partitioning" border="false":::
 
 - The data within Cosmos containers is [horizontally partitioned](partitioning-overview.md).
 

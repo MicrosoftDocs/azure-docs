@@ -26,7 +26,7 @@ You can monitor your data with client-side and server-side metrics. When using s
 
 The following image shows different options available to monitor Azure Cosmos DB account through Azure portal:
 
-:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Monitoring options available in Azure portal":::
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Monitoring options available in Azure portal" border="false":::
 
 When using Azure Cosmos DB, at the client-side you can collect the details for request charge, activity ID, exception/stack trace information, HTTP status/sub-status code, diagnostic string to debug any issue that might occur. This information is also required if you need to reach out to the Azure Cosmos DB support team.  
 

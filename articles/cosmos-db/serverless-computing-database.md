@@ -28,7 +28,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 
 The following diagram illustrates each of these three integrations: 
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="How Azure Cosmos DB and Azure Functions integrate":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="How Azure Cosmos DB and Azure Functions integrate" border="false":::
 
 The Azure Functions trigger, input binding, and output binding for Azure Cosmos DB can be used in the following combinations:
 

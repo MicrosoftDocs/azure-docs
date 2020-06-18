@@ -49,7 +49,7 @@ CREATE TABLE uprofile.user (
 
 In this design, we have defined the `id` field as the primary key. The primary key functions as the identifier for the record in the table and it is also used as the partition key in Azure Cosmos DB. If the primary key is defined in the previously described way, there will only be a single record in each partition. This will result in a perfectly horizontal and scalable distribution when writing data to the database, and is ideal for key-value lookup use cases. The application should provide the primary key whenever reading data from the table, to maximize read performance. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="partitions":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="partitions" border="false":::
 
 
 ## Compound primary key
@@ -83,7 +83,7 @@ When data is returned, it is sorted by the clustering key, as expected in Apache
 
 With data modeled in this way, multiple records can be assigned to each partition, grouped by user. We can thus issue a query that is efficiently routed by the `partition key` (in this case, `user`) to get all the messages for a given user. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitions":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitions" border="false":::
 
 
 ## Composite partition key

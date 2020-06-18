@@ -102,6 +102,7 @@ Now go back to the Azure portal to get your connection information and copy it i
     Copy the first portion of the URI value.
 
     :::image type="content" source="./media/create-graph-php/keys.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
+
 2. Open the `connect.php` file and in line 8 paste the URI value over `your_server_address`.
 
     The connection object initialization should now look similar to the following code:
