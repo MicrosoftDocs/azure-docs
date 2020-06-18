@@ -103,9 +103,13 @@ To install the extension for Azure Data Box, run the following command: `az
 
 ### Use Azure Cloud Shell
 
-You can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
+You can use [Azure Cloud Shell](https://shell.azure.com/), a free, Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
-To start Azure Cloud Shell:
+![Cloud Shell]("../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png")
+
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+
+<!-- To start Azure Cloud Shell:
 
 | Option | Example/Link |
 |-----------------------------------------------|---|
@@ -123,7 +127,7 @@ To run the code in this article in Azure Cloud Shell:
 
 4. Select **Enter** to run the code.
 
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands.
+For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. -->
 
 <!-- This goes away, we'll show this later when we show how to order a Data Box. -->
 <!-- ## Change the output format type
@@ -748,6 +752,8 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 
 # [Azure CLI](#tab/azure-cli)
 
+### Cancel an order
+
 To cancel an Azure Data Box order, run [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). You are required to specify your reason for canceling the order.
 
    ```azurecli
@@ -777,8 +783,8 @@ To cancel an Azure Data Box order, run [az databox job cancel](https://docs.micr
    Are you sure you want to perform this operation? (y/n): y
    PS C:\Windows>
    ```
-<!-- This needs to follow the TOC of the Portal, make this a H3 -->
-## Delete an order
+
+### Delete an order
 
 If you have canceled an Azure Data Box order, you can run [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) to delete the order.
 
