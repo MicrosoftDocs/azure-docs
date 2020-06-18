@@ -39,7 +39,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -67,7 +67,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -95,7 +95,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
     )
@@ -123,7 +123,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-quoted/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -156,7 +156,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-escape/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -169,11 +169,16 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+
+> [!NOTE]
+> To escape double quote character: " you must add double qoutes to ESCAPECHAR = '""'.
+> 
+> Example of field which will be escaped with this is: "Lorem-Ipsum 3"" Lorem"
 
 ## Tab-delimited files
 
@@ -188,7 +193,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-tsv/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -219,7 +224,7 @@ SELECT
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )

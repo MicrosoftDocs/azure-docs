@@ -55,7 +55,7 @@ Here's a summary of the architecture:
 
 To use offline backup based on the Azure Import/Export service with the MARS Agent, see [Offline backup workflow in Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-To use the same along with MABS or DPM-A, see [Offline backup workflow for DPM and Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+To use the same along with MABS or DPM-A, see [Offline backup workflow for DPM and Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## Offline backup support summary
 
@@ -78,4 +78,4 @@ The following table compares the two available options so that you can make the 
 
 - [Azure Backup offline backup by using Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md)
-- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export-.md)
+- [Offline backup workflow for DPM and Azure Backup Server](backup-azure-backup-server-import-export.md)

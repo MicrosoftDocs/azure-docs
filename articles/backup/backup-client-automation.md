@@ -36,7 +36,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy-lrs.md) or [Geo Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
+4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy-lrs.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). The following example shows the -BackupStorageRedundancy option for testVault is set to GeoRedundant.
 
    > [!TIP]
    > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
@@ -688,7 +688,7 @@ Uninstalling the agent binaries from the machine has some consequences to consid
 * All policy information is removed from the machine, but the policy information continues to be stored in the service.
 * All backup schedules are removed, and no further backups are taken.
 
-However, the data stored in Azure remains and is retained as per the retention policy setup by you. Older points are automatically aged out.
+However, the data stored in Azure remains and is retained according to the retention policy setup by you. Older points are automatically aged out.
 
 ## Remote management
 

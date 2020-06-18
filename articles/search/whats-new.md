@@ -8,13 +8,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 06/08/2020
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
 ## Feature announcements
+
+### June 2020
+
+Azure Machine Learning skill is new skill type to integrate an inferencing endpoint from Azure Machine Learning. The portal experience supports discovery and integration of your Azure Machine Learning endpoint within a Cognitive Search skillset. The discovery requires your Cognitive Search and Azure ML services be deployed in the same subscription. To sign up for the AML skill preview, [please fill out the form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### May 2020 (Microsoft Build)
 
@@ -24,7 +28,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
 
-+ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global query parameter](index-similarity-and-scoring.md#scoring-statistics).
++ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) and sessionId query parameters.
 
 ### March 2020
 

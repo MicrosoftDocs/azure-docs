@@ -55,9 +55,9 @@ Although this application is written in Java, the API is a RESTful web service c
 
 1. Create a function called `check()` to create and send the API request. Within this function, add the code specified in the next steps. Create a string for the request parameters:
 
-   a. Assign your market code to the `mkt` parameter with the `=` operator. 
+   1. Assign your market code to the `mkt` parameter with the `=` operator. 
 
-   b. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. 
+   1. Add the `mode` parameter with the `&` operator, and then assign the spell-check mode. 
 
    ```java
    public static void check () throws Exception {

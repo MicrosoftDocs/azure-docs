@@ -44,7 +44,7 @@ The following metrics are available in the Azure portal for Synapse SQL. These m
 Things to consider when viewing metrics and setting alerts:
 
 - DWU used represents only a **high-level representation of usage** across the SQL pool and is not meant to be a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, tempdb, and adaptive cache capacity. We recommend [running your workload at different DWU settings](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) to determine what works best to meet your business objectives.
-- Failed and successful connections are reported for a particular data warehouse - not for the logical server
+- Failed and successful connections are reported for a particular data warehouse - not for the server itself.
 - Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
 
 ## Query activity

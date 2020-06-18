@@ -7,7 +7,7 @@ author: careyjmac
 
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ms.author: chalton
 ---
 # Document Extraction cognitive skill
@@ -46,7 +46,7 @@ Parameters are case-sensitive.
 
 | Input name	 | Description |
 |--------------------|-------------|
-| file_data | The file that content should be extracted from. |
+| `file_data` | The file that content should be extracted from. |
 
 The "file_data" input must be an object defined as follows:
 
@@ -69,8 +69,8 @@ This file reference object can be generated one of 3 ways:
 
 | Output name	 | Description |
 |--------------|-------------|
-| content | The textual content of the document. |
-| normalized_images	| When the `imageAction` is set to a value other then `none`, the new *normalized_images* field will contain an array of images. See [the documentation for image extraction](cognitive-search-concept-image-scenarios.md) for more details on the output format of each image. |
+| `content` | The textual content of the document. |
+| `normalized_images`	| When the `imageAction` is set to a value other then `none`, the new *normalized_images* field will contain an array of images. See [the documentation for image extraction](cognitive-search-concept-image-scenarios.md) for more details on the output format of each image. |
 
 ##	Sample definition
 

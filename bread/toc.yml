@@ -54,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application provisioning
+        tocHref: /azure/active-directory/app-provisioning/
+        topicHref: /azure/active-directory/app-provisioning/
       - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
@@ -626,6 +629,9 @@
       - name: Azure Media Player
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
+      - name: Live Video Analytics on IoT Edge
+        tocHref: /azure/media-services/live-video-analytics-edge/
+        topicHref: /azure/media-services/live-video-analytics-edge/        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
@@ -798,9 +804,26 @@
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
-  - name: SQL Database
-    tocHref: /azure/sql-database/
-    topicHref: /azure/sql-database/
+  - name: Azure SQL 
+    tocHref: /azure/azure-sql/
+    topicHref: /azure/azure-sql/
+    items: 
+      - name: SQL Database
+        tocHref: /azure/azure-sql/database
+        topicHref: /azure/azure-sql/database
+      - name: SQL Managed Instance
+        tocHref: /azure/azure-sql/managed-instance
+        topicHref: /azure/azure-sql/managed-instance
+      - name: SQL Server on Azure VM 
+        tocHref: /azure/azure-sql/virtual-machines
+        topicHref: /azure/azure-sql/virtual-machines
+        items: 
+          - name: Windows
+            tocHref: /azure/azure-sql/virtual-machines/windows
+            topicHref: /azure/azure-sql/virtual-machines/windows
+          - name: Linux
+            tocHref: /azure/azure-sql/virtual-machines/linux
+            topicHref: /azure/azure-sql/virtual-machines/linux
   - name: Azure SQL Edge
     tocHref: /azure/azure-sql-edge/
     topicHref: /azure/azure-sql-edge/

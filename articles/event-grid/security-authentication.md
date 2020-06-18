@@ -2,13 +2,13 @@
 title: Azure Event Grid security and authentication
 description: This article describes different ways of authenticating access to your Event Grid resources (WebHook, subscriptions, custom topics)
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
+ms.author: femila
 ---
 
 # Authenticating access to Azure Event Grid resources

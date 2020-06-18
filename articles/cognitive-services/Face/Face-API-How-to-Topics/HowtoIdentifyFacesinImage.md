@@ -46,7 +46,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-To get the subscription key, go to the Azure Marketplace from the Azure portal. For more information, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/).
+Follow these instructions to get a key.
+
+1. Create an [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you already have one, you can skip to the next step.
+2. Create a [Face resource ](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key. Make sure to select the free tier (F0) during setup. 
+3. After the resources are deployed, click **Go to resource** to collect your key. 
 
 ## Step 2: Create the PersonGroup
 

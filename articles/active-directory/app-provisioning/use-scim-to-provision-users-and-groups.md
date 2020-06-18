@@ -2,14 +2,14 @@
 title: Develop a SCIM endpoint for user provisioning to apps from Azure AD
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
@@ -744,6 +744,8 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
+### IP Ranges
+The Azure AD provisioning service can currently opperate under any Azure IP range. Work is in progress to consolidate the set of IP ranges that the service operates on. This document will be updated once the IP range list is consolidated. 
 
 ## Step 3: Build a SCIM endpoint
 
