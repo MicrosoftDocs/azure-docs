@@ -432,7 +432,7 @@
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
-          href: https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
+          href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
         - name: SSMS
           href: database/connect-query-ssms.md
         - name: Azure portal
