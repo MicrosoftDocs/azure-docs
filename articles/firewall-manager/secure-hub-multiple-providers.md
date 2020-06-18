@@ -77,7 +77,7 @@ Create your secured virtual hub using Firewall Manager.
 7. Accept the default **Enabled** setting.
 8. For **Specify the number of Public IP addresses**, use the slider to select **2**.
 9. Select **Next: Security Partner Provider**.
-10. For **Security Partner Provider**, select **Enabled** and then select **ZScaler**.
+10. For **Security Partner Provider**, select **Enabled** and then select **Zscaler**.
 11. Select **Next: Review + create**.
 12. Select **Create**. It will take about 30 minutes to deploy.
 
