@@ -1,5 +1,5 @@
 ---
-title: Managed identities
+title: Managed identities in Azure SignalR Service
 description: Learn how managed identities work in Azure SignalR Service, how to configure to use managed identity in serverless scenarios.
 author: chenyl
 ms.service: signalr
@@ -51,13 +51,13 @@ First, you'll need to create a user-assigned identity resource.
 
 ## Use managed identity in serverless scenarios
 
-As SignalR Service is a fully managed service, so you cannot use managed identity to get tokens manually. Instead, SignalR Service uses the managed identity you set to obtain access token and set into `Authentication` header in an upstream request in serverless scenarios.
+As SignalR Service is a fully managed service, so you cannot use managed identity to get tokens manually. Instead, SignalR Service uses the managed identity you set to obtain access token and set into `Authorization` header in an upstream request in serverless scenarios.
 
 ### Enable managed identity authentication in Upstream settings
 
 1. Add a system-assigned identity or user-assigned identity
 
-2. Configure upstream settings and use *ManagedIdentity* as the *Auth* settings. Find more details about at [Upstream Settings](signalr-concept-upstream.md)
+2. Configure upstream settings and use *ManagedIdentity* as the *Auth* settings. Find how to create upstream settings with authentication at [Upstream settings](concept-upstream.md#create-upstream-settings).
 
 3. In the Managed identity auth settings, you can specify the target *Resource*. The *Resource* will become `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The *Resource* can be one of the following
     - Empty
@@ -70,7 +70,7 @@ As SignalR Service is a fully managed service, so you cannot use managed identit
 
 ### Validate access token
 
-The token in `Authentication` header is a [Microsoft identity platform access token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
+The token in `Authorization` header is a [Microsoft identity platform access token](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
 
 To validate access tokens, your app should also validate the audience, and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant-independent version of the document is located at [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 

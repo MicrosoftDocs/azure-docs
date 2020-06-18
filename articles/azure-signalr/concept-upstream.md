@@ -1,6 +1,6 @@
 ---
-title: Upstream Settings in Azure SignalR Service
-description: An introduction of Upstream Settings and protocol of upstream messages
+title: Upstream settings in Azure SignalR Service
+description: An introduction of Upstream settings and protocol of upstream messages
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
@@ -8,18 +8,18 @@ ms.date: 06/11/2020
 ms.author: chenyl
 ---
 
-# Upstream Settings
+# Upstream settings
 
 Upstream is a feature that allows SignalR Service to send messages and connection events to a set of endpoints in serverless mode. Upstream can be used to invoke hub method from clients in serverless mode and let endpoints get notified when client connections are connected or disconnected.
 
 > [!NOTE]
-> Only serverless mode can configure Upstream Settings.
+> Only serverless mode can configure Upstream settings.
 
-## Upstream Settings details
+## Upstream settings details
 
-Upstream Settings consist of a list of order sensitive items. Each item consists of an `URL Template`, which specifies where messages send to, a set of `Rules` and `Authentication` configurations. When the specified event happens, item's `Rules` will be checked one by one in order and messages will be sent to the first matching item's Upstream URL.
+Upstream settings consist of a list of order sensitive items. Each item consists of an `URL Template`, which specifies where messages send to, a set of `Rules` and `Authentication` configurations. When the specified event happens, item's `Rules` will be checked one by one in order and messages will be sent to the first matching item's Upstream URL.
 
-### URL Template Settings
+### URL template settings
 
 The URL can be parameterized to support various patterns. There are three predefined parameters:
 
@@ -42,26 +42,40 @@ When a client in hub `chat` invokes hub method `broadcast`, a message will be se
 http://host.com/chat/api/messages/broadcast
 ```
 
-### Rules Settings
+### Rules settings
 
 You can set rules for *Hub Rules*, *Category Rules* and *Event Rules* separately. The matching rule supports three formats. Take the *Event Rules* as an example:
-1. Use asterisk(*) to match any events.
-2. User comma(,) to join multiple events. For example, `connected, disconnected` matches events *connected* and *disconnected*.
-3. Use the full event name to match the event. For example, `connected` matches *connected* event.
+- Use asterisk(*) to match any events.
+- User comma(,) to join multiple events. For example, `connected, disconnected` matches events *connected* and *disconnected*.
+- Use the full event name to match the event. For example, `connected` matches *connected* event.
 
-### Authentication Settings
+### Authentication settings
 
 You can configure *Authentication* for each Upstream Settings item separately. When configured *Authentication*, a token will be set in the *Authentication* header of the upstream message. Current, SignalR Service support the following Authentication type
 - None
 - ManagedIdentity
 
-When select *ManagedIdentity*, you must enable Managed Identity in SignalR Service in advance and optionally specify a *Resource*. See [How to use managed identities for Azure SignalR Service](signalr-howto-use-managed-identity.md) for details.
+When select *ManagedIdentity*, you must enable Managed Identity in SignalR Service in advance and optionally specify a *Resource*. See [How to use managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 
-## Create Upstream Settings
+## Create Upstream settings
 
-### Create Upstream Settings via ARM Template
+### Create Upstream settings via Azure portal
 
-To create Upstream Settings using a [Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), set `upstream` property in the `properties` property. The following snippets show how to set the `upstream` property for creating and updating Upstream Settings.
+1. Go to Azure SignalR Service.
+2. Click into the *Settings* bland and switch *Service Mode* to *Serverless*. The *Upstream Settings* will be shown as below:
+
+    :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Upstream settings":::
+
+3. Fill urls into *Upstream URL Pattern*, then settings such as *Hub Rules* will show default value.
+4. To set settings such as *Hub Rules*, *Event Rules*, *Category Rules* and *Upstream Authentication*, click on the value of *Hub Rules*. A page that allows you edit settings pops up as shown below:
+
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream settings":::
+
+5. To set *Upstream Authentication*, make sure you have enabled managed identity first, and then select *Use Managed Identity* under *Upstream Authentication*. According to your needs, you can choose any options under *Auth Resource ID*. See [How to enable managed identity](./howto-use-managed-identity) for details.
+
+### Create Upstream settings via ARM template
+
+To create Upstream settings using a [Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview), set `upstream` property in the `properties` property. The following snippets show how to set the `upstream` property for creating and updating Upstream settings.
 
 ```JSON
 {
@@ -86,7 +100,7 @@ To create Upstream Settings using a [Resource Manager template](https://docs.mic
 }
 ```
 
-## SignalR Serverless Protocol
+## SignalR serverless protocol
 
 SignalR Service sending messages to endpoints that follow the following protocols.
 
@@ -94,7 +108,7 @@ SignalR Service sending messages to endpoints that follow the following protocol
 
 POST
 
-### Request Header
+### Request header
 
 |Name |Description|
 |---------|---------|
@@ -108,7 +122,7 @@ POST
 |X-ASRS-Client-Query |The query of the request when clients connect to the service|
 |Authentication |An optional token when using *ManagedIdentity* |
 
-### Request Body
+### Request body
 
 #### Connected
 
@@ -122,7 +136,7 @@ Content-Type: `application/json`
 |---------|---------|---------|
 |Error |string |The error message of connection closed. Empty when connections close with no error|
 
-#### Invocation Message
+#### Invocation message
 
 Content-Type: `application/json` or `application/x-msgpack`
 
@@ -141,5 +155,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 ## Next steps
 
-- [How to use managed identities for Azure SignalR Service](signalr-howto-use-managed-identity.md)
+- [How to use managed identities for Azure SignalR Service](howto-use-managed-identity.md)
 - [Azure Functions development and configuration with Azure SignalR Service](signalr-concept-serverless-development-config.md)

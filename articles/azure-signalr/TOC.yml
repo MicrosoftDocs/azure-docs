@@ -54,8 +54,8 @@
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
-    - name: Upstream Settings
-      href: signalr-concept-upstream.md
+    - name: Upstream settings
+      href: concept-upstream.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -87,7 +87,7 @@
     - name: Manage network access control
       href: howto-network-access-control.md
     - name: Use managed identity
-      href: signalr-howto-use-managed-identity.md
+      href: howto-use-managed-identity.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
