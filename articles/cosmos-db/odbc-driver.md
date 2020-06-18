@@ -42,7 +42,7 @@ Let's get started with the ODBC driver.
 1. Open the **ODBC Data source Administrator** app on your computer. You can do this by typing **ODBC Data sources** in the Windows search box. 
     You can confirm the driver was installed by clicking the **Drivers** tab and ensuring **Microsoft Azure Cosmos DB ODBC Driver** is listed.
 
-    ![Azure Cosmos DB ODBC Data Source Administrator](./media/odbc-driver/odbc-driver.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver.png" alt-text="Azure Cosmos DB ODBC Data Source Administrator":::
 
 ## <a id="connect"></a>Step 2: Connect to your Azure Cosmos database
 
@@ -52,12 +52,12 @@ Let's get started with the ODBC driver.
 
 1. In the **Azure Cosmos DB ODBC Driver SDN Setup** window, fill in the following information: 
 
-    ![Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-dsn-setup.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-dsn-setup.png" alt-text="Azure Cosmos DB ODBC Driver DSN Setup window":::
     - **Data Source Name**: Your own friendly name for the ODBC DSN. This name is unique to your Azure Cosmos DB account, so name it appropriately if you have multiple accounts.
     - **Description**: A brief description of the data source.
     - **Host**: URI for your Azure Cosmos DB account. You can retrieve this from the Azure Cosmos DB Keys page in the Azure portal, as shown in the following screenshot. 
     - **Access Key**: The primary or secondary, read-write or read-only key from the Azure Cosmos DB Keys page in the Azure portal as shown in the following screenshot. We recommend you use the read-only key if the DSN is used for read-only data processing and reporting.
-    ![Azure Cosmos DB Keys page](./media/odbc-driver/odbc-cosmos-account-keys.png)
+    :::image type="content" source="./media/odbc-driver/odbc-cosmos-account-keys.png" alt-text="Azure Cosmos DB Keys page":::
     - **Encrypt Access Key for**: Select the best choice based on the users of this machine. 
     
 1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
@@ -72,7 +72,7 @@ Let's get started with the ODBC driver.
         - Right-click to add a new **String** value:
             - Value Name: **IgnoreSessionToken**
             - Value data: **1**
-            ![Registry Editor settings](./media/odbc-driver/cosmos-odbc-edit-registry.png)
+            :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Registry Editor settings":::
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
@@ -82,7 +82,7 @@ Let's get started with the ODBC driver.
 
 1. Once you complete and close the **Azure Cosmos DB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
 
-    ![New Azure Cosmos DB ODBC DSN on the User DSN tab](./media/odbc-driver/odbc-driver-user-dsn.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-user-dsn.png" alt-text="New Azure Cosmos DB ODBC DSN on the User DSN tab":::
 
 ## <a id="#container-mapping"></a>Step 3: Create a schema definition using the container mapping method
 
@@ -90,7 +90,7 @@ There are two types of sampling methods that you can use: **container mapping** 
 
 1. After completing steps 1-4 in [Connect to your Azure Cosmos database](#connect), click **Schema Editor** in the **Azure Cosmos DB ODBC Driver DSN Setup** window.
 
-    ![Schema editor button in the Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-schema-editor.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-schema-editor.png" alt-text="Schema editor button in the Azure Cosmos DB ODBC Driver DSN Setup window":::
 1. In the **Schema Editor** window, click **Create New**.
     The **Generate Schema** window displays all the containers in the Azure Cosmos DB account. 
 
@@ -158,7 +158,7 @@ You can query Azure Cosmos DB from SQL Server Management Studio (SSMS) by settin
     
 To see the new linked server name, refresh the Linked Servers list.
 
-![Linked Server in SSMS](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+:::image type="content" source="./media/odbc-driver/odbc-driver-linked-server-ssms.png" alt-text="Linked Server in SSMS":::
 
 ### Query linked database
 
@@ -191,7 +191,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 You can define and create views as part of the sampling process. These views are equivalent to SQL views. They are read-only and are scope the selections and projections of the Azure Cosmos DB SQL query defined. 
 
 To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the container to sample. 
-    ![Create a view of data](./media/odbc-driver/odbc-driver-create-view.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
 
 
 Then in the **View Definitions** window, do the following:
@@ -200,7 +200,7 @@ Then in the **View Definitions** window, do the following:
 
 1. In the **Edit view** window, enter an Azure Cosmos DB query. This must be an [Azure Cosmos DB SQL query](how-to-sql-query.md), for example `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"`, and then click **OK**.
 
-    ![Add query when creating a view](./media/odbc-driver/odbc-driver-create-view-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Add query when creating a view":::
 
 
 You can create a many views as you like. Once you are done defining the views, you can then sample the data. 
@@ -213,11 +213,11 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. Click **Get Data**.
 
-    ![Get Data in Power BI Desktop](./media/odbc-driver/odbc-driver-power-bi-get-data.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data.png" alt-text="Get Data in Power BI Desktop":::
 
 1. In the **Get Data** window, click **Other** | **ODBC** | **Connect**.
 
-    ![Choose ODBC Data source in Power BI Get Data](./media/odbc-driver/odbc-driver-power-bi-get-data-2.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-2.png" alt-text="Choose ODBC Data source in Power BI Get Data":::
 
 1. In the **From ODBC** window, select the data source name you created, and then click **OK**. You can leave the **Advanced Options** entries blank.
 
@@ -227,13 +227,13 @@ You can use your new DSN to connect to Azure Cosmos DB with any ODBC-compliant t
 
 1. In the **Navigator** window, in the left pane, expand the database, the schema, and then select the table. The results pane includes the data using the schema you created.
 
-    ![Select Table in Power BI Get Data](./media/odbc-driver/odbc-driver-power-bi-get-data-4.png)
+    :::image type="content" source="./media/odbc-driver/odbc-driver-power-bi-get-data-4.png" alt-text="Select Table in Power BI Get Data":::
 
 1. To visualize the data in Power BI desktop, check the box in front of the table name, and then click **Load**.
 
-1. In Power BI Desktop, on the far left, select the Data tab ![Data tab in Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) to confirm your data was imported.
+1. In Power BI Desktop, on the far left, select the Data tab :::image type="content" source="./media/odbc-driver/odbc-driver-data-tab.png" alt-text="Data tab in Power BI Desktop"::: to confirm your data was imported.
 
-1. You can now create visuals using Power BI by clicking on the Report tab ![Report tab in Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. You can now create visuals using Power BI by clicking on the Report tab :::image type="content" source="./media/odbc-driver/odbc-driver-report-tab.png" alt-text="Report tab in Power BI Desktop":::, clicking **New Visual**, and then customizing your tile. For more information about creating visualizations in Power BI Desktop, see [Visualization types in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
 ## Troubleshooting
 

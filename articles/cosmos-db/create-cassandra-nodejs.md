@@ -164,9 +164,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+    Use the :::image type="content" source="./media/create-cassandra-nodejs/copy.png" alt-text="Copy button"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
 
-    ![View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page](./media/create-cassandra-nodejs/keys.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
 
 2. Open the `config.js` file. 
 
@@ -205,11 +205,11 @@ Now go back to the Azure portal to get your connection string information and co
 > 
 > Double-click on the .crt file to open it into the certificate display. 
 >
-> ![View and verify the output](./media/create-cassandra-nodejs/crtcer1.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer1.gif" alt-text="View and verify the output":::
 >
 > Press Next on the Certificate Wizard. Select Base-64 encoded X.509 (.CER), then Next.
 >
-> ![View and verify the output](./media/create-cassandra-nodejs/crtcer2.gif)
+> :::image type="content" source="./media/create-cassandra-nodejs/crtcer2.gif" alt-text="View and verify the output":::
 >
 > Select Browse (to locate a destination) and type in a filename.
 > Select Next then Finished.
@@ -230,13 +230,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 4. Verify the results as expected from the command line.
 
-    ![View and verify the output](./media/create-cassandra-nodejs/output.png)
+    :::image type="content" source="./media/create-cassandra-nodejs/output.png" alt-text="View and verify the output":::
 
     Press CTRL+C to stop execution of the program and close the console window. 
 
 5. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    ![View the data in Data Explorer](./media/create-cassandra-nodejs/data-explorer.png) 
+    :::image type="content" source="./media/create-cassandra-nodejs/data-explorer.png" alt-text="View the data in Data Explorer"::: 
 
 ## Review SLAs in the Azure portal
 

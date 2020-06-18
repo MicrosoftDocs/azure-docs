@@ -18,7 +18,7 @@ Azure Cosmos DB implements wire protocols of common NoSQL databases including Ca
 
 By default, new accounts created using Azure Cosmos DB's API for MongoDB are compatible with version 3.6 of the MongoDB wire protocol. Any MongoDB client driver that understands this protocol version should be able to natively connect to Cosmos DB.
 
-![Azure Cosmos DB's API for MongoDB](./media/mongodb-introduction/cosmosdb-mongodb.png)
+:::image type="content" source="./media/mongodb-introduction/cosmosdb-mongodb.png" alt-text="Azure Cosmos DB's API for MongoDB":::
 
 ## Key benefits
 

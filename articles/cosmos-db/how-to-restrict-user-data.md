@@ -15,7 +15,7 @@ In Azure Cosmos DB, there are two ways to authenticate your interactions with th
 - using Azure Cosmos DB [keys](secure-access-to-data.md#master-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
 
 Each authentication method gives access to different sets of operations, with some overlap:
-![Split of operations per authentication type](./media/how-to-restrict-user-data/operations.png)
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Split of operations per authentication type":::
 
 In some scenarios, you may want to restrict some users of your organization to perform data operations (that is CRUD requests and queries) only. This is typically the case for developers who don't need to create or delete resources, or change the provisioned throughput of the containers they are working on.
 
