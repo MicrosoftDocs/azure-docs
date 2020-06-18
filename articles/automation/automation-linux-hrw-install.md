@@ -22,7 +22,7 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Manual deployment](#manual-deployment) section to link them together. If your Automation account is already linked to a workspace, refer to step 2 and the following steps in the [Manual deployment](#manual-deployment) section.
+If you have a workspace, but it is not linked to your Automation account, refer to step 1 in the [Install a Linux Hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) section to link them together. If your Automation account is already linked to a workspace, refer to step 2 and the following steps in the [Install a Linux Hybrid Runbook Worker](#install-a-linux-hybrid-runbook-worker) .
 
 ### Supported Linux operating systems
 
