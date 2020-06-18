@@ -81,7 +81,7 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 
 ### Mount the Azure file share
 
-The Azure portal provides you with a script that you can use to mount your file share. We recommend using this provided script.
+The Azure portal provides you with a script that you can use to mount your file share directly to a host. We recommend using this provided script.
 
 To get this script:
 
@@ -111,7 +111,7 @@ You have now mounted your Azure file share.
 
 1. Open File Explorer. This can be done by opening from the Start Menu, or by pressing Win+E shortcut.
 
-1. Navigate to the **This PC** item on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
+1. Navigate to **This PC** on the left-hand side of the window. This will change the menus available in the ribbon. Under the Computer menu, select **Map network drive**.
     
     ![A screenshot of the "Map network drive" drop-down menu](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
