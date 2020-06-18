@@ -41,20 +41,13 @@ AKS uses several managed identities for built-in services as well as add-ons.
 | Add-on | AzureCNI | No identity required | NA | No
 | Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
 | Add-on | azurepolicy | No identity required | NA | No
-| Add-on | Calico | No identity required | NA | No
-| Add-on | Dashboard | No identity required | NA | No
-| Add-on | ingress application gateway | Contributor role for node resource group | NA | No
-
-
-
-
-HTTPApplicationRouting	Reader role for Node Resource Group, Contributor role for DNS zone
- Network Monitoring (built-in)	No Idenity
-
-omsagent	Monitoring Metrics Publisher role
-Virtual-Node (ACIConnector)	Contributor role for Node Resource Group
-
-ingress application gateway	Contributor role for Node Resource Group
+| Add-on | Calico | No identity required | | NA | No
+| Add-on | Dashboard | No identity required | | NA | No
+| Add-on | HTTPApplicationRouting | No identity required | | NA | No
+| Add-on | Ingress application gateway | | Contributor role for node resource group | No
+| Add-on | Network Monitoring  | | Contributor role for node resource group | No
+| Add-on | omsagent | | Monitoring Metrics Publisher role | No
+| Add-on | Virtual-Node (ACIConnector) | | Contributor role for node resource group | No
 
 
 ## Create an AKS cluster with managed identities
