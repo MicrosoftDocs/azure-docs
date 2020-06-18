@@ -126,19 +126,17 @@ For example, if VNN name is `FCI1`, instance name is `MSSQLSERVER`, and the DNN 
 For a named instance the network alias mapping should be done for the full instance, such that `VNN\Instance` = `DNN\Instance`. 
 For example, if VNN name is `FCI1`, instance name is `instA`, and the DNN is `FCI1DNN` (clients previously connected to `FCI1\instA`, and now they connect to `FCI1DNN\instaA`) then map the VNN `FCI1\instaA` to the DNN `FCI1DNN\instaA`. 
 
-## Update SQL client connection string
+## Update connection string
 
-To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string as well if the SQL client version is lower than 4.6.1. 
+To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is lower than 4.6.1. 
 
-Additionally, if the DNN name is not using the existing VNN name, clients still connecting to the VNN need to update their connection string to connect to the DNN DNS name instead. 
+Additionally, if the DNN name is not using the original VNN name, SQL clients connecting to the SQL Server FCI will need to update their connection string to the DNN DNS name. To avoid having to do so, you can update the DNS name value to be the name of the VNN, but you'll need to [replace the existing VNN name with a placeholder](#rename-the-vnn) first. 
 
 ## Test failover
 
 Test failover of the clustered resource to validate cluster functionality. 
 
-# [Failover cluster instance](#tab/fci)
-
-Take the following steps:
+To test failover, follow these steps: 
 
 1. Connect to one of the SQL Server cluster nodes by using RDP.
 1. Open **Failover Cluster Manager**. Select **Roles**. Notice which node owns the SQL Server FCI role.
@@ -148,25 +146,12 @@ Take the following steps:
 **Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
 
 
-# [AG Listener](#tab/ag)
-
-Take the following steps:
-
-1. Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) and connect to your availability group listener.
-1. Expand **Always On Availability Group** in the **Object Explorer**. 
-1. Right-click the availability group and choose **Failover**. 
-1. Follow the Wizard prompts to fail the availability group over to a secondary replica. 
-
-Failover succeeds when the replicas switch roles and are both synchronized. 
-
----
 
 ## Test connectivity
 
-To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name.
+To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI using the DNS DNN name.
 
->[!NOTE]
->If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Limitations
 

@@ -114,9 +114,9 @@ This table details the ports you may need to open depending on your FCI configur
 
 You will also need to join your virtual machines to the domain. You can do so using a [quickstart template](../../../active-directory-domain-services/join-windows-vm-template.md#join-an-existing-windows-server-vm-to-a-managed-domain). 
 
-## Review storage Configuration
+## Review storage configuration
 
-If you created the VMs from Azure Marketplace SQL images through Azure Portal, then 1TB P30 disks will be attached to both VMs automaticaly. If you choose PFS or Azure Shared disks, please remove those disks as they will not be used for SQL Server Data and Log Files (feel free to leverage those disks for any other purpose if needed). If you will use S2D for shared disks, then you can add these P30 disks to S2D by following - [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
+Virtual machines created from the marketplace come with attached storage. If you plan to configure your FCI storage using Premium File Shares or Azure Shared Disks, you can remove the attached storage to save on costs since local storage is not used for the failover cluster instance. However, it's possible to use the attached storage for Storage Spaces Direct FCI solutions, so removing them in this case may be unhelpful. Review your FCI storage solution to determine if removing attached storage is optimal for saving costs. 
 
 
 ## Next steps
@@ -126,7 +126,7 @@ Now that you've prepared your virtual machine environment, you are ready to conf
 Choose one of the following guides to configure the FCI environment appropriate for your business: 
 - [Configure FCI with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md)
 - [Configure FCI with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md)
-- [Configure FCI with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
+- [Configure FCI with Storage Spaces Direct (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
 See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported HADR configurations](hadr-cluster-best-practices.md) to learn more. 
 
