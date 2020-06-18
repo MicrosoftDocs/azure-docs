@@ -32,7 +32,7 @@ ms.custom: include file
 | &bull; Repositories per scope map | N/A | N/A | 500 |
 
 
-<sup>1</sup> Storage included in the daily rate for each tier. You're charged an additional daily rate per GiB for image storage, up to the storage limit. For rate information, see [Azure Container Registry pricing][pricing].
+<sup>1</sup> Storage included in the daily rate for each tier. For additional storage, you're charged an additional daily rate per GiB, up to the storage limit. For rate information, see [Azure Container Registry pricing][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps*, and *Bandwidth* are minimum estimates. Azure Container Registry strives to improve performance as usage requires.
 
