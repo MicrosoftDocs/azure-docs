@@ -154,7 +154,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-+ Manage compute instances:
++ <a id="computeinstance"></a>Manage compute instances:
 
     + Create a new computeinstance.
 
