@@ -177,6 +177,3 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 To learn more about SQL Server HADR features in Azure, see [availability groups](availability-group-overview.md) and [failover cluster instance](failover-cluster-instance-overview.md) as well as [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
-
-
-
