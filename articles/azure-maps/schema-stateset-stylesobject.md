@@ -98,7 +98,7 @@ In the following JSON sample, both ranges will hold true when the *state* value 
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `range` | [RangeObject](#rangeobject) | The [RangeObject](#rangeobject) defines a set of logical range conditions, which, if `true`, change the display color of the *state* to the color specified in the `color` property. If `range` is unspecified, then then the color defined in the `color` property will always be used.   | No |
+| `range` | [RangeObject](#rangeobject) | The [RangeObject](#rangeobject) defines a set of logical range conditions, which, if `true`, change the display color of the *state* to the color specified in the `color` property. If `range` is unspecified, then the color defined in the `color` property will always be used.   | No |
 | `color` | string | The color to use when state value falls into the range. The `color` property is a JSON string in any one of following formats: <ul><li> HTML-style hex values </li><li> RGB ("#ff0", "#ffff00", "rgb(255, 255, 0)")</li><li> RGBA ("rgba(255, 255, 0, 1)")</li><li> HSL("hsl(100, 50%, 50%)")</li><li> HSLA("hsla(100, 50%, 50%, 1)")</li><li> Predefined HTML colors names, like yellow, and blue.</li></ul> | Yes |
 
 ### RangeObject
@@ -141,7 +141,7 @@ The following JSON illustrates a `NumericTypeStyleRule` *state* named `temperatu
 
 ## BooleanTypeStyleRule
 
-A `BooleanTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:.
+A `BooleanTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
