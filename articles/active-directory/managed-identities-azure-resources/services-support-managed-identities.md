@@ -275,7 +275,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure SignalR Service (in regions where available):
 
-- [Azure Resource Manager template](../../azure-signalr/signalr-howto-use-managed-identity.md)
+- [Azure Resource Manager template](../../azure-signalr/howto-use-managed-identity.md)
 
 ## Azure services that support Azure AD authentication
 
