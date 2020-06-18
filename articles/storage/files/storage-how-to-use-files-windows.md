@@ -90,16 +90,16 @@ To get this cmdlet:
 1. Select **File shares**.
 1. Select the file share you'd like to mount.
 
-:::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/select-file-shares.png" alt-text="example":::
 
 1. Select **Connect**.
 
-:::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/file-share-connect-icon.png" alt-text="Screenshot of the connect icon for your file share.":::
 
 1. Select the drive letter to mount the share to.
 1. Copy the provided cmdlet.
 
-:::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet.png" alt-text="Example text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet.png" alt-text="Example text":::
 
 1. Paste the cmdlet into a shell on the host you'd like to mount the file share to, and run it.
 
