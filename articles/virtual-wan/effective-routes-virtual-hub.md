@@ -33,27 +33,27 @@ You can view all of the routes of your Virtual WAN hub in the Azure portal. This
 The page output shows the following fields:
 
 * **Prefix**: Address prefix known to the current entity.
-* **Next hop type**: Can be VPN, ExpressRoute, Remote Hub, or IP Address.
+* **Next hop type**: Can be Virtual Network Connection, VPN_S2S_Gateway, ExpressRouteGateway, Remote Hub, or Azure Firewall.
 * **Next hop**: This is the IP, or simply shows On-link to imply the current hub.
 * **Origin**: Resource ID of the routing source.
 * **AS Path**: BGP Attribute AS (autonomous system) path lists all the AS numbers that need to be traversed to reach the location where the prefix that the path is attached to, is advertised from.
 
 ### <a name="example"></a>Example
 
-The values in the following example table imply that the virtual hub connection or route table has learned the route of 10.20.1.0/24 (a branch prefix). It has learned the route due to the **VPN Next hop type** connection with **Next hop** VPN Gateway Instance0 IP 10.1.0.6 and Instance1 IP 10.1.0.7. **Route Origin** points to the resource ID of the VPN gateway. **AS Path** indicates the AS Path for the branch.
+The values in the following example table imply that the virtual hub connection or route table has learned the route of 10.2.0.0/24 (a branch prefix). It has learned the route due to the **VPN Next hop type** VPN_S2S_Gateway with **Next hop** VPN Gateway resource ID. **Route Origin** points to the resource ID of the originating VPN gateway/Route table/Connection. **AS Path** indicates the AS Path for the branch.
 
 Use the scroll bar at the bottom of the table to view the "AS Path".
 
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw| 20000|
+| 10.2.0.0/24|VPN_S2S_Gateway|/subscriptions/<sub id>/resourceGroups/<resource group name>/providers/Microsoft.Network/vpnGateways/vpngw| /subscriptions/<sub id>/resourceGroups/<resource group name>/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
 
 **Considerations:**
 
 * If you see 0.0.0.0/0 in the **Get Effective Routes** output, it implies the route exists in one of the route tables. However, if this route was set up for internet, an additional flag **"enableInternetSecurity": true** is required on the connection. The effective route on the VM NIC will not show the route if the "enableInternetSecurity" flag on the connection is "false".
 
-* The **Propagate Default Route** field shows in the Azure Virtual WAN portal when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. This field translates to the **enableInternetSecurity** flag, which is always "false" for ExpressRoute and VPN connections, but "true" for virtual network connections.
+* The **Propagate Default Route** field is seen in Azure Virtual WAN portal when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. This field indicates the **enableInternetSecurity** flag, which is always by default "false" for ExpressRoute and VPN connections, but "true" for virtual network connections.
 
 ## Next steps
 
