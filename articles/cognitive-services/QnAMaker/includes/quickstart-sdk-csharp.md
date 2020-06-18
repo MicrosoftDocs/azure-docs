@@ -17,7 +17,7 @@ Use the QnA Maker client library for .NET to:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-[!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
+[!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
 ## Prerequisites
 
