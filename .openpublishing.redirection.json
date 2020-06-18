@@ -50429,6 +50429,76 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-cancel-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-concurrency-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-creating-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-go-live",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offer-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-specific-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-specific-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-setting-price",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-troubleshooting-authentication-errors",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
