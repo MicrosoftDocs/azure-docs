@@ -24,10 +24,10 @@ Microsoft and a community of partners created ONNX as an open standard for repre
 
 [ONNX Runtime](https://onnxruntime.ai) is a high-performance inference engine for deploying ONNX models to production. It's optimized for both cloud and edge and works on Linux, Windows, and Mac. Written in C++, it also has C, Python, C#, Java, and Javascript (Node.js) APIs for usage in a variety of environments. ONNX Runtime supports both DNN and traditional ML models and integrates with accelerators on different hardware such as TensorRT on NVidia GPUs, OpenVINO on Intel processors, DirectML on Windows, and more. By using ONNX Runtime, you can benefit from the extensive production-grade optimizations, testing, and ongoing improvements.
 
-ONNX Runtime is used in high scale Microsoft services such as Bing, Office, and Cognitive Services. Performance gains are dependent on a number of factors but these Microsoft services have seen an __average 2x performance gain on CPU__. In addition to Azure Machine Learning services, ONNX Runtime also runs in other products that support Machine Learning workloads, including:
-+ Windows: the runtime is built into Windows as part of [Windows Machine Learning](https://docs.microsoft.com/en-us/windows/ai/windows-ml/) and runs on hundreds of millions of devices 
-+ Azure SQL product family: run native scoring on data in [Azure SQL Edge](https://docs.microsoft.com/en-us/azure/azure-sql-edge/onnx-overview) and [Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/machine-learning-services-overview) 
-+ ML.NET: [run ONNX models in ML.NET](https://docs.microsoft.com/en-us/dotnet/machine-learning/tutorials/object-detection-onnx)
+ONNX Runtime is used in high-scale Microsoft services such as Bing, Office, and Azure Cognitive Services. Performance gains are dependent on a number of factors, but these Microsoft services have seen an __average 2x performance gain on CPU__. In addition to Azure Machine Learning services, ONNX Runtime also runs in other products that support Machine Learning workloads, including:
++ Windows: The runtime is built into Windows as part of [Windows Machine Learning](https://docs.microsoft.com/windows/ai/windows-ml/) and runs on hundreds of millions of devices. 
++ Azure SQL product family: Run native scoring on data in [Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/onnx-overview) and [Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/machine-learning-services-overview).
++ ML.NET: [Run ONNX models in ML.NET](https://docs.microsoft.com/dotnet/machine-learning/tutorials/object-detection-onnx).
 
 
 [![ONNX flow diagram showing training, converters, and deployment](./media/concept-onnx/onnx.png)](././media/concept-onnx/onnx.png#lightbox)
