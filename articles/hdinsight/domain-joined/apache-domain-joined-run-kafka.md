@@ -136,8 +136,8 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 3. Follow Step 3 under **Build and deploy the example** in [Tutorial: Use the Apache Kafka Producer and Consumer APIs](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) to ensure that the `kafka-producer-consumer.jar` is also available to **sales_user**.
 
-> [!NOTE]  
-> For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
+   > [!NOTE]  
+   > For this tutorial, please use the kafka-producer-consumer.jar under "DomainJoined-Producer-Consumer" project (not the one under Producer-Consumer project, which is for non domain joined scenarios).
 
 4. Verify that **sales_user1** can produce to topic `salesevents` by executing the following command:
 
@@ -177,24 +177,34 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
    ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
    
-## Using Console Producer Consumer in ESP Kafka
+## Using the console to produce and consume topics in ESP Kafka
 
-Please note that create topics does not work through console commands and you must use the above Java code for the same. Refer to section 'Create topics in a Kafka cluster with ESP'. 
+> [!NOTE]
+> You can't use console commands to create topics. Instead, you must use the Java code demonstrated in the preceding section. For more information, see [Create topics in a Kafka cluster with ESP](#create-topics-in-a-kafka-cluster-with-esp).
 
-1. Kinit with the username of user. Enter password when prompted.
+To produce and consume topics in ESP Kafka by using the console:
+
+1. Use `kinit` with the user's username. Enter the password when prompted.
+
    ```bash
    kinit sales_user1
    ```
-2. Set Environment variables as shown.
+
+2. Set environment variables:
+
    ```bash
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
    export KAFKABROKERS=<brokerlist>:9092
    ```
-3. Produce messages to topic `salesevents` using the command.
+
+3. Produce messages to topic `salesevents`:
+
    ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
    ```
-4. Consumer messages from topic `salesevents` using the command.
+
+4. Consume messages from topic `salesevents`:
+
    ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
    ```
