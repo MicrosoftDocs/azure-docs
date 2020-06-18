@@ -10,17 +10,16 @@ ms.custom: seodec18
 
 Nearly all Batch applications need to perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine whether there are any queued tasks remaining in a job, you must get data on every task in the job. To determine the status of nodes in your pool, you must get data on every node in the pool. This article explains how to execute such queries in the most efficient way.
 
-You can increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, compute nodes, and other resources with the [Batch .NET][api_net] library.
+You can increase your Azure Batch application's performance by reducing the amount of data that is returned by the service when you query jobs, tasks, compute nodes, and other resources with the [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch) library.
 
 > [!NOTE]
-> The Batch service provides API support for the common scenarios of counting tasks in a job, and counting compute nodes in Batch pool. Instead of using a list query for these, you can call the [Get Task Counts][rest_get_task_counts] and [List Pool Node Counts][rest_get_node_counts] operations. These operations are more efficient than a list query, but return more limited information that may not always be up to date. For more information, see [Count tasks and compute nodes by state](batch-get-resource-counts.md).
-
+> The Batch service provides API support for the common scenarios of counting tasks in a job, and counting compute nodes in Batch pool. Instead of using a list query for these, you can call the [Get Task Counts](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) and [List Pool Node Counts](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) operations. These operations are more efficient than a list query, but return more limited information that may not always be up to date. For more information, see [Count tasks and compute nodes by state](batch-get-resource-counts.md).
 
 ## Specify a detail level
 
 In a production Batch application, entities like jobs, tasks, and compute nodes can number in the thousands. When you request information on these resources, a potentially large amount of data must "cross the wire" from the Batch service to your application on each query. By limiting the number of items and type of information that is returned by a query, you can increase the speed of your queries, and therefore the performance of your application.
 
-This [Batch .NET][api_net] API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
+This [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch) API code snippet lists *every* task that is associated with a job, along with *all* of the properties of each task:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -28,7 +27,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-You can perform a much more efficient list query, however, by applying a "detail level" to your query. You do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
+You can perform a much more efficient list query, however, by applying a "detail level" to your query. You do this by supplying an [ODATADetailLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel) object to the [JobOperations.ListTasks](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) method. This snippet returns only the ID, command line, and compute node information properties of completed tasks:
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -45,11 +44,11 @@ IPagedEnumerable<CloudTask> completedTasks =
 In this example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included [below](#efficient-querying-in-batch-net).
 
 > [!IMPORTANT]
-> We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
+> We highly recommend that you always supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
 
 ## Filter, select, and expand
 
-The [Batch .NET][api_net] and [Batch REST][api_rest] APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You do so by specifying **filter**, **select**, and **expand strings** when performing list queries.
+The [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch) and [Batch REST](https://docs.microsoft.com/rest/api/batchservice/) APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You do so by specifying **filter**, **select**, and **expand strings** when performing list queries.
 
 ### Filter
 
@@ -80,7 +79,7 @@ This example expand string specifies that statistics information should be retur
 
 ### Rules for filter, select, and expand strings
 
-- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST][api_rest] API, even when you use [Batch .NET][api_net] or one of the other Batch SDKs.
+- Properties names in filter, select, and expand strings should appear as they do in the [Batch REST](https://docs.microsoft.com/rest/api/batchservice/) API, even when you use [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch) or one of the other Batch SDKs.
 - All property names are case-sensitive, but property values are case insensitive.
 - Date/time strings can be one of two formats, and must be preceded with `DateTime`.
   
@@ -91,11 +90,11 @@ This example expand string specifies that statistics information should be retur
 
 ## Efficient querying in Batch .NET
 
-Within the [Batch .NET][api_net] API, the [ODATADetailLevel][odata] class is used for supplying filter, select, and expand strings to list operations. The ODataDetailLevel class has three public string properties that can be specified in the constructor, or set directly on the object. You then pass the ODataDetailLevel object as a parameter to the various list operations such as [ListPools][net_list_pools], [ListJobs][net_list_jobs], and [ListTasks][net_list_tasks].
+Within the [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch) API, the [ODATADetailLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel) class is used for supplying filter, select, and expand strings to list operations. The ODataDetailLevel class has three public string properties that can be specified in the constructor, or set directly on the object. You then pass the ODataDetailLevel object as a parameter to the various list operations such as [ListPools](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations), [ListJobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations), and [ListTasks](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations).
 
-* [ODATADetailLevel][odata].[FilterClause][odata_filter]: Limit the number of items that are returned.
-* [ODATADetailLevel][odata].[SelectClause][odata_select]: Specify which property values are returned with each item.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: Retrieve data for all items in a single API call instead of separate calls for each item.
+- [ODATADetailLevel.FilterClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause): Limit the number of items that are returned.
+- [ODATADetailLevel.SelectClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause): Specify which property values are returned with each item.
+- [ODATADetailLevel.ExpandClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.expandclause): Retrieve data for all items in a single API call instead of separate calls for each item.
 
 The following code snippet uses the Batch .NET API to efficiently query the Batch service for the statistics of a specific set of pools. In this scenario, the Batch user has both test and production pools. The test pool IDs are prefixed with "test", and the production pool IDs are prefixed with "prod". In the snippet, *myBatchClient* is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
 
@@ -126,46 +125,47 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> An instance of [ODATADetailLevel][odata] that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), to limit the amount of data that is returned.
+> An instance of [ODATADetailLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel) that is configured with Select and Expand clauses can also be passed to appropriate Get methods, such as [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations.getpool#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__), to limit the amount of data that is returned.
 
 ## Batch REST to .NET API mappings
+
 Property names in filter, select, and expand strings must reflect their REST API counterparts, both in name and case. The tables below provide mappings between the .NET and REST API counterparts.
 
 ### Mappings for filter strings
 
-- **.NET list methods**: Each of the .NET API methods in this column accepts an [ODATADetailLevel][odata] object as a parameter.
-- **REST list requests**: Each REST API page linked to in this column contains a table that specifies the properties and operations that are allowed in *filter* strings. You will use these property names and operations when you construct an [ODATADetailLevel.FilterClause][odata_filter] string.
+- **.NET list methods**: Each of the .NET API methods in this column accepts an [ODATADetailLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel) object as a parameter.
+- **REST list requests**: Each REST API page linked to in this column contains a table that specifies the properties and operations that are allowed in *filter* strings. You  use these property names and operations when you construct an [ODATADetailLevel.FilterClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause) string.
 
 | .NET list methods | REST list requests |
 | --- | --- |
-| [CertificateOperations.ListCertificates][net_list_certs] |[List the certificates in an account][rest_list_certs] |
-| [CloudTask.ListNodeFiles][net_list_task_files] |[List the files associated with a task][rest_list_task_files] |
-| [JobOperations.ListJobPreparationAndReleaseTaskStatus][net_list_jobprep_status] |[List the status of the job preparation and job release tasks for a job][rest_list_jobprep_status] |
-| [JobOperations.ListJobs][net_list_jobs] |[List the jobs in an account][rest_list_jobs] |
-| [JobOperations.ListNodeFiles][net_list_nodefiles] |[List the files on a node][rest_list_nodefiles] |
-| [JobOperations.ListTasks][net_list_tasks] |[List the tasks associated with a job][rest_list_tasks] |
-| [JobScheduleOperations.ListJobSchedules][net_list_job_schedules] |[List the job schedules in an account][rest_list_job_schedules] |
-| [JobScheduleOperations.ListJobs][net_list_schedule_jobs] |[List the jobs associated with a job schedule][rest_list_schedule_jobs] |
-| [PoolOperations.ListComputeNodes][net_list_compute_nodes] |[List the compute nodes in a pool][rest_list_compute_nodes] |
-| [PoolOperations.ListPools][net_list_pools] |[List the pools in an account][rest_list_pools] |
+| [CertificateOperations.ListCertificates](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificateoperations) |[List the certificates in an account](https://docs.microsoft.com/rest/api/batchservice/certificate/list) |
+| [CloudTask.ListNodeFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) |[List the files associated with a task](https://docs.microsoft.com/rest/api/batchservice/file/listfromtask) |
+| [JobOperations.ListJobPreparationAndReleaseTaskStatus](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) |[List the status of the job preparation and job release tasks for a job](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus) |
+| [JobOperations.ListJobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) |[List the jobs in an account](https://docs.microsoft.com/rest/api/batchservice/job/list) |
+| [JobOperations.ListNodeFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) |[List the files on a node](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) |
+| [JobOperations.ListTasks](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) |[List the tasks associated with a job](https://docs.microsoft.com/rest/api/batchservice/task/list) |
+| [JobScheduleOperations.ListJobSchedules](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the job schedules in an account](https://docs.microsoft.com/rest/api/batchservice/jobschedule/list) |
+| [JobScheduleOperations.ListJobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.jobscheduleoperations) |[List the jobs associated with a job schedule](https://docs.microsoft.com/rest/api/batchservice/job/listfromjobschedule) |
+| [PoolOperations.ListComputeNodes](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations) |[List the compute nodes in a pool](https://docs.microsoft.com/rest/api/batchservice/computenode/list) |
+| [PoolOperations.ListPools](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations) |[List the pools in an account](https://docs.microsoft.com/rest/api/batchservice/pool/list) |
 
 ### Mappings for select strings
 
 - **Batch .NET types**: Batch .NET API types.
-- **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You will use these same property names when you construct an [ODATADetailLevel.SelectClause][odata_select] string.
+- **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You use these same property names when you construct an [ODATADetailLevel.SelectClause](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause) string.
 
 | Batch .NET types | REST API entities |
 | --- | --- |
-| [Certificate][net_cert] |[Get information about a certificate][rest_get_cert] |
-| [CloudJob][net_job] |[Get information about a job][rest_get_job] |
-| [CloudJobSchedule][net_schedule] |[Get information about a job schedule][rest_get_schedule] |
-| [ComputeNode][net_node] |[Get information about a node][rest_get_node] |
-| [CloudPool][net_pool] |[Get information about a pool][rest_get_pool] |
-| [CloudTask][net_task] |[Get information about a task][rest_get_task] |
+| [Certificate]https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.certificate |[Get information about a certificate](https://docs.microsoft.com/rest/api/batchservice/certificate/get) |
+| [CloudJob](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjob) |[Get information about a job](https://docs.microsoft.com/rest/api/batchservice/job/get) |
+| [CloudJobSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudjobschedule) |[Get information about a job schedule](https://docs.microsoft.com/rest/api/batchservice/jobschedule/get) |
+| [ComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.computenode) |[Get information about a node](https://docs.microsoft.com/rest/api/batchservice/computenode/get) |
+| [CloudPool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool) |[Get information about a pool](https://docs.microsoft.com/rest/api/batchservice/pool/get) |
+| [CloudTask](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask) |[Get information about a task](https://docs.microsoft.com/rest/api/batchservice/task/get) |
 
 ## Example: construct a filter string
 
-When you construct a filter string for [ODATADetailLevel.FilterClause][odata_filter], consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job][rest_list_tasks] specifies the applicable property string and allowable operators:
+When you construct a filter string for [ODATADetailLevel.FilterClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job](https://docs.microsoft.com/en-us/rest/api/batchservice/task/list) specifies the applicable property string and allowable operators:
 
 | Property | Operations allowed | Type |
 |:--- |:--- |:--- |
@@ -176,7 +176,8 @@ Thus, the filter string for listing all tasks with a nonzero exit code would be:
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
 ## Example: construct a select string
-To construct [ODATADetailLevel.SelectClause][odata_select], consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task][rest_get_task]:
+
+To construct [ODATADetailLevel.SelectClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause), consult the table above under "Mappings for select strings" and navigate to the REST API page that corresponds to the type of entity that you are listing. You will find the selectable properties and their supported operators in the first multirow table on that page. If you wish to retrieve only the ID and command line for each task in a list, for example, you will find these rows in the applicable table on [Get information about a task](https://docs.microsoft.com/rest/api/batchservice/task/get):
 
 | Property | Type | Notes |
 |:--- |:--- |:--- |
@@ -188,8 +189,10 @@ The select string for including only the ID and command line with each listed ta
 `id, commandLine`
 
 ## Code samples
+
 ### Efficient list queries code sample
-Check out the [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks][net_list_tasks] method and passes [ODATADetailLevel][odata] objects that are configured with different property values to vary the amount of data to be returned. It produces output similar to the following:
+
+The [EfficientListQueries](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries) sample project on GitHub shows how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the [JobOperations.ListTasks](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.joboperations) method and passes [ODATADetailLevel](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel) objects that are configured with different property values to vary the amount of data to be returned. It produces output similar to the following:
 
 ```
 Adding 5000 tasks to job jobEffQuery...
@@ -205,12 +208,13 @@ Adding 5000 tasks to job jobEffQuery...
 Sample complete, hit ENTER to continue...
 ```
 
-As shown in the elapsed times, you can greatly lower query response times by limiting the properties and the number of items that are returned. You can find this and other sample projects in the [azure-batch-samples][github_samples] repository on GitHub.
+As shown in the elapsed times, you can greatly lower query response times by limiting the properties and the number of items that are returned. You can find this and other sample projects in the [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) repository on GitHub.
 
 ### BatchMetrics library and code sample
-In addition to the EfficientListQueries code sample above, you can find the [BatchMetrics][batch_metrics] project in the [azure-batch-samples][github_samples] GitHub repository. The BatchMetrics sample project demonstrates how to efficiently monitor Azure Batch job progress using the Batch API.
 
-The [BatchMetrics][batch_metrics] sample includes a .NET class library project which you can incorporate into your own projects, and a simple command-line program to exercise and demonstrate the use of the library.
+In addition to the EfficientListQueries code sample above, the [BatchMetrics](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/BatchMetrics) sample project demonstrates how to efficiently monitor Azure Batch job progress using the Batch API.
+
+The [BatchMetrics](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/BatchMetrics) sample includes a .NET class library project which you can incorporate into your own projects, and a simple command-line program to exercise and demonstrate the use of the library.
 
 The sample application within the project demonstrates the following operations:
 
