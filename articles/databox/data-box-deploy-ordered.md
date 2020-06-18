@@ -105,7 +105,7 @@ To install the extension for Azure Data Box, run the following command: `az
 
 You can use [Azure Cloud Shell](https://shell.azure.com/), a free, Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
-![Cloud Shell]("../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png")
+![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
 
