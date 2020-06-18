@@ -152,7 +152,7 @@ Property names in filter, select, and expand strings must reflect their REST API
 ### Mappings for select strings
 
 - **Batch .NET types**: Batch .NET API types.
-- **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You use these same property names when you construct an [ODATADetailLevel.SelectClause](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause) string.
+- **REST API entities**: Each page in this column contains one or more tables that list the REST API property names for the type. These property names are used when you construct *select* strings. You use these same property names when you construct an [ODATADetailLevel.SelectClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.selectclause) string.
 
 | Batch .NET types | REST API entities |
 | --- | --- |
@@ -165,7 +165,7 @@ Property names in filter, select, and expand strings must reflect their REST API
 
 ## Example: construct a filter string
 
-When you construct a filter string for [ODATADetailLevel.FilterClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job](https://docs.microsoft.com/en-us/rest/api/batchservice/task/list) specifies the applicable property string and allowable operators:
+When you construct a filter string for [ODATADetailLevel.FilterClause](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.odatadetaillevel.filterclause), consult the table above under "Mappings for filter strings" to find the REST API documentation page that corresponds to the list operation that you wish to perform. You will find the filterable properties and their supported operators in the first multirow table on that page. If you wish to retrieve all tasks whose exit code was nonzero, for example, this row on [List the tasks associated with a job](https://docs.microsoft.com/rest/api/batchservice/task/list) specifies the applicable property string and allowable operators:
 
 | Property | Operations allowed | Type |
 |:--- |:--- |:--- |
