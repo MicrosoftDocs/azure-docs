@@ -25,9 +25,7 @@ Each service in Virtual WAN is priced. Therefore, suggesting a single price is n
 
 ### <a name="scale-unit"></a>What is a scale unit?
 
-A **scale unit** provides the unit for aggregate capacity of Site-to-site (S2S), Point-to-site (P2S), and ExpressRoute (ER) in a virtual hub.
-
-<br>For example:
+A **scale unit** provides the unit for aggregate capacity of Site-to-site (S2S), Point-to-site (P2S), and ExpressRoute (ER) in a virtual hub. For example:
 
 * **1 S2S VPN scale unit** implies a total capacity of 500 Mbps VPN gateway (dual instances are deployed for resiliency) in a virtual hub costing $0.361/hour.
 * **1 ER scale unit** implies a total of 2 Gbps ER gateway in virtual hub costing $0.42/hr.
@@ -58,7 +56,7 @@ The tables below use the following abbreviations:
 |---|---|
 | NAM to NAM|$0.02 |
 | EU to EU |$0.02 |
-| Asia-Asia (Excluding China)|$0.10 |
+| ASIA-ASIA (Excluding China)|$0.10 |
 | MEA to MEA|$0.16 |
 | LATAM-LATAM |$0.16 |
 | OC-OC|$0.12 |
