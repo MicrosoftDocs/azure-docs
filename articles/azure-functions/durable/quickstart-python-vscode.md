@@ -64,7 +64,7 @@ When you created the project, the Azure Functions VS Code extension automaticall
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b5
+    azure-functions-durable>=1.0.0b6
     ```
 
 1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
