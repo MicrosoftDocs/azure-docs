@@ -195,11 +195,7 @@
     - name: Migrate from composite entity
       href: migrate-from-composite-entity.md
     - name: Migrate to authoring resource
-      items:
-      - name: Overview
-        href: luis-migration-authoring.md
-      - name: How to Migrate
-        href: luis-migration-authoring-steps.md
+      href: luis-migration-authoring.md
     - name: Migrate to V3 API
       href: luis-migration-api-v3.md
   - name: Manage app
@@ -210,11 +206,7 @@
     - name: App and version settings
       href: how-to-application-settings-portal.md
     - name: Migrate to authoring resource
-      items:
-        - name: Overview
-          href: luis-migration-authoring.md
-        - name: How to Migrate
-          href: luis-migration-authoring-steps.md
+      href: luis-migration-authoring.md
     - name: Authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
