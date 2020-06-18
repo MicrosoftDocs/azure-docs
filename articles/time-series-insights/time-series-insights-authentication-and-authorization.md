@@ -154,10 +154,10 @@ Optional URL query string parameters include setting a timeout for HTTP request 
 
 ## Next steps
 
-- For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
+* For sample code that calls the GA Time Series Insights API, read [Query data using C#](./time-series-insights-query-data-csharp.md).
 
-- For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
+* For Preview Time Series Insights API code samples, read [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
+* For API reference information, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) documentation.
 
-- Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).
+* Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).
