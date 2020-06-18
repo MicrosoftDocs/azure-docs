@@ -150,6 +150,9 @@ type ReadAloudOptions = {
 };
 ```
 
+> [!NOTE]
+> Due to browser limitations, autoplay is not supported in Safari.
+
 ```typescript
 type TranslationOptions = {
     language: string;                         // Set the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation.
