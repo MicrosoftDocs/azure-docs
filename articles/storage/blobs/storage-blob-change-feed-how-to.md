@@ -3,7 +3,7 @@ title: Process change feed in Azure Blob Storage (Preview) | Microsoft Docs
 description: Learn how to process change feed logs in a .NET client application
 author: normesta
 ms.author: normesta
-ms.date: 06/10/2020
+ms.date: 06/18/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
@@ -178,8 +178,6 @@ public void SaveCursor(string cursor)
 
 You can read records that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list, and then returns that list to the caller.
 
-The start time that you provide is rounded down to the nearest hour and the end time is rounded up to the nearest hour. It's possible that users might see events that occurred before the start time and after the end time. 
-
 ### Selecting segments for a time range
 
 ```csharp
@@ -209,6 +207,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     return changeFeedEvents;
 }
 ```
+
+The start time that you provide is rounded down to the nearest hour and the end time is rounded up to the nearest hour. It's possible that users might see events that occurred before the start time and after the end time. It's also possible that some events that occur between the start and end time won't appear. That's because events might be recorded during the hour previous to the start time or during the hour after the end time.
 
 ## Next steps
 
