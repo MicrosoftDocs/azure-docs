@@ -502,3 +502,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure Node.js app](configure-language-nodejs.md)
