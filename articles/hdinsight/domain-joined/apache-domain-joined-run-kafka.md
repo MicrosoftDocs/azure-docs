@@ -163,7 +163,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 7. Notice that **marketing_user1** can't consume from topic `salesevents`.
 
-   Repeat steps 1-4 above, but this time as **marketing_user1**.
+   Repeat steps 1-3 above, but this time as **marketing_user1**.
 
    Execute the following command to consume from topic `salesevents`:
 
@@ -181,10 +181,12 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 
 Please note that create topics does not work through console commands and you must use the above Java code for the same. Refer to section 'Create topics in a Kafka cluster with ESP'. 
 
-1. Set Environment variables as shown.
-2. Produce and consume messages to topic `salesevents` using the respective commands.
+1. Kinit with the username of user. Enter password when prompted.
+2. Set Environment variables as shown.
+3. Produce and consume messages to topic `salesevents` using the respective commands.
 
    ```bash
+   kinit sales_user1
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
    export KAFKABROKERS=<brokerlist>:9092
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
