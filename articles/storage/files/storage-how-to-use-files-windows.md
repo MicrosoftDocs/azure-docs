@@ -99,7 +99,7 @@ To get this cmdlet:
 1. Select the drive letter to mount the share to.
 1. Copy the provided cmdlet.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet.png" alt-text="Example text":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/files-portal-mounting-cmdlet-resize.png" alt-text="Example text":::
 
 1. Paste the cmdlet into a shell on the host you'd like to mount the file share to, and run it.
 
