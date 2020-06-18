@@ -66,7 +66,7 @@ For more information about these tokens, see [Azure Active Directory access toke
 |  `Grant_type`       |   True         | Grant type. The default value is `client_credentials`. |
 |  `Client_id`        |   True         | Client/app identifier associated with the Azure AD app.|
 |  `client_secret`    |   True         | The password associated with the Azure AD app.  |
-|  `Resource`         |   True         | Target resource for which the token is requested. The default value is `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `Resource`         |   True         | Target resource for which the token is requested. The default value for Managed App is `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` and SaaS Offer is `62d94f6c-d599-489b-a797-3e10e42fbe22`  |
 | | | |
 
 #### *Response*
