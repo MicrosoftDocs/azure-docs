@@ -17,11 +17,11 @@ This tutorial is part one of a series. In this tutorial, you will learn how to d
 
 # [\.NET v12](#tab/dotnet)
 
-![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
+![Image resizer app in .NET](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v12](#tab/nodejs)
+# [JavaScript v12](#tab/javascript)
 
-![Image resizer app in Node.js](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in JavaScript](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -177,7 +177,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# [Node.js v12](#tab/nodejs)
+# [JavaScript v12](#tab/javascript)
 
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
@@ -217,7 +217,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# [Node.js v12](#tab/nodejs)
+# [JavaScript v12](#tab/javascript)
 
 The sample web app uses the [Azure Storage Client Library](https://github.com/Azure/azure-storage-js) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
@@ -283,7 +283,7 @@ The following classes and methods are used in the preceding task:
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# [Node.js v12](#tab/nodejs)
+# [JavaScript v12](#tab/javascript)
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
@@ -416,7 +416,7 @@ Navigate back to your app to verify that the image uploaded to the **thumbnails*
 
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
-# [Node.js v12](#tab/nodejs)
+# [JavaScript v12](#tab/javascript)
 
 ![Node.js image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
