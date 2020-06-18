@@ -22,9 +22,9 @@ The tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
-> * Import a certificate in Key vault using portal.
-> * Import a certificate in Key vault using CLI.
-> * Import a certificate in Key vault using PowerShell.
+> * Import a certificate in Key Vault using the portal.
+> * Import a certificate in Key Vault using the CLI.
+> * Import a certificate in Key Vault using PowerShell.
 
 
 Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md). 
@@ -100,7 +100,8 @@ az keyvault certificate import --file
                                [--subscription]
                                [--tags]
 ```
-Learn more about the parameters [here](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import)
+
+Learn more about the [parameters](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import).
 
 After importing the certificate, you can view the certificate using [Certificate show](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-show)
 
@@ -113,8 +114,6 @@ az keyvault certificate show [--id]
                              [--vault-name]
                              [--version]
 ```
-
-
 
 Now, you have created a Key vault, imported a certificate and viewed Certificate's properties.
 
@@ -132,7 +131,8 @@ Import-AzureKeyVaultCertificate
       [-Confirm]
       [<CommonParameters>]
 ```
-Learn more about the parameters [here](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0)
+
+Learn more about the [parameters](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 
 ## Clean up resources
