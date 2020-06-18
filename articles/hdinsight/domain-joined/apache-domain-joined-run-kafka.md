@@ -182,14 +182,20 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 Please note that create topics does not work through console commands and you must use the above Java code for the same. Refer to section 'Create topics in a Kafka cluster with ESP'. 
 
 1. Kinit with the username of user. Enter password when prompted.
-2. Set Environment variables as shown.
-3. Produce and consume messages to topic `salesevents` using the respective commands.
-
    ```bash
    kinit sales_user1
+   ```
+2. Set Environment variables as shown.
+   ```bash
    export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
    export KAFKABROKERS=<brokerlist>:9092
+   ```
+3. Produce messages to topic `salesevents` using the command.
+   ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
+4. Consumer messages from topic `salesevents` using the command.
+   ```bash
    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
    ```
 
