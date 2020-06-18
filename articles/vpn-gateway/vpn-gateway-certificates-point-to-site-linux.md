@@ -6,7 +6,7 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: alzam
 
