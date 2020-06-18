@@ -20,7 +20,7 @@ ms.author: juliako
 
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks.  Upon completion of a task, an output asset is produced. The output asset contains video, audio, thumbnails, manifest, and other files. 
 
-The output asset also contains a file with metadata about the input asset. The name of the metadata JSON file has the following format: `<asset_id>_metadata.json` (for example, `41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.json`), where `asset_id` is the asset Id value of the input asset.  
+The output asset also contains a file with metadata about the input asset. The name of the metadata JSON file has a random ID, do not use it to identify the input asset that output asset belongs to. To identify the input asset it belongs to, use the `Uri` field (for more information, see [Other child elements](#other-child-elements)).  
 
 Media Services does not preemptively scan input assets to generate metadata. Input metadata is generated only as an artifact when an input asset is processed in a Job. Hence this artifact is written to the output asset. Different tools are used to generate metadata for input assets and output assets. Therefore, the input metadata has a slightly different schema than the output metadata.
 
@@ -48,6 +48,7 @@ Contains a collection of AssetFile elements for the encoding job.
 | Name | Description |
 | --- | --- |
 | **Name**<br />Required |Asset file name. <br /><br />Example: `"Name": "Ignite-short.mp4"` |
+| **Uri**<br />Required |The URL where the input asset is located. To identify the input asset the output asset belongs to, use the `Uri` field instead of ID.|
 | **Size**<br />Required |Size of the asset file in bytes.  <br /><br />Example: `"Size": 75739259`|
 | **Duration**<br />Required |Content play back duration. <br /><br />Example: `"Duration": "PT1M10.304S"`. |
 | **NumberOfStreams**<br />Required |Number of streams in the asset file.  <br /><br />Example: `"NumberOfStreams": 2`|
@@ -219,6 +220,7 @@ Contains a collection of AssetFile elements for the encoding job.
         }
       ],
       "Name": "Ignite-short.mp4",
+      "Uri": "https://amsstorageacct.blob.core.windows.net/asset-00000000-0000-0000-000000000000/ignite.mp4",
       "Size": 75739259,
       "Duration": "PT1M10.304S",
       "NumberOfStreams": 2,
