@@ -99,7 +99,7 @@ Under high traffic load, your VPN gateway might drop packets because of high CPU
 
 ## Increase batch size when loading to maximize load throughput, data compression, and query performance
 
-Advisor detects whether you can increase load performance and throughput by increasing the batch size when loading into your database. You could consider using the COPY statement. If you can't use the COPY statement, consider increasing the batch size when you use loading utilities like the SQLBulkCopy API or BCP. A good rule of thumb is to use a batch size that's between 100 thousand and 1 million rows. Increasing batch size will increase load throughput, data compression, and query performance.
+Advisor detects whether you can increase load performance and throughput by increasing the batch size when loading into your database. You could consider using the COPY statement. If you can't use the COPY statement, consider increasing the batch size when you use loading utilities like the SQLBulkCopy API or BCP. A good general rule is to use a batch size that's between 100 thousand and 1 million rows. Increasing batch size will increase load throughput, data compression, and query performance.
 
 ## Co-locate the storage account in the same region to minimize latency when loading
 
@@ -112,13 +112,16 @@ Advisor detects unsupported versions of Kubernetes.
 ## Optimize the performance of your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers
 
 ### Fix the CPU pressure of your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers with CPU bottlenecks
-High utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help to optimize the runtime of the database queries and improve overall performance. Azure Advisor identifies servers with a high CPU utilization that are likely running CPU-constrained workloads and recommend scaling your compute.
+High utilization of the CPU over an extended period can cause slow query performance for your workload. Increasing the CPU size will help to optimize the runtime of the database queries and improve overall performance. Advisor identifies servers with a high CPU utilization that are likely running CPU-constrained workloads and recommends scaling your compute.
 
 ### Reduce memory constraints on your Azure Database for MySQL, Azure Database for PostgreSQL, and Azure Database for MariaDB servers or move to a Memory Optimized SKU
-A low cache hit ratio can result in slower query performance and increased IOPS. This condition could be caused by a bad query plan or a memory intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends either fixing the query plan, moving to an SKU that has more memory, or increasing storage size to get more IOPS.
+A low cache hit ratio can result in slower query performance and increased IOPS. This condition could be caused by a bad query plan or a memory intensive workload. Fixing the query plan or [increasing the memory](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) of the Azure Database for PostgreSQL, Azure Database for MySQL, or Azure Database for MariaDB server will help optimize the execution of the database workload. Azure Advisor identifies servers affected by this high buffer pool churn. It recommends that you take one of these actions: 
+- Fix the query plan
+- Move to an SKU that has more memory 
+- Increase storage size to get more IOPS.
 
 ### Use an Azure Database for MySQL or Azure Database for PostgreSQL read replica to scale out reads for read-intensive workloads
-Azure Advisor uses workload-based heuristics like the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. An Azure Database for PostgreSQL or Azure Database for MySQL resource with a high reads/writes ratio can result in CPU or memory contentions and lead to slow query performance. Adding a [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) will help to scale out reads to the replica server and prevent CPU or memory constraints on the primary server. Advisor identifies servers with read-intensive workloads and recommends that you add a [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) to offload some of the read workloads.
+Advisor uses workload-based heuristics like the ratio of reads to writes on the server over the past seven days to identify read-intensive workloads. An Azure Database for PostgreSQL or Azure Database for MySQL resource with a high reads/writes ratio can result in CPU or memory contentions and lead to slow query performance. Adding a [replica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) will help to scale out reads to the replica server and prevent CPU or memory constraints on the primary server. Advisor identifies servers with read-intensive workloads and recommends that you add a [read replica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) to offload some of the read workloads.
 
 
 ### Scale your Azure Database for MySQL, Azure Database for PostgreSQL, or Azure Database for MariaDB server to a higher SKU to prevent connection constraints
@@ -134,11 +137,11 @@ Cache instances perform best when they're not running under high memory pressure
 
 ## Add regions with traffic to your Azure Cosmos DB account
 
-Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured and recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
+Advisor detects Azure Cosmos DB accounts that have traffic from a region that isn't currently configured. It recommends adding that region. Doing so improves latency for requests coming from that region and ensures availability in case of region outages. [Learn more about global data distribution with Azure Cosmos DB.](https://aka.ms/cosmos/globaldistribution)
 
 ## Configure your Azure Cosmos DB indexing policy by using custom included or excluded paths
 
-Azure Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](https://aka.ms/cosmosdb/modify-index-policy)
+Advisor identifies Azure Cosmos DB containers that are using the default indexing policy but could benefit from a custom indexing policy. This determination is based on the workload pattern. The default indexing policy indexes all properties. A custom indexing policy with explicit included or excluded paths used in query filters can reduce the RUs and storage consumed for indexing. [Learn more about modifying index policies.](https://aka.ms/cosmosdb/modify-index-policy)
 
 ## Set your Azure Cosmos DB query page size (MaxItemCount) to -1 
 
