@@ -20,7 +20,7 @@ Use this article to create and deploy a Cognitive Services resource, using an Az
 
 ## Prerequisites 
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
 ## Create a Cognitive Services resource.
 

@@ -21,7 +21,7 @@
     href: diagnostic-logging.md
   - name: ARM template
     displayName: Resource Manager
-    href: azure-resource-manager-template.md
+    href: resource-manager-template.md
 - name: Samples
   items:
   - name: Azure Policy built-ins
