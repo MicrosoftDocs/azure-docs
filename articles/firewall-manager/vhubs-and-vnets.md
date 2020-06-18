@@ -36,7 +36,7 @@ The following table compares these two architecture options and can help you dec
 |**Azure Firewall Availability Zones**     |Supported|Not yet available|
 |**Advanced Internet security with third-party Security as a Service partners**     |Customer established and managed VPN connectivity to partner service of choice|Automated via security partner provider flow and partner management experience|
 |**Centralized route management to route traffic to the hub**     |Customer-managed User Defined Route|Supported using BGP|
-|Multiple security provider support|Not supported|Support for two security providers: Azure Firewall for private traffic filtering and third party for Internet filtering|
+|**Multiple security provider support**|Not supported|Support for two security providers: Azure Firewall for private traffic filtering and third party for Internet filtering|
 |**Web Application Firewall on Application Gateway** |Supported in Virtual Network|Currently supported in spoke network|
 |**Network Virtual Appliance**|Supported in Virtual Network|Currently supported in spoke network|
 
