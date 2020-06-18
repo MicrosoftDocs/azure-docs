@@ -29,7 +29,7 @@ The SDK exposes the functions:
 
 ## launchAsync
 
-Launches the Immersive Reader within an `iframe` in your web application.
+Launches the Immersive Reader within an `iframe` in your web application. Note that the size of your content is limited to a maximum of 50 MB.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -122,15 +122,19 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 {
     uiLang?: string;           // Language of the UI, e.g. en, es-ES (optional). Defaults to browser language if not specified.
     timeout?: number;          // Duration (in milliseconds) before launchAsync fails with a timeout error (default is 15000 ms).
-    uiZIndex?: number;         // Z-index of the iframe that will be created (default is 1000)
+    uiZIndex?: number;         // Z-index of the iframe that will be created (default is 1000).
     useWebview?: boolean;      // Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false).
-    onExit?: () => any;        // Executes when the Immersive Reader exits
+    onExit?: () => any;        // Executes when the Immersive Reader exits.
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
     cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
-    disableFirstRun?: boolean; // Disable the first run experience
-    readAloudOptions?: ReadAloudOptions; // Options to configure Read Aloud
+    disableFirstRun?: boolean; // Disable the first run experience.
+    readAloudOptions?: ReadAloudOptions; // Options to configure Read Aloud.
+    translationOptions?: TranslationOptions; // Options to configure translation.
+    displayOptions?: DisplayOptions; // Options to configure text size, font, etc.
+    preferences?: string; // String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader.
+    onPreferencesChanged?: (value: string) => any; // Executes when the user's preferences have changed.
 }
 ```
 
@@ -146,6 +150,22 @@ type ReadAloudOptions = {
 };
 ```
 
+```typescript
+type TranslationOptions = {
+    language: string;                         // Set the translation language, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation.
+    autoEnableDocumentTranslation?: boolean;  // Automatically translate the entire document.
+    autoEnableWordTranslation?: boolean;      // Automatically enable word translation.
+};
+```
+
+```typescript
+type DisplayOptions = {
+    textSize?: number;          // Valid values are 14, 20, 28, 36, 42, 48, 56, 64, 72, 84, 96.
+    increaseSpacing?: boolean;  // Set whether increased spacing is enabled.
+    fontFamily?: string;        // Valid values are 'Calibri', 'ComicSans', and 'Sitka'.
+};
+```
+
 ### LaunchResponse
 
 Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` that contains the Immersive Reader can be accessed via `container.firstChild`.
@@ -156,7 +176,7 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
     sessionId: string;            // Globally unique identifier for this session, used for debugging
 }
 ```
-
+ 
 ### Error
 
 Contains information about the error.
