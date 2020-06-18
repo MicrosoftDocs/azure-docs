@@ -35,7 +35,7 @@ ONNX Runtime is used in high-scale Microsoft services such as Bing, Office, and 
 ## Get ONNX models
 
 You can obtain ONNX models in several ways:
-+ Train a new ONNX model in Azure Machine Learning (see examples at the bottom of this article) or by using [automated Machine Learning capabilities](concept-automated-ml#automl--onnx)
++ Train a new ONNX model in Azure Machine Learning (see examples at the bottom of this article) or by using [automated Machine Learning capabilities](concept-automated-ml.md#automl--onnx)
 + Convert existing model from another format to ONNX (see the [tutorials](https://github.com/onnx/tutorials)) 
 + Get a pre-trained ONNX model from the [ONNX Model Zoo](https://github.com/onnx/models)
 + Generate a customized ONNX model from [Azure Custom Vision service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
