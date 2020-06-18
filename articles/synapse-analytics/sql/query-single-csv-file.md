@@ -175,6 +175,11 @@ WHERE
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
+> [!NOTE]
+> To escape double quote character: " you must add double qoutes to ESCAPECHAR = '""'.
+> 
+> Example of field which will be escaped with this is: "Lorem-Ipsum 3"" Lorem"
+
 ## Tab-delimited files
 
 The following query shows how to read a file with a header row, with a Unix-style new line, and tab-delimited columns. Note the different location of the file as compared to the other examples.
