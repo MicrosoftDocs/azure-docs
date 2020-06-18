@@ -32,7 +32,7 @@ ms.author: radeltch
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
-The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, doesn't require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers.
+The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is, if you are already using SBD devices on-premises, doesn't require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers, which is the most resilient configuration when using SBDs.
 
 If you don't want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
 
@@ -528,6 +528,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ## Create Azure Fence agent STONITH device
 
+This section of the documentation is only applicable, if using STONITH, based on Azure Fence agent.
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
 1. Go to <https://portal.azure.com>
@@ -551,22 +552,26 @@ Use the following content for the input file. You need to adapt the content to y
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -589,18 +594,25 @@ Repeat the steps above for the second cluster node.
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+<pre><code>crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
+   params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="login ID" passwd="password" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
 
+> [!IMPORTANT]
+> Make sure that cluster property **concurrent-fencing** is also set to *true*, in addition to the recommended stonith configuration, so that the monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.
+
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## Default Pacemaker configuration for SBD
+
+The configuration in thsi section is only applicable, if using SBD STONITH.  
 
 1. **[1]** Enable the use of a STONITH device and set the fence delay
 
