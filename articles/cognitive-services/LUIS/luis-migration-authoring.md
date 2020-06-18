@@ -27,7 +27,7 @@ Migration is the process of changing authoring authentication from an email acco
 
 ## Note before you migrate
 
-* Migration is a **one-way** process. You can not go back after you migrate.
+* Migration is a **one-way** process. You can't go back after you migrate.
 * Applications will **automatically migrate** with you if you are the **owner** of the application.
 * The owner can't choose a subset of apps to migrate and the process isn't reversible.
 * Applications will **disappear from Collaborator's sides** after the **owner migrates**.
@@ -36,7 +36,7 @@ Migration is the process of changing authoring authentication from an email acco
 * There is no way for an owner to know that his collaborators have migrated.
 * **Migration does not** automatically collect collaborators and move or add them to the Azure authoring resource. The app owner is the one who needs to complete this step after migration. This step requires [permissions to the Azure Authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-collaborate).
 * After being assigned to the Azure resource, **collaborators will need to migrate to access applications**. Otherwise, they will have no access to author the applications.
-* A migrated user can not be added as a collaborator of the application.
+* A migrated user can't be added as a collaborator of the application.
 * If **you own prediction keys that are assigned to applications owned by another user**, this will **block migration** for both the owner and collaborators. See below for recommendations.
 
 > [!Note]
@@ -46,7 +46,7 @@ Migration is the process of changing authoring authentication from an email acco
 
 * You need to be associated with a valid Azure Subscription. Ask your tenant admin to add you on the subscription or you can sign up for a free one [here](https://azure.microsoft.com/free/).
 * You need to create a LUIS Azure Authoring resource from the LUIS portal or from the Azure portal. Creating an authoring resource from the LUIS portal is part of the migration flow that is discussed in the next section.
-* If you are a **collaborator on applications**, the applications will not automatically migrate. It is **recommended to backup these applications** by exporting them or use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you are the owner.
+* If you are a **collaborator on applications**, the applications will not automatically migrate. It is **recommended to back up these applications** by exporting them or use the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you are the owner.
 * If you are the **owner of the application**, you will not need to export your apps as they will migrate automatically. It is **recommended to save each app's collaborator's list.** An email template that has this list is provided optionally as part of the migration process.
 
 
@@ -107,7 +107,7 @@ If you want to create a new authoring resource, select **create a new Authoring 
 > ![Create authoring resource](./media/migrate-authoring-key/create-new-authoring-resource-2.png)
 
 * **Resource name** - a custom name you choose, used as part of the URL for your authoring and prediction endpoint queries.
-* **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the dropdown list.
+* **Subscription name** - the subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
 * **Resource group** - a custom resource group name you choose from the drop down list. Resource groups allow you to group Azure resources for access and management.
 * **Tenant** - the tenant your Azure subscription is associated with. This is set by default to the tenant you are currently choosing. You can switch tenants by selecting the rightmost avatar which contains your initials.
 
@@ -184,7 +184,7 @@ On a weekly basis, you are prompted to migrate your apps. You can cancel this wi
 You can delay the migration process by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. You can start the migration process from the top navigation bar's lock icon.
 
 ## Prediction resources blocking migration
-Your migration negatively impacts any applications runtime. When migrating, any collaborators are removed from your apps and you are removed as a collaborator from other apps. This process means the keys a Collaborator assigns get removed too and this may break your application if it is in production. This is the reason we block the migration until you remove collaborators or keys assigned to them manually.
+Your migration negatively impacts any applications runtime. When migrating, any collaborators are removed from your apps and you are removed as a collaborator from other apps. This process means the keys that a Collaborator assigns also get removed, which might break your application if it's in production. This is the reason we block the migration until you remove collaborators or keys assigned to them manually.
 
 ### When does prediction resources block migration?
 * Migration gets blocked if you have assigned prediction/runtime resources in apps you do not own.
@@ -199,7 +199,7 @@ It is recommended to:
 * Undergo the migration process which should succeed if you manually remove collaborators.
 * Assign collaborators as contributors to your new authoring resource.
 * Collaborators are to migrate and re-assign the prediction resources back to the applications.
-Note this will have cause a break in the application temporarily until the prediction resources are re-assigned.
+Note this will cause a break in the application temporarily until the prediction resources are re-assigned.
 
 Another solution here is, before owner migration, collaborators may add app owners as contributors on their Azure subscriptions from the Azure portal. This will grant the owner access to the runtime prediction resource. If owner migrates using the new subscription they have been added to (which will be found under a new tenant), this will not only unblock the migration process for both collaborator and app owner, but it will allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
 
