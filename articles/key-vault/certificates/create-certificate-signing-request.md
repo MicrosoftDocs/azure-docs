@@ -32,17 +32,17 @@ The following steps will help you create a certificate from certificate authorit
 
 1.  First, **create the certificate policy**. Key Vault will not enroll or renew the certificate from the Issuer on behalf of the user as CA chosen in this scenario is not a supported one and hence the IssuerName is set to Unknown.
 
-```azurepowershell
-$policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
-```
+    ```azurepowershell
+    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
+    ```
 
 
 2. Create a **certificate signing request**
 
-```azurepowershell
-$csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
-$csr.CertificateSigningRequest
-```
+   ```azurepowershell
+   $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
+   $csr.CertificateSigningRequest
+   ```
 
 3. Getting the CSR **request signed by the CA**
 The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certificate signing request for the certificate. You can take this blob and dump into Issuer’s certificate request website. This step varies from CA to CA, the best way would be to look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the certificate request signed and complete the process of generating a certificate.
@@ -51,11 +51,11 @@ The `$certificateOperation.CertificateSigningRequest` is the base4 encoded certi
 4. **Merging the signed request** in Key Vault
 After the certificate request has been signed by the Issuer, you can bring back the signed certificate and merge it with the initial private-public key pair created in Azure Key Vault
 
-```azurepowershell-interactive
-Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
-```
+    ```azurepowershell-interactive
+    Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
+    ```
 
-Certificate request has now been successfully merged.
+    Certificate request has now been successfully merged.
 
 ### Azure portal
 
