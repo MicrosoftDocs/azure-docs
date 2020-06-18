@@ -7,6 +7,8 @@ ms.date: 06/16/2020
 
 # Tutorial: Create a content library for deploying a VM in Azure VMware Solution (AVS)
 
+A content library stores and manages content in the form of library items.  A single library item consists of one or more files and can be used to deploy virtual machines. 
+ 
 In this tutorial, you learn how to:
 
 You learn how to:
@@ -17,7 +19,7 @@ You learn how to:
 
 ## Prerequisites
 
-An NSX-T logical switch segment created in a [previous tutorial]() is required to complete this tutorial.
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial by deploying a VM in your private cloud.  See the [How to manage DHCP in Azure VMWare Solution (AVS) Preview](manage-dhcp.md).
 
 ## Create a content library
 
@@ -49,7 +51,7 @@ An NSX-T logical switch segment created in a [previous tutorial]() is required t
 
 Now that the content library has been created, you can add the ISO image to deploy a VM to a private cloud cluster. 
 
-1. From the on-premises vSphere Client, select **Menu > Content Libraries**.
+1. From the vSphere Client, select **Menu > Content Libraries**.
 
 1. Right-click the content library you want to use for a new ISO and select **Import Item**.
 
@@ -66,7 +68,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 ## Deploy a VM to a private cloud cluster
 
-1. From the on-premises vSphere Client, select **Menu > Hosts and Clusters**.
+1. From the vSphere Client, select **Menu > Hosts and Clusters**.
 
 1. In the left panel, expand the tree and select a cluster.
 
@@ -91,7 +93,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 ## Next steps
 
-The next step is to [create additional NSX-T networks]().
+If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](hybrid-cloud-extension-installation.md) procedure.
 
 <!-- LINKS - external-->
 
