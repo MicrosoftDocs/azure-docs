@@ -12,8 +12,8 @@ ms.custom: mvc
 
 ## Update (June 2020)
 
-- Support for multiple credentials on appliance for physical server discovery. [Learn more]()
-- Support to allow Azure login from appliance for tenant where tenant restriction has been configured. [Learn more]()
+- Support for multiple credentials on appliance for physical server discovery.
+- Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 - New Azure Migrate appliance versions as listed below.
 
 ### Azure public cloud
