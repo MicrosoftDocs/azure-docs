@@ -435,7 +435,7 @@
       href: https://docs.microsoft.com/javascript/api/azure-iothub/
     - name: Node.js (Management)
       href: https://docs.microsoft.com/javascript/api/overview/azure/iothub/management
-    - name: PYthon (Device)
+    - name: Python (Device)
       href: https://docs.microsoft.com/python/api/azure-iot-device
     - name: Python (Service)
       href: https://docs.microsoft.com/python/api/azure-iot-hub
