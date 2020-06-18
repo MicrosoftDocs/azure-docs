@@ -22,7 +22,7 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage (Pre
 ## Get the blob change feed processor library
 
 1. Open a command window (For example: Windows PowerShell).
-2. From your project directory, install the **Microsoft.Azure.Storage.Changefeed** NuGet package.
+2. From your project directory, install the **Azure.Storage.Blobs.Changefeed** NuGet package.
 
 ```console
 dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
@@ -112,9 +112,9 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## Stream processing of records
 
-You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
+You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications). We recommend that you poll for changes every hour or so.
 
-This example periodically polls for changes. If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
+This example periodically polls for changes.  If change records exist, this code processes those records and saves change feed cursor. That way if the process is stopped and then started again, the application can use the cursor to resume processing records where it last left off. This example saves the cursor to a local application configuration file, but your application can save it in any form that makes the most sense for your scenario. 
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -177,6 +177,8 @@ public void SaveCursor(string cursor)
 ## Reading records within a time range
 
 You can read records that fall within a specific time range. This example iterates through all records in the change feed that fall between 3:00 PM on March 2 2017 and 2:00 AM on October 7 2019, adds them to a list, and then returns that list to the caller.
+
+The start time that you provide is rounded down to the nearest hour and the end time is rounded up to the nearest hour. It's possible that users might see events that occurred before the start time and after the end time. 
 
 ### Selecting segments for a time range
 
