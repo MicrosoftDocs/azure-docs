@@ -2,20 +2,18 @@
 title: Tutorial to order Azure Data Box | Microsoft Docs
 description: Learn the deployment prerequisites and how to order an Azure Data Box
 services: databox
-author: alkohli
+author: priestlg
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/23/2019
-ms.author: alkohli
+ms.date: 06/18/2020
+ms.author: v-grpr
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Order Azure Data Box
 
 Azure Data Box is a hybrid solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to a Microsoft-supplied 80 TB (usable capacity) storage device and then ship the device back. This data is then uploaded to Azure.
-
-# [Portal](#tab/portal)
 
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
@@ -28,11 +26,156 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 
 ## Prerequisites
 
+# [Portal](#tab/portal)
+
 Complete the following configuration prerequisites for Data Box service and device before you deploy the device:
 
 [!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
 
+# [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+You can sign in to Azure and run Azure CLI commands in one of two ways:
+
+* You can install the CLI and run CLI commands locally.
+* You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
+
+### Install the CLI locally
+
+* Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
+
+#### Sign in to Azure
+
+Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
+
+```azurecli
+PS C:\Windows> az login
+You have logged in. Now let us find all the subscriptions to which you have access.
+[
+   {
+      "cloudName": "AzureCloud",
+      "homeTenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "isDefault": true,
+      "managedByTenants": [],
+      "name": "My Subscription",
+      "state": "Enabled",
+      "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "user": {
+          "name": "gusp@contoso.com",
+          "type": "user"
+      }
+   }
+]
+```
+#### Install the Azure Data Box CLI extension
+
+Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+To install the extension for Azure Data Box, run the following command: `az extension add --name databox`:
+
+```azurecli
+
+    PS C:\Windows> az extension add --name databox
+    The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
+    PS C:\Windows>
+
+    # az databox help
+
+    PS C:\Windows> az databox -h
+
+    Group
+        az databox
+
+    Subgroups:
+        job [Experimental] : Commands to manage databox job.
+
+    For more specific examples, use: az find "az databox"
+
+        Please let us know how we are doing: https://aka.ms/clihats
+```
+
+### Use Azure Cloud Shell
+
+You can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
+
+To start Azure Cloud Shell:
+
+| Option | Example/Link |
+|-----------------------------------------------|---|
+| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+
+To run the code in this article in Azure Cloud Shell:
+
+1. Start Cloud Shell.
+
+2. Select the **Copy** button on a code block to copy the code.
+
+3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
+
+4. Select **Enter** to run the code.
+
+For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands.
+
+<!-- This goes away, we'll show this later when we show how to order a Data Box. -->
+## Change the output format type
+
+All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
+
+<!-- ```azurecli
+
+az databox job <command> --output <output-format>
+
+```
+
+Azure Data Box CLI commands support the following output formats:
+
+* json (default setting)
+* jsonc
+* table
+* tsv
+* yaml
+* yamlc
+* none
+
+You can use the parameter `--output` with all Azure Data Box CLI commands. -->
+
+<!-- To set the output format to yaml: -->
+
+<!-- ```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
+
+``` -->
+<!-- 
+To set the out format to tabular form (easier to read):
+
+```azurecli
+PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
+
+``` -->
+
+Here's the example output of `az databox job show` after changing the output format to table:
+
+```azurecli
+PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
+Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+
+DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+--------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+
+```
+
+---
+
 ## Order Data Box
+
+# [Portal](#tab/portal)
 
 Do the following steps in the Azure portal to order a device.
 
@@ -93,201 +236,7 @@ Do the following steps in the Azure portal to order a device.
 
 11. Click **Order**. The order takes a few minutes to be created.
 
-## Track the order
-
-After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
-
-If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
-
-* SMB shares are created for each storage account associated with the device.
-* For each share, access credentials such as username and password are generated.
-* Device password that helps unlock the device is also generated.
-* The Data Box is locked to prevent unauthorized access to the device at any point.
-
-When the device preparation is complete, the portal shows the order in **Processed** state.
-
-![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
-
-Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
-
-![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
-
-## Cancel the order
-
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
-
-After placing an order, you can cancel it at any point before the order status is marked processed.
-
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
-
-## Next steps
-
-In this tutorial, you learned about Azure Data Box articles such as:
-
-> [!div class="checklist"]
->
-> * Prerequisites to deploy Data Box
-> * Order Data Box
-> * Track the order
-> * Cancel the order
-
 # [Azure CLI](#tab/azure-cli)
-
-This tutorial describes how you can use Azure CLI to order an Azure Data Box. In this tutorial, you learn about:
-
-> [!div class="checklist"]
->
-> * Prerequisites to deploy Data Box
-> * Order a Data Box
-> * Track the order
-> * List all orders
-> * Cancel the order
-> * Delete the order
-
-## Prerequisites
-
-Before you begin, you must have:
-
-* Installed [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
-
-[!INCLUDE [Prerequisites](../../includes/data-box-deploy-ordered-prerequisites.md)]
-
-### Azure Cloud Shell
-
-For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands. Alternatively, you can use Azure Cloud Shell, an Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
-
-To start Azure Cloud Shell:
-
-| Option | Example/Link |
-|-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. Selecting **Try It** doesn't automatically copy the code to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](../../includes/media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Go to [https://shell.azure.com](https://shell.azure.com), or select the **Launch Cloud Shell** button to open Cloud Shell in your browser. | [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](../../includes/media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
-
-To run the code in this article in Azure Cloud Shell:
-
-1. Start Cloud Shell.
-
-2. Select the **Copy** button on a code block to copy the code.
-
-3. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
-
-4. Select **Enter** to run the code.
-
-## Prepare your environment
-
-1. Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command. If you are not authenticated, follow the steps displayed in Azure CLI  to complete the authentication process.
-
-   This example shows how to sign in to Azure:
-
-    ```azurecli
-
-    PS C:\Windows> az login
-    ```
-
-    If sign-in is successful, you will see the following output:
-
-    ```azurecli
-
-    You have logged in. Now let us find all the subscriptions to which you have access.
-    [
-      {
-        "cloudName": "AzureCloud",
-        "homeTenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "isDefault": true,
-        "managedByTenants": [],
-        "name": "My Subscription",
-        "state": "Enabled",
-        "tenantId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-        "user": {
-          "name": "gusp@contoso.com",
-          "type": "user"
-         }
-       }
-    ]
-    ```
-
-2. Install the Azure Data Box CLI extension (if you are not using Azure Cloud Shell).
-
-   Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
-
-   To install the extension for Azure Data Box, run the following command: `az extension add --name databox`.
-
-   Here is an example of command usage:
-
-    ```azurecli
-
-    PS C:\Windows> az extension add --name databox
-    The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
-    PS C:\Windows>
-
-    # az databox help
-
-    PS C:\Windows> az databox -h
-
-    Group
-        az databox
-
-    Subgroups:
-        job [Experimental] : Commands to manage databox job.
-
-    For more specific examples, use: az find "az databox"
-
-        Please let us know how we are doing: https://aka.ms/clihats
-    ```
-
-   For instructions to install CLI extensions, see [Use extensions with Azure CLI](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest).
-
-## Change the output format type
-
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
-
-```azurecli
-
-az databox job <command> --output <output-format>
-
-```
-
-Azure Data Box CLI commands support the following output formats:
-
-* json (default setting)
-* jsonc
-* table
-* tsv
-* yaml
-* yamlc
-* none
-
-You can use the parameter `--output` with all Azure Data Box CLI commands.
-
-To set the output format to yaml:
-
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "yaml"
-
-```
-
-To set the out format to tabular form (easier to read):
-
-```azurecli
-PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "mydataboxorder" --output "table"
-
-```
-
-Here's the example output of `az databox job show` after changing the output format to table:
-
-```azurecli
-PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
-Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
-
-DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
---------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
-NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-
-```
-
-## Order Data Box
 
 Do the following steps using Azure CLI to order a device:
 
@@ -368,8 +317,32 @@ Do the following steps using Azure CLI to order a device:
 
    ```
 
-## Track an order
+---
 
+## Track the order
+
+# [Portal](#tab/portal)
+
+After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
+
+If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
+
+* SMB shares are created for each storage account associated with the device.
+* For each share, access credentials such as username and password are generated.
+* Device password that helps unlock the device is also generated.
+* The Data Box is locked to prevent unauthorized access to the device at any point.
+
+When the device preparation is complete, the portal shows the order in **Processed** state.
+
+![Data Box order processed](media/data-box-overview/data-box-order-status-processed.png)
+
+Microsoft then prepares and dispatches your device via a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
+
+![Data Box order dispatched](media/data-box-overview/data-box-order-status-dispatched.png)
+
+# [Azure CLI](#tab/azure-cli)
+
+<!-- ### Track a single order -->
 To get tracking information about an existing Azure Data Box order, run [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
@@ -390,7 +363,7 @@ To get tracking information about an existing Azure Data Box order, run [az data
    |verbose| Include verbose logging. | --verbose |
 
    Here's an example of the command with output:
-
+<!-- show the following in table form to keep TOC  -->
    ```azurecli
     PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest3"
 
@@ -580,11 +553,12 @@ To get tracking information about an existing Azure Data Box order, run [az data
 
    ```
 
+<!-- Change to H3 with parent Track the order-->
 ## List all orders
 
 If you have ordered multiple devices, you can run [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
-
+<!-- Put this in table form for output -->
    ```azurecli
    az databox job list --resource-group <resource-group>
    ```
@@ -604,7 +578,7 @@ The following table shows the parameter information for `az databox job list`:
    Here's an example of the command with output:
 
    ```azurecli
-   PS C:\Windows> az databox job list --resource-group "myresourcegroup"
+   PS C:\Windows> az databox job list --resource-group "myresourcegroup" --output "table"
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    [
       {
@@ -727,7 +701,19 @@ The following table shows the parameter information for `az databox job list`:
 
 ```
 
-## Cancel an order
+---
+
+## Cancel the order
+
+# [Portal](#tab/portal)
+
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
+
+After placing an order, you can cancel it at any point before the order status is marked processed.
+
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+
+# [Azure CLI](#tab/azure-cli)
 
 To cancel an Azure Data Box order, run [az databox job cancel](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). You are required to specify your reason for canceling the order.
 
@@ -758,7 +744,7 @@ To cancel an Azure Data Box order, run [az databox job cancel](https://docs.micr
    Are you sure you want to perform this operation? (y/n): y
    PS C:\Windows>
    ```
-
+<!-- This needs to follow the TOC of the Portal, make this a H3 -->
 ## Delete an order
 
 If you have canceled an Azure Data Box order, you can run [az databox job delete](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) to delete the order.
@@ -791,6 +777,8 @@ Here's an example of the command with output:
    PS C:\Windows>
    ```
 
+---
+
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box articles such as:
@@ -801,9 +789,6 @@ In this tutorial, you learned about Azure Data Box articles such as:
 > * Order Data Box
 > * Track the order
 > * Cancel the order
-> * Delete the order
-
----
 
 Advance to the next tutorial to learn how to set up your Data Box.
 
