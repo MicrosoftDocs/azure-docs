@@ -13,7 +13,9 @@ ms.custom: subject-armqs
 
 # Create a Cognitive Services resource Using an Azure Resource Manager template
 
-Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. 
+Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. This multi-service resource lets you:
+* Access multiple Azure Cognitive Services with a single key and endpoint.
+* Consolidate billing from the services you use.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -50,7 +52,7 @@ One Azure resource is defined in the template:
     | **Region** | Select a region.  For example, **East US** |
     | **Cognitive Service Name** | Replace with a unique name for your resource. You will need the name in the next section when you validate the deployment. |
     | **Location** | Replace with the region used above. |
-    | **Sku** | The pricing tier for your resource. |
+    | **Sku** | The [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) for your resource. |
     
     :::image type="content" source="media/arm-template/universal-key-portal-template.png" alt-text="Resource creation screen.":::
 
