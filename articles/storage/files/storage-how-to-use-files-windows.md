@@ -81,7 +81,7 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 
 ### Mount the Azure file share
 
-The Azure portal provides you with a script that you can use to mount your file share. We recommend using this provided script, rather than constructing the mount cmd yourself.
+The Azure portal provides you with a script that you can use to mount your file share. We recommend using this provided script.
 
 To get this script:
 
