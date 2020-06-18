@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 06/18/2020
 ms.author: tamram
-ms.reviewer: ozgun
+ms.reviewer: fryu
 ---
 
 # Manage anonymous read access to containers and blobs
@@ -40,7 +40,7 @@ From the [Azure portal](https://portal.azure.com), you can update the public acc
 
 The following screenshot shows how to change the public access level for the selected containers.
 
-![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-manage/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
 > You cannot change the public access level for an individual blob. Public access level is set only at the container level.
@@ -142,7 +142,7 @@ public static void ListBlobsAnonymously()
         Console.WriteLine(blobItem.Uri);
     }
 }
-``` 
+```
 
 ---
 
