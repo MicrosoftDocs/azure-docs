@@ -31,7 +31,7 @@ Name	Purpose	Naming convention	Default permissions	Supports BYO MI
 
 ## Summary of managed identities
 
-AKS uses several managed identities for built-in services as well as add-ons.
+AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
