@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 06/18/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
@@ -29,9 +29,11 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+1. You have placed the order for Azure Data Box.
+    - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+    - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over from your Data Box. Your host computer must
+3. You have a host computer to which you want to copy the data from your Data Box. Your host computer must
    * Run a [Supported operating system](data-box-system-requirements.md).
    * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 
@@ -65,7 +67,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
-## Copy data to Data Box
+## Copy data from Data Box
 
 Once you're connected to the Data Box shares, the next step is to copy data.
 
