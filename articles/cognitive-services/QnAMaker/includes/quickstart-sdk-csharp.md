@@ -2,33 +2,32 @@
 title: "Quickstart: QnA Maker client library for .NET"
 description: This quickstart shows how to get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 06/18/2020
 ---
 Use the QnA Maker client library for .NET to:
 
  * Create a knowledgebase
  * Update a knowledgebase
- * Publish a knowledgebase, waiting for publishing to complete
+ * Publish a knowledgebas
  * Get prediction runtime endpoint key
+ * Wait for long-running task
  * Download a knowledgebase
+ * Get answer
  * Delete a knowledgebase
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-[!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint. After it deploys, select **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and resource name. After it deploys, select **Go to resource**.
+    * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. You'll paste your key and resource name into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
-
 
 #### [Visual Studio IDE](#tab/visual-studio)
 
@@ -82,6 +81,7 @@ QnA Maker uses two different object models:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../concepts/active-learning-suggestions.md)).
 
+[!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
 ### QnAMakerClient object model
 
@@ -94,6 +94,8 @@ Manage your knowledge base by sending a JSON object. For immediate operations, a
 ### QnAMakerRuntimeClient object model
 
 The prediction QnA Maker client is a [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your prediction runtime key, returned from the authoring client call, `client.EndpointKeys.GetKeys` after the knowledgebase is published.
+
+Use the [GenerateAnswer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswer?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_RuntimeExtensions_GenerateAnswer_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IRuntime_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_) method to get an answer from the query runtime.
 
 ## Code examples
 
@@ -110,13 +112,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 * [Authenticate the query runtime client](#authenticate-the-runtime-for-generating-an-answer)
 * [Generate an answer from the knowledge base](#generate-an-answer-from-the-knowledge-base)
 
-## Using this example knowledge base
 
-The knowledge base in this quickstart starts with 2 conversational QnA pairs, this is done on purpose to simplify the example and to have highly predictable Ids to use in the Update method, associating follow-up prompts with questions to new pairs. This was planned and implemented in a specific order for this quickstart.
-
-If you plan to develop your knowledge base over time with follow-up prompts that are dependent on existing QnA pairs, you may choose to:
-* For larger knowledgebases, manage the knowledge base in a text editor or TSV tool that supports automation, then completely replace the knowledge base at once with an update.
-* For smaller knowledgebases, manage the follow-up prompts entirely in the QnA Maker portal.
 
 ## Authenticate the client for authoring the knowledge base
 
@@ -146,8 +142,13 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](https://
 
 * For **editorial content**, use the [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadto?view=azure-dotnet) object.
     * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
-* For **files**, use the [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) object.
+* For **files**, use the [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.filedto?view=azure-dotnet) object. The FileDTO includes the filename and extension as well as the public URL to reach the file.
 * For **URLs**, use a list of strings.
+
+The creation step also includes properties for the knowledgebase:
+* defaultAnswerUsedForExtraction - what is returned when no answer is found
+* enableHierarchicalExtraction - create prompt relationships between extracted QnA pairs
+* language - when creating the first knowledgebase of a resource, set the language to use in the Azure Search index.
 
 Call the [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) method then pass the returned operation ID to the [MonitorOperation](#get-status-of-an-operation) method to poll for status.
 
@@ -201,7 +202,7 @@ Generate an answer from a published knowledge base using the [RuntimeClient](htt
 
 [!code-csharp[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/dotnet/QnAMaker/SDK-based-quickstart/Program.cs?name=GenerateAnswer&highlight=3)]
 
-This is a simple example us querying the knowledge base. To understand advanced querying scenarios, review [other query examples](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
+This is a simple example querying the knowledge base. To understand advanced querying scenarios, review [other query examples](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
 
 ## Delete a knowledge base
 
@@ -221,10 +222,8 @@ The _loop_ and _Task.Delay_ in the following code block are used to simulate ret
 
 Run the application with the `dotnet run` command from your application directory.
 
-All of the code snippets in this article are [available](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) and can be run as a single file.
-
 ```dotnetcli
 dotnet run
 ```
 
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
+The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/QnAMaker/SDK-based-quickstart).
