@@ -102,19 +102,6 @@
 
                 installation.Tags.AddRange(tags);
 
-                PushTemplate genericTemplate = new PushTemplate
-                {
-                    Body = "{\"data\":{\"message\":\"$(alertMessage)\", \"action\":\"$(alertAction)\"}}"
-                };
-
-                PushTemplate silentTemplate = new PushTemplate
-                {
-                    Body = "{\"data\":{\"message\":\"$(silentMessage)\", \"action\":\"$(silentAction)\", \"silent\":\"true\"}}"
-                };
-
-                installation.Templates.Add("genericTemplate", genericTemplate);
-                installation.Templates.Add("silentTemplate", silentTemplate);
-
                 return installation;
             }
         }
@@ -127,25 +114,17 @@
 1. Add another **Empty Class** to the **Services** folder called *PushNotificationFirebaseMessagingService.cs*, then add the following implementation.
 
     ```csharp
-    using System;
     using Android.App;
     using Android.Content;
-    using Android.OS;
-    using Android.Support.V4.App;
     using Firebase.Messaging;
     using PushDemo.Services;
 
     namespace PushDemo.Droid.Services
     {
         [Service]
-        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT", "FLAG_INCLUDE_STOPPED_PACKAGES" })]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
         public class PushNotificationFirebaseMessagingService : FirebaseMessagingService
         {
-            const string ChannelId = nameof(PushNotificationFirebaseMessagingService);
-
-            Random _random;
-
-            NotificationManager _notificationManager;
             IPushDemoNotificationActionService _notificationActionService;
             INotificationRegistrationService _notificationRegistrationService;
 
@@ -161,26 +140,6 @@
 
             internal static string Token { get; set; }
 
-            internal static bool AppInForeground { get; set; }
-
-            public override void OnCreate()
-            {
-                base.OnCreate();
-
-                _random = new Random();
-                _notificationManager = (NotificationManager)GetSystemService(NotificationService);
-
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-                {
-                    NotificationChannel channel = new NotificationChannel(
-                        ChannelId,
-                        "PushDemo",
-                        NotificationImportance.Default);
-
-                    _notificationManager.CreateNotificationChannel(channel);
-                }
-            }
-
             public override void OnNewToken(string token)
             {
                 Token = token;
@@ -191,63 +150,12 @@
 
             public override void OnMessageReceived(RemoteMessage message)
             {
-                base.OnMessageReceived(message);
-
-                message.Data.TryGetValue("action", out var messageAction);
-
-                if (!AppInForeground &&
-                    message.Data.TryGetValue("message", out var messageBody))
-                {
-                    if (string.IsNullOrWhiteSpace(messageBody) ||
-                        (message.Data.TryGetValue("silent", out var silentString) &&
-                        bool.TryParse(silentString, out var silent) && silent))
-                        return;
-
-                    SendNotification("PushDemo", messageBody, messageAction);
-                }
-
-                if (AppInForeground && !string.IsNullOrWhiteSpace(messageAction))
+                if(message.Data.TryGetValue("action", out var messageAction))
                     NotificationActionService.TriggerAction(messageAction);
-            }
-
-            void SendNotification(string title, string body, string action)
-            {
-                var intent = new Intent(this, typeof(MainActivity));
-                intent.AddFlags(ActivityFlags.SingleTop);
-                intent.PutExtra(nameof(body), body);
-                intent.PutExtra(nameof(action), action);
-
-                var pendingIntent = PendingIntent.GetActivity(
-                    this,
-                    _random.Next(),
-                    intent,
-                    PendingIntentFlags.UpdateCurrent);
-
-                var builder = new NotificationCompat.Builder(this, ChannelId)
-                              .SetAutoCancel(true)
-                              .SetContentIntent(pendingIntent)
-                              .SetContentTitle(title)
-                              .SetSmallIcon(Resource.Mipmap.icon)
-                              .SetContentText(body);
-
-                var notificationManager = NotificationManagerCompat.From(this);
-                notificationManager.Notify(_random.Next(), builder.Build());
             }
         }
     }
     ```
-
-    > [!NOTE]
-    > [Launch controls on stopped applications](https://developer.android.com/about/versions/android-3.1.html#launchcontrols) were introduced in Android 3.1 to provide a means of controlling whether a stopped application can be launched from background processes and other applications. Applications are in a stopped state when they are first installed but are not yet launched and when they are manually stopped i.e. force-closed by the user.  
-    >
-    > The platform defines two intent flags for specifying whether the Intent should be allowed to activate components in stopped application.
-    >
-    > - **FLAG_INCLUDE_STOPPED_PACKAGES** - Include intent filters of stopped applications in the list of potential targets to resolve against.
-    > - **FLAG_EXCLUDE_STOPPED_PACKAGES** - Exclude intent filters of stopped applications from the list of potential targets.
-    >
-    > When neither or both of these flags is defined in an intent, the default behavior is to include filters of stopped applications in the list of potential targets. However, the system adds **FLAG_EXCLUDE_STOPPED_PACKAGES** to all broadcast intents by default.  
-    >
-    > A background service or application can override this behavior by adding the **FLAG_INCLUDE_STOPPED_PACKAGES** flag to broadcast intents that should be allowed to activate stopped applications.
 
 1. In **MainActivity.cs**, add the `Firebase.Iid` and **using Android.Gms.Common** namespaces to the top of the file.
 
@@ -350,37 +258,6 @@
 
     > [!NOTE]
     > Since the **LaunchMode** for the **Activity** is set to **SingleTop**, an **Intent** will be sent to the existing **Activity** instance via the **OnNewIntent** method rather than the **OnCreate** method and so you must handle an incoming intent in both **OnCreate** and **OnNewIntent** methods.
-
-1. Override the **OnResume**, **OnPause**, **OnStop**, and **OnDestroy** activity lifecycle methods. Set the **PushNotificationFirebaseMessagingService.AppInForeground** state to the appropriate value.
-
-    ```csharp
-     protected override void OnResume()
-    {
-        base.OnResume();
-        PushNotificationFirebaseMessagingService.AppInForeground = true;
-    }
-
-    protected override void OnPause()
-    {
-        base.OnPause();
-        PushNotificationFirebaseMessagingService.AppInForeground = false;
-    }
-
-    protected override void OnStop()
-    {
-        base.OnStop();
-        PushNotificationFirebaseMessagingService.AppInForeground = false;
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        PushNotificationFirebaseMessagingService.AppInForeground = false;
-    }
-    ```
-
-    > [!NOTE]
-    > This is used as a simple means for providing awareness of the application state to the **PushNotificationFirebaseMessagingService** class to influence the handling of notifications.
 
 1. Update the **OnCreate** method to conditionally call **GetInstanceId** on the **FirebaseApp** instance, right after the call to **base.OnCreate**, adding **MainActivity** as the **IOnSuccessListener**.
 

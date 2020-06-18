@@ -232,24 +232,36 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
 
 1. **Control** + **Click** on the **Models** folder, then choose **New File...*** from the **Add** menu.
 
-1. Select **General** > **Empty Class**, enter *PushTemplate.cs* for the **Name**, then click **New** adding the following implementation.
+1. Select **General** > **Empty Class**, enter *PushTemplates.cs* for the **Name**, then click **New** adding the following implementation.
 
     ```csharp
     namespace PushDemoApi.Models
     {
-        public class PushTemplate
+        public class PushTemplates
         {
-            public string Body { get; set; }
+            public class Generic
+            {
+                public const string Android = "{ \"notification\": { \"title\" : \"PushDemo\", \"body\" : \"$(alertMessage)\"}, \"data\" : { \"action\" : \"$(alertAction)\" } }";
+                public const string iOS = "{ \"aps\" : {\"alert\" : \"$(alertMessage)\"}, \"action\" : \"$(alertAction)\" }";
+            }
+
+            public class Silent
+            {
+                public const string Android = "{ \"data\" : {\"message\" : \"$(alertMessage)\", \"action\" : \"$(alertAction)\"} }";
+                public const string iOS = "{ \"aps\" : {\"content-available\" : 1, \"apns-priority\": 5, \"sound\" : \"\", \"badge\" : 0}, \"message\" : \"$(alertMessage)\", \"action\" : \"$(alertAction)\" }";
+            }
         }
     }
     ```
+
+    > [!NOTE]
+    > This class contains the tokenized notification payloads for the generic and silent notifications required by this scenario. The payloads are defined outside of the [Installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation?view=azure-dotnet) to allow experimentation without having to update existing installations via the service. Handling changes to installations in this way is out of scope for this tutorial. For production, consider [custom templates](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-templates-cross-platform-push-messages).
 
 1. Select **General** > **Empty Class**, enter *DeviceInstallation.cs* for the **Name**, then click **New** adding the following implementation.
 
     ```csharp
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
 
     namespace PushDemoApi.Models
     {
@@ -264,11 +276,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
             [Required]
             public string PushChannel { get; set; }
 
-            public IList<string> Tags { get; set; }
-                = Array.Empty<string>();
-
-            public Dictionary<string, PushTemplate> Templates { get; set; }
-                = new Dictionary<string, PushTemplate>();
+            public IList<string> Tags { get; set; } = Array.Empty<string>();
         }
     }
     ```
@@ -351,7 +359,6 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
             public NotificationHubService(IOptions<NotificationHubOptions> options, ILogger<NotificationHubService> logger)
             {
                 _logger = logger;
-
                 _hub = NotificationHubClient.CreateClientFromConnectionString(
                     options.Value.ConnectionString,
                     options.Value.Name);
@@ -363,29 +370,18 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
                 };
             }
 
-            public async Task<bool> CreateOrUpdateInstallationAsync(
-                DeviceInstallation deviceInstallation,
-                CancellationToken token)
+            public async Task<bool> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation, CancellationToken token)
             {
                 if (string.IsNullOrWhiteSpace(deviceInstallation?.InstallationId) ||
                     string.IsNullOrWhiteSpace(deviceInstallation?.Platform) ||
                     string.IsNullOrWhiteSpace(deviceInstallation?.PushChannel))
                     return false;
 
-                var templates = deviceInstallation.Templates
-                    .ToDictionary(
-                        i => i.Key,
-                        i => new InstallationTemplate
-                        {
-                            Body = i.Value.Body
-                        });
-
                 var installation = new Installation()
                 {
                     InstallationId = deviceInstallation.InstallationId,
                     PushChannel = deviceInstallation.PushChannel,
-                    Tags = deviceInstallation.Tags,
-                    Templates = templates
+                    Tags = deviceInstallation.Tags
                 };
 
                 if (_installationPlatform.TryGetValue(deviceInstallation.Platform, out var platform))
@@ -405,9 +401,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
                 return true;
             }
 
-            public async Task<bool> DeleteInstallationByIdAsync(
-                string installationId,
-                CancellationToken token)
+            public async Task<bool> DeleteInstallationByIdAsync(string installationId, CancellationToken token)
             {
                 if (string.IsNullOrWhiteSpace(installationId))
                     return false;
@@ -424,9 +418,7 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
                 return true;
             }
 
-            public async Task<bool> RequestNotificationAsync(
-                NotificationRequest notificationRequest,
-                CancellationToken token)
+            public async Task<bool> RequestNotificationAsync(NotificationRequest notificationRequest, CancellationToken token)
             {
                 if ((notificationRequest.Silent &&
                     string.IsNullOrWhiteSpace(notificationRequest?.Action)) ||
@@ -435,46 +427,78 @@ Use of the notification hub and the [Notification Hubs SDK for backend operation
                     string.IsNullOrWhiteSpace(notificationRequest?.Action)))
                     return false;
 
-                var templateParams = notificationRequest.Silent ?
-                    new Dictionary<string, string>
-                    {
-                        { "silentMessage", notificationRequest.Text },
-                        { "silentAction", notificationRequest.Action }
-                    } :
-                    new Dictionary<string, string>
-                    {
-                        { "alertMessage", notificationRequest.Text },
-                        { "alertAction", notificationRequest.Action }
-                    };
+                var androidPushTemplate = notificationRequest.Silent ?
+                    PushTemplates.Silent.Android :
+                    PushTemplates.Generic.Android;
+
+                var iOSPushTemplate = notificationRequest.Silent ?
+                    PushTemplates.Silent.iOS :
+                    PushTemplates.Generic.iOS;
+
+                var androidPayload = PrepareNotificationPayload(
+                    androidPushTemplate,
+                    notificationRequest.Text,
+                    notificationRequest.Action);
+
+                var iOSPayload = PrepareNotificationPayload(
+                    iOSPushTemplate,
+                    notificationRequest.Text,
+                    notificationRequest.Action);
 
                 try
                 {
                     if (notificationRequest.Tags.Length == 0)
                     {
-                        await _hub.SendTemplateNotificationAsync(templateParams, token);
+                        // This will broadcast to all users registered in the notification hub
+                        await SendPlatformNotificationsAsync(androidPayload, iOSPayload, token);
                     }
                     else if (notificationRequest.Tags.Length <= 20)
                     {
-                        await _hub.SendTemplateNotificationAsync(templateParams, notificationRequest.Tags, token));
+                        await SendPlatformNotificationsAsync(androidPayload, iOSPayload, notificationRequest.Tags, token);
                     }
                     else
                     {
                         var notificationTasks = notificationRequest.Tags
                             .Select((value, index) => (value, index))
                             .GroupBy(g => g.index / 20, i => i.value)
-                            .Select(tags =>
-                                _hub.SendTemplateNotificationAsync(templateParams, tags, token));
+                            .Select(tags => SendPlatformNotificationsAsync(androidPayload, iOSPayload, tags, token));
 
                         await Task.WhenAll(notificationTasks);
                     }
 
                     return true;
                 }
-                catch
+                catch (Exception e)
                 {
                     _logger.LogError(e, "Unexpected error sending notification");
                     return false;
                 }
+            }
+
+            string PrepareNotificationPayload(string template, string text, string action) => template
+                .Replace("$(alertMessage)", text, StringComparison.InvariantCulture)
+                .Replace("$(alertAction)", action, StringComparison.InvariantCulture);
+
+            Task SendPlatformNotificationsAsync(string androidPayload, string iOSPayload, CancellationToken token)
+            {
+                var sendTasks = new Task[]
+                {
+                    _hub.SendFcmNativeNotificationAsync(androidPayload, token),
+                    _hub.SendAppleNativeNotificationAsync(iOSPayload, token)
+                };
+
+                return Task.WhenAll(sendTasks);
+            }
+
+            Task SendPlatformNotificationsAsync(string androidPayload, string iOSPayload, IEnumerable<string> tags, CancellationToken token)
+            {
+                var sendTasks = new Task[]
+                {
+                    _hub.SendFcmNativeNotificationAsync(androidPayload, tags, token),
+                    _hub.SendAppleNativeNotificationAsync(iOSPayload, tags, token)
+                };
+
+                return Task.WhenAll(sendTasks);
             }
         }
     }

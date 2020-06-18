@@ -89,19 +89,6 @@
 
                 installation.Tags.AddRange(tags);
 
-                PushTemplate genericTemplate = new PushTemplate
-                {
-                    Body = "{\"aps\":{\"alert\":\"$(alertMessage)\"}, \"action\": \"$(alertAction)\"}"
-                };
-
-                PushTemplate silentTemplate = new PushTemplate
-                {
-                    Body = "{\"aps\":{\"content-available\":1, \"apns-priority\": 5, \"sound\":\"\", \"badge\": 0}, \"message\": \"$(silentMessage)\", \"action\": \"$(silentAction)\"}"
-                };
-
-                installation.Templates.Add("genericTemplate", genericTemplate);
-                installation.Templates.Add("silentTemplate", silentTemplate);
-
                 return installation;
             }
 
@@ -129,7 +116,7 @@
 1. In **AppDelegate.cs**, add constants for the device token cache key and the major and minor versions being supported.
 
     ```csharp
-    const string CachedDeviceToken = "CachedDeviceToken";
+    const string CachedDeviceToken = "cached_device_token";
     const int SupportedVersionMajor = 13;
     const int SupportedVersionMinor = 0;
     ```
@@ -204,6 +191,30 @@
     }
     ```
 
+1. Add the **CompleteRegistrationAsync** method to store the **deviceToken** value in the corresponding **_deviceToken** backing field. Refresh the registration and cache the device token if it has been updated since it was last stored.
+
+    ```csharp
+    async Task CompleteRegistrationAsync(NSData deviceToken)
+    {
+        _deviceToken = deviceToken;
+
+        var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
+            .ConfigureAwait(false);
+
+        var tokenHash = _deviceToken?.Description?.GetHashCode().ToString();
+
+        if (!string.IsNullOrWhiteSpace(cachedToken) &&
+            cachedToken.Equals(tokenHash))
+            return;
+
+        await NotificationRegistrationService.RefreshRegistrationAsync()
+            .ConfigureAwait(false);
+
+        await SecureStorage.SetAsync(CachedDeviceToken, tokenHash)
+            .ConfigureAwait(false);
+    }
+    ```
+
 1. Add the **ProcessNotificationActions** method for processing the **NSDictionary** notification data.
 
     ```csharp
@@ -241,37 +252,14 @@
     }
     ```
 
-1. Override the **RegisteredForRemoteNotifications** method storing the **deviceToken** value in the corresponding **_deviceToken** backing field. Conditionally refresh the registration and cache the device token if it has been updated.
+1. Override the **RegisteredForRemoteNotifications** method passing the **deviceToken** argument to the **CompleteRegistrationAsync** method.
 
     ```csharp
     public override void RegisteredForRemoteNotifications(
         UIApplication application,
         NSData deviceToken)
-    {
-        _deviceToken = deviceToken;
-
-        SecureStorage.GetAsync(CachedDeviceToken).ContinueWith((i) =>
-        {
-            if (i.IsFaulted) throw i.Exception;
-
-            var cachedToken = i.Result;
-
-            var deviceTokenHash =
-                _deviceToken?.Description?.GetHashCode().ToString();
-
-            if (!string.IsNullOrWhiteSpace(cachedToken) &&
-                cachedToken.Equals(deviceTokenHash))
-                return;
-
-            NotificationRegistrationService.RefreshRegistrationAsync().ContinueWith((j) =>
-            {
-                if (j.IsFaulted) throw j.Exception;
-
-                SecureStorage.SetAsync(CachedDeviceToken, deviceTokenHash).ContinueWith((k)
-                    => { if (k.IsFaulted) throw k.Exception; });
-            });
-        });
-    }
+        => CompleteRegistrationAsync(deviceToken).ContinueWith((task)
+            => { if (task.IsFaulted) throw task.Exception; });
     ```
 
 1. Override the **ReceivedRemoteNotification** method passing the **userInfo** argument to the **ProcessNotificationActions** method.
@@ -309,7 +297,7 @@
 
 1. Update the **FinishedLaunching** method again to call **ProcessNotificationActions** immediately after the call to **LoadApplication** if the **options** argument contains the **UIApplication.LaunchOptionsRemoteNotificationKey**.
 
-    ```cs
+    ```csharp
     using (var userInfo = options?.ObjectForKey(
         UIApplication.LaunchOptionsRemoteNotificationKey) as NSDictionary)
             ProcessNotificationActions(userInfo);

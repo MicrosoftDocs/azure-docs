@@ -60,22 +60,7 @@
     > [!NOTE]
     > This is a trimmed-down version of the [ServiceContainer](https://github.com/xamcat/mobcat-library/blob/master/MobCAT/ServiceContainer.cs) class from the [XamCAT](https://github.com/xamcat/mobcat-library) repository. It will be used as a light-weight IoC (Inversion of Control) container.
 
-1. Add a new folder to the **PushDemo** project called *Models* then add an **Empty Class** to that folder called *PushTemplate.cs*, with the following implementation.
-
-    ```csharp
-    using Newtonsoft.Json;
-
-    namespace PushDemo.Models
-    {
-        public class PushTemplate
-        {
-            [JsonProperty("body")]
-            public string Body { get; set; }
-        }
-    }
-    ```
-
-1. Add another **Empty Class** to the **Models** folder called *DeviceInstallation.cs** with the following implementation.
+1. Add a new folder to the **PushDemo** project called *Models* then add an **Empty Class** to that folder called *DeviceInstallation.cs** with the following implementation.
 
     ```csharp
     using System.Collections.Generic;
@@ -85,12 +70,6 @@
     {
         public class DeviceInstallation
         {
-            public DeviceInstallation()
-            {
-                Tags = new List<string>();
-                Templates = new Dictionary<string, PushTemplate>();
-            }
-
             [JsonProperty("installationId")]
             public string InstallationId { get; set; }
 
@@ -101,10 +80,7 @@
             public string PushChannel { get; set; }
 
             [JsonProperty("tags")]
-            public List<string> Tags { get; set; }
-
-            [JsonProperty("templates")]
-            public Dictionary<string, PushTemplate> Templates { get; set; }
+            public List<string> Tags { get; set; } = new List<string>();
         }
     }
     ```
