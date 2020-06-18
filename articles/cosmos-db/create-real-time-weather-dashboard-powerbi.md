@@ -149,8 +149,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
    ![Deploy Azure Analysis Services model](./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png)
 
-1. **Configure partition refreshes and merges** - Azure Analysis Services allows independent processing of partitions. Since we want the **Latest Month** partition to be constantly updated with the most recent data, set the refresh interval to 5 minutes. It's not required to refresh the data in historical partition. Additionally, you need to write some code to consolidate the latest month partition to the historical partition and create a new latest month partition.
-
+1. **Configure partition refreshes and merges** - Azure Analysis Services allows independent processing of partitions. Since we want the **Latest Month** partition to be constantly updated with the most recent data, set the refresh interval to 5 minutes. You can refresh the data by using the [REST API](../analysis-services/analysis-services-async-refresh.md), [Azure automation](../analysis-services/analysis-services-refresh-azure-automation.md), or with a [Logic App](../analysis-services/analysis-services-refresh-logic-app.md). It's not required to refresh the data in historical partition. Additionally, you need to write some code to consolidate the latest month partition to the historical partition and create a new latest month partition.
 
 ## Connect Power BI to Analysis Services
 
