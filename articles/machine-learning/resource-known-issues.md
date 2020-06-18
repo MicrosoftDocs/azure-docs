@@ -176,6 +176,20 @@ If you are using file share for other workloads, such as data transfer, the re
 |When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
+## Data drift monitors
+
+* If Python SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.   When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`. Instead, use the following code to create the compute that you pass into the `backfill()` function:
+
+    ```python
+    auth = ServicePrincipalAuthentication(
+            tenant_id=tenant_id,
+            service_principal_id=app_id,
+            service_principal_password=client_secret
+                        )
+    ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
+    compute = ws.compute_targets.get("xxx")
+    ```
+
 ## Azure Machine Learning designer
 
 Known issues:
