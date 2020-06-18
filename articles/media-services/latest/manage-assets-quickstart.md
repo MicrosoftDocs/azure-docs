@@ -15,6 +15,9 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 ## Overview
 
 * To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account and upload your high-quality digital media file into an **asset**. 
+    
+    > [!NOTE]
+    > If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.
 
     Review the following: 
 
@@ -23,7 +26,9 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
   * [Managing assets](manage-asset-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
     * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
-    * Analyze your uploaded file. Currently, when using the Azure portal, you can do the following: generate a  TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
+    * [Analyze](analyzing-video-audio-files-concept.md) your uploaded file. 
+
+        Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
 
         For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) directly.    
 * Once your content is processed, you can deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **streaming locator**. When creating the **streaming locator**, you need to specify a **streaming policy**. **Streaming policies** enable you to define streaming protocols and encryption options (if any) for your **streaming locators**.
