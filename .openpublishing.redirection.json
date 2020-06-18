@@ -20502,6 +20502,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
+      "redirect_url": "/azure/marketplace/test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
+      "redirect_url": "/azure/marketplace/types-of-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/types-of-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/types-of-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/transforming-examples-for-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/marketing-and-best-practices",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/enable-lead-sharing.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
       "redirect_document_id": true

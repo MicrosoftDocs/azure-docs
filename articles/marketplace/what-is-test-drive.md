@@ -25,20 +25,19 @@ The customer agrees to your Terms and Conditions and Privacy Policy:
 
 The customer then receives your pre-configured environment to try for a fixed period of time while you receive a highly qualified lead.
 
-No matter how complex your application, your Microsoft test drive helps you bring your product to life for a customer. We offer three different types of test drives based on the type of product, scenario, and marketplace you are on:
+No matter how complex your application, your Microsoft test drive helps you bring your product to life. We offer three different types of test drives based on the type of product, scenario, and marketplace you are on:
 
-- **Azure Resource Manager** – This test drive is a deployment template that contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this scenario use only Azure resources.
-- **Logic app** – This test drive is a deployment template meant to encompass all complex solution architectures. All Dynamics applications or custom products should use this type of test drive.
-- **Power BI** – This test drive is simply an embedded link to a custom-built dashboard. Any product that wants to just demonstrate an interactive Power BI visual should use this type of test drive. All you need to upload here is your embedded Power BI URL.
+- **Azure Resource Manager** – This deployment template contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this scenario use only Azure resources.
+- **Logic app** – This deployment template encompasses all complex solution architectures. All Dynamics applications or custom products should use this type of test drive.
+- **Power BI** – This is simply an embedded link to a custom-built dashboard. Any product that only demonstrates an interactive Power BI visual should use this type of test drive. All you need to upload here is your embedded Power BI URL.
 
 ## What goes on in the background?
 
-The test drive service is built to continuously support and serve your customers without requiring any manual effort from you. As a publisher, you manage and configure the test drive settings within Partner Center.
+The test drive service continuously supports and serves your customers without requiring any manual effort from you. As a publisher, you manage and configure the test drive settings within Partner Center.
 
 After setting up your test drive, it becomes a managed instance that will be deployed on-demand for the customer requesting it. Once a test drive instance is assigned, it is available for use for a set amount of time, then deleted to create room for another customer.
 
 ## Next steps
 
-To get started, visit the specific test drive you want to publish—Azure Resource Manager, Logic app, or Power BI.
-
-For best practices, FAQs, or to make your test drive more successful, see [Test drive marketing and best practices](marketing-and-best-practices.md).
+- Visit the specific test drive you want to publish—Azure Resource Manager, Logic app, or Power BI.
+- For best practices, FAQs, or to make your test drive more successful, see [Test drive marketing and best practices](marketing-and-best-practices.md).
