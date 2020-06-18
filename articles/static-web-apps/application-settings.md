@@ -104,6 +104,8 @@ The Azure portal provides an interface for creating, updating and deleting appli
 
 1. Click **OK**
 
+1. Click **Save**
+
 ### Using the Azure CLI
 
 You can use the `az rest` command to do bulk uploads of your settings to Azure. The command accepts application settings as JSON objects in a parent property called `properties`.
