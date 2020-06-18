@@ -13,7 +13,7 @@ manager: lizross
 # Use Log Analytics for the diagnostics feature
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../diagnostics-log-analytics.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../diagnostics-log-analytics.md).
 
 Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. This feature logs diagnostics information whenever someone assigned Windows Virtual Desktop role uses the service. Each log contains information about which Windows Virtual Desktop role was involved in the activity, any error messages that appear during the session, tenant information, and user information. The diagnostics feature creates activity logs for both user and administrative actions. Each activity log falls under three main categories: 
 

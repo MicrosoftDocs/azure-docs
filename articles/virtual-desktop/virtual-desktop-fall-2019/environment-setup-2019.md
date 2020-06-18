@@ -13,7 +13,7 @@ manager: lizross
 # Windows Virtual Desktop environment
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../environment-setup.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../environment-setup.md).
 
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 

@@ -13,7 +13,7 @@ manager: lizross
 # Connect with the web client
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../connect-web.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-web.md).
 
 The web client lets you access your Windows Virtual Desktop resources from a web browser without the lengthy installation process.
 

@@ -13,7 +13,7 @@ manager: lizross
 # Tutorial: Set up service alerts
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../set-up-service-alerts.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../set-up-service-alerts.md).
 
 You can use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. Azure Service Health can notify you with different types of alerts (for example, email or SMS), help you understand the effect of an issue, and keep you updated as the issue resolves. Azure Service Health can also help you mitigate downtime, and prepare for planned maintenance and changes that could affect the availability of your resources.
 

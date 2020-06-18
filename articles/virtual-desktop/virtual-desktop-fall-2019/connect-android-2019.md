@@ -15,7 +15,7 @@ manager: lizross
 > Applies to: Android 4.1 and later, Chromebooks with ChromeOS 53 and later.
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../connect-android.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-android.md).
 
 >[!NOTE]
 > The ability to access Windows Virtual Desktop resources from the Android client is currently available in preview.

@@ -14,9 +14,6 @@ manager: lizross
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (Classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
->
-> Windows Virtual Desktop with Azure Resource Manger objects is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied first to validation host pools, letting you monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 

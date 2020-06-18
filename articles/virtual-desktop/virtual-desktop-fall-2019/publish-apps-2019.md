@@ -13,7 +13,7 @@ manager: lizross
 # Publish built-in apps in Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../publish-apps.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../publish-apps.md).
 
 This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 

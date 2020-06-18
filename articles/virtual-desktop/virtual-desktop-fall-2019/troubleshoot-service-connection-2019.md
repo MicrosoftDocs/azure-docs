@@ -13,7 +13,7 @@ manager: lizross
 # Windows Virtual Desktop service connections
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../troubleshoot-service-connection.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-service-connection.md).
 
 Use this article to resolve issues with Windows Virtual Desktop client connections.
 

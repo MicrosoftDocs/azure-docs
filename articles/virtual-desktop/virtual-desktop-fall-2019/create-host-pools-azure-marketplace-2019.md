@@ -13,7 +13,7 @@ manager: lizross
 # Tutorial: Create a host pool by using the Azure Marketplace
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../create-host-pools-azure-marketplace.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../create-host-pools-azure-marketplace.md).
 
 In this tutorial, you'll learn how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering.
 

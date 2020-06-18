@@ -13,7 +13,7 @@ manager: lizross
 # Customize feed for Windows Virtual Desktop users
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../customize-feed-for-virtual-desktop-users.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-feed-for-virtual-desktop-users.md).
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 

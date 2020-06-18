@@ -13,7 +13,7 @@ manager: lizross
 # Expand an existing host pool with new session hosts
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../expand-existing-host-pool.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../expand-existing-host-pool.md).
 
 As you ramp up usage within your host pool, you may need to expand your existing host pool with new session hosts to handle the new load.
 

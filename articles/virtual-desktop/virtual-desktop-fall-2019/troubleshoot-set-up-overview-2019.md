@@ -13,7 +13,7 @@ manager: lizross
 # Troubleshooting overview, feedback, and support
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../troubleshoot-set-up-overview.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-set-up-overview.md).
 
 This article provides an overview of the issues you may encounter when setting up a Windows Virtual Desktop tenant environment and provides ways to resolve the issues.
 

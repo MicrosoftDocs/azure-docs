@@ -13,7 +13,7 @@ manager: lizross
 # Session host virtual machine configuration
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the public preview, see [this article](../troubleshoot-vm-configuration.md).
+>This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-vm-configuration.md).
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
