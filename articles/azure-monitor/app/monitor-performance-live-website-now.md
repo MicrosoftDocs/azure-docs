@@ -88,12 +88,12 @@ These are some steps that you can perform to confirm that your installation was 
 
 - Confirm that the applicationInsights.config file is present in the target app directory and contains your ikey.
 
-- If you suspect that data is missing you can run a simple query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
+- If you suspect that data is missing, you can run a query in [Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- If you need to confirm that Application Insights is successfully attached you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
+- If you need to confirm that Application Insights is successfully attached, you can run [Sysinternals Handle](https://docs.microsoft.com/sysinternals/downloads/handle) in a command window to confirm that applicationinsights.dll has been loaded by IIS.
   ```cmd
   handle.exe /p w3wp.exe
   ```
