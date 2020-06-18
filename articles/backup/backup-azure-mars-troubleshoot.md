@@ -93,7 +93,9 @@ We recommend that you check the following before you start troubleshooting Micro
   | 0x80070005             | Access Is Denied                                    | [Check if antivirus or other third-party software is blocking access](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
   | 0x8007018b             | Access to the cloud file is  denied.                | OneDrive files, Git Files, or any other files that can be in offline state on the machine |
 
-- You can use [Add Exclusion rules to existing policy](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) to exclude unsupported, missing or deleted files from your backup policy to ensure successful backups.
+- You can use [Add Exclusion rules to existing policy](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) to exclude unsupported, missing, or deleted files from your backup policy to ensure successful backups.
+
+- Avoid deleting and recreating protected folders with the same names in the top-level folder. Doing so could result in the backup completing with warnings with the error *A critical inconsistency was detected, therefore changes cannot be replicated.*  If you need to delete and recreate folders, then consider doing so in subfolders under the protected top-level folder.
 
 ## Failed to set the encryption key for secure backups
 

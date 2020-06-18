@@ -1,20 +1,21 @@
 ---
-title: Use Azure Machine Learning behind a firewall
+title: Use a firewall
 titleSuffix: Azure Machine Learning
-description: 'Securely use Azure Machine Learning behind Azure Firewall. Learn about the hosts that you must allow through the firewall for Azure Machine Learning to function correctly.'
+description: 'Control access to Azure Machine Learning workspaces with Azure Firewalls. Learn about the hosts that you must allow through the firewall for Azure Machine Learning to function correctly.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
+ms.custom: tracking-python
 ---
 
-# Use Azure Machine Learning workspace behind Azure Firewall
+# Use workspace behind Azure Firewall for Azure Machine Learning
 
-This article contains information on configuring Azure Firewall for use with Azure Machine Learning.
+In this article, learn how to configure Azure Firewall for use with an Azure Machine Learning workspace.
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace, which are described in this article.
 
@@ -45,8 +46,8 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **\*.instances.azureml.ms** | Azure Machine Learning compute instances when workspace has Private Link enabled |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ### Hosts for Azure Government cloud
 

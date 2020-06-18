@@ -26,8 +26,6 @@ For more information, see the [Key Vault event schema](../../event-grid/event-sc
 
 > [!WARNING]
 > Notification events are triggered only on new versions of secrets, keys and certificates, and you must first subscribe to the event on your key vault in order to receive these notifications.
-> 
-> You will receive notification events on certificates only when the certificate is automatically renewed according to the policy you have specified for your certificate.
 
 ## Practices for consuming events
 
@@ -40,7 +38,7 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 ## Next steps
 
-- [Azure Key Vault overview](overview.md))
+- [Azure Key Vault overview](overview.md)
 - [Azure Event Grid overview](../../event-grid/overview.md)
 - How to: [Route Key Vault Events to Automation Runbook (preview)](event-grid-tutorial.md).
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)

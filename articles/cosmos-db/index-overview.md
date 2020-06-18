@@ -1,11 +1,11 @@
 ---
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB, different kinds of indexes such as Range, Spatial, composite indexes supported. 
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
+ms.date: 05/21/2020
+ms.author: tisande
 ---
 
 # Indexing in Azure Cosmos DB - Overview
@@ -93,10 +93,14 @@ Azure Cosmos DB currently supports three kinds of indexes.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- String prefix matches (CONTAINS keyword will not leverage the range index):
+- String system functions:
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
+
+   ```sql
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - `ORDER BY` queries:
@@ -170,7 +174,7 @@ As long as one filter predicate uses one of the index kind, the query engine wil
 
 The paths extracted when indexing data make it easy to lookup the index when processing a query. By matching the `WHERE` clause of a query with the list of indexed paths, it is possible to identify the items that match the query predicate very quickly.
 
-For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country) would match the path highlighted in red below:
+For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country/region) would match the path highlighted in red below:
 
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 

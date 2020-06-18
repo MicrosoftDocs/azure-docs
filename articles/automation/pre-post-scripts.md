@@ -1,6 +1,6 @@
 ---
 title: Manage pre-scripts and post-scripts in your Update Management deployment in Azure
-description: This article describes how to configure and manage pre-scripts and post-scripts for update deployments.
+description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
@@ -11,12 +11,9 @@ ms.topic: conceptual
 
 Pre-scripts and post-scripts are runbooks to run in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre-scripts and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. Post-scripts run at the end of the deployment and after any reboots that are configured.
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
 ## Pre-script and post-script requirements
 
-For a runbook to be used as a pre-script or post-script, you must import it into your Automation account and [publish the runbook](manage-runbooks.md#publishing-a-runbook).
+For a runbook to be used as a pre-script or post-script, you must import it into your Automation account and [publish the runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Pre-script and post-script parameters
 
@@ -89,7 +86,7 @@ A full example with all properties can be found at: [Get software update configu
 > [!NOTE]
 > The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause pre-scripts and post-scripts to run multiple times on the same machine. To work around this behavior, use `Sort-Object -Unique` to select only unique VM names.
 
-## Using a pre-script or post-script in a deployment
+## Use a pre-script or post-script in a deployment
 
 To use a pre-script or post-script in an update deployment, start by creating an update deployment. Select **Pre-scripts + Post-Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.
 
@@ -113,9 +110,8 @@ By selecting the update deployment run, you're shown additional details of pre-s
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
-es in your script.
 
-## Stopping a deployment
+## Stop a deployment
 
 If you want to stop a deployment based on a pre-script, you must [throw](automation-runbook-execution.md#throw) an exception. If you don't, the deployment and post-script will still run. The following code snippet shows how to throw an exception.
 
@@ -132,9 +128,7 @@ foreach($summary in $finalStatus)
 }
 ```
 
-
-
-## Interacting with machines
+## Interact with machines
 
 Pre-scripts and post-tasks run as runbooks in your Automation account and not directly on the machines in your deployment. Pre-tasks and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
 
@@ -158,7 +152,7 @@ Pre-tasks and post-tasks run in the Azure context and don't have access to non-A
 
 To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet. You must specify the `RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. See the runbook example [Update Management – run script locally](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44).
 
-## Aborting patch deployment
+## Abort patch deployment
 
 If your pre-script returns an error, you might want to abort your deployment. To do that, you must [throw](/powershell/module/microsoft.powershell.core/about/about_throw) an error in your script for any logic that would constitute a failure.
 
@@ -245,7 +239,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Next steps
 
-Go on to the following tutorial to learn how to manage updates for your Windows virtual machines:
-
-> [!div class="nextstepaction"]
-> [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
+* For details of update management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).

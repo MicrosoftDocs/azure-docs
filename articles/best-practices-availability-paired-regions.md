@@ -1,12 +1,13 @@
 ---
 title: Ensure business continuity & disaster recovery using Azure Paired Regions
 description: Ensure application resiliency using Azure regional pairing
-author: jpconnock
-manager: angrobe
+author: barbkess
+manager: barbkess
 ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.author: jeconnoc
+ms.author: barbkess
+ms.custom: references_regions
 ---
 
 # Business continuity and disaster recovery (BCDR): Azure Paired Regions

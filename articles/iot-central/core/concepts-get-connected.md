@@ -89,6 +89,14 @@ To bulk connect devices using X.509 certificates, first register the devices in 
 
 Generate X.509 leaf certificates for your devices using the uploaded root or intermediate certificate. Use the **Device ID** as the `CNAME` value in the leaf certificates. Your device code needs the **ID scope** value for your application, the **device ID**, and the corresponding device certificate.
 
+#### Sample device code
+
+The following sample from the [Azure IoT Node.JS SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) shows how a Node.js device client uses an X.509 leaf certificate and DPS to register with an IoT Central application:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+For an equivalent C sample, see [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) in the [Azure IoT C Provisioning Device Client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### For testing purposes only
 
 For testing only, you can use the following utilities to generate root, intermediate, and device certificates:
@@ -100,11 +108,6 @@ For testing only, you can use the following utilities to generate root, intermed
   - Save the certificates as .cer files to upload to your IoT Central application.
   - Use the verification code from the IoT Central application to generate the verification certificate.
   - Create leaf certificates for your devices using your device IDs as a parameter to the tool.
-
-### Further reference
-
-- [Sample implementation for RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Sample device client in C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## Connect without registering devices
 
@@ -137,11 +140,11 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 ### Connect devices that use X.509 certificates without registering
 
-1. [Add and verify a root or intermediate X.509 certificate](#connect-devices-using-x509-certificates) to your IoT Central application.(#connect-devices-using-x509-certificates)
+1. [Add and verify a root or intermediate X.509 certificate](#connect-devices-using-x509-certificates) to your IoT Central application.
 
 1. Generate the leaf-certificates for your devices using the root or intermediate certificate you added to your IoT Central application. Use lower-case device IDs as the `CNAME` in the leaf certificates.
 
-1. The OEM flashes each device with a device ID, a generated left X.509 certificate, and the application **ID scope** value.
+1. The OEM flashes each device with a device ID, a generated leaf X.509 certificate, and the application **ID scope** value.
 
 1. When you switch on a device, it first connects to DPS to retrieve its IoT Central registration information.
 
@@ -252,7 +255,7 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Property (writeable) | Device twin desired and reported properties |
 | Command | Direct methods |
 
-To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
+To learn more about using the Device SDKs, see [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 

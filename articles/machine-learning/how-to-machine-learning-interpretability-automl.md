@@ -5,7 +5,7 @@ description: Learn how to get explanations for how your automated ML model deter
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
@@ -80,20 +80,21 @@ To generate an explanation for AutoML models, use the `MimicWrapper` class. You 
 
 - The explainer setup object
 - Your workspace
-- A LightGBM model, which acts as a surrogate to the `fitted_model` automated ML model
+- A surrogate model to explain the `fitted_model` automated ML model
 
 The MimicWrapper also takes the `automl_run` object where the engineered explanations will be uploaded.
 
 ```python
-from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
 from azureml.explain.model.mimic_wrapper import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
+                         explainable_model=automl_explainer_setup_obj.surrogate_model, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
                          features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
-                         classes=automl_explainer_setup_obj.classes)
+                         classes=automl_explainer_setup_obj.classes,
+                         explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
 ### Use MimicExplainer for computing and visualizing engineered feature importance

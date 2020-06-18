@@ -30,13 +30,13 @@ None.
 ### Review the template
 
 The template used in this quickstart is from
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
 
 Two Azure resources are defined in the template:
 
-- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults): creates the vault.
+- [Microsoft.RecoveryServices vaults](/azure/templates/microsoft.recoveryservices/vaults): creates the vault.
 - [Microsoft.RecoveryServices/vaults/backupstorageconfig](/rest/api/backup/backupresourcestorageconfigs): configures the vault's backup redundancy settings.
 
 The template includes optional parameters for the vault's backup configuration. The storage
@@ -73,7 +73,7 @@ To deploy the template, the **Subscription**, **Resource group**, and **Vault na
 1. To begin the vault's deployment, select the **Purchase** button. After a successful deployment, a
    notification is displayed.
 
-   :::image type="content" source="media/quickstart-create-vault-template/deploymentsuccess.png" alt-text="Vault deployment was successful.":::
+   :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Vault deployment was successful.":::
 
 ## Validate the deployment
 

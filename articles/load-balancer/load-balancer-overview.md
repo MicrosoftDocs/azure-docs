@@ -23,9 +23,9 @@ ms.author: allensu
 
 Azure Load Balancer operates at layer four of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. Load Balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. These flows are according to configured load balancing rules and health probes. The backend pool instances can be Azure Virtual Machines or instances in a virtual machine scale set.
 
-A **[public load balancer](./concepts-limitations.md#publicloadbalancer)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
+A **[public load balancer](./components.md#frontend-ip-configurations)** can provide outbound connections for virtual machines (VMs) inside your virtual network. These connections are accomplished by translating their private IP addresses to public IP addresses. Public Load Balancers are used to load balance internet traffic to your VMs.
 
-An **[internal (or private) load balancer](./concepts-limitations.md#internalloadbalancer)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
+An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
@@ -33,7 +33,7 @@ An **[internal (or private) load balancer](./concepts-limitations.md#internalloa
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 
-For more information on the individual load balancer components, see [Azure Load Balancer components and limitations](./concepts-limitations.md).
+For more information on the individual load balancer components, see [Azure Load Balancer components](./components.md).
 
 ## Why use Azure Load Balancer?
 With Standard Load Balancer, you can scale your applications and create highly available services. 
@@ -77,6 +77,6 @@ See [Upgrade a Basic Load Balancer](upgrade-basic-standard.md) to upgrade Basic 
 
 See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 
-For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer concepts and limitations](./concepts-limitations.md)
+For more information on Azure Load Balancer limitations and components see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
 
 For an Azure load balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
