@@ -141,11 +141,11 @@ This table describes the ports that your ISE requires to be accessible and the p
 | Access Azure Cache for Redis Instances between Role Instances | **VirtualNetwork** | * | **VirtualNetwork** | 6379 - 6383, plus see **Notes**| For ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described by the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 |||||||
 
-Also, you need to add the [App Service Environment](../app-service/environment/intro.md) network rules:
+Also, you need to add outbound rules for [App Service Environment (ASE)](../app-service/environment/intro.md):
 
-* If you use Azure Firewall, your firewall must be set up with all the [current fully qualified domain name (FQDN) tags](../firewall/fqdn-tags.md) that are required by App Service Environment.
+* If you use Azure Firewall, you need to set up your firewall with the App Service Environment (ASE) [fully qualified domain name (FQDN) tag](../firewall/fqdn-tags.md#current-fqdn-tags), which permits outbound access to ASE platform traffic.
 
-* If you use a firewall appliance other than Azure Firewall, your firewall must be set up with all the [firewall integration dependencies](../app-service/environment/firewall-integration.md#dependencies) that are required by App Service Environment.
+* If you use a firewall appliance other than Azure Firewall, you need to set up your firewall with *all* the rules listed in the [firewall integration dependencies](../app-service/environment/firewall-integration.md#dependencies) that are required for App Service Environment.
 
 <a name="create-environment"></a>
 
