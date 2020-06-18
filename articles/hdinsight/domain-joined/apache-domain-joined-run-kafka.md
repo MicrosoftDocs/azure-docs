@@ -148,13 +148,13 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 5. Verify that **sales_user1** can produce to topic `salesevents` by executing the following command:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar producer salesevents $KAFKABROKERS
    ```
 
 6. Execute the following command to consume from topic `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Verify that you're able to read the messages.
@@ -162,7 +162,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 7. Verify that the **sales_user1** can't produce to topic `marketingspend` by executing the following in the same ssh window:
 
    ```bash
-   java -jar kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar producer marketingspend $KAFKABROKERS
    ```
 
    An authorization error occurs and can be ignored.
@@ -174,7 +174,7 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
    Execute the following command to consume from topic `salesevents`:
 
    ```bash
-   java -jar kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
+   java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar consumer salesevents $KAFKABROKERS
    ```
 
    Previous messages can't be seen.
@@ -182,6 +182,18 @@ Based on the Ranger policies configured, **sales_user** can produce/consume topi
 9. View the audit access events from the Ranger UI.
 
    ![Ranger UI policy audit access events ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
+   
+## Using Console Producer Consumer in ESP Kafka
+
+Please note that create topics does not work through console commands and you must use the above Java code for the same. Refer to section 'Create topics in a Kafka cluster with ESP'. You can produce and consume messages to topic `salesevents` using the following commands:
+
+   ```bash
+export KAFKA_OPTS="-Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/conf/kafka_client_jaas.conf"
+export KAFKABROKERS=<brokerlist>:9092
+
+/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --topic salesevents --broker-list $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --topic salesevents --from-beginning --bootstrap-server $KAFKABROKERS --security-protocol SASL_PLAINTEXT
+   ```
 
 ## Clean up resources
 
