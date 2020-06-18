@@ -93,7 +93,7 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
 
 1. In the portal, choose **Add** at the top of the resource group view.
-2. In the search field, type "Bastion".  Select "Bastion".
+2. In the search field, type `Bastion`.  Select **Bastion** in the search results.
 3. Select **Create** to begin the process of creating a new Azure Bastion resource. You will notice an error message in the **Virtual network** section as there is not yet an `AzureBastionSubnet` subnet. The subnet is created in the following steps. Use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
@@ -155,14 +155,16 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 
 [Private site](functions-networking-options.md#private-site-access) access is enabled by creating an Azure Virtual Network [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) between the function app and the specified virtual network. Access restrictions are implemented via service endpoints. Service endpoints ensure only traffic originating from within the specified virtual network can access the designated resource. In this case, the designated resource is the Azure Function.
 
-1. Within the function app, proceed to the **Platform features** tab. Select the **Networking** link under the *Networking* section header to open the Network Feature Status section.
-2. The **Network Feature Status** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Select **Configure Access Restrictions** to configure private site access.
+1. Within the function app, select the **Networking** link under the *Settings* section header.
+2. The **Networking** page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions. Select **Configure Access Restrictions** to configure private site access.
 3. On the **Access Restrictions** page, you see only the default restriction in place. The default doesn't place any restrictions on access to the function app.  Select **Add rule** to create a private site access restriction configuration.
-4. In the **Add Access Restriction** pane, select **Virtual Network** from the **Type** drop-down box, then select the previously created virtual network and subnet.
+4. In the **Add Access Restriction** pane, provide a **Name**, **Priority**, and **Description** for the new rule. Select **Virtual Network** from the **Type** drop-down box, then select the previously created virtual network, and then select the **Tutorial** subnet. 
+    > [!NOTE]
+    > It may take several minutes to enable the service endpoint.
 5. The **Access Restrictions** page now shows that there is a new restriction. It may take a few seconds for the **Endpoint status** to change from `Disabled` through `Provisioning` to `Enabled`.
 
     >[!IMPORTANT]
-    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Because access restrictions haven't been enabled on this deployment site, you can still deploy your project code from a local developer workstation or build service without having to provision an agent within the virtual network.
+    > Each function app has an [Advanced Tool (Kudu) site](../app-service/app-service-ip-restrictions.md#scm-site) that is used to manage function app deployments. This site is accessed from a URL like: `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. Enabling access restrictions on the Kudu site will prevent deployment of the project code from a local developer workstation (an alterative is to provision an agent within the virtual network).
 
 ## Access the functions app
 
@@ -171,10 +173,10 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     >[!div class="mx-imgBorder"]
     >![Get the Function app URL](./media/functions-create-private-site-access/access-function-overview.png)
 
-2. If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that the app is stopped.  The app isn't stopped. The response is actually an HTTP 403 IP Forbidden status.
-3. Now you'll access your function from the previously created virtual machine, which is connected to your virtual network. In order to access the site from the VM, you'll need to connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
+2. If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that access is forbidden.
+3. Return to the resource group and select the previously created virtual machine. In order to access the site from the VM, you'll need to connect to the VM via the Azure Bastion service.  First select **Connect** and then choose **Bastion**.
 4. Provide the required username and password to log into the virtual machine.  Select **Connect**. A new browser window will pop up to allow you to interact with the virtual machine.
-5. Because this VM is accessing the function through the virtual network, it's possible to access the site from the web browser on the VM.  It is important to note that while the function app is only accessible from within the designated virtual network, a public DNS entry remains. As shown above, attempting to access the site will result in an HTTP 403 response.
+5. It is possible to access the site from the web browser on the VM because the VM is accessing the site through the virtual network.  It is important to note that while the site is only accessible from within the designated virtual network, a public DNS entry remains.
 
 ## Create a function
 
@@ -195,15 +197,12 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 ## Invoke the function directly
 
-1. In order to test access to the function, you need to copy the function URL. Select the deployed function, and then select **</> Get function URL**. Then click the **Copy** button to copy the URL to your clipboard.
+1. In order to test access to the function, you need to copy the function URL. Select the deployed function, and then select **Get Function Url**. Then click the **Copy** button to copy the URL to your clipboard.
 
     >[!div class="mx-imgBorder"]
     >![Copy the function URL](./media/functions-create-private-site-access/get-function-url.png)
 
-    > [!NOTE]
-    > When the function runs, you'll see a runtime error in the portal stating that the function runtime is unable to start. Despite the message text, the function app is actually running. The error is a result of the new access restrictions, which prevent the portal from querying to check on the runtime.
-
-2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating the app is stopped.
+2. Paste the URL into a web browser. When you now try to access the function app from a computer outside of your virtual network, you receive an HTTP 403 response indicating access to the app is forbidden.
 
 ## Invoke the function from the virtual network
 
