@@ -31,7 +31,3 @@ In this article, you'll learn how to select a custom output voice for a custom c
 > - For **Custom voices**, they can be created from the Custom Voice project page. See [Get Started with Custom Voice](./how-to-custom-voice.md).
 
 Now the application will respond in the selected voice, instead of the default voice.
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
