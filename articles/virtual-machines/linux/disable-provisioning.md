@@ -24,12 +24,12 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 * Third-party products, such as AV products, VM vulnerability tools, VM and App monitoring tooling.
 * Extensions can be bundled with a new VM deployment. For example, they can be part of a larger deployment, configuring applications on VM provision, or run against any supported extension operated systems post deployment.
 
-> NOTE! Removing the Linux Agent is a one way operation, it is not yet supported to reinstall the Linux Agent. You will need to create a new image with the Linux Agent. Therefore, it is strongly recommended you consider disabling the Linux Agent, before removing the Linux Agent.
-
-
 ## Disabling Extension Processing
+>Note! There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
-There are several ways to disable extension processing, depending on your needs.
+```bash
+az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
+```
 
 ### Disable at the control plane
 If you are not sure whether you will need extensions in the future, you can leave the Linux Agent installed on the VM, then disable extension processing capability from the platform. This is option is available in `Microsoft.Compute` api version `2018-06-01` or higher, and does not have a dependency on the Linux Agent version installed.
@@ -53,7 +53,7 @@ This **must** be done in conjunction with 'Disable at the control plane'.
 
 ## Remove the Linux Agent from a running VM
 
-You can also disable the agent in a running VM.
+You can also disable the agent in a running VM, ensure you have **removed** all existing extensions before.
 
 ### Step 1: Disable Extension Processing
 
@@ -66,12 +66,32 @@ az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperat
 
 ### Step 2: Remove the Azure Linux Agent
 
-Run one of the following, as root, to remove the Azure Linux Agent
+Run one of the following, as root, to remove the Azure Linux Agent:
 
 ### For Ubuntu >=18.04
 ```bash
 apt -y remove walinuxagent
-rm -f /etc/waagent.conf
+```
+
+### For Redhat >= 7.7
+```bash
+yum -y remove WALinuxAgent
+```
+
+### For SUSE
+```bash
+zypper --non-interactive remove python-azure-agent
+```
+
+### Step 3: (Optional) Remove the Azure Linux Agent Artifacts
+> NOTE! You can remove all Artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
+
+If you know you will not ever reinstall the Linux Agent again, then you can run the below:
+
+### For Ubuntu >=18.04
+```bash
+apt -y remove walinuxagent
+#rm -f /etc/waagent.conf
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
@@ -91,49 +111,28 @@ rm -f /etc/waagent.conf.rpmsave
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
-
 
 ## Preparing an image without the Linux Agent
-If you have an image that already contains cloud-init, and you want to remove the Linux agent, but still provision using cloud-init, run the following steps as root to remove the Azure Linux Agent, its configuration and cached data, and prepare the VM to create a custom image.
+If you have an image that already contains cloud-init, and you want to remove the Linux agent, but still provision using cloud-init, run the steps in Step 2 (and optionally Step 3) as root to remove the Azure Linux Agent and then the following will remove the cloud-init configuration and cached data, and prepare the VM to create a custom image.
 
-### For Ubuntu >=18.04
 ```bash
-apt -y remove walinuxagent
-rm -f /etc/waagent.conf
-rm -rf /var/lib/waagent
-rm -f /var/log/waagent.log
-cloud-init clean --logs
-```
-
-### For Redhat >= 7.7
-```bash
-yum -y remove WALinuxAgent
-rm -f /etc/waagent.conf.rpmsave
-rm -rf /var/lib/waagent
-rm -f /var/log/waagent.log
-cloud-init clean --logs
-```
-
-### For SUSE
-```bash
-zypper --non-interactive remove python-azure-agent
-rm -f /etc/waagent.conf.rpmsave
-rm -rf /var/lib/waagent
-rm -f /var/log/waagent.log
-cloud-init clean --logs
+cloud-init clean --logs --seed 
 ```
 
 ## Deprovision and create an image
-
-In a typical scenario of preparing custom images with the Azure Linux Agent, the step "waagent -deprovision+user" is recommended. Some of the actions performed by that step are: 
+The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", such as:
 - generate a new ssh host key
 - delete the admin username that was specified during provisioning
 - delete the root password
-- delete dhcp lease file that was written during provisioning
-- reset the hostname
-- delete files generated by the agent during provisioning in /var/lib/waagent
 
-After disabling the Linux Agent, the user can create a custom image using the Azure CLI.
+But you have an image that does not contain the Linux Agent, the you need to ensure your image is removed of all sensitive data, and ensure the following is completed:
+
+- generate a new ssh host key
+- delete the admin username that was specified during provisioning
+- delete the root password
+
+
+Once you have completed the above, you can create the custom image using the Azure CLI.
 
 
 **Create a regular managed image**
