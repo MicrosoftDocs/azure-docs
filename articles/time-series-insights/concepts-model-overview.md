@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/18/2020
 ms.custom: seodec18
 ---
 
@@ -95,8 +95,8 @@ Instances are defined by **timeSeriesId**, **typeId**, **name**, **description**
 
 | Property | Description |
 | --- | ---|
-| timeSeriesId | The UUID of the time series the instance is associated with. |
-| typeId | The UUID of the Time Series Model type the instance is associated with. By default, all discovered new instances get associated to a default type.
+| timeSeriesId | The unique ID of the time series the instance is associated with. In most cases, instances are uniquely identified by a property like deviceId or assetId. In some cases, a more specific composite ID combining up to 3 properties can be used. |
+| typeId | The case-sensitive unique string ID of the Time Series Model type the instance is associated with. By default, all discovered new instances get associated to a default type.
 | name | The **name** property is optional and case-sensitive. If **name** isn't available, it defaults to **timeSeriesId**. If a name is provided, **timeSeriesId** is still available in the [well](time-series-insights-update-explorer.md#4-time-series-well). |
 | description | A text description of the instance. |
 | hierarchyIds | Defines which hierarchies the instance belongs to. |
@@ -235,7 +235,7 @@ Time Series Model types are defined by **id**, **name**, **description**, and **
 
 | Property | Description |
 | ---| ---|
-| id | The UUID for the type. |
+| id | The case-sensitive unique string ID for the type. |
 | name | A string used to provide a name for the type. |
 | description | A string description for the type. |
 | variables | Specify variables associated with the type. |
