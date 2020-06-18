@@ -12,20 +12,6 @@ You can use the Hybrid Runbook Worker feature of Azure Automation to run runbook
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-## Linux Hybrid Runbook Worker installation options
-
-To install and configure a Linux Hybrid Runbook Worker, you can use one of the following methods.
-
-* For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or the Azure CLI. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account.
-
-* For non-Azure VMs, install the Log Analytics agent for Linux using the deployment options described in the [Connect Linux computers to Azure Monitor](../azure-monitor/platform/agent-linux.md) article. You can repeat this process for multiple machines to add multiple workers to your environment. Once the agent is installed, the VMs can be added to a Hybrid Runbook Worker group in your Automation account.
-
-> [!NOTE]
-> To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
-
-> [!NOTE]
-> The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
-
 ## Prerequisites
 
 Before you start, make sure that you have the following:
@@ -98,6 +84,20 @@ Linux Hybrid Runbook Workers support a limited set of runbook types in Azure Aut
 
 <sup>1</sup>PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
+## Linux Hybrid Runbook Worker installation options
+
+To install and configure a Linux Hybrid Runbook Worker, you can use one of the following methods.
+
+* For Azure VMs, install the Log Analytics agent for Linux using the [virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md). The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace using an Azure Resource Manager template or the Azure CLI. Once the agent is installed, the VM can be added to a Hybrid Runbook Worker group in your Automation account.
+
+* For non-Azure VMs, install the Log Analytics agent for Linux using the deployment options described in the [Connect Linux computers to Azure Monitor](../azure-monitor/platform/agent-linux.md) article. You can repeat this process for multiple machines to add multiple workers to your environment. Once the agent is installed, the VMs can be added to a Hybrid Runbook Worker group in your Automation account.
+
+> [!NOTE]
+> To manage the configuration of machines that support the Hybrid Runbook Worker role with Desired State Configuration (DSC), you must add the machines as DSC nodes.
+
+> [!NOTE]
+> The [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux) with the corresponding sudo permissions must be present during installation of the Linux Hybrid Worker. If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
+
 ## Install a Linux Hybrid Runbook Worker
 
 To install and configure a Linux Hybrid Runbook Worker, perform the following steps.
@@ -156,7 +156,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> This code doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
+> This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
 
 ## Remove a Hybrid Worker group
 

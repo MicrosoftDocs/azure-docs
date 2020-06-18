@@ -88,15 +88,15 @@ To install and configure a Windows Hybrid Runbook Worker, you can use one of the
 
 * For non-Azure VMs, install the Log Analytics agent for Windows using the deployment options described in the [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md) article. You can repeat this process for multiple machine to add multiple workers to your environment. Once the agent is installed, the VMs can be added to a Hybrid Runbook Worker group in your Automation account.
 
-* Use an [Automation runbook](#automated-deployment) to completely automate the process of configuring a Windows machine. This is the recommended method for machines in your datacenter or another cloud environment.
+* Use a provided PowerShell script to completely [automate](#automated-deployment) the process of configuring one or more Windows machines. This is the recommended method for machines in your datacenter or another cloud environment.
 
 ## Automated deployment
 
 On the target machine, perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role using the PowerShell script **New-OnPremiseHybridWorker.ps1**. The script performs the following steps:
 
 * Installs the necessary modules
-* Sign in to an Azure account
-* Verify the existence of specified resource group and Automation account
+* Signs in with your Azure account
+* Verifies the existence of specified resource group and Automation account
 * Creates references to Automation account attributes
 * Creates an Azure Monitor Log Analytics workspace if not specified
 * Enable the Azure Automation solution in the workspace
