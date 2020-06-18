@@ -90,7 +90,7 @@ This page lets you define the categories used to group your offer on the marketp
 Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. You can select:
 
 - Up to two categories, including a primary and a secondary category (optional).
-- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select ‘Not applicable’.
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Containers always appear under **Containers** and then the **Container Images** category.
 
