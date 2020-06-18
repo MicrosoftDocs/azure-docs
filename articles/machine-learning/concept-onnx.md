@@ -26,7 +26,7 @@ Microsoft and a community of partners created ONNX as an open standard for repre
 
 ONNX Runtime is used in high scale Microsoft services such as Bing, Office, and Cognitive Services. Performance gains are dependent on a number of factors but these Microsoft services have seen an __average 2x performance gain on CPU__. In addition to Azure Machine Learning services, ONNX Runtime also runs in other products that support Machine Learning workloads, including:
 + Windows: the runtime is built into Windows as part of [Windows Machine Learning](https://docs.microsoft.com/en-us/windows/ai/windows-ml/) and runs on hundreds of millions of devices 
-+ Azure SQL Edge: run native scoring on data in [Azure SQL Edge](https://docs.microsoft.com/en-us/azure/azure-sql-edge/onnx-overview) for edge and IoT devices
++ Azure SQL product family: run native scoring on data in [Azure SQL Edge](https://docs.microsoft.com/en-us/azure/azure-sql-edge/onnx-overview) and [Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/machine-learning-services-overview) 
 + ML.NET: [run ONNX models in ML.NET](https://docs.microsoft.com/en-us/dotnet/machine-learning/tutorials/object-detection-onnx)
 
 
