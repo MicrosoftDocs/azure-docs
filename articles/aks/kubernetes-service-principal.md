@@ -3,7 +3,7 @@ title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 06/16/2020
 
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
@@ -86,6 +86,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 ```
 
 The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> If you have removed the Contributor role assignment from the node resource group, the operations below may fail.  
 
 The following sections detail common delegations that you may need to make.
 
