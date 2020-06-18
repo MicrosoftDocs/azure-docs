@@ -78,7 +78,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+	
+	a. Click **Upload metadata file**.
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in IBM Digital Business Automation on Cloud section textbox:
+
+	> [!Note]
+	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
+
+    > [!Note]
+    > Customers can obtain the metadata file for their Cloud subscription from the DBAoC DevOps team (supportbpmoncloud@us.ibm.com).
+
+1. If you don't have **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.automationcloud.ibm.com/isam/sps/<TENANT>/saml20`
