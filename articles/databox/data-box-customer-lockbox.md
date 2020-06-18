@@ -29,7 +29,7 @@ Before you begin, make sure:
 
 3. Customer Lockbox is automatically available for all customers who have an Azure support plan with a minimal level of Developer. How do you enable Lockbox? <!--change this for Azure Data Box, perhaps you need a different support plan When you have an eligible support plan, no action is required by you to enable Customer Lockbox. Customer Lockbox requests are initiated by a Microsoft engineer if this action is needed to progress a support ticket that is filed from somebody in your organization.-->
 
-4. A service request or a  Support ticket is already opened for this issue. For information on support ticket, see [File a service request for Data Box](data-box-disk-contact-microsoft-support).
+4. A service request or a  Support ticket is already opened for this issue. For information on support ticket, see [File a service request for Data Box](data-box-disk-contact-microsoft-support.md).
 
 
 ## Data access scenario
