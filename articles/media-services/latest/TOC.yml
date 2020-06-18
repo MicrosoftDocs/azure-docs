@@ -378,6 +378,8 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Standard Encoder schemas
     items:
+    - name: Input metadata
+      href: input-metadata-schema.md    
     - name: Output metadata
       href: output-metadata-schema.md      
 - name: Resources
