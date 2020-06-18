@@ -993,6 +993,8 @@
       href: insights/storage-insights-overview.md
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Solutions
     items:
     - name: Overview

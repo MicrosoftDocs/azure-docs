@@ -30,7 +30,7 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
-  - name: Ingres Controller Add-on for AKS (Greenfield)
+  - name: Ingress Controller Add-on for AKS (Greenfield)
     href: tutorial-ingress-controller-add-on-new.md
   - name: Ingress Controller Add-on for AKS (Brownfield)
     href: tutorial-ingress-controller-add-on-existing.md
