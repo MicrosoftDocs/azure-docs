@@ -13,7 +13,7 @@ ms.author: xiaojul
 ---
 
 # Continuous Deployment with Azure DevOps
-In this article we will show you how to set up continuous deployment for your Custom Commands applications. We create the scripts to support the continuous deployment workflows. This article will work you through the steps.
+In this article, we will show you how to set up continuous deployment for your Custom Commands applications. We create the scripts to support the continuous deployment workflows. This article will work you through the steps.
 
 ## Prerequisite
 > [!div class = "checklist"]
@@ -74,8 +74,8 @@ Clone the scripts in the bash directory to your repository. Make sure you mainta
 
 ### Hook up the pipeline with your applications
 1. Navigate to the main page of the pipeline.
-1. In the top right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
-1. In the top right corner next to "Run" button, select **Variables**. Click **New variable**.
+1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
+1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
 1. Add these variables:
     
     | Variable | Description |
@@ -151,8 +151,8 @@ In case you want to keep the definition of your application in a repository, we 
 
 ### Hook up the pipeline with your target applications
 1. Navigate to the main page of the pipeline.
-1. In the top right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
-1. In the top right corner next to "Run" button, select **Variables**. Click **New variable**.
+1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
+1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
 1. Add these variables:
 
     | Variable | Description |
