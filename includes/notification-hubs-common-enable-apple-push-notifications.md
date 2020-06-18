@@ -141,7 +141,7 @@ The newer approach has a number of benefits as documented in [Token-based (HTTP/
     > [!NOTE]
     > This is the **token value** that will be used later to configure **Notification Hub**.
 
-At the end of these steps you should have the following information for use later in [Configure your notification hub with APNs information](#configure-your-notification-hub-with-apns-information):
+At the end of these steps, you should have the following information for use later in [Configure your notification hub with APNs information](#configure-your-notification-hub-with-apns-information):
 
 * **Team ID** (see step 1)
 * **Bundle ID** (see step 1)
