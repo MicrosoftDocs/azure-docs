@@ -43,6 +43,8 @@ You can sign in to Azure and run Azure CLI commands in one of two ways:
 * You can install the CLI and run CLI commands locally.
 * You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
 
+We use Azure CLI through Windows PowerShell for the tutorial, but you are free to choose either option.
+
 ### Install the CLI locally
 
 * Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
@@ -124,9 +126,9 @@ To run the code in this article in Azure Cloud Shell:
 For this tutorial, we use Windows PowerShell command prompt to run Azure CLI commands.
 
 <!-- This goes away, we'll show this later when we show how to order a Data Box. -->
-## Change the output format type
+<!-- ## Change the output format type
 
-All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`.
+All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. -->
 
 <!-- ```azurecli
 
@@ -160,7 +162,7 @@ PS C:\Windows>az databox job show --resource-group "myresourcegroup" --name "myd
 
 ``` -->
 
-Here's the example output of `az databox job show` after changing the output format to table:
+<!-- Here's the example output of `az databox job show` after changing the output format to table:
 
 ```azurecli
 PS C:\WINDOWS\system32> az databox job show --resource-group "GDPTest" --name "mydataboxtest3" --output "table"
@@ -170,7 +172,7 @@ DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShi
 --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
 NonScheduled    True             True                       False          True                         westus      mydataboxorder  myresourcegroup          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
 
-```
+``` -->
 
 ---
 
@@ -278,11 +280,6 @@ Do the following steps using Azure CLI to order a device:
    ```azurecli
    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest3" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount
 
-   ```
-
-   After you run the command, you see the following output:
-
-   ```azurecli
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    {
      "cancellationReason": null,
@@ -318,6 +315,20 @@ Do the following steps using Azure CLI to order a device:
 
    ```
 
+3. All Azure CLI commands will use json as the output format by default unless you change it. You can change the output format by using the global parameter `--output <output-format>`. Changing the format to "table" will improve output readability.
+
+   Here's the same command we just ran with a small tweak to change the formatting:
+
+    ```azurecli
+    az databox job create --resource-group "myresourcegroup" --name "mydataboxtest4" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount --output "table"
+
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+
+    ```
+
 ---
 
 ## Track the order
@@ -343,8 +354,9 @@ Microsoft then prepares and dispatches your device via a regional carrier. You r
 
 # [Azure CLI](#tab/azure-cli)
 
-<!-- ### Track a single order -->
-To get tracking information about an existing Azure Data Box order, run [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
+### Track a single order
+
+To get tracking information about a single, existing Azure Data Box order, run [az databox job show](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). The command displays information about the order such as, but not limited to: name, resource group, tracking information, subscription ID, contact information, shipment type, and device sku.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -363,13 +375,21 @@ To get tracking information about an existing Azure Data Box order, run [az data
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include verbose logging. | --verbose |
 
-   Here's an example of the command with output:
-<!-- show the following in table form to keep TOC  -->
+   Here's an example of the command with output format set to "table":
+
+   ```azurecli
+    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest4" --output "table"
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
+    --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
+    NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   
+   ```
+   <!-- Here's an example of the command with default output format:
+
    ```azurecli
     PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest3"
-
-    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
-    {
+ {
       "cancellationReason": null,
       "deliveryInfo": {
         "scheduledDateTime": "0001-01-01T00:00:00+00:00"
@@ -552,10 +572,9 @@ To get tracking information about an existing Azure Data Box order, run [az data
     }
     PS C:\WINDOWS\system32>
 
-   ```
+   ``` -->
 
-<!-- Change to H3 with parent Track the order-->
-## List all orders
+### List all orders
 
 If you have ordered multiple devices, you can run [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
@@ -576,9 +595,22 @@ The following table shows the parameter information for `az databox job list`:
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include verbose logging. | --verbose |
 
-   Here's an example of the command with output:
+   Here's an example of the command with output format set to "table":
 
-   ```azurecli
+    ```azurecli
+    PS C:\WINDOWS\system32> az databox job list --resource-group "GDPTest" --output "table"
+    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
+    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
+    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
+    OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
+    NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
+    IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+    PS C:\WINDOWS\system32>
+    ```
+
+   <!-- ```azurecli
    PS C:\Windows> az databox job list --resource-group "myresourcegroup" --output "table"
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    [
@@ -700,7 +732,7 @@ The following table shows the parameter information for `az databox job list`:
       }
    ]
 
-```
+``` -->
 
 ---
 
