@@ -22,7 +22,7 @@ Here is an example of the output from a failed private cloud deployment, with th
 
 Copy and save this correlation ID to include in the service request. For details, see [Create your support request](#create-your-support-request) at the end of this article.
 
-If the failure occurs in the pre-validation stages, before a private cloud is deployed, then no correlation ID is generated. In this case, you can simply provide the information you used when creating the AVS private cloud, including:
+If the failure occurs in the pre-validation stages, before a private cloud is deployed, no correlation ID is generated. In this case, you can simply provide the information you used when creating the AVS private cloud, including:
 
 - Location
 - Resource group
@@ -60,33 +60,33 @@ When viewing a private cloud in the portal, select **Connectivity > ExpressRoute
  
 :::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Collect an ExpressRoute ID."::: 
  
-Paste the ExpressRoute ID into the appropriate field in the new support request (for more info, see the following section, [Create your support request](#create-your-support-request)).
+Paste the ExpressRoute ID into the appropriate field in the new support request. For more info, see the following section, [Create your support request](#create-your-support-request).
  
 > [!NOTE]
-> On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the earlier section, [Collect a summary of errors](#collect-a-summary-of-errors) 
+> On occasion, pre-validation checks may fail prior to a deployment and the only information available will be the error and/or failure messages. These can be helpful in a number of failures, for instance quota-related issues, and it's important to include these messages in the support request. To collect these, see the earlier section, [Collect a summary of errors](#collect-a-summary-of-errors).
 
 ## Create your support request
 
 For general guidance in creating your support request, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 
-Here is additional guidance specific to creating an SR for AVS deployment or provisioning failures:
+Here is additional guidance specific to creating an SR for AVS deployment or provisioning failures.
 
-Select the **Help** icon and then **+ New support request**.
+1. Select the **Help** icon and then **+ New support request**.
 
-:::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collect an ExpressRoute ID.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Collect an ExpressRoute ID.":::
 
-Fill in all required fields, and on the **Basics** tab:
+2. Fill in all required fields, and on the **Basics** tab:
 
-- For **Problem type**, select **Configuration and Setup Issues**.
+    - For **Problem type**, select **Configuration and Setup Issues**.
 
-- For **Problem subtype**, select **Provision a private cloud**.
+    - For **Problem subtype**, select **Provision a private cloud**.
 
-On the **Details** tab:
+3. On the **Details** tab:
 
-- Fill in all required fields.
+    - Fill in all required fields.
 
-- Paste your Correlation ID or ExpressRoute ID into the specific fields provided. If you don't see a specific field for these, you can paste them into the text box under **Provide details about the issue.**
+    - Paste your Correlation ID or ExpressRoute ID into the specific fields provided. If you don't see a specific field for these, you can paste them into the text box under **Provide details about the issue.**
 
-- Paste any error details, including the summary of errors you copied, into the text box under **Provide details about the issue.**
+    - Paste any error details, including the summary of errors you copied, into the text box under **Provide details about the issue.**
 
-- Review and create your SR.
+4. Review and select **Create** to create your SR.

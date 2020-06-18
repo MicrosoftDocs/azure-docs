@@ -96,7 +96,7 @@ Check that the zipped file is secure, before you deploy it.
 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Verify the latest appliance versions and hash values:
     - For the public cloud:
 
@@ -175,7 +175,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 
 1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
 2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
-You can add one set of credentials each for Windows and Linux servers.
+You can add multiple credentials for Windows and Linux servers.
 4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
 3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
     - If validation fails for a server, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
