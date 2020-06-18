@@ -30,7 +30,7 @@ This quickstart will show you how to use a LUIS app to determine a user's intent
 
 ## Create Pizza app
 
-[!INCLUDE [Create pizza app](../includes/get-started-get-model-create-pizza-app.md)]
+[!INCLUDE [Create pizza app](includes/get-started-get-model-create-pizza-app.md)]
 
 ## Get intent from the prediction endpoint
 
@@ -262,4 +262,4 @@ Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predicti
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../luis-get-started-rest-get-model.md)
+> [Add utterances and train](luis-get-started-rest-get-model.md)

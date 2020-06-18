@@ -37,7 +37,7 @@ By following this quickstart, you will perform three REST calls in sequence.
 
 ## Create Pizza app
 
-[!INCLUDE [Create pizza app](../includes/get-started-get-model-create-pizza-app.md)]
+[!INCLUDE [Create pizza app](includes/get-started-get-model-create-pizza-app.md)]
 
 ## Create a JSON file to train the Pizza app
 
