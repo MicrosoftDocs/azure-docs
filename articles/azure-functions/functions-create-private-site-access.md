@@ -5,7 +5,7 @@ author: mcollier
 ms.author: mcollier
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 02/15/2020
+ms.date: 06/17/2020
 ---
 
 # Tutorial: Establish Azure Functions private site access
