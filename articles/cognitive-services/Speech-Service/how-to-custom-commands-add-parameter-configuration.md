@@ -44,7 +44,7 @@ This approach comes handy in the cases where the catalog entries can be large in
      | Setting                           | Suggested value                     |
    | --------------------------------- | -----------------------------------------------------|
    | Name                              | `getDevices`                                |
-   | URL                          |`https://aka.ms/customcommands-documentation-sampledevices`                                |
+   | URL                          |`https://aka.ms/speech/cc-sampledevices`                                |
    | Method                              | GET                                |
 
 

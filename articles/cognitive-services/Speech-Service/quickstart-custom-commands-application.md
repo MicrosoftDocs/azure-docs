@@ -20,8 +20,8 @@ In this article you will create and test Custom Commands application using Speec
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Download the sample
-[Smart Room Lite](https://aka.ms/customcommands-documentation-smartroomlite).
-> * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/customcommands-voice-assistant-client).
+[Smart Room Lite](https://aka.ms/speech/cc-quickstart).
+> * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
   > [!NOTE]
   > At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and neur regions.
