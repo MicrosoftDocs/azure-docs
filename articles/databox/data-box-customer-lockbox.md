@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 06/19/2020
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -42,7 +42,6 @@ The customer data is typically not accessed. For Data Box, the following are the
 
 In these cases, Microsoft will try to access your data in the Azure datacenter and will require your explicit consent to access the data. The access is requested and tracked via the Customer Lockbox interface if you have enabled Lockbox. 
 
-If Lockbox is not enabled, then 
 
 ## Initiate request via Lockbox
 
@@ -50,51 +49,35 @@ If Lockbox is not enabled, then
 
 1. Typically a customer initiates a service request via Lockbox. However, for Data Box, if Microsoft detects that there is an issue with uploading or downloading the data at Azure datacenter, for example, the Data Box order was halted during the Data Copy stage. The Support team reaches out to the customer. 
  
-1. If the support engineer can’t troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service.
+2. If the support engineer can’t troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service.
 
 
-3. When the request requires direct access to customer data, a Customer Lockbox request is initiated.Accessed pod through support session and validated that the disks are locked and shares are not accessible. Raised JIT request for “Unlock Databox” ACIS operation
+3. When the request requires direct access to customer data, a Customer Lockbox request is initiated.Accessed pod through support session and validated that the disks are locked and shares are not accessible. Raised JIT request for Unlock Databox ACIS operation. Notification goes to the admin of the subscription. Also you can configure to add a group to the customer's lockbox.
 
-    ![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
+    <!--![Choose encryption option](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)-->
 
-2. When Support reaches out to you, they will ask you to provide access to your subscription.
+4. Approved the lockbox request from portal
 
-
-		b. Geneva actions - can do ad hoc operations on the service or DB. If we want to get customer email ID to contact them - need to get manager approval. JIT action - configure a claim that to see customer data for a particular operation, I need access to customer data. Then the access gets approved.
-		c. This is done via JIT portal. Notification goes to the admin of the subscription. Also you can configure to add a group to the customer's lockbox.
-		d. Once the request is approved - for DB - device disks are locked by a key. The service has the BitLocker key to unlock the disks. When we have the approval, we unlock the disks.
-Support person can access DB using DC infra and can access the data.Job went through provisioning and was halted during DataCopy stage
-
-    ![Overview blade of Data Box order](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    <!--![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)-->
 
 
-5. Approved the lockbox request from portal
+    <!--![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)-->
 
-    ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+5. Executed the action after approval.
 
-    You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Ensure that the **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
+    <!--![Create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)-->
 
-    ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+6. Validated the unlocked disk and share access in support session.
 
-7. Executed the action after approval.
+    <!--![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)-->
 
-    ![Create Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+7. Disabled support session.
 
-8. Validated the unlocked disk and share access in support session.
+    <!--![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)-->
 
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+8. Resumed the job to completion
 
-9. Disabled support session
-
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
-
-10. Resumed the job to completion
-
-    ![Create new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
-
-
-> [!IMPORTANT]
-> You can disable Microsoft managed key and move to customer-managed key at any stage of the Data Box order. However, once you have created the customer-managed key, you cannot switch back to the Microsoft-managed key.
+    <!--![Create new key](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)-->
 
 
 ## Next steps
