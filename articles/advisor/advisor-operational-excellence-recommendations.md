@@ -45,7 +45,8 @@ Azure Policy is a service in Azure that you use to create, assign, and manage po
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get Started](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
