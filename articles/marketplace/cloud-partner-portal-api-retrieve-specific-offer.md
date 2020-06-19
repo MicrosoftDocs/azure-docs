@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
+ms.date: 06/19/2020
 ms.author: dsindona
 ---
 
@@ -88,12 +88,21 @@ Body example
                 "linkUrl": "https://azuremarketplace.microsoft.com"
             }
             ],
-            "microsoft-azure-marketplace.categories": [
-                "devService",
-                "networking",
-                "database",
-                "cache",
-                "security"
+                "microsoft-azure-marketplace.categoryMap": [
+                {
+                "categoryL1": "analytics",
+                "categoryL2-analytics": [
+                "visualization-and-reporting"
+                ]
+                },
+                {
+                "categoryL1": "ai-plus-machine-learning",
+                "categoryL2-ai-plus-machine-learning": [
+                "bot-services",
+                "cognitive-services",
+                "other"
+                ]
+                }
             ],
             "microsoft-azure-marketplace.smallLogo": "https://publishingapistore.blob.core.windows.net/testcontent/D6191_publishers_contoso/contosovirtualmachine/6218c455-9cbc-450c-9920-f2e7a69ee132.png?sv=2014-02-14&sr=b&sig=6O8MM9dgiJ48VK0MwddkyVbprRAnBszyhVkVHGShhkI%3D&se=2019-03-28T19%3A46%3A50Z&sp=r",
             "microsoft-azure-marketplace.mediumLogo": "https://publishingapistore.blob.core.windows.net/testcontent/D6191_publishers_contoso/contosovirtualmachine/557e714b-2f31-4e12-b0cc-e48dd840edf4.png?sv=2014-02-14&sr=b&sig=NwL67NTQf9Gc9VScmZehtbHXpYmxhwZc2foy3o4xavs%3D&se=2019-03-28T19%3A46%3A49Z&sp=r",

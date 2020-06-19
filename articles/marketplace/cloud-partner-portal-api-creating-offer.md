@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
+ms.date: 06/19/2020
 ms.author: dsindona
 ---
 
@@ -69,7 +69,22 @@ The following example creates an offer with offerID of `contosovirtualmachine`.
               "linkTitle": "Contoso App for Azure",
               "linkUrl": "https://azuremarketplace.microsoft.com"
           }],
-          "microsoft-azure-marketplace.categories": ["devService", "networking", "database", "cache", "security"],
+          "microsoft-azure-marketplace.categoryMap": [
+                {
+                    "categoryL1": "analytics",
+                    "categoryL2-analytics": [
+                        "visualization-and-reporting"
+                    ]
+                },
+                {
+                    "categoryL1": "ai-plus-machine-learning",
+                    "categoryL2-ai-plus-machine-learning":[
+                        "bot-services",
+                        "cognitive-services",
+                        "other"
+                    ]
+                }
+	        ],
           "microsoft-azure-marketplace.smallLogo": "https://publishingapistore.blob.core.windows.net/testcontent/D6191_publishers_contoso/contosovirtualmachine/6218c455-9cbc-450c-9920-f2e7a69ee132.png?sv=2014-02-14&sr=b&sig=6O8MM9dgiJ48VK0MwddkyVbprRAnBszyhVkVHGShhkI%3D&se=2019-03-28T19%3A46%3A50Z&sp=r",
           "microsoft-azure-marketplace.mediumLogo": "https://publishingapistore.blob.core.windows.net/testcontent/D6191_publishers_contoso/contosovirtualmachine/557e714b-2f31-4e12-b0cc-e48dd840edf4.png?sv=2014-02-14&sr=b&sig=NwL67NTQf9Gc9VScmZehtbHXpYmxhwZc2foy3o4xavs%3D&se=2019-03-28T19%3A46%3A49Z&sp=r",
           "microsoft-azure-marketplace.largeLogo": "https://publishingapistore.blob.core.windows.net/testcontent/D6191_publishers_contoso/contosovirtualmachine/142485da-784c-44cb-9523-d4f396446258.png?sv=2014-02-14&sr=b&sig=xaMxhwx%2FlKYfz33mJGIg8UBdVpsOwVvqhjTJ883o0iY%3D&se=2019-03-28T19%3A46%3A49Z&sp=r",
@@ -155,13 +170,22 @@ The following example creates an offer with offerID of `contosovirtualmachine`.
                      "linkUrl": "https://azuremarketplace.microsoft.com"
                  }
              ],
-             "microsoft-azure-marketplace.categories": 
+             "microsoft-azure-marketplace.categoryMap":
              [
-                 "devService",
-                 "networking",
-                 "database",
-                 "cache",
-                 "security"
+                 {
+                    "categoryL1": "analytics",
+                    "categoryL2-analytics": [
+                    "visualization-and-reporting"
+                    ]
+                 },
+                 {
+                    "categoryL1": "ai-plus-machine-learning",
+                    "categoryL2-ai-plus-machine-learning": [
+                    "bot-services",
+                    "cognitive-services",
+                    "other"
+                    ]
+                 }
              ],
              "microsoft-azure-marketplace.smallLogo": "https://publishingstoredm.blob.core.windows.net/prodcontent/D6191_publishers_marketplace:2Dtest/testaoffer/8affcd28-60a5-4839-adf8-c560e069fd61.png?sv=2014-02-14&sr=b&sig=nGErAgn%2BDUecrX892wcmk32kh0MHgIZeJ5jcKyY%2Fuew%3D&se=2020-03-28T22%3A27%3A13Z&sp=r",
              "microsoft-azure-marketplace.mediumLogo": "https://publishingstoredm.blob.core.windows.net/prodcontent/D6191_publishers_marketplace:2Dtest/testaoffer/39550bca-1110-432c-9ea9-e12b3a2288cd.png?sv=2014-02-14&sr=b&sig=4X0hlkXYtuZOmcYq%2BsbYVZz3k5k26kngcFX6yBAJjNI%3D&se=2020-03-28T22%3A27%3A13Z&sp=r",
