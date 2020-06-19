@@ -146,7 +146,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
     curl "***YOUR-AUTHORING-ENDPOINT***/luis/authoring/v3.0-preview/apps/***YOUR-APP-ID***/versions/***YOUR-APP-VERSION***/examples?verbose=true&show-all-intents=true" \
           --request POST \
           --header "Content-Type:application/json" \
-          --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY" \
+          --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***" \
           --data "@ExampleUtterances.JSON"
     ```
 
@@ -156,7 +156,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
     curl "***YOUR-AUTHORING-ENDPOINT***/luis/authoring/v3.0-preview/apps/***YOUR-APP-ID***/versions/***YOUR-APP-VERSION***/examples?verbose=true&show-all-intents=true" \
           --request POST \
           --header "Content-Type:application/json" \
-          --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY" \
+          --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***" \
           --data "@ExampleUtterances.JSON"
     ```
 
