@@ -2,7 +2,7 @@
 title: Test cases for test toolkit
 description: Describes the tests that are run by the ARM template test toolkit.
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 06/19/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -159,7 +159,7 @@ The next example uses a location parameter but **fails** this test because the l
 }
 ```
 
-Instead, create a parameter that defaults to the resource group location but allows users to provide a different value.
+Instead, create a parameter that defaults to the resource group location but allows users to provide a different value. The following example **passes** this test.
 
 ```json
 {
@@ -365,6 +365,48 @@ Test name: **Variables Must Be Referenced**
 
 To reduce confusion in your template, delete any variables that are defined but not used. This test finds any variables that aren't used anywhere in the template.
 
+## Dynamic variable should not use concat
+
+Test name: **Dynamic Variable References Should Not Use Concat**
+
+Sometimes you dynamically construct a variable based on the value of another variable or parameter. Don't use the [concat](template-functions-string.md#concat) function when setting the value. Instead, use an object that includes the available options and dynamically get one of the options during deployment.
+
+The following example **passes** this test.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "osType": {
+          "type": "string",
+          "allowedValues": [
+              "Windows",
+              "Linux"
+          ]
+      }
+  },
+  "variables": {
+    "imageOS": {
+        "Windows": {
+            "image": "Windows Image"
+        },
+        "Linux": {
+            "image": "Linux Image"
+        }
+    },
+    "currentImage": "[variables('imageOS')[parameters('osType')].image]"
+  },
+  "resources": [],
+  "outputs": {
+      "result": {
+          "type": "string",
+          "value": "[variables('currentImage')]"
+      }
+  }
+}
+```
+
 ## Use recent API version
 
 Test name: **apiVersions Should Be Recent**
@@ -488,6 +530,12 @@ The next example **passes** this test.
     "[variables('storageAccountName')]"
 ]
 ```
+
+## Nested or linked deployments can't use debug
+
+Test name: **Deployment Resources Must Not Be Debug**
+
+When you define a [nested or linked template](linked-templates.md) with the **Microsoft.Resources/deployments** resource type, you can enable debugging for that template. Debugging is fine when you need to test that template but should be turned when you're ready to use the template in production.
 
 ## Admin user names can't be literal value
 
