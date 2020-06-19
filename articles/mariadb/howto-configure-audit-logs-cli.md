@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
+ms.date: 6/18/2020
 ---
 
 # Configure and access audit logs in the Azure CLI
@@ -27,6 +27,9 @@ To step through this how-to guide, you need:
 > This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Configure audit logging
+
+>[!NOTE]
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure audit logging using the following steps: 
 
