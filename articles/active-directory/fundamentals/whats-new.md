@@ -40,7 +40,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Retirement of properties in signIns, riskyUsers, and riskDetections APIs
 
 **Type:** Plan for change  
-**Service category:** Identity Protection
+**Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
 Currently, enumerated types are used to represent the riskType property in both the riskDetections API and riskyUserHistoryItem (in preview). Enumerated types are also used for the riskEventTypes property in the signIns API. Going forward we will represent these properties as strings. 
@@ -52,7 +52,7 @@ Customers should transition to the riskEventType property in the beta riskDetect
 ### Deprecation of riskEventTypes property in signIns v1.0 API on Microsoft Graph
 
 **Type:** Plan for change  
-**Service category:** Reporting 
+**Service category:** Reporting  
 **Product capability:** Identity Security & Protection
 
 Enumerated types will switch to string types when representing risk event properties in Microsoft Graph September 2020. In addition to impacting the preview APIs, this change will also impact the in-production signIns API.
