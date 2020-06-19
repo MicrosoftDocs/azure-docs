@@ -40,7 +40,7 @@ The following terms are used throughout the managed identities for Azure resourc
 - **Principal ID** - the object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
 - **Azure Instance Metadata Service (IMDS)** - a REST endpoint accessible to all IaaS VMs created via the Azure Resource Manager. The endpoint is available at a well-known non-routable IP address (169.254.169.254) that can be accessed only from within the VM.
 
-## How does the managed identities for Azure resources work?
+## Managed identity types
 
 There are two types of managed identities:
 
