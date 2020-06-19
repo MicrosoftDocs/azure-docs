@@ -100,7 +100,7 @@ This page lets you set the primary product that your consulting service offer be
     | Archive | Data Platform | Identity | Security |
     | AI + Machine Learning | Datacenter Management | Internet of Things | Storage |
 
-1. If you selected **Azure** as primary product, you have the option to select up to six **Industries**. These make it easier for customers in Azure Marketplace to find your offer. See the full list of industries and verticals in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). If you didn’t choose Azure, skip this step.
+1. If you selected **Azure** as primary product, you have the option to select up to six **Industries**. These make it easier for customers in Azure Marketplace to find your offer. See the full list of industries in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). If you didn’t choose Azure, skip this step.
 1. If you selected a primary product *other* than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).
 1. If you selected a primary product *other* than Azure, you have the option to select up to two **Industries** and two **Verticals** for each industry. These make it easier for customers in AppSource to find your offer. See the full list of industries and verticals in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 1. Add up to three **Competencies** that your company has earned to display on your consulting service offer listing. At least one competency is required except for Azure Expert MSPs and Azure Networking MSPs.

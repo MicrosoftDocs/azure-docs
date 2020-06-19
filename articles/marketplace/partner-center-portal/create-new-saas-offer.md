@@ -181,9 +181,9 @@ This page asks you to define the categories and industries used to group your of
 
 ### Category
 
-Your offer will be published to AppSource or Azure Marketplace depending on the transaction capabilities associated with your offer and your category selection. See [Comparing Microsoft AppSource and Azure Marketplace](../comparing-appsource-azure-marketplace.md) for details. Select categories and subcategories that best align with your offer and your intended audience. You can select:
+Your offer will be published to AppSource or Azure Marketplace depending on the transaction capabilities associated with your offer and your category selection. See [Comparing Microsoft AppSource and Azure Marketplace](../comparing-appsource-azure-marketplace.md) for details. Select categories and subcategories that best align with your offer and your intended audience. Select:
 
-- Up to two categories, including a primary and a secondary category (optional).
+- At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
 See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).

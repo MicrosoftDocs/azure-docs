@@ -115,9 +115,9 @@ On the **Properties** page, you define the categories that are used to group you
 
 ### Category
 
-Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. You can select:
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
 
-- Up to two categories, including a primary and a secondary category (optional).
+- At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
