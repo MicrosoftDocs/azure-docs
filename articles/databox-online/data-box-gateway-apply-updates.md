@@ -1,5 +1,5 @@
 ---
-title: Install Update on Azure Data Box Gatway series device | Microsoft Docs
+title: Install Update on Azure Data Box Gateway series device | Microsoft Docs
 description: Describes how to apply updates using the Azure portal and local web UI for Azure Data Box Gateway series device
 services: databox
 author: priestlg
@@ -11,13 +11,13 @@ ms.author: v-grpr
 ---
 # Update your Azure Data Box Gateway
 
-This article describes the steps required to install update on your Azure Data Box Gateway via the local web UI and through the Azure portal. You apply the software updates or hotfixes to keep your Azure Data Box Gateway device up-to-date.
+This article describes the steps required to install update on your Azure Data Box Gateway via the local web UI and through the Azure portal. You apply the software updates or hotfixes to keep your Data Box Gateway device up-to-date.
 
 > [!IMPORTANT]
 >
-> - Update **1911** corresponds to **1.6.1049-786** software version on your device. For information on this update, go to [Release notes](data-box-gateway-1911-release-notes.md).
+> - Update **1911** corresponds to **1.6.1049.786** software version on your device. For information on this update, go to [Release notes](data-box-gateway-1911-release-notes.md).
 >
-> - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Data Box Gateway is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
+> - Keep in mind that installing an update or hotfix restarts your device. Given that the Data Box Gateway is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
 
 Each of these steps is described in the following sections.
 
@@ -124,7 +124,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
     <!-- ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png) -->
 
-3. Select **Download**. There are two files to download with *SoftwareUpdatePackage.exe* and *Kubernetes_Package.exe* suffixes that correspond to device software updates and Kubernetes updates respectively. Download the files to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
+3. Select **Download**. There is a single file to download called *SoftwareUpdatePackage.exe* that corresponds to the device software update. Download the file to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
 ### Install the update or the hotfix
 
@@ -150,26 +150,13 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
    ![update device](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 
 4. When prompted for confirmation, select **Yes** to proceed. Given the device is a single node device, after the update is applied, the device restarts and there is downtime.
-
-   <!-- ![update device](./media/data-box-gateway-apply-updates/local-ui-update-5.png) -->
+   ![update device](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
 
 6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. The displayed software version in this example is **1.6.1049.786**.
 
    ![update device](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
-
-<!-- 7. You will now update the Kubernetes software version. Repeat the above steps. Provide a path to the Kubernetes update file with the *Kubernetes_Package.exe* suffix.  
-
-   <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)-->
-<!--
-8. Select **Apply**.
-
-   ![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)-->
-
-<!--9. When prompted for confirmation, select **Yes** to proceed. 
-
-10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**. -->
 
 ## Next steps
 
