@@ -96,6 +96,23 @@ FROM
     ) AS [r];
 ```
 
+You can also explicilty reference the columns that you want to return in `WITH` clause:
+
+```sql
+SELECT DocId,
+    MapOfPersons,
+    JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) 
+    WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
+```
+
+The stucture `MakOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
+
 ## Projecting values from repeated columns
 
 If you have an array of scalar values (for example `[1,2,3]`) in some columns, you can easily expand them and join them with the main row using the following script:
@@ -109,7 +126,6 @@ FROM
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS arrays
-    -- WITH ( SimpleArray VARCHAR(MAX))  --> optionally explictly reference array
     CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
