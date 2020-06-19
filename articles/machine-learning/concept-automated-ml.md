@@ -268,23 +268,28 @@ The ONNX runtime also supports C#, so you can use the model built automatically 
 
 There are multiple resources to get you up and running with AutoML. 
 
-To get started with AutoML, see the following 
+Take a look at these tutorials for end to end introductory examples of AutoML scenarios. 
 
-For a code first experience, 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md) 
++ **For a code first experience**, follow the [Tutorial: Automatically train a regression model with Azure Machine Learning Python SDK](tutorial-auto-train-models.md).
 
-+ Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
++ **For a low or no-code experience**, see the 
+[Tutorial: Create automated ML classification models with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
-Forecasting
-+ Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
-
-## Next steps
-
-See examples and learn how to build models using automated machine learning:
+There are also how-to's that provide additional detail into what functionality AuotML offers. For example, 
 
 + Configure the settings for automatic training experiment:
   + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+
++ Learn how to auto train using time series data, [with these steps](how-to-auto-train-forecast.md).
+
+Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/) for detailed code examples and use cases.
+
+For SDK design patterns, see the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+
+## Next steps
+
+See examples and learn how to build models using automated machine learning:
 
 + Learn how to use a [remote compute target](how-to-auto-train-remote.md) with AutoML
 
