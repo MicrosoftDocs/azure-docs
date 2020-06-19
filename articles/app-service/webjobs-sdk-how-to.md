@@ -20,23 +20,19 @@ These are the key differences between version 3.*x* and version 2.*x* of the Web
 
 * Version 3.*x* adds support for .NET Core.
 * In version 3.*x*, you'll install the Storage binding extension required by the WebJobs SDK. In version 2.*x*, the Storage bindings are included in the SDK.
-* Visual Studio tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. To learn more, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+* Visual Studio 2019 tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. To learn more, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-When possible, examples are provided for both version 3.*x* and version 2.*x*.
+Several descriptions in this article include examples for both WebJobs version 3.*x* and WebJobs version 2.*x*.
 
 > [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. Some sections of this article link to Azure Functions documentation.  
-> 
-> Versions of WebJobs SDK and Azure Functions match up like this:
-> * WebJobs SDK version 3.*x* corresponds to Azure Functions version 2.*x*.
-> * WebJobs SDK version 2.*x* corresponds to Azure Functions version 1.*x*.
-> 
-> Here's a brief sampling of features that are shared or different between WebJobs SDK and Azure Functions:. 
-> * Source code repositories use the WebJobs SDK numbering.
-> * Sample code for Azure Functions C# class libraries is like WebJobs SDK code, except that you don't need a `FunctionName` attribute in a WebJobs SDK project.
-> * Some binding types are supported only in Functions, like HTTP (Webhooks) and Event Grid (based on HTTP).
+> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. 
+>  
+> * Azure Functions version 2.*x* is built on WebJobs SDK version 3.*x*.
+> * Azure Functions version 1.*x* is built on WebJobs SDK version 2.*x*.
+>  
+>Source code repositories for both Azure Functions and WebJobs SDK use the WebJobs SDK numbering. Several sections of this how-to article link to Azure Functions documentation. 
 >
->For more information about common features along with more about differences, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) 
+>For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) 
 
 ## WebJobs host
 
@@ -688,8 +684,11 @@ The Azure Functions documentation provides reference information about each bind
 * [Attributes](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). The attributes to use for the binding type.
 * [Configuration](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explanations of the attribute properties and constructor parameters.
 * [Usage](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
+
+> [!NOTE]
+> The HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
   
-For a list of binding reference articles, see "Supported bindings" in the [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) article for Azure Functions. In that list, the HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
+For a full list of bindings supported in Azure Functions runtime, see [Supported bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).  
 
 ## Attributes for Disable, Timeout, and Singleton
 With these attributes, you can control function triggering, cancel functions, and ensure that only one instance of a function runs.
