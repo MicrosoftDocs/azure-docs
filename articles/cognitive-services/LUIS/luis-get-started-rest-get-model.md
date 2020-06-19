@@ -232,7 +232,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
           --data "" \
           --request POST \
           --header "Content-Type:application/json" \
-          --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY"
+          --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***"
     ```
 
     #### [Linux](#tab/linux)
@@ -242,7 +242,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
           --data "" \
           --request POST \
           --header "Content-Type:application/json" \
-          --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY"
+          --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***"
     ```
 
     ***
@@ -270,6 +270,8 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
 
 1. To get the training status for the training session, copy this command into your text editor:
 
+    #### [Windows](#tab/windows)
+
     ```cURL
     curl "***YOUR-AUTHORING-ENDPOINT***/luis/authoring/v3.0-preview/apps/***YOUR-APP-ID***/versions/***YOUR-APP-VERSION***/train?verbose=true&show-all-intents=true" ^
             --request GET ^
@@ -277,22 +279,22 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
             --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***"
     ```
 
-        #### [macOS](#tab/unix)
+    #### [macOS](#tab/unix)
 
     ```cURL
     curl "***YOUR-AUTHORING-ENDPOINT***/luis/authoring/v3.0-preview/apps/***YOUR-APP-ID***/versions/***YOUR-APP-VERSION***/train?verbose=true&show-all-intents=true" \
             --request GET \
             --header "Content-Type:application/json" \
-            --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY"
+            --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***"
     ```
 
-        #### [Linux](#tab/linux)
+    #### [Linux](#tab/linux)
 
     ```cURL
     curl "***YOUR-AUTHORING-ENDPOINT***/luis/authoring/v3.0-preview/apps/***YOUR-APP-ID***/versions/***YOUR-APP-VERSION***/train?verbose=true&show-all-intents=true" \
             --request GET \
             --header "Content-Type:application/json" \
-            --header "Ocp-Apim-Subscription-Key: YOUR-AUTHORING-KEY"
+            --header "Ocp-Apim-Subscription-Key: ***YOUR-AUTHORING-KEY***"
     ```
 
     ***
