@@ -71,7 +71,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 2. Select the private DNS zone.   
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-5. Navigate to your resource group with your Kubernetes VNet inside the Azure portal.  
+5. In the Azure portal, navigate to the resource group that contains your cluster's VNet.  
 6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
