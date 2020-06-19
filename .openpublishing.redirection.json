@@ -3098,6 +3098,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-monitor-for-containers.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-example-adventureworks-multilevel-faceting.md",
       "redirect_url": "/azure/search/search-filters-facets",
       "redirect_document_id": true
@@ -48364,6 +48369,16 @@
       "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-emulator-visual-studio.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
