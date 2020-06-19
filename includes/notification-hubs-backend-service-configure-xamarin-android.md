@@ -52,6 +52,7 @@
     ```csharp
     using System;
     using Android.App;
+    using Android.Gms.Common;
     using PushDemo.Models;
     using PushDemo.Services;
     using static Android.Provider.Settings;
@@ -60,49 +61,42 @@
     {
         public class DeviceInstallationService : IDeviceInstallationService
         {
-            Func<string> _getFirebaseToken;
-            Func<bool> _playServicesAvailable;
-            Func<string> _getPlayServicesError;
+            public string Token { get; set; }
+
+            public bool NotificationsSupported
+                => GoogleApiAvailability.Instance
+                    .IsGooglePlayServicesAvailable(Application.Context) == ConnectionResult.Success;
 
             public string GetDeviceId()
                 => Secure.GetString(Application.Context.ContentResolver, Secure.AndroidId);
 
-            public DeviceInstallationService(
-                Func<string> getFirebaseToken,
-                Func<bool> playServicesAvailable,
-                Func<string> getPlayServicesError)
+            public DeviceInstallation GetDeviceInstallation(params string[] tags)
             {
-                _getFirebaseToken = getFirebaseToken ?? throw new ArgumentException(
-                    $"Parameter {nameof(getFirebaseToken)} cannot be null");
-
-                _playServicesAvailable = playServicesAvailable ?? throw new ArgumentException(
-                    $"Parameter {nameof(playServicesAvailable)} cannot be null");
-
-                _getPlayServicesError = getPlayServicesError ?? throw new ArgumentException(
-                    $"Parameter {nameof(getPlayServicesError)} cannot be null");
-            }
-
-            public DeviceInstallation GetDeviceRegistration(params string[] tags)
-            {
-                if (!_playServicesAvailable())
-                    throw new Exception(_getPlayServicesError());
-
-                var installationId = GetDeviceId();
-                var token = _getFirebaseToken();
-
-                if (token == null)
-                    return null;
+                if (!NotificationsSupported)
+                    throw new Exception(GetPlayServicesError());
 
                 var installation = new DeviceInstallation
                 {
-                    InstallationId = installationId,
+                    InstallationId = GetDeviceId(),
                     Platform = "fcm",
-                    PushChannel = token
+                    PushChannel = Token
                 };
 
                 installation.Tags.AddRange(tags);
 
                 return installation;
+            }
+
+            string GetPlayServicesError()
+            {
+                int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(Application.Context);
+
+                if (resultCode != ConnectionResult.Success)
+                    return GoogleApiAvailability.Instance.IsUserResolvableError(resultCode) ?
+                               GoogleApiAvailability.Instance.GetErrorString(resultCode) :
+                               "This device is not supported";
+
+                return "An error occurred preventing the use of push notifications";
             }
         }
     }
@@ -127,6 +121,7 @@
         {
             IPushDemoNotificationActionService _notificationActionService;
             INotificationRegistrationService _notificationRegistrationService;
+            IDeviceInstallationService _deviceInstallationService;
 
             IPushDemoNotificationActionService NotificationActionService
                 => _notificationActionService ??
@@ -138,11 +133,14 @@
                     (_notificationRegistrationService =
                     ServiceContainer.Resolve<INotificationRegistrationService>());
 
-            internal static string Token { get; set; }
+            IDeviceInstallationService DeviceInstallationService
+                => _deviceInstallationService ??
+                    (_deviceInstallationService =
+                    ServiceContainer.Resolve<IDeviceInstallationService>());
 
             public override void OnNewToken(string token)
             {
-                Token = token;
+                DeviceInstallationService.Token = token;
 
                 NotificationRegistrationService.RefreshRegistrationAsync()
                     .ContinueWith((task) => { if (task.IsFaulted) throw task.Exception; });
@@ -157,11 +155,15 @@
     }
     ```
 
-1. In **MainActivity.cs**, add the `Firebase.Iid` and `Android.Gms.Common` namespaces to the top of the file.
+1. In **MainActivity.cs**, ensure the following namespaces have been added to the top of the file.
 
     ```csharp
-    using Firebase.Iid;
+    using System;
+    using Android.App;
     using Android.Gms.Common;
+    using PushDemo.Models;
+    using PushDemo.Services;
+    using static Android.Provider.Settings;
     ```
 
 1. In **MainActivity.cs**, set the **LaunchMode** to **SingleTop** so **MainActivity** won't get created again when opened.
@@ -176,6 +178,23 @@
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     ```
 
+1. Add private properties and corresponding backing fields to store a reference to the **IPushNotificationActionService** and **IDeviceInstallationService** implementations.
+
+    ```csharp
+    IPushDemoNotificationActionService _notificationActionService;
+    IDeviceInstallationService _deviceInstallationService;
+
+    IPushDemoNotificationActionService NotificationActionService
+        => _notificationActionService ??
+            (_notificationActionService =
+            ServiceContainer.Resolve<IPushDemoNotificationActionService>());
+
+    IDeviceInstallationService DeviceInstallationService
+        => _deviceInstallationService ??
+            (_deviceInstallationService =
+            ServiceContainer.Resolve<IDeviceInstallationService>());
+    ```
+
 1. Implement the **IOnSuccessListener** interface to retrieve and store the **Firebase** token.
 
     ```csharp
@@ -184,28 +203,9 @@
         ...
 
         public void OnSuccess(Java.Lang.Object result)
-            => PushNotificationFirebaseMessagingService.Token =
+            => DeviceInstallationService.Token =
                 result.Class.GetMethod("getToken").Invoke(result).ToString();
     }
-    ```
-
-1. Add a private property and a corresponding backing field to store a reference to the **IPushNotificationActionService** implementation.
-
-    ```csharp
-    IPushDemoNotificationActionService _notificationActionService;
-
-    IPushDemoNotificationActionService NotificationActionService
-        => _notificationActionService ??
-            (_notificationActionService =
-            ServiceContainer.Resolve<IPushDemoNotificationActionService>());
-    ```
-
-1. Add a private property indicating whether **Google Play Services** is available or not.
-
-    ```csharp
-    bool PlayServicesAvailable
-        => GoogleApiAvailability.Instance
-            .IsGooglePlayServicesAvailable(this) == ConnectionResult.Success;
     ```
 
 1. Add a new method called **ProcessNotificationActions** that will check whether a given **Intent** has an extra value named *action*. Conditionally trigger that action using the **IPushDemoNotificationActionService** implementation.
@@ -230,22 +230,6 @@
     }
     ```
 
-1. Add a new method called **GetPlayServicesError** to prepare the appropriate exception message in the event that **Google Play Services** isn't available.
-
-    ```csharp
-    string GetPlayServicesError()
-    {
-        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
-
-        if (resultCode != ConnectionResult.Success)
-            return GoogleApiAvailability.Instance.IsUserResolvableError(resultCode) ?
-                        GoogleApiAvailability.Instance.GetErrorString(resultCode) :
-                        "This device is not supported";
-
-        return "An error occurred preventing the use of push notifications";
-    }
-    ```
-
 1. Override the **OnNewIntent** method to call **CheckIntentForNotificationActions** method.
 
     ```csharp
@@ -259,10 +243,16 @@
     > [!NOTE]
     > Since the **LaunchMode** for the **Activity** is set to **SingleTop**, an **Intent** will be sent to the existing **Activity** instance via the **OnNewIntent** method rather than the **OnCreate** method and so you must handle an incoming intent in both **OnCreate** and **OnNewIntent** methods.
 
-1. Update the **OnCreate** method to conditionally call **GetInstanceId** on the **FirebaseApp** instance, right after the call to **base.OnCreate**, adding **MainActivity** as the **IOnSuccessListener**.
+1. Update the **OnCreate** method to call `Bootstrap.Begin` right after the call to `base.OnCreate` passing in the platform-specific implementation of **IDeviceInstallationService**.
 
     ```csharp
-    if (PlayServicesAvailable)
+    Bootstrap.Begin(() => new DeviceInstallationService());
+    ```
+
+1. In the same method, conditionally call **GetInstanceId** on the **FirebaseApp** instance, right after the call to `Bootstrap.Begin`, adding **MainActivity** as the **IOnSuccessListener**.
+
+    ```csharp
+    if (DeviceInstallationService.NotificationsSupported)
     {
         FirebaseInstanceId.GetInstance(Firebase.FirebaseApp.Instance)
             .GetInstanceId()
@@ -270,13 +260,10 @@
     }
     ```
 
-1. Update the **OnCreate** method to call `Bootstrap.Begin` before the call to **LoadApplication**, passing in the requisite **Func** dependencies, and then call **ProcessNotificationActions** immediately after the call to **LoadApplication**.
+1. Still in **OnCreate**, call **ProcessNotificationActions** immediately after the call to `LoadApplication` passing in the current **Intent**.
 
     ```cs
-    Bootstrap.Begin(() => new DeviceInstallationService(
-        () => PushNotificationFirebaseMessagingService.Token,
-        () => PlayServicesAvailable,
-        () => GetPlayServicesError()));
+    ...
 
     LoadApplication(new App());
 

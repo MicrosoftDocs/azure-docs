@@ -94,8 +94,10 @@
     {
         public interface IDeviceInstallationService
         {
+            string Token { get; set; }
+            bool NotificationsSupported { get; }
             string GetDeviceId();
-            DeviceInstallation GetDeviceRegistration(params string[] tags);
+            DeviceInstallation GetDeviceInstallation(params string[] tags);
         }
     }
     ```
@@ -217,10 +219,19 @@
 
             public async Task RegisterDeviceAsync(params string[] tags)
             {
-                var deviceInstallation = DeviceInstallationService?.GetDeviceRegistration(tags);
+                var deviceInstallation = DeviceInstallationService?.GetDeviceInstallation(tags);
 
                 if (deviceInstallation == null)
                     throw new Exception($"Unable to get device installation information.");
+
+                if (string.IsNullOrWhiteSpace(deviceInstallation.InstallationId))
+                    throw new Exception($"No {nameof(deviceInstallation.InstallationId)} value for {nameof(DeviceInstallation)}");
+
+                if (string.IsNullOrWhiteSpace(deviceInstallation.Platform))
+                    throw new Exception($"No {nameof(deviceInstallation.Platform)} value for {nameof(DeviceInstallation)}");
+
+                if (string.IsNullOrWhiteSpace(deviceInstallation.PushChannel))
+                    throw new Exception($"No {nameof(deviceInstallation.PushChannel)} value for {nameof(DeviceInstallation)}");
 
                 await SendAsync<DeviceInstallation>(HttpMethod.Put, RequestUrl, deviceInstallation)
                     .ConfigureAwait(false);
@@ -252,7 +263,10 @@
                 await SendAsync(requestType, requestUri, serializedContent);
             }
 
-            async Task SendAsync(HttpMethod requestType, string requestUri, string jsonRequest = null)
+            async Task SendAsync(
+                HttpMethod requestType,
+                string requestUri,
+                string jsonRequest = null)
             {
                 var request = new HttpRequestMessage(requestType, new Uri($"{_baseApiUrl}{requestUri}"));
 
