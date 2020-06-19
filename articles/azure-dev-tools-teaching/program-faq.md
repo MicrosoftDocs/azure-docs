@@ -10,7 +10,7 @@ ms.date: #Required; mm/dd/yyyy format.
 
 # Frequently asked questions about Azure Dev Tools for Teaching
 
-This article addresses frequent questions about Azure Dev Tools for Teaching.
+This article addresses frequent questions about Azure Dev Tools for Teaching. 
 
 ## What products are included in Microsoft Azure Dev Tools for Teaching subscription?
 
