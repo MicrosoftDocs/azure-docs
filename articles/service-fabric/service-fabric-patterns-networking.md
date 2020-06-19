@@ -166,7 +166,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+For another example, see [one that is not specific to Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>

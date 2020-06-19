@@ -240,12 +240,12 @@ You need the server name from your SQL database for this operation. Complete the
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. After the installation completes, use the following command to connect to the SQL Database server.
+6. After the installation completes, use the following command to connect to SQL Database.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Replace the `<server-name>` placeholder with the SQL Database server name.
+   * Replace the `<server-name>` placeholder with the logical SQL server name.
 
    * Replace the `<admin-login>` placeholder with the admin login for SQL Database.
 

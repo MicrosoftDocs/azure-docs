@@ -31,23 +31,23 @@ You need the following resources in place before continuing with the steps in th
 
 When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webbapp1*.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to get the application ID. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Under **Manage**, select **Applications**.
-1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
+#### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, then select the **Owned applications** tab.
+1. Select **App registrations**, then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or another application you've previously created.
+
+#### [Applications (Legacy)](#tab/applications-legacy/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Under **Manage**, select **Applications (Legacy)**.
+1. Record the value in the **APPLICATION ID** column for *webapp1* or another application you've previously created.
 
 * * *
 

@@ -1,0 +1,83 @@
+- name: Live Video Analytics on IoT Edge (preview) documentation 
+  href: index.yml
+- name: Switch to Azure Media Services v3 documentation
+  href: ../latest/index.yml
+- name: Overview
+  items:
+  - name: About Live Video Analytics on IoT Edge
+    href: overview.md
+  - name: Terminology
+    href: terminology.md
+  - name: What's new
+    items:
+    - name: Release notes
+      href: release-notes.md  
+- name: Quickstarts
+  items:
+  - name: Get started - Live Video Analytics on IoT Edge
+    href: get-started-detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video to Media Services
+    href: detect-motion-record-video-clips-media-services-quickstart.md  
+  - name: Detect motion and emit events
+    href: detect-motion-emit-events-quickstart.md
+  - name: Detect motion, record video on edge devices
+    href: detect-motion-record-video-clips-edge-devices-quickstart.md
+  - name: Run Live Video Analytics with your own model
+    href: use-your-model-quickstart.md
+- name: Tutorials
+  items:
+  - name: Continuous video recording  
+    href: continuous-video-recording-tutorial.md
+  - name: Event-based video recording  
+    href: event-based-video-recording-tutorial.md   
+  - name: Playback multi-day recordings
+    href: playback-multi-day-recordings-tutorial.md
+- name: Samples
+  items:
+  - name: Live Video Analytics on IoT Edge C# samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
+- name: Concepts
+  items:
+  - name: Media graph
+    href: media-graph-concept.md
+  - name: Video recording 
+    href: video-recording-concept.md
+  - name: Video playback
+    href: video-playback-concept.md
+  - name: Scenarios 
+    items:
+    - name: Continuous video recording 
+      href: continuous-video-recording-concept.md
+    - name: Event-based video recording 
+      href: event-based-video-recording-concept.md
+    - name: Live Video Analytics without video recording
+      href: analyze-live-video-concept.md
+- name: How-to guides
+  items:
+  - name: Create custom Azure Resource Manager role
+    href: create-custom-azure-resource-manager-role-how-to.md
+  - name: Deploy to an IoT Edge device
+    href: deploy-iot-edge-device.md
+  - name: Monitoring and logging
+    href: monitoring-logging.md
+  - name: Playback a recording 
+    href: playback-recordings-how-to.md 
+  - name: Manage recording policy
+    href: manage-recording-policy-how-to.md
+  - name: Analyze live video with AI of your choice
+    href: analyze-with-ai-your-choice-how-to.md
+  - name: Troubleshoot
+    href: troubleshoot-how-to.md
+- name: Reference
+  items:
+  - name: Direct methods
+    href: direct-methods.md
+  - name: Module Twin configuration schema  
+    href: module-twin-configuration-schema.md
+  - name: Quotas and limitations
+    href: quotas-limitations.md
+  - name: FAQs
+    href: faq.md
+  - name: Production readiness and best practices
+    href: production-readiness.md
+

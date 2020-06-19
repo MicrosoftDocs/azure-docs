@@ -7,7 +7,7 @@ author: malopMSFT
 
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ms.author: allensu
 ---
 # What is Azure Private Endpoint?
@@ -33,7 +33,7 @@ Here are some key details about private endpoints:
  
 - Network connections can only be initiated by clients connecting to the Private endpoint, Service providers do not have any routing configuration to initiate connections into service consumers. Connections can only be establish in a single direction.
 
-- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. the value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
+- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
  
@@ -51,6 +51,7 @@ A private link resource is the destination target of a given private endpoint. T
 |Private link resource name  |Resource type   |Subresources  |
 |---------|---------|---------|
 |**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
+|**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        | 
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
@@ -59,6 +60,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
@@ -119,9 +121,9 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for SQL Database using Portal ](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database using PowerShell ](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database using CLI ](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
 - [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

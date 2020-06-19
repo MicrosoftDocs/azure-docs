@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2020
 ms.author: curtand

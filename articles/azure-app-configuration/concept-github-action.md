@@ -88,7 +88,7 @@ jobs:
 ```
 ## Sync multiple files in one action 
 
-If your configuration is in multiple files, you can use the pattern below to trigger a sync when either file is modified. This pattern uses the glob library https://www.npmjs.com/package/glob 
+If your configuration is in multiple files, you can use the pattern below to trigger a sync when either file is modified. This pattern uses the glob library https://www.npmjs.com/package/glob . Note that if your config file name contains a comma, you can use a backslash to escape the comma. 
 
 ```json
 on:

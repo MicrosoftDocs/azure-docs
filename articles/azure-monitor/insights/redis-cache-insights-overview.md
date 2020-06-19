@@ -31,8 +31,6 @@ It delivers:
 
 - **Customization** of this experience, which is built atop Azure Monitor workbook templates. The experience lets you change what metrics are displayed and modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
 
-- **Customization** of this experience is built atop Azure Monitor workbook templates. The experience allows you to change what metrics are displayed and to modify or set thresholds that align with your limits. You can save the changes in a custom workbook and then pin workbook charts to Azure dashboards.
-
 This feature doesn't require you to enable or configure anything. Azure Cache for Redis information is collected by default.
 
 >[!NOTE]
@@ -177,6 +175,10 @@ Workbooks are saved within a resource group in either the **My Reports** section
 After you save a custom workbook, go to the workbook gallery to open it.
 
 ![A command bar with Gallery highlighted](./media/cosmosdb-insights-overview/gallery.png)
+
+## Troubleshooting
+
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
 ## Next steps
 

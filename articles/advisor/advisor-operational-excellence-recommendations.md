@@ -13,6 +13,7 @@ Azure Advisor operational excellence recommendations help customer with process 
 
 We recommend setting up Azure Service Health alerts to be notified when Azure service issues affect you. [Azure Service Health](https://azure.microsoft.com/features/service-health/) is a free service that provides personalized guidance and support when you are impacted by an Azure service issue. Advisor identifies subscriptions that do not have alerts configured and recommends creating one.
 
+
 ## Design your storage accounts to prevent hitting the maximum subscription limit
 
 An Azure region can support a maximum of 250 storage accounts per subscription. Once the limit is reached, you will be unable to create any more storage accounts in that region/subscription combination. Advisor will check your subscriptions and surface recommendations for you to design for fewer storage accounts for any that are close to reaching the maximum limit.
@@ -20,6 +21,10 @@ An Azure region can support a maximum of 250 storage accounts per subscription. 
 ## Ensure you have access to Azure cloud experts when you need it
 
 When running a business-critical workload, it's important to have access to technical support when needed. Advisor identifies potential business-critical subscriptions that do not have technical support included in their support plan and recommends upgrading to an option that includes technical support.
+
+## Delete and recreate your pool to remove a deprecated internal component
+
+Your pool is using a deprecated internal component. Please delete and recreate your pool for improved stability and performance.
 
 ## Repair invalid log alert rules
 

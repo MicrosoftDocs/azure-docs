@@ -45,7 +45,7 @@ When you receive errors during runbook execution in Azure Automation, you can us
 
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
-    If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
+    If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 
@@ -59,7 +59,7 @@ Run As accounts might not have the same permissions against Azure resources as y
 
 ### Resolution
 
-Ensure that your Run As account has [permissions to access any resources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) used in your script.
+Ensure that your Run As account has [permissions to access any resources](../../role-based-access-control/role-assignments-portal.md) used in your script.
 
 ## <a name="sign-in-failed"></a>Scenario: Sign-in to Azure account failed
 
@@ -94,7 +94,7 @@ To determine what's wrong, follow these steps:
    Connect-AzAccount –Credential $Cred
    ```
 
-1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the blog post [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/).
+1. If your authentication fails locally, you haven't set up your Azure Active Directory (Azure AD) credentials properly. To get the Azure AD account set up correctly, see the article [Authenticate to Azure using Azure Active Directory](../automation-use-azure-ad.md).
 
 1. If the error appears to be transient, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -132,7 +132,7 @@ Run Login-AzureRMAccount to login.
 
 ### Cause
 
-This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Manage Azure Automation Run As accounts](https://docs.microsoft.com/azure/automation/manage-runas-account).
+This error can occur when you're not using a Run As account or the Run As account has expired. For more information, see [Manage Azure Automation Run As accounts](../manage-runas-account.md).
 
 This error has two primary causes:
 
@@ -269,7 +269,7 @@ If you have multifactor authentication on your Azure account, you can't use an A
 
 ### Resolution
 
-To use a certificate with Azure classic deployment model cmdlets, see [Creating and adding a certificate to manage Azure services](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+To use a Classic Run As account with Azure classic deployment model cmdlets, see [Create a Classic Run As account to manage Azure services](../automation-create-standalone-account.md#create-a-classic-run-as-account). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: Runbook fails with "A task was canceled" error message
 
@@ -378,7 +378,7 @@ Add-AzAccount : Object reference not set to an instance of an object
 
 ### Cause
 
-This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](https://docs.microsoft.com/azure/automation/automation-runbook-execution).
+This error can occur if the runbook doesn't do the proper steps before calling `Add-AzAccount` to add the Automation account. An example of one of the necessary steps is signing in with a Run As account. For the correct operations to use in your runbook, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
 
 ## <a name="child-runbook-object"></a>Scenario: Object reference not set to an instance of an object
 
@@ -414,7 +414,7 @@ $waitTime = 0
 while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $job = $job | Get-AzAutomationJob
+   $jobResults = $job | Get-AzAutomationJob
 }
 
 $jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
@@ -647,16 +647,16 @@ Possible causes for this issue are:
 
 #### Not using a Run As account
 
-Follow [Step 5 - Add authentication to manage Azure resources](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
+Follow [Step 5 - Add authentication to manage Azure resources](../automation-first-runbook-textual-powershell.md#add-authentication-to-manage-azure-resources) to ensure that you are using a Run As account to access Key Vault.
 
 #### Insufficient permissions
 
-[Add permissions to Key Vault](https://docs.microsoft.com/azure/automation/manage-runas-account#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
+[Add permissions to Key Vault](../manage-runas-account.md#add-permissions-to-key-vault) to ensure that your Run As account has sufficient permissions to access Key Vault.
 
 ## Recommended documents
 
 * [Runbook execution in Azure Automation](../automation-runbook-execution.md)
-* [Starting a runbook in Azure Automation](https://docs.microsoft.com/azure/automation/automation-starting-a-runbook)
+* [Starting a runbook in Azure Automation](../automation-starting-a-runbook.md)
 
 ## Next steps
 

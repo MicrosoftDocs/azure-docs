@@ -5,11 +5,11 @@ description: Learn how to run your scikit-learn training scripts at enterprise s
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
@@ -79,7 +79,7 @@ Create an experiment and a folder to hold your training scripts. In this example
 project_folder = './sklearn-iris'
 os.makedirs(project_folder, exist_ok=True)
 
-exp = Experiment(workspace=ws, name='sklearn-iris')
+experiment = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
 ### Prepare training script
@@ -138,7 +138,7 @@ script_params = {
 estimator = SKLearn(source_directory=project_folder, 
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train_iris.py'
+                    entry_script='train_iris.py',
                     pip_packages=['joblib']
                    )
 ```

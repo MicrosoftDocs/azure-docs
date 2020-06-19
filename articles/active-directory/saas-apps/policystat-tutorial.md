@@ -173,11 +173,11 @@ To configure Azure AD single sign-on with PolicyStat, perform the following step
    
     a. In the **Username Attribute** textbox, type **uid**.
 
-    b. In the **First Name Attribute** textbox, type your First Name Attribute claim name from Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    b. In the **First Name Attribute** textbox, type your First Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-    c. In the **Last Name Attribute** textbox, type your Last Name Attribute claim name from Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    c. In the **Last Name Attribute** textbox, type your Last Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.
 
-    d. In the **Email Attribute** textbox, type your Email Attribute claim name from Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    d. In the **Email Attribute** textbox, type your Email Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
     e. Click **Save Changes**.
 

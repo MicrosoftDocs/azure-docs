@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
+ms.date: 06/04/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -121,6 +121,8 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 ## Azure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
 
 ## Azure Kubernetes Service limits
 
@@ -318,7 +320,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md), and [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for managed instances](../../azure-sql/managed-instance/resource-limits.md).
 
 ## SQL Data Warehouse limits
 

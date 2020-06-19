@@ -60,7 +60,7 @@ To query Parquet source data, use FORMAT = 'PARQUET'
 OPENROWSET
 (
     { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 )
 AS table_alias(column_alias,...n)
 <bulk_options> ::=
@@ -85,7 +85,7 @@ These additional parameters are introduced for working with CSV (delimited text)
 
 - ESCAPE_CHAR = 'char'
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
-The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character is escaped with double-quotes in alignment with the Excel CSV behavior.
+The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 - FIELDTERMINATOR ='field_terminator'
 Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
 - ROWTERMINATOR ='row_terminator'
@@ -102,7 +102,7 @@ To specify columns that you want to read, you can provide an optional WITH claus
 OPENROWSET
 ...
 | BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 

@@ -53,7 +53,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 The import statements are not required, they are pre-imported for the notebook experience.
 
-### Transferring data to or from a SQL pool in the Logical Server (DW Instance) attached with the workspace
+### Transferring data to or from a SQL pool attached with the workspace
 
 > [!NOTE]
 > **Imports not needed in notebook experience**
@@ -86,7 +86,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 The authentication to Storage and the SQL Server is done
 
-### If you are transferring data to or from a SQL pool or database in a Logical Server outside the workspace
+### If you are transferring data to or from a SQL pool or database outside the workspace
 
 > [!NOTE]
 > Imports not needed in notebook experience

@@ -2,23 +2,64 @@
 title: Features - LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 06/10/2020
 ---
 # Machine-learning (ML) features
 
-In machine learning, a **feature** is a distinguishing trait or attribute of data that your system observes.
+In machine learning, a **feature** is a distinguishing trait or attribute of data that your system observes and learns through.
 
 Machine learning features give LUIS important cues for where to look for things that will distinguish a concept. They are hints that LUIS can use, but not hard rules.  These hints are used in conjunction with the labels to find the data.
 
- LUIS supports both phrase lists and using other entities as features:
+## What is a feature
+
+A feature is a distinguishing trait, that can be described as a function: f(x) = y. The feature is used to know where to look, in the example utterance, for the distinguishing trait. When creating your schema, what do you know about the example utterance that indicates the trait? Your answer is your best guide to creating features.
+
+## Types of features
+
+ LUIS supports both phrase lists and models as features:
 * Phrase list feature
 * Model (intent or entity) as a feature
 
 Features should be considered a necessary part of your schema design.
 
+## How you find features in your example utterances
+
+Because LUIS is a language-based application, the features will be text-based. Choose text that indicates the trait you want to distinguish. For LUIS, the text-based smallest unit is the token. For the english language, a token is a contiguous span, with no spaces or punctuation, of letters and numbers. A space is not a token.
+
+Because spaces and punctuation are not tokens, focus on the text clues that you can use as features. Remember to include variations of word such:
+* plural forms
+* verb tense
+* abbreviation
+* spelling and misspelling
+
+Does the text, as a distinguishing trait, have to:
+* Match an exact word or phrase - consider adding a regular expression entity, or a list entity as a feature to the entity or intent
+* Match a well-known concept such as dates, times, or people's names - use a prebuilt entity as a feature to the entity or intent
+* Learn new examples over time - use a phrase list of some examples of the concept as a feature to the entity or intent
+
+## Combine features
+
+Because there are several choices in how a trait is described, you can use more than one feature that helps describe that trait or concept. A common pairing is to use a phrase list feature and one of the entity types commonly used as features: prebuilt entity, regular expression entity, or list entity.
+
+### Ticket booking entity example
+
+As a first example, consider an app for booking a flight with a Flight reservation intent and a ticket booking entity.
+
+The ticket booking entity is a machine learned entity for the flight destination. To help extract the location, use two features to help:
+* Phrase list of relevant words such as `plane`, `flight`, `reservation`, `ticket`
+* Prebuilt `geographyV2` entity as feature to the entity
+
+### Pizza entity example
+
+As a another example, consider an app for order a pizza with a Create pizza order intent and a pizza entity.
+
+The pizza entity is a machine learned entity for the pizza details. To help extract the details use two features to help:
+* Phrase list of relevant words such as `cheese`, `crust`, `pepperoni`, `pineapple`
+* Prebuilt `number` entity as feature to the entity
+
 ## A phrase list for a particular concept
 
-A phrase list is a list of words or phrases that encapsulates a particular concept.
+A phrase list is a list of words or phrases that encapsulates a particular concept and is applied as a case-insensitive match at the token level.
 
 When adding a phrase list, you can set the feature as:
 * **[Global](#global-features)**. A global feature applies to the entire app.
@@ -49,6 +90,18 @@ If you want to extract the medical terms:
 * First create example utterances and label medical terms within those utterances.
 * Then create a phrase list with examples of the terms within the subject domain. This phrase list should include the actual term you labeled and other terms that describe the same concept.
 * Add the phrase list to the entity or subentity that extracts the concept used in the phrase list. The most common scenario is a component (child) of a machine-learning entity. If the phrase list should be applied across all intents or entities, mark the phrase list as a global phrase list. The `enabledForAllModels` flag controls this model scope in the API.
+
+### Token matches for a phrase list
+
+A phrase list applies at the token level, regardless of case. The following chart shows how a phrase list containing the word `Ann` is applied to variations of the same characters in that order.
+
+
+| Token variation of `Ann` | Phrase list match when token is found |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Yes - token is `Ann`                  |
+| Ann's                    | Yes - token is `Ann`                  |
+| Anne                     | No - token is `Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
