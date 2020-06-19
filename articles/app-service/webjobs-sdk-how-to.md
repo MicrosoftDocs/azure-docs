@@ -26,11 +26,11 @@ When possible, examples are provided for both version 3.*x* and version 2.*x*.
 
 > [!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. Some sections of this article link to Azure Functions documentation.  
-
+> 
 > Versions of WebJobs SDK and Azure Functions match up like this:
 > * WebJobs SDK version 3.*x* corresponds to Azure Functions version 2.*x*.
 > * WebJobs SDK version 2.*x* corresponds to Azure Functions version 1.*x*.
-
+> 
 > Here's a brief sampling of features that are shared or different between WebJobs SDK and Azure Functions:. 
 > * Source code repositories use the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code, except that you don't need a `FunctionName` attribute in a WebJobs SDK project.
