@@ -35,7 +35,7 @@ To use Lab Services for your hackathon, ensure that both lab account and your la
 
 - **Install and stop Windows updates**. 
 
-    If you're using a Windows image, we recommend that you install the latest Windows updates on the lab’s template VM before you publish it to create labs’ VMs. It's for security purposes and to prevent participants from being disrupted during the hackathon to install updates, which can also cause their VMs to restart. You might also consider turning off Windows updates to prevent any future interruptions. See the [how-to guide on installing and configuring Windows updates](how-to-prepare-windows-template.md#install-and-configure-updates).
+    If you're using a Windows image, we recommend that you install the latest Windows updates on the lab’s [template VM](how-to-create-manage-template.md) before you publish it to create labs’ VMs. It's for security purposes and to prevent participants from being disrupted during the hackathon to install updates, which can also cause their VMs to restart. You might also consider turning off Windows updates to prevent any future interruptions. See the [how-to guide on installing and configuring Windows updates](how-to-prepare-windows-template.md#install-and-configure-updates).
 - **Decide how students will back up their work**. 
 
     Students are each assigned a virtual machine for the lifetime of the hackathon. They can save their work directly to the machine, but it’s recommended that students back up their work so that they have access to it after the hackathon is over. For example, they should save to an external location, such as OneDrive, GitHub, and so on. To use OneDrive, you may choose to configure it automatically for students on their lab virtual machines. See the [how-to guide to install and configure OneDrive](how-to-prepare-windows-template.md#install-and-configure-onedrive).
@@ -89,7 +89,7 @@ This section outlines the steps to complete the day of your hackathon.
     - Credentials that should be used to connect to the machine. This step applies only if your lab uses a Windows-based image and you configured all VMs to use the same password.
     - Instructions on how participants SSH and\or RDP to their machines.
 
-        For more information, See the [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
+        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
 
 ## Next steps
 Start with creating a lab account in Classroom Labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).
