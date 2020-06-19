@@ -53,7 +53,7 @@ If your environment meets the prerequisites, and you're familiar with using ARM 
 
 1. Select the following image to sign in with your Azure account and open the template in the Azure portal:
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
 1. In the portal, on the **Create a logic app using a template** page, enter or select these values:
 
@@ -62,30 +62,22 @@ If your environment meets the prerequisites, and you're familiar with using ARM 
    | **Subscription** | <*Azure-subscription-name*> | The name for the Azure subscription to use |
    | **Resource group** | <*Azure-resource-group-name*> | The name for a new or existing Azure resource group. This example uses `Check-Azure-Status-RG`. |
    | **Region** | <*Azure-region*> | The Azure datacenter region to use your logic app. This example uses `West US`. |
-   | **Logic App Name** | <*logic-app-name*> | The name to use for your logic app. This example uses `Check-Azure-Status`. |
-   | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses `https://status.azure.com`, which is the Azure status page. |
+   | **Logic App Name** | <*logic-app-name*> | The name to use for your logic app. This example uses `Check-Azure-Status-LA`. |
+   | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses `https://status.azure.com/en-us/status/`, which is the Azure status page. |
    | **Location** |  <*Azure-region-for-all-resources*> | The Azure region to use for all resources, if different from the default value. This example uses the default value, `[resourceGroup().location]`, which is the resource group location. |
    ||||
 
-1. 
+   Here is how the page looks with the values used in this example:
+
+   ![Provide information for your logic app template](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
+
+1. When you're done, select **Review + create**.
 
 <a name="deploy-azure-cli"></a>
 
 #### [CLI](#tab/CLI)
 
-The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. For more information, see [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
-
-To run `az deployment group create`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`. For more information, see [**az deployment group**](https://docs.microsoft.com/cli/azure/deployment/group) and [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
-
-
-* **Azure PowerShell**: Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview) and [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps).
-
-* **Azure REST API**: Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. To work with Azure Logic Apps, see the following topics:<p>
-
-  * [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
-  * [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) to create and manage Azure resources in general
-  * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) to create and manage logic apps
-
+The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run `az deployment group create`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`.
 
 ```azurecli-interactive
 read -p "Enter a project name to use for generating resource names:" projectName &&
@@ -98,11 +90,18 @@ echo "Press [ENTER] to continue ..." &&
 read
 ```
 
+For more information, see these topics:
+
+* [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest)
+* [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)
+* [az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
+* [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
+
 <a name="deploy-azure-powershell"></a>
 
 #### [PowerShell](#tab/PowerShell)
 
-For more information, see [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name to use for generating resource names"
@@ -117,9 +116,22 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
+For more information, see these topics:
+
+* [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview)
+* [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps)
+* [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+
 #### Resource Manager REST API
 
-[Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
+Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources.
+
+For more information, see these topics:
+
+* [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
+* [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/)
+* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
+* [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### Review deployed resources
 
