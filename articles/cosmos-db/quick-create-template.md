@@ -51,11 +51,11 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+   [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 
-   ![Resource Manager template, Azure Cosmos DB integration, deploy portal](./media/quick-create-template/create-cosmosdb-using-template-portal.png)
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Resource Manager template, Azure Cosmos DB integration, deploy portal":::
 
     Unless it is specified, use the default values to create the Azure Cosmos resources.
 
@@ -76,7 +76,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 3. Select **Purchase**. After the Azure Cosmos account has been deployed successfully, you get a notification:
 
-   ![Resource Manager template, Cosmos DB integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Resource Manager template, Cosmos DB integration, deploy portal notification":::
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 

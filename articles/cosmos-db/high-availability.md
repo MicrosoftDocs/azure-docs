@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-![Physical partitioning](./media/high-availability/cosmosdb-data-redundancy.png)
+:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Physical partitioning" border="false":::
 
 - The data within Cosmos containers is [horizontally partitioned](partitioning-overview.md).
 
@@ -124,7 +124,7 @@ az cosmosdb create \
 
 You can enable Availability Zones by using Azure portal when creating an Azure Cosmos account. When you create an account, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported:
 
-![Enable Availability Zones using Azure portal](./media/high-availability/enable-availability-zones-using-portal.png) 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Enable Availability Zones using Azure portal"::: 
 
 ## Building highly available applications
 
