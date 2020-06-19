@@ -7,7 +7,7 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: device-developer
 
 # As a solution builder, I want to try out using device code generated from a model so I can understand how the "device-first" connection to IoT Central works.
 ---

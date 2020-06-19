@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
+ms.custom: device-developer
 ---
 
 # Connect an Azure Sphere device to your Azure IoT Central application

@@ -7,7 +7,7 @@ ms.date: 12/03/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: jeffya
+ms.custom: device-developer
 ---
 
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application

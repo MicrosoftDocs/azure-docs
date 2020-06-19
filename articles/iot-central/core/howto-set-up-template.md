@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
+ms.custom: device-developer
 ---
 
 # Define a new IoT device type in your Azure IoT Central application

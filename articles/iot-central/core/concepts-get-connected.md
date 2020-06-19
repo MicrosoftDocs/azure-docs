@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.custom:  [amqp, mqtt]
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
