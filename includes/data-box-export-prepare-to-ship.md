@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 06/18/2020
+ms.date: 06/19/2020
 ms.author: alkohli
 ---
 
@@ -26,13 +26,15 @@ Final step is to prepare the device to ship. In this step, all the device shares
     ![Prepare to ship 3](media/data-box-export-prepare-to-ship/prepare-to-ship3.png)
 
 
-3. Once the **Prepare to ship** completes, you see a reminder to download the shipping label.
+3. Once the **Prepare to ship** starts, you will see a progress notification with a progress bar.
 
-    ![Download shipping label reminder](media/data-box-prepare-to-ship/download-shipping-label-reminder.png)
+    ![Prepare to ship 4](media/data-box-export-prepare-to-ship/prepare-to-ship4.png)
 
-4. The device status updates to *Ready to ship* and the device is locked.
+4. After the prepare to ship and the device cleanup (if selected) is complete, the E-ink display on your device will also display the return the shipping label. 
+
+    You also see a completion reference number. You can use this number to download the return shipping label. You can also view the instructions for return shipment. Depending on the type of shipping you chose, Microsoft managed or self managed, the instructions will vary. 
         
-    ![Prepare to ship 3](media/data-box-prepare-to-ship/prepare-to-ship3.png)
+    ![Prepare to ship 5](media/data-box-export-prepare-to-ship/prepare-to-ship5.png)
 
 
 5. Shut down the device. Go to **Shut down or restart** page and select **Shut down**. When prompted for confirmation, select **OK** to continue.
