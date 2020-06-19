@@ -9,7 +9,7 @@ ms.topic: how-to
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 06/19/2020
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -313,7 +313,7 @@ For more information, see the [az ml workspace share](https://docs.microsoft.com
 
 ## Sync keys for dependent resources
 
-If you change access keys for one of the resources used by your workspace, use the following command to sync the new keys with the workspace:
+If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
