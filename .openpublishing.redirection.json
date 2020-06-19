@@ -3098,6 +3098,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-monitor-for-containers.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-example-adventureworks-multilevel-faceting.md",
       "redirect_url": "/azure/search/search-filters-facets",
       "redirect_document_id": true
