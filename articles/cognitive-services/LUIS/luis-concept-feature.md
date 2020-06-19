@@ -96,7 +96,7 @@ To extract the medical terms:
 
 ### Token matches for a phrase list
 
-A phrase list always applies at the token level. The following table shows how a phrase list containing the word **Ann** is applied to variations of the same characters in that order.
+A phrase list always applies at the token level. The following table shows how a phrase list that has the word **Ann** applies to variations of the same characters in that order.
 
 
 | Token variation of **Ann** | Phrase list match when the token is found |
@@ -180,7 +180,7 @@ Suppose that your company only ships to a limited set of countries/regions. You 
 |--|--|
 |United States|U.S.<br>U.S.A<br>US<br>USA<br>0|
 
-A client application, such as a chat bot, can ask a follow-up question. This helps the customer understand that the country/region selection is limited and *required*.
+A client application, such as a chat bot, can ask a follow-up question to help. This helps the customer understand that the country/region selection is limited and *required*.
 
 ### Required feature using regular expression entities
 
