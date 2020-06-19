@@ -18,14 +18,14 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 
 ## VOIP 
 
-| | Public Preview | Rate |  
+|Call Type | Public Preview | Rate |  
 |-|:----------------:| :----------------:| 
 | 1:1 no TR | Pay-as-you-go  |  Free |
-| 1:1 w/TR |  Public Preview |  Based on MB used  |
-| 1:N no TR | Public Preview | Minutes per Participant |
-| 1:N w/TR | Public Preview | Minutes per Participant + MB used  |
+| 1:1 w/TR |   Pay-as-you-go |  Based on MB used  |
+| 1:N no TR |  Pay-as-you-go | Minutes per Participant |
+| 1:N w/TR |  Pay-as-you-go| Minutes per Participant + MB used  |
 
-###Estimating billing for VOIP
+##Estimating billing for VOIP
 
 [Case 1: VoIP where a direct connection between two devices is possible ](https://github.com/mikben/azure-docs-pr/blob/release-project-spool/articles/project-spool/concepts/voice/call-flows.md#case-1-voip-where-a-direct-connection-between-two-devices-is-possible)
 
@@ -40,9 +40,6 @@ Total: (60 * $TBD) + (54MB * $TBD)
 
 Average relay usage for Audio only:
 Average relay usage for Screen Share:
-Average relay usage for SD video stream:
-Average relay usage for HD video stream:
-
 
 
 
@@ -54,19 +51,17 @@ Average relay usage for HD video stream:
 
 ## Chat
 
-| | Consumption plan | Rate |  
+| Chat Type | Public Preview | Rate |  
 |-|:----------------:| :----------------:| 
-| Windows | Public Preview  |  TBD |
-| iOS |  Public Preview |  TBD |
+| 1:1 | Pay-As-You-Go  |  Per Msg's sent |
+| 1:N |  Pay-As-You-Go |  TBD |
 | Android | Public Preview | TBD |
 
 ## Transport Relay
 
-| | Consumption plan | Rate |  
+| | Public Preview | Rate |  
 |-|:----------------:| :----------------:| 
-| Windows | Public Preview  |  TBD |
-| iOS |  Public Preview |  TBD |
-| Android | Public Preview | TBD |
+| Relay Usage | Pay-As-You-Go  |  Per MB sent  |
 
 ## PSTN
 
