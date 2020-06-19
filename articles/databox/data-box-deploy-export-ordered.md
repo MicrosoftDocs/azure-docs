@@ -236,8 +236,8 @@ The following xml shows an example of blob names, blob prefixes, and Azure files
 Some important points in respect to xml files:
 
 * Xml tags are case sensitive and need to match exactly as specified in the above sample.
-* Opening and Closing tags must match.
-* Incorrect xml tags or formatting may lead to export failure.
+* Opening and closing tags must match.
+* Incorrect xml tags or formatting may lead to data export failure.
 * No data will be exported if blob and/or file prefix are invalid.
 
 ### Examples of valid blob paths
@@ -343,4 +343,3 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
-
