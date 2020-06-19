@@ -16,7 +16,7 @@ Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NF
 
 ## Overview video
 
-[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
+[![video thumbnail: Azure HPC Cache overview - click to visit video page](media/video-1-overview.png)](https://azure.microsoft.com/resources/videos/hpc-cache-overview/)
 
 Click the image above to watch a [short overview of Azure HPC Cache](https://azure.microsoft.com/resources/videos/hpc-cache-overview/).
 

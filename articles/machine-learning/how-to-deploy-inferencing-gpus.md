@@ -5,11 +5,12 @@ description: This article teaches you how to use Azure Machine Learning to deplo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 06/17/2020
+ms.custom: tracking-python
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -207,9 +208,6 @@ aks_service = Model.deploy(ws,
 aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
-
-> [!NOTE]
-> If the `InferenceConfig` object has `enable_gpu=True`, then the `deployment_target` parameter must reference a cluster that provides a GPU. Otherwise, the deployment will fail.
 
 For more information, see the reference documentation for [Model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 

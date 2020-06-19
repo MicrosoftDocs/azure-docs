@@ -54,6 +54,11 @@ Data skew can cause unnecessary data movement or resource bottlenecks when runni
 
 Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result that enables the query optimizer to create a high-quality query plan for fastest performance.
 
+## Improve MySQL connection management
+
+Advisor analysis helps indicate that your application connecting to MySQL server may not be managing connections efficiently. This may result in unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. This can be done by configuring a server side connection-pooler, such as ProxySQL.
+
+
 ## Scale up to optimize cache utilization on your SQL Data Warehouse tables to increase query performance
 
 Azure Advisor detects if your SQL Data Warehouse has high cache used percentage and a low hit percentage. This condition indicates high cache eviction, which can impact the performance of your SQL Data Warehouse. Advisor suggests that you scale up your SQL Data Warehouse to ensure you allocate enough cache capacity for your workload.
@@ -136,7 +141,8 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
-* [Advisor Security recommendations](advisor-security-recommendations.md)
-* [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor security recommendations](advisor-security-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)

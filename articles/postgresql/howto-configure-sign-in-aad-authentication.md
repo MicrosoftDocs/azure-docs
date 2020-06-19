@@ -126,6 +126,15 @@ Now you can initiate a connection with Azure Database for PostgreSQL like you no
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
 
+Important considerations when connecting:
+
+* `user@tenant.onmicrosoft.com` is the name of the Azure AD user or group you are trying to connect as
+* Always append the server name after the Azure AD user/group name (e.g. `@mydb`)
+* Make sure to use the exact way the Azure AD user or group name is spelled
+* Azure AD user and group names are case sensitive
+* When connecting as a group, use only the group name (e.g. `GroupName@mydb`)
+* If the name contains spaces, use `\` before each space to escape it
+
 You are now authenticated to your PostgreSQL server using Azure AD authentication.
 
 ## Creating Azure AD users in Azure Database for PostgreSQL

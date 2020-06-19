@@ -65,6 +65,8 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
+      - name: Akamai
+        href: akamai-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -77,7 +79,7 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
-      - name: Ally
+      - name: Ally.io
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
@@ -243,12 +245,12 @@
         href: britive-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
+      - name: BullseyeTDP
+        href: bullseyetdp-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
       items:
-      - name: CA PPM
-        href: cappm-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -311,6 +313,8 @@
         href: sharefile-tutorial.md
       - name: Civic Platform
         href: civic-platform-tutorial.md
+      - name: Clarity
+        href: cappm-tutorial.md
       - name: Clarizen
         href: clarizen-tutorial.md
       - name: Claromentis
@@ -431,8 +435,6 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
-      - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -493,6 +495,8 @@
         href: edigitalresearch-tutorial.md
       - name: EduBrite LMS
         href: edubrite-lms-tutorial.md
+      - name: edX for Business SAML Integration
+        href: edx-for-business-saml-integration-tutorial.md
       - name: EFI Digital StoreFront
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
@@ -519,8 +523,6 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
-      - name: EasySSO for Jira
-        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -720,6 +722,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: Hub Planner
+        href: hub-planner-tutorial.md
       - name: HubSpot SAML
         href: hubspot-tutorial.md
       - name: Huddle
@@ -734,6 +738,8 @@
         href: hyperanna-tutorial.md
       - name: IamIP Patent Platform
         href: iamip-patent-platform-tutorial.md
+      - name: IBM Digital Business Automation on Cloud
+        href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -888,6 +894,8 @@
         href: kindling-tutorial.md
       - name: Kintone
         href: kintone-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-tutorial.md
       - name: Kiteworks
         href: kiteworks-tutorial.md
       - name: Klue
@@ -968,6 +976,8 @@
         href: m-files-tutorial.md
       - name: Mail Luck!
         href: mail-luck-tutorial.md
+      - name: MailGates
+        href: mailgates-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Mapbox
@@ -1076,6 +1086,8 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
+      - name: New Relic
+        href: new-relic-tutorial.md
       - name: New Relic by Account
         href: new-relic-tutorial.md
       - name: New Relic (By Organization)
@@ -1240,12 +1252,16 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proto.io
+        href: proto.io-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
+      - name: pymetrics
+        href: pymetrics-tutorial.md
     - name: Q - R
       items:
       - name: Qlik Sense Enterprise
@@ -1382,6 +1398,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Segment
+        href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
@@ -1456,6 +1474,8 @@
         href: smartfile-tutorial.md
       - name: Smart Global Governance
         href: smart-global-governance-tutorial.md
+      - name: SmartKargo
+        href: smartkargo-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
       - name: SmartRecruiters

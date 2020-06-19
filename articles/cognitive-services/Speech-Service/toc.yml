@@ -12,6 +12,8 @@
     href: language-support.md
   - name: Region support
     href: regions.md
+  - name: What's new in docs? 
+    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -69,6 +71,8 @@
           href: how-to-custom-speech-train-model.md
         - name: Deploy a custom model
           href: how-to-custom-speech-deploy-model.md
+        - name: CI/CD for Custom Speech
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Reference
@@ -462,6 +466,8 @@
       items:
         - name: What is Speaker Recognition?
           href: speaker-recognition-overview.md
+        - name: Speaker Recognition basics
+          href: speaker-recognition-basics.md 
     - name: Reference
       items:
         - name: REST APIs

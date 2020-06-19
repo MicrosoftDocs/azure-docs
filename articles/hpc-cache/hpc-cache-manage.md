@@ -28,7 +28,7 @@ Read more about these options below.
 
 Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
-[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## Stop the cache
 
