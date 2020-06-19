@@ -245,6 +245,8 @@
         href: britive-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
+      - name: BullseyeTDP
+        href: bullseyetdp-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -688,8 +690,6 @@
         href: helpshift-tutorial.md
       - name: Health Support System
         href: health-support-system-tutorial.md
-      - name: Helix Core- Helix Authentication Service
-        href: perforce-helix-core-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -976,6 +976,8 @@
         href: m-files-tutorial.md
       - name: Mail Luck!
         href: mail-luck-tutorial.md
+      - name: MailGates
+        href: mailgates-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Mapbox
@@ -1194,6 +1196,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core- Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1394,6 +1398,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Segment
+        href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System

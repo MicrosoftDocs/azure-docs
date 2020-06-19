@@ -98,7 +98,6 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
 * Availability Zones are currently supported for certain regions, see the beginning of this document 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces
