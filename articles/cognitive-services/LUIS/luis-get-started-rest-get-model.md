@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Get intent with REST APIs - LUIS"
+title: "Quickstart: Get model with REST APIs - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this REST API quickstart, use a LUIS app to determine a user's intention from conversational text.
+description: In this REST API quickstart, use cURL to add utterances and train a model.
 services: cognitive-services
 author: roy-har
 manager: diberry
