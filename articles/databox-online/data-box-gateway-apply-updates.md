@@ -11,7 +11,7 @@ ms.author: v-grpr
 ---
 # Update your Azure Data Box Gateway
 
-This article describes the steps required to install update on your Azure Data Box Gateway via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Data Box Gateway device up-to-date.
+This article describes the steps required to install update on your Azure Data Box Gateway via the local web UI and through the Azure portal. You apply the software updates or hotfixes to keep your Azure Data Box Gateway device up-to-date.
 
 > [!IMPORTANT]
 >
@@ -116,13 +116,13 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 1. Start the browser and navigate to [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
-    ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
+    <!-- ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png) -->
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Data Box Gateway**, and then click **Search**.
 
     The update listing appears as **Azure Data Box Gateway 1911**.
 
-    ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!-- ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png) -->
 
 3. Select **Download**. There are two files to download with *SoftwareUpdatePackage.exe* and *Kubernetes_Package.exe* suffixes that correspond to device software updates and Kubernetes updates respectively. Download the files to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 

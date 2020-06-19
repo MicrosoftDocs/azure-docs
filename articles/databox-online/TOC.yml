@@ -41,6 +41,8 @@
           href: data-box-gateway-manage-bandwidth-schedules.md
         - name: Access, power, connectivity
           href: data-box-gateway-manage-access-power-connectivity-mode.md
+        - name: Update
+          href: data-box-gateway-apply-updates.md
         - name: Via PowerShell 
           href: data-box-gateway-connect-powershell-interface.md
     - name: Monitor
