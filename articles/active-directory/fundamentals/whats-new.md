@@ -37,9 +37,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## May 2020
 
-### Deprecation of properties in signIns, riskyUsers, and riskDetections APIs
+### Retirement of properties in signIns, riskyUsers, and riskDetections APIs
 
-**Type:** Plan for change 
+**Type:** Plan for change  
 **Service category:** Identity Protection
 **Product capability:** Identity Security & Protection
 
@@ -51,8 +51,8 @@ Customers should transition to the riskEventType property in the beta riskDetect
 
 ### Deprecation of riskEventTypes property in signIns v1.0 API on Microsoft Graph
 
-**Type:** Plan for change
-**Service category:** Reporting
+**Type:** Plan for change  
+**Service category:** Reporting 
 **Product capability:** Identity Security & Protection
 
 Enumerated types will switch to string types when representing risk event properties in Microsoft Graph September 2020. In addition to impacting the preview APIs, this change will also impact the in-production signIns API.
