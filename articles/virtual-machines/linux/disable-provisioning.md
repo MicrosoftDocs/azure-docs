@@ -53,7 +53,7 @@ This **must** be done in conjunction with 'Disable at the control plane'.
 
 ## Remove the Linux Agent from a running VM
 
-You can also disable the agent in a running VM, ensure you have **removed** all existing extensions before.
+Ensure you have **removed** all existing extensions from the VM before, as per above.
 
 ### Step 1: Disable Extension Processing
 
