@@ -13,7 +13,7 @@ ms.lastreviewed: 06/01/2020
 
 # Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
 
-This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
+This tutorial shows you how to set up Azure Notification Hubs and configure credentials to push notifications to an iOS device via the [Apple Push Notification service (APNS)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1). 
 
 Running this tutorial is a prerequisite to the subsequent Objective C and Swift iOS tutorials, and covers the following steps:
 
@@ -21,7 +21,7 @@ Running this tutorial is a prerequisite to the subsequent Objective C and Swift 
 - Request your app for push notifications.
 - Create a provisioning profile for the app.
 - Create a notification hub.
-- Configure the notification hub with APNs information.
+- Configure the notification hub with APNS information.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Be sure to read the [Azure Notification Hubs overview](notification-hubs-push-no
 
 ## Generate the certificate-signing request file
 
-The Apple Push Notification Service (APNs) uses certificates to authenticate your push notifications. Follow these instructions to create the necessary push certificate to send and receive notifications. For more information on these concepts, see the official [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) documentation.
+The Apple Push Notification Service (APNS) uses certificates to authenticate your push notifications. Follow these instructions to create the necessary push certificate to send and receive notifications. For more information on these concepts, see the official [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) documentation.
 
 Generate the Certificate Signing Request (CSR) file, which Apple uses to generate a signed push certificate:
 
@@ -145,7 +145,7 @@ The second option has a number of benefits compared to using certificates, as do
 
    :::image type="content" source="media/ios-sdk-get-started/image14.png" alt-text="Export certificate":::
 
-   You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNs.
+   You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNS.
 
    > [!NOTE]
    > Your .p12 file name and location might be different than what is pictured in this tutorial.
@@ -161,7 +161,7 @@ The second option has a number of benefits compared to using certificates, as do
 
 3. Click the **+** button (or the **Create a key** button) to create a new key.
 
-4. Provide a suitable **Key Name** value, check the **Apple Push Notifications service (APNs)** option, and then click **Continue**, followed by **Register** on the next screen.
+4. Provide a suitable **Key Name** value, check the **Apple Push Notifications service (APNS)** option, and then click **Continue**, followed by **Register** on the next screen.
 
 5. Click **Download** and then move the **.p8** file (prefixed with `AuthKey_`) to a secure local directory, then click **Done**.
 
@@ -183,7 +183,7 @@ The second option has a number of benefits compared to using certificates, as do
    This is the token value that will be used later to configure Notification Hubs.
 
 At the end of these steps you should have the following information for
-use later in [Configure your notification hub with APNs information](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
+use later in [Configure your notification hub with APNS information](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
 
 - **Team ID** (see step 1)
 - **Bundle ID** (see step 1)
@@ -227,7 +227,7 @@ use later in [Configure your notification hub with APNs information](notificati
 
 ## Create a notification hub
 
-In this section, you create a notification hub and configure authentication with APNs by using either the .p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
+In this section, you create a notification hub and configure authentication with APNS by using either the .p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -298,7 +298,7 @@ Under **Notification Services**, select **Apple (APNS)**, then follow the app
 
 4. Select **Save**.
 
-You've now configured your notification hub with APNs. You also have the connection strings needed to register your app and send push notifications.
+You've now configured your notification hub with APNS. You also have the connection strings needed to register your app and send push notifications.
 
 ## Next steps
 
