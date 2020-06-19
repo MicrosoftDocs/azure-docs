@@ -21,7 +21,7 @@
     - name: Enforce GitOps using Azure Policy
       href: use-azure-policy.md
     - name: Azure Monitor for containers
-      href: deploy-azure-monitor-for-containers.md
+      href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
     - name: Admission control policies using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Deploy IoT workloads
