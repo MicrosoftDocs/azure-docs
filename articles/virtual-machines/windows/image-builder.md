@@ -245,7 +245,7 @@ az resource delete \
     -n helloImageTemplateWin01
 ```
 
-### Delete the role assignment, role defintion and user-identity.
+### Delete the role assignment, role definition and user-identity.
 ```azurecli-interactive
 az role assignment delete \
     --assignee $imgBuilderCliId \
