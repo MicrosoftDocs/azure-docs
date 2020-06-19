@@ -55,20 +55,20 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Get share credentials 2](media/data-box-deploy-export-copy-data/get-share-credentials2.png)
 
-3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
+3. To access the shares associated with your storage account (*exportbvtdataset2* in the following example) from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
-    - Azure Block blob - `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Azure Page blob - `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Azure Block blob - `\\169.254.143.85\exportbvtdataset2_BlockBlob`
+    - Azure Page blob - `\\169.254.143.85\exportbvtdataset2_PageBlob`
+    - Azure Files - `\\169.254.143.85\exportbvtdataset2_AzFile`
 
 4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:exportbvtdataset2
+    Enter the password for 'exportbvtdataset2' to connect to '169.254.143.85':
     The command completed successfully.
     ```
 
@@ -83,7 +83,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 169.254.143.85:/exportbvtdataset2_BlockBlob /home/databoxubuntuhost/databox`
 
 
 ## Copy data from Data Box

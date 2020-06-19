@@ -49,7 +49,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
-    ![Configure NFS client access 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    ![Configure NFS client access 2](media/data-box-deploy-export-copy-data/nfs-client-access2.png)
 
 2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
