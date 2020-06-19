@@ -11,7 +11,7 @@ ms.topic: overview
 
 
 <p align="center">
-<img src="assets/cog_services_for_big_data_overview.svg" alt="Azure Cognitive Services for Big Data" width="70%"/>
+<img src="media/cog_services_for_big_data_overview.svg" alt="Azure Cognitive Services for Big Data" width="70%"/>
 </p>
 
 

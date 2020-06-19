@@ -55,7 +55,7 @@ To use the Big Data cognitive services on Azure Databricks follow the following 
 1. Install the Big Data Cognitive Services
     * Create a new library in your databricks workspace
 
-       <img src="assets/create_library.png" alt="Create library" width="50%"/>
+       <img src="media/create_library.png" alt="Create library" width="50%"/>
 
     * Input the following maven coordinates
       
@@ -63,11 +63,11 @@ To use the Big Data cognitive services on Azure Databricks follow the following 
 
       Repository: `https://mmlspark.azureedge.net/maven`
       
-      <img src="assets/lib_coords.png" alt="Library Coordinates" width="50%"/>
+      <img src="media/lib_coords.png" alt="Library Coordinates" width="50%"/>
 
     * Install the library onto a cluster
       
-      <img src="assets/install_lib.png" alt="Install Library on Cluster" width="50%"/>
+      <img src="media/install_lib.png" alt="Install Library on Cluster" width="50%"/>
 
 
 ### Synapse Analytics
