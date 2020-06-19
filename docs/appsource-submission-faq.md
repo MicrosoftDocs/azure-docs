@@ -31,13 +31,13 @@ To avoid common submission errors:
 
 - For Office Add-ins, make sure that you specify a support URL in the **SupportUrl** element of your Office Add-in manifest. Your support URL should be a publicly available webpage, and should not require authentication. You cannot use personal social media pages or GitHub repositories for the support URL. You also can't use links to files hosted online such as a Word document on OneDrive, DropBox or Google Docs.
 
--  For all add-ins, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691(Office.15).aspx).
+-  For all add-ins, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://docs.microsoft.com/en-us/sharepoint/dev/schema/schema-reference-for-manifests-of-sharepoint-add-ins).
 
 - Make sure your app or add-in is tested and is fully functional.
 
 - Make sure your SharePoint Add-ins specify their supported locales. 
     
-  If you don't specify supported locales, your add-in will not be accepted by Microsoft AppSource. For details, see [Locale support information is required for all add-ins](https://blogs.msdn.microsoft.com/officeapps/2012/10/12/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store/).
+  If you don't specify supported locales, your add-in will not be accepted by Microsoft AppSource. For details, see [Locale support information is required for all add-ins](https://docs.microsoft.com/en-us/archive/blogs/officeapps/locale-support-information-is-required-for-all-apps-in-the-sharepoint-store).
 
 - Make sure your OAuth client IDs match
     
@@ -99,7 +99,7 @@ Two aspects of your submission relate to supported languages:
 
 1. The languages you declare in your app package or manifest. You declare which languages your add-in supports differently depending on type:
     
-   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](https://msdn.microsoft.com/library/49bde91a-8d7a-be17-4c91-82c9c19f0f61(Office.15).aspx), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
+   - For SharePoint Add-ins, declare language support by using the [SupportedLocales element (PropertiesDefinition complexType) (SharePoint Add-in Manifest)](https://docs.microsoft.com/en-us/sharepoint/dev/schema/supportedlocales-element-propertiesdefinition-complextypesharepoint-add-in-manif), in the add-in manifest within the add-in package. For more information, see [Explore the app manifest structure and the package of a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/explore-the-app-manifest-structure-and-the-package-of-a-sharepoint-add-in).
 
    - For Office Add-ins that aren't dictionaries, declare language support by using the **DefaultLocale** and **Override** elements in your manifest. For more information, see [Localization for Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/develop/localization).
 
