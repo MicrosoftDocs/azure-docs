@@ -64,7 +64,7 @@ Post<br>
 
 ##### *Request URL* 
 
-`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
 ##### *URI parameter*
 
