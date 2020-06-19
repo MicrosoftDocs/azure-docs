@@ -1,7 +1,7 @@
 ---
 title: Azure N-series AMD GPU driver setup for Windows 
 description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
-author: vikancha
+author: vikancha-MSFT
 manager: jkabat
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -34,9 +34,11 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 1. Connect by Remote Desktop to each NVv4-series VM.
 
-2. Download and install the latest driver.
+2. If you need to uninstall the previous driver version then download the AMD cleanup utility [here](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe) Please do not use the utility that comes with the previous version of the driver.
 
-3. Reboot the VM.
+3. Download and install the latest driver.
+
+4. Reboot the VM.
 
 ## Verify driver installation
 
@@ -46,7 +48,7 @@ You can verify driver installation in Device Manager. The following example show
 
 You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-output.png)
+![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output file will show the information related to AMD MI25 GPU.
 

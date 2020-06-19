@@ -4,8 +4,6 @@ description: Provides and overview of the available compliance services for Azur
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: jomolesk
-manager: zakramer
 
 ms.assetid: 1d2e0938-482f-4f43-bdf6-0a5da2e9a185
 ms.service: azure-government
@@ -14,7 +12,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 01/20/2020
-ms.author: jomolesk
 
 ---
 # Azure Government compliance

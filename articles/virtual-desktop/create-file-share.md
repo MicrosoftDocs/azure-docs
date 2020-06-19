@@ -6,11 +6,11 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create an Azure Files file share with a domain controller
+# Create a profile container with Azure Files and AD DS
 
 In this article, you'll learn how to create an Azure file share authenticated by a domain controller on an existing Windows Virtual Desktop host pool. You can use this file share to store storage profiles.
 
@@ -38,7 +38,7 @@ To set up a storage account:
     - Enter a unique name for your storage account.
     - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
-    - For **Account type**, select **StorageV2**.
+    - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
     - For **Replication**, select **Locally-redundant storage (LRS)**.
 
 5. When you're done, select **Review + create**, then select **Create**.
@@ -59,15 +59,15 @@ To create a file share:
 
 4. Select **Create**.
 
-## Enable Azure Active Directory authentication
+## Enable Active Directory authentication
 
-Next, you'll need to enable Azure Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
+Next, you'll need to enable Active Directory (AD) authentication. To enable this policy, you'll need to follow this section's instructions on a machine that's already domain-joined. To enable authentication, follow these instructions on the VM running the domain controller:
 
 1. Remote Desktop Protocol into the domain-joined VM.
 
 2. Follow the instructions in [Enable Azure AD DS authentication for your Azure file shares](../storage/files/storage-files-identity-ad-ds-enable.md) to install the AzFilesHybrid module and enable authentication.
 
-3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Azure Active Directory (AD)** is set to **Enabled**.
+3.  Open the Azure portal, open your storage account, select **Configuration**, then confirm **Active Directory (AD)** is set to **Enabled**.
 
      ![A screenshot of the Configuration page with Azure Active Directory (AD) enabled.](media/active-directory-enabled.png)
 
@@ -121,7 +121,7 @@ Here's how to get the UNC path:
 
 5. After copying the URI, do the following things to change it into the UNC:
 
-    - Remove `https://`
+    - Remove `https://` and replace with `\\`
     - Replace the forward slash `/` with a back slash `\`.
     - Add the name of the file share you created in [Create an Azure file share](#create-an-azure-file-share) to the end of the UNC.
 

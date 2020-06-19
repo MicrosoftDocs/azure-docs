@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
+ms.date: 06/04/2020
 ---
 
 # Quickstart: Create an Azure Blockchain Service member using an Azure Resource Manager template
@@ -56,6 +56,12 @@ Azure resources defined in the template:
 1. Select **Purchase** to deploy the template.
 
   The Azure portal is used here to deploy the template. You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## Review deployed resources
+
+You can use the Azure portal to view details of the deployed Azure Blockchain Service member. In the portal, go to the resource group containing your Azure Blockchain Service member. Select the blockchain member you created.
+
+![Deployed Azure Blockchain Member overview details in the Azure portal](./media/create-member-template/deployed-member.png)
 
 ## Clean up resources
 

@@ -22,6 +22,9 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Command line
       href: functions-create-first-azure-function-azure-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: functions-create-first-function-resource-manager.md 
   - name: Connect to storage
     items:
     - name: Visual Studio Code
@@ -341,6 +344,12 @@
   items:
   - name: API references
     items:
+    - name: ARM template
+      href: /azure/templates/microsoft.web/2018-11-01/sites/functions
+    - name: Azure CLI
+      href: /cli/azure/functionapp
+    - name: Azure PowerShell
+      href: /powershell/module/az.functions
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
     - name: Python
@@ -461,6 +470,9 @@
       items:
       - name: Overview
         href: functions-bindings-signalr-service.md
+        displayName: SignalR Service
+      - name: Trigger
+        href: functions-bindings-signalr-service-trigger.md
         displayName: SignalR Service
       - name: Input
         href: functions-bindings-signalr-service-input.md

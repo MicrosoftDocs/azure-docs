@@ -6,7 +6,7 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-ml.md
-    - name: Azure Machine Learning vs Studio
+    - name: Azure Machine Learning vs Studio (classic)
       displayName: AML, Studio, designer
       href: compare-azure-ml-to-studio-classic.md
     - name: Architecture & terms
@@ -70,7 +70,8 @@
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
-        - name: Create workspaces with Resource Manager templates
+        - name: Create workspaces with ARM template
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items: 
@@ -92,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
+    - name: 'Enterprise vs. Basic editions'
+      href: concept-editions.md
     - name: Plan and manage costs
       href: concept-plan-manage-cost.md
     - name: Designer (drag-n-drop ML)
@@ -127,6 +130,8 @@
         href: concept-data.md
       - name: Data ingestion
         href: concept-data-ingestion.md
+      - name: Data processing
+        href: concept-optimize-data-processing.md
     - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
@@ -318,6 +323,9 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: Data splits & cross-validation (Python)
+      displayName: automl, feature engineering, feature importance
+      href: how-to-configure-cross-validation-data-splits.md
     - name: Featurization in automated ML (Python)
       displayName: automl, feature engineering, feature importance
       href: how-to-configure-auto-features.md
@@ -362,6 +370,8 @@
           - name: Azure Functions
             displayName: functions app
             href: how-to-deploy-functions.md
+          - name: Azure Cognitive Search
+            href: how-to-deploy-model-cognitive-search.md
           - name: Azure IoT Edge devices
             href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
           - name: FPGA inference
