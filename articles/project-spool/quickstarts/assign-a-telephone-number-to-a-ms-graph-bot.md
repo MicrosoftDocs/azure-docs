@@ -16,7 +16,7 @@ Azure Communication Services lets you aquire and assign a telephone (PSTN) numbe
 
 ## Prerequisites
 
-This article assumes you've already built your MS Graph bot using the [communications API of MS Graph](https://docs.microsoft.com/en-us/graph/api/resources/communications-api-overview?view=graph-rest-1.0) and that you have deployed the bot service to some public domain (ex. www.contoso.com/bot/api). As an example how to build such bot, please refer to a [sample IVR bot](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples/V1.0Samples/StatelessSamples/SimpleIvrBot).
+This article assumes you've already built your MS Graph bot using the [communications API of MS Graph](https://docs.microsoft.com/en-us/graph/api/resources/communications-api-overview?view=graph-rest-1.0) and that you have deployed the bot service to some public domain (ex. www.contoso.com/bot/api/). As an example how to build such bot, please refer to a [sample IVR bot](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples/V1.0Samples/StatelessSamples/SimpleIvrBot).
 
 To be able to assign a telephone number to your bot, you also **need to assign your bot an Azure Active Directory Application identity** by [registering it as an application](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
@@ -44,8 +44,8 @@ namespace TelephoneNumberAssignment
             // Azure AAD App ID (GUID) assigned to your bot
             string azureAadBotIdentity = "<Azure AAD App ID (GUID)>";
 			
-            // API Endpoint of your MS Graph bot service deployment
-            string botWebhookUrl = "www.contoso.com/bot/api";
+            // Callback endpoint of your MS Graph bot service deployment
+            string botWebhookUrl = "www.contoso.com/bot/api/callback";
 			
             // Telephone number aquired through ACS which will be assigned to the bot
             string aquiredNumber = "1-555-111-1111"; 
