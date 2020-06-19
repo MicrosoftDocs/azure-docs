@@ -159,7 +159,7 @@ To add a claim condition:
 
 1. In **Manage claim**, expand the Claim conditions.
 2. Select the user type.
-3. Select the group(s) to which the user should belong. You can select up to 10 unique groups across all claims for a given application. 
+3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
