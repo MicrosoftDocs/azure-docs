@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -54,7 +54,7 @@ The Azure Machine Learning [compute instance (preview)](concept-compute-instance
 
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-Learn more about [compute instances](concept-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
 
 To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 

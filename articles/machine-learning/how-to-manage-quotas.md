@@ -5,7 +5,7 @@ description: Learn about the quotas on resources for Azure Machine Learning and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 ms.reviewer: jmartens
 author: nishankgu

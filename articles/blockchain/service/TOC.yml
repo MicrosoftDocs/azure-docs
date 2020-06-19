@@ -4,6 +4,8 @@
   items:
   - name: About Azure Blockchain Service
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:

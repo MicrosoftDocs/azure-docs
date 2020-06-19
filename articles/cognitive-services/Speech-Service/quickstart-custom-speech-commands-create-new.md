@@ -3,13 +3,13 @@ title: 'Quickstart: Create a Custom Commands Preview app - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll create and test a hosted Custom Commands Preview application. The application will process utterances. 
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
+ms.author: nitinme
 ---
 
 # Quickstart: Create a Custom Commands Preview app

@@ -62,6 +62,14 @@ productDirectory:
         - web
       url: search/index.yml
     # Card
+    - title: Azure Cognitive Services
+      summary: Add smart API capabilities to enable contextual interactions
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      azureCategories:
+        - featured
+        - ai-machine-learning
+      url: cognitive-services/index.yml
+    # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
       imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
@@ -155,14 +163,6 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
     # Card
-    - title: Cognitive Services
-      summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - featured
-        - ai-machine-learning
-      url: cognitive-services/index.yml
-    # Card
     - title: Computer Vision
       summary: Distill actionable information from images
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -248,6 +248,13 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
+    # Card
+    - title: Project Bonsai (Preview)
+      summary: A machine teaching service for creating intelligent industrial control systems using simulations
+      imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+      azureCategories:
+        - ai-machine-learning
+      url: https://docs.microsoft.com/bonsai/
     # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
@@ -1391,7 +1398,7 @@ productDirectory:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
     # Card
-    - title: File Storage
+    - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:

@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: alkohli
 ---

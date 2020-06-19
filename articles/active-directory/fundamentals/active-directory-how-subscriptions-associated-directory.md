@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, contperfq4"
 ms.collection: M365-identity-device-management
 ---
 
