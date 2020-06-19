@@ -286,7 +286,7 @@ We call a Uri of this blob container Base Uri. Because every revision of your la
 
 ### Transform template examples for test drive
 
-The process of turning an architecture of resources into a test drive Resource Manager template can be daunting. For help, see these examples of how to best [transform current deployment templates](transforming-examples-for-test-drive.md).
+The process of turning an architecture of resources into a test drive Resource Manager template can be daunting. For additional help, see these examples of how to best transform current deployment templates at [What is a test drive?](what-is-test-drive.md#transforming-examples).
 
 ## Test drive deployment subscription details
 
