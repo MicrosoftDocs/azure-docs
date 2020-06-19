@@ -42,7 +42,10 @@
     href: quickstarts/todo.md
   - name: Get Started With Chat
     href: quickstarts/get-started-with-chat.md
-
+  - name: Assign A Telephone Number To An MS Graph Bot
+    href: quickstarts/assign-a-telephone-number-to-a-ms-graph-bot.md
+  - name: Place A Telephone Call To An MS Graph Bot
+    href: quickstarts/place-a-telephone-call-to-a-graph-api-bot.md
 - name: Tutorials
   expanded: true
   items:
