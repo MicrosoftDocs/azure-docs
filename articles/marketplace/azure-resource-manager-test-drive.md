@@ -9,50 +9,34 @@ ms.date: 06/19/2020
 ms.author: dsindona
 ---
 
-# Types of test drives
-
-This article describes the three different types of test drives available on the Microsoft commercial marketplace: logic app, hosted test drive, and Azure Resource Manager (ARM). When you are ready to publish a test drive, see [Configure a test drive](test-drive.md).
-
-## Logic app test drive
-
-If you have an offer on AppSource, build your test drive to connect with a Dynamics AX/CRM instance or any other resource beyond just Azure. GitHub contains documentation for Logic App test drives for
-[Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app).
-
-## Hosted test drive
-
-A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning and de-provisioning. Use this type for AppSource offers to connect with a Dynamics 365 for Customer Engagement, Dynamics 365 for Finance and Operations, or Dynamics 365 Business Central instance.
-
-## Azure Resource Manager test drive
+# Azure Resource Manager test drive
 
 Use this type if you have an offer on the Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group.
 
 If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [Understand the structure and syntax of ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to better understand how to build and test your own templates.
 
-The remainder of this topic describes how to build an Azure Resource Manager (ARM) test drive.
+For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
 
-### How to build an Azure Resource Manager test drive
+## Technical configuration
 
-Follow these steps to build an Azure Resource Manager test drive: <!-- WHAT ARE THESE STEPS FOR? ARE THEY SUPPOSED TO DEFINE THE UPCOMING SECTIONS? (THEY DON'T) SUGGEST DELETING -->
+A deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Set the following properties in Partner Center:
 
-1. Design what you want your customers to do in a flow diagram.
-1. Define what experiences you want your customers to build.
-1. Based on the above definitions, decide what pieces and resources are needed for customers to accomplish such experience: for example, D365 instance or a website with a database.
-1. Build the design locally and test the experience.
-1. Package the experience in an ARM template deployment, then:
-    1. Define what parts of the resources are input parameters.
-    1. Define what the variables are.
-    1. Define what outputs are given to the customer experience.
-1. Publish, test, and go live.
+- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
+- **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
 
-The most important part about building an Azure Resource Manager test drive is to define what scenario(s) you want your customers to experience. Are you a firewall product and you want to demo how well you handle script injection attacks? Are you a storage product and you want to demo how fast and easy your solution compresses files? Spend time evaluating the best ways to show off your product, including the required resources you would need, as this will make packaging the Resource Manager template easier.
+    **Hot** – This type of instance is deployed and awaiting access per selected region. Customers can instantly access *Hot* instances of a test drive, rather than having to wait for a deployment. The tradeoff is that these instances are always running on your Azure subscription, so they will incur a larger uptime cost. It is highly recommended to have at least one *Hot* instance, as most customers don't want to wait for full deployments, resulting in a drop-off in customer usage if no *Hot* instance is available.
 
-To continue with our firewall example, the architecture may require a public IP URL for your service and another public IP URL for the website your firewall is protecting. Each IP is deployed on a virtual machine and connected with a network security group and network interface.
+    **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
 
-### 1. Write the ARM test drive template
+- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends. Use only whole numbers (for example, "2" hours is valid, "1.5" is not).
+
+## Write the test drive template
 
 Once you have designed the desired package of resources, write and build the test drive ARM template. Because test drive runs deployments in a fully automated mode, test drive templates have some restrictions:
 
-#### Parameters
+### Parameters
 
 Most templates have a set of parameters that define resource names, resources sizes (such as types of storage accounts or virtual machine sizes), user names and passwords, DNS names, and so on. When you deploy solutions using Azure portal, you can manually populate all these parameters, pick available DNS names or storage account names, and so on.
 
@@ -78,7 +62,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 > [!NOTE]
 > All parameters are optional, so if you don't want to use any, you don't have to.
 
-#### Accepted Parameter Metadata Types
+### Accepted Parameter Metadata Types
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
 |---|---|---|---|
@@ -87,7 +71,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique test drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-##### baseuri
+#### baseuri
 
 Test drive initializes this parameter with a **Base Uri** of your deployment package so you can use this parameter to construct a Uri of any file included in your package.
 
@@ -114,7 +98,7 @@ Use this parameter inside your template to construct a Uri of any file from your
 }
 ```
 
-##### username
+#### username
 
 Test drive initializes this parameter with a new random user name:
 
@@ -138,7 +122,7 @@ Sample value:
 
 You can use either random or constant usernames for your solution.
 
-##### password
+#### password
 
 Test drive initializes this parameter with a new random password:
 
@@ -162,7 +146,7 @@ Sample value:
 
 You can use either random or constant passwords for your solution.
 
-##### session ID
+#### session ID
 
 Test drive initialize this parameter with a unique GUID representing Test drive session ID:
 
@@ -186,7 +170,7 @@ Sample value:
 
 You can use this parameter to uniquely identify the test drive session, if it's necessary.
 
-#### Unique Names
+### Unique Names
 
 Some Azure resources, like storage accounts or DNS names, requires globally unique names. This means that every time test drive deploys the ARM template, it creates a new resource group with a unique name for all its resources. Therefore, you must use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to generate random unique values:
 
@@ -206,7 +190,7 @@ For example, most resource names cannot start with a digit, but unique string fu
 You can find additional information about resource naming rules and
 restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-#### Deployment Location
+### Deployment Location
 
 You can make you test drive available in different Azure regions. The idea is to allow a user to pick the closest region, to provide with the beast user experience.
 
@@ -254,7 +238,7 @@ And then use this location for every resource for a specific Lab instance:
 
 Ensure your subscription is allowed to deploy all the resources you want in each of the regions you select. Also ensure your virtual machine images are available in all the regions you will enable, otherwise your deployment template will not work for some regions.
 
-#### Outputs
+### Outputs
 
 Normally with resource manager templates you can deploy without producing any output. This is because you know all the values you use to populate template parameters and you can always manually inspect properties of any resource.
 
@@ -281,11 +265,11 @@ Example:
 }
 ```
 
-#### Subscription Limits
+### Subscription Limits
 
 Don't forget about subscription and service limits. For example, if you want to deploy up to ten 4-core virtual machines, you need to ensure the subscription you use for your lab allows you to use 40 cores. For more information about Azure subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). As multiple test drives can be taken at the same time, verify that your subscription can handle the number of cores multiplied by the total number of concurrent test drives that can be taken.
 
-#### What to upload
+### What to upload
 
 The test drive ARM template is uploaded as a zip file, which can include various deployment artifacts, but must have one file named `main-template.json`. This is the ARM deployment template which test drive uses to instantiate a lab. If you have additional resources beyond this file, you can reference them as external resources inside the template or include them in the zip file.
 
@@ -298,13 +282,13 @@ During the publishing certification, test drive unzips your deployment package a
 | `scripts/warmup.ps1`                | `https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1`  |
 |||
 
-We call a Uri of this blob container Base Uri. Because every revision of your lab has its own blob container, every revision of your lab has its own Base Uri. Test drive can pass a Base Uri of your unzipped deployment package into your template through template parameters.
+We call a Uri of this blob container Base Uri. Because every revision of your lab has its own blob container, every revision of your lab has its own Base Uri. Test drive can pass a Base Uri of your unzipped deployment package into your template through template parameters.
 
-#### Transform template examples for test drive
+### Transform template examples for test drive
 
 The process of turning an architecture of resources into a test drive resource manager template can be daunting. For help, see these examples of how to best [transform current deployment templates](transforming-examples-for-test-drive.md).
 
-### 2. Test drive deployment subscription details
+## Test drive deployment subscription details
 
 The final section to complete is to be able to deploy the test drives automatically by connecting your Azure Subscription and Azure Active Directory (AD).
 
@@ -314,19 +298,19 @@ The final section to complete is to be able to deploy the test drives automatica
 
     ![Azure Subscriptions](media/test-drive/azure-subscriptions.png)
 
-2. Obtain an **Azure AD Tenant ID**. If you already have a Tenant ID available you can find it in **Azure Active Directory** > **Properties** > **Directory ID**. <!-- DESCRIBE WHAT'S HAPPENING IN THESE SCREENS -->
+2. Obtain an **Azure AD Tenant ID**. If you already have a Tenant ID available you can find it in **Azure Active Directory** > **Properties** > **Directory ID**: <!-- DESCRIBE WHAT'S HAPPENING IN THESE SCREENS -->
 
     ![Azure Active Directory properties](media/test-drive/azure-active-directory-properties.png)
 
-    If you don't have a tenant ID, create a new tenant in Azure Active Directory: <!-- need larger, more specific image -->
-
+    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+<!-- >
     ![List of Azure Active Directory tenants](media/test-drive/azure-active-directory-tenants.png)
 
     ![Define the organization, domain and country/region for the Azure AD tenant](media/test-drive/azure-tenant-define-details.png)
 
     ![Confirm the selection](media/test-drive/confirm-selection.png)
-
-3. **Azure AD App ID** – Create and register a new application <!-- Azure AD App ID? -->. We will use this application to perform operations on your test drive instance.
+-->
+3. **Azure AD App ID** – Create and register a new application <!-- does "application" = Azure AD App ID? -->. We will use this application to perform operations on your test drive instance.
 
       1. Navigate to the newly created directory or already existing directory and select Azure Active directory in the filter pane.
       2. Search **App registrations** and select **Add**.
@@ -344,11 +328,11 @@ The final section to complete is to be able to deploy the test drives automatica
 
 6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
 
-    1. Select the type of **Subscription** you are using for the test drive.<!-- SHOW? -->
+    1. Select the type of **Subscription** you are using for the test drive.<!-- START WHERE? SHOW -->
     1. Select **Access control (IAM)**.<!-- SHOW? -->
     1. Select the **Role assignments** tab, then **Add role assignment**.<br>
     ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
-    1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to assign the **Contributor** role to.<br>
+    1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.<br>
     ![Add the permissions](media/test-drive/access-control-permissions.jpg)
     1. Select **Save**.
 
@@ -356,7 +340,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
 ![Shows the Keys for the Azure AD application](media/test-drive/azure-ad-app-keys.png)
 
-### 3. Republish
+## Republish
 
 Now that all your test drive fields are complete, **Republish** your offer. Once your test drive has passed certification, test the customer experience in the preview of your offer:
 
@@ -372,4 +356,5 @@ Once you are comfortable with your Preview offering, it's time to **go live**! T
 
 ## Next steps
 
-- For best practices, FAQs, or to make your test drive more successful, see [Test drive marketing and best practices](marketing-and-best-practices.md).
+- If you were following the instructions to create your off in Partner Center, use the Back arrow to return to that topic.
+- Learn more about other types of test drives at [What is a test drive?](what-is-test-drive.md).
