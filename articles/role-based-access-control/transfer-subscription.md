@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/04/2020
+ms.date: 06/18/2020
 ms.author: rolyon
 ---
 
@@ -260,7 +260,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 > [!WARNING]
 > When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscriptions. Be sure you complete the previous steps before performing this step.
 
-1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
+1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different Azure AD directory, you must check the **Subscription Azure AD tenant** check box.
 
 1. Once you finish transferring ownership, return back to this article to re-create the resources in the target directory.
 
