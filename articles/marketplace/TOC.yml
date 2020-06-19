@@ -404,16 +404,12 @@
           href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
     - name: Test Drive
       items:
-      - name: What is test drive?
+      - name: What is a test drive?
         href: ./what-is-test-drive.md
-      - name: Types of test drives
-        href: ./types-of-test-drives.md
-      - name: Create your test drive
-        href: ./test-drive.md
-      - name: Transforming examples for test drive
-        href: ./transforming-examples-for-test-drive.md
-      - name: Marketing and best practices
-        href: ./marketing-and-best-practices.md
+      - name: Test drive technical configuration
+        href: ./test-drive-technical-configuration.md
+      - name: Test drive for Azure Resource Manager
+        href: ./azure-resource-manager-test-drive.md
     - name: Co-sell option
       href: ./partner-center-portal/commercial-marketplace-co-sell.md 
       items:

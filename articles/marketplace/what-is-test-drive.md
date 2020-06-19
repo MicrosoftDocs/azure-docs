@@ -1,10 +1,10 @@
 ---
-title: What is a test drive? | Azure Marketplace
+title: What is a test drive? Microsoft commercial marketplace
 description: Explanation of Marketplace test drive feature
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2020
 ms.author: dsindona
 ---
@@ -43,9 +43,9 @@ This deployment template contains all the Azure resources that comprise your sol
 
 This deployment template encompasses all complex solution architectures. All Dynamics applications or custom products should use this type of test drive. If you have an offer on AppSource, build your test drive to connect with a Dynamics AX/CRM instance or any other resource beyond just Azure. Microsoft hosts and maintains the test drive service (including provisioning and deployment).
 
-- Use [Dynamics 365 for Business Central](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Business Central enterprise resource planning system such as finance, operations, supply chain, and CRM.
-- Use [Dynamics 365 for Customer Engagement](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) for a Customer Engagement system such as sales, service, project service, and field service.
-- Use [Dynamics 365 for Operations](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
+- Use [Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Business Central enterprise resource planning system such as finance, operations, supply chain, and CRM.
+- Use [Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) for a Customer Engagement system such as sales, service, project service, and field service.
+- Use [Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
 
 Detailed documentation for logic app test drives is at
 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app).
@@ -68,7 +68,7 @@ The process of turning an architecture of resources into a test drive can be dau
 
 [Transform a virtual machine template into a test drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive)
 
-[Transform an existing resource manager templates into a test drive](https://github.com/Azure/AzureTestDrive/wiki/Deploying-Existing-Solutions)
+[Transform an existing Resource Manager template into a test drive](https://github.com/Azure/AzureTestDrive/wiki/Deploying-Existing-Solutions)
 
 ## Lead management
 

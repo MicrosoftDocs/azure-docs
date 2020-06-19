@@ -1,10 +1,10 @@
 ---
-title: Types of test drives | Azure Marketplace
+title: Types of test drives, Microsoft commercial marketplace
 description: Types of test drives in the commercial marketplace
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2020
 ms.author: dsindona
 ---
@@ -148,7 +148,7 @@ You can use either random or constant passwords for your solution.
 
 #### session ID
 
-Test drive initialize this parameter with a unique GUID representing Test drive session ID:
+Test drive initializes this parameter with a unique GUID representing Test drive session ID:
 
 ```JSON
 "parameters": {
@@ -240,9 +240,9 @@ Ensure your subscription is allowed to deploy all the resources you want in each
 
 ### Outputs
 
-Normally with resource manager templates you can deploy without producing any output. This is because you know all the values you use to populate template parameters and you can always manually inspect properties of any resource.
+Normally with Resource Manager templates you can deploy without producing any output. This is because you know all the values you use to populate template parameters and you can always manually inspect properties of any resource.
 
-For test drive resource manager templates, however, it's important to return to test drive all the information, which is required to get access to the lab (Website URIs, Virtual Machine host names, user names, and passwords). Ensure all your output names are readable because these variables are presented to the customer.
+For test drive Resource Manager templates, however, it's important to return to test drive all the information, which is required to get access to the lab (Website URIs, Virtual Machine host names, user names, and passwords). Ensure all your output names are readable because these variables are presented to the customer.
 
 There are no any restrictions related to template outputs. Test drive converts all output values into strings, so if you send an object to the output, a user will see JSON string.
 
@@ -286,7 +286,7 @@ We call a Uri of this blob container Base Uri. Because every revision of your la
 
 ### Transform template examples for test drive
 
-The process of turning an architecture of resources into a test drive resource manager template can be daunting. For help, see these examples of how to best [transform current deployment templates](transforming-examples-for-test-drive.md).
+The process of turning an architecture of resources into a test drive Resource Manager template can be daunting. For help, see these examples of how to best [transform current deployment templates](transforming-examples-for-test-drive.md).
 
 ## Test drive deployment subscription details
 
@@ -312,7 +312,7 @@ The final section to complete is to be able to deploy the test drives automatica
 -->
 3. **Azure AD App ID** – Create and register a new application <!-- does "application" = Azure AD App ID? -->. We will use this application to perform operations on your test drive instance.
 
-      1. Navigate to the newly created directory or already existing directory and select Azure Active directory in the filter pane.
+      1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
       2. Search **App registrations** and select **Add**.
       3. Provide an application name.
       4. Select the **Type** of **Web app / API**.
@@ -356,5 +356,5 @@ Once you are comfortable with your Preview offering, it's time to **go live**! T
 
 ## Next steps
 
-- If you were following the instructions to create your off in Partner Center, use the Back arrow to return to that topic.
+- If you were following the instructions to create your offer in Partner Center, use the Back arrow to return to that topic.
 - Learn more about other types of test drives at [What is a test drive?](what-is-test-drive.md).

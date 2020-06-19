@@ -1,11 +1,11 @@
 ---
-title: Test drive technical configuration in Microsoft commercial marketplace
+title: Test drive technical configuration, Microsoft commercial marketplace
 description: Learn about test drives. Test drives allow new customers to test drive your offer before committing to the purchase. 
 author: dsindona 
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 08/13/2019
 ---
 
@@ -17,7 +17,7 @@ If you no longer want to provide a test drive for your offer, return to the **Of
 
 ## Azure Resource Manager test drive
 
-This type of test drive requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings) (optional), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
+This type of test drive requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings-(optional)) (optional), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
 
 ## Dynamics 365 test drive
 
