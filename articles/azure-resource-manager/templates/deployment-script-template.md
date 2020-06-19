@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/19/2020
 ms.author: jgao
 
 ---
@@ -134,7 +134,7 @@ Property value details:
 - **kind**: Specify the type of script. Currently, Azure PowerShell and Azure CLI scripts are support. The values are **AzurePowerShell** and **AzureCLI**.
 - **forceUpdateTag**: Changing this value between template deployments forces the deployment script to re-execute. Use the newGuid() or utcNow() function that needs to be set as the defaultValue of a parameter. To learn more, see [Run script more than once](#run-script-more-than-once).
 - **containerSettings**: Specify the settings to customize Azure Container Instance.  **containerGroupName** is for specifying the container group name.  If not specified, the group name will be automatically generated.
-- **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-an-existing-storage-account).
+- **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
@@ -163,7 +163,7 @@ The following template has one resource defined with the `Microsoft.Resources/de
 > [!NOTE]
 > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a **&#92;** or enclosed in single quotes. You can also consider using string substitution as it is shown in the previous JSON sample.
 
-The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Debug deployment scripts](#debug-deployment-scripts).  For the property descriptions, see [Sample templates](#sample-templates).
+The script takes one parameter, and output the parameter value. **DeploymentScriptOutputs** is used for storing outputs.  In the outputs section, the **value** line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts).  For the property descriptions, see [Sample templates](#sample-templates).
 
 To run the script, select **Try it** to open the Cloud Shell, and then paste the following code into the shell pane.
 
@@ -239,6 +239,50 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
+## Use existing storage account
+
+A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
+
+- Supported storage account kinds are:
+
+    | SKU             | Supported Kind     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Storage, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Storage, StorageV2 |
+    | Standard_RAGRS  | Storage, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
+- Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
+- Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
+
+To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+- **storageAccountName**: specify the name of the storage account.
+- **storageAccountKey"**: specify one of the storage account keys. You can use the [`listKeys()`](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
+
+See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
+
+When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
+
 ## Develop deployment scripts
 
 ### Handle non-terminating errors
@@ -253,7 +297,7 @@ Setting environment variables (EnvironmentVariable) in your container instances 
 
 The max allowed size for environment variables is 64KB.
 
-## Debug deployment scripts
+## Monitor and troubleshoot deployment scripts
 
 The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the **azscripts** suffix in the resource names.
 
@@ -265,11 +309,24 @@ The output folder contains a **executionresult.json** and the script output file
 
 ### Use the Azure portal
 
+After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The following screenshot shows the Overview page of a deployment script resource:
+
+![Resource Manager template deployment script portal overview](./media/deployment-script-template/resource-manager-deployment-script-portal.png.png)
+
+The overview page displays some important information of the resource, such as **Provisioning state**, **Storage account**, **Container instance**, and **Logs**.
+
+From the left menu, you can view the deployment script content, the arguments passed to the script, and the output.  You can also export a template for the deployment script including the deployment script.
+
 ### Use PowerShell
 
-To get or list deployment scripts, use [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript)
+Using Azure PowerShell, you can manage deployment scripts at subscription or resource group scope:
 
-The output is similar to:
+- [Get-AzDeploymentScript](/powershell/module/az.resources/get-azdeploymentscript): Gets or lists deployment scripts.
+- [Get-AzDeploymentScriptLog](/powershell/module/az.resources/get-azdeploymentscriptlog): Gets the log of a deployment script execution.
+- [Remove-AzDeploymentScript](/powershell/module/az.resources/remove-azdeploymentscript): Removes a deployment script and its associated resources.
+- [Save-AzDeploymentScriptLog](/powershell/module/az.resources/save-azdeploymentscriptlog): Saves the log of a deployment script execution to disk.
+
+The Get-AzDeploymentScript output is similar to:
 
 ```output
 Name                : runPowerShellInlineWithOutput
@@ -298,6 +355,15 @@ Timeout             : PT1H
 
 ### Use Azure CLI
 
+Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
+
+- [az deployment-scripts delete](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): Delete a deployment script.
+- [az deployment-scripts list](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list):	List all deployment scripts.
+- [az deployment-scripts show](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show):	Retrieve a deployment script.
+- [az deployment-scripts show-log](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log):	Show deployment script logs.
+
+The list command output is simliar to:
+
 ```json
 [
   {
@@ -311,12 +377,12 @@ Timeout             : PT1H
     "forceUpdateTag": "20200618T194637Z",
     "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
-      "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
       "type": "userAssigned",
       "userAssignedIdentities": {
         "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-          "clientId": "bc03c721-82ba-44ae-a255-d5d9e1d0dacd",
-          "principalId": "327d8575-01ea-4618-81f4-71b301d1c72a"
+          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
         }
       }
     },
@@ -345,7 +411,7 @@ Timeout             : PT1H
       "createdBy": "someon@contoso.com",
       "createdByType": "User",
       "lastModifiedAt": "2020-06-18T19:46:41.363741+00:00",
-      "lastModifiedBy": "jgao@contoso.com",
+      "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
     "tags": null,
@@ -390,50 +456,6 @@ It only works before the deployment script resources are deleted.
 To see the deploymentScripts resource in the portal, select **Show hidden types**:
 
 ![Resource Manager template deployment script, show hidden types, portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
-
-## Use an existing storage account
-
-A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise the storage account along with the container instance are automatically created by the script service. The requirements for using an existing storage account:
-
-- Supported storage account kinds are:
-
-    | SKU             | Supported Kind     |
-    |-----------------|--------------------|
-    | Premium_LRS     | FileStorage        |
-    | Premium_ZRS     | FileStorage        |
-    | Standard_GRS    | Storage, StorageV2 |
-    | Standard_GZRS   | StorageV2          |
-    | Standard_LRS    | Storage, StorageV2 |
-    | Standard_RAGRS  | Storage, StorageV2 |
-    | Standard_RAGZRS | StorageV2          |
-    | Standard_ZRS    | StorageV2          |
-
-    These combinations support file share.  For more information, see [Create an Azure file share](../../storage/files/storage-how-to-create-file-share.md) and [Types of storage accounts](../../storage/common/storage-account-overview.md).
-- Storage account firewall rules are not supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
-- Deployment script's user-assigned managed identity must have permissions to manage the storage account, which includes read, create, delete file shares.
-
-To specify an existing storage account, add the following json to the property element of `Microsoft.Resources/deploymentScripts`:
-
-```json
-"storageAccountSettings": {
-  "storageAccountName": "myStorageAccount",
-  "storageAccountKey": "myKey"
-},
-```
-
-- **storageAccountName**: specify the name of the storage account.
-- **storageAccountKey"**: specify one of the storage account keys. You can use the [`listKeys()`](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
-
-    ```json
-    "storageAccountSettings": {
-        "storageAccountName": "[variables('storageAccountName')]",
-        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
-    }
-    ```
-
-See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
-
-When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
 
 ## Clean up deployment script resources
 
