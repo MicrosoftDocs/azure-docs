@@ -120,7 +120,7 @@ cloud-init clean --logs --seed
 ```
 
 ## Deprovision and create an image
-The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", however, now it is removed, you will need to perform actions such as the below, and remove any sensitive data from it.
+The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", however, after it has been removed, you will need to perform actions such as the below, and remove any other sensitive data from it.
 
 - remove all existing ssh host key
 ```bash
