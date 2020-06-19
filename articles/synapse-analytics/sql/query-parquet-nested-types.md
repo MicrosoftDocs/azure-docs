@@ -96,6 +96,23 @@ FROM
     ) AS [r];
 ```
 
+## Projecting values from repeated columns
+
+If you have an array of scalar values (for example `[1,2,3]`) in some columns, you can easily expand them and join them with the main row using the following script:
+
+```sql
+SELECT
+    SimpleArray, Element
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) AS arrays
+    -- WITH ( SimpleArray VARCHAR(MAX))  --> optionally explictly reference array
+    CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
+```
+
 ## Next steps
 
 The next article will show you how to [Query JSON files](query-json-files.md).
