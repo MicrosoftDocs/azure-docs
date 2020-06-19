@@ -66,11 +66,11 @@ Test name: **Parameters Must Be Referenced**
 
 To reduce confusion in your template, delete any parameters that are defined but not used. This test finds any parameters that aren't used anywhere in the template. Eliminating unused parameters also makes it easier to deploy your template because you don't have to provide unnecessary values.
 
-## Secure parameters can't have default value
+## Secure parameters can't have hardcoded default
 
 Test name: **Secure String Parameters Cannot Have Default**
 
-Don't provide a hard-coded default value for a secure parameter in your template.
+Don't provide a hard-coded default value for a secure parameter in your template. An empty string is fine for the default value.
 
 You use the types **SecureString** or **SecureObject** on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
@@ -369,9 +369,9 @@ To reduce confusion in your template, delete any variables that are defined but 
 
 Test name: **Dynamic Variable References Should Not Use Concat**
 
-Sometimes you dynamically construct a variable based on the value of another variable or parameter. Don't use the [concat](template-functions-string.md#concat) function when setting the value. Instead, use an object that includes the available options and dynamically get one of the options during deployment.
+Sometimes you need to dynamically construct a variable based on the value of another variable or parameter. Don't use the [concat](template-functions-string.md#concat) function when setting the value. Instead, use an object that includes the available options and dynamically get one of the properties from the object during deployment.
 
-The following example **passes** this test.
+The following example **passes** this test. The **currentImage** variable is dynamically set during deployment.
 
 ```json
 {
