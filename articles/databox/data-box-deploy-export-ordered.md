@@ -228,10 +228,17 @@ The following xml shows an example of blob names, blob prefixes, and Azure files
    <!-- FileList/prefix/Share list for Azure File storage for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
-      <FilePathPrefix>//4mbfiles/prefix2/subprefix</FilePathPrefix>
+      <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>
       <FilePathPrefix>/1tbfile/prefix</FilePathPrefix>
    </AzureFileList>
 ```
+
+Some important points in respect to xml files:
+
+* Xml tags are case sensitive and need to match exactly as specified in the above sample.
+* Opening and Closing tags must match.
+* Incorrect xml tags or formatting may lead to export failure.
+* No data will be exported if blob and/or file prefix are invalid.
 
 ### Examples of valid blob paths
 
