@@ -54,7 +54,7 @@ The ticket-booking entity is a machine-learning entity for the flight destinatio
 
 ### Pizza entity example
 
-As a another example, consider an app for ordering a pizza that has a create-pizza-order intent and a pizza entity.
+As another example, consider an app for ordering a pizza that has a create-pizza-order intent and a pizza entity.
 
 The pizza entity is a machine-learning entity for the pizza details. To help extract the details, use two features to help:
 
