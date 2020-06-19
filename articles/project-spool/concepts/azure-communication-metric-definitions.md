@@ -23,9 +23,20 @@ All measures for all primitive types and service-wide data points (i.e. authenti
 
 ### Filters
 
+By Namespace
+By Time
+
+
 ### VoIP Calling
+
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
+|Call Duration|Total duration of the call per participant in a meeting|In Minutes|
+|Packet loss rate >10% or 0.1|The percentage of packets that are lost. Packet loss directly affects audio quality—from small, individual lost packets that have almost no impact to back-to-back burst losses that cause audio to cut out completely.
+|Round-trip time >500 ms|Average round-trip network propagation time|in milliseconds.
+
+todo: [Use this CQD template to assess your quality](https://docs.microsoft.com/en-us/MicrosoftTeams/quality-of-experience-review-guide)
+
 
 ### Chat
 Below are the metrics you will find displayed in the azure portal, along with their definitions.
@@ -44,17 +55,19 @@ Below are the metrics you will find displayed in the azure portal, along with th
 ### Network Traversal
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
-
+|Data Transferred |Total data sent via TURN relays|in MB|
 
 ### SMS
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
+|Message Count|# of messages sent via ACS Spool|
 
 
 ### Telephony + PSTN
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
-
+|Phone Numbers|# of Phone numbers provisioned in the resource||
+|Call Duration|Total duration of calls |in minutes|
 
 ### Authentication
 | Metric name | Definition | Notes |
