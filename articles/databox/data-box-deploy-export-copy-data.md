@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 06/18/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -33,9 +33,11 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+1. You have placed the order for Azure Data Box.
+    - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+    - For an export order, see [Tutorial: Order Azure Data Box](data-box-deploy-export-ordered.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over from your Data Box. Your host computer must
+3. You have a host computer to which you want to copy the data from your Data Box. Your host computer must
    * Run a [Supported operating system](data-box-system-requirements.md).
    * Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 

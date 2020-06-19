@@ -71,7 +71,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Transfer type     | Select **Export to Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
-    |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
+    |Resource group     |    Select an existing resource group. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Source Azure region    |    Select the Azure region where your data currently is.         |
     |Destination country     |     Select the country where you want to ship the device.        |
 
@@ -284,9 +284,9 @@ The following log files show examples of verbose logging when you select **Inclu
 <File CloudFormat="BlockBlob" Path="export-ut-container/VL_Piracy_Negtive10_TPNameAndGCS.xlsx" Size="12398699" crc64="13526033021067702820"></File>
 ```
 
-### Error logs
+### Copy logs
 
-The following xml shows an example of the error log when the export is successful:
+The following xml shows an example of the copy log when the export is successful:
 
 ```xml
 <CopyLog Summary="Summary">
@@ -296,7 +296,7 @@ The following xml shows an example of the error log when the export is successfu
 </CopyLog>
 ```
 
-The following xml shows an example of the error log when the export has errors:
+The following xml shows an example of the copy log when the export has errors:
 
 ```xml
 <ErroredEntity CloudFormat="AppendBlob" Path="export-ut-appendblob/wastorage.v140.3.0.2.nupkg">

@@ -43,9 +43,9 @@
         - name: 3 - Connect & copy
           items:
           - name: Via SMB
-            href: data-box-deploy-copy-data.md 
+            href: data-box-deploy-export-copy-data.md 
           - name: Via NFS
-            href: data-box-deploy-copy-data-via-nfs.md
+            href: data-box-deploy-export-copy-data-via-nfs.md
         - name: 4 - Return
           href: data-box-deploy-export-picked-up.md   
     - name: Concepts
@@ -75,7 +75,9 @@
       - name: Use self-managed shipping
         href: data-box-portal-customer-managed-shipping.md
       - name: Enable customer managed key
-        href: data-box-customer-managed-encryption-key-portal.md 
+        href: data-box-customer-managed-encryption-key-portal.md
+      - name: Use Customer Lockbox
+        href: data-box-customer-lockbox.md         
       - name: Move data to a blob tier
         href: data-box-how-to-set-data-tier.md
       - name: Cable the device
