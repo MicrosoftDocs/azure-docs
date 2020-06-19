@@ -19,7 +19,7 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# How managed identities for Azure resources work with with Azure virtual machines
+# How managed identities for Azure resources work with Azure virtual machines
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
 

@@ -39,7 +39,8 @@
       href: temporal-tables.md
     - name: Scale up / down
       href: database/scale-resources.md
-
+    - name: Read Scale-Out
+      href: database/read-scale-out.md
     - name: Security
       items:
       - name: Overview
@@ -299,8 +300,6 @@
       href: database/connectivity-architecture.md
     - name: Connectivity settings
       href: database/connectivity-settings.md
-    - name: Read Scale-Out
-      href: database/read-scale-out.md      
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
@@ -994,9 +993,12 @@
         - name: Licensing model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
+        - name: Edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Version
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Azure Storage for backup & restore
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate

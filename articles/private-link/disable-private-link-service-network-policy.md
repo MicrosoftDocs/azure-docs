@@ -4,7 +4,7 @@ description: Learn how to disable network policies for Azure private Link
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
 

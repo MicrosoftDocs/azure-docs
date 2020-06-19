@@ -38,6 +38,13 @@
     href: create-certificate-scenarios.md
   - name: Certificate creation methods  
     href: create-certificate.md
+  - name: Creating certificate signing request
+    href: create-certificate-signing-request.md
+
+- name: How-to guides 
+  items:
+  - name: Integrating Key Vault with DigiCert CA
+    href: how-to-integrate-certificate-authority.md
 
 - name: Reference
   items:

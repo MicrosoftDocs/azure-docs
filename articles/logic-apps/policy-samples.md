@@ -6,7 +6,7 @@ ms.topic: sample
 ms.suite: integration
 ms.custom: subject-policy-samples
 ---
-# Azure Policy built-in policy definitions for Azure Logic Apps
+# Azure Policy built-in definitions for Azure Logic Apps
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Logic Apps. For additional Azure Policy built-ins for other services,
