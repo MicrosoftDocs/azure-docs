@@ -1396,6 +1396,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Segment
+        href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
