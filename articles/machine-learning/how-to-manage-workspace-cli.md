@@ -55,7 +55,7 @@ az extension add -n azure-cli-ml
 The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group.
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, please make sure that it has both Azure Blob and Azure File capabilities enabled, and with Hierarchical Namespace (ADLS Gen 2) disabled. You can always attach your own storage account later after the workspace is created as datastores.
 
 | Service | Parameter to specify an existing instance |
 | ---- | ---- |
