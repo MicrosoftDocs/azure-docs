@@ -15,7 +15,7 @@ In this quickstart, you create your own resource provider and deploy custom reso
 
 To complete the steps in this quickstart, you need to call `REST` operations. There are [different ways of sending REST requests](/rest/api/azure/).
 
-To run Azure CLI commands, use [Bash in Azure Cloud Shell](/azure/cloud-shell/). The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+To run Azure CLI commands, use [Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart). The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
 To run PowerShell commands locally, use PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps). If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 
