@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 03/19/2019
+ms.date: 06/18/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
@@ -121,7 +121,7 @@ We re-created `DimDate` and `DimSalesTerritory` as replicated tables, and ran th
 
 SQL pool implements a replicated table by maintaining a master version of the table. It copies the master version to the first distribution database on each Compute node. When there is a change, the master version is updated first, then the tables on each Compute node are rebuilt. A rebuild of a replicated table includes copying the table to each Compute node and then building the indexes.  For example, a replicated table on a DW2000c has 5 copies of the data.  A master copy and a full copy on each Compute node.  All data is stored in distribution databases. SQL pool uses this model to support faster data modification statements and flexible scaling operations.
 
-Rebuilds are required after:
+Asynchronous rebuilds are triggered by the first query against the replicated table after:
 
 - Data is loaded or modified
 - The Synapse SQL instance is scaled to a different level
