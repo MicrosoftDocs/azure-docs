@@ -133,11 +133,9 @@ The following PowerShell script creates a failover cluster for Windows Server 20
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
 ```
 
-
 ## Configure quorum
 
 Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
-
 
 ## Add storage
 
