@@ -77,15 +77,16 @@ Replace "paste-your-key-here" and "paste-your-endpoint-here" with the key and th
  ## Visualize anomalies for one of the devices
 IoTSignals.csv has signals from multiple IoT devices. We'll focus on a specific device and visualize anomalous outputs from the device.
 ```python
-df_anomaly_single_device = spark.sql("select timestamp \                                           , measureValue \
-                                           , anomalies.expectedValue \
-                                           , anomalies.expectedValue + anomalies.upperMargin as expectedUpperValue \
-                                           , anomalies.expectedValue - anomalies.lowerMargin as expectedLowerValue \
-                                           , case when anomalies.isAnomaly=true then 1 else 0 end as isAnomaly \
-                                      from df_anomaly \
-                                      where deviceid = 'dev-1' and timestamp < '2020-04-29'\
-                                      order by timestamp \
-                                      limit 200")
+df_anomaly_single_device = spark.sql("select timestamp \                                           
+                                       , measureValue \
+                                       , anomalies.expectedValue \
+                                       , anomalies.expectedValue + anomalies.upperMargin as expectedUpperValue \
+                                       , anomalies.expectedValue - anomalies.lowerMargin as expectedLowerValue \
+                                       , case when anomalies.isAnomaly=true then 1 else 0 end as isAnomaly \
+                                  from df_anomaly \
+                                  where deviceid = 'dev-1' and timestamp < '2020-04-29'\
+                                  order by timestamp \
+                                  limit 200")
 ```
 ```python
 import matplotlib.pyplot as plt
