@@ -23,6 +23,7 @@ Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subs
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault](../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
+---
 
 ## Create a backup of the encrypted VMs or take a snapshot of the disks 
 
