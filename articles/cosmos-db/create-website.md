@@ -83,7 +83,7 @@ Next go to the Deployment Center for the App Service. Here you will see Reposito
 
 Click **Browse** at the top of Deployment Center to open the web application. The web application will open up to the home screen. Click on **Create New** and enter some data into the fields and click Save. The resulting screen shows the data saved to Cosmos DB.
 
-:::image type="content" source="./media/create-website/home-screen.png" alt-text="Home Screen":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Home Screen":::
 
 ## Step 3: How does it work
 
