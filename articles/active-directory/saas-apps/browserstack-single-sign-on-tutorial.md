@@ -81,10 +81,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://login.browserstack.com/auth/realms/<REALM_ID>`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://login.browserstack.com/auth/realms/<REALM_ID>/broker/<BROKER_ID>/endpoint`
+
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type the URL:
     `https://browserstack.com/users/sign_in`
+
+    > [!Note]
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [BrowserStack Single Sign-on support team](mailto:support@browserstack.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
