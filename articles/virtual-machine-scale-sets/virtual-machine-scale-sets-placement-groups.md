@@ -71,7 +71,7 @@ If you are creating a large scale set by composing an Azure Resource Manager tem
     }
 ```
 
-For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json).
 
 ## Converting an existing scale set to span multiple placement groups
 To make an existing virtual machine scale set capable of scaling to more than 100 VMs, you need to change the _singlePlacementGroup_ property to _false_ in the scale set model. You can test changing this property with the [Azure Resource Explorer](https://resources.azure.com/). Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.

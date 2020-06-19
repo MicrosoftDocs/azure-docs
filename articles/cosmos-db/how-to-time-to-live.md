@@ -29,7 +29,7 @@ Use the following steps to enable time to live on a container with no expiration
    * Select **On (no default)** or select **On** and set a TTL value
    * Click **Save** to save the changes.
 
-   ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configure Time to live in Azure portal":::
 
 * When DefaultTimeToLive is null then your Time to Live is Off
 * When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
