@@ -32,13 +32,22 @@ When you're ready to publish your updated offer, select **Publish** from any pag
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
+## Add a plan to an existing offer
+
+To add a new plan within an existing offer that you've already published:
+
+- With the **Offer overview** page open for your existing offer, go to the **Plan overview** page, select **Create new plan**.
+- Create a new plan according to the guidelines [here](./create-new-saas-offer#plan-overview) with the **existing plans Pricing model**.
+- Select **Save draft** after making the changes to the plan name. 
+- Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates.
+
 ## Update a plan within an existing offer
 
 To make changes to a plan within an existing offer that you've already published:
 
 - With the **Offer overview** page open for your existing offer, choose the plan that you want to change. If the plan is not accessible from the **Plan overview** list, select **See all plans**.
 - You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently plans are only available in English (United States)*.
-- Select **Save** after making any necessary changes to the plan name, description, pricing, or audience availability. 
+- Select **Save** after making any necessary changes to the plan name, description, or audience availability. 
 - Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates.
 
 ## Compare changes to marketplace offers
