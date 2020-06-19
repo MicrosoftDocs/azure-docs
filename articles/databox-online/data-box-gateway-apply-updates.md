@@ -30,54 +30,54 @@ We recommend that you install updates through the Azure portal. The device autom
 
 1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-1.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-1.png) -->
 
 2. In the **Device updates** blade, check that you have reviewed the license terms associated with new features in the release notes.
 
     You can choose to **Download and install** the updates or just **Download** the updates. You can then choose to install these updates later.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png) -->
 
     If you want to download and install the updates, check the option that updates install automatically after the download completes.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png) -->
 
 3. The download of updates starts. You see a notification that the download is in progress.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-3.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-3.png) -->
 
     A notification banner is also displayed in the Azure portal. This indicates the download progress. 
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-4.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-4.png) -->
 
     You can select this notification or select **Update device** to see the detailed status of the update.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)   
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)    -->
 
 
 4. After the download is complete, the notification banner updates to indicate the completion. If you chose to download and install the updates, the installation will begin automatically.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-6.png) -->
 
     If you chose to download updates only, then select the notification to open the **Device updates** blade. Select **Install**.
   
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-7.png) -->
 
 5. You see a notification that the install is in progress.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-8.png) -->
 
     The portal also displays an informational alert to indicate that the install is in progress. The device goes offline and is in maintenance mode.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-9.png) -->
 
 6. As this is a 1-node device, the device will restart after the updates are installed. The critical alert during the restart will indicate that the device heartbeat is lost.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-10.png) -->
 
     Select the alert to see the corresponding device event.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-11.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-11.png) -->
 
 
 7. After the restart, the device is again put in the maintenance mode and an informational alert is displayed to indicate that.
@@ -90,14 +90,14 @@ We recommend that you install updates through the Azure portal. The device autom
 
 8. The device status updates to **Online** after the updates are installed.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-14.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-14.png) -->
 
     From the top command bar, select **Device updates**. Verify that update has successfully installed and the device software version reflects that.
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-15.png) -->
 
 
-    ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
+    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-20.png) -->
 
 ## Use the local web UI
 
@@ -143,7 +143,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 2. Provide the path to the update file. You can also browse to the update installation file if placed on a network share. Select the software update file with *SoftwareUpdatePackage.exe* suffix.
 
-   ![update device](./media/data-box-gateway-apply-updates/local-ui-update-3a.png)
+   ![update device](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
 3. Select **Apply**.
 
@@ -151,13 +151,13 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 4. When prompted for confirmation, select **Yes** to proceed. Given the device is a single node device, after the update is applied, the device restarts and there is downtime.
 
-   ![update device](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
+   <!-- ![update device](./media/data-box-gateway-apply-updates/local-ui-update-5.png) -->
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
 
 6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software update**. The displayed software version in this example is **1.6.1049.786**.
 
-   ![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)
+   ![update device](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 
 <!-- 7. You will now update the Kubernetes software version. Repeat the above steps. Provide a path to the Kubernetes update file with the *Kubernetes_Package.exe* suffix.  
 
