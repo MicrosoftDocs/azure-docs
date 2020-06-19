@@ -27,10 +27,10 @@ On-demand provisioning allows you to provision a user into an application in sec
 7. Select provision at the bottom of the page
 
 ## Understanding the provisioning steps
-The on-demand provisioning capability attempts to show the steps that the provisioning service takes when provisioning a user. There are typically 5 steps to provisioning a user, and one or more of the steps below will be shown in the on demand provisioning experience.
+The on-demand provisioning capability attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provisioning a user, and one or more of the steps below will be shown in the on demand provisioning experience.
 
 ### Step 1: Test connection
-The provisioning service attempts to authorize access to the target application by making a request for a "test user". The provisioning service expects a  response indicating that it is authorized to proceed with the provisioning steps. This step is only shown when there is a failure in the step. It is not show in the on-demand provisioning experience when the step is successful. 
+The provisioning service attempts to authorize access to the target application by making a request for a "test user". The provisioning service expects a  response indicating that it's authorized to continue with the provisioning steps. This step is only shown when there is a failure in the step. It's not show in the on-demand provisioning experience when the step is successful. 
 
 **Troubleshooting tips**
 * Ensure that you have provided valid credentials to the target application, such as the secret token and tenant URL. The credentials required vary by application. Detailed configuration tutorials can be found [here](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
@@ -46,7 +46,7 @@ The view details section shows the properties of the user that were imported fro
 
 **Troubleshooting tips**
 * Importing the user can fail when the matching attribute is missing on the user object in the source system. You can resolve this failure by updating the user object with a value for the matching attribute or changing the matching attribute in your provisioning configuration.  
-* If an attribute you were expecting is missing from the list that was imported, ensure that the attribute has a value on the user object in the source system. The provisioning service currently does not support provisioning null attributes. 
+* If an attribute you were expecting is missing from the list that was imported, ensure that the attribute has a value on the user object in the source system. The provisioning service currently doesn't support provisioning null attributes. 
 * Ensure that your provisioning configuration attribute mapping page contains the attribute you are expecting. 
 
 ### Step 3: Determine if user is in scope
@@ -72,7 +72,7 @@ In this step. the service attempts to match the user that was retrieved in the i
 
 The view details pages shows the properties of the user(s) that were matched in the target system. The properties you see in the context pane will vary as follows:
 * If there are no users matched in the target system, you won't see any properties.
-* Ift there is one user matched in the target system, you will see the properties of that matched user from the target system.
+* If there's one user matched in the target system, you will see the properties of that matched user from the target system.
 * If multiple users are matched, you will see the properties of both matched users.
 * If multiple matching attributes are part of your attribute mappings, each matching attribute will be evaluated sequentially and the matched users shown. 
 
@@ -100,8 +100,8 @@ The view details section displays the attributes that were modified in the targe
 There are a few known limitations today. Please post on [UserVoice](https://aka.ms/appprovisioningfeaturerequest) so we can better prioritize what improvements to make next. Note that these limitations are specific to the on-demand provisioning capability. for specifics about whether an application supports provisioning groups, deletions, etc., check the application tutorial. 
 
 * The applications Box, G Suite, Workday SuccessFactors, AWS, and Slack do not support on-demand provisioning
-* Provisioning groups is not supported
-* Disabling or deleting users and groups is not supported
+* Provisioning groups isn't supported
+* Disabling or deleting users and groups isn't supported
 
 ## Additional Resources
 
