@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 06/04/2020
+ms.date: 06/18/2020
 ms.author: alkohli
 ---
 
@@ -16,7 +16,7 @@ Final step is to prepare the device to ship. In this step, all the device shares
     ![Prepare to ship 1](media/data-box-export-prepare-to-ship/prepare-to-ship1.png)
 
  
-2. The prepare to ship starts and the device shares go offline. By default, the device clean up is performed in this step. Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+2. The prepare to ship starts and the device shares go offline. By default, the device clean up is performed and Data Box erases the data on its disks. 
 
 
     ![Prepare to ship 2](media/data-box-export-prepare-to-ship/prepare-to-ship2.png)

@@ -75,7 +75,9 @@
       - name: Use self-managed shipping
         href: data-box-portal-customer-managed-shipping.md
       - name: Enable customer managed key
-        href: data-box-customer-managed-encryption-key-portal.md 
+        href: data-box-customer-managed-encryption-key-portal.md
+      - name: Use Customer Lockbox
+        href: data-box-customer-lockbox.md         
       - name: Move data to a blob tier
         href: data-box-how-to-set-data-tier.md
       - name: Cable the device
