@@ -36,7 +36,6 @@
 
     ```csharp
     using System;
-    using Foundation;
     using PushDemo.Models;
     using PushDemo.Services;
     using UIKit;
@@ -45,46 +44,27 @@
     {
         public class DeviceInstallationService : IDeviceInstallationService
         {
-            Func<NSData> _getDeviceToken;
-            Func<bool> _notificationsSupported;
-            Func<string> _getNotificationSupportError;
+            const int SupportedVersionMajor = 13;
+            const int SupportedVersionMinor = 0;
 
-            public DeviceInstallationService(
-                Func<NSData> getDeviceToken,
-                Func<bool> notificationsSupported,
-                Func<string> getNotificationSupportError)
-            {
-                _getDeviceToken = getDeviceToken ?? throw new ArgumentException(
-                        $"Parameter {nameof(getDeviceToken)} cannot be null");
+            public string Token { get; set; }
 
-                _notificationsSupported = notificationsSupported ?? throw new ArgumentException(
-                        $"Parameter {nameof(notificationsSupported)} cannot be null");
-
-                _getNotificationSupportError = getNotificationSupportError ?? throw new ArgumentException(
-                        $"Parameter {nameof(getNotificationSupportError)} cannot be null");
-            }
+            public bool NotificationsSupported
+                => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
 
             public string GetDeviceId()
                 => UIDevice.CurrentDevice.IdentifierForVendor.ToString();
 
-            public DeviceInstallation GetDeviceRegistration(params string[] tags)
+            public DeviceInstallation GetDeviceInstallation(params string[] tags)
             {
-                if (!_notificationsSupported())
-                    throw new Exception(_getNotificationSupportError());
-
-                var installationId = GetDeviceId();
-                var token = _getDeviceToken();
-
-                if (token == null)
-                    return null;
-
-                var pushChannel = NSDataToHex(token);
+                if (!NotificationsSupported)
+                    throw new Exception(GetNotificationsSupportError());
 
                 var installation = new DeviceInstallation
                 {
-                    InstallationId = installationId,
+                    InstallationId = GetDeviceId(),
                     Platform = "apns",
-                    PushChannel = pushChannel
+                    PushChannel = Token
                 };
 
                 installation.Tags.AddRange(tags);
@@ -92,19 +72,16 @@
                 return installation;
             }
 
-            string NSDataToHex(NSData data) => ByteToHex(data.ToArray());
-
-            string ByteToHex(byte[] data)
+            string GetNotificationsSupportError()
             {
-                if (data == null)
-                    return null;
+                if (!NotificationsSupported)
+                    return $"This app only supports notifications on iOS {SupportedVersionMajor}.{SupportedVersionMinor} and above. You are running {UIDevice.CurrentDevice.SystemVersion}.";
 
-                System.Text.StringBuilder sb = new System.Text.StringBuilder(data.Length * 2);
+                if (Token == null)
+                    return $"This app can support notifications but you must enable this in your settings.";
 
-                foreach (byte b in data)
-                    sb.AppendFormat("{0:x2}", b);
 
-                return sb.ToString().ToUpperInvariant();
+                return "An error occurred preventing the use of push notifications";
             }
         }
     }
@@ -113,20 +90,61 @@
     > [!NOTE]
     > This class provides a unique ID (using the [UIDevice.IdentifierForVendor](https://docs.microsoft.com/dotnet/api/uikit.uidevice.identifierforvendor?view=xamarin-ios-sdk-12) value) and the notification hub registration payload.
 
-1. In **AppDelegate.cs**, add constants for the device token cache key and the major and minor versions being supported.
+1. Add a new folder to the **PushDemo.iOS** project called *Extensions* then add an **Empty Class** to that folder called *NSDataExtensions.cs* with the following implementation.
+
+    ```csharp
+    using System.Text;
+    using Foundation;
+
+    namespace PushDemo.iOS.Extensions
+    {
+        internal static class NSDataExtensions
+        {
+            internal static string ToHexString(this NSData data)
+            {
+                var bytes = data.ToArray();
+
+                if (bytes == null)
+                    return null;
+
+                StringBuilder sb = new StringBuilder(bytes.Length * 2);
+
+                foreach (byte b in bytes)
+                    sb.AppendFormat("{0:x2}", b);
+
+                return sb.ToString().ToUpperInvariant();
+            }
+        }
+    }
+    ```
+
+1. In **AppDelegate.cs**, ensure the following namespaces have been added to the top of the file.
+
+    ```csharp
+    using System;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
+    using Foundation;
+    using PushDemo.iOS.Extensions;
+    using PushDemo.iOS.Services;
+    using PushDemo.Services;
+    using UIKit;
+    using UserNotifications;
+    using Xamarin.Essentials;
+    ```
+
+1. Add a constant for the device token cache key.
 
     ```csharp
     const string CachedDeviceToken = "cached_device_token";
-    const int SupportedVersionMajor = 13;
-    const int SupportedVersionMinor = 0;
     ```
 
-1. Add private properties and their respective backing fields to store a reference to the **NSData** device token along with the **IPushDemoNotificationActionService** and **INotificationRegistrationService** implementations.
+1. Add private properties and their respective backing fields to store a reference to the **IPushDemoNotificationActionService**, **INotificationRegistrationService**, and **IDeviceInstallationService** implementations.
 
     ```csharp
-    NSData _deviceToken;
     IPushDemoNotificationActionService _notificationActionService;
     INotificationRegistrationService _notificationRegistrationService;
+    IDeviceInstallationService _deviceInstallationService;
 
     IPushDemoNotificationActionService NotificationActionService
         => _notificationActionService ??
@@ -137,13 +155,11 @@
         => _notificationRegistrationService ??
             (_notificationRegistrationService =
             ServiceContainer.Resolve<INotificationRegistrationService>());
-    ```
 
-1. Add another private property to indicate whether push notifications are being supported on the current device.
-
-    ```csharp
-    bool NotificationsSupported
-        => UIDevice.CurrentDevice.CheckSystemVersion(SupportedVersionMajor, SupportedVersionMinor);
+    IDeviceInstallationService DeviceInstallationService
+        => _deviceInstallationService ??
+            (_deviceInstallationService =
+            ServiceContainer.Resolve<IDeviceInstallationService>());
     ```
 
 1. Add the **RegisterForRemoteNotifications** method to register user notification settings and then for remote notifications with **APNS**.
@@ -165,26 +181,24 @@
     }
     ```
 
-1. Add the **CompleteRegistrationAsync** method to store the **deviceToken** value in the corresponding **_deviceToken** backing field. Refresh the registration and cache the device token if it has been updated since it was last stored.
+1. Add the **CompleteRegistrationAsync** method to set the `IDeviceInstallationService.Token` property value. Refresh the registration and cache the device token if it has been updated since it was last stored.
 
     ```csharp
     async Task CompleteRegistrationAsync(NSData deviceToken)
     {
-        _deviceToken = deviceToken;
+        DeviceInstallationService.Token = deviceToken.ToHexString();
 
         var cachedToken = await SecureStorage.GetAsync(CachedDeviceToken)
             .ConfigureAwait(false);
 
-        var tokenHash = _deviceToken?.Description?.GetHashCode().ToString();
-
         if (!string.IsNullOrWhiteSpace(cachedToken) &&
-            cachedToken.Equals(tokenHash))
+            cachedToken.Equals(DeviceInstallationService.Token))
             return;
 
         await NotificationRegistrationService.RefreshRegistrationAsync()
             .ConfigureAwait(false);
 
-        await SecureStorage.SetAsync(CachedDeviceToken, tokenHash)
+        await SecureStorage.SetAsync(CachedDeviceToken, DeviceInstallationService.Token)
             .ConfigureAwait(false);
     }
     ```
@@ -208,21 +222,6 @@
         {
             Debug.WriteLine(ex.Message);
         }
-    }
-    ```
-
-1. Add the **GetNotificationsSupportError** method to prepare the appropriate exception message when notifications aren't supported.
-
-    ```csharp
-    string GetNotificationsSupportError()
-    {
-        if (!NotificationsSupported)
-            return $"This app only supports notifications on iOS {SupportedVersionMajor}.{SupportedVersionMinor} and above. You are running {UIDevice.CurrentDevice.SystemVersion}.";
-
-        if (_deviceToken == null)
-            return $"This app can support notifications but you must enable this in your settings.";
-
-        return "An error occurred preventing the use of push notifications";
     }
     ```
 
@@ -257,10 +256,16 @@
     > [!NOTE]
     > This is very much a placeholder. You will want to implement proper logging and error handling for production scenarios.
 
-1. Update the **FinishedLaunching** method to conditionally request authorization and register for remote notifications after `Forms.Init()`. Then, call `Bootstrap.Begin` before the call to **LoadApplication** passing in the requisite **Func** dependencies to the **DeviceInstallationService**.
+1. Update the **FinishedLaunching** method to call `Bootstrap.Begin` right after the call to `Forms.Init` passing in the platform-specific implementation of **IDeviceInstallationService**.
 
     ```csharp
-    if (NotificationsSupported)
+    Bootstrap.Begin(() => new DeviceInstallationService());
+    ```
+
+1. In the same method, conditionally request authorization and register for remote notifications immediately after `Bootstrap.Begin`.
+
+    ```csharp
+    if (DeviceInstallationService.NotificationsSupported)
     {
         UNUserNotificationCenter.Current.RequestAuthorization(
                 UNAuthorizationOptions.Alert |
@@ -272,14 +277,9 @@
                         RegisterForRemoteNotifications();
                 });
     }
-
-    Bootstrap.Begin(() => new DeviceInstallationService(
-        () => _deviceToken,
-        () => NotificationsSupported,
-        () => GetNotificationsSupportError()));
     ```
 
-1. Update the **FinishedLaunching** method again to call **ProcessNotificationActions** immediately after the call to **LoadApplication** if the **options** argument contains the **UIApplication.LaunchOptionsRemoteNotificationKey**.
+1. Still in **FinishedLaunching**, call **ProcessNotificationActions** immediately after the call to `LoadApplication` if the **options** argument contains the **UIApplication.LaunchOptionsRemoteNotificationKey** passing in the resulting **userInfo** object.
 
     ```csharp
     using (var userInfo = options?.ObjectForKey(
