@@ -18,16 +18,6 @@ ms.date: 06/30/2020
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-* **Azure CLI**: The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. For more information, see [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
-
-* **Azure PowerShell**: Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview) and [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps).
-
-* **Azure REST API**: Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. To work with Azure Logic Apps, see the following topics:<p>
-
-  * [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
-  * [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) to create and manage Azure resources in general
-  * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) to create and manage logic apps
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
@@ -36,15 +26,13 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ### Review the template
 
-This quickstart uses the [Create a logic app](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates). The template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](https://docs.microsoft.com/azure/connectors/apis-list#connector-types), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
+This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the template's ["azuredeploy.json file"](https://azure.microsoft.com/resources/templates/101-logic-app-create/azuredeploy.json) in the templates gallery.
+
+The template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](https://docs.microsoft.com/azure/connectors/apis-list#connector-types), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
 
 This template creates the following Azure resource:
 
 * [**Microsoft.Logic/workflows**](https://docs.microsoft.com/azure/templates/microsoft.logic/workflows), which creates the workflow for a logic app.
-
-To view the template's azuredeploy.json file  in the templates gallery, see [azuredeploy.json](https://azure.microsoft.com/resources/templates/101-logic-app-create/azuredeploy.json), or review the template here:
-
-:::code language="json" source="~/quickstart-templates/101-logic-app-create/azuredeploy.json" range="1-150" highlight="107-148":::
 
 To find more template samples for Azure Logic Apps, review the [Microsoft.Logic](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic) templates in the gallery.
 
@@ -61,17 +49,43 @@ To deploy the template, you can use any of these options:
 
 #### Azure portal
 
-If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button below, which prompts you to sign in with your Azure account and opens the template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
 
-1. Select the following image to sign in to Azure and open the template.
+1. Select the following image to sign in with your Azure account and open the template in the Azure portal:
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)
+
+1. In the portal, on the **Create a logic app using a template** page, enter or select these values:
+
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | **Subscription** | <*Azure-subscription-name*> | The name for the Azure subscription to use |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for a new or existing Azure resource group. This example uses `Check-Azure-Status-RG`. |
+   | **Region** | <*Azure-region*> | The Azure datacenter region to use your logic app. This example uses `West US`. |
+   | **Logic App Name** | <*logic-app-name*> | The name to use for your logic app. This example uses `Check-Azure-Status`. |
+   | **Test Uri** | <*test-URI*> | The URI for the service to call based on a specific schedule. This example uses `https://status.azure.com`, which is the Azure status page. |
+   | **Location** |  <*Azure-region-for-all-resources*> | The Azure region to use for all resources, if different from the default value. This example uses the default value, `[resourceGroup().location]`, which is the resource group location. |
+   ||||
+
+1. 
 
 <a name="deploy-azure-cli"></a>
 
 #### [CLI](#tab/CLI)
 
+The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. For more information, see [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest) and [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+
 To run `az deployment group create`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`. For more information, see [**az deployment group**](https://docs.microsoft.com/cli/azure/deployment/group) and [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
+
+
+* **Azure PowerShell**: Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview) and [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps).
+
+* **Azure REST API**: Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. To work with Azure Logic Apps, see the following topics:<p>
+
+  * [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
+  * [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/) to create and manage Azure resources in general
+  * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/) to create and manage logic apps
+
 
 ```azurecli-interactive
 read -p "Enter a project name to use for generating resource names:" projectName &&
