@@ -20,9 +20,15 @@ ms.service: azure-project-spool
 In this quickstart, you'll learn how to implement a token provisioning service so that your client applications can fetch user access tokens.
 
 ### Prerequisites
+
 - An active Azure Communication Services resource. [This quickstart](./get-started.md) shows you how to create and manage your first resource.
+
 
 ### Configure Your Server
 
-1. TODO
+- fetch connection string from ACS resource
+- place in app - either appsettings.json, app.config, web.config, etc
+- create an API endpoint for your token provisioning
+- 
+
 
