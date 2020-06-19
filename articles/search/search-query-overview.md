@@ -12,7 +12,7 @@ ms.date: 06/22/2020
 ---
 # Query types and composition in Azure Cognitive Search
 
-In Azure Cognitive Search, a query is a full specification of a round-trip operation. On the request, there are parameters that provide execution instructions for the engine, as well as parameters that shape the response coming back. Unspecified (`search=*`), a query that uses null or default values runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+In Azure Cognitive Search, a query is a full specification of a round-trip operation. On the request, there are parameters that provide execution instructions for the engine, as well as parameters that shape the response coming back. Unspecified (`search=*`), a query that uses null or default parameters runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
 The following example is a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters so that you can get an idea of what a query looks like.
 
