@@ -164,31 +164,31 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
 
     :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
 
-2. Open the `config.js` file. 
+1. Open the `config.js` file. 
 
-3. Paste the CONTACT POINT value from the portal over `<FillMEIN>` on line 4.
+1. Paste the CONTACT POINT value from the portal over `<FillMEIN>` on line 4.
 
     Line 4 should now look similar to 
 
     `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
-4. Copy the USERNAME value from the portal and paste it over `<FillMEIN>` on line 2.
+1. Copy the USERNAME value from the portal and paste it over `<FillMEIN>` on line 2.
 
     Line 2 should now look similar to 
 
     `config.username = 'cosmos-db-quickstart';`
     
-5. Copy the PASSWORD value from the portal and paste it over `<FillMEIN>` on line 3.
+1. Copy the PASSWORD value from the portal and paste it over `<FillMEIN>` on line 3.
 
     Line 3 should now look similar to
 
     `config.password = '2Ggkr662ifxz2Mg==';`
 
-6. Save the `config.js` file.
+1. Save the `config.js` file.
     
 ## Use the X509 certificate
 
