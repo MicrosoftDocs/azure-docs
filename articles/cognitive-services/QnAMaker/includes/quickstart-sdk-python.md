@@ -47,7 +47,7 @@ Create variables for your resource's Azure endpoint and key.
 
 > [!IMPORTANT]
 > Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
-> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is `https://YOUR-RESOURCE-NAME..cognitiveservices.azure.com`.
+> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`.
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure key storage.
 
 [!code-python[Resource variables](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=Resourcevariables)]
@@ -170,10 +170,3 @@ python quickstart-file.py
 ```
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/quickstart.py).
-
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
