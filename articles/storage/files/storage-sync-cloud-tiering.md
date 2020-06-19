@@ -140,6 +140,10 @@ Windows File Explorer exposes two properties to represent the size of a file: **
 
 <a id="afs-force-tiering"></a>
 ### How do I force a file or directory to be tiered?
+
+> [!NOTE]
+> When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+
 When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
 
 ```powershell
