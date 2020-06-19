@@ -1,6 +1,6 @@
 ---
-title:  StylesObject for Dynamic Maps | Microsoft Azure Maps
-description: Reference guide to the JSON schema and syntax for the StylesObject used in creating Dynamic Maps.
+title:  StylesObject for Dynamic Maps
+description: Reference guide to the JSON schema and syntax for the StylesObject used in creating in dynamic Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/19/2020
