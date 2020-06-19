@@ -8,19 +8,19 @@ ms.date: 06/19/2020
 ms.author: mjbrown
 
 ---
-# Deploy Azure Cosmos DB and Azure App Service with a web app from Git Hub using an Azure Resource Manager Template
+# Deploy Azure Cosmos DB and Azure App Service with a web app from GitHub using an Azure Resource Manager Template
 
-This tutorial shows you how to do a "no touch" deployment of a web application that connects to Azure Cosmos DB on first run without having to cut and paste any connection information from Cosmos DB to `appsettings.json` or to Azure App Services Application Settings in the Azure Portal. This can all be accomplished using an Azure Resource Manager template in a single operation. In the example here we will deploy the [Cosmos DB To Do Sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) from our [Web App Tutorial](sql-api-dotnet-application.md).
+This tutorial shows you how to do a "no touch" deployment of a web application that connects to Azure Cosmos DB on first run without having to cut and paste any connection information from Azure Cosmos DB to `appsettings.json` or to the Azure App Services application settings in the Azure portal. All these actions are accomplished using an Azure Resource Manager template in a single operation. In the example here we will deploy the [Azure Cosmos DB ToDo sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) from a [Web app tutorial](sql-api-dotnet-application.md).
 
-Azure Resource Manager templates, are quite flexible and allow you to compose complex deployments across any service in Azure. This includes advanced tasks such as deploying applications from GitHub and injecting connection information into Azure App Service's Application Settings in the Azure Portal. This tutorial will show you how to do the following things using a single Azure Resource Manager template.
+Resource Manager templates, are quite flexible and allow you to compose complex deployments across any service in Azure. This includes advanced tasks such as deploying applications from GitHub and injecting connection information into Azure App Service's application settings in the Azure portal. This tutorial will show you how to do the following things using a single Resource Manager template.
 
 * Deploy an Azure Cosmos DB account.
 * Deploy an Azure App Service Hosting Plan.
 * Deploy an Azure App Service.
-* Inject the endpoint and keys from the Cosmos DB account into the App Service Application Settings in the Azure Portal.
+* Inject the endpoint and keys from the Azure Cosmos account into the App Service application settings in the Azure Portal.
 * Deploy a web application from a GitHub repository to the App Service.
 
-The resulting deployment will have a fully functional web application that can connect to Cosmos DB without ever having to cut and paste the Cosmos DB endpoint uri or authentication keys from the Azure Portal.
+The resulting deployment has a fully functional web application that can connect to Azure Cosmos DB without having to cut and paste the Azure Cosmos DB's endpoint URL or authentication keys from the Azure portal.
 
 ## Prerequisites
 
@@ -29,25 +29,25 @@ The resulting deployment will have a fully functional web application that can c
 
 ## Step 1: Deploy the template
 
-First, click the **Deploy to Azure** button below to open the Azure portal to create a custom deployment. You can also view the Azure Resource Management template from the [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+First, select the **Deploy to Azure** button below to open the Azure portal to create a custom deployment. You can also view the Azure Resource Management template from the [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
 
-Once in the Azure Portal you will need to select the subscription to deploy into and select or create a new resource group. Then fill in the following values.
+Once in the Azure Portal, select the subscription to deploy into and select or create a new resource group. Then fill in the following values.
 
 ![Screenshot of the template deployment UI](./media/create-website/template-deployment.png)
 
-* **Region** - This is required by ARM. Enter the same region used by Location where your resources will be located.
-* **Application Name** - This name will be used by all the resources for this deployment. Make sure to choose a unique name to avoid conflicts with existing Cosmos DB and App Service accounts.
-* **Location** - The region where your resources will be deployed.
+* **Region** - This is required by the Resource Manager. Enter the same region used by the location parameter where your resources are located.
+* **Application Name** - This name is used by all the resources for this deployment. Make sure to choose a unique name to avoid conflicts with existing Azure Cosmos DB and App Service accounts.
+* **Location** - The region where your resources are deployed.
 * **App Service Plan Tier** - App Service Plan's pricing tier.
 * **App Service Plan Instances** - The number of workers for the app service plan.
-* **Repository URL** - The repository to the web application on Git Hub.
+* **Repository URL** - The repository to the web application on GitHub.
 * **Branch** - The branch for the GitHub repository.
-* **Database Name** - The Cosmos DB database name.
-* **Container Name** - The Cosmos DB container name.
+* **Database Name** - The Azure Cosmos database name.
+* **Container Name** - The Azure Cosmos container name.
 
-After filling in the values, click the Create button to start the deployment. This step should take between 5 and 10 minutes to complete.
+After filling in the values, select the **Create** button to start the deployment. This step should take between 5 and 10 minutes to complete.
 
 > [!TIP]
 > The template does not validate that the Azure App Service name and Azure Cosmos DB account name entered in the template are valid and available. It is highly recommended that you verify the availability of the names you plan to supply prior to submitting the deployment.
@@ -57,17 +57,17 @@ After filling in the values, click the Create button to start the deployment. Th
 
 ### View the deployed resources
 
-Once the template has completed deploying the resources, you can now see each of them in your resource group.
+After the template has deployed the resources, you can now see each of them in your resource group.
 
 ![Resource Group](./media/create-website/resource-group.png)
 
 ### View Cosmos DB endpoint and keys
 
-Next, open the Cosmos DB account in the portal. Below you can see the endpoint and keys for this Cosmos DB account.
+Next, open the Azure Cosmos DB account in the portal. The following screenshot shows the endpoint and keys for an Azure Cosmos DB account.
 
 ![Cosmos Keys](./media/create-website/cosmos-keys.png)
 
-### View Cosmos DB keys in Application Settings
+### View the Azure Cosmos DB keys in application settings
 
 Next, navigate to the Azure App Service in the resource group. Click the Configuration tab to view the Application Settings for the App Service. The Application Settings contains the Cosmos DB account and primary key values necessary to connect to Cosmos DB as well as the database and container names that were passed in from the template deployment.
 
