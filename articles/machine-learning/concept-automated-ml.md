@@ -268,31 +268,12 @@ The ONNX runtime also supports C#, so you can use the model built automatically 
 
 There are multiple resources to get you up and running with AutoML. 
 
-Take a look at these tutorials for end-to-end introductory examples of AutoML scenarios. 
-
-* **For a code first experience**, follow the [Tutorial: Automatically train a regression model with Azure Machine Learning Python SDK](tutorial-auto-train-models.md).
-
-* **For a low or no-code experience**, see the 
-[Tutorial: Create automated ML classification models with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
-
-There are also how-to's that provide additional detail into what functionality AuotML offers. For example, 
-
-* Configure the settings for automatic training experiment:
-  * In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
-  * With the Python SDK, [use these steps](how-to-configure-auto-train.md).
-
-* Learn how to auto train using time series data, [with these steps](how-to-auto-train-forecast.md).
-
-Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/) for detailed code examples and use cases.
-
-For SDK design patterns, see the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
-
-|Content type| Description| Examples
+|Content&nbsp;type| Description| Examples
 |----|----|----|
-|Tutorials| End-to-end introductory examples of AutoML scenarios. | <li> **For a code first experience**, follow the [Tutorial: Automatically train a regression model with Azure Machine Learning Python SDK](tutorial-auto-train-models.md).<li> **For a low or no-code experience**, see the [Tutorial: Create automated ML classification models with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
+|Tutorials| End-to-end introductory examples of AutoML scenarios. | **For a code first experience**, follow the [Tutorial: Automatically train a regression model with Azure Machine Learning Python SDK](tutorial-auto-train-models.md).<br> <br>**For a low or no-code experience**, see the [Tutorial: Create automated ML classification models with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 |How-to|  Provide additional detail into what functionality AuotML offers.| Configure the settings for automatic training experiment: <li> In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md). <li>With the Python SDK, [use these steps](how-to-configure-auto-train.md). <br> <br> Learn how to auto train using time series data, [with these steps](how-to-auto-train-forecast.md).
-|Jupyter notebook samples| Detailed code examples and use cases.|[Notebook repository for  automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-|Python SDK reference | SDK design patterns and class specifications| [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+|Jupyter notebook samples| Detailed code examples and use cases.|[Notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
+|Python&nbsp;SDK&nbsp;reference | Deepen your expertise of SDK design patterns and class specifications| [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
 ## Next steps
 
 See examples and learn how to build models using automated machine learning:
