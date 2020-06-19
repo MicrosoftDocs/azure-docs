@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in 15
 > * Remove users in 15Five when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and 15Five
 > * Provision groups and group memberships in 15Five
-> * [Single sign-on](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/15five-tutorial) to 15Five (recommended)
+> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/15five-tutorial) to 15Five (recommended)
 
 ## Prerequisites
 
