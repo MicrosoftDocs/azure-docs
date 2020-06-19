@@ -208,13 +208,14 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 ### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
 
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
-1) Route Origin 
-	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
-	b) Hub RouteTable (statically configured routes)
-	c) BGP
-	d) InterHub routes
-2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
-3)	AS path length
+1. Longest prefix match
+2. Local routes over interhub
+3. Static routes over BGP
+4. ExpressRoute (ER) over VPN
+5. AS path length
+
+Transit between ER to ER is always via Global reach due to which if the request comes in via ER in one hub and there is a VPN and ER in a remote hub, VPN will be preferred over ER from a remote hub to reach an end point connected via VPN or ER in the remote hub
+
 
 ### Is there support for IPv6 in Virtual WAN?
 

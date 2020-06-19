@@ -136,7 +136,7 @@ The response should look similar to the following:
     }
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Additional information about the response can be found in [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
@@ -228,6 +228,27 @@ To use a high water mark policy, create or update your data source like this:
 >
 >
 
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### convertHighWaterMarkToRowVersion
+
+If you're using a [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column, consider using the `convertHighWaterMarkToRowVersion` indexer configuration setting. `convertHighWaterMarkToRowVersion` does two things:
+
+* Use the rowversion data type for the high water mark column in the indexer sql query. Using the correct data type improves indexer query performance.
+* Subtract 1 from the rowversion value before the indexer query runs. Views with 1 to many joins may have rows with duplicate rowversion values. Subtracting 1 ensures the indexer query doesn't miss these rows.
+
+To enable this feature, create or update the indexer with the following configuration:
+
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+
+<a name="queryTimeout"></a>
+
+##### queryTimeout
+
 If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
 
     {
@@ -235,6 +256,10 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### disableOrderByHighWaterMarkColumn
 
 You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 

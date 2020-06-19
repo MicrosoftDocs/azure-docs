@@ -248,11 +248,11 @@ For more information about trigger and action parameters, see these sections:
 
 Here is more information about the outputs from an HTTP trigger or action, which returns this information:
 
-| Property name | Type | Description |
-|---------------|------|-------------|
-| headers | object | The headers from the request |
-| body | object | JSON object | The object with the body content from the request |
-| status code | int | The status code from the request |
+| Property | Type | Description |
+|----------|------|-------------|
+| `headers` | JSON object | The headers from the request |
+| `body` | JSON object | The object with the body content from the request |
+| `status code` | Integer | The status code from the request |
 |||
 
 | Status code | Description |

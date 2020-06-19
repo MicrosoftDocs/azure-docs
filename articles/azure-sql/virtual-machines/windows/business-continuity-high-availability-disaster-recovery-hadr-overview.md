@@ -4,7 +4,6 @@ description: A discussion of the various types of HADR strategies for SQL Server
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 

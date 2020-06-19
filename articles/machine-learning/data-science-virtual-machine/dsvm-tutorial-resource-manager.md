@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Create a Data Science VM - Resource Manager template
+title: 'Quickstart: Create a Data Science VM - Resource Manager template'
 titleSuffix: Azure Data Science Virtual Machine 
-description: In this tutorial, you use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
+description: In this quickstart, you use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
 services: machine-learning
 author: lobrien
 ms.author: laobri
@@ -9,13 +9,13 @@ ms.custom: subject-armqs
 ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.topic: tutorial
+ms.topic: quickstart
 ---
 
-# Tutorial: Create an Ubuntu Data Science Virtual Machine using a Resource Manager template
+# Quickstart: Create an Ubuntu Data Science Virtual Machine using a Resource Manager template
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template. Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU. 
+This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template. Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU. 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -89,7 +89,7 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-In this tutorial, you created a Data Science Virtual Machine from an Azure Resource Manager template. 
+In this quickstart, you created a Data Science Virtual Machine from an Azure Resource Manager template. 
 
 > [!div class="nextstepaction"]
 > [Sample programs & ML walkthroughs](dsvm-samples-and-walkthroughs.md)

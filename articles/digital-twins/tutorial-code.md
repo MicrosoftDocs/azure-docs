@@ -8,6 +8,7 @@ ms.author: cschorm # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Coding with the Azure Digital Twins APIs
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
 
@@ -101,8 +104,8 @@ The first thing your app will need to do is authenticate against the Azure Digit
 
 In order to authenticate, you need three pieces of information:
 * The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the service instance earlier
-* The *hostName* of your service instance
+* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
+* The *hostName* of your Azure Digital Twins instance
 
 >[!TIP]
 > If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):

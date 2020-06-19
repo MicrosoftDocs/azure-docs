@@ -38,7 +38,7 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 ## Next steps
 
-- [Azure Key Vault overview](overview.md))
+- [Azure Key Vault overview](overview.md)
 - [Azure Event Grid overview](../../event-grid/overview.md)
 - How to: [Route Key Vault Events to Automation Runbook (preview)](event-grid-tutorial.md).
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
