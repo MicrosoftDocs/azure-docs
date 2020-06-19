@@ -45,11 +45,11 @@ Now let's deploy your first template.
 > 
 
 1. Login to the [Azure Portal](https://portal.azure.com), click New and search for "Template deployment".
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment1.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment1.png" alt-text="Screenshot of the template deployment UI":::
 2. Select the Template deployment item and click **Create**
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment2.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment2.png" alt-text="Screenshot of the template deployment UI":::
 3. Click **Edit template**, paste the contents of the DocDBWebsiteTodo.json template file, and click **Save**.
-   ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment3.png)
+   :::image type="content" source="./media/create-website/TemplateDeployment3.png" alt-text="Screenshot of the template deployment UI":::
 4. Click **Edit parameters**, provide values for each of the mandatory parameters, and click **OK**.  The parameters are as follows:
    
    1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you use to access the web app (for example, if you specify "mydemodocdbwebapp", then the URL by which you access the web app is `mydemodocdbwebapp.azurewebsites.net`).
@@ -57,17 +57,17 @@ Now let's deploy your first template.
    3. LOCATION: Specifies the Azure location in which to create the Azure Cosmos DB and web app resources.
    4. DATABASEACCOUNTNAME: Specifies the name of the Azure Cosmos DB account to create.   
       
-      ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment4.png)
+      :::image type="content" source="./media/create-website/TemplateDeployment4.png" alt-text="Screenshot of the template deployment UI":::
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment5.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment5.png" alt-text="Screenshot of the template deployment UI":::
 6. Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
-   ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment6.png)
+   :::image type="content" source="./media/create-website/TemplateDeployment6.png" alt-text="Screenshot of the template deployment UI":::
 7. When the deployment finishes, the Resource group pane opens.
-   ![Screenshot of the resource group pane](./media/create-website/TemplateDeployment7.png)  
+   :::image type="content" source="./media/create-website/TemplateDeployment7.png" alt-text="Screenshot of the resource group pane":::  
 8. To use the application, navigate to the web app URL (in the example above, the URL would be `http://mydemodocdbwebapp.azurewebsites.net`).  You'll see the following web application:
    
-   ![Sample Todo application](./media/create-website/image2.png)
+   :::image type="content" source="./media/create-website/image2.png" alt-text="Sample Todo application":::
 9. Go ahead and create a couple of tasks in the web app and then return to the Resource group pane in the Azure portal. Click the Azure Cosmos DB account resource in the Resources list and then click **Data Explorer**.
 10. Run the default query, "SELECT * FROM c" and inspect the results.  Notice that the query has retrieved the JSON representation of the todo items you created in step 7 above.  Feel free to experiment with queries; for example, try running SELECT * FROM c WHERE c.isComplete = true to return all todo items that have been marked as complete.
 11. Feel free to explore the Azure Cosmos DB portal experience or modify the sample Todo application.  When you're ready, let's deploy another template.
@@ -83,11 +83,11 @@ Now let's deploy your second template.  This template is useful to show how you 
 > 
 
 1. In the [Azure Portal](https://portal.azure.com), click New and search for "Template deployment".
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment1.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment1.png" alt-text="Screenshot of the template deployment UI":::
 2. Select the Template deployment item and click **Create**
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment2.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment2.png" alt-text="Screenshot of the template deployment UI":::
 3. Click **Edit template**, paste the contents of the DocDBWebSite.json template file, and click **Save**.
-   ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment3.png)
+   :::image type="content" source="./media/create-website/TemplateDeployment3.png" alt-text="Screenshot of the template deployment UI":::
 4. Click **Edit parameters**, provide values for each of the mandatory parameters, and click **OK**.  The parameters are as follows:
    
    1. SITENAME: Specifies the App Service web app name and is used to construct the URL that you will use to access the web app (for example, if you specify "mydemodocdbwebapp", then the URL by which you access the web app is mydemodocdbwebapp.azurewebsites.net).
@@ -95,19 +95,19 @@ Now let's deploy your second template.  This template is useful to show how you 
    3. LOCATION: Specifies the Azure location in which to create the Azure Cosmos DB and web app resources.
    4. DATABASEACCOUNTNAME: Specifies the name of the Azure Cosmos DB account to create.   
       
-      ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment4.png)
+      :::image type="content" source="./media/create-website/TemplateDeployment4.png" alt-text="Screenshot of the template deployment UI":::
 5. Choose an existing Resource group or provide a name to make a new resource group, and choose a location for the resource group.
 
-    ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment5.png)
+    :::image type="content" source="./media/create-website/TemplateDeployment5.png" alt-text="Screenshot of the template deployment UI":::
 6. Click **Review legal terms**, **Purchase**, and then click **Create** to begin the deployment.  Select **Pin to dashboard** so the resulting deployment is easily visible on your Azure portal home page.
-   ![Screenshot of the template deployment UI](./media/create-website/TemplateDeployment6.png)
+   :::image type="content" source="./media/create-website/TemplateDeployment6.png" alt-text="Screenshot of the template deployment UI":::
 7. When the deployment finishes, the Resource group pane opens.
-   ![Screenshot of the resource group pane](./media/create-website/TemplateDeployment7.png)  
+   :::image type="content" source="./media/create-website/TemplateDeployment7.png" alt-text="Screenshot of the resource group pane":::  
 8. Click the Web App resource in the Resources list and then click **Application settings**
-    ![Screenshot of the resource group](./media/create-website/TemplateDeployment9.png)  
+    :::image type="content" source="./media/create-website/TemplateDeployment9.png" alt-text="Screenshot of the resource group":::  
 9. Note how there are application settings present for the Azure Cosmos DB endpoint and each of the Azure Cosmos DB master keys.
 
-    ![Screenshot of application settings](./media/create-website/TemplateDeployment10.png)  
+    :::image type="content" source="./media/create-website/TemplateDeployment10.png" alt-text="Screenshot of application settings":::  
 10. Feel free to continue exploring the Azure Portal, or follow one of our Azure Cosmos DB [samples](https://go.microsoft.com/fwlink/?LinkID=402386) to create your own Azure Cosmos DB application.
 
 <a name="NextSteps"></a>

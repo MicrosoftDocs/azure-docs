@@ -10,7 +10,7 @@
     href: advisor-get-started.md
 - name: How-to guides
   items:
-  - name: Improve availability of Azure application
+  - name: Improve reliability of Azure application
     href: advisor-high-availability-recommendations.md
   - name: Make resources more secure
     href: advisor-security-recommendations.md

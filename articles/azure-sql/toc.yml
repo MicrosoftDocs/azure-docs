@@ -993,9 +993,12 @@
         - name: Licensing model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
+        - name: Edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Version
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Azure Storage for backup & restore
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate

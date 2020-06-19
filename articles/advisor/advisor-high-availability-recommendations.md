@@ -1,14 +1,14 @@
 ---
-title: Improve availability of your application with Azure Advisor
-description: Use Azure Advisor to improve high availability of your Azure deployments.
+title: Improve reliability of your application with Azure Advisor
+description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
 ms.date: 01/29/2019
 
 ---
 
-# Improve availability of your application with Azure Advisor
+# Improve reliability of your application with Azure Advisor
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get high availability recommendations by Advisor from the **High Availability** tab of the Advisor dashboard.
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations by Advisor from the **Reliability** tab of the Advisor dashboard.
 
 ## Ensure virtual machine fault tolerance
 
