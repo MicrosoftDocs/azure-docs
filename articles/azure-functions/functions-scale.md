@@ -52,7 +52,7 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 * More predictable pricing
 * High-density app allocation for plans with multiple function apps
 
-Information on how you can configure these options can be found in the [Azure Functions Premium plan document](functions-premium-plan.md).
+To learn how you can create a function app in a Premium plan, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there's a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
