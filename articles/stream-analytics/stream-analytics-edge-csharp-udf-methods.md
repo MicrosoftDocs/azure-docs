@@ -178,7 +178,7 @@ The UDF preview currently has the following limitations:
 
 * .NET Standard UDFs can only be authored in Visual Studio and published to Azure. Read-only versions of .NET Standard UDFs can be viewed under **Functions** in the Azure portal. Authoring of .NET Standard functions is not supported in the Azure portal.
 
-* The Azure portal query editor shows an error when using .NET Standard UDF in the portal. 
+* The Azure portal query editor shows the error *"Function 'myfunction' is unknown"* when using .NET Standard UDF in the portal.
 
 * Because the custom code shares context with Azure Stream Analytics engine, custom code can't reference anything that has a conflicting namespace/dll_name with Azure Stream Analytics code. For example, you can't reference *Newtonsoft Json*.
 
