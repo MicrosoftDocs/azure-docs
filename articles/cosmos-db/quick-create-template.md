@@ -106,7 +106,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent and tutorials, you may wish to leave these resources in place.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place.
 When no longer needed, delete the resource group, which deletes the Azure Cosmos account and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
 
 # [CLI](#tab/CLI)
