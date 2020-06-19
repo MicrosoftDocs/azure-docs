@@ -58,9 +58,9 @@
   items:
   - name: Administrator guide
     href: administrator-guide.md
-  - name: Accelerated lab account set up guide
+  - name: Accelerated lab account setup guide
     href: account-setup-guide.md
-  - name: Accelerated lab set up guide
+  - name: Accelerated lab setup guide
     href: setup-guide.md
   - name: Create and configure lab accounts (lab account owner)
     items:
