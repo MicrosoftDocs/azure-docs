@@ -11,7 +11,7 @@ ms.date: 03/11/2020
 
 # What is Azure Monitor for VMs?
 
-Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. The following key features deliver in-depth insight:
+Azure Monitor for VMs monitors your Azure virtual machines (VM), virtual machine scale sets, and Azure Arc for servers at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. The following key features deliver in-depth insight:
 
 - **Pre-defined trending performance charts**: Display core performance metrics from the guest VM operating system.
 

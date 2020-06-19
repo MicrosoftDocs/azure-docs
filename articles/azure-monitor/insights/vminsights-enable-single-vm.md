@@ -9,11 +9,13 @@ ms.date: 03/12/2020
 
 ---
 
-# Enable Azure Monitor for VMs in the Azure portal
+# Enable Azure Monitor for VM or VMSS in the Azure portal
+This article describes how to use the Azure portal to enable Azure Monitor for VMs on a single Azure virtual machine, hybrid virtual machine managed by Azure Arc, or an Azure virtual machine scale set.
 
-This article describes how to enable Azure Monitor for VMs on a small number of Azure virtual machines (VMs) using the Azure portal. Your goal is to monitor your VMs and discover any performance or availability issues. 
-
+## Prerequisites
 Before you begin, review the [prerequisites](vminsights-enable-overview.md) and make sure your subscription and resources meet the requirements.  
+
+
 
 ## Enable monitoring for a single Azure VM
 To enable monitoring of your Azure VM:
