@@ -1,6 +1,6 @@
 ---
 title: Reduce service costs using Azure Advisor
-description: Use Azure Advisor to optimize the cost of your Azure deployments by identifying idle and underutilized resources.
+description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
 ms.date: 01/29/2019
 
@@ -14,7 +14,7 @@ Azure Advisor helps you optimize and reduce your overall Azure spend by identify
 
 Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. 
 
-The recommended actions are shut down and resize, specific to the resource being evaluated.
+The recommended actions are shut down or resize, specific to the resource being evaluated.
 
 The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
 - P95th of the maximum of maximum value of CPU utilization is less than 3%. 
