@@ -71,15 +71,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 Once you're connected to the Data Box shares, the next step is to copy data.
 
-Before you begin the data copy:
-
-1. Download the *copy log* and the *verbose log*. 
-2. Review the *verbose log*. The *verbose log* contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
-
-3. Review the *copy log* for any errors. This log indicates the files that could not be copied due to errors. You have the following options to export those files: 
-
-    - You can transfer the files that could not be copied over the network. 
-    - If your data size was larger than the usable device capacity, then a partial copy occurs and all the files that were not copied are listed in this log. You can use this log as an input XML to create a new Data Box order and then copy over these files.
+[!INCLUDE [data-box-export-review-logs](../../includes/data-box-export-review-logs.md)]
 
  You can now begin data copy. If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -122,9 +114,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 > [!IMPORTANT]
 > The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
-Once the copy is complete, verify the used space and the free space on your device.
-
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+Once the copy is complete, go to the **Dashboard** and verify the used space and the free space on your device.
 
 You can now proceed to ship your Data Box to Microsoft.
 
