@@ -47,11 +47,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials 1](media/data-box-deploy-export-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get share credentials 1](media/data-box-deploy-export-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -90,7 +90,13 @@ Once you're connected to the Data Box shares, the next step is to copy data.
 
 Before you begin the data copy:
 
-1. Download the *copy log* and the *verbose log*. 
+1. Download the *copy log*. In the **Connect and copy** page, select **Copy log**. 
+
+
+    When prompted, save the log on your system. 
+
+    Repeat the steps to download the *verbose log*. 
+
 2. Review the *verbose log*. The *verbose log* contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
 
 3. Review the *copy log* for any errors. This log indicates the files that could not be copied due to errors. You have the following options to export those files: 
@@ -103,10 +109,7 @@ Before you begin the data copy:
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Once the copy is complete, verify the used space and the free space on your device.
-
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
-
+Once the copy is complete, go to the **Dashboard** and verify the used space and the free space on your device.
 
 You can now proceed to ship your Data Box to Microsoft.
 
