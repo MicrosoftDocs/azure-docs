@@ -118,7 +118,7 @@ The following procedure shows you how to create an alert on **dead-lettered even
         :::image type="content" source="./media/monitor-event-delivery/select-dead-lettered-events.png" alt-text="Select dead-lettered events":::        
     2. Select dimensions (optional). 
         
-        :::image type="content" source="./media/monitor-event-delivery/configure-singal-logic.png" alt-text="Configure signal logic":::        
+        :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Configure signal logic":::        
     3. Scroll down. In the **Alert logic** section, select an **Operator**, **Aggregation type**, and enter a **Threshold value**, and select **Done**. In this example, an alert is triggered when the total dead lettered events count is greater than 10. 
     
         :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Alert logic":::                

@@ -6,12 +6,12 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/18/2020
 ms.author: spelluru
 ---
 
 # Event delivery with a managed identity
-This article describes how to enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for an Azure Event Grid topic or domain. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
+This article describes how to enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for Azure Event Grid topics or domains. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 Here are the steps that are covered in detail in this article:
 1. Create a topic or domain with a system-assigned identity, or update an existing topic or domain to enable identity. 
