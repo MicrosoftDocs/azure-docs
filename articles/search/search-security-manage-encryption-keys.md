@@ -34,7 +34,7 @@ The following services are used in this example.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [.NET SDK preview](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
 
 >[!Note]
 > Due to the nature of the encryption with customer-managed keys feature, Azure Cognitive Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key Vault key deletions, you **must** enable Soft Delete and Purge Protection in Key Vault before it can be used. For more information, see [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

@@ -16,7 +16,7 @@ ms.date: 02/28/2020
 
 Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL database, sending it to a search index in Azure Cognitive Search. 
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database
