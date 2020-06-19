@@ -154,10 +154,6 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
-
-        - url: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
-          itemType: get-started
-          text: Distributed Tracing with Azure Monitor
           
       # footerLink (optional)
       footerLink:
