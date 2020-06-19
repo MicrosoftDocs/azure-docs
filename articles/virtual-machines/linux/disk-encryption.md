@@ -154,7 +154,7 @@ rgName=yourResourceGroupName
 diskName=yourDiskName
 diskEncryptionSetName=yourDiskEncryptionSetName
  
-az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetId
+az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCustomerKey --disk-encryption-set $diskEncryptionSetName
 ```
 
 #### Create a virtual machine scale set using a Marketplace image, encrypting the OS and data disks with customer-managed keys
