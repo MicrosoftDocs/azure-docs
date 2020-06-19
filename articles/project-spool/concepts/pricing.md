@@ -18,11 +18,12 @@ Azure Communication Services consumption plan is billed based on per-minute of V
 
 ## VOIP 
 
-| | Consumption plan | Rate |  
+| | Public Preview | Rate |  
 |-|:----------------:| :----------------:| 
-| Windows | Public Preview  |  TBD |
-| iOS |  Public Preview |  TBD |
-| Android | Public Preview | TBD |
+| 1:1 no TR | Pay-as-you-go  |  Free |
+| 1:1 w/TR |  Public Preview |  Based on MB used  |
+| 1:N no TR | Public Preview | Minutes per Participant |
+| 1:N w/TR | Public Preview | Minutes per Participant + MB used  |
 
 ###Estimating billing for VOIP
 
