@@ -35,7 +35,7 @@ For this reason, there is no need to create credentials or specify them in the c
 ## Prerequisites
 
 - Must be a member of **db_exporter** role in the database/SQL pool you want to transfer data to/from.
-- Must be a member of Storage Blob Data Contributor role on the storage.
+- Must be a member of Storage Blob Data Contributor role on the default storage account.
 
 To create users, connect to the SQL pool database, and follow these examples:
 
