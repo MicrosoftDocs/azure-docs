@@ -274,26 +274,6 @@ To enable a test drive, select the **Enable a test drive** check box on the [Off
 
 When you've finished setting up your test drive, select **Save draft** before continuing.
 
-### Test drive marketplace listings
-
-Use the **Marketplace listing** option under the **Test drive** tab to define details for the test drive experience.
-
-> [!NOTE]
-> You can provide test drive listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the test drive listing content.
-
-- **Description** (required) – Describe your test drive, what will be demonstrated, objectives for the user to experiment with, features to explore, and any relevant information to help the user determine whether to acquire your offer. Up to 3,000 characters of text can be entered in this field.
-
-- **Access information** (required for Azure Resource Manager and Logic test drives) – Explain what a customer needs to know in order to access and use this test drive. Walk through a scenario for using your offer and exactly what the customer should know to access features throughout the test drive. Up to 10,000 characters of text can be entered in this field.
-
-- **User Manual** (required) – An in-depth walk-through of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
-
-- **Videos** (optional) – Upload videos to an external hosting site reference the link and thumbnail image (533 x 324 pixels) here. This allows customer to view a walk-through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
-  - **Name** (required)
-  - **Address** (required; YouTube or Vimeo only)
-  - **Thumbnail** image (image file must be in PNG format and 533 x 324 pixels)
-
-Select **Save draft** before continuing.
-
 ## Supplemental content
 
 This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
