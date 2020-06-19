@@ -16,7 +16,7 @@ ms.custom: tracking-python
 
 # Recipe: Intelligent Art Exploration with Cognitive Services on Spark
 
-In this example, we show how you can enrich data using Cognitive Sservices and write to an Azure Search Index using MMLSpark. We use a subset of The MET's open-access collection and enrich it by passing it through 'Describe Image'. The results are then written to a searchable index.
+In this example, we'll use Cognitive Services and write to an Azure Search Index, using MMLSpark. With a subset of The MET's open-access collection, the data will be enriched by passing it through 'Describe Image'. The results are written to a searchable index.
 
 ## Prerequisites
 
@@ -71,7 +71,7 @@ data = spark.read\
 
 ## Analyze the Images
 
-Run the following command to run Computer Vision on the images of the artworks from the MET's Open Access collection to get visual features from the artworks.
+Run the following command to use Computer Vision on the MET's Open Access artworks collection. As a result, you'll get visual features from the artworks.
 
 ```python
 from mmlspark.cognitive import AnalyzeImage
