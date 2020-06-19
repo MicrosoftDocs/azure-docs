@@ -6,7 +6,7 @@ ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 06/15/2020
 ---
 
 # Customer Dashboard in commercial marketplace analytics
@@ -94,6 +94,7 @@ The **Customer details** table displays a numbered list of the top 1000 customer
 - If records number is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
 - Filters can be applied to the table to display only the data that you are interested in. Data can be filtered by Company name, Customer ID, Marketplace Subscription ID, Azure License Type, Date Acquired, Date Lost, Customer Email, Customer Country/Region/State/City/Zip, Customer Language, and so on.
 - When an offer is purchased by a protected customer, information in **Customer Detailed Data** will be masked (************).
+- Customer dimension details such as Company Name, Customer Name, and Customer Email are at an organization ID level, not at Azure Marketplace or AppSource transaction level.
 
 ### Customer page filters
 
