@@ -19,7 +19,7 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 --- | ---
 **Assessment limits** | You can discover and assess up to 35,000 physical servers in a single [Azure Migrate project](migrate-support-matrix.md#azure-migrate-projects).
 **Project limits** | You can create multiple projects in an Azure subscription. In addition to physical servers, a project can include VMware VMs and Hyper-V VMs, up to the assessment limits for each.
-**Discovery** | The Azure Migrate appliance can discover up to 250 physical servers.
+**Discovery** | The Azure Migrate appliance can discover up to 1000 physical servers.
 **Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 machines in a single assessment.
 
 [Learn more](concepts-assessment-calculation.md) about assessments.
