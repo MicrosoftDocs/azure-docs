@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -80,6 +80,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<CUSTOMER_NAME>.smartkargo.com/`
+
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.smartkargo.com/`
 
@@ -87,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
