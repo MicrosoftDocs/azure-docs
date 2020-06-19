@@ -34,7 +34,7 @@ For more info, see the following articles:
 You use a general-purpose Azure Storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure Storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md) to create one. 
 
 #### Get the storage account name
-You will need the name of your Azure Storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
+You need the name of your Azure Storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
 2. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
@@ -52,7 +52,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
    ![List of containers](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
 #### Add an input folder and file for the blob container
-In this section, you create a folder named **input** in the container you just created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
+In this section, you create a folder named **input** in the container you created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
 
 ```emp.txt
 John, Doe
