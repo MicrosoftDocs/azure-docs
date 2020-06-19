@@ -60,7 +60,7 @@ To upgrade the version of SQL Server, obtain the SQL Server setup media for the 
 1. Start Setup.exe from the SQL Server installation media.
 1. The Installation Wizard starts the SQL Server Installation Center. To upgrade an existing instance of SQL Server, select **Installation** on the navigation pane, and then select **Upgrade from an earlier version of SQL Server**.
 
-   :::image type="content" source="./media/change-sql-server-version/version-upgrade.png" alt-text="Selection for upgrading the version of SQL Server":::
+   :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Selection for upgrading the version of SQL Server":::
 
 1. On the **Product Key** page, select an option to indicate whether you are upgrading to a free edition of SQL Server or you have a PID key for a production version of the product. For more information, see [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15?view=sql-server-ver15) and [Supported version and edition Upgrades (SQL Server 2016)](https://docs.microsoft.com/sql/database-engine/install-windows/supported-version-and-edition-upgrades?view=sql-server-ver15).
 1. Select **Next** until you reach the **Ready to upgrade** page, and then select **Upgrade**. The setup window might stop responding for several minutes while the change is taking effect. A **Complete** page will confirm that your upgrade is completed. For a step-by-step procedure to upgrade, see [the complete procedure](https://docs.microsoft.com/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup?view=sql-server-ver15#procedure).
@@ -69,7 +69,7 @@ To upgrade the version of SQL Server, obtain the SQL Server setup media for the 
 
 If you have changed the SQL Server edition in addition to changing the version, also update the edition, and refer to the **Verify Version and Edition in Portal** section to change the SQL VM instance.
 
-   :::image type="content" source="./media/change-sql-server-version/version-change-in-portal.png" alt-text="Change version metadata":::
+   :::image type="content" source="./media/change-sql-server-version/change-portal.png" alt-text="Change version metadata":::
 
 ## Downgrade the version of SQL Server
 
@@ -100,7 +100,7 @@ You can downgrade the version of SQL Server by following these steps:
 
 After you change the version of SQL Server, register your SQL Server VM with the [SQL VM resource provider](sql-vm-resource-provider-register.md) again so that you can use the Azure portal to view the version of SQL Server. The listed version number should now reflect the newly upgraded version and edition of your SQL Server installation.
 
-:::image type="content" source="./media/change-sql-server-version/verify-version-in-portal.png" alt-text="Verify version":::
+:::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
 > If you already have Resource Provider installed, [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and then [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
@@ -111,3 +111,12 @@ After you change the version of SQL Server, register your SQL Server VM with the
 - After SQL Server is updated on the VM, make sure that the **Edition** property of SQL Server in the Azure portal matches the installed edition number for billing.
 - The ability to [change the edition](change-sql-server-edition.md#change-edition-in-portal) is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will have to manually [register their SQL Server VM](sql-vm-resource-provider-register.md).
 - If you drop your SQL Server VM resource, the hard-coded edition setting of the image is restored.
+
+## Next steps
+
+For more information, see the following articles:
+
+- [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
+- [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+- [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
+- [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
