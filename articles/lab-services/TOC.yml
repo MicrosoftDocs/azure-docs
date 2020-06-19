@@ -26,8 +26,10 @@
     href: capacity-limits.md  
   - name: Scenarios
     items:  
-    - name: Use labs for conducting classes
+    - name: Use Lab Services for conducting classes
       href: classroom-labs-scenarios.md
+    - name: Use Lab Services for hackathon
+      href: hackathon-labs.md
     - name: Classroom labs - class types
       items:
       - name: Class types overview
