@@ -10,8 +10,9 @@ Before you begin the data copy:
 
 1. Download the *copy log*. In the **Connect and copy** page, select **Copy log**. When prompted, save the log on your system. 
 
-    ![Download copy log 1](media/data-box-deploy-export-copy-data/download-copy-log-1.png)
+    ![Download copy log 1](../articles/databox/media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
+  
     Repeat the steps to download the *verbose log*. 
 
 2. Review the *verbose log*. The *verbose log* contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
