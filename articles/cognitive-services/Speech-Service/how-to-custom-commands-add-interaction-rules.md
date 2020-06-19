@@ -1,22 +1,20 @@
 ---
 title: 'How to: Add a confirmation to a custom command'
 titleSuffix: Azure Cognitive Services
-description: In this article, how to implements confirmations for a command in Custom Commands.
+description: In this article, you learn how to implement confirmations for a command in Custom Commands.
 services: cognitive-services
 author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/18/2020
 ms.author: sausin
 ---
 
 # Add interaction rules
 
-In the previous articles, you learnt how to create and configure completion rules. In this article, you'll learn about **interaction rules**. These are additional rules to handle more specific or complex situations.
-
-While you're free to author your own custom interaction rules, in this article, you'll learn how to make use of interaction rules for following targeted scenarios:
+In this article, you learn about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
 
 1. Confirming commands
 1. Adding one step correction to commands
@@ -27,15 +25,12 @@ Go to [references](./custom-commands-references.md) section to learn more about 
 
 You must have completed the steps in the following articles:
 > [!div class="checklist"]
-> [!div class="checklist"]
 > * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 > * [How To: Add parameters to commands](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## Add confirmations to a command
 
-To demonstrate confirmations, you will be using the **SetTemperature** command. For achieving confirmation, you will be creating interaction rules.
-
-### Add interaction rules for confirmation
+To add a confirmation, use the **SetTemperature** command. For achieving confirmation, you create interaction rules using the following steps.
 
 1. Select **SetTemperature** command from the left pane.
 2. Add interaction rules by selecting **Add** in the middle pane and then selecting **Interaction rules** > **Confirm command**.
@@ -86,29 +81,25 @@ Select **Train**, wait for training complete and select **Test**.
 
 
 ## Implementing corrections in a command
-In this section, you will learn how to configure one-step correction - once the fulfillment action has already been executed.
 
-You will also see an example of how correction is enabled by default in case the command is not fulfilled yet.
+In this section, you configure one-step correction, which is used once the fulfillment action has already been executed. You also see an example of how correction is enabled by default in case the command is not fulfilled yet. To add a correction when the command isn't completed, add a new parameter **AlarmTone**.
 
-### Correction when command isn't completed
-#### Add a new parameter AlarmTone
-1. Select **SetAlarm** command from the left pane and add a new parameter **AlarmTone**.
+Select **SetAlarm** command from the left pane and add a new parameter **AlarmTone**.
         
-    - **Name** > `AlarmTone`
-    - **Type** > String
-    - **Default Value** > `Chimes`
-    - **Configuration** > Accept predefined input values from internal catalog
-    - **Predefined input values** > `Chimes`, `Jingle`, and `Echo`. Each as individual predefined inputs.
+- **Name** > `AlarmTone`
+- **Type** > String
+- **Default Value** > `Chimes`
+- **Configuration** > Accept predefined input values from internal catalog
+- **Predefined input values** > `Chimes`, `Jingle`, and `Echo`. Each as individual predefined inputs.
 
-#### Modify existing parameter DateTime
-1. Update the response for the DateTime parameter to `Ready to set alarm with tone as {AlarmTone}. For what time?`
 
-#### Modify completion rule
+Next, update the response for the DateTime parameter to `Ready to set alarm with tone as {AlarmTone}. For what time?`. Then modify the completion rule as follows.
+
 1. Select the existing completion rule **ConfirmationResponse**.
 1. In the right panel, hover over the existing action and select **Edit** button.
 1. Update speech response to `Ok, alarm set for {DateTime}. The alarm tone is {AlarmTone}.`
 
-#### Try out the changes
+### Try out the changes
 
 Select **Train**, wait till training completes and select **Test**.
 Try out the following utterances:
@@ -123,9 +114,7 @@ Try out the following utterances:
 
 ### Correction when command is completed
 
-Custom Commands platform also provides the capability for one step correction even when the command has been completed. But this feature isn't enabled by default and user has to explicitly configure it.
-
-#### Configure one step correction
+Custom Commands platform also provides the capability for one-step correction even when the command has been completed. But this feature isn't enabled by default and must be explicitly configured. Use the following steps to configure one-step correction.
 
 1. In the **SetAlarm** command, add an interaction rule of type **Update previous command** to update the previously set alarm. Rename the default **Name** of the interaction rule to **Update previous alarm**.
 1. Leave the default condition **Previous command needs to be updated** as is.
@@ -133,7 +122,7 @@ Custom Commands platform also provides the capability for one step correction ev
 1. Add a new action as **Type > Send speech response > Simple editor > `Updating previous alarm time to {DateTime}.`**
 1. Leave the default value of post execution state as **Command completed**.
 
-#### Try out the changes
+### Try out the changes
 
 Select **Train**, wait for training complete and select **Test**.
 
@@ -144,10 +133,8 @@ Select **Train**, wait for training complete and select **Test**.
 - Input: no, 8 am
 - Output: Updating previous alarm time to 2020-05-29 08:00.
 
-
- > [!NOTE]
-  > In a real application, in the Actions section of this correction rule, you'll also need to send back an activity to the client or call an HTTP endpoint to update the alarm time in your system. This action should be singularly responsible for just updating the alarm time and not any other attribute of the command, in this case alarm tone.
-
+> [!NOTE]
+> In a real application, in the Actions section of this correction rule, you'll also need to send back an activity to the client or call an HTTP endpoint to update the alarm time in your system. This action should be singularly responsible for just updating the alarm time and not any other attribute of the command, in this case alarm tone.
 
 ## Next steps
 

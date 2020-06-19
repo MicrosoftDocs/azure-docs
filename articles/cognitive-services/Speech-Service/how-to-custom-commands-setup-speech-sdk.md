@@ -1,22 +1,20 @@
 ---
 title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure Cognitive Services
-description: set up web endpoints for custom commands 
+description: In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
 author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
 # Integrate with a client application using Speech SDK
 
-After creating a hosted Custom Commands application, you can begin talking to it from a client device.
-
-In this article, you'll:
+In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application. In order to establish a connection to the Custom Commands application, you do the following tasks:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
 - Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
@@ -25,7 +23,7 @@ In this article, you'll:
 
 A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application, you can do so following the quickstarts:
 > [!div class = "checklist"]
-> * [Create a voice assistant using Custom Commands](quickstart-custom-commands-application.md)
+> * [Create a Custom Commands application](quickstart-custom-commands-application.md)
 
 You'll also need:
 > [!div class = "checklist"]
@@ -35,7 +33,7 @@ You'll also need:
 
 ## Step 1: Publish Custom Commands application
 
-1. Open your [previously created Custom Commands application (Preview)](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
+1. Open your previously created Custom Commands application (Preview) and select **Publish**
 
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-commands/setup-speech-sdk-publish-application.png)

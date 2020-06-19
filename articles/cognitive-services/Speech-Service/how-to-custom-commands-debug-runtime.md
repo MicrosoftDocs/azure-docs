@@ -1,14 +1,14 @@
 ---
 title: 'Debug errors when running a Custom Commands application'
 titleSuffix: Azure Cognitive Services
-description: debug errors when running the custom commands apps 
+description: In this article, you learn how to debug runtime errors in a Custom Commands application.
 services: cognitive-services
 author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/24/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
@@ -132,3 +132,8 @@ An undefined parameter is used in the speech response.
 
 ### Object reference not set to an instance of an object
 You have an empty parameter in the JSON payload defined in **Send Activity to Client** action.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [See samples on GitHub](https://aka.ms/speech/cc-samples)

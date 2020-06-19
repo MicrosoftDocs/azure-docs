@@ -1,28 +1,30 @@
 ---
 title: 'How To: Add simple commands to Custom Commands application - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you will add parameter to an existing custom commands application.
+description: In this article, you learn how to add parameters to Custom Commands
 services: cognitive-services
 author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/18/2020
 ms.author: sausin
 ---
 
 # Add parameters to commands
-In this article, you will be adding parameters to the commands.
+
+In this article, you learn how to add parameters to Custom Commands. Parameters are information required by the commands to complete a task. In complex scenarios, parameters can also be used to define conditions which trigger custom actions.
 
 ## Prerequisites
+
 > [!div class="checklist"]
 > * [How To: Create application with simple commands](./how-to-custom-commands-create-application-with-simple-commands.md)
 
 ## Configure parameters for TurnOn command
 
-### Add OnOff parameter
-Let's edit the existing **TurnOn** command to turn on and turn off multiple devices.
+Edit the existing **TurnOn** command to turn on and turn off multiple devices.
+
 1. Because the command will now handle both on and off scenario, rename the Command to **TurnOnOff**.
    - In the left pane, select the **TurnOn** command and then select the ellipsis (...) button next to **New command** at the top of the pane.
    
@@ -57,7 +59,9 @@ Let's edit the existing **TurnOn** command to turn on and turn off multiple devi
         > ![Create parameter](media/custom-commands/create-on-off-parameter.png)
 
    -  Select **Save** to save all configurations of the parameter.
+   - 
  ### Add SubjectDevice parameter 
+
    - Next, select **Add** again to add a second parameter to represent the name of the devices which can be controlled using this command. Use the following configuration.
    
 
@@ -100,12 +104,13 @@ Select **Save**.
 > Use tab for auto-completion backed by previously created parameters.
 
 ### Modify completion rules to include parameters
+
 Modify the existing Completion rule **ConfirmationResponse**.
 
 1. In the **Conditions** section, select **Add a condition**.
 1. In the **New Condition** window, in the **Type** list, select **Required parameters**. In the check-list below, check both **OnOff** and **SubjectDevice**.
 1. Select **Create**.
-1. In the **Actions** section, edit the existing **Send speech response** action by hovering over the action and selecting the edit button. This time, let's make use of newly created **OnOff** and **SubjectDevice** parameters
+1. In the **Actions** section, edit the existing **Send speech response** action by hovering over the action and selecting the edit button. This time, make use of the newly created **OnOff** and **SubjectDevice** parameters
 
     ```
     Ok, turning the {SubjectDevice} {OnOff}
@@ -128,7 +133,8 @@ Modify the existing Completion rule **ConfirmationResponse**.
     - Output: Ok, turning off the tv
 
 ## Configure parameters for SetTemperature command
-Let's modify the **SetTemperature** command to enable it to set the temperature as directed by the user.
+
+Modify the **SetTemperature** command to enable it to set the temperature as directed by the user.
 
 Add new parameter **Temperature** with the following configuration
 
@@ -140,7 +146,8 @@ Add new parameter **Temperature** with the following configuration
 | Type               | Number          |
 
 
-### Edit example utterances
+Edit the example utterances to the following values.
+
 ```
 set the temperature to {Temperature} degrees
 change the temperature to {Temperature}
@@ -148,8 +155,7 @@ set the temperature
 change the temperature
 ```
 
-### Edit completion rules
-Edit the existing completion rules as per the following configuration-
+Edit the existing completion rules as per the following configuration.
 
 | Configuration      | Suggested value     |
 | ------------------ | ----------------|
@@ -157,6 +163,7 @@ Edit the existing completion rules as per the following configuration-
 | Actions           | Send speech response > `Ok, setting temperature to {Temperature} degrees` |
 
 ### Try it out
+
 **Train** and **Test** the changes with a few interactions.
 
 - Input: Set temperature
@@ -182,15 +189,15 @@ Add a parameter called **DateTime** with the following configuration.
 > In this article, we predominantly made use of string, number and DateTime parameter types. For list of all supported parameter types and their properties, go to [references](./custom-commands-references.md).
 
 
-### Edit example utterances
+Edit example utterances to the following values.
+
 ```
 set an alarm for {DateTime}
 set alarm {DateTime}
 alarm for {DateTime}
 ```
 
-### Edit completion rules
-Edit the existing completion rules as per the following configuration-
+Edit the existing completion rules as per the following configuration.
 
    | Setting    | Suggested value                               |
    | ---------- | ------------------------------------------------------- |
@@ -209,7 +216,8 @@ Edit the existing completion rules as per the following configuration-
 
 
 ## Try out all the commands
-Test out the all the three commands together using utterances related to different commands:
+
+Test out the all the three commands together using utterances related to different commands. Note that you can switch between the different commands.
 
 - Input: Set an alarm
 - Output: For what time?
@@ -219,10 +227,8 @@ Test out the all the three commands together using utterances related to differe
 - Output: For what time?
 - Input: 5pm
 - Output: Ok, alarm set for 2020-05-01 17:00:00
-    
-> [!IMPORTANT]
-> Notice how you could switch between the different commands.
 
+## Next steps
 
 > [!div class="nextstepaction"]
 > [How To: Add configurations to commands parameters](./how-to-custom-commands-add-parameter-configuration.md)

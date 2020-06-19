@@ -1,18 +1,21 @@
 ---
-title: 'Reference - Custom Commands concepts - Speech service'
+title: 'Custom Commands concepts and definitions - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create and test a hosted Custom Commands application.
+description: In this article, you learn about concepts and definitions for Custom Commands applications.
 services: cognitive-services
 author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/18/2020
 ms.author: sausin
 ---
 
-# Custom Commands concepts
+# Custom Commands concepts and definitions
+
+This article serves as a reference for concepts and definitions for Custom Commands applications.
+
 ## Commands configuration
 Commands are the basic building blocks of a Custom Commands application. A command is set of configurations required to complete a specific task defined by a user.
 
@@ -29,8 +32,11 @@ Series of rules to be executed once the command is ready to be fulfilled, i.e. w
 Additional rules to handle more specific or complex situations. You can add additional validations or configure advanced features such as confirmations or one-step correction. You can also build your own custom interaction rules.
 
 ## Parameters configuration
+
+Parameters are information required by commands to complete a task. In complex scenarios, parameters can also be used to define conditions which trigger custom actions.
+
 ### Name
- A parameter is identified by the name property. You should always give a descriptive name to a parameter. A parameter can be referred across different sections, like - while constructing conditions, speech responses or other actions.
+A parameter is identified by the name property. You should always give a descriptive name to a parameter. A parameter can be referred across different sections, like - while constructing conditions, speech responses or other actions.
  
 ### IsGlobal
 Checkbox indicating whether the scope of this parameter is shared across all the commands in the application. If a parameter is global, its value can potentially be provided from any command scope and once a value is assigned - it can be referred from any of the commands. 
@@ -42,7 +48,7 @@ Checkbox indicating whether a value for this parameter is required for command f
 Custom Commands supports following parameters types-
 
 
-1.  DateTime
+1. DateTime
 1. Geography
 1. Number
 1. String
@@ -104,4 +110,9 @@ Expectations are used to configure hints for the processing of next user input. 
 Dialog state after processing the current input (utterance/activity). It's of the following types:
 1. Command completed: complete the command and no additional rules of the command will be processed.
 1. Execute completion rules: execute all the valid completion rules.
-1. Wait for user's input: wait for the next user input .
+1. Wait for user's input: wait for the next user input.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [See samples on GitHub](https://aka.ms/speech/cc-samples)

@@ -402,7 +402,7 @@
               items:
                 - name: Create application with simple commands  
                   href: how-to-custom-commands-create-application-with-simple-commands.md
-                - name:  Add parameters to commands
+                - name: Add parameters to commands
                   href: how-to-custom-commands-add-parameters-to-commands.md
                 - name: Add configurations to commands parameters
                   href: how-to-custom-commands-add-parameter-configuration.md
@@ -410,8 +410,6 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Add language generation templates for speech responses
                   href: how-to-custom-commands-add-language-generation-templates.md
-                - name: Use Custom Voice
-                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integrate
               items:
                 - name: Integrate with a client app using Speech SDK

@@ -1,22 +1,22 @@
 ---
-title: 'Send activity to client application'                           
+title: 'Send Custom Commands activity to client application'                           
 titleSuffix: Azure Cognitive Services
-description: send activity to client application  
+description: In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
 services: cognitive-services
 author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
-# Send activity to client application
+# Send Custom Commands activity to client application
 
-To complete tasks using a Custom Commands application, you can send custom payloads to a connected client device.
+In this article, you learn how to send activity from a Custom Commands application to a client application running the Speech SDK.
 
-In this article, you'll:
+You complete the following tasks:
 
 - Define and send a custom JSON payload from your Custom Commands application
 - Receive and visualize the custom JSON payload contents from a C# UWP Speech SDK client application
@@ -49,7 +49,6 @@ In this article, you'll:
    > ![Send Activity completion rule](media/custom-commands/send-activity-to-client-completion-rules.png)
 
 ## Integrate with client application
-### Create visuals for device on or off state
 
 In [How-to: Setup client application with Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md), you created a UWP client application with Speech SDK that handled commands such as `turn on the tv`, `turn off the fan`. With some visuals added, you can see the result of those commands.
 
@@ -75,6 +74,7 @@ Add labeled boxes with text indicating **on** or **off** using the following XML
 ### Add reference libraries
 
 Since you've created a JSON payload, you need to add a reference to the [JSON.NET](https://www.newtonsoft.com/json) library to handle deserialization.
+
 - Right-client your solution.
 - Choose **Manage NuGet Packages for Solution**, Select **Install** 
 - Search for **Newtonsoft.json** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
@@ -86,7 +86,7 @@ In `MainPage.xaml.cs', add
 - `using Newtonsoft.Json;` 
 - `using Windows.ApplicationModel.Core;`
 
-### Handle received payload
+### Handle the received payload
 
 In `InitializeDialogServiceConnector`, replace the `ActivityReceived` event handler with following code. The modified `ActivityReceived` event handler will extract the payload from the activity and change the visual state of the tv or fan respectively.
 

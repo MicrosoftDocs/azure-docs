@@ -1,19 +1,20 @@
 ---
 title: 'Quickstart: Create a voice assistant using Custom Commands'
 titleSuffix: Azure Cognitive Services
-description: In this article, we explain how to add validations to a parameter in Custom Commands.
+description: In this quickstart, you create and test a basic Custom Commands application using Speech Studio. 
 services: cognitive-services
 author: singhsaumya
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/18/2020
 ms.author: sausin
 ---
 
 # Create a voice assistant using Custom Commands
-In this article you will create and test Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
+
+In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app. **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
 ## Prerequisites
 
@@ -23,8 +24,8 @@ In this article you will create and test Custom Commands application using Speec
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
 
-  > [!NOTE]
-  > At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and northeurope regions.
+> [!NOTE]
+> At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and northeurope regions.
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -41,6 +42,7 @@ In this article you will create and test Custom Commands application using Speec
    The default view is a list of the Custom Commands applications you have under your selected subscription.
 
 ## Import an existing application as a new Custom Commands project
+
 1. Select **New project** to create a project.
 
 1. In the **Name** box, enter project name as `Smart-Room-Lite` (or something else of your choice).
@@ -48,22 +50,22 @@ In this article you will create and test Custom Commands application using Speec
 1. Select **Browse files** and in the browse window, select the **SmartRoomLite.json** file.
 
     > [!div class="mx-imgBorder"]
-   > ![Create a project](media/custom-commands/import-project.png)
+    > ![Create a project](media/custom-commands/import-project.png)
 
 1.  In the **LUIS authoring resource** list, select an authoring resource. If there are no valid authoring resources,    create one by selecting  **Create new LUIS authoring resource**.
 
-       > [!div class="mx-imgBorder"]
-       > ![Create a resource](media/custom-commands/create-new-luis-resource.png)
-
-
-       1. In the **Resource Name** box, enter the name of the resource.
-       1. In the **Resource Group** list, select a resource group.
-       1. In the **Location** list, select a location.
-       1. In the **Pricing Tier** list, select a tier.
-
-
-      > [!NOTE]
-      > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
+    > [!div class="mx-imgBorder"]
+    > ![Create a resource](media/custom-commands/create-new-luis-resource.png)
+    
+    
+    1. In the **Resource Name** box, enter the name of the resource.
+    1. In the **Resource Group** list, select a resource group.
+    1. In the **Location** list, select a location.
+    1. In the **Pricing Tier** list, select a tier.
+    
+    
+    > [!NOTE]
+    > You can create resource groups by entering the desired resource group name into the "Resource Group" field. The resource group will be created when **Create** is selected.
 
 
 1. Next, select **Create** to create your project.
@@ -118,4 +120,4 @@ In the scope of this article, we will be using the Windows Voice Assistant clien
 
 ## Next steps
 
-In this article, you used existing application. Next, in the How-To sections, you will learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.
+In this article, you used an existing application. Next, in the [how-to sections](how-to-custom-commands-create-application-with-simple-commands.md), you learn how to design, develop, debug, test and integrate a Custom Commands application from scratch.

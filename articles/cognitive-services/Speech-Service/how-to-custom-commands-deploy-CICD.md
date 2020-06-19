@@ -1,19 +1,20 @@
 ---
 title: 'Continuous Deployment with Azure DevOps (Preview)'
 titleSuffix: Azure Cognitive Services
-description: how to deploy custom command apps
+description: In this article, you learn how to set up continuous deployment for your Custom Commands applications. You create the scripts to support the continuous deployment workflows.
 services: cognitive-services
 author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
 # Continuous Deployment with Azure DevOps
-In this article, we will show you how to set up continuous deployment for your Custom Commands applications. We create the scripts to support the continuous deployment workflows. This article will work you through the steps.
+
+In this article, you learn how to set up continuous deployment for your Custom Commands applications. The scripts to support the CI/CD workflow are provided to you.
 
 ## Prerequisite
 > [!div class = "checklist"]
@@ -23,12 +24,10 @@ In this article, we will show you how to set up continuous deployment for your C
 
 ## Export/Import/Publish
 
-### Get the scripts
-The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands).
-
-Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
+The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
 
 ### Set up a pipeline 
+
 1. Go to **Azure DevOps - Pipelines** and click "New Pipeline"
 1. In **Connect** section, select the location of your repository where these scripts are located
 1. In **Select** section, select your repository
@@ -65,14 +64,15 @@ Clone the scripts in the bash directory to your repository. Make sure you mainta
         failOnStderr: true
     ```
     
-1. Note that these scripts assume that you are using the region westus2, if that's not the case update the arguments of the tasks accordingly
+1. Note that these scripts assume that you are using the region `westus2`, if that's not the case update the arguments of the tasks accordingly
 
     > [!div class="mx-imgBorder"]
     > ![Send Activity payload](media/custom-commands/CICD-new-pipeline-yaml.png)
 
 1. In the "Save and run" button, open the dropdown and click "Save"
 
-### Hook up the pipeline with your applications
+### Hook up the pipeline with your application
+
 1. Navigate to the main page of the pipeline.
 1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
 1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
@@ -93,16 +93,13 @@ Clone the scripts in the bash directory to your repository. Make sure you mainta
     You should see a list of tasks running that contains: "Export source app", "Import to target app" & "Train and Publish target app"
 
 ## Deploy from source code
-In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. 
 
-### Get the scripts
-- Since the scripts are in bash, If you are using Windows you'll need to install the [Linux subsystem](https://docs.microsoft.com/windows/wsl/install-win10).
+In case you want to keep the definition of your application in a repository, we provide the scripts for deployments from source code. Since the scripts are in bash, If you are using Windows you'll need to install the [Linux subsystem](https://docs.microsoft.com/windows/wsl/install-win10).
 
-- The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands).
-
-    Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
+The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clone the scripts in the bash directory to your repository. Make sure you maintain the same path.
 
 ### Prepare your repository
+
 1. Create a directory for your application, in our example create one called "apps".
 1. Update the arguments of the bash script below, and run. It will import the dialog model of your application to the file myapp.json
     ```BASH
@@ -117,6 +114,7 @@ In case you want to keep the definition of your application in a repository, we 
 1. Push these changes to your repository.
 
 ### Set up a pipeline 
+
 1. Go to **Azure DevOps - Pipelines** and click "New Pipeline"
 1. In **Connect** section, select the location of your repository where these scripts are located
 1. In **Select** section, select your repository
@@ -150,6 +148,7 @@ In case you want to keep the definition of your application in a repository, we 
 1. In the "Save and run" button, open the dropdown and click "Save"
 
 ### Hook up the pipeline with your target applications
+
 1. Navigate to the main page of the pipeline.
 1. In the top-right corner dropdown, select **Edit pipeline**. It gets you to a YAML editor. 
 1. In the top-right corner next to "Run" button, select **Variables**. Click **New variable**.
@@ -163,3 +162,8 @@ In case you want to keep the definition of your application in a repository, we 
 
 1. Click "Run" and then click in the "Job" running.
     You should see a list of tasks running that contains: "Import app" & "Train and Publish app"
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [See samples on GitHub](https://aka.ms/speech/cc-samples)

@@ -8,12 +8,13 @@ manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
 # Set up web endpoints
-In this article, you'll:
+
+In this article, you learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You complete the following tasks:
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application
@@ -49,10 +50,10 @@ In this article, you'll:
     > - The suggested header is only needed for the example endpoint
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) that manages your devices
 
-1. click **Save**.
+1. Click **Save**.
 
 ## Call web endpoints
-### Configure call web endpoint action
+
 1. Go to **TurnOnOff** command, select **ConfirmationResponse** under completion rule, then select **Add an action**.
 1. Under **New Action-Type**, select **Call web endpoint**
 1. In **Edit Action - Endpoints**, select **UpdateDeviceState**, which is the web endpoint we created.  
@@ -104,9 +105,9 @@ Remove one of the query parameters, save, retrain, and test
    > ![Call web endpoints action On Success](media/custom-commands/setup-webendpoint-onfail-response.png)
 
 ## Integrate with client application
-### Send activity to client within call web endpoint
-In [How-to: Send activity to client application (Preview)](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application no matter **Call web endpoint** action is successful or not.\
-However, in most of the cases, we only hope to send activity to client application when the call to web endpoint is successful. That is, in our example, when the devices state is successfully updated.
+
+In [How-to: Send activity to client application (Preview)](./how-to-custom-commands-send-activity-to-client.md), you added a **Send activity to client** action. The activity is sent to the client application whether or not **Call web endpoint** action is successful or not.
+However, in most of the cases you only want to send activity to the client application when the call to the web endpoint is successful. In this example, this is when the device's state is successfully updated.
 
 1. Delete the **Send activity to client** action you previously added.
 1. Edit call web endpoint: 
@@ -139,11 +140,7 @@ Add the following XML to `MainPage.xaml` above the `"EnableMicrophoneButton"` bl
 
 ### Sync device state 
 
-In `MainPage.xaml.cs`, add reference `using Windows.Web.Http;`.
-
-Add the following code to the MainPage class. This method will send a GET request to the example endpoint, and extract the current device state for your app.
-
-Make sure to change `<your_app_name>` to what you used in the **header** in Custom Command Web endpoint
+In `MainPage.xaml.cs`, add the reference `using Windows.Web.Http;`. Add the following code to the `MainPage` class. This method will send a GET request to the example endpoint, and extract the current device state for your app. Make sure to change `<your_app_name>` to what you used in the **header** in Custom Command Web endpoint
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -196,3 +193,8 @@ If you tested out the app with `turn on tv` in previous section, you would see t
 1. The visual state of the fan should change to "on"
     > [!div class="mx-imgBorder"]
     > ![Turn on fan](media/custom-commands/setup-webendpoint-turn-on-fan.png)
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-CICD.md)

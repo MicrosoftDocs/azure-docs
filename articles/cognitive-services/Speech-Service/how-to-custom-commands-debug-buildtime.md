@@ -1,14 +1,14 @@
 ---
 title: 'Debug errors when authoring a Custom Commands application (Preview)'
 titleSuffix: Azure Cognitive Services
-description: debug errors when authoring a custom commands apps  
+description: In this article, you learn how to debug errors when authoring Custom Commands application.
 services: cognitive-services
 author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 06/18/2020
 ms.author: xiaojul
 ---
 
@@ -25,7 +25,7 @@ Make sure the selected LUIS authoring resource has less than 500. If not, you ca
 
 ## Errors when deleting an application
 ### Can't delete LUIS application
-When deleting a Custom Commands application, Custom Commands also try to delete the LUIS application associated with the Custom Commands application.
+When deleting a Custom Commands application, Custom Commands may also try to delete the LUIS application associated with the Custom Commands application.
 
 If the deletion of LUIS application failed, please go to your [LUIS](https://www.luis.ai/) account to delete them manually.
 
@@ -89,3 +89,8 @@ If you need to change your authoring resource from F0 to E0, or change to a diff
 
 ### Save button is disabled
 If you never assign a LUIS prediction resource to your application, the Save button would be disabled when you try to change your authoring resource without adding a prediction resource.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [See samples on GitHub](https://aka.ms/speech/cc-samples)
