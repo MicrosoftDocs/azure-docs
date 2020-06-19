@@ -13,6 +13,8 @@ ms.author: dsindona
 
 Test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and generation of highly qualified leads. Test drive let you bring your product to life while generating highly qualified leads.
 
+## The customer experience
+
 After providing their contact information, customers can access your pre-built test drive experience: a hands-on, self-guided trial of your product's key features and benefits being demonstrated in a real-world implementation scenario.
 
 A potential customer discovers your application on the Marketplace and signs in:
@@ -30,6 +32,10 @@ No matter how complex your application, your Microsoft test drive helps you brin
 - **Azure Resource Manager** – This deployment template contains all the Azure resources that comprise a solution being built by the publisher. Products that fit this scenario use only Azure resources.
 - **Logic app** – This deployment template encompasses all complex solution architectures. All Dynamics applications or custom products should use this type of test drive.
 - **Power BI** – This is simply an embedded link to a custom-built dashboard. Any product that only demonstrates an interactive Power BI visual should use this type of test drive. All you need to upload here is your embedded Power BI URL.
+
+## Types of test drives
+
+For a discussion of types of test drives available, see [Types of test drives](types-of-test-drives.md).
 
 ## What goes on in the background?
 
