@@ -46,17 +46,19 @@ If you want to run the setup tutorial in your own [local environment](how-to-con
 
 Create a workspace object from the existing Azure Machine Learning workspace.
 
-- A [workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. The workspace also creates a cloud resource you can use to monitor and track your model runs. 
-- `Workspace.from_config()` reads the `config.json` file and then loads the authentication details into an object named `ws`. The `ws` object is used in the code throughout this tutorial.
-
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
+> [!IMPORTANT]
+> This code snippet expects the workspace configuration to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+
 ## Create a datastore for sample images
 
 On the `pipelinedata` account, get the ImageNet evaluation public data sample from the `sampledata` public blob container. Call `register_azure_blob_container()` to make the data available to the workspace under the name `images_datastore`. Then, set the workspace default datastore as the output datastore. Use the output datastore to score output in the pipeline.
+
+For more information on accessing data, see [How to access data](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#python-sdk).
 
 ```python
 from azureml.core.datastore import Datastore
