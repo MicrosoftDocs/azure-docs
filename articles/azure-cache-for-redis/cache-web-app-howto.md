@@ -220,7 +220,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 3. Replace the code in the *RedisCache.cshtml* file with the following code:
 
-```csharp
+    ```csharp
     @{
         ViewBag.Title = "Azure Cache for Redis Test";
     }
