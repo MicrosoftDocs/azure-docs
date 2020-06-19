@@ -40,7 +40,7 @@ This tutorial provides two ways to retrieve connection string information:
 3. In the left pane of the account blade, click **Connection String**.
 4. The **Connection String** blade opens. It has all the information necessary to connect to the account by using a driver for MongoDB, including a preconstructed connection string.
 
-   [ ![Connection String blade](./media/connect-mongodb-account/ConnectionStringBlade.png) ](./media/connect-mongodb-account/ConnectionStringBlade.png#lightbox)
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Connection String blade" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## Connection string requirements
 
