@@ -64,7 +64,7 @@ Post<br>
 
 ##### *Request URL* 
 
-`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
 ##### *URI parameter*
 
@@ -85,7 +85,7 @@ Post<br>
 |  `grant-type`      |  True      |  Grant type. Use `"client_credentials"`. |
 |  `client_id`       |  True      |  Client/app identifier associated with the Azure AD app. |
 |  `client_secret`   |  True      |  Secret associated with the Azure AD app. |
-|  `resource`        |  True      |  Target resource for which the token is requested. Use `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` because Marketplace SaaS API is always the target resource in this case. |
+|  `resource`        |  True      |  Target resource for which the token is requested. Use `62d94f6c-d599-489b-a797-3e10e42fbe22` because Marketplace SaaS API is always the target resource in this case. |
 
 ##### *Response*
 
