@@ -3,7 +3,7 @@
 
 The knowledge base in this quickstart starts with 2 conversational QnA pairs, this is done on purpose to simplify the example and to have highly predictable Ids to use in the Update method, associating follow-up prompts with questions to new pairs. This was planned and implemented in a specific order for this quickstart.
 
-If you plan to develop your knowledge base over time with follow-up prompts that are dependent on existing QnA pairs, you may choose to:
+If you plan to develop your knowledge base over time with follow-up prompts that are dependent on existing QnA pairs, you may choose:
 * For larger knowledgebases, manage the knowledge base in a text editor or TSV tool that supports automation, then completely replace the knowledge base at once with an update.
 * For smaller knowledgebases, manage the follow-up prompts entirely in the QnA Maker portal.
 

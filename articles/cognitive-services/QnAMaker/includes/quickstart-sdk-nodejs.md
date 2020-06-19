@@ -59,6 +59,15 @@ Create a file named index.js and import the following libraries:
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Dependencies)]
 
+Create a variable for your resource's Azure key and resource name. Both the authoring and prediction URLs use the resource name as the subdomain.
+
+> [!IMPORTANT]
+> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is `https://YOUR-RESOURCE-NAME..cognitiveservices.azure.com`.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure key storage.
+
+[!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
+
 ## Object models
 
 QnA Maker uses two different object models:
@@ -98,22 +107,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Authenticate the client for authoring the knowledge base
 
-Create a variable for your resource's Azure key and resource name. Both the authoring and prediction URLs use the resource name as the subdomain.
-
-[!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
-
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
-> You need the entire key to create your knowledgebase. You need only the resource name from the endpoint. The format is ``.
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) provides secure key storage.
-
-Next, create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient]https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) object.
-
-|variable|Example|
-|--|--|
-|`authoringKey`|The key is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the **Keys and endpoints** page. This is not the same as the prediction runtime key.|
-|`resourceName`| Your resource name is used in the format of `https://{resourceName}.cognitiveservices.azure.com`. This is not the same URL used to query the prediction runtime.|
-||||
+Instantiate a client with your endpoint and key. Create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) object.
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationAuthor)]
 
@@ -122,19 +116,20 @@ Next, create an ServiceClientCredentials object with your key, and use it with y
 A knowledge base stores question and answer pairs for the [CreateKbDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) object from three sources:
 
 * For **editorial content**, use the [QnADTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest) object.
-* For **files**, use the [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) object. The FileDTO includes the filename and extension as well as the public URL to reach the file.
-* For **URLs**, use a list of strings.
+    * To use metadata and follow-up prompts, use the editorial context, because this data is added at the individual QnA pair level.
+* For **files**, use the [FileDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) object. The FileDTO includes the filename as well as the public URL to reach the file.
+* For **URLs**, use a list of strings to represent publicly available URLs.
 
 The creation step also includes properties for the knowledgebase:
-* defaultAnswerUsedForExtraction - what is returned when no answer is found
-* enableHierarchicalExtraction - create prompt relationships between extracted QnA pairs
-* language - when creating the first knowledgebase of a resource, set the language to use in the Azure Search index.
+* `defaultAnswerUsedForExtraction` - what is returned when no answer is found
+* `enableHierarchicalExtraction` - automatically create prompt relationships between extracted QnA pairs
+* `language` - when creating the first knowledgebase of a resource, set the language to use in the Azure Search index.
 
 Call the [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) method with the knowledge base information. The knowledge base information is basically a JSON object.
 
 When the create method returns, pass the returned operation ID to the [wait_for_operation](#get-status-of-an-operation) method to poll for status. The wait_for_operation method returns when the operation completes. Parse the `resourceLocation` header value of the returned operation to get the new knowledge base ID.
 
-[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=createKnowledgeBase&highlight=15,30)]
+[!code-javascript[Create a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=CreateKBMethod&highlight=40,50)]
 
 Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully create a knowledge base.
 
@@ -142,7 +137,7 @@ Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) fu
 
 You can update a knowledge base by passing in the knowledge base ID and an [UpdateKbOperationDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) containing [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update), and [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO objects to the [update](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) method. The DTOs are also basically JSON objects. Use the [wait_for_operation](#get-status-of-an-operation) method to determine if the update succeeded.
 
-[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod&highlight=28)]
+[!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod&highlight=74,81)]
 
 Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) function, referenced in the above code, in order to successfully update a knowledge base.
 
@@ -150,7 +145,7 @@ Make sure the include the [`wait_for_operation`](#get-status-of-an-operation) fu
 
 Use the [download](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#download-string--models-environmenttype--msrest-requestoptionsbase-) method to download the database as a list of [QnADocumentsDTO](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto?view=azure-node-latest). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
 
-[!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB&highlight=3,4)]
+[!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB&highlight=2)]
 
 
 ## Publish a knowledge base
@@ -168,7 +163,7 @@ Use the [EndpointKeys.getKeys](https://docs.microsoft.com/javascript/api/@azure/
 
 Use either of the key properties returned in the object to query the knowledgebase.
 
-[!code-javascript[Get query runtime key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GetQueryEndpointKey&highlight=3)]
+[!code-javascript[Get query runtime key](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GetQueryEndpointKey&highlight=4)]
 
 ## Authenticate the runtime for generating an answer
 

@@ -7,9 +7,9 @@ ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-six
 ---
 
-# Quickstart: QnA Maker client library for .NET
+# Quickstart: QnA Maker client library
 
-Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
