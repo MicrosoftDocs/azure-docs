@@ -2,7 +2,7 @@
 title: ARM template test toolkit
 description: Describes how to run the ARM template test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 06/19/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -41,11 +41,13 @@ Test-AzTemplate -TemplatePath $TemplateFolder
 
 Before running the tests, install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-To run the tests on **Linux**, use the following command:
+To run the tests on **Linux** in Bash, use the following command:
 
 ```bash
 Test-AzTemplate.sh -TemplatePath $TemplateFolder
 ```
+
+You can also run the test on pwsh.exe.
 
 ## Run on macOS
 
@@ -85,13 +87,13 @@ The text results are:
 
 ## Test parameters
 
-When you provide the **-TemplatePath** parameter, the toolkit tests all templates in the folder and its subfolders.
+When you provide the **-TemplatePath** parameter, the toolkit looks in that folder for a template named azuredeploy.json or maintemplate.json. It tests this template first and then tests all other templates in the folder and its subfolders. The other templates are tested as linked templates. If your path includes a file named [CreateUiDefinition.json](../managed-applications/create-uidefinition-overview.md), it runs tests that are relevant to UI definition.
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder
 ```
 
-To test one file in that folder, add the **-File** parameter.
+To test one file in that folder, add the **-File** parameter. However, the folder must still have a main template named azuredeploy.json or maintemplate.json.
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder -File cdn.json
@@ -105,11 +107,15 @@ Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Locat
 
 ## Customize tests
 
-The toolkit runs all of the tests in the folder **\arm-ttk\testcases\deploymentTemplate**. If you want to permanently remove a test, delete that file from the folder.
+For ARM templates, the toolkit runs all of the tests in the folder **\arm-ttk\testcases\deploymentTemplate**. If you want to permanently remove a test, delete that file from the folder.
+
+For [CreateUiDefinition](../managed-applications/create-uidefinition-overview.md) files, it runs all of the tests in the folder **\arm-ttk\testcases\CreateUiDefinition**.
 
 To add your own test, create a file with the naming convention: **Your-Custom-Test-Name.test.ps1**.
 
-The file needs to have the following format:
+The test can get the template as an object parameter or a string parameter. Typically, you use one or the other, but you can use both.
+
+Use the object parameter when you need to get a section of the template and iterate through its properties. A test that uses the object parameter has the following format:
 
 ```powershell
 param(
@@ -118,9 +124,35 @@ param(
     $TemplateObject
 )
 
-# Implement test logic
+# Implement test logic that evaluates parts of the template.
 # Output error with: Write-Error -Message
 ```
+
+The template object has the following properties:
+
+* $schema
+* contentVersion
+* parameters
+* variables
+* resources
+* outputs
+
+For example, you can get the collection of parameters with `$TemplateObject.parameters`.
+
+Use the string parameter when you need to do a string operation on the whole template. A test that uses the string parameter has the following format:
+
+```powershell
+param(
+    [Parameter(Mandatory)]
+    [string]
+    $TemplateText
+)
+
+# Implement test logic that performs string operations.
+# Output error with: Write-Error -Message
+```
+
+For example, you can run a regular expression of the string parameter to see if a specific syntax is used.
 
 To learn more about implementing the test, look at the other tests in that folder.
 
@@ -195,4 +227,4 @@ The next example shows how to run the tests.
 
 ## Next steps
 
-* To learn about the default tests, see [Test cases for toolkit](test-cases.md).
+To learn about the default tests, see [Test cases for toolkit](test-cases.md).
