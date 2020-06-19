@@ -2,7 +2,7 @@
 title: Concept - Integrate an Azure VMware Solution (AVS) deployment in a Hub and Spoke architecture
 description: Learn about the recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new Hub and Spoke architecture on Azure.
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/23/2020
 ---
 
 # Integrate Azure VMware Solution (AVS) in a Hub and Spoke architecture
