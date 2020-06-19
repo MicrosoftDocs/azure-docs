@@ -526,6 +526,24 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo service corosync restart
    </code></pre>
 
+## Default Pacemaker configuration for SBD
+
+The configuration in this section is only applicable, if using SBD STONITH.  
+
+1. **[1]** Enable the use of a STONITH device and set the fence delay
+
+<pre><code>sudo crm configure property stonith-timeout=144
+sudo crm configure property stonith-enabled=true
+
+# List the resources to find the name of the SBD device
+sudo crm resource list
+sudo crm resource stop stonith-sbd
+sudo crm configure delete <b>stonith-sbd</b>
+sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+   params pcmk_delay_max="15" \
+   op monitor interval="15" timeout="15"
+</code></pre>
+
 ## Create Azure Fence agent STONITH device
 
 This section of the documentation is only applicable, if using STONITH, based on Azure Fence agent.
@@ -594,14 +612,15 @@ Repeat the steps above for the second cluster node.
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-<pre><code>crm configure property concurrent-fencing=true
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
 # replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
    params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="login ID" passwd="password" \
   pcmk_monitor_retries=4 pcmk_action_limit=3 op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
+
 </code></pre>
 
 > [!IMPORTANT]
@@ -609,24 +628,6 @@ sudo crm configure property stonith-enabled=true
 
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
-
-## Default Pacemaker configuration for SBD
-
-The configuration in thsi section is only applicable, if using SBD STONITH.  
-
-1. **[1]** Enable the use of a STONITH device and set the fence delay
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
-</code></pre>
 
 ## Pacemaker configuration for Azure scheduled events
 
