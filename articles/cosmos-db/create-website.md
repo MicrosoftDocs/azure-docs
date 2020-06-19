@@ -52,6 +52,7 @@ After filling in the values, click the Create button to start the deployment. Th
 > [!TIP]
 > The template does not validate that the Azure App Service name and Azure Cosmos DB account name entered in the template are valid and available. It is highly recommended that you verify the availability of the names you plan to supply prior to submitting the deployment.
 
+
 ## Step 2: Explore the resources
 
 ### View the deployed resources
