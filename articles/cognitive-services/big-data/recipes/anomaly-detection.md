@@ -44,10 +44,7 @@ Be sure to make a note of the endpoint and the key for this resource.
 ## Read data from storage into a DataFrame
 We will read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
 ```python
-dfDeviceInfo = (spark
-                .read
-                .csv("/IoTData/IoTSignals.csv", header=True)
-              )
+dfDeviceInfo = spark.read.csv("/IoTData/IoTSignals.csv", header=True)
 ```
  Perform anomaly detection using Cognitive Services on Spark
 Our goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and perform predictive maintenance. To do that, we use Anomaly Detector on Spark:
@@ -57,19 +54,19 @@ from mmlspark.cognitive import SimpleDetectAnomalies
 from mmlspark.core.spark import FluentAPI
 
 ateor = (SimpleDetectAnomalies()
-                            .setSubscriptionKey("paste-your-key-here")
-                            .setUrl("paste-your-endpoint-here")
-                            .setOutputCol("anomalies")
-                            .setGroupbyCol("grouping")
-                            .setSensitivity(95)
-                            .setGranularity("secondly"))
+    .setSubscriptionKey("paste-your-key-here")
+    .setUrl("paste-your-endpoint-here")
+    .setOutputCol("anomalies")
+    .setGroupbyCol("grouping")
+    .setSensitivity(95)
+    .setGranularity("secondly"))
 
 df_anomaly = (df_IoTSignals
-                    .where(col("unitSymbol") == 'RPM')
-                    .withColumnRenamed("dateTime", "timestamp")
-                    .withColumn("value", col("measureValue").cast("double"))
-                    .withColumn("grouping", struct("deviceId"))
-                    .mlTransform(ateeor))
+    .where(col("unitSymbol") == 'RPM')
+    .withColumnRenamed("dateTime", "timestamp")
+    .withColumn("value", col("measureValue").cast("double"))
+    .withColumn("grouping", struct("deviceId"))
+    .mlTransform(ateeor))
 
 df_anomaly.createOrReplaceTempView('df_anomaly')
 ```
@@ -89,12 +86,8 @@ df_anomaly_single_device = spark.sql("select timestamp \                        
                                       limit 200")
 ```
 ```python
-import chart_studio.plotly as py
-import plotly.graph_objs as go
-from plotly.offline import plot
 import matplotlib.pyplot as plt
 from pyspark.sql.functions import col
-from matplotlib.pyplot import figure
  
 adf = df_anomaly_single_device.toPandas()
 adf_subset = df_anomaly_single_device.where(col("isAnomaly") == 1).toPandas() 
@@ -111,12 +104,3 @@ plt.show()
 ```
 ## Next steps
 Check out how to do predictive maintenance at scale using Azure Cognitive Services, Azure Synapse Analytics, and Azure CosmosDB [here](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNjg4NTU2ODU5LDM1NTcwMzcwNywtNjUwNj
-k3NTI2LDIwNjA1MTkyNDEsMTMxMDY0ODkzNCwtMjY3NTIzNzcx
-LC03ODA2MTY2MTcsLTEwMDc2NTk2MywtMTMyMTI0NTQxOSw4OD
-IyMjgyNzAsMTE3NTE4NDIzLC02NTE5ODIzNjQsLTY1MTk4MjM2
-NCw0MTQyMjY2ODMsNjUxOTAzMDgwLC0xMjM5OTU0MTU2LDE4Nz
-c5MDk1NTQsMTI0ODI1MTA0LC02NjgwNzQ5NzYsLTk2NDIwNzg3
-XX0=
--->

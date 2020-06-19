@@ -122,6 +122,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 > [!div class="nextstepaction"]
 > TODOlinkToNextDocInTOCHere
 
-## See also 
-
-TODOLinkToOverview_FAQ_OrOtherHelpfulDocs
