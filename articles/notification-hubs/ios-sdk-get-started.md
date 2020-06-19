@@ -190,7 +190,7 @@ use later in [Configure your notification hub with APNs information](notificati
 - **Key ID** (see step 7)
 - **Token value** (the .p8 key value, see step 8)
 
-## Create a provisioning profile for the app
+## Create a provisioning profile
 
 1. Return to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456), select **Certificates, Identifiers & Profiles**, select **Profiles** from the left menu, and then select **+** to create a new profile. The **Register a New Provisioning Profile** screen appears.
 
@@ -260,7 +260,7 @@ In this section, you create a notification hub and configure authentication with
 
    :::image type="content" source="media/ios-sdk-get-started/image22.png" alt-text="Connection strings":::
 
-## Configure your notification hub with APNs information
+## Configure the notification hub with APNS information
 
 Under **Notification Services**, select **Apple (APNS)**, then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs) section.
 
