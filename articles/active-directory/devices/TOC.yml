@@ -22,7 +22,7 @@
   items:
   - name: Azure AD registered devices
     href: concept-azure-ad-register.md
-  - name: Azure AD joined devices
+  - name: Azure AD joined devices 
     href: concept-azure-ad-join.md
   - name: Hybrid Azure AD joined devices
     href: concept-azure-ad-join-hybrid.md

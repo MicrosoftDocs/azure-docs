@@ -5,11 +5,11 @@ description: Choose the Azure AD device integration strategies that meet your or
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: overview
+ms.topic: how-to
 ms.date: 06/15/2020 
 
 ms.author: baselden
-author: MicrosoftGuyJFlo
+author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 
@@ -17,19 +17,17 @@ ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
-
-
 # Plan your Azure Active Directory device deployment
 
 This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools.
 
 The landscape of devices from which your users sign in is expanding. Organizations may provide desktops, laptops, phones, tablets, and other devices. Your users may bring their own array of devices, and access information from varied locations. In this environment, your job as an administrator is to keep your organizational resources secure across all devices.
 
-Azure Active Directory (Azure AD) enables your organization to meet these goals with Device Identity Management. You can now get your devices in Azure AD and control them from a central location in the [Azure portal](https://portal.azure.com/). This gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
+Azure Active Directory (Azure AD) enables your organization to meet these goals with device identity management. You can now get your devices in Azure AD and control them from a central location in the [Azure portal](https://portal.azure.com/). This gives you a unified experience, enhanced security, and reduces the time needed to configure a new device.
 
 There are multiple methods to integrate your devices into Azure AD:
 
-* You can [register devices](concept-azure-ad-register.md) to Azure AD
+* You can [register devices](concept-azure-ad-register.md) with Azure AD
 
 * [Join devices](concept-azure-ad-join.md) to Azure AD (cloud-only) or
 
@@ -37,30 +35,25 @@ There are multiple methods to integrate your devices into Azure AD:
 
 ## Learn
 
-Before you begin, make sure that you're familiar with [Device Identity Management overview](overview.md).
+Before you begin, make sure that you're familiar with the [device identity management overview](overview.md).
 
 ### Benefits
 
-The key benefits of getting your devices to Azure AD are:
+The key benefits of giving your devcies an Azure AD identity:
 
 * Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](/azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
 
-* Increase security – Azure AD device management enables you to apply [Conditional Access (CA) policies](../conditional-access/require-managed-devices.md) to resources based on the device that is accessing them. CA policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
+* Increase security – Azure AD devices enable you to apply [Conditional Access (CA) policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. CA policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
 
 * Improve user experience – With device identities in Azure AD, you can provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
 
-* Simplify deployment and management – Device identity management simplifies the process of bringing devices in Azure AD with [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll), and [self-service: Out of Box Experience (OOBE)](../user-help/user-help-join-device-on-network.md). You can manage these devices with Mobile Device Management (MDM) tools like [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune) , and their identities in [Azure portal](https://portal.azure.com/).
-
-### Licensing
-
-Azure AD is licensed per-user, which means that each user requires a license for the features they utilize. For more information on pricing, see [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+* Simplify deployment and management – Device identity management simplifies the process of bringing devices to Azure AD with [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](https://docs.microsoft.com/mem/intune/enrollment/windows-bulk-enroll), and [self-service: Out of Box Experience (OOBE)](../user-help/user-help-join-device-on-network.md). You can manage these devices with Mobile Device Management (MDM) tools like [Microsoft Intune](https://docs.microsoft.com/mem/intune/fundamentals/what-is-intune), and their identities in [Azure portal](https://portal.azure.com/).
 
 ### Training resources
 
-| Videos| [Conditional access with device controls](https://youtu.be/NcONUf-jeS4) |
-| - | - |
-| FAQs| [Azure AD device management FAQ](faq.md) |
-| | [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) |
+Video:  [Conditional access with device controls](https://youtu.be/NcONUf-jeS4)
+
+FAQs: [Azure AD device management FAQ](faq.md)  and [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md) 
 
 ## Plan the deployment project
 
@@ -95,39 +88,41 @@ Your organization can use multiple device integration methods in a single Azure 
 
 The following information can help you decide which integration methods to use.
 
-### Decision tree for organization-owned devices
+### Decision tree for devices integration
 
-Use this tree to determine options for organization-owned devices. Personal or bring-your-own device (BYOD) scenarios, not pictured in this diagram, always result in Azure AD registration.
+Use this tree to determine options for organization-owned devices. 
+
+> [!NOTE]
+> Personal or bring-your-own device (BYOD) scenarios are not pictured in this diagram. They  always result in Azure AD registration.
 
  ![Decision tree](./media/plan-device-deployment/flowchart.png)
 
-
-### Comparison matrix for high-level considerations
+### Comparison matrix
 
 iOS and Android devices may only be Azure AD registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
 
 | | Azure AD registered| Azure AD join| Hybrid Azure AD join |
 | - | - | - | - |
 | **Client operating systems**| | |  |
-| Windows 10 devices| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Windows down-level devices (Windows 8.1 or Windows 7)| | | ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
+| Windows 10 devices| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Windows down-level devices (Windows 8.1 or Windows 7)| | | ![check](./media/plan-device-deployment/check.png) |
 |**Sign in options**| | |  |
-| End-user local credentials| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| |  |
-| Password| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Device PIN| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| FIDO 2.0 security keys| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator App (passwordless)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
+| End-user local credentials| ![check](./media/plan-device-deployment/check.png)| |  |
+| Password| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Device PIN| ![check](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![check](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello for Business| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| FIDO 2.0 security keys| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator App (passwordless)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
 |**Key capabilities**| | |  |
-| SSO to cloud resources| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| SSO to on-premises resources| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Conditional access| ![Decision tree based on OS](./media/plan-device-deployment/check.png) 
-Compliant devices| ![Decision tree based on OS](./media/plan-device-deployment/check.png)
-Compliant device| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Self-service password reset from windows login screen| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Windows hello PIN reset| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
-| Enterprise state roaming across devices| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png) |
+| SSO to cloud resources| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| SSO to on-premises resources| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Conditional access| ![check](./media/plan-device-deployment/check.png) 
+Compliant devices| ![check](./media/plan-device-deployment/check.png)
+Compliant device| ![check](./media/plan-device-deployment/check.png) |
+| Self-service password reset from windows login screen| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Windows hello PIN reset| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
+| Enterprise state roaming across devices| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
 
 
 ## Azure AD Registration 
@@ -222,28 +217,25 @@ You may determine that Hybrid Azure AD Join is the best solution for a device, a
 
 | Current device state| Desired device state| How-to |
 | - | - | - |
-| On-premises Domain Join| Hybrid Azure AD Join| Use Azure AD connect or AD FS to join to Azure |
-| On-premises workgroup joined or new| Hybrid Azure AD Join| Supported with [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). 
-
-Otherwise device needs to be on-premises domain joined before Hybrid Azure AD Join |
+| On-premises domain join| Hybrid Azure AD Join| Use Azure AD connect or AD FS to join to Azure |
+| On-premises workgroup joined or new| Hybrid Azure AD Join| Supported with [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot). Otherwise device needs to be on-premises domain joined before Hybrid Azure AD Join |
 | Azure AD joined| Hybrid Azure AD Join| Unjoin from Azure AD, which puts it in the on-premises workgroup or new state. |
 | Azure AD registerd| Hybrid Azure AD Join| Depends on Windows version. [See these considerations](hybrid-azuread-join-plan.md). |
 
 ## Manage your devices
 
-Once you have registered or joined your devices to Azure AD, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Azure Active Directory > Devices page enables you to:
+Once you have registered or joined your devices to Azure AD, use the [Azure portal](https://portal.azure.com/) as a central place to manage your device identities. The Azure Active Directory devices page enables you to:
 
-* [Configure your device settings](device-management-azure-portal.md)
+* [Configure your device settings](device-management-azure-portal.md#configure-device-settings)
+* You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md), automatically adding those with the device manager role as administrators to all joined devices.
 
-You need to be a local administrator to manage Windows devices. [Azure AD updates this membership for Azure AD joined devices](assign-local-admin.md).
+* [Locate devices](device-management-azure-portal.md#locate-devices)
 
-* [Locate devices](device-management-azure-portal.md)
+* [Perform device identity management tasks](device-management-azure-portal.md#device-identity-management-tasks)
 
-* [Perform device identity management tasks](device-management-azure-portal.md)
+Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing current devices.
 
-Make sure that you keep the environment clean by [managing stale devices](manage-stale-devices.md), and focus your resources on managing devices that actually require management.
-
-* [Review device-related audit logs](device-management-azure-portal.md)
+* [Review device-related audit logs](device-management-azure-portal.md#audit-logs)
 
 ### Supported device management tools
 
@@ -251,12 +243,12 @@ Administrators can secure and further control these registered and joined device
 
 Review supported and unsupported platforms for integrated devices:
 
-| Device Management tools| Azure AD Registered| Azure AD Join| Hybrid Azure AD Join|
+| Device management tools| Azure AD registered| Azure AD join| Hybrid Azure AD join|
 | - | - | - | - |
-| [Mobile Device Management (MDM) ](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)|  |
-| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![Decision tree based on OS](./media/plan-device-deployment/check.png)| ![Decision tree based on OS](./media/plan-device-deployment/check.png)|  |
-| [Group policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![Decision tree based on OS](./media/plan-device-deployment/check.png)|  |
-| [SCCM standalone](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/dd772745(v=ws.10))| | | ![Decision tree based on OS](./media/plan-device-deployment/check.png)|  |
+| [Mobile Device Management (MDM) ](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Example: Microsoft Intune| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
+| [Co management with Microsoft Intune and Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/comanage/overview) <br>(Windows 10 and later)| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)|  |
+| [Group policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows only)| | | ![check](./media/plan-device-deployment/check.png)|  |
+
 
 
  We recommend that you consider [Microsoft Intune Mobile Application management (MAM)](https://docs.microsoft.com/mem/intune/apps/app-management) with or without device management for registered iOS or Android devices.
@@ -275,7 +267,7 @@ If you experience issues with completing hybrid Azure AD join for domain-joined 
 
 * [Troubleshoot hybrid Azure AD join for Windows down level devices](troubleshoot-hybrid-join-windows-legacy.md)
 
-## Next Steps
+## Next steps
 
 * [Plan your Azure AD Join implementation](azureadjoin-plan.md)
 * [Plan your hybrid Azure AD Join implementation](hybrid-azuread-join-plan.md)
