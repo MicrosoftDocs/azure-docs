@@ -16,10 +16,10 @@ ms.custom: tracking-python
 
 # Recipe: Using Cognitive Services on Spark for Predictive Maintenance
 
-This example will walk you through how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. This will follow closely eample frm [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample), but simplicity's sake, we will read the data straight from a CSV file rather than streaming through CosmosDB and Synapse Link. We strongly encourage you to check out the Synapse Link sample as well.
+This example will walk you through how you can use Azure Synapse Analytics and Cognitive Services on Spark for predictive maintenance of IoT devices. Our example follows along with the [CosmosDB and Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) sample. However, for simplicity's sake, we'll read the data straight from a CSV file rather than getting streamed data through CosmosDB and Synapse Link. We strongly encourage you to look over the Synapse Link sample.
 
 ## Business Scenario
-(From CosmosDB sample) The hypothetical scenario is Power Plant, where IoT devices are monitoring  [steam turbines](https://en.wikipedia.org/wiki/Steam_turbine). The IoTSignals collection has Revolutions per minute (RPM) and Megawatts (MW) data for each turbine. Signals from steam turbines are being analyzed and nomalous signals are detected.
+(From CosmosDB sample) The hypothetical scenario is Power Plant, where IoT devices are monitoring  [steam turbines](https://en.wikipedia.org/wiki/Steam_turbine). The IoTSignals collection has Revolutions per minute (RPM) and Megawatts (MW) data for each turbine. Signals from steam turbines are being analyzed and anomalous signals are detected.
 
 There could be outliers in the data in random frequency. In those situations, RPM values will go up and MW output will go down, for circuit protection. The idea is to see the data varying at the same time, but with different signals.
 
@@ -37,17 +37,19 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 Be sure to make a note of the endpoint and the key for this resource.
 
 ### Load data into Azure Synapse Analytics
-1. Using the Data / Linked tab of your Synapse workspace, create IoTData folder within the root directory of the storage account that is attached to the Synapse workspace.
+1. From the Data / Linked tab of your Synapse workspace, create an IoTData folder within the root directory of the storage account that is attached to the Synapse workspace.
 2. Upload the two CSV files downloaded from [this folder](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT/IoTData).
-3. Using the Azure Portal, go to the Access Control (IAM) tab of the storage account associated with Synapse workspace, click on the +Add and Add a role assignment and add yourself to the Data Contributor role. This is needed for any spark metadata operations such as creating databases and tables using the Azure Synapse Spark Pool.
+3. In the Azure Portal, go to the Access Control (IAM) tab of the storage account associated with Synapse workspace, click on the +Add and Add a role assignment and add yourself to the Data Contributor role. This role is needed for any Spark metadata operations such as creating databases and tables using the Azure Synapse Spark Pool.
 
 ## Read data from storage into a DataFrame
-We will read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
+We'll read the IoTSignals file into a DataFrame. Open a new notebook in your Synapse workspace and create a DataFrame from the file.
 ```python
 dfDeviceInfo = spark.read.csv("/IoTData/IoTSignals.csv", header=True)
 ```
- Perform anomaly detection using Cognitive Services on Spark
-Our goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and perform predictive maintenance. To do that, we use Anomaly Detector on Spark:
+### Run anomaly detection using Cognitive Services on Spark
+Our goal is to find instances where the signals from the IoT devices were outputting anomalous values so that we can see when something is going wrong and do predictive maintenance. 
+
+To do that, we use Anomaly Detector on Spark:
 ```python
 from pyspark.sql.functions import col
 from mmlspark.cognitive import SimpleDetectAnomalies
@@ -70,10 +72,10 @@ df_anomaly = (df_IoTSignals
 
 df_anomaly.createOrReplaceTempView('df_anomaly')
 ```
-Replace "paste-your-key-here" and "paste-your-endpoint-here" with the key and the endpoint for your Ator resource, respectively.
+Replace "paste-your-key-here" and "paste-your-endpoint-here" with the key and the endpoint for your Anomaly Detector resource, respectively.
 
  ## Visualize anomalies for one of the devices
-IoTSignals.csv has signals from multiple IoT devices. We will focus on a specific device and visualize anomalous outputs from the device.
+IoTSignals.csv has signals from multiple IoT devices. We'll focus on a specific device and visualize anomalous outputs from the device.
 ```python
 df_anomaly_single_device = spark.sql("select timestamp \                                           , measureValue \
                                            , anomalies.expectedValue \
