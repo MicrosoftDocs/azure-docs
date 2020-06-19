@@ -51,7 +51,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-export-copy-data/get-share-credentials2.png)
+    ![Get share credentials 2](media/data-box-deploy-export-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -72,11 +72,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer2.png)
 
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
@@ -90,19 +90,36 @@ Once you're connected to the Data Box shares, the next step is to copy data.
 
 Before you begin the data copy:
 
-1. Download the *copy log*. In the **Connect and copy** page, select **Copy log**. 
+1. Download the *copy log*. In the **Connect and copy** page, select **Copy log**. When prompted, save the log on your system. 
 
-
-    When prompted, save the log on your system. 
+    ![Download copy log 1](media/data-box-deploy-export-copy-data/download-copy-log-1.png)
 
     Repeat the steps to download the *verbose log*. 
 
 2. Review the *verbose log*. The *verbose log* contains a list of all the files that were successfully exported from Azure Storage account. The log also contains file size and checksum computation.
 
-3. Review the *copy log* for any errors. This log indicates the files that could not be copied due to errors. You have the following options to export those files: 
+
+    <!--```dotnetcli
+    sample verbose log
+    ```-->
+
+3. Review the *copy log* for any errors. This log indicates the files that could not be copied due to errors.
+
+    Here is a sample output of copy log when there were no errors and all the files were copied during the data copy from Azure to Data Box device.
+
+    ```powershell
+    <CopyLog Summary="Summary">
+      <Status>Succeeded</Status>
+      <TotalFiles_Blobs>5521</TotalFiles_Blobs>
+      <FilesErrored>0</FilesErrored>
+    </CopyLog>
+    ``` 
+
+    You have the following options to export those files: 
 
     - You can transfer the files that could not be copied over the network. 
     - If your data size was larger than the usable device capacity, then a partial copy occurs and all the files that were not copied are listed in this log. You can use this log as an input XML to create a new Data Box order and then copy over these files.
+
 
  After you connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. 
 
