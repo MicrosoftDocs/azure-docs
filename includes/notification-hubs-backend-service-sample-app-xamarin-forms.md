@@ -21,13 +21,51 @@
 
 ### Implement the cross-platform components
 
-1. **Control** + **Click** on the **PushDemo** project, choose **New Folder** from the **Add** menu, then click **Add** using *Services* as the **Folder Name**.
+1. **Control** + **Click** on the **PushDemo** project, choose **New Folder** from the **Add** menu, then click **Add** using *Models* as the **Folder Name**.
 
-1. **Control** + **Click** on the **Services** folder, then choose **New File...** from the **Add** menu.
+1. **Control** + **Click** on the **Models** folder, then choose **New File...** from the **Add** menu.
 
-1. Select **General** > **Empty Class**, enter *ServiceContainer.cs*, then add the following implementation.
+1. Select **General** > **Empty Class**, enter *DeviceInstallation.cs*, then add the following implementation.
 
     ```csharp
+    using System.Collections.Generic;
+    using Newtonsoft.Json;
+
+    namespace PushDemo.Models
+    {
+        public class DeviceInstallation
+        {
+            [JsonProperty("installationId")]
+            public string InstallationId { get; set; }
+
+            [JsonProperty("platform")]
+            public string Platform { get; set; }
+
+            [JsonProperty("pushChannel")]
+            public string PushChannel { get; set; }
+
+            [JsonProperty("tags")]
+            public List<string> Tags { get; set; } = new List<string>();
+        }
+    }
+    ```
+
+1. Add an **Empty Enumeration** to the **Models** folder called *PushDemoAction.cs* with the following implementation.
+
+    ```csharp
+    namespace PushDemo.Models
+    {
+        public enum PushDemoAction
+        {
+            ActionA,
+            ActionB
+        }
+    }
+    ```
+
+1. Add a new folder to the **PushDemo** project called *Services* then add an **Empty Class** to that folder called *ServiceContainer.cs* with the following implementation.
+
+     ```csharp
     using System;
     using System.Collections.Generic;
 
@@ -60,32 +98,7 @@
     > [!NOTE]
     > This is a trimmed-down version of the [ServiceContainer](https://github.com/xamcat/mobcat-library/blob/master/MobCAT/ServiceContainer.cs) class from the [XamCAT](https://github.com/xamcat/mobcat-library) repository. It will be used as a light-weight IoC (Inversion of Control) container.
 
-1. Add a new folder to the **PushDemo** project called *Models* then add an **Empty Class** to that folder called *DeviceInstallation.cs* with the following implementation.
-
-    ```csharp
-    using System.Collections.Generic;
-    using Newtonsoft.Json;
-
-    namespace PushDemo.Models
-    {
-        public class DeviceInstallation
-        {
-            [JsonProperty("installationId")]
-            public string InstallationId { get; set; }
-
-            [JsonProperty("platform")]
-            public string Platform { get; set; }
-
-            [JsonProperty("pushChannel")]
-            public string PushChannel { get; set; }
-
-            [JsonProperty("tags")]
-            public List<string> Tags { get; set; } = new List<string>();
-        }
-    }
-    ```
-
-1. Add an **Empty Interface** to the **Services** folder called *IDeviceInstallationService.cs*, then add the following implementation.
+1. Add an **Empty Interface** to the **Services** folder called *IDeviceInstallationService.cs*, then add the following code.
 
     ```csharp
     using PushDemo.Models;
@@ -103,22 +116,9 @@
     ```
 
     > [!NOTE]
-    > This interface will be implemented and bootstrapped by each target later to provide the platform-specific **DeviceInstallation** information required by the backend service.
+    > This interface will be implemented and bootstrapped by each target later to provide the platform-specific functionality and **DeviceInstallation** information required by the backend service.
 
-1. Add an **Empty Enumeration** to the **Models** folder called *PushDemoAction.cs* with the following implementation.
-
-    ```csharp
-    namespace PushDemo.Models
-    {
-        public enum PushDemoAction
-        {
-            ActionA,
-            ActionB
-        }
-    }
-    ```
-
-1. Add another **Empty Interface** to the **Services** folder called *INotificationRegistrationService.cs*, then add the following implementation.  
+1. Add another **Empty Interface** to the **Services** folder called *INotificationRegistrationService.cs*, then add the following code.  
 
     ```csharp
     using System.Threading.Tasks;
@@ -137,7 +137,7 @@
     > [!NOTE]
     > This will handle the interaction between the client and backend service.
 
-1. Add another **Empty Interface** to the **Services** folder called *INotificationActionService.cs*, then add the following implementation.  
+1. Add another **Empty Interface** to the **Services** folder called *INotificationActionService.cs*, then add the following code.  
 
     ```csharp
     namespace PushDemo.Services
