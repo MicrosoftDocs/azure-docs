@@ -177,9 +177,11 @@ WHERE
 
 ### Escaping Quoting characters
 
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
+
 File preview:
 
-![First 10 rows of the CSV file with header row and with Unix-Style new line and escape char double quote used for field delimiter.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+![The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
 
 ```sql
 SELECT *
