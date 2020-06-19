@@ -36,7 +36,7 @@ landingContent:
           - text: Use GitOps with Helm
             url: ./use-gitops-with-helm.md
           - text: Use Azure monitor for containers
-            url: ./deploy-azure-monitor-for-containers.md
+            url: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
           - text: Use Azure Policy
             url: ./use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
