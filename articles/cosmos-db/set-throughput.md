@@ -95,7 +95,7 @@ To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-
 * Highest RU/s provisioned on the database or container / 100
 * Container count * 100 RU/s (shared throughput database only)
 
-The actual minimum RU/s may vary depending on your account configuration.
+The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value. 
 
