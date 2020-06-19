@@ -160,10 +160,13 @@
     ```csharp
     using System;
     using Android.App;
-    using Android.Gms.Common;
-    using PushDemo.Models;
+    using Android.Content;
+    using Android.Content.PM;
+    using Android.OS;
+    using Android.Runtime;
+    using Firebase.Iid;
+    using PushDemo.Droid.Services;
     using PushDemo.Services;
-    using static Android.Provider.Settings;
     ```
 
 1. In **MainActivity.cs**, set the **LaunchMode** to **SingleTop** so **MainActivity** won't get created again when opened.
