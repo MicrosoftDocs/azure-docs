@@ -6,13 +6,22 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 tags: connectors
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
-To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
+To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
+
+> [!NOTE]
+> The SFTP-SSH connector currently doesn't support these SFTP servers:
+> 
+> * IBM DataPower
+> * OpenText Secure MFT
+> * OpenText GXS
+
+Here are some example tasks you can automate:
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
