@@ -50,11 +50,11 @@ If you have a large number of managed images that you need to maintain and would
 1. Attach an existing shared image gallery to your lab by clicking on the **Attach** button and selecting your gallery in the dropdown.
 
     ![Attach](./media/configure-shared-image-gallery/attach-options.png)
-1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation. Select an image gallery from the list to configure it. 
+1. After the image gallery is attached, select it to go to the attached gallery. Configure your gallery to **enable or disable** shared images for VM creation. Select an image gallery from the list to configure it. 
 
     By default, **Allow all images to be used as virtual machine bases** is set to **Yes**. It means that all images available in the attached shared image gallery will be available to a lab user when creating a new lab VM. If access to certain images needs to be restricted, change **Allow all images to be used as virtual machine bases** to **No**, and select the images that you want to allow when creating VMs, and then select the **Save** button.
 
-    ![Enable or disable](./media/configure-shared-image-gallery/enable-disable.png)
+    :::image type="content" source="./media/configure-shared-image-gallery/enable-disable.png" alt-text="Enable or disable images":::
 
     > [!NOTE]
     > Both generalized and specialized images in the shared image gallery are supported. 
