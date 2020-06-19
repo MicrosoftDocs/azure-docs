@@ -165,9 +165,7 @@ If this is the best option for your organization, see the following resources:
 
 To provision Azure AD Join, you have the following approaches:
 
-* Self-Service:
-
-* [Windows 10 first-run experience](azuread-joined-devices-frx.md)
+* Self-Service: [Windows 10 first-run experience](azuread-joined-devices-frx.md)
 
 If you have either Windows 10 Professional or Windows 10 Enterprise installed on a device, the experience defaults to the setup process for company-owned devices.
 
