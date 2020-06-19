@@ -8,7 +8,7 @@ Use the QnA Maker client library for .NET to:
 
  * Create a knowledgebase
  * Update a knowledgebase
- * Publish a knowledgebas
+ * Publish a knowledgebase
  * Get prediction runtime endpoint key
  * Wait for long-running task
  * Download a knowledgebase
