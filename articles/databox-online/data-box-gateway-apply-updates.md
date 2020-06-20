@@ -6,7 +6,7 @@ author: priestlg
 
 ms.service: databox
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 06/18/2020
 ms.author: v-grpr
 ---
 # Update your Azure Data Box Gateway
@@ -54,7 +54,6 @@ We recommend that you install updates through the Azure portal. The device autom
 
     <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)    -->
 
-
 4. After the download is complete, the notification banner updates to indicate the completion. If you chose to download and install the updates, the installation will begin automatically.
 
     <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-6.png) -->
@@ -79,13 +78,12 @@ We recommend that you install updates through the Azure portal. The device autom
 
     <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-11.png) -->
 
-
 7. After the restart, the device is again put in the maintenance mode and an informational alert is displayed to indicate that.
 
     <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-12.png)-->
 
     If you select the **Update device** from the top command bar, you can see the progress of the updates.
-    
+
     <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-13.png)-->
 
 8. The device status updates to **Online** after the updates are installed.
@@ -95,7 +93,6 @@ We recommend that you install updates through the Azure portal. The device autom
     From the top command bar, select **Device updates**. Verify that update has successfully installed and the device software version reflects that.
 
     <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-15.png) -->
-
 
     <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-20.png) -->
 
