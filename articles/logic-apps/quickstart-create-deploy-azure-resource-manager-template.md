@@ -77,7 +77,6 @@ If your environment meets the prerequisites, and you're familiar with using ARM 
 
 1. Continue with the steps in [Review deployed resources](#review-deployed-resources).
 
----
 
 #### [CLI](#tab/azure-cli)
 
@@ -101,7 +100,6 @@ For more information, see these topics:
 * [az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
 * [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
----
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -126,7 +124,6 @@ For more information, see these topics:
 * [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps)
 * [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
----
 
 #### [REST API](#tab/rest-api)
 
@@ -147,7 +144,6 @@ To view the logic app, you can use the Azure portal, or you can use a script cre
 
 ### [Portal](#tab/azure-portal)
 
----
 
 ### [CLI](#tab/azure-cli)
 
@@ -160,8 +156,6 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
----
-
 ### [PowerShell](#tab/azure-powershell)
 
 For more information, see [Get-AzureRmLogicApp](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Get-AzureRmLogicApp).
@@ -171,8 +165,6 @@ $logicAppName = Read-Host -Prompt "Enter your logic app name"
 Get-AzureRmLogicApp -Name $logicAppName
 Write-Host "Press [ENTER] to continue..."
 ```
-
----
 
 ### [REST API](#tab/rest-api)
 
@@ -188,7 +180,6 @@ For more information, see these topics:
 * [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group)
 * [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource)
 
----
 
 ### [CLI](#tab/azure-cli)
 
@@ -201,8 +192,6 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
----
-
 ### [PowerShell](#tab/azure-powershell)
 
 For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
@@ -212,6 +201,8 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
+
+### [REST API](#tab/rest-api)
 
 ## Next steps
 
