@@ -41,7 +41,7 @@
         href: craft-effective-appsource-store-images.md
   - name: Solution management and services
     items:
-      - name: Mange names
+      - name: Manage names
         href: manage-solution-names.md
       - name: Create or update client IDs and secrets
         href: create-or-update-client-ids-and-secrets.md
