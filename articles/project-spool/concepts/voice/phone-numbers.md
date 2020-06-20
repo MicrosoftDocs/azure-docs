@@ -11,6 +11,16 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
+# About
+
+Azure Communication Services allows you to acquire phone numbers to make or receive the telephony calls and send or receive the SMS messages. 
+You can acquire a phone number on the Azure Communication Page assign it for use in your application.
+This information on this page helps to understand different phone number types and their capabilities.
+The types and capabilities of the phone numbers very per country. Please pay attention to country availability columns.
+
+# About offers structure
+
+To provide great flexibility for developers we allow on any phone number configure “a la cart” set of options. Some developers only need inbound calling, some might opt in for inbound calling and SMS. When you are purchasing a phone number you can combine most capabilities together or select only needed one. 
 
 # Phone Numbers and Short Codes
 
