@@ -116,15 +116,17 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 1. Start the browser and navigate to [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
-    <!-- ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png) -->
+   ![Search catalog](./media/data-box-gateway-apply-updates/download-update-1.png)
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Data Box Gateway**, and then click **Search**.
 
-    The update listing appears as **Azure Data Box Gateway 1911**.
+   The update listing appears as **Azure Data Box Gateway 1911**.
 
-    <!-- ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png) -->
+   ![Search catalog](./media/data-box-gateway-apply-updates/download-update-2.png)
 
 3. Select **Download**. There is a single file to download called *SoftwareUpdatePackage.exe* that corresponds to the device software update. Download the file to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
+
+   ![Search catalog](./media/data-box-gateway-apply-updates/download-update-3.png)
 
 ### Install the update or the hotfix
 
