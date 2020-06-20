@@ -36,18 +36,16 @@ This template creates the following Azure resource:
 
 To find more template samples for Azure Logic Apps, review the [Microsoft.Logic](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic) templates in the gallery.
 
----
-
 <a name="deploy-template"></a>
 
 ### Deploy the template
 
 To deploy the template, you can use any of these options:
 
-* [Azure portal](#deploy-azure-portal)
+* [Azure portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template)
 * [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template)
 * [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template)
-* [Azure Resource Manager REST API](#deploy-resource-manager-rest-api)
+* [Azure Resource Manager REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template)
 
 <a name="deploy-azure-portal"></a>
 
@@ -79,6 +77,8 @@ If your environment meets the prerequisites, and you're familiar with using ARM 
 
 1. Continue with the steps in [Review deployed resources](#review-deployed-resources).
 
+---
+
 #### [CLI](#tab/azure-cli)
 
 The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run `az deployment group create`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`.
@@ -99,7 +99,9 @@ For more information, see these topics:
 * [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest)
 * [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)
 * [az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
-* [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
+* [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+---
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -124,7 +126,9 @@ For more information, see these topics:
 * [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/get-started-azureps)
 * [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
-#### Resource Manager REST API
+---
+
+#### [REST API](#tab/rest-api)
 
 Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources.
 
@@ -135,8 +139,6 @@ For more information, see these topics:
 * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
----
-
 <a name="review-deployed-resources"></a>
 
 ## Review deployed resources
@@ -144,6 +146,9 @@ For more information, see these topics:
 To view the logic app, you can use the Azure portal, or you can use a script created with Azure CLI or Azure PowerShell.
 
 ### [Portal](#tab/azure-portal)
+
+
+---
 
 ### [CLI](#tab/azure-cli)
 
@@ -155,6 +160,8 @@ read logicAppName &&
 az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
+
+---
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -172,14 +179,16 @@ Write-Host "Press [ENTER] to continue..."
 
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Manager REST API:
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 For more information, see these topics:
 
 * [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group)
 * [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource)
 
-#### [CLI](#tab/azure-cli)
+---
+
+### [CLI](#tab/azure-cli)
 
 For more information, see [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
@@ -190,8 +199,9 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
+---
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
