@@ -36,18 +36,22 @@ This template creates the following Azure resource:
 
 To find more template samples for Azure Logic Apps, review the [Microsoft.Logic](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic) templates in the gallery.
 
+---
+
+<a name="deploy-template"></a>
+
 ### Deploy the template
 
 To deploy the template, you can use any of these options:
 
 * [Azure portal](#deploy-azure-portal)
-* [Azure CLI](#deploy-azure-cli)
-* [Azure PowerShell](#deploy-azure-powershell)
-* [Azure Resource Manager REST API]
+* [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template)
+* [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template)
+* [Azure Resource Manager REST API](#deploy-resource-manager-rest-api)
 
 <a name="deploy-azure-portal"></a>
 
-#### Azure portal
+#### [Portal](#tab/azure-portal)
 
 If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button below, which prompts you to sign in with your Azure account and opens the template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -73,9 +77,9 @@ If your environment meets the prerequisites, and you're familiar with using ARM 
 
 1. When you're done, select **Review + create**.
 
-<a name="deploy-azure-cli"></a>
+1. Continue with the steps in [Review deployed resources](#review-deployed-resources).
 
-#### [CLI](#tab/CLI)
+#### [CLI](#tab/azure-cli)
 
 The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run `az deployment group create`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`.
 
@@ -97,9 +101,7 @@ For more information, see these topics:
 * [az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
 * [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
 
-<a name="deploy-azure-powershell"></a>
-
-#### [PowerShell](#tab/PowerShell)
+#### [PowerShell](#tab/azure-powershell)
 
 Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources.
 
@@ -133,16 +135,19 @@ For more information, see these topics:
 * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
-### Review deployed resources
+---
 
-To view the logic app, you can use the Azure portal, or you can use an Azure CLI or Azure PowerShell script.
+<a name="review-deployed-resources"></a>
 
-#### Azure portal
+## Review deployed resources
 
+To view the logic app, you can use the Azure portal, or you can use a script created with Azure CLI or Azure PowerShell.
 
-#### [CLI](#tab/CLI)
+### [Portal](#tab/azure-portal)
 
-To run `az logic workflow show`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`. For more information, see [**az deployment group**](https://docs.microsoft.com/cli/azure/deployment/group) and [Deploy resources with ARM templates and Azure CLI](../azure/azure-resource-manager/templates/deploy-cli.md).
+### [CLI](#tab/azure-cli)
+
+To run `az logic workflow show`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`. For more information, see [az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
 
 ```azurecli-interactive
 echo "Enter your logic app name:" &&
@@ -151,9 +156,9 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
+### [PowerShell](#tab/azure-powershell)
 
-#### [PowerShell](#tab/PowerShell)
+For more information, see [Get-AzureRmLogicApp](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Get-AzureRmLogicApp).
 
 ```azurepowershell-interactive
 $logicAppName = Read-Host -Prompt "Enter your logic app name"
@@ -161,24 +166,34 @@ Get-AzureRmLogicApp -Name $logicAppName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-For more information, see [Get-AzureRmLogicApp](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Get-AzureRmLogicApp).
+---
 
-### Clean up resources
+## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, or Azure PowerShell: 
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Manager REST API:
 
-[delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
+#### [Portal](#tab/azure-portal)
 
-#### [CLI](#tab/CLI)
+For more information, see these topics:
+
+* [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group)
+* [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource)
+
+#### [CLI](#tab/azure-cli)
+
+For more information, see [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
-echo "Enter the resource group name:" &&
+echo "Enter your resource group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-#### [PowerShell](#tab/PowerShell)
+
+#### [PowerShell](#tab/azure-powershell)
+
+For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
