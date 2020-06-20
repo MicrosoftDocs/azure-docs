@@ -63,6 +63,8 @@ To deploy the template, you can follow the steps for any of these options:
 
 * [Azure Resource Manager REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template)
 
+  Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure).
+
 <a name="deploy-azure-portal"></a>
 
 #### [Portal](#tab/azure-portal)
@@ -132,13 +134,41 @@ For more information, see these topics:
 
 #### [REST API](#tab/rest-api)
 
-Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources.
+To create a resource group and deploy a template to that resource group, specify these values in your HTTP request's URI:
+
+* Your Azure subscription ID
+* A name to use for the resource group
+* A name to use for the deployment
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+```
+
+In the request body, provide the location plus links to the template and the template parameter file, similar to this example:
+
+```json
+{
+   "location": "West US",
+   "properties": {
+      "templateLink": {
+         "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json",
+         "contentVersion": "1.0.0.0"
+      },
+      "parametersLink": {
+         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+         "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental"
+   }
+}
+```
+
+For more information about the parameter file, see Create Resource Manager parameter file.
 
 For more information, see these topics:
 
-* [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)
 * [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/)
-* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
+* [Resource Groups - Create or Update](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ---
@@ -211,6 +241,11 @@ Write-Host "Press [ENTER] to continue..."
 For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ### [REST API](#tab/rest-api)
+
+* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
+
+
+---
 
 ## Next steps
 
