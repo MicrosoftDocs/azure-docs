@@ -29,7 +29,7 @@ There are multiple ways to get an assisted support for Azure Kinect.
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://aka.ms/azureqa), Azure’s preferred destination for community support.
 
-- [Microsoft Q&A for Azure Kinect](https://docs.microsoft.com/en-us/answers/topics/azure-kinect-dk.html), where you can ask questions or search through existing library of questions.
+- [Microsoft Q&A for Azure Kinect](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html), where you can ask questions or search through existing library of questions.
 
 ### Development Azure Kinect on Azure
 
