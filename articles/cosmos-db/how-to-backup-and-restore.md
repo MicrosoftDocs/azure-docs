@@ -39,7 +39,7 @@ When data corruption occurs and if the documents within a container are modified
 
 The following screenshot illustrates how to create a support request for a container(collection/graph/table) to restore data by using Azure portal. Provide additional details such as type of data, purpose of the restore, time when the data was deleted to help us prioritize the request.
 
-![Create a backup support request using Azure portal](./media/how-to-backup-and-restore/backup-support-request-portal.png)
+:::image type="content" source="./media/how-to-backup-and-restore/backup-support-request-portal.png" alt-text="Create a backup support request using Azure portal":::
 
 ## Post-restore actions
 
