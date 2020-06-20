@@ -100,7 +100,7 @@ readBooksDF.show
 
 The PushedFilters section of the physical plan includes the GreaterThan push down filter. 
 
-![partitions](./media/cassandra-spark-read-ops/pushdown-predicates.png)
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="partitions":::
 
 ## RDD API
 

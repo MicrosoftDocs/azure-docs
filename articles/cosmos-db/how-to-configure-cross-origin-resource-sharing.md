@@ -29,7 +29,7 @@ Use the following steps to enable Cross-Origin Resource Sharing by using Azure p
    > [!NOTE]
    > Currently, you cannot use wildcards as part of the domain name. For example `https://*.mydomain.net` format is not yet supported. 
 
-   ![Enable cross origin resource sharing using Azure portal](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
+   :::image type="content" source="./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png" alt-text="Enable cross origin resource sharing using Azure portal":::
 
 ## Enable CORS support from Resource Manager template
 
