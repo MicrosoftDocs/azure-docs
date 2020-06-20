@@ -147,7 +147,6 @@ To view the logic app, you can use the Azure portal, or you can use a script cre
 
 ### [Portal](#tab/azure-portal)
 
-
 ---
 
 ### [CLI](#tab/azure-cli)
@@ -174,6 +173,9 @@ Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
+
+### [REST API](#tab/rest-api)
+
 
 ## Clean up resources
 
