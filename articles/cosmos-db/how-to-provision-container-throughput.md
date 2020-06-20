@@ -26,7 +26,7 @@ This article explains how to provision standard (manual) throughput on a contain
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## Azure CLI or PowerShell
 
