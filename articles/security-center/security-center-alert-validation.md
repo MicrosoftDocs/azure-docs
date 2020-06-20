@@ -34,7 +34,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 
 1. Copy an executable (for example **calc.exe**) to the computer's desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
 1. Open the command prompt and execute this file with an argument (just a fake argument name), such as: ```ASC_AlertTest_662jfi039N.exe -foo```
-1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert should appear.
 
 > [!NOTE]
 > When reviewing this test alert for Windows, make sure the field **Arguments Auditing Enabled** is **true**. If it is **false**, then you need to enable command-line arguments auditing. To enable it, use the following command:
@@ -52,11 +52,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 
     ```./asc_alerttest_662jfi039n testing eicar pipe```
 
-1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
-
-### Alert example <a name="alert-validate"></a>
-
-![Alert validation example](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert should appear.
 
 
 ## Validate alerts on Kubernetes <a name="validate-kubernetes"></a>

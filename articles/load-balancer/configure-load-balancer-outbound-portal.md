@@ -5,7 +5,7 @@ description: This article shows how to configure load balancing and outbound rul
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 

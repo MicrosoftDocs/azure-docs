@@ -245,6 +245,8 @@
         href: britive-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
+      - name: BullseyeTDP
+        href: bullseyetdp-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -894,6 +896,8 @@
         href: kindling-tutorial.md
       - name: Kintone
         href: kintone-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-tutorial.md
       - name: Kiteworks
         href: kiteworks-tutorial.md
       - name: Klue
@@ -974,6 +978,8 @@
         href: m-files-tutorial.md
       - name: Mail Luck!
         href: mail-luck-tutorial.md
+      - name: MailGates
+        href: mailgates-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Mapbox
@@ -1254,6 +1260,8 @@
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
+      - name: pymetrics
+        href: pymetrics-tutorial.md
     - name: Q - R
       items:
       - name: Qlik Sense Enterprise
@@ -1272,6 +1280,8 @@
         href: qumucloud-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
+      - name: Raketa
+        href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
       - name: Real Links
@@ -1390,6 +1400,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Segment
+        href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
@@ -1412,6 +1424,8 @@
         href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
+      - name: Shopify Plus
+        href: shopify-plus-tutorial.md
       - name: Showpad
         href: showpad-tutorial.md
       - name: Shuccho Navi

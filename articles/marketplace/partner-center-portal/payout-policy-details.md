@@ -20,7 +20,7 @@ In Partner Center, select **Payout** at the upper-right of the portal:
 ![Illustrates the Payout icon in the upper-right of the Partner Center portal.](./media/payout-overview.png)
 
 > [!TIP]
-> Not all account roles have access to payout information. For details, see [Roles and permissions to access the payout report](./payout-summary.md).
+> Not all account roles have access to payout information. For details, see [Roles and permissions to access the payout report](./payout-summary-overview.md#roles-and-permissions).
 
 ## Payment schedules
 
@@ -97,12 +97,12 @@ The following is an example schedule:
 | Example payout date | 10/15/2020 | Marked as **Sent** in Transaction History and in Payments section in Payout Dashboard |
 | <font color="red">If customer does not pay Microsoft</font> | 12/2/2020 – 12/5/2020 | No change, same as above |
 | Customer receives first late payment email | 12/6/2020 | None |
-| Customer receives regular emails of increasing urgency | 12/7/2020 – 1/31/2020 | None |
-| Publisher is notified write-off is likely | 1/7/2020 | Email notification sent to publisher that their customer has not yet sent payment. Transaction ID and dollar amount are included. |
-| Customer receives termination notice | 2/1/2020 | None |
-| Collection process ends / funds are written off | 2/15/2020 | Email notification sent to publisher that funds have been written off. Transaction ID and dollar amount are included. |
-| Payout is deducted | 3/1/2020 | Publisher will see negative transaction in Partner Center Payout Statement |
-| Payout is withheld | 3/15/2020 | Future payouts will be shown in Partner Center Payout Statement. Publisher will not receive payment until balance is no longer negative.  |
+| Customer receives regular emails of increasing urgency | 12/7/2020 – 1/31/2021 | None |
+| Publisher is notified write-off is likely | 1/7/2021 | Email notification sent to publisher that their customer has not yet sent payment. Transaction ID and dollar amount are included. |
+| Customer receives termination notice | 2/1/2021 | None |
+| Collection process ends / funds are written off | 2/15/2021 | Email notification sent to publisher that funds have been written off. Transaction ID and dollar amount are included. |
+| Payout is deducted | 3/1/2021 | Publisher will see negative transaction in Partner Center Payout Statement |
+| Payout is withheld | 3/15/2021 | Future payouts will be shown in Partner Center Payout Statement. Publisher will not receive payment until balance is no longer negative.  |
 |||
 
 ## Next Step

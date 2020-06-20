@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ---
 
 #	Text Merge cognitive skill
@@ -27,8 +27,8 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| insertPreTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
-| insertPostTag	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| `insertPreTag`	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| `insertPostTag`	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
 
 
 ##	Sample input
@@ -104,18 +104,22 @@ The following example skillset uses the OCR skill to extract text from images em
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text", 
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset" 
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }
