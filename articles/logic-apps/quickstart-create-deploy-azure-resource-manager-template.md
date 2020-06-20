@@ -48,14 +48,14 @@ To deploy the template, you can follow the steps for any of these options:
 
 * [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template)
 
-  The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics:
+  The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics:<p>
 
   * [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest)
   * [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)
 
 * [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template)
 
-  Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see these topics:
+  Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see these topics:<p>
 
   * [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview)
   * [Introducing the Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)
@@ -177,7 +177,7 @@ For more information, see these topics:
 
 ## Review deployed resources
 
-To view the logic app, you can use the Azure portal, or you can use a script created with Azure CLI or Azure PowerShell.
+To view the logic app, you can use the Azure portal, run a script that you create with Azure CLI or Azure PowerShell, or use the Logic App REST API.
 
 ### [Portal](#tab/azure-portal)
 
@@ -185,14 +185,14 @@ To view the logic app, you can use the Azure portal, or you can use a script cre
 
 ### [CLI](#tab/azure-cli)
 
-To run `az logic workflow show`, you need Azure CLI version 2.6 or later. To display the version, type `az --version`. For more information, see [az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
-
 ```azurecli-interactive
 echo "Enter your logic app name:" &&
 read logicAppName &&
 az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
+
+For more information, see [az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -206,6 +206,8 @@ For more information, see [Get-AzLogicApp](https://docs.microsoft.com/powershell
 
 ### [REST API](#tab/rest-api)
 
+* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
+
 ---
 
 ## Clean up resources
@@ -214,10 +216,9 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ### [Portal](#tab/azure-portal)
 
-For more information, see these topics:
+To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
-* [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group)
-* [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource)
+To delete individual resources, see [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource).
 
 ### [CLI](#tab/azure-cli)
 
@@ -241,8 +242,6 @@ Write-Host "Press [ENTER] to continue..."
 For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ### [REST API](#tab/rest-api)
-
-* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
 
 
 ---
