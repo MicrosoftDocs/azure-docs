@@ -27,7 +27,7 @@ This article explains how to provision standard (manual) throughput on a databas
    * Enter a throughput (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Screenshot of New Database dialog box":::
 
 ## Provision throughput using Azure CLI or PowerShell
 
