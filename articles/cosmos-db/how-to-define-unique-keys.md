@@ -30,7 +30,7 @@ This article presents the different ways to define [unique keys](unique-keys.md)
 
 1. If needed, add more unique key entries by clicking on **+ Add unique key**
 
-    ![Screenshot of unique key constraint entry on Azure portal](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    :::image type="content" source="./media/how-to-define-unique-keys/unique-keys-portal.png" alt-text="Screenshot of unique key constraint entry on Azure portal":::
 
 ## Use Powershell
 
