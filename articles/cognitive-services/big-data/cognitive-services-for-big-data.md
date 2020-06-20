@@ -15,21 +15,21 @@ ms.topic: overview
 </p>
 
 
-The  Azure Cognitive Services for Big Data allows users to channel terabytes of data through Cognitive Services using [Apache Spark™](https://docs.microsoft.com/en-us/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it is easy to create large-scale intelligent applications no matter where your data is stored. 
+The  Azure Cognitive Services for Big Data allows users to channel terabytes of data through Cognitive Services using [Apache Spark™](https://docs.microsoft.com/en-us/dotnet/spark/what-is-spark). With the Cognitive Services for Big Data, it's easy to create large-scale intelligent applications no matter where your data is stored. 
 
-Specifically, Cognitive Services on Spark allow users to embed general purpose, and continuously improving, intelligent models directly into their Apache Spark™ and SQL computations. This liberates developers from low-level networking details, so they can focus on creating intelligent, distributed applications.
+Cognitive Services on Spark allow users to embed continuously improving, intelligent models directly into their Apache Spark™ and SQL computations. This direct use liberates developers from low-level networking details, so they can focus on creating intelligent, distributed applications.
 
 ## Features and benefits
 
 ### Ultra-low latency workloads
 
-Since Cognitive Services on Spark are compatible with services from any region of the globe, with low or no connectivity, ultra-low latency is critical. In response, Cognitive Services now include [Docker Containers](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-container-support) support, which enables running Cognitive Services locally or directly on the worker nodes of your cluster for ultra-low latency workloads. Kubernetes, a popular container orchestration platform, is used so you can simply point your Cognitive Services on Spark to your container's URL.
+Since Cognitive Services on Spark are compatible with services from any region in the world, with low or no connectivity, ultra-low latency is critical. In response, Cognitive Services now include [Docker Containers](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-container-support) support, so you can run Cognitive Services locally or directly on the worker nodes of your cluster. Kubernetes, a popular container orchestration platform, is used to point your Cognitive Services on Spark to your container's URL.
 
 ## Supported services
 
 ### Cognitive Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), accessed through APIs and SDKs, help developers build intelligent applications without having direct AI or data science skills or knowledge. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. Your query data is sent to the service and you get an intelligent response in return.
+[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. Azure Cognitive Services can make your applications see, hear, speak, understand, and even begin to reason. Your query data is sent to the service and you get an intelligent response in return.
 
 1. Vision: Computer Vision and Face
 1. Speech: Speech Services
@@ -49,7 +49,7 @@ The Spark SDK in Scala supports Cognitive Services in their `com.microsoft.ml.sp
 
 ## Supported Platforms and Connectors
 
-In order to facilitate Spark, choose a platform for your big data analysis. Azure Databricks or Azure Synapse Analytics will provide a secure space for taking in data, sending it through analysis and storing the results. The Azure Kubernetes Service can be useful for containerizing the services you use for your analysis, for example the Cognitive Services or other web services. 
+To facilitate Spark, choose a platform for your big data analysis. Azure Databricks or Azure Synapse Analytics will provide a secure space for taking in data, sending it through analysis and storing the results. The Azure Kubernetes Service can be useful for containerizing the services you use for your analysis, for example the Cognitive Services or other web services. 
 
 With a platform in place, you'll want to connect data sources (connectors) to your data. Azure Databricks, for example, has a [large data source list](https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/) to choose from. Some popular connectors are SQLServer, Azure Blob storage, Azure CosmosDB, and PowerBI.
 
@@ -71,17 +71,17 @@ As application development moves towards a container-based approach, the need to
 
 [Apache Spark™](http://spark.apache.org/) is a unified analytics engine for large-scale data processing. Its parallel processing framework boosts performance of big-data and analytic applications. Spark is a batch and stream processing system, but also can deploy models as web service.
 
-Microsoft created the [Microsoft Machine Learning for Apache Spark](https://mmlspark.blob.core.windows.net/website/index.html#install) to act as a fault-tolerant, elastic, and RESTful machine learning framework. Cognitive Services can be utilized in Spark by adding them to an existing Spark cluster. Creating a Spark cluster is made possible through several options: [HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview), [Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/), [Kubernetes](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes), or [Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/).
+Microsoft created the [Microsoft Machine Learning for Apache Spark](https://mmlspark.blob.core.windows.net/website/index.html#install) to act as a fault-tolerant, elastic, and RESTful machine learning framework. Cognitive Services can be used in Spark by adding them to an existing Spark cluster. Creating a Spark cluster is made possible through several options: [HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-overview), [Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/), [Kubernetes](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes), or [Synapse Analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/).
 
 ### Microsoft Machine Learning for Apache Spark (MMLSpark)
 
-MMLSpark is an ecosystem of tools aimed towards expanding the distributed computing framework Apache Spark in several new directions. MMLSpark adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of Spark Machine Learning pipelines with Microsoft Cognitive Toolkit (CNTK), LightGBM and OpenCV. These tools enable powerful and highly-scalable predictive and analytical models for a variety of datasources.
+MMLSpark is an ecosystem of tools that expands Apache Spark in several new directions. MMLSpark seemlessly integrates many deep learning and data science tools, including Microsoft Cognitive Toolkit (CNTK), LightGBM and OpenCV. These tools enable powerful and highly scalable predictive and analytical models for a variety of datasources.
 
 ### HTTP on Spark
 
-Cognitive Services on Spark are just one example of how HTTP on Spark, part of MMLSpark, can be leveraged. The web is full of HTTP(S) web services that provide useful tools and serve as one of the standard patterns for making your code accessible in any language. HTTP on Spark allows Spark developers to tap into this richness from within their existing Spark pipelines.
+Cognitive Services on Spark are just one example of how HTTP on Spark, part of MMLSpark, can be leveraged. The web is full of HTTP(S) web services, which can make your code accessible in any language. HTTP on Spark allows Spark developers to tap into this richness from within their existing Spark pipelines.
 
-Intuitively speaking, a web service is a streaming pipeline where the data source and the data sink are the same HTTP request. Therefore, the ability to include web services into your Spark pipeline allows Spark clusters to operate as distributed web clients.
+Intuitively speaking, a web service is a streaming pipeline where the data source and the data sink are the same HTTP request. As such, including web services into your Spark pipeline allows Spark clusters to operate as distributed web clients.
 
 ### Spark SQL
 
@@ -89,13 +89,13 @@ The basis of Spark is the Dataframe:
 
 A Dataset is a distributed collection of data. Dataset is a new interface added in Spark 1.6 that provides the benefits of RDDs (strong typing, ability to use powerful lambda functions) with the benefits of Spark SQL’s optimized execution engine.
 
-A DataFrame is a Dataset organized into named columns. It's conceptually equivalent to a table in a relational database or a data frame in R/Python, but with richer optimizations under the hood. DataFrames can be constructed from a wide array of sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
+A DataFrame is a Dataset organized into named columns. It's like a table in a relational database or a data frame in R/Python, but with richer optimizations under the hood. DataFrames can be constructed from many sources such as: structured data files, tables in Hive, external databases, or existing RDDs.
 
 Dataframes are distributed tabular data broken up across many machines. [Spark SQL](http://spark.apache.org/sql/) is Apache Spark's module for working with structured data.
 
 - Spark combines SQL and Map Reduce.
     * SQL-style computations join and filter tables. 
-    * Map reduce applies functions to large datasets.
+    * Map Reduce applies functions to large datasets.
 - Spark can be used for Machine Learning (ML). 
     * Microsoft Machine Learning for Apache Spark™ (MMLSpark) extends Spark to cover more ML tasks and topics. 
     * We can add deep learning, gradient boosted trees, model interpretability, text analytics, and cognitive services.
