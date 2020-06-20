@@ -12,8 +12,10 @@ In this report, an acquisition means a new customer has obtained a license to yo
 
 The Acquisitions report does not include data about refunds, reversals, chargebacks, and so on. To estimate your solution proceeds, visit Payout summary. 
 
+The SLA for Acquisitions data is currently 4 days.
+
 > [!NOTE]
-> Data latency on this report is five days. This report does not contain data for the past five days.
+> Acquisition data for Teams apps is currently not supported in this report.
 
 <a name="BKMK_Edit"> </a>
 ## Apply filters
