@@ -192,7 +192,9 @@ When the device preparation is complete, data copy will begin from the selected 
 
 ![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
 
-Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked.
+Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked and the portal will show the order in **Copy Completed** state.
+
+![Data Box export data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
 
 Microsoft then prepares and dispatches your device through a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
