@@ -136,6 +136,8 @@ For more information, see these topics:
 * [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
+---
+
 <a name="review-deployed-resources"></a>
 
 ## Review deployed resources
@@ -168,6 +170,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ### [REST API](#tab/rest-api)
 
+---
 
 ## Clean up resources
 
@@ -207,4 +210,4 @@ Write-Host "Press [ENTER] to continue..."
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
