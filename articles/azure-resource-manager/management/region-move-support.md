@@ -575,7 +575,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | elasticpools | No. Resource isn't exposed.
 > | elasticpools / iothubtenants | No. Resource isn't exposed.
-> | iothubs | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone)
+> | iothubs | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## Microsoft.DevSpaces
