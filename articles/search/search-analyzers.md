@@ -8,21 +8,23 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/20/2020
 ---
 
 # Analyzers for text processing in Azure Cognitive Search
 
-An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Processes are transformative, modifying a string through actions such as these:
+An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Text processing (also known as lexical analysis) is transformative, modifying a string through actions such as these:
 
 + Remove non-essential words (stopwords) and punctuation
 + Split up phrases and hyphenated words into component parts
 + Lower-case any upper-case words
 + Reduce words into primitive root forms for storage efficiency and so that matches can be found regardless of tense
 
-Analysis occurs during indexing when the index is built, and then again during query execution when the index is read. You are more likely to get the search results you expect if you use the same analyzer for both operations.
+Analysis occurs during indexing when the index is built, and then again during query execution when the index is read. You are more likely to get the search results you expect if you use the same analyzer for both operations, but you can set the analyzer for each workload independently, depending on your requirements.
 
-If you are unfamiliar with text analysis, listen to the following video clip for a brief explanation of how text processing works in Azure Cognitive Search.
+During indexing, text analysis is limited to `Edm.String` fields. You cannot turn off text analysis, but you can choose content-preserving analyzers that perform minimal processing, resulting in tokens that are similar or identical to the source input string. During query execution, text from the search expression is parsed and analyzed prior to scanning for matches. The exception to this step is wildcard, fuzzy, and regular expression queries that match on patterns. When the query parser detects those query types, the string is passed directly to the search engine. For more information about how query terms are processed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
+
+For more background on text analysis, listen to the following video clip for a brief explanation.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
 
@@ -48,11 +50,17 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 ## How to specify analyzers
 
-1. (for custom analyzers only) Create a named **analyzer** section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
+Setting an analyzer is optional. As a general rule, try using the default standard Lucene analyzer first to see how it performs. If queries fail to return the expected results, switching to a different analyzer is often the right solution.
 
-2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema. Plan on assigning analyzer in the index definition phase before the index is created in the service.
+The best time to assign an analyzer is during the development phase before the index is populated.
 
-3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. You would use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+1. On a field definition in the [index](https://docs.microsoft.com/rest/api/searchservice/create-index), set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`). 
+ 
+   Valid values include the name of a predefined analyzer (such as `keyword`), a [language analyzer](index-add-language-analyzers.md) (such as `ja.lucene`), or a custom analyzer also defined in the index schema. 
+
+1. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. These properties are used together; if you set one, set both. You would use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+
+1. For custom analyzers only, create a named **analyzer** section in the index definition, and then assign your custom analyzer to the field definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
 
 > [!NOTE]
 > It is not possible to use a different [language analyzer](index-add-language-analyzers.md) at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
