@@ -311,7 +311,7 @@ The output folder contains a **executionresult.json** and the script output file
 
 After you deploy a deployment script resource, the resource is listed under the resource group in the Azure portal. The following screenshot shows the Overview page of a deployment script resource:
 
-![Resource Manager template deployment script portal overview](./media/deployment-script-template/resource-manager-deployment-script-portal.png.png)
+![Resource Manager template deployment script portal overview](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
 The overview page displays some important information of the resource, such as **Provisioning state**, **Storage account**, **Container instance**, and **Logs**.
 
