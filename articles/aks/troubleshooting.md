@@ -51,7 +51,7 @@ AKS has HA control planes that scale vertically according to the number of cores
 - **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
-    - https://github.com/helm/helm/issues/4543.
+    - https://github.com/helm/helm/issues/4543
 
 
 ## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
