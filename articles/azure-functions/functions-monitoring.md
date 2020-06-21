@@ -260,7 +260,7 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
 }
 ```
 
-In version 2.x, you can exclude certain types of telemetry from sampling. In the sample above, data of type `Request` are excluded from sampling. This ensures *all* function executions (requests) to be logged while other types of telemetry remain subject to sampling.
+In version 2.x, you can exclude certain types of telemetry from sampling. In the example above, data of type `Request` are excluded from sampling. This ensures *all* function executions (requests) are logged while other types of telemetry remain subject to sampling.
 
 ### Version 1.x 
 
