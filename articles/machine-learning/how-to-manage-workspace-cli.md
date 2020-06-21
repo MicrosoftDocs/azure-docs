@@ -9,7 +9,7 @@ ms.topic: how-to
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 06/19/2020
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -55,7 +55,7 @@ az extension add -n azure-cli-ml
 The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group.
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it has both Azure Blob and Azure File capabilities enabled, and that Hierarchical Namespace (ADLS Gen 2) is disabled. You can always attach your own storage account later after the workspace is created as datastores.
 
 | Service | Parameter to specify an existing instance |
 | ---- | ---- |
@@ -313,7 +313,7 @@ For more information, see the [az ml workspace share](https://docs.microsoft.com
 
 ## Sync keys for dependent resources
 
-If you change access keys for one of the resources used by your workspace, use the following command to sync the new keys with the workspace:
+If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
