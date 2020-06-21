@@ -35957,6 +35957,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-push-notifications-swift-apps-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-swift-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-obc-204",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
       "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
