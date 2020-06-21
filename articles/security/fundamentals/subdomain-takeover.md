@@ -98,37 +98,42 @@ These records don't prevent someone from creating the Azure App Service with the
 
 
 
-### Educate developers and expand internal development procedures
+### Built and automate processes to mitigate the threat
 
 It's often up to developers and operations teams to run cleanup processes to avoid dangling DNS threats. The practices below will help ensure your organization avoids suffering from this threat. 
 
+- **Create procedures for prevention:**
+
+    - Educate your application developers to reroute addresses whenever they delete resources.
+
+    - Put "Remove DNS entry" on the list of required checks when decommissioning a service.
+
+    - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
+
 - **Create procedures for discovery:**
 
-    Threat actors are running subdomain enumeration tools in an automated fashion to find and exploit your dangling DNS entries. They also make use of publicly available lists of subdomains.
+    - Review your DNS records regularly to ensure that your subdomains are all mapped to Azure resources that:
 
-    - To discover dangling DNS entries, access your DNS provider and query everything that points to an Azure resource.
+        - **Exist** - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
+        - **You own** - Confirm that you own all resources that your DNS subdomains are targeting.
 
-    - Use automated tools to review your records. Many Azure customers are using PowerShell scripts for discovery of dangling DNS entries. Two of the benefits of PowerShell are that it has native support of the Azure ARM library and is extensible to query other dependent systems, such as your DNS provider.
-
-    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. 
-
-    - To build your service catalog, run the following Azure Resource Graph query with the parameters from the table below:
-    
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
-        ``` 
+    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph query with the parameters from the table below:
     
         >[!IMPORTANT]
         > **Permissions** - Run the query as a user with access to all of your Azure subscriptions. 
         >
         > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets.  
 
+        ```
+        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ``` 
+        
         For example, this query returns the resources from Azure App Service:
 
         ```
         Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
         ```
-    
+        
         You can also combine multiple resource types. This example query returns the resources from Azure App Service **and** Azure App Service - Slots:
 
         ```
@@ -148,28 +153,12 @@ It's often up to developers and operations teams to run cleanup processes to avo
         |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
 
 
-- **Create procedures for prevention:**
-
-    - Educate your application developers to reroute addresses whenever they delete resources.
-
-    - Put "Remove DNS entry" on the list of required checks when decommissioning a service.
-
-    - Put [delete locks](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) on any resources that have a custom DNS entry. This should serve as an indicator that the mapping must be removed before the resource is deprovisioned. Measures like this can only work when combined with internal education programs.
-
-    - Review your DNS records regularly to ensure that your subdomains are mapped to Azure resources that exist (are not dangling) that you own (have not been taken over):
-
-        1. Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
-        
-        1. Confirm that you own all resources that your DNS subdomains are targeting.
-
-        1. Ensure all the Azure mappings are in your service catalog.
-
-
 - **Create procedures for remediation:**
     - When dangling DNS entries are found, your team needs to investigate whether any compromise has occurred.
     - Investigate why the address wasn't rerouted when the resource was decommissioned.
     - Delete the DNS record if it's no longer in use, or point it to the correct Azure resource (FQDN) owned by your organization.
  
+
 ## Next steps
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
@@ -177,3 +166,5 @@ To learn more about related services and Azure features you can use to defend ag
 - [Azure DNS supports using alias records for custom domains](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
 
 - [Use the Domain Verification ID when adding Custom Domains in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+
+-    [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
