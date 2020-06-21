@@ -313,7 +313,7 @@ Here's a sample JSON representation of `customDimensions` data:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
