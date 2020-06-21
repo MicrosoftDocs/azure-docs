@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 06/20/2020
 ---
 
 # Configure an AKS cluster
