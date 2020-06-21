@@ -110,30 +110,43 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Use automated tools to review your records. Many Azure customers are using PowerShell scripts for discovery of dangling DNS entries. Two of the benefits of PowerShell are that it has native support of the Azure ARM library and is extensible to query other dependent systems, such as your DNS provider.
 
-    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. As a user with access to all of your Azure subscriptions, use Azure Resource Graph queries to build this service catalog. 
+    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. 
+
+    - To build your service catalog, run the following Azure Resource Graph query with the parameters from the table below:
     
-    >[!IMPORTANT]
-    > Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets.  
-
-
-    |Resource name  |Resource type  |FQDN property  |
-    |---------|---------|---------|
-    |Azure Front Door|microsoft.network/frontdoors|properties.cName|
-    |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
-    |Azure CDN|microsoft.cdn/profiles/endpoints|properties.hostName|
-    |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
-    |Azure Traffic Manager|microsoft.network/trafficmanagerprofiles|properties.dnsConfig.fqdn|
-    |Azure Container Instance|microsoft.containerinstance/containergroups|properties.ipAddress.fqdn|
-    |Azure API Management|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
-    |Azure App Service|microsoft.web/sites|properties.defaultHostName|
-    |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
-
-    Example of using the Azure Resource Graph query with the above table to build your service catalog: 
-
-    ```
-    Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-    ```
+        ```
+        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ``` 
     
+        >[!IMPORTANT]
+        > **Permissions** - Run the query as a user with access to all of your Azure subscriptions. 
+        >
+        > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets.  
+
+        For example, this query returns the resources from Azure App Service:
+
+        ```
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
+    
+        You can also combine multiple resource types. This example query returns the resources from Azure App Service **and** Azure App Service - Slots:
+
+        ```
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
+
+        |Resource name  |[ResourceType]  | [FQDNproperty]  |
+        |---------|---------|---------|
+        |Azure Front Door|microsoft.network/frontdoors|properties.cName|
+        |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
+        |Azure CDN|microsoft.cdn/profiles/endpoints|properties.hostName|
+        |Public IP addresses|microsoft.network/publicipaddresses|properties.dnsSettings.fqdn|
+        |Azure Traffic Manager|microsoft.network/trafficmanagerprofiles|properties.dnsConfig.fqdn|
+        |Azure Container Instance|microsoft.containerinstance/containergroups|properties.ipAddress.fqdn|
+        |Azure API Management|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
+        |Azure App Service|microsoft.web/sites|properties.defaultHostName|
+        |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
+
 
 - **Create procedures for prevention:**
 
