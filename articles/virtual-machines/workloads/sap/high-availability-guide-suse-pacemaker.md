@@ -411,32 +411,34 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install Fence agents
+1. **[A]** Install Fence agents 
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > If using Suse Linux Enterprise Server for SAP 15, be aware that you need to activate additional module and install additional component, that is prerequisite for using Azure Fence Agent. To learn more about SUSE modules and extensions see [Modules and Extensions explained](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Follow the instructions bellow to install Azure Python SDK. 
+   > The installed version of package **fence-agents** must be at least **4.4.0**  to benefit from the faster failover times, if a cluster nodes needs to be fenced. We recommend that you update the package, if running a lower version.  
 
-   The following instructions on how to install Azure Python SDK are only applicable for Suse Enterprise Server for SAP **15**.  
 
-    - If you are using Bring-Your-Own-Subscription, follow these instructions  
+1. **[A]** Install Azure Python SDK 
+   - On SLES 12 SP4 or SLES SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - On SLES 15
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/15/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
 
-     - If you are using Pay-As-You-Go subscription, follow these instructions  
-
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   >[!IMPORTANT]
+   >Depending on your version and image type, you may need to activate the Public cloud extension, before you can install Azure Python SDK.
+   >To activate the extension on SLES 12, you can execute SUSEConnect -p sle-module-public-cloud/12/x86_64.  
+   >
 
 1. **[A]** Setup host name resolution
 
@@ -475,7 +477,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
-   # Do you wish to use SBD (y/n)? n
+   # Do you wish to use SBD (y/n)? <b>n</b>
    #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
