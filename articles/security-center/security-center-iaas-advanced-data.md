@@ -42,9 +42,9 @@ Both of these are described below.
 
 1. Provision the Log Analytics agent on your SQL server's host:
 
-    - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the  Log Analytics agent](security-center-enable-data-collection.md##workspace-configuration). Alternatively, you can follow the manual procedure for [adding an Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
+    - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the  Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [adding an Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
 
-    - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+    - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
     - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
