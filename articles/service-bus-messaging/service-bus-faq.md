@@ -8,7 +8,7 @@ editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/10/2020
 ms.author: aschhab
 
 ---
@@ -59,7 +59,7 @@ To find the right IP addresses to white list for your connections, follow these 
 1. Run the following command from a command prompt: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
 
@@ -68,14 +68,14 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 1. First, you run nslookup on the namespace.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 
@@ -118,13 +118,6 @@ It is important to note that these are not new charges, i.e. they existed in the
 ## Quotas
 
 For a list of Service Bus limits and quotas, see the [Service Bus quotas overview][Quotas overview].
-
-### Does Service Bus have any usage quotas?
-By default, for any cloud service Microsoft sets an aggregate monthly usage quota that is calculated across all of a customer's subscriptions. If you need more than these limits, you can contact customer service at any time to understand your needs and adjust these limits appropriately. For Service Bus, the aggregate usage quota is 5 billion messages per month.
-
-While Microsoft reserves the right to disable a customer account that has exceeded its usage quotas in a given month, e-mail notifications are sent and multiple attempts are made to contact a customer before taking any action. Customers exceeding these quotas are still responsible for charges that exceed the quotas.
-
-As with other services on Azure, Service Bus enforces a set of specific quotas to ensure that there is fair usage of resources. You can find more details about these quotas in the [Service Bus quotas overview][Quotas overview].
 
 ### How to handle messages of size > 1 MB?
 Service Bus messaging services (queues and topics/subscriptions) allow application to send messages of size up to 256 KB (standard tier) or 1 MB (premium tier). If you are dealing with messages of size greater than 1 MB, use the claim check pattern described in [this blog post](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).

@@ -1,14 +1,14 @@
 ---
-title: Separating telemetry in Azure Application Insights
+title: How to design your Application Insights deployment - One vs many resources?
 description: Direct telemetry to different resources for development, test, and production stamps.
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/11/2020
 
 ---
 
-# Separating telemetry from Development, Test, and Production
+# How many Application Insights resources should I deploy
 
-When you are developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file. 
+When you are developing the next version of a web application, you don't want to mix up the [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetry from the new version and the already released version. To avoid confusion, send the telemetry from different development stages to separate Application Insights resources, with separate instrumentation keys (ikeys). To make it easier to change the instrumentation key as a version moves from one stage to another, it can be useful to set the ikey in code instead of in the configuration file.
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/cloudservices.md).)
 
@@ -18,7 +18,7 @@ When you set up Application Insights monitoring for your web app, you create an 
 
 Each Application Insights resource comes with metrics that are available out-of-box. If completely separate components report to the same Application Insights resource, these metrics may not make sense to dashboard/alert on.
 
-### Use a single Application Insights resource
+### When to use a single Application Insights resource
 
 -	For application components that are deployed together. Usually developed by a single team, managed by the same set of DevOps/ITOps users.
 -	If it makes sense to aggregate Key Performance Indicators (KPIs) such as response durations, failure rates in dashboard etc., across all of them by default (you can choose to segment by role name in the Metrics Explorer experience).
@@ -134,7 +134,7 @@ When it has the build info, the Application Insights web module automatically ad
 However, notice that the build version number is generated only by the Microsoft Build Engine, not by the developer build from Visual Studio.
 
 ### Release annotations
-If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. The following image shows how this marker appears.
+If you use Azure DevOps, you can [get an annotation marker](../../azure-monitor/app/annotations.md) added to your charts whenever you release a new version. 
 
 ## Next steps
 

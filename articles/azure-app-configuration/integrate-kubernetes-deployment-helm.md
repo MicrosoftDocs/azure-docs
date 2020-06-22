@@ -167,7 +167,7 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: {{ .Values.secrets.password }}
+  password: {{ .Values.secrets.password | b64enc }}
 ```
 
 Finally, update the *values.yaml* file with the following content to optionally provide default values of the configuration settings and secrets that referenced in the *deployment.yaml* and *secrets.yaml* files. Their actual values will be overwritten by configuration pulled from App Configuration.

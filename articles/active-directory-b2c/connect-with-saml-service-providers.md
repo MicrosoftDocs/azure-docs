@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -18,8 +18,6 @@ ms.custom: fasttrack-edit
 # Register a SAML application in Azure AD B2C
 
 In this article, you learn how to configure Azure Active Directory B2C (Azure AD B2C) to act as a Security Assertion Markup Language (SAML) identity provider (IdP) to your applications.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Scenario overview
 
@@ -263,12 +261,12 @@ Your custom policy and Azure AD B2C tenant are now ready. Next, create an applic
 
 ## 4. Setup application in the Azure AD B2C Directory
 
-### 4.1 Register your application in Azure Active Directory
+### 4.1 Register your application in Azure AD B2C
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, and then select **New registration**.
+1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *SAMLApp1*.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**
 1. Under **Redirect URI**, select **Web**, and then enter `https://localhost`. You modify this value later in the application registration's manifest.
@@ -367,7 +365,6 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Multiple logout URLs or POST binding for logout URL in application/service principal object.
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
-* Identity provider-initiated logins are not currently supported in the preview release.
 
 ## Next steps
 

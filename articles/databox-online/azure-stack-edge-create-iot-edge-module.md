@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ---
@@ -20,6 +20,7 @@ You can use Azure IoT Edge modules with your Azure Stack Edge to transform the d
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Create a container registry to store and manage your modules (Docker images).
 > * Create an IoT Edge module to deploy on your Azure Stack Edge device. 
 

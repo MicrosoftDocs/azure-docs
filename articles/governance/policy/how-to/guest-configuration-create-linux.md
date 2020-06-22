@@ -32,9 +32,15 @@ non-Azure machine.
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
-definition, and publishing the policy, is entirely automatable using the Guest Configuration module
-in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+The Guest Configuration module automates the process of creating custom content
+including:
+
+- Creating a Guest Configuration content artifact (.zip)
+- Automated testing of the artifact
+- Creating a policy definition
+- Publishing the policy
+
+The module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -308,6 +314,15 @@ The following files are created by `New-GuestConfigurationPolicy`:
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
 
+> [!Note]
+> The latest Guest Configuration module includes a new parameters:
+> - **Tag** adds one or more tag filters to the policy definition
+>   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
+> - **Category** sets the category metadata field in the policy definition
+>   - If the parameter is not included, the category will default to Guest Configuration.
+> These features are currently in preview and require Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet.
 The cmdlet only has the **Path** parameter that points to the location of the JSON files
 created by `New-GuestConfigurationPolicy`.
@@ -450,6 +465,42 @@ To release an update to the policy definition, there are two fields that require
 The easiest way to release an updated package is to repeat the process described in this article and
 provide an updated version number. That process guarantees all properties have been correctly
 updated.
+
+
+### Filtering Guest Configuration policies using Tags
+
+> [!Note]
+> This feature is currently in preview and requires Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
+The policies created by cmdlets in the Guest Configuration module can optionally include
+a filter for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports
+an array of hashtables containing individual tag entires. The tags will be added
+to the `If` section of the policy definition and cannot be modified by a policy assignment.
+
+An example snippet of a policy definition that will filter for tags is given below.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content will follow
+    }
+  ]
+}
+```
 
 ## Optional: Signing Guest Configuration packages
 

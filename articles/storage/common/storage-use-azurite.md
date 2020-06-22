@@ -457,9 +457,11 @@ You can use Storage Explorer to view the data stored in Azurite.
 
 In Storage Explorer, connect to Azurite by following these steps:
 
- 1. Select **Add an account** icon
+ 1. Select the **Manage Accounts** icon
+ 1. Select **Add an account**
  1. Select **Attach to a local emulator**
  1. Select **Next**
+ 1. Edit the **Display name** field to a name of your choice
  1. Select **Next** again
  1. Select **Connect**
 

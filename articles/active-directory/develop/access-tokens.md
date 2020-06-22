@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -158,7 +158,7 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 | `otp` | One-time passcode using an email or a text message. |
 | `fed` | A federated authentication assertion (such as JWT or SAML) was used. |
 | `wia` | Windows Integrated Authentication |
-| `mfa` | Multi-factor authentication was used. When this is present the other authentication methods will also be included. |
+| `mfa` | [Multi-factor authentication](../authentication/concept-mfa-howitworks.md) was used. When this is present the other authentication methods will also be included. |
 | `ngcmfa` | Equivalent to `mfa`, used for provisioning of certain advanced credential types. |
 | `wiaormfa`| The user used Windows or an MFA credential to authenticate. |
 | `none` | No authentication was done. |
@@ -207,7 +207,7 @@ This metadata document:
 > [!NOTE]
 > The v1.0 endpoint returns both the `x5t` and `kid` claims, while the v2.0 endpoint responds with only the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
-Doing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
+Doing signature validation is outside the scope of this document - there are many open-source libraries available for helping you do so if necessary.  However, the Microsoft Identity platform has one token signing extension to the standards - custom signing keys.
 
 If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID to get a `jwks_uri` pointing to your app's signing key information, which should be used for validation. For example: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
@@ -226,11 +226,13 @@ Your application's business logic will dictate this step, some common authorizat
 
 ## User and application tokens
 
-Your application may receive tokens on behalf of a user (the usual flow) or directly from an application (through the client credential flow ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same, with some differences:
+Your application may receive tokens for user (the flow usually discussed) or directly from an application (through the [client credentials flow](v1-oauth2-client-creds-grant-flow.md)). These app-only tokens indicate that this call is coming from an application and does not have a user backing it. These tokens are handled largely the same:
 
-* App-only tokens will not have a `scp` claim, and may instead have a `roles` claim. This is where application permission (as opposed to delegated permissions) will be recorded. For more information about delegated and application permissions, see permission and consent ([v1.0](../azuread-dev/v1-permissions-consent.md),  [v2.0](v2-permissions-and-consent.md)).
-* Many human-specific claims will be missing, such as `name` or `upn`.
-* The `sub` and `oid` claims will be the same.
+* Use `roles` to see permissions that have been granted to the subject of the token (the service principal, rather than a user in this case).
+* Use `oid` or `sub` to validate that the calling service principal is the expected one.
+
+If your app needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md).  By adding the `idtyp` claim to the `accessToken` field, and checking for the value `app`, you can detect app-only access tokens.  ID tokens and access tokens for users will not have the `idtyp` claim included.
+
 
 ## Token revocation
 

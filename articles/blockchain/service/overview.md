@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: ravastra
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure
@@ -65,13 +65,13 @@ Blockchain Data Manager for Azure Blockchain Service captures, transforms, and d
 
 For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
-To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+To provide product feedback or to request new features, post or vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
 
 ### Community support
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Azure Blockchain MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Q&A question page for Azure Blockchain Service](https://docs.microsoft.com/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 

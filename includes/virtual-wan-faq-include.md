@@ -186,8 +186,8 @@ The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale uni
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel, or is it always a single VPN tunnel?
+On-premises device solutions can apply traffic policies to steer traffic across multiple tunnels into Azure.
 
-A connection coming into a virtual WAN VPN is always an active-active tunnel (for resiliency within the same hub/region) using a link available at the branch. This link may be an ISP link at the on-premises branch. Virtual WAN 'VPNSite' provides the ability to add link information to the site. If you have multiple ISPs at the branch and each of the ISPs provided a link, that information can be set up in the VPN site info in Azure. However, managing failover across ISPs at the branch is completely a branch-centric routing operation.
 
 ### What is global transit architecture?
 
@@ -208,13 +208,14 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 ### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
 
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
-1) Route Origin 
-	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
-	b) Hub RouteTable (statically configured routes)
-	c) BGP
-	d) InterHub routes
-2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
-3)	AS path length
+1. Longest prefix match
+2. Local routes over interhub
+3. Static routes over BGP
+4. ExpressRoute (ER) over VPN
+5. AS path length
+
+Transit between ER to ER is always via Global reach due to which if the request comes in via ER in one hub and there is a VPN and ER in a remote hub, VPN will be preferred over ER from a remote hub to reach an end point connected via VPN or ER in the remote hub
+
 
 ### Is there support for IPv6 in Virtual WAN?
 

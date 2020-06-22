@@ -1,17 +1,14 @@
 ---
 title: Manage runbooks in Azure Automation
-description: This article describes how to manage runbooks in Azure Automation. It covers basic operations and adds some best practices.
+description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 06/10/2020
 ms.topic: conceptual
 ---
 # Manage runbooks in Azure Automation
 
 You can add a runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information for managing a runbook imported from a file. You can find all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Create a runbook
 
@@ -43,7 +40,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## Import a runbook
 
-You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 script (**.py**) to make your own runbook.  You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
+You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 script (**.py**) to make your own runbook. You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
 
 * You can import a **.ps1** file that doesn't contain a workflow into either a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If you import it into a PowerShell Workflow runbook, it is converted to a workflow. In this case, comments are included in the runbook to describe the changes made.
 
@@ -51,7 +48,7 @@ You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphica
 
 * Do not import a **.ps1** file containing a PowerShell Workflow into a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks), as the PowerShell script engine can't recognize it.
 
-* Only import a **.graphrunbook** file into a new [graphical runbook](automation-runbook-types.md#graphical-runbooks). 
+* Only import a **.graphrunbook** file into a new [graphical runbook](automation-runbook-types.md#graphical-runbooks).
 
 ### Import a runbook from the Azure portal
 
@@ -158,7 +155,7 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
 
 # Check for already running or new runbooks
 $runbookName = "<RunbookName>"
@@ -189,7 +186,7 @@ If your runbook normally runs within a time constraint, have the script implemen
 
 ## Work with multiple subscriptions
 
-Your runbook must be able to work with [subscriptions](automation-runbook-execution.md#subscriptions). For example, to handle multiple subscriptions, the runbook uses the [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet. This cmdlet ensures that the authentication context isn't retrieved from another runbook running in the same sandbox. The runbook also uses the`AzContext` parameter on the Az module cmdlets and passes it the proper context.
+Your runbook must be able to work with [subscriptions](automation-runbook-execution.md#subscriptions). For example, to handle multiple subscriptions, the runbook uses the [Disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) cmdlet. This cmdlet ensures that the authentication context isn't retrieved from another runbook running in the same sandbox. The runbook also uses the `Get-AzContext` cmdlet to retrieve the context of the current session, and assign it to the variable `$AzureContext`.
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -201,7 +198,7 @@ Connect-AzAccount -ServicePrincipal `
 -ApplicationId $Conn.ApplicationID `
 -CertificateThumbprint $Conn.CertificateThumbprint
 
-$context = Get-AzContext
+$AzureContext = Get-AzContext
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
@@ -211,7 +208,7 @@ Start-AzAutomationRunbook `
     -ResourceGroupName $ResourceGroupName `
     -AutomationAccountName $AutomationAccountName `
     -Name $ChildRunbookName `
-    -DefaultProfile $context
+    -DefaultProfile $AzureContext
 ```
 
 ## Work with a custom script
@@ -228,7 +225,7 @@ To use a custom script:
 
 ## Test a runbook
 
-When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [Output](automation-runbook-output-and-messages.md#output-stream) and [Warning and Error](automation-runbook-output-and-messages.md#message-streams) streams are displayed in the Test output pane. Messages to the [Verbose stream](automation-runbook-output-and-messages.md#message-streams) are displayed in the Output pane only if the [VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) variable is set to `Continue`.
+When you test a runbook, the [Draft version](#publish-a-runbook) is executed and any actions that it performs are completed. No job history is created, but the [output](automation-runbook-output-and-messages.md#use-the-output-stream) and [warning and error](automation-runbook-output-and-messages.md#monitor-message-streams) streams are displayed in the Test output pane. Messages to the [verbose stream](automation-runbook-output-and-messages.md#monitor-message-streams) are displayed in the Output pane only if the [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) variable is set to `Continue`.
 
 Even though the draft version is being run, the runbook still executes normally and performs any actions against resources in the environment. For this reason, you should only test runbooks on non-production resources.
 
@@ -335,6 +332,8 @@ foreach($item in $output)
 
 ## Next steps
 
-* To learn about runbook processing, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
-* To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
-* To learn more about graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+* To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
+* For help writing a PowerShell Workflow runbook, see [Learn PowerShell Workflow for Azure Automation](automation-powershell-workflow.md).
+* For details of writing graphical runbooks, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).
+* To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).
