@@ -166,7 +166,7 @@ The size of your source Active Directory topology will influence your SQL databa
 
 - Organizations with more than 100,000 users can reduce network latencies by colocating SQL database and the provisioning engine on the same server.
 - Due to the high disk input and output (I/O) requirements of the sync process, use Solid State Drives (SSD) for the SQL database of the provisioning engine for optimal results, if not possible, consider RAID 0 or RAID 1 configurations.
-- Don’t do a full sync pre-emptively; it causes unnecessary churn and slower response times.
+- Don’t do a full sync preemptively; it causes unnecessary churn and slower response times.
 
 ## Conclusion
 

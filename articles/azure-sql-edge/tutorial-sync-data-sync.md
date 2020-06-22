@@ -13,7 +13,6 @@ ms.date: 05/19/2020
 
 # Tutorial: Sync data from SQL Edge to Azure SQL Database by using SQL Data Sync
 
-
 In this tutorial, you'll learn how to use an Azure SQL Data Sync *sync group* to incrementally sync data from Azure SQL Edge to Azure SQL Database. SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases in Azure SQL Database and SQL Server instances. For more information on SQL Data Sync, see [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
 
 Because SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), any data synchronization mechanism that's applicable to a SQL Server instance can also be used to sync data to or from a SQL Edge instance running on an edge device.
@@ -24,7 +23,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 ## Before you begin
 
-* Create adatabase in Azure SQL Database. For information on how to create a database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+* Create a database in Azure SQL Database. For information on how to create a database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
 * Create the tables and other necessary objects in your Azure SQL Database deployment.
 
