@@ -100,7 +100,7 @@ If you want to execute a suffix query, matching on the last part of string, use 
 
 ## Phrase search `"`
 
-A term search is a query for one or more terms, where any of the terms are considered a match. A phrase search is an exact phrase enclosed in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (text analysis still applies).
+A term search is a query for one or more terms, where any of the terms are considered a match. A phrase search is an exact phrase enclosed in quotation marks `" "`. For example, while `Roach Motel` (without quotes) would search for documents containing `Roach` and/or `Motel` anywhere in any order, `"Roach Motel"` (with quotes) will only match documents that contain that whole phrase together and in that order (lexical analysis still applies).
 
 ## See also  
 
