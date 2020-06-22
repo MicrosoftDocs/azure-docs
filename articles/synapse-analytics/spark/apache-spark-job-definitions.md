@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.subservice: spark
+ms.subservice:
 ms.date: 04/15/2020
 ---
 
