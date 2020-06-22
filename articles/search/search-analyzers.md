@@ -24,13 +24,13 @@ Analysis applies to `Edm.String` fields that are marked as "searchable", which i
 
 Query types that are not full text search, such as regular expression or fuzzy search, do not go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To get whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
 
-For more background on text analysis, listen to the following video clip for a brief explanation.
+For more background on lexical analysis, listen to the following video clip for a brief explanation.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
 
 ## Default analyzer  
 
-In Azure Cognitive Search queries, a text analyzer is automatically invoked on all string fields marked as searchable. 
+In Azure Cognitive Search queries, an analyzer is automatically invoked on all string fields marked as searchable. 
 
 By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
