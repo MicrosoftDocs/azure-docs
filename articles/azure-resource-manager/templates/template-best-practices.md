@@ -6,7 +6,7 @@ ms.date: 06/09/2020
 ---
 # ARM template best practices
 
-This article shows you how to use recommended practices when constructing your Azure Resource Manager (ARM) template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
+This article shows you how to use recommended practices when constructing your ARM template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
 
 ## Template limits
 
