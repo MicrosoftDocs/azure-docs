@@ -108,6 +108,10 @@ Global VNet Peering provides a mechanism to connect two VNets in different regio
 
 Azure Virtual WAN provides ability to encrypt your ExpressRoute traffic. The technique provides an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public internet or using public IP addresses. For more information, see [IPsec over ExpressRoute for Virtual WAN](vpn-over-expressroute.md).
 
+## <a name="locations"></a>Locations
+
+For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+
 ## <a name="route"></a>Route tables in Basic and Standard virtual WANs
 
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have a pre-existing route table, consider the following:
