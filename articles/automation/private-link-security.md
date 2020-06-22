@@ -116,7 +116,7 @@ In the **Private Link Center (Preview)**, select **Private endpoints** to view y
 
 Select the resource to see all the details. This creates a new private endpoint for your Automation account and assigns it a private IP from your virtual network. The **Connection status** shows as **approved**.
 
-Similarly, a unique FQDN is created for the State Configuration (agentsvc) and for the Hybrid Runbook Worker job runtime (jrds). Each of them are assigned a separate IP from your VNet and the **Connection status** shows as **approved**.
+Similarly, a unique fully qualified domain name (FQDN) is created for the State Configuration (agentsvc) and for the Hybrid Runbook Worker job runtime (jrds). Each of them are assigned a separate IP from your VNet and the **Connection status** shows as **approved**.
 
 If the service consumer has RBAC permissions on the Automation resource, they can choose the automatic approval method. In this case, when the request reaches the Automation provider resource, no action is required from the service provider and the connection is automatically approved.
 
@@ -128,15 +128,21 @@ $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts 
 $account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
-##DNS configuration
-When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint.
-The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource.
-You can use the following options to configure your DNS settings for private endpoints:
-•	Use the host file (only recommended for testing). You can use the host file on a virtual machine to override the DNS.
-•	Use a private DNS zone. You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on the customer VM to hit the private endpoint, create a Private DNS as privatelink.azure-automation.net. Add a new DNS ‘A’ record mapping to the IP of the private endpoint
-•	Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your DNS server is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
-Refer this link for more details : https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-dns
+## DNS configuration
 
+When connecting to a private link resource using a FQDN as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint.
+
+The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource.
+
+You can use the following options to configure your DNS settings for private endpoints:
+
+* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override the DNS.
+
+* Use a [private DNS zone](../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on the customer VM to hit the private endpoint, create a Private DNS as privatelink.azure-automation.net. Add a new DNS ‘A’ record mapping to the IP of the private endpoint
+
+* Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
+
+Refer to [Azure Private Endpoint DNS configuration](private-link/private-endpoint-dns.md) for more details.
 
 ## Next steps
 
