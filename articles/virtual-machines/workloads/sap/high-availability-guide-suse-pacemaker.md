@@ -411,13 +411,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install Fence agents 
+1. **[A]** Install Fence agents package, if using STONITH device, based on Azure Fence Agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > The installed version of package **fence-agents** must be at least **4.4.0**  to benefit from the faster failover times, if a cluster nodes needs to be fenced. We recommend that you update the package, if running a lower version.  
+   > The installed version of package **fence-agents** must be at least **4.4.0**  to benefit from the faster failover times with Azure Fence Agent, if a cluster nodes needs to be fenced. We recommend that you update the package, if running a lower version.  
 
 
 1. **[A]** Install Azure Python SDK 
@@ -428,17 +428,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     sudo zypper install python-azure-mgmt-compute
    </code></pre> 
 
-   - On SLES 15
+   - On SLES 15 and higher 
    <pre><code>
-    # You may need to activate the Public cloud extention first
-    SUSEConnect -p sle-module-public-cloud/15/x86_64
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
    </code></pre> 
-
+ 
    >[!IMPORTANT]
-   >Depending on your version and image type, you may need to activate the Public cloud extension, before you can install Azure Python SDK.
-   >To activate the extension on SLES 12, you can execute SUSEConnect -p sle-module-public-cloud/12/x86_64.  
-   >
+   >Depending on your version and image type, you may need to activate the Public cloud extension for your OS release, before you can install Azure Python SDK.
+   >You can check the extension, by running SUSEConnect ---list-extensions.  
 
 1. **[A]** Setup host name resolution
 
