@@ -48,7 +48,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
@@ -58,7 +58,7 @@ If you want to create a regular Ubuntu 16.04 cluster, you can do so by omitting 
 
 Configure a new node pool to use Ubuntu 18.04. Use the `--aks-custom-headers` flag to set the Ubuntu 18.04 as the default OS for that node pool.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
