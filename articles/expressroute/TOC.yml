@@ -54,12 +54,12 @@
     href: expressroute-global-reach.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
-    - name: Security
-      items:
-      - name: Security baseline
-        href: security-baseline.md
-      - name: Security attributes
-        href: expressroute-security-controls.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Security attributes
+      href: expressroute-security-controls.md
   - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Connect Azure to public cloud
