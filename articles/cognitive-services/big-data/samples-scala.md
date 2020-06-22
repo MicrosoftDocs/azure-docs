@@ -11,9 +11,9 @@ ms.topic: samples
 
 To see the integration of the Azure Cognitive Services and other web services into your MMLSpark pipeline, the following snippets are ready to run and will give you quick results. The samples below are in Scala.
 
-Included services:
+The samples use these Cognitive Services:
 
-- Text Analytics - with a few sentences, get the sentment (or mood) of them.
+- Text Analytics - with a few sentences, get the sentiment (or mood) of them.
 - Computer Vision - with a few images, get the tags (one-word descriptions) associated with those images.
 - Bing Image Search - search for a topic (a word or phrase) in Bing and get images returned related to it.
 - Speech-to-text - using audio file URLs, retrieve the translation of the speech into text (language choice is adjustable).
@@ -23,7 +23,7 @@ Included services:
 ## Prerequisites
 
 1. Follow the steps in [Getting started](https://github.com/mhamilton723/big-data-docs/blob/master/big-data/getting-started-big-data.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
-1. Once you have a new notebook created in Azure Databricks, copy/paste the **Shared code** at the beginning of the samples on this page into a new cell in your notebook.
+1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
 1. Choose the run button (triangle icon) in the upper right corner of the cell, then select **Run Cell**.
@@ -73,7 +73,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## Computer Vision
 
-[Computer Vision](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) analyzes an image in many different ways. In this sample, we provide image URLs and query for things like description or objects in the image. You can choose to display whichever features you'd like, so here we demonstrate what "tags" are detected in an image by the service. Tags are one-word descriptions of all things in the image. Tags may include actions being done in the image.
+[Computer Vision](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) analyzes an image in many different ways. In this sample, we provide image URLs and query for things like description or objects in the image. You can choose to display whichever features you'd like. In this sample, we show which "tags" are detected in an image. Tags are one-word descriptions of all things in the image like recognizable objects, living beings, scenery, and actions.
 
 ```scala
 // Create a dataframe with the image URLs
@@ -152,7 +152,7 @@ display(pipeline.fit(df).transform(df))
 | https://tsal-eszuskq0bptlfh8awbb.stackpathdns.com/wp-content/uploads/2018/01/MartinLutherKingQuotes.jpg  |
 
 ## Speech to Text
-The [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-speech-to-text) service can take streams of speech and translate it into text in realtime. For this sample, we'll use audio URLs and translate them into text.
+The [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-speech-to-text) service can take streams of speech and translate it into text in real-time. For this sample, we'll use audio URLs and translate them into text.
 
 ```scala
 import org.apache.spark.sql.functions.col
