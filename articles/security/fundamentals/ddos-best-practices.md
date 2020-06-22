@@ -27,7 +27,7 @@ In addition to the core DDoS protection in the platform, [Azure DDoS Protection 
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](./media/ddos-best-practices/image1.png)
 
-For security recommendations regarding this technology, see the [Azure security baseline for DDoS Protection](ddos-protection-security-baselines.md).
+For security recommendations regarding this technology, see the [Azure security baseline for DDoS Protection](ddos-protection-security-baseline.md).
 
 ## Fundamental best practices
 
@@ -272,7 +272,7 @@ documentation.
 
 ## Next steps
 
-* [Azure security baseline for DDoS Protection](ddos-protection-security-baselines.md)
+* [Azure security baseline for DDoS Protection](ddos-protection-security-baseline.md)
 * [Shared responsibility in the cloud](shared-responsibility.md)
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)
