@@ -146,19 +146,19 @@ For MS peering level information, use the below mentioned query in Log Search
 
 	NetworkMonitoring 
    	 | where SubType == "ERMSPeeringUtilization"
-   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+   	 | project 	CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
     
 For private peering level information, use the below mentioned query in Log Search
 
 	NetworkMonitoring 
    	 | where SubType == "ERVNetConnectionUtilization"
-   	 | project 	CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+   	 | project 	CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 For circuit level information, use the below mentioned query in Log Search
 
 	NetworkMonitoring 
     	| where SubType == "ERCircuitTotalUtilization"
-    	| project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    	| project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### Which regions are supported for NPM's Performance Monitor?
 NPM can monitor connectivity between networks in any part of the world, from a workspace that is hosted in one of the [supported regions](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
