@@ -4,10 +4,8 @@ description: Learn how to send push notifications to specific users by using Azu
 documentationcenter: ios
 author: sethm
 manager: femila
-editor: jwargo
 services: notification-hubs
 
-ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
@@ -38,14 +36,14 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
+This tutorial assumes that you have created and configured your notification hub as described in [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
  If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modify your iOS app
 
-1. Open the Single Page view app you created in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
+1. Open the Single Page view app you created in the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) tutorial.
 
    > [!NOTE]
    > This section assumes that your project is configured with an empty organization name. If not, you need to prepend your organization name to all class names.
@@ -62,7 +60,7 @@ This tutorial assumes that you have created and configured your notification hub
    * **APNS**: Label and switch to enable sending the notification to the Apple Platform Notification Service.
    * **Recipient Username:A** UITextField with placeholder text, *Recipient username tag*, immediately beneath the GCM label and constrained to the left and right margins and beneath the GCM label.
 
-     Some components were added in the [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
+     Some components were added in the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) tutorial.
 
 3. **Ctrl** drag from the components in the view to `ViewController.h` and add these new outlets.
 
