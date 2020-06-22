@@ -361,7 +361,7 @@ Azure Data Box service logs are not written into Log Analytics workspace.
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
-**Guidance**: Soon to be available; Customer Lockbox is not yet supported for Azure Data Box.
+**Guidance**: Customer Lockbox is not currently supported for Azure Data Box.
 
 * [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
