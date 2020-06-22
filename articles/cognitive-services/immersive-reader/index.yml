@@ -62,6 +62,12 @@ landingContent:
             url: how-to-customize-launch-button.md
           - text: Cache the authentication token
             url: how-to-cache-token.md
+          - text: Configure Read Aloud
+            url: how-to-configure-read-aloud.md
+          - text: Configure translation
+            url: how-to-configure-translation.md
+          - text: Store user preferences
+            url: how-to-store-user-preferences.md
       - linkListType: reference
         links:
           - text: JavaScript SDK

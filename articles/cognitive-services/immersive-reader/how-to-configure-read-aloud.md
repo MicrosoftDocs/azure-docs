@@ -16,7 +16,7 @@ ms.author: metan
 
 This article demonstrates how to configure the various options for Read Aloud in the Immersive Reader.
 
-## Automatically start Read Aloud after launching the Immersive Reader
+## Automatically start Read Aloud
 
 The `options` parameter contains all of the flags which can be used to configure Read Aloud. Set `autoplay` to `true` to enable automatically starting Read Aloud after launching the Immersive Reader.
 
@@ -25,7 +25,7 @@ const options = {
     readAloudOptions: {
         autoplay: true
     }
-}
+};
 
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
@@ -42,7 +42,7 @@ const options = {
     readAloudOptions: {
         voice: 'female'
     }
-}
+};
 ```
 
 ## Configure playback speed
@@ -54,7 +54,7 @@ const options = {
     readAloudOptions: {
         speed: 1.5
     }
-}
+};
 ```
 
 ## Next steps
