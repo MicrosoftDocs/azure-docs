@@ -62,7 +62,7 @@ Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `
 
 In some circumstances, you may want to search for a special character, like the '❤' emoji or the '€' sign. In those case, make sure that the analyzer you use does not filter those characters out.  The standard analyzer ignores many of the special characters so they would not become tokens in your index.
 
-So the first step is to make sure you use an analyzer that will consider those elements tokens. For instance, the "whitespace" analyzer takes into consideration any character sequences separated by whitespaces as tokens, so the "❤" string would be considered a token. Also, an analyzer like the Microsoft English analyzer ("en.microsoft"), would take into consideration the "€" string as a token. You can [test an analyzer](https://docs.microsoft.com/en-us/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
+So the first step is to make sure you use an analyzer that will consider those elements tokens. For instance, the "whitespace" analyzer takes into consideration any character sequences separated by whitespaces as tokens, so the "❤" string would be considered a token. Also, an analyzer like the Microsoft English analyzer ("en.microsoft"), would take into consideration the "€" string as a token. You can [test an analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
 
 When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for "❤" would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.
 
