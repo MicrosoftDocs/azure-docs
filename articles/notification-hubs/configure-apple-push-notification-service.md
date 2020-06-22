@@ -45,4 +45,4 @@ The following procedure gives you steps to configure Apple Push Notification Ser
 
 ## Next steps
 
-For a tutorial with step-by-step instructions for sending notifications to iOS devices, see the following article: [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md)
+For a tutorial with step-by-step instructions for sending notifications to iOS devices, see the following article: [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md).
