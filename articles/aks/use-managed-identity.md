@@ -27,8 +27,6 @@ You must have the following resource installed:
 * Existing AKS clusters cannot be updated or upgraded to enable managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 
-Name	Purpose	Naming convention	Default permissions	Supports BYO MI
-
 ## Summary of managed identities
 
 AKS uses several managed identities for built-in services and add-ons.
@@ -38,14 +36,13 @@ AKS uses several managed identities for built-in services and add-ons.
 | Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Not currently, but planned
 | Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently, but planned
 | Add-on | AzureNPM | No identity required | NA | No
-| Add-on | AzureCNI | No identity required | NA | No
+| Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
 | Add-on | azurepolicy | No identity required | NA | No
 | Add-on | Calico | No identity required | NA | No
 | Add-on | Dashboard | No identity required | NA | No
 | Add-on | HTTPApplicationRouting | No identity required | NA | No
 | Add-on | Ingress application gateway | | Contributor role for node resource group | No
-| Add-on | Network Monitoring  | | Contributor role for node resource group | No
 | Add-on | omsagent | | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | | Contributor role for node resource group | No
 
