@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/04/2020
+ms.date: 06/18/2020
 ---
 
 # Azure built-in roles
@@ -1163,6 +1163,7 @@ Can create and manage an Avere vFXT cluster. [Learn more](../avere-vfxt/avere-vf
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/*/read |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/proximityPlacementGroups/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/virtualMachines/* |  |
 > | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/* |  |
 > | [Microsoft.Network](resource-provider-operations.md#microsoftnetwork)/*/read |  |
@@ -1202,6 +1203,7 @@ Can create and manage an Avere vFXT cluster. [Learn more](../avere-vfxt/avere-vf
         "Microsoft.Authorization/*/read",
         "Microsoft.Compute/*/read",
         "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/proximityPlacementGroups/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/disks/*",
         "Microsoft.Network/*/read",
@@ -2762,7 +2764,7 @@ Lets you manage websites (not web plans), but not access to them.
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/certificates/* | Create and manage website certificates |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action |  |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action | Joins an App Service Plan |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
 > | **NotActions** |  |
@@ -5618,7 +5620,7 @@ Lets you manage logic apps, but not change access to them. [Learn more](../logic
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Create and manages a Connection Gateway. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/connections/* | Create and manages a Connection. |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/customApis/* | Creates and manages a Custom API. |
-> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action |  |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/join/action | Joins an App Service Plan |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/functions/listSecrets/action | List Function secrets. |
 > | **NotActions** |  |
@@ -6337,7 +6339,7 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
 
 ### DevTest Labs User
 
-Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. [Learn more](../lab-services/devtest-lab-add-devtest-user.md)
+Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. [Learn more](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6441,7 +6443,7 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 
 ### Lab Creator
 
-Lets you create, manage, delete your managed labs under your Azure Lab Accounts. [Learn more](../lab-services/classroom-labs/add-lab-creator.md)
+Lets you create, manage, delete your managed labs under your Azure Lab Accounts. [Learn more](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |

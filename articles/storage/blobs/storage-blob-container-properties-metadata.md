@@ -128,4 +128,4 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 - [Get Container Properties operation](/rest/api/storageservices/get-container-properties)
 - [Set Container Metadata operation](/rest/api/storageservices/set-container-metadata)
-- [Get Container Metadata operation](/rest/api/storageservices/set-container-metadata)
+- [Get Container Metadata operation](/rest/api/storageservices/get-container-metadata)

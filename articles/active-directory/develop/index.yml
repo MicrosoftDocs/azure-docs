@@ -21,6 +21,8 @@ landingContent:
             url: v2-overview.md
           - text: Evolution of Microsoft identity platform
             url: about-microsoft-identity-platform.md
+          - text: Migrate apps to MSAL
+            url: msal-migration.md
           - text: Azure Active Directory for developers (v1.0)
             url: ../azuread-dev/v1-overview.md
       - linkListType: concept
