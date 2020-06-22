@@ -68,8 +68,7 @@ A successful cluster creation using managed identities contains this service pri
 
 ```json
 "servicePrincipalProfile": {
-    "clientId": "msi",
-    "secret": null
+    "clientId": "msi"
   }
 ```
 
