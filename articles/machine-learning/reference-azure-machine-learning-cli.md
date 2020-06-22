@@ -193,28 +193,6 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
     For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
-+ Archive an active or deprecated dataset:
-
-    > [!NOTE]
-    > This command is deprecated. For more information, see [https://aka.ms/dataset-deprecation](https://aka.ms/dataset-deprecation).
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    For more information, see [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Deprecate a dataset:
-
-    > [!NOTE]
-    > This command is deprecated. For more information, see [https://aka.ms/dataset-deprecation](https://aka.ms/dataset-deprecation).
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    For more information, see [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-deprecate).
-
 + List all datasets in a workspace:
 
     ```azurecli-interactive
@@ -230,17 +208,6 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     ```
 
     For more information, see [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
-
-+ Reactivate an archived or deprecated dataset:
-
-    > [!NOTE]
-    > This command is deprecated. For more information, see [https://aka.ms/dataset-deprecation](https://aka.ms/dataset-deprecation).
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    For more information, see [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-reactivate).
 
 + Unregister a dataset:
 
