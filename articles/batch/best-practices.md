@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-ms.date: 06/18/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
 ---
 
@@ -122,7 +122,7 @@ Tasks that only run for one to two seconds are not ideal. You should try to do a
 
 ### Use pool scope for short tasks on Windows nodes
 
-When scheduling a task on Batch node, you can choose whether to run it with task scope or pool scope. On Windows nodes, tasks run under task scope by default. However, if the task will only run for a short time, this can be inefficient due to the resources needed to create the auto-user account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an auto-user with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
+When scheduling a task on Batch node, you can choose whether to run it with task scope or pool scope. If the task will only run for a short time, task scope can be inefficient due to the resources needed to create the auto-user account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an auto-user with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## Nodes
 
