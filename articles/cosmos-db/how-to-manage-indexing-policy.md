@@ -357,7 +357,7 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Click **Save** when you are done.
 
-![Manage Indexing using Azure portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
 ## Use the Azure CLI
 
