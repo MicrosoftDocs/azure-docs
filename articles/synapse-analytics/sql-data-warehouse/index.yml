@@ -7,7 +7,7 @@ metadata:
   description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
   services: synapse-analytics
   ms.service: synapse-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: 
+  ms.subservice: sql-dw 
   ms.topic: landing-page # Required
   ms.collection: collection
   author: julieMSFT #Required; your GitHub user alias, with correct capitalization.
