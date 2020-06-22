@@ -71,16 +71,16 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 
 - Per-machine installation
 
-      ```powershell
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+```powershell
+msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+```
 
-      This installs Teams to the Program Files (x86) folder on a 64-bit operating system and to the Program Files folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
+This installs Teams to the Program Files (x86) folder on a 64-bit operating system and to the Program Files folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
 
-      The next time you open Teams in a session, you'll be asked for your credentials.
+The next time you open Teams in a session, you'll be asked for your credentials.
 
-      > [!NOTE]
-      > Users and admins can't disable automatic launch for Teams during sign-in at this time.
+> [!NOTE]
+> Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
 3. To uninstall the MSI from the host VM, run this command:
 
