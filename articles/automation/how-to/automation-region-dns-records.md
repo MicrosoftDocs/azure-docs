@@ -7,7 +7,7 @@ ms.date: 06/22/2020
 ms.topic: conceptual
 ---
 
-# Azure Datacenter DNS records used by Azure Automation
+# DNS records for Azure Datacenters used by Azure Automation
 
 The [Azure Automation](../automation-intro.md) service uses a number of DNS records for features to connect to the service. If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it is hosted behind a firewall:
 
