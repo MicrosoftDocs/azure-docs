@@ -24,7 +24,7 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 ## Before you begin
 
-* Create an Azure SQL database. For information on how to create an Azure SQL database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+* Create adatabase in Azure SQL Database. For information on how to create a database by using the Azure portal, see [Create a single database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
 * Create the tables and other necessary objects in your Azure SQL Database deployment.
 
@@ -32,9 +32,9 @@ This tutorial requires a Windows computer configured with the [Data Sync Agent f
 
 * Register the Azure SQL Edge instance with the Data Sync Agent for Azure SQL Data Sync. For more information, see [Add a SQL Server database](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
 
-## Sync data between an Azure SQL database and SQL Edge
+## Sync data between a database in Azure SQL Database and SQL Edge
 
-Setting up synchronization between an Azure SQL database and a SQL Edge instance by using SQL Data Sync involves three key steps:  
+Setting up synchronization between a database in Azure SQL Database and a SQL Edge instance by using SQL Data Sync involves three key steps:  
 
 
 1. Use the Azure portal to create a sync group. For more information, see [Create a sync group](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group). You can use a single *hub* database to create multiple sync groups to synchronize data from various SQL Edge instances to one or more databases in Azure SQL Database. 
@@ -43,7 +43,7 @@ Setting up synchronization between an Azure SQL database and a SQL Edge instance
 
 3. Set up the sync group to select the tables that will be part of the synchronization. For more information, see [Configure a sync group](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-sync-members).
 
-After you complete the preceding steps, you'll have a sync group that includes an Azure SQL database and a SQL Edge instance.
+After you complete the preceding steps, you'll have a sync group that includes a database in Azure SQL Database and a SQL Edge instance.
 
 For more info about SQL Data Sync, see these articles:
 

@@ -137,7 +137,7 @@ Organizations can prevent certain attributes to flow to Azure AD, but it won't i
 
 ## Azure AD Connect dependency factors
 
-The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database the provisioning engine uses also impacts the overall performance of the sync cycle.
+The performance of Azure AD Connect is dependent on the performance of the connected directories it imports and exports to. For example, the size of the Active Directory it needs to import or the network latency to the Azure AD service. The SQL database that the provisioning engine uses also impacts the overall performance of the sync cycle.
 
 ### Active Directory factors
 

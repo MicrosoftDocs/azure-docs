@@ -300,7 +300,7 @@ From the percentage of requests and number of users affected, you can decide how
 
 In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure, and trace data provided.
 
-In this example, there was an exception from SQL database due to request limit being reached.
+In this example, there was an exception from SQL Database due to request limit being reached.
 
 [![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 
