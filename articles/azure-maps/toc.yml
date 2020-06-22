@@ -231,7 +231,7 @@
       href: drawing-requirements.md
     - name: Vehicle consumption model
       href: consumption-model.md
-    - name: Extend GeoJSON format
+    - name: Extended GeoJSON format
       href: extend-geojson.md
     - name: Geofence GEOJSON format
       href: geofence-geojson.md
