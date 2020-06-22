@@ -4,7 +4,7 @@ description: Azure security baseline for Network Watcher
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -811,7 +811,8 @@ Also see:
 
 ### 8.1: Use centrally managed anti-malware software
 
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -827,7 +828,8 @@ Also see:
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -877,7 +879,7 @@ Also see:
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [How to configure Workflow Automation within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 * [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
