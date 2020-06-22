@@ -148,4 +148,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For further information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
