@@ -142,8 +142,7 @@ You can use the following options to configure your DNS settings for private end
 
 * Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
 
-Refer to [Azure Private Endpoint DNS configuration](private-link/private-endpoint-dns.md) for more details.
+Refer to [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md) for more details.
 
 ## Next steps
 
-- Learn about [private storage](private-storage.md)
