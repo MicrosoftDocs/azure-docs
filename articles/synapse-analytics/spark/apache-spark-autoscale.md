@@ -7,6 +7,7 @@ ms.reviewer: euang
 services: synapse-analytics 
 ms.service:  synapse-analytics 
 ms.topic: conceptual
+ms.subservice: spark
 ms.date: 03/31/2020
 ---
 

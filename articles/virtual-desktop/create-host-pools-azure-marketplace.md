@@ -33,7 +33,7 @@ You'll also need to know the following things:
 - Where the source of the image you want to use is. Is it from Azure Gallery or is it a custom image?
 - Your domain join credentials.
 
-Also, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions** , select the name of yoru subscription, and then select **Azure resource providers**.
+Also, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions**, select the name of your subscription, and then select **Azure resource providers**.
 
 When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
