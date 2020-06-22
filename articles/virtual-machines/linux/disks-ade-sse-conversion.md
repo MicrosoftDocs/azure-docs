@@ -16,15 +16,12 @@ ms.subservice: disks
 Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subscription and region as the VM. This can be the same key vault and key used with ADE.) 
 
 
-### [Azure CLI]
-
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 
 
 ## Create a backup of the encrypted VMs or take a snapshot of the disks 
 
-### [Azure CLI]
 
 ```azurecli
 $resourceGroupName = 'myResourceGroup' 
@@ -50,7 +47,6 @@ New-AzSnapshot
 
 ## Disable Azure Disk Encrypton
 
-### [Azure CLI]
 
 [!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-encryption-cli.md)]
 
