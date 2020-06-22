@@ -79,27 +79,26 @@ Yes.
 
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
-It depends on the logics of resource providers where the extension resources belong to. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behaviors vary according to different resource providers. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+It depends on the logic of resource providers that own the extension resources. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behavior varies by resource provider. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## Java runtime and OS versions
 
 ### Which verions of Java runtime are supported in Azure Spring Cloud?
 
-In principle, Azure Spring Cloud supports Java LTS versions with the most recent builds.
-For now, Java 8 build 252 and Java 11 build 7 are supported.
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently Java 8 build 252 and Java 11 build 7.  See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
-Azul Systems.
+Azul Systems. The Azul Zulu for Azure - Enterprise Edition JDK builds are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications.
 
 ### How often will Java runtimes get updated?
 
-In principle, Java runtimes will be updated quarterly to the latest builds of each LTS version. Critical security fixes will be applied as soon as possible.
+LTS and MTS JDK releases have quarterly security updates, bug fixes, and critical out-of-band updates and patches as needed. This support includes backports to Java 7 and 8 of security updates and bug fixes reported in newer versions of Java, like Java 11.
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
-Java 8 LTS will be supported until March 2025.
-Java 11 LTS will be supported until September 2026.
+* Java 8 LTS will be supported until March 2025.
+* Java 11 LTS will be supported until September 2026.
 See more details at [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### How can I download a supported Java runtime for local development?
@@ -112,11 +111,11 @@ Public notice will be sent out at 12 months before any old runtime version is re
 
 ### How can I get support for issues at the Java runtime level?
 
-You can open a support ticket with Azure Support.
+You can open a support ticket with Azure Support.  See [How to create an Azure support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### What is the operation system to run my apps?
 
-In principle, the most recent Ubuntu LTS version is used. For now, [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) is the default OS.
+The most recent Ubuntu LTS version is used, currently [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) is the default OS.
 
 ### How often will OS security patches be applied?
 
