@@ -212,7 +212,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 These firewall rules complement your allowed outbound Network Security Groups, that would include ServiceFabric and Storage, as allowed destinations from your virtual network.
 
 ## TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure recommends](https://azure.microsoft.com/updates/azuretls12/) all customers complete migration towards solutions that support transport layer security (TLS) 1.2 and to make sure that TLS 1.2 is used by default.
+
+Azure services, including [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), have completed the engineering work to remove dependency on TLS 1.0/1.1 protocols and provide full support to customers that want to have their workloads configured to accept and initiate only TLS 1.2 connections.
+
+Customers should configure their Azure-hosted workloads and on-premises applications interacting with Azure services to use TLS 1.2 by default. Here's how to [configure Service Fabric cluster nodes and applications](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) to use a specific TLS version.
 
 ## Windows Defender 
 

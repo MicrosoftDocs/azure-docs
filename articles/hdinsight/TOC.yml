@@ -219,10 +219,6 @@
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VSCode
         href: ./hdinsight-for-vscode.md
-      - name: HDInsight Tools for IntelliJ with Hortonworks Sandbox
-        href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-      - name: Data Lake Tools with Hortonworks Sandbox
-        href: ./hdinsight-hadoop-emulator-visual-studio.md
     - name: Monitoring
       items:
       - name: Use Azure Monitor logs
