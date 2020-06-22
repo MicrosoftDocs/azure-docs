@@ -24,5 +24,3 @@ AzureMigration.ps1
 .gitignore
 **/.vscode/settings.json
 !/.vscode/settings.json
-articles/key-vault/media/kubernetes-key-vault-2.png
-articles/key-vault/media/kubernetes-key-vault-3.PNG
