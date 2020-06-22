@@ -3,12 +3,12 @@ title: 'About Virtual WAN pricing'
 titleSuffix: Azure Virtual WAN
 description: This article describes common Virtual WAN pricing questions
 services: virtual-wan
-author: cherylmc
+author: reyandap
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.author: cherylmc
+ms.date: 06/22/2020
+ms.author: reyandap
 
 ---
 # About Virtual WAN pricing
