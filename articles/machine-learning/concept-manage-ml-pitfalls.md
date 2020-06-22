@@ -84,15 +84,15 @@ Chart| Description
 
 ## Handle imbalanced data 
 
-As part of its goal of simplifying the machine learning workflow, automated ML has built in capabilities to help deal with imbalanced data such as, 
+As part of its goal of simplifying the machine learning workflow, **automated ML has built in capabilities** to help deal with imbalanced data such as, 
 
-- A **weight column**: automated ML supports a weighted column as input, causing rows in the data to be weighted up or down, which can be used to make a class more or less "important".
+- A **weight column**: automated ML supports a column of weights as input, causing rows in the data to be weighted up or down, which can be used to make a class more or less "important".
 
 - The algorithms used by automated ML can properly handle imbalance of up to 20:1, meaning the most common class can have 20 times more rows in the data than the least common class.
 
 - Use a performance metric that deals better with imbalanced data. For example, the AUC_weighted is a primary metric that calculates the contribution of every class based on the relative number of samples representing that class, hence is more robust against imbalance.
 
-The following techniques are additional options to handle imbalanced data outside of automated ML. 
+The following techniques are additional options to handle imbalanced data **outside of automated ML**. 
 
 - Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
 
