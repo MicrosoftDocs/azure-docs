@@ -10,14 +10,14 @@ ms.date: 06/22/2020
 # Use proximity placement groups to reduce latency (Preview)
 
 > [!Note]
-> Proximity placement groups improve latency, but may reduce an application's availablity since resources are located in the same datacenter.
+> Proximity placement groups improve latency, but may reduce an application's availability since resources are located in the same datacenter.
 
 When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. For AKS workloads that require low latency scenarios, use proximity placement groups.
 
 ## Limitations
 
 * The proximity placement group spans a single availability zone.
-* There is no current support for AKS clusters that use Virtual Machine Availablity Sets.
+* There is no current support for AKS clusters that use Virtual Machine Availability Sets.
 * The proximity placement group ID can only be set during the initial node pool creation.
 
 > [!IMPORTANT]
