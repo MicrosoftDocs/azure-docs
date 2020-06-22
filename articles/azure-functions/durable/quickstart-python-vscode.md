@@ -1,20 +1,20 @@
 ---
-title: Create your first durable function in Azure using JavaScript
+title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function using Visual Studio Code.
 author: anthonychu
 
 ms.topic: quickstart
-ms.date: 05/07/2020
+ms.date: 04/04/2020
 ms.reviewer: azfuncdf, antchu
 ---
 
-# Create your first durable function in JavaScript
+# Create your first durable function in Python
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
-![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+![Running durable function in Azure](./media/quickstart-python-vscode/functions-vs-code-complete.png)
 
 ## Prerequisites
 
@@ -22,13 +22,13 @@ To complete this tutorial:
 
 * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension
+* Install the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) VS Code extension.
 
 * Make sure you have the latest version of the [Azure Functions Core Tools](../functions-run-local.md).
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Make sure that you have version 10.x or 12.x of [Node.js](https://nodejs.org/) installed.
+* Make sure that you have version 3.6, 3.7, or 3.8 of [Python](https://www.python.org/) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +38,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
-    ![Create function](media/quickstart-js-vscode/functions-create-project.png)
+    ![Create function](media/quickstart-python-vscode/functions-create-project.png)
 
 1. Choose an empty folder location for your project and choose **Select**.
 
@@ -46,26 +46,54 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
-    | Select a language for your function app project | JavaScript | Create a local Node.js Functions project. |
+    | Select a language for your function app project | Python | Create a local Python Functions project. |
     | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Python version | Python 3.6, 3.7, or 3.8 | VS Code will create a virtual environment with the version you select. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens VS Code in the folder you selected. |
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A package.json file is also created in the root folder.
+A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
-## Install the Durable Functions npm package
+## Install azure-functions-durable from PyPI
 
-To work with Durable Functions in a Node.js function app, you use a library called `durable-functions`.
+When you created the project, the Azure Functions VS Code extension automatically created a virtual environment with your selected Python version. You will activate the virtual environment in a terminal and install some dependencies required by Azure Functions and Durable Functions.
 
-1. Use the *View* menu or Ctrl+Shift+` to open a new terminal in VS Code.
+1. Open `requirements.txt` in the editor and change its content to the following:
 
-1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
+    ```
+    azure-functions
+    azure-functions-durable>=1.0.0b6
+    ```
 
-## Creating your functions
+1. Open the editor's integrated terminal in the current folder (`` Ctrl-Shift-` ``).
 
-The most basic Durable Functions app contains three functions:
+1. In the integrated terminal, activate the virtual environment in the current folder:
+
+    **Linux or macOS**
+
+    ```bash
+    source .venv/bin/activate
+    ```
+
+    **Windows**
+
+    ```powershell
+    .venv\scripts\activate
+    ```
+
+    ![Activate virtual environment](media/quickstart-python-vscode/activate-venv.png)
+
+1. In the integrated terminal where the virtual environment is activated, use pip to install the packages you just defined:
+
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+
+## Create your functions
+
+A basic Durable Functions app contains three functions:
 
 * *Orchestrator function* - describes a workflow that orchestrates other functions.
 * *Activity function* - called by the orchestrator function, performs work, and optionally returns a value.
@@ -84,7 +112,7 @@ You use a template to create the durable function code in your project.
     | Select a template for your function | Durable Functions orchestrator | Create a Durable Functions orchestration |
     | Provide a function name | HelloOrchestrator | Name of your durable function |
 
-You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/index.js* to see the orchestrator function. Each call to `context.df.callActivity` invokes an activity function named `Hello`.
+You've added an orchestrator to coordinate activity functions. Open *HelloOrchestrator/\_\_init__.py* to see the orchestrator function. Each call to `context.call_activity` invokes an activity function named `Hello`.
 
 Next, you'll add the referenced `Hello` activity function.
 
@@ -99,7 +127,7 @@ Next, you'll add the referenced `Hello` activity function.
     | Select a template for your function | Durable Functions activity | Create an activity function |
     | Provide a function name | Hello | Name of your activity function |
 
-You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/index.js* to see that it's taking a name as input and returning a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
+You've added the `Hello` activity function that is invoked by the orchestrator. Open *Hello/\_\_init__.py* to see that it takes a name as input and returns a greeting. An activity function is where you'll perform actions such as making a database call or performing a computation.
 
 Finally, you'll add an HTTP triggered function that starts the orchestration.
 
@@ -115,22 +143,22 @@ Finally, you'll add an HTTP triggered function that starts the orchestration.
     | Provide a function name | DurableFunctionsHttpStart | Name of your activity function |
     | Authorization level | Anonymous | For demo purposes, allow the function to be called without authentication |
 
-You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/index.js* to see that it uses `client.startNew` to start a new orchestration. Then it uses `client.createCheckStatusResponse` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
+You've added an HTTP triggered function that starts an orchestration. Open *DurableFunctionsHttpStart/\_\_init__.py* to see that it uses `client.start_new` to start a new orchestration. Then it uses `client.create_check_status_response` to return an HTTP response containing URLs that can be used to monitor and manage the new orchestration.
 
 You now have a Durable Functions app that can be run locally and deployed to Azure.
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.
+Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. If you don't have it installed, you're prompted to install these tools the first time you start a function from Visual Studio Code.
 
-1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/index.js*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
+1. To test your function, set a breakpoint in the `Hello` activity function code (*Hello/\_\_init__.py*). Press F5 or select `Debug: Start Debugging` from the command palette to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
     > [!NOTE]
     > Refer to the [Durable Functions Diagnostics](durable-functions-diagnostics.md#debugging) for more information on debugging.
 
 1. Durable Functions requires an Azure Storage account to run. When VS Code prompts you to select a storage account, choose **Select storage account**.
 
-    ![Create storage account](media/quickstart-js-vscode/functions-select-storage.png)
+    ![Create storage account](media/quickstart-python-vscode/functions-select-storage.png)
 
 1. Following the prompts, provide the following information to create a new storage account in Azure.
 
@@ -144,15 +172,15 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
-    ![Azure local output](media/quickstart-js-vscode/functions-f5.png)
+    ![Azure local output](media/quickstart-python-vscode/functions-f5.png)
 
-1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+1. Using your browser, or a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
 1. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-   The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
+   The request will query the orchestration instance for the status. You should get an eventual response, which shows the instance has completed, and includes the outputs or results of the durable function. It looks like: 
 
     ```json
     {
@@ -187,7 +215,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create and publish a JavaScript durable function app.
+You have used Visual Studio Code to create and publish a Python durable function app.
 
 > [!div class="nextstepaction"]
 > [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)
