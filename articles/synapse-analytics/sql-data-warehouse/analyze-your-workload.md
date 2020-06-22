@@ -15,7 +15,7 @@ ms.custom: azure-synapse
 
 # Analyze your workload in Azure Synapse Analytics
 
-Techniques for analyzing your Synapse SQL workload in Azure Synapse Analytics.
+Techniques for analyzing your Synapse SQL workload in Azure Synapse Analytics. 
 
 ## Resource Classes
 
