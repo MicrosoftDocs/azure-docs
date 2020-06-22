@@ -57,7 +57,7 @@ For the quickest way to get started with Azure Spring Cloud, follow the instruct
 
 ### What Java runtime does Azure Spring Cloud support?
 
-Azure Spring Cloud supports Java 8 and 11.
+Azure Spring Cloud supports Java 8 and 11. See more details [Java runtime and OS versions](#java-runtime-and-os-versions)
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
