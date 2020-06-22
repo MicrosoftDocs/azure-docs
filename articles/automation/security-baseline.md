@@ -4,7 +4,7 @@ description: Azure security baseline for Automation
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -110,7 +110,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 **Guidance**: Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you can combine packet captures provided by Network Watcher and open source IDS tools such as Suricata, to perform network intrusion detection for a wide range of threats to those worker machines. Also, you can deploy Azure Firewall to the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
+If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you can combine packet captures provided by Network Watcher and open source IDS tools to perform network intrusion detection for a wide range of threats to those worker machines. Also, you can deploy Azure Firewall to the Virtual Network segments as appropriate, with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic.
 
 * [Perform network intrusion detection with Network Watcher and open source tools](https://docs.microsoft.com/azure/network-watcher/network-watcher-intrusion-detection-open-source-tools)
 
@@ -296,9 +296,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 **Guidance**: When using Azure Automation with multi-tenant runbook workers, this control is not applicable, and the platform handles the underlying virtual machines.
 
-However when using the Hybrid Runbook Worker feature, you may use Microsoft Antimalware for Azure Cloud Services and virtual machines. Configure your virtual machines to log events to an Azure Storage Account. Configure a Log Analytics workspace to ingest the events from the Storage Accounts and create alerts where appropriate. Follow recommendations in Azure Security Center: "Compute &amp; Apps".
+However when using the Hybrid Runbook Worker feature, you may use Microsoft Anti-malware for Azure Cloud Services and virtual machines. Configure your virtual machines to log events to an Azure Storage Account. Configure a Log Analytics workspace to ingest the events from the Storage Accounts and create alerts where appropriate. Follow recommendations in Azure Security Center: "Compute &amp; Apps".
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [How to configure Microsoft Anti-malware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 * [How to Enable guest-level monitoring for virtual machines](https://docs.microsoft.com/azure/cost-management/azure-vm-extended-metrics)
 
@@ -408,7 +408,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Responsibility**: Customer
 
-### 3.7: Log and alert on suspicious activities from administrative accounts.
+### 3.7: Log and alert on suspicious activities from administrative accounts
 
 **Guidance**: Utilize Azure AD Risk Detections to view alerts and reports on risky user behavior. Optionally, customer may forward Azure Security Center Risk Detection alerts to Azure Monitor and configure custom alerting/notifications using Action Groups.
 
@@ -422,7 +422,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 **Responsibility**: Customer
 
-### 3.8: Manage Azure resources from only approved locations.
+### 3.8: Manage Azure resources from only approved locations
 
 **Guidance**: It is recommended to use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -548,7 +548,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.4: Encrypt all sensitive information in transit
 
-**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or higher. Azure Automation fully supports and enforces transport layer (TLS) 1.2 and all client calls or later versions for all external HTPPS endpoints (through webhooks, DSC nodes, hybrid runbook worker).
+**Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in Azure virtual networks are able to negotiate TLS 1.2 or higher. Azure Automation fully supports and enforces transport layer (TLS) 1.2 and all client calls or later versions for all external HTPS endpoints (through webhooks, DSC nodes, hybrid runbook worker).
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
@@ -730,7 +730,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintainan inventory of approved Azure resources
+### 6.4: Define and Maintain an inventory of approved Azure resources
 
 **Guidance**: You will need to create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
@@ -1078,9 +1078,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines or OS and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-When using the Hybrid Runbook Worker feature, use Microsoft Antimalware for Azure Windows virtual machines to continuously monitor and defend your runbook worker resources.
+When using the Hybrid Runbook Worker feature, use Microsoft Anti-malware for Azure Windows virtual machines to continuously monitor and defend your runbook worker resources.
 
-* [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [How to configure Microsoft Anti-malware for Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1276,7 +1276,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of allcritical security findings
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
