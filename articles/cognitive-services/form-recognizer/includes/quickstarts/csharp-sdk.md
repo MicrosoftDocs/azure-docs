@@ -58,6 +58,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 ```csharp
 using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
+using Azure.AI.FormRecognizer.Training;
 
 using System;
 using System.IO;
