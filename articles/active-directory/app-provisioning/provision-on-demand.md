@@ -1,5 +1,5 @@
 ---
-title: Provision a user on-demand
+title: Provision a user on-demand using Azure Active Directory
 description: Force sync
 services: active-directory
 author: msmimart
@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
@@ -18,13 +18,13 @@ On-demand provisioning allows you to provision a user into an application in sec
 
 ## How-to use on-demand provisioning 
 
-1. Log into the **Azure portal**
-2. Navigate to **Enterprise applications**
-3. Select your application and navigate to the provisioning configuration page
-4. Configure provisioning by providing your admin credentials
-5. Click **provision on-demand**
-6. Search for a user by first name, last name, display name, user principal name, or email
-7. Select provision at the bottom of the page
+1. Log into the **Azure portal**.
+2. Navigate to **Enterprise applications**.
+3. Select your application and navigate to the provisioning configuration page.
+4. Configure provisioning by providing your admin credentials.
+5. Click **provision on-demand**.
+6. Search for a user by first name, last name, display name, user principal name, or email.
+7. Select provision at the bottom of the page.
 
 ## Understanding the provisioning steps
 The on-demand provisioning capability attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provisioning a user, and one or more of the steps below will be shown in the on demand provisioning experience.
@@ -103,6 +103,6 @@ There are a few known limitations today. Please post on [UserVoice](https://aka.
 * Provisioning groups isn't supported
 * Disabling or deleting users and groups isn't supported
 
-## Additional Resources
+## Next Steps
 
 * [Troubleshooting provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
