@@ -1,6 +1,6 @@
 ---
 title: Schema and data type mapping in copy activity 
-description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data when copying data.
+description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -17,7 +17,7 @@ ms.author: jingwang
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how the Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when executing the data copy.
+This article describes how the Azure Data Factory copy activity perform schema mapping and data type mapping from source data to sink data.
 
 ## Schema mapping
 
@@ -29,7 +29,7 @@ If your source is text file without header line, [explicit mapping](#explicit-ma
 
 ### Explicit mapping
 
-You can also specify explicit mapping to customize the column/field mapping from source to sink based on your need. With explicit mapping, you can copy only partial source data to sink, or map source to sink with different names, or re-shape tabular/hierarchical data. Copy activity:
+You can also specify explicit mapping to customize the column/field mapping from source to sink based on your need. With explicit mapping, you can copy only partial source data to sink, or map source data to sink with different names, or reshape tabular/hierarchical data. Copy activity:
 
 1. Reads the data from source and determine the source schema.
 2. Applies your defined mapping.
@@ -48,9 +48,9 @@ You can configure the mapping on Data Factory authoring UI -> copy activity -> m
 | name     | Name of the source or sink column/field. Apply for tabular source and sink. | Yes      |
 | ordinal  | Column index. Start from 1. <br>Apply and required when using delimited text without header line. | No       |
 | path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Cosmos DB, MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
-| type     | Data Factory interim data type of the source or sink column. In general, you don't need to specify or change this. Learn more about [data type mapping](#data-type-mapping). | No       |
-| culture  | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.<br>In general, you don't need to specify or change this. Learn more about [data type mapping](#data-type-mapping). | No       |
-| format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this. Learn more about [data type mapping](#data-type-mapping). | No       |
+| type     | Data Factory interim data type of the source or sink column. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
+| culture  | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.<br>In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
+| format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 
 The following properties are supported under `translator` in addition to `mappings`:
 
@@ -174,11 +174,11 @@ And you want to copy it into a text file in the following format with header lin
 | 01          | 20170122  | P2       | 13          | Seattle |
 | 01          | 20170122  | P3       | 231         | Seattle |
 
-This can be achieved by the following configuration on Data Factory authoring UI:
+You can define such mapping on Data Factory authoring UI:
 
-1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas. If any field doesn't show up when importing the schema in your case, because Data Factory samples the top few objects, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
+1. On copy activity -> mapping tab, click **Import schema** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
 
-2. Select the array from which you want to iterate and extract data, it will be auto populated as **Collection reference**. Note only single array is supported for such operation.
+2. Select the array from which you want to iterate and extract data. It will be auto populated as **Collection reference**. Note only single array is supported for such operation.
 
 3. Map the needed fields to sink. Data Factory automatically determines the corresponding JSON paths for the hierarchical side.
 
@@ -237,17 +237,17 @@ When copying data from tabular source to hierarchical sink, writing to array ins
 
 When copying data from hierarchical source to hierarchical sink, you can additionally preserve entire layer's hierarchy, by selecting the object/array and map to sink without touching the inner fields.
 
-For more advanced data re-shape transformation, you can use [Data Flow](concepts-data-flow-overview.md). 
+For more advanced data reshape transformation, you can use [Data Flow](concepts-data-flow-overview.md). 
 
 ### Parameterize mapping
 
-If you want to create a templatized pipeline to dynamically handle large amount of objects, firstly determine whether you can leverage the [default mapping](#default-mapping) or you need to define [explicit mapping](#explicit-mapping) for respective objects.
+If you want to create a templatized pipeline to copy large number of objects dynamically, determine whether you can leverage the [default mapping](#default-mapping) or you need to define [explicit mapping](#explicit-mapping) for respective objects.
 
 If explicit mapping is needed, you can:
 
-1. Define a parameter e.g. `mapping` with object type at the pipeline level.
+1. Define a parameter with object type at the pipeline level, for example, `mapping`.
 
-2. Parameterize the mapping: on copy activity -> mapping tab -> adding dynamic content -> select the above parameter. The activity payload would be as the following:
+2. Parameterize the mapping: on copy activity -> mapping tab, choose to add dynamic content and select the above parameter. The activity payload would be as the following:
 
     ```json
     {
@@ -291,11 +291,11 @@ The following data type conversions are supported between the interim types from
 | String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
-(1) Date/Time include DateTime and DateTimeOffset
+(1) Date/Time includes DateTime and DateTimeOffset.
 
-(2) Float-point include Single and Double
+(2) Float-point includes Single and Double.
 
-(3) Integer include SByte, Byte, Int16, UInt16, Int32, UInt32, Int64, and UInt64
+(3) Integer includes SByte, Byte, Int16, UInt16, Int32, UInt32, Int64, and UInt64.
 
 > [!NOTE]
 > - Currently such data type conversion is supported when copying between tabular data. Hierarchical sources/sinks are not supported, which means there is no system-defined data type conversion between source and sink interim types.
@@ -310,10 +310,10 @@ The following properties are supported in copy activity for data type conversion
 | *Under `typeConversionSettings*` |                                                              |          |
 | allowDataTruncation              | Allow data truncation when converting source data to sink with different type during copy, for example, from decimal to integer, from DatetimeOffset to Datetime. <br>Default value is true. | No       |
 | treatBooleanAsNumber             | Treat booleans as numbers, for example, true as 1.<br>Default value is false. | No       |
-| dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, "yyyy-MM-dd HH:mm:ss.fff".  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
-| dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, "yyyy-MM-dd HH:mm:ss.fff zzz".  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
-| timeSpanFormat                   | Format string when converting between time periods and strings, for example, "dd\.hh\:mm". Refer to [Custom TimeSpan Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
-| culture                          | Culture information to be used when convert types, for example, "en-us", "fr-fr". | No       |
+| dateTimeFormat                   | Format string when converting between dates without time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff`.  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
+| dateTimeOffsetFormat             | Format string when converting between dates with time zone offset and strings, for example, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Refer to [Custom Date and Time Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) for detailed information. | No       |
+| timeSpanFormat                   | Format string when converting between time periods and strings, for example, `dd\.hh\:mm`. Refer to [Custom TimeSpan Format Strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) for detailed information. | No       |
+| culture                          | Culture information to be used when convert types, for example, `en-us` or `fr-fr`. | No       |
 
 **Example:**
 
@@ -350,9 +350,9 @@ The following properties are supported in copy activity for data type conversion
 > [!NOTE]
 > The following models to map source columns/fields to sink are still supported as is for backward compatibility. We suggest that you use the new model mentioned in [schema mapping](#schema-mapping). Data Factory authoring UI has switched to generating the new model.
 
-### Alternative column mapping (legacy model)
+### Alternative column-mapping (legacy model)
 
-You can specify copy activity -> `translator` -> `columnMappings` to map between tabular-shaped data . In this case, the "structure" section is required for both input and output datasets. Column mapping supports **mapping all or subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following are error conditions that result in an exception:
+You can specify copy activity -> `translator` -> `columnMappings` to map between tabular-shaped data. In this case, the "structure" section is required for both input and output datasets. Column mapping supports **mapping all or subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following are error conditions that result in an exception:
 
 - Source data store query result does not have a column name that is specified in the input dataset "structure" section.
 - Sink data store (if with pre-defined schema) does not have a column name that is specified in the output dataset "structure" section.
@@ -444,7 +444,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 
 If you are using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` to specify column mapping, it is still supported as-is.
 
-### Alternative schema mapping (legacy model)
+### Alternative schema-mapping (legacy model)
 
 You can specify copy activity -> `translator` -> `schemaMapping` to map between hierarchical-shaped data and tabular-shaped data, for example, copy from MongoDB/REST to text file and copy from Oracle to Azure Cosmos DB's API for MongoDB. The following properties are supported in copy activity `translator` section:
 
