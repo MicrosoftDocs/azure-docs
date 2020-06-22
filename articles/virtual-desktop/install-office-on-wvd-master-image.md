@@ -28,7 +28,7 @@ Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
 
    - Microsoft 365 Apps for enterprise
-   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business subscription
+   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business Premium subscription
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 

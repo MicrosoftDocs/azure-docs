@@ -3098,6 +3098,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-monitor-for-containers.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-example-adventureworks-multilevel-faceting.md",
       "redirect_url": "/azure/search/search-filters-facets",
       "redirect_document_id": true
@@ -35952,6 +35957,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-push-notifications-swift-apps-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-swift-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-obc-204",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
       "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
@@ -44279,6 +44294,11 @@
     {
       "source_path": "articles/azure-signalr/signalr-authenticate-azure-functions.md",
       "redirect_url": "/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-tutorial-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-diagnostic-logs",
       "redirect_document_id": true
     },
     {
