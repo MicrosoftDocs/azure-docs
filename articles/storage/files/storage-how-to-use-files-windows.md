@@ -37,7 +37,7 @@ You can use Azure file shares on a Windows installation that is running either i
 
 ## Prerequisites 
 
-Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to workaround a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
+Ensure port 445 is open: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. To learn about ways to work around a blocked 445 port, see the [Cause 1: Port 445 is blocked](storage-troubleshoot-windows-file-connection-problems.md#cause-1-port-445-is-blocked) section of our Windows troubleshooting guide.
 
 ## Using an Azure file share with Windows
 To use an Azure file share with Windows, you must either mount it, which means assigning it a drive letter or mount point path, or access it via its [UNC path](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
@@ -97,7 +97,7 @@ You have now mounted your Azure file share.
 1. When you are ready to dismount the Azure file share, you can do so by right-clicking on the entry for the share under the **Network locations** in File Explorer and selecting **Disconnect**.
 
 ### Accessing share snapshots from Windows
-If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), or the [Azure portal](storage-how-to-use-files-portal.md), 
+If you have taken a share snapshot, either manually or automatically through a script or service like Azure Backup, you can view previous versions of a share, a directory, or a particular file from file share on Windows. You can take a share snapshot using [Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md), or the [Azure portal](storage-how-to-use-files-portal.md).
 
 #### List previous versions
 Browse to the item or parent item that needs to be restored. Double-click to go to the desired directory. Right-click and select **Properties** from the menu.
