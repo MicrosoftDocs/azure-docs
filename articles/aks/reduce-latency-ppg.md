@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 06/22/2020
 ---
 
-# Use proximity placement groups to reduce latency (Preview)
+# Reduce latency with proximity placement groups (Preview)
 
 > [!Note]
 > Proximity placement groups improve latency, but may reduce an application's availability since resources are colocated in the same datacenter. You can mitigate this risk by deploying multiple node pools across multiple proximity placement groups.
