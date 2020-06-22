@@ -1004,10 +1004,6 @@ To start the development process, we recommend creating dummy API responses on t
 When the publisher is ready for the end to end testing: 
 
 * Publish a SaaS offer to a limited preview audience and keep it in preview stage.
-* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  
-* Ensure all flows are invoked end to end, just like a customer would purchase the offer.
-
-* Publish a SaaS offer to a limited preview audience and keep it in preview stage.
 * This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours. 
 * Ensure all flows are invoked end to end, just like a customer would purchase the offer. 
 * If the partner wants to test full purchase and billing flow, do so with offer that is priced above 0$.  The purchase will be billed, and an invoice will be generated.
