@@ -32,7 +32,7 @@ The tool can accept a custom command application ID. It allows you to test your 
 To set up the client, checkout [Windows Voice Assistant Client](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/clients/csharp-wpf).
 
 > [!div class="mx-imgBorder"]
-> ![WVAC Create profile](media/custom-commands/wvac-conversation.png)
+> ![WVAC Create profile](media/custom-commands/conversation.png)
 
 ## Test with Speech SDK-enabled client applications 
 The Speech software development kit (SDK) exposes many of the Speech service capabilities, which allows you to develop speech-enabled applications. It's also available in many programming languages and across all platforms.
@@ -40,7 +40,7 @@ The Speech software development kit (SDK) exposes many of the Speech service cap
 To set up a Universal Windows Platform (UWP) client application with Speech SDK, and integrate it with your custom command application:  
 - [How to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
 - [How to: Send activity to client application](./how-to-custom-commands-send-activity-to-client.md)
-- [How to: Set up web endpoints](./how-to-custom-commands-setup-webendpoints.md)
+- [How to: Set up web endpoints](./how-to-custom-commands-setup-web-endpoints.md)
 
 For other programming languages and platforms:
 - [Speech SDK programming languages, platforms, scenario capacities](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk)

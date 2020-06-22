@@ -18,7 +18,7 @@ This article describes how to debug when you see errors while running Custom Com
 
 ## Connection failed
 
-If your run Custom Commands application from [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md) or [Windows Voice Assistant Client](./how-to-custom-commands-developerflow-test.md), you may experience connection errors as listed below:
+If your run Custom Commands application from [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md) or [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), you may experience connection errors as listed below:
 
 | Error code | Details |
 | ------- | -------- |
@@ -55,7 +55,7 @@ When running your Custom Commands application, the dialog would be canceled when
 
 - If you are testing the application in the portal, it would directly display the cancellation description and play out an error earcon. 
 
-- If you are running the application with [Windows Voice Assistant Client](./how-to-custom-commands-developerflow-test.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Activity Logs**.
+- If you are running the application with [Windows Voice Assistant Client](./how-to-custom-commands-developer-flow-test.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Activity Logs**.
 
 - If you are following our client application example [client application (with Speech SDK)](./how-to-custom-commands-setup-speech-sdk.md), it would play out an error earcon. You can find the **Event: CancelledDialog** under the **Status**.
 
