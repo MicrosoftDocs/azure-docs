@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Optimize reauthentication prompts and understand session lifetime for Azure Multi-Factor Authentication
 
-Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment.
+Azure Active Directory (Azure AD) has multiple settings that determine how often users need to reauthenticate. This reauthentication could be with a first factor such as password, FIDO, or passwordless Microsoft Authenticator, or to perform multi-factor authentication (MFA). You can configure these reauthentication settings as needed for your own environment and the user experience you want.
 
 This article details recommended configurations and how different settings work and interact with each other.
 
@@ -36,11 +36,11 @@ Our research shows that these settings are right for most tenants. Some combinat
 
 ## Azure AD session lifetime configuration settings
 
-To optimize the frequency of authentication prompts for your users, you can configure some of the following Azure AD session lifetime options. Understand the needs of your business and users, and configure settings that provide the best balance for your environment.
+To optimize the frequency of authentication prompts for your users, you can configure Azure AD session lifetime options. Understand the needs of your business and users, and configure settings that provide the best balance for your environment.
 
 ### Evaluate session lifetime policies
 
-Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and open the browser, they get a prompt for reauthentication. In Office clients, the default is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
+Without any session lifetime settings, there are no persistent cookies in the browser session. Every time a user closes and open the browser, they get a prompt for reauthentication. In Office clients, the default time period is a rolling window of 90 days. With this default Office configuration, if the user has reset their password or there has been inactivity of over 90 days, the user is required to reauthenticate with all required factors (first and second factor).
 
 In Azure AD, the most restrictive policy for session lifetime determines when the user needs to reauthenticate. Consider the following scenario:
 
@@ -79,7 +79,7 @@ More information, see [Remember Multi-Factor Authentication](howto-mfa-mfasettin
 
 **Sign-in frequency** allows the administrator to choose sign-in frequency that applies for both first and second factor in both client and browser. We recommend using these settings, along with using managed devices, in scenarios when you have a need to restrict authentication session, such as for critical business applications.
 
-**Persistent browser session** allows users to remain signed in after closing and reopening their browser window. Similar to the *Remain signed-in* setting, it sets a persistent cookie on the browser. However, since it's configured by the admin, it does not require the user select **Yes** in the *Stay signed-in?* option sp provides a better user experience. If you use the *Remain signed-in?* option, we recommend you enable the **Persistent browser session** policy instead.
+**Persistent browser session** allows users to remain signed in after closing and reopening their browser window. Similar to the *Remain signed-in* setting, it sets a persistent cookie on the browser. However, since it's configured by the admin, it doesn't require the user select **Yes** in the *Stay signed-in?* option so provides a better user experience. If you use the *Remain signed-in?* option, we recommend you enable the **Persistent browser session** policy instead.
 
 For more information. see [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md).
 
@@ -95,7 +95,7 @@ To configure or review the *Remain signed-in* option, complete the following ste
 
 1. In the Azure AD portal, search for and select *Azure Active Directory*.
 1. Select **Company Branding**, then for each locale, choose **Show option to remain signed in**.
-1. Choose *Yes* or *No* as needed, then select **Save**.
+1. Choose *Yes*, then select **Save**.
 
 To remember Multi-factor authentication settings, complete the following steps:
 
@@ -110,7 +110,7 @@ To configure Conditional Access policies for sign-in frequency and persistent br
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
-To configure token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/active-directory-configurable-token-lifetimes.md#prerequisites).
+To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
 
 If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Office 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
 
