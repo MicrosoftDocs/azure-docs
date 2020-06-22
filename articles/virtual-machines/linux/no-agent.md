@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 ---
 
 
-# Creating Generalized Images Without a Provisioning Agent
+# Creating generalized images without a provisioning agent
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
@@ -257,4 +257,8 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 ## Support
 
-If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes, significant improves ETA early 2021.
+If you implement your own provisioning code/agent, then you own the support of this code, Microsoft support will only investigate issues relating to the provisioning interfaces not being available. We are continually making improvements and changes in this area, so you must monitor for changes in cloud-init and Azure Linux Agent for provisioning API changes.
+
+## Next steps
+
+For more information, see [Linux provisioning](provisioning.md).
