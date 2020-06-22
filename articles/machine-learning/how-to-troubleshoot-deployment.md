@@ -5,12 +5,12 @@ description: Learn how to work around, solve, and troubleshoot the common Docker
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4
+ms.custom: contperfq4, tracking-python
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
@@ -272,7 +272,7 @@ For more information on setting `autoscale_target_utilization`, `autoscale_max_r
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
-You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a hung state or an infinite loop.
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
 
 ## Advanced debugging
 

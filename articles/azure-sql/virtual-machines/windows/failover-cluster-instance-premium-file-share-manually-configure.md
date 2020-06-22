@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI with premium file share - Azure Virtual Machines 
-description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure virtual machines."
+description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,10 +16,11 @@ ms.date: 10/09/2019
 ms.author: mathoma
 ---
 
-# Configure a SQL Server failover cluster instance with premium file share on Azure virtual machines
+# Configure a SQL Server failover cluster instance with premium file share on Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure Virtual Machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
 Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
@@ -41,7 +42,9 @@ You should also have a general understanding of these technologies:
 - [Azure resource groups](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure Virtual Machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features won't work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> 
+
 
 Premium file shares provide IOPS and throughput capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md), based on managed premium disks or ultra disks.  
 
@@ -53,13 +56,13 @@ For more information about premium file share performance, see [File share perfo
 
 ### Licensing and pricing
 
-On Azure virtual machines, you can license SQL Server by using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
+On Azure Virtual Machines, you can license SQL Server by using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
 
-With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure virtual machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
+With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
 If you have Enterprise Agreement with Software Assurance, you can use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images, and use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines, see [Get started with SQL VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
+To compare pay-as-you-go and BYOL licensing for SQL Server on Azure VM, see [Get started with SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -72,16 +75,16 @@ Filestream isn't supported for a failover cluster with a premium file share. To 
 Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
-- A Windows domain on Azure virtual machines.
-- A domain user account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- A domain user account to run the SQL Server service and that you can log into the virtual machine with when mounting the file share.  
+- A Windows domain on Azure Virtual Machines.
+- A domain user account that has permissions to create objects on both Azure Virtual Machines and in Active Directory.
+- A domain user account to run the SQL Server service and that you can use to log in to the virtual machine when mounting the file share. 
 - An Azure virtual network and subnet with enough IP address space for these components:
-   - Two virtual machines.
-   - The failover cluster IP address.
-   - An IP address for each FCI.
+   - Two virtual machines
+   - The failover cluster IP address
+   - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
-- If you're on Windows Server 2012 R2 and older, you will need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. You can use another Azure file share, or you can use a file share on a separate virtual machine. If you're going to use another Azure file share, you can mount it with the same process as for the premium file share used for your clustered drive. 
+- If you're on Windows Server 2012 R2 and older, you'll need another file share to use as the file share witness, since cloud witnesses are supported for Windows 2016 and newer. You can use another Azure file share, or you can use a file share on a separate virtual machine. If you're going to use another Azure file share, you can mount it with the same process as for the premium file share used for your clustered drive. 
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
@@ -120,19 +123,21 @@ With these prerequisites in place, you can start building your failover cluster.
 
       >[!IMPORTANT]
       >You can't set or change the availability set after you've created a virtual machine.
+      >
 
-   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
+   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, the SQL Server installation software, and the required key.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You'll use the pre-installed SQL Server media to create the SQL Server FCI after you set up the failover cluster and premium file share as storage.
+   > 
 
    Alternatively, you can use Azure Marketplace images that contain just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you set up the failover cluster and premium file share as storage. This image doesn't contain SQL Server installation media. Place the SQL Server installation media in a location where you can run it for each server.
 
-1. After Azure creates your virtual machines, connect to each one by using RDP.
+1. After Azure creates your virtual machines, connect to each one by using Remote Desktop Protocol (RDP).
 
-   When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
+   When you first connect to a virtual machine with RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
 
 1. If you're using one of the SQL Server-based virtual machine images, remove the SQL Server instance.
 
@@ -180,10 +185,11 @@ After you create and configure the virtual machines, you can configure the premi
   > [!IMPORTANT]
   > - Consider using a separate file share for backup files to save the IOPS and space capacity of this share for Data and Log files. You can use either a premium or standard file share for backup files.
   > - If you're on Windows 2012 R2 and older, follow these same steps to mount your file share that you are going to use as the file share witness. 
+  > 
 
 ## Step 3: Configure the failover cluster
 
-The next step is to configure the failover cluster. In this step, you'll complete the following substeps:
+Now you configure the failover cluster. In this section, you complete the following steps:
 
 1. Add the Windows Server Failover Clustering feature.
 1. Validate the cluster.
@@ -241,8 +247,9 @@ After you validate the cluster, create the failover cluster.
 ### Create the failover cluster
 
 To create the failover cluster, you need:
+
 - The names of the virtual machines that will become the cluster nodes.
-- A name for the failover cluster
+- A name for the failover cluster.
 - An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
 #### Windows Server 2012 through Windows Server 2016
@@ -262,9 +269,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### Create a cloud witness (Win 2016 +)
+### Create a cloud witness (Win 2016 and later)
 
-If you're on Windows Server 2016 and greater, you'll need to create a Cloud Witness. Cloud Witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share, or using a separate file share.
+If you're on Windows Server 2016 and later, you'll need to create a cloud witness. A cloud witness is a new type of cluster quorum witness that's stored in an Azure storage blob. This removes the need for a separate VM that hosts a witness share, or using a separate file share.
 
 1. [Create a cloud witness for the failover cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -274,7 +281,7 @@ If you're on Windows Server 2016 and greater, you'll need to create a Cloud Witn
 
 ### Configure quorum 
 
-For Windows Server 2016 and greater, configure the cluster to use the cloud witness you just created. Follow all of the steps [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+For Windows Server 2016 and later, configure the cluster to use the cloud witness you just created. Follow all of the steps [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
 For Windows Server 2012 R2 and older, follow the same steps in [Configure the quorum witness in the user interface](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) but on the **Select Quorum Witness** page, select the **Configure a file share witness** option. Specify the file share you allocated to be the file share witness, whether it's one you configured on a separate virtual machine, or mounted from Azure. 
 
@@ -291,7 +298,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In **Failover Cluster Manager**, make sure all the Core Cluster Resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
+1. In **Failover Cluster Manager**, make sure all the Core Cluster Resources are on the first virtual machine. If necessary, move all resources to this virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
@@ -299,7 +306,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you RDP'd into the VM with when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
+   The FCI data directories need to be on the premium file share. Enter the full path of the share, in this form: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. A warning will appear, telling you that you've specified a file server as the data directory. This warning is expected. Ensure that the user account you used to access the VM via RDP when you persisted the file share is the same account that the SQL Server service uses to avoid possible failures.
 
    :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/use-file-share-as-data-directories.png" alt-text="Use file share as SQL data directories":::
 
@@ -313,10 +320,11 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image with SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## Step 6: Create the Azure load balancer
 
-On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
 For more information, see [Create and configure an Azure load balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
 
@@ -375,15 +383,15 @@ To create the load balancer:
 
 1. Select **OK**.
 
-### Set load balancing rules
+### Set load-balancing rules
 
 1. On the load balancer blade, select **Load balancing rules**.
 
 1. Select **Add**.
 
-1. Set the load balancing rule parameters:
+1. Set the load-balancing rule parameters:
 
-   - **Name**: A name for the load balancing rules.
+   - **Name**: A name for the load-balancing rules.
    - **Frontend IP address**: The IP address for the SQL Server FCI cluster network resource.
    - **Port**: The SQL Server FCI TCP port. The default instance port is 1433.
    - **Backend port**: Uses the same port as the **Port** value when you enable **Floating IP (direct server return)**.
@@ -424,6 +432,7 @@ The following list describes the values that you need to update:
 
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+>
 
 After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
 
@@ -451,12 +460,14 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## Limitations
 
-Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
+
+On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.

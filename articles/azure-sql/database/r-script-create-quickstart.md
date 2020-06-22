@@ -36,7 +36,7 @@ This example uses the stored procedure [sp_execute_external_script](/sql/relatio
 
 To run an R script, you'll pass it as an argument to the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-In the following steps, you'll run this example R script in your SQL database:
+In the following steps, you'll run this example R script in your database:
 
 ```r
 a <- 1
@@ -46,9 +46,9 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. Open **SQL Server Management Studio** and connect to your SQL database.
+1. Open **SQL Server Management Studio** and connect to your database.
 
-   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](connect-query-ssms.md).
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query a database in Azure SQL Database](connect-query-ssms.md).
 
 1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
@@ -65,7 +65,7 @@ print(c(c, d))
     '
     ```
 
-   If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See [Prerequisites](#prerequisites) above.
+   If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your database. See [Prerequisites](#prerequisites) above.
 
    > [!NOTE]
    > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command:
@@ -191,7 +191,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
 ## Check R version
 
-If you would like to see which version of R is installed in your SQL database, run the following script.
+If you would like to see which version of R is installed in your database, run the following script.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -224,7 +224,7 @@ nickname       Someone to Lean On
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your database.
 
 To see a list of which R packages are installed, including version, dependencies, license, and library path information, run the following script.
 

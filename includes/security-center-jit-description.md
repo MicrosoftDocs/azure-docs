@@ -11,8 +11,6 @@ Brute force attacks commonly target management ports as a means to gain access t
 
 One way to reduce exposure to a brute force attack is to limit the amount of time that a port is open. Management ports don't need to be open at all times. They only need to be open while you're connected to the VM, for example to perform management or maintenance tasks. When just-in-time is enabled, Security Center uses [network security group](../articles/virtual-network/security-overview.md#security-rules) (NSG) and Azure Firewall rules, which restrict access to management ports so they cannot be targeted by attackers.
 
-![Just-in-time scenario](../articles/security-center/media/security-center-just-in-time/just-in-time-scenario.png)
-
 ## How does JIT access work?
 
 When just-in-time is enabled, Security Center locks down inbound traffic to your Azure VMs by creating an NSG rule. You select the ports on the VM to which inbound traffic will be locked down. These ports are controlled by the just-in-time solution.

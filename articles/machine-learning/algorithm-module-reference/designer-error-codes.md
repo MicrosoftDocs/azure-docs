@@ -5,7 +5,7 @@ description: Troubleshoot module exceptions in Azure Machine Learning designer u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 
 author: likebupt
 ms.author: keli19
@@ -1574,7 +1574,7 @@ Internal library exception.
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|

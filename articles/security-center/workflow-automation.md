@@ -39,7 +39,7 @@ This article describes the workflow automation feature of Azure Security Center.
 - Clouds: 
     - ✔ Commercial clouds
     - ✔ US Gov
-    - ✘ Chinese Gov, Other Gov
+    - ✘ China Gov, Other Gov
 
 
 ## Create a Logic App and define when it should automatically run 

@@ -5,12 +5,12 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 06/02/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create an FSLogix profile container for a host pool using Azure NetApp Files
+# Create a profile container with Azure NetApp Files and AD DS
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
@@ -82,7 +82,7 @@ To get started, you need to set up an Azure NetApp Files account.
 
 ## Create a capacity pool
 
-Next, create a new capacity pool: 
+Next, create a new capacity pool:
 
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.

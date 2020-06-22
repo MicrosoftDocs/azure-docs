@@ -5,7 +5,7 @@ services: iot-hub
 author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.date: 11/21/2019
+ms.date: 06/02/2020
 ms.author: robinsh
 ---
 
@@ -175,19 +175,26 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 4. Create the event subscription with the following values: 
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
+    1. In the **EVENT SUBSCRIPTION DETAILS** section, do the following tasks:
+        1. Provide a **name** for the event subscription. 
+        2. Select **Event Grid Schema** for **Event Schema**. 
+   2. In the **TOPIC DETAILS** section, do the following tasks:
+       1. Confirm that the **Topic type** is set to **IoT Hub**. 
+       2. Confirm that the name of the IoT hub is set as the value for the **Source Resource** field. 
+       3. Enter a name for the **system topic** that will be created for you. To learn about system topics, see [Overview of system topics](system-topics.md).
+   3. In the **EVENT TYPES** section, do the following tasks: 
+        1. For **Filter to Event Types**, uncheck all of the choices except **Device Created**.
 
-   * **Event Types**: In the **Filter to Event Types**, uncheck all of the choices except **Device Created**.
+           ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+   4. In the **ENDPOINT DETAILS** section, do the following tasks: 
+       1. Select **Endpoint Type** as **Web Hook**.
+       2. Click **select an endpoint**, paste the URL that you copied from your logic app, and confirm selection.
 
-       ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+         ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and select *select an endpoint* and paste the URL that you copied from your logic app and confirm selection.
+         When you're done, the pane should look like the following example: 
 
-     ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
-
-   When you're done, the pane should look like the following example: 
-
-    ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
+        ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
 5. You could save the event subscription here, and receive notifications for every device that is created in your IoT hub. For this tutorial, though, let's use the optional fields to filter for specific devices. Select **Filters** at the top of the pane.
 

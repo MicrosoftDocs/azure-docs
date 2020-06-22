@@ -4,8 +4,8 @@ description: This article will help you understand how Traffic Manager subnet ov
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
-ms.topic: article
+
+ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink

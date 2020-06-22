@@ -34,7 +34,7 @@ For a list of eligible client apps, see [App protection policy requirement](conc
 
 ## Scenario 1: Office 365 apps require approved apps with app protection policies
 
-In this scenario, Contoso has decided that all mobile access to Office 365 resources must use approved client apps, like Outlook mobile, OneDrive, and Microsoft Teams protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
+In this scenario, Contoso has decided that all mobile access to Office 365 resources must use approved client apps, like Outlook mobile and OneDrive, protected by an app protection policy prior to receiving access. All of their users already sign in with Azure AD credentials and have licenses assigned to them that include Azure AD Premium P1 or P2 and Microsoft Intune.
 
 Organizations must complete the following steps in order to require the use of an approved client app on mobile devices.
 

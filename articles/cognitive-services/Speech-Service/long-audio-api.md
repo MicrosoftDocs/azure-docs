@@ -43,7 +43,7 @@ When preparing your text file, make sure it:
   * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 > [!NOTE]
-> For Chinese (Mainland), Chinese (Hong Kong), Chinese (Taiwan), Japanese, and Korean, one word will be counted as two characters. 
+> For Chinese (Mainland), Chinese (Hong Kong SAR), Chinese (Taiwan), Japanese, and Korean, one word will be counted as two characters. 
 
 ## Submit synthesis requests
 
@@ -61,7 +61,7 @@ The **HTTP status codes** indicate common errors.
 |        | 400 | The voice synthesis only supports the text file in the UTF-8 encoding with the byte-order marker. | Make sure the input files are in UTF-8 encoding with the byte-order marker. |
 |        | 400 | Only valid SSML inputs are allowed in the voice synthesis request. | Make sure the input SSML expressions are correct. |
 |        | 400 | The voice name {voiceName} is not found in the input file. | The input SSML voice name is not aligned with the model ID. |
-|        | 400 | The amount of paragraph in the input file should be less than 10,000. | Make sure the paragraph in the file is less than 10,000. |
+|        | 400 | The number of paragraphs in the input file should be less than 10,000. | Make sure the number of paragraphs in the file is less than 10,000. |
 |        | 400 | The input file should be more than 400 characters. | Make sure your input file exceeds 400 characters. |
 |        | 404 | The model declared in the voice synthesis definition cannot be found : {modelID}. | Make sure the {modelID} is correct. |
 |        | 429 | Exceed the active voice synthesis limit. Please wait until some requests finish. | The server is allowed to run and queue up to 120 requests for each Azure account. Please wait and avoid submitting new requests until some requests are completed. |

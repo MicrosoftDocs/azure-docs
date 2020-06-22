@@ -1,6 +1,6 @@
 ---
 title: vCore purchasing model overview
-titleSuffix: Azure SQL Database & SQL Managed Instance 
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-database
@@ -11,21 +11,21 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ---
-# vCore model overview - Azure SQL Database & SQL Managed Instance 
+# vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 The virtual core (vCore) purchasing model used by Azure SQL Database and Azure SQL Managed Instance provides several benefits:
 
-- Higher compute, memory, IO, and storage limits.
+- Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](reserved-capacity-overview.md).
 - Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
 
 ## Service tiers
 
-Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and IO limits, and business continuity options related to availability and disaster recovery.
+Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
 
-||**General purpose**|**Business critical**|**Hyperscale**|
+||**General Purpose**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
 |Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**SQL Managed Instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**SQL Managed Instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
@@ -40,7 +40,7 @@ Service tier options in the vCore model include General Purpose, Business Critic
 
 For information on selecting a service tier for your particular workload, see the following articles:
 
-- [When to choose the General purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [When to choose the General Purpose service tier](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [When to choose the Business Critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
@@ -85,10 +85,11 @@ Fsv2-series in only supported in the General Purpose tier.  For regions where Fs
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is only supported in the Business Critical tier and does not support zone redundancy.
+M-series is only supported in the Business Critical tier and does not support zone redundancy.  The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For regions where M-series is available, see [M-series availability](#m-series).
 
+<!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
-
+-->
 
 ### Compute and memory specifications
 
@@ -106,7 +107,7 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a SQL Database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+In the Azure portal, you can select the hardware generation for a database or pool in SQL Database at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
 
 **To select a hardware generation when creating a SQL Database or pool**
 
@@ -141,7 +142,7 @@ On the **Basics** tab, select the **Configure database** link in the **Compute +
   
 **To change the hardware generation of an existing SQL Managed Instance**
 
-# [Portal](#tab/azure-portal)
+# [The Azure portal](#tab/azure-portal)
 
 From the SQL Managed Instance page, select **Pricing tier** link placed under the Settings section
 
@@ -159,7 +160,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 For more details check [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) command.
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 Use the following CLI command:
 
@@ -189,6 +190,7 @@ Australia Central, Australia Central 2, Australia East, Australia Southeast, Bra
 
 M-series is available in the following regions:
 East US, North Europe, West Europe, West US 2.
+<!--
 M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
 To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
@@ -214,7 +216,7 @@ On the **Details** page, provide the following:
     For regions where M-series is available, see [M-series availability](#m-series).
 
 Approved support requests are typically fulfilled within 5 business days.
-
+-->
 
 ## Next steps
 
@@ -224,7 +226,7 @@ To get started, see:
 
 For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see: 
+For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see:
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore-based resource limits for pooled Azure SQL Database](resource-limits-vcore-elastic-pools.md).

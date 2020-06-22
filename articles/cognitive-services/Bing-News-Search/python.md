@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 06/16/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, tracking-python
 ---
 
 # Quickstart: Perform a news search using Python and the Bing News Search REST API
@@ -56,7 +56,7 @@ params  = {"q": search_term, "textDecorations": True, "textFormat": "HTML"}
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
-    search_results = response.json()
+    search_results = json.dumps(response.json())
     ```
 
 2. Access the descriptions of the articles contained in the response from the API, which is stored in `search_results` as a JSON object. 

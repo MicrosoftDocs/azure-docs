@@ -5,7 +5,7 @@ description: Learn how to retrain models with published pipelines in Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020

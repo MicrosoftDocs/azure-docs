@@ -62,9 +62,8 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 4. Select the "Move" button
 5. Select "Move to another subscription" from the dropdown options
 6. Select the resource group where you want to move your key vault
-7. Select the resource group where you want to move your key vault
-8. Acknowledge the warning regarding moving resources
-9. Select "OK"
+7. Acknowledge the warning regarding moving resources
+8. Select "OK"
 
 ### Additional steps (post move)
 
