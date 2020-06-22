@@ -1,6 +1,6 @@
 ---
-title: Change the profile information for your Azure account
-description: Describes how to change the profile of your Azure administrative account and contact email address.
+title: Change the contact information for your Azure account
+description: Describes how to change the contact information of your Azure administrative account
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
@@ -10,42 +10,81 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
-# Change the profile information for your Azure account
+# Change the contact information for your Azure account
 
-Microsoft uses the email address in the Account Administrator’s profile to send important billing, service, and recommendation-related notifications about an Azure account. We recommend that you specify an email address that you check regularly. As the Account Administrator, you can also update your profile to change the mailing address and phone number for the account.
+You can update the following contact information for your account in the Azure portal:
 
-Microsoft uses the email address in a user’s profile, an account user who is not the Account Administrator, to send service-related notifications and account recommendations. All billing notifications are sent to the Account Administrator. You can also update your profile to change your mailing address and phone number, but it doesn't change the account mailing address or phone number.
+*Sold-to address:* Sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. It is displayed in all the invoices generated for the billing account.
 
-## Change your profile information
+*Bill-to address:* Bill-to address is the address and the contact information of the organization or the individual, who is responsible for the invoices generated for a billing account. For a billing account for a Microsoft Online Service Program, there is one bill-to address, which is displayed on all the invoices generated for the account. For a billing account for a Microsoft Customer Agreement, there is a bill-to address for each billing profile and it is displayed in the invoice generated for the billing profile.
 
-1. Sign in to the [Azure Account Center](https://account.azure.com/subscriptions).
-1. Select the **Edit details** button, and then update the **Profile** information.
+*Contact email address for service and marketing emails:* You can specify an email address that is different from your sign-in email address, to receive important billing, service, and recommendation-related notifications about your Azure account.  
 
-   ![Example of Azure profile information](./media/change-azure-account-profile/profile.png)
+The instructions to update the contact information vary by the billing account. To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
-### Send notifications to an additional email address
+## Update sold-to or bill-to for a MOSP billing account
 
-You can have service notifications and account recommendations sent to an email address in addition to the Account Administrator's email address that's associated with your account. The Account Administrator’s email address gets important notifications about all the subscriptions under the account, including billing-related updates.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has the account administrator permission on the account. 
 
-### Change the Account Administrator's email address in your profile
+1. Search for **Cost Management + Billing**.
 
-The Account Administrator is the person who set up the Azure account and who receives important email notifications about all the subscriptions under the account. We recommend that you specify a contact email address that the Account Administrator checks regularly.
+ ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
 
-### Update your sign-in email address
+1. Select **Properties** from the left-hand side.
 
-Updating the profile email address doesn't update your sign-in email address. To change your sign-in email address, you have to transfer ownership of the account.
+ ![Screenshot that shows update address page](./media/change-azure-account-profile/update-contact-information-select-properties.png)
 
-### Update the billing address for your credit card
+1. Select **Update billing address** to update the sold-to and the bill-to addresses. Enter the new address and then select **Save**.
 
-To learn how to update your billing information, see [Change the credit card used to pay for an Azure subscription](change-credit-card.md).
+ ![Screenshot that shows update address page](./media/change-azure-account-profile/update-contact-information-MOSP.png)
 
-### Update your country/region
+## Update sold-to for an MCA billing account
 
-Because of technical constraints, we can't change the country/region for an existing account. But you can create an account in the desired country/region and then contact Azure support to migrate your services to that account.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on the billing account for a Microsoft Customer Agreement.
+
+1. Search for **Cost Management + Billing**.
+
+ ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
+
+1. Select **Properties** from the left-hand side and then select **Update sold-to**.
+
+ ![Screenshot that shows selecting update sold-to](./media/change-azure-account-profile/update-sold-to-list-properties-MCA.png)
+
+1. Enter the new address and select **Save**.
+
+ ![Screenshot that shows updating address](./media/change-azure-account-profile/update-sold-to-save-MCA.png)
+
+> [!IMPORTANT]
+> Some accounts require additional verification before their sold-to can be updated. If your account requires 
+> manual approval, you would be asked to contact Azure support.
+
+## Update bill-to for an MCA billing account
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has an owner or a contributor role on a billing account or a billing profile for a Microsoft Customer Agreement.
+
+1. Search for **Cost Management + Billing**.
+
+ ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/search-cmb.png)
+
+1. Select **Billing profiles** from the left-hand side.
+ 
+1. Select a billing profile to update its bill-to.
+
+ ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/update-bill-to-list-profiles-MCA.png) 
+
+1. Select **Properties** from the left-hand side. 
+
+1. Select **Update address**.
+
+ ![Screenshot that shows search in portal for cost management + billing](./media/change-azure-account-profile/update-bill-to-list-properties-MCA.png)
+
+1. Enter the new address and then select **Save**.
+
+ ![Screenshot that shows updating address](./media/change-azure-account-profile/update-bill-to-save-MCA.png) 
 
 ## Service and marketing emails
 
-You're prompted in the [Azure portal](https://portal.azure.com) to verify or update your email address every 90 days. Microsoft sends emails to your profile email address with Azure account-related information for:
+You're prompted in the [Azure portal](https://portal.azure.com) to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
 
 - Service notifications
 - Security alerts
@@ -60,13 +99,13 @@ Enter the email address where you want to receive communications about your acco
 
 ### Change your contact email address
 
-You can change your contact email address by using one of the following methods:
+You can change your contact email address by using one of the following methods. Updating your contact email address doesn't update your sign-in email address.
 
-* Sign in to the [Azure Account Center](https://account.azure.com/subscriptions). Select **Edit details** and then update the profile email address. Updating your profile email address doesn't update your sign-in email address.
+* If you are an account administrator for a Microsoft Online Service Program (MOSP) account, follow the instructions in [Update sold-to or bill-to for a MOSP billing account](#update-sold-to-or-bill-to-for-a-mosp-billing-account) and select **Update contact info** in the last step. Next, enter the new email address.
 
-* Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter an email address. The address that you provide receives service and marketing communications. The email address in the Azure Account Center Profile is updated to match automatically. Updating your profile email address doesn't update your sign-in email address.
+* Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
 
-* In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter an email address. The address that you provide receives service and marketing communications. The email address in your Azure Account Center Profile is updated to match automatically. Updating your profile email address doesn't update your sign-in email address.
+* In the [Azure portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address. 
 
 ![Example of updating an email address in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -80,6 +119,18 @@ To opt out of receiving marketing emails:
 ![Example of the page for managing communication permissions](./media/change-azure-account-profile/manage-communication-permissions.png)
 
 When you opt out of marketing communications, you still receive service notifications, based on your account.
+
+## Update the sign-in email address for your account
+
+You can't update the email address that you use to access your account. However, if you have a billing account for a Microsoft Online Service Program, you can sign up for another account using the new email address and transfer ownership of your subscriptions to the next account. For the billing account for a Microsoft Customer Agreement, [you can give the new email address permissions on your account.](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+## Update your credit card
+
+To learn how to update your credit card, see [Change the credit card used to pay for an Azure subscription](change-credit-card.md).
+
+## Update your country/region
+
+Changing the country/region for an existing account is not supported. However, you can create a new account in the desired country/region and then contact Azure support to transfer your subscription to the new account.
 
 ## Change the subscription name
 
