@@ -168,7 +168,7 @@ Create a table in your data warehouse by running the [CreateDataWarehouseTable.s
 2. In the SQL data warehouse page, select **Query editor (preview)** in the left menu. 
 
     ![SQL data warehouse page](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Enter the name of **user** and **password** for the SQL server, and select **OK**. You may need to your client IP address to the firewall to successfully log in to SQL server. 
+2. Enter the name of **user** and **password** for the SQL server, and select **OK**. You may need to add your client IP address to the firewall to successfully log in to SQL server. 
 
     ![SQL server authentication](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. In the query window, copy and run the following SQL script: 

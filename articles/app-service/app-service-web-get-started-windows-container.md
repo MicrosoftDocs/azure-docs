@@ -46,7 +46,7 @@ Create an ASP.NET web app by following these steps:
 
 1. You need a [supported parent image](#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code and save the file:
 
-   ```Dockerfile
+   ```dockerfile
    FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
    ```
 
@@ -137,7 +137,7 @@ The streamed logs looks like this:
 
 1. Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire element with the following code:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
