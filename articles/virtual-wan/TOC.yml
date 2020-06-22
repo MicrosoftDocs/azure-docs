@@ -62,8 +62,6 @@
       href: path-selection-multiple-links.md
 - name: How-to guides
   items:
-  - name: Configure Global VNet peering
-    href: global-peering-vnet.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
   - name: ExpressRoute
@@ -112,12 +110,6 @@
       href: how-to-virtual-hub-routing.md
     - name: How to view virtual hub effective routes
       href: effective-routes-virtual-hub.md
-    - name: Route traffic from a virtual hub to an NVA
-      items:
-        - name: Azure portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub
