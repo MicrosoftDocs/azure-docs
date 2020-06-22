@@ -12,7 +12,7 @@ ms.date: 06/22/2020
 > [!Note]
 > Proximity placement groups improve latency, but may reduce an application's availability since resources are colocated in the same datacenter. You can mitigate this risk by deploying multiple node pools across multiple proximity placement groups.
 
-When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. For AKS workloads that require low latency scenarios, use proximity placement groups.
+When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. For AKS workloads that require low latency scenarios, use [proximity placement groups][https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups].
 
 ## Limitations
 
@@ -127,6 +127,7 @@ You can add a proximity placement group to an existing cluster. TODO
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [proximity-placement-groups]: /virtual-machines/linux/co-location
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/co-location#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 
