@@ -7,7 +7,7 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.reviewer: sngun
 ---
 

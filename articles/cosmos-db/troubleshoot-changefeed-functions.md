@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.date: 03/13/2020
 ms.author: maquaran
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.reviewer: sngun
 ---
 

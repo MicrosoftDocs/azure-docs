@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.reviewer: sngun
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
