@@ -113,7 +113,7 @@ You can add a proximity placement group to an existing cluster by creating a new
 
 Use the resource ID from the proximity placement group you created earlier, and add a new node pool:
 
-Add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that uses the proximity placement group you created earlier:
+Add a second node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that uses the proximity placement group you created earlier:
 
 ```azurecli-interactive
 az aks nodepool add \
