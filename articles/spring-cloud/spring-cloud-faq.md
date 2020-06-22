@@ -17,17 +17,17 @@ This article answers frequently asked questions about Azure Spring Cloud.
 
 ### Why Azure Spring Cloud?
 
-Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Cloud manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Cloud include Eureka, Config Server, Service Registry Server, Pivotal Build Service, Blue-green deployments, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud developers. Azure Spring Cloud manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Cloud include Eureka, Config Server, Service Registry Server, Pivotal Build Service, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
 
 Azure Spring Cloud enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
 ### How secure is Azure Spring Cloud?
 
-Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. All the service instances in Azure Spring Cloud are isolated from each other.
+Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. 
 
-Azure Spring Cloud provides complete TLS/SSL and certificate management.
-
-Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
+* The service instances in Azure Spring Cloud are isolated from each other.
+* Azure Spring Cloud provides complete TLS/SSL and certificate management.
+* Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
 ### In which regions is Azure Spring Cloud available?
 
@@ -57,7 +57,7 @@ For the quickest way to get started with Azure Spring Cloud, follow the instruct
 
 ### What Java runtime does Azure Spring Cloud support?
 
-Azure Spring Cloud supports Java 8 and 11. See more details [Java runtime and OS versions](#java-runtime-and-os-versions)
+Azure Spring Cloud supports Java 8 and 11. See [Java runtime and OS versions](#java-runtime-and-os-versions)
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
@@ -71,7 +71,10 @@ Yes. For more information, see [Tutorial: Use Distributed Tracing with Azure Spr
 
 ### What resource types does Service Binding support?
 
-Three services are currently supported: Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Three services are currently supported:
+* Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Cache for Redis.
 
 ### Can I view, add, or move persistent volumes from inside my applications?
 
@@ -99,7 +102,7 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 * Java 8 LTS will be supported until March 2025.
 * Java 11 LTS will be supported until September 2026.
-See more details at [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### How can I download a supported Java runtime for local development?
 
