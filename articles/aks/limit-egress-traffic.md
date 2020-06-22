@@ -48,7 +48,7 @@ The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
 * TCP [IPAddrOfYourAPIServer]:443 is required if you have an app that needs to talk to the API server.  This change can be set after the cluster is created.
-* TCP port *9000*, TCP port *22* and UDP port *1194* for the tunnel front pod to communicate with the tunnel end on the API server.
+* TCP port *9000* and UDP port *1194* for the tunnel front pod to communicate with the tunnel end on the API server.
     * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 * UDP port *123* for Network Time Protocol (NTP) time synchronization (Linux nodes).
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
