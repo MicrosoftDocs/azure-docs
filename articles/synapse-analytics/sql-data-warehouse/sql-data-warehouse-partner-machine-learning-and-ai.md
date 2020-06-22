@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Azure Synapse Analytics machine learning and AI partners
 
-To create your data warehouse solution using the Synapse SQL pool feature of Azure Synapse, you have a wide variety of industry-leading tools to choose from. This article highlights Microsoft partner companies with machine learning and artificial intelligence tools and solutions supporting Azure Synapse.
+This article highlights Microsoft partners with machine learning and artificial intelligence tools and solutions supporting Azure Synapse.
 
 ## Machine learning and AI partners
 | Partner | Description | Website/Product link |
