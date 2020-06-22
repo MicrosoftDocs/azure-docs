@@ -13087,6 +13087,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/global-peering-vnet.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table-portal.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-settings",
       "redirect_document_id": false
