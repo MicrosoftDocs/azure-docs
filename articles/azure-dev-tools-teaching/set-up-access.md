@@ -20,7 +20,7 @@ Please visit this link for more information: https://azureforeducation.microsoft
 ## Pre-requisites
 
 ## For Administrators only
-Access through Visual Studio Subscription Portal -- LINK https://my.visualstudio.com/
+Access through (Visual Studio Subscription Portal)[https://my.visualstudio.com/].
 
 To request access to your Visual Studio Subscription, you can do so through the Management
 Portal LINK FOR MP https://azureforeducation.microsoft.com/account/Subscriptions. Once approved, you will have access to the Visual Studio Subscriptions Portal. If this is
