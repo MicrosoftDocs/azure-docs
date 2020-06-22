@@ -1,25 +1,25 @@
 ---
-title: Create a content library for deploying a VM in Azure VMware Solution (AVS)
+title: Create a content library to deploy VMs in Azure VMware Solution (AVS)
 description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
 ms.topic: tutorial
 ms.date: 06/16/2020
 ---
 
-# Tutorial: Create a content library for deploying a VM in Azure VMware Solution (AVS)
+# Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)
 
-A content library stores and manages content in the form of library items.  A single library item consists of one or more files and can be used to deploy virtual machines. 
+A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
  
 In this tutorial, you learn how to:
 
 You learn how to:
 > [!div class="checklist"]
 > * Create a content library
-> * Upload an ISO to the content library
-> * Deploy a VM using an ISO in the Content Library
+> * Upload an ISO image to the content library
+> * Deploy a VM using an ISO in the content library
 
 ## Prerequisites
 
-An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial by deploying a VM in your private cloud.  See the [How to manage DHCP in Azure VMWare Solution (AVS) Preview](manage-dhcp.md).
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMWare Solution (AVS) Preview](manage-dhcp.md) for details.
 
 ## Create a content library
 
@@ -47,18 +47,18 @@ An NSX-T logical switch segment and a managed DHCP service are required to compl
 
    ![Verify your Settings, select Finish.](./media/content-library/new-content-library-step4.png)
 
-## Upload ISO image to the content library
+## Upload an ISO image to the content library
 
-Now that the content library has been created, you can add the ISO image to deploy a VM to a private cloud cluster. 
+Now that the content library has been created, you can add an ISO image to deploy a VM to a private cloud cluster. 
 
 1. From the vSphere Client, select **Menu > Content Libraries**.
 
-1. Right-click the content library you want to use for a new ISO and select **Import Item**.
+1. Right-click the content library you want to use for the new ISO and select **Import Item**.
 
-1. Import a library item by doing one of the following for the Source, and then select **Import**:
+1. Import a library item for the Source by doing one of the following, and then select **Import**:
    1. Select URL and provide a URL to download an ISO.
 
-   1. Select Local File to upload from your local system.
+   1. Select **Local File** to upload from your local system.
 
    > [!TIP]
    > Optional, you can define a custom item name and notes for the Destination.
@@ -74,7 +74,7 @@ Now that the content library has been created, you can add the ISO image to depl
 
 1. Select **Actions > New Virtual Machine**.
 
-1. Go through the wizard and modify the settings as desired.
+1. Go through the wizard and modify the settings you want.
 
 1. Select **New CD/DVD Drive > Client Device > Content Library ISO File**.
 
