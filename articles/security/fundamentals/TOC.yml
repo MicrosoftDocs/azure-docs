@@ -105,6 +105,8 @@
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
+  - name: Security baseline for Customer Lockbox
+    href: customer-lockbox-security-baseline.md
 
 - name: Application
   items:
