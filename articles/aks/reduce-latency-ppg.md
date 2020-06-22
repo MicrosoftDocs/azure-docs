@@ -123,7 +123,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    –-ppg myPPGResourceID
+    --ppg myPPGResourceID
 ```
 
 ## Clean up
