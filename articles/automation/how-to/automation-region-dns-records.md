@@ -89,3 +89,7 @@ It's a good idea to download the new IP address file every week. Then, update yo
 > If you're using Azure ExpressRoute, remember that the IP address file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
 
 ## Next steps
+
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](../troubleshoot/hybrid-runbook-worker.md#general).
+
+* To learn how to troubleshoot issues with State Configuration, see [Troubleshoot State Configuration issues](../troubleshoot/desired-state-configuration.md).
