@@ -12,6 +12,8 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  - name: Create virtual network - Template
+    href: quick-create-template.md
   expanded: true
 - name: Tutorials
   items:
