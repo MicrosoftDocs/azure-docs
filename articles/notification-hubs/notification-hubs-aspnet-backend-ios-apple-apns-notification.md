@@ -337,9 +337,9 @@ This tutorial assumes that you have created and configured your notification hub
     }
     ```
 
-    Notice how setting the device token enables the log in button. It's because as a part of the login action, the view controller registers for push notifications with the app backend. Hence, do not want Log In action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
+    Notice how setting the device token enables the **Log in** button. It's because as a part of the login action, the view controller registers for push notifications with the app backend. You do not want the **Log in** action to be accessible until the device token has been properly set up. You can decouple the login from the push registration as long as the former happens before the latter.
 
-11. In ViewController.m, use the following snippets to implement the action method for your **Log In** button and a method to send the notification message using the ASP.NET backend.
+11. In ViewController.m, use the following snippets to implement the action method for your **Log in** button and a method to send the notification message using the ASP.NET backend.
 
     ```objc
     - (IBAction)LogInAction:(id)sender {
@@ -475,7 +475,7 @@ This tutorial assumes that you have created and configured your notification hub
 ## Test the application
 
 1. In XCode, run the app on a physical iOS device (push notifications do not work in the simulator).
-2. In the iOS app UI, enter same value for both username and password. Then click **Log In**.
+2. In the iOS app UI, enter same value for both username and password. Then click **Log in**.
 
     ![iOS test application][2]
 

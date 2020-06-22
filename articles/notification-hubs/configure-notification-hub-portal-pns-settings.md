@@ -73,7 +73,7 @@ Before you begin, you must have the following:
 
 ### Set up push notifications for Google FCM
 
-1. Use the [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) command to add your Google API Key to your notification hub.
+1. Use the [az notification-hub credential gcm update](/cli/azure/ext/notification-hub/notification-hub/credential/gcm#ext-notification-hub-az-notification-hub-credential-gcm-update) command to add your Google API key to your notification hub.
 
    ```azurecli
    az notification-hub credential gcm update --resource-group spnhubrg --namespace-name spnhubns    --notification-hub-name spfcmtutorial1nhub --google-api-key myKey
@@ -145,7 +145,7 @@ For more information, see [Push notifications to Windows Phone apps by using Not
 To set up push notifications for Baidu:
 
 1. In the Azure portal, on the **Notification Hub** page, select **Baidu (Android China)** from the left menu.
-2. Enter the **Api Key** that you obtained from the Baidu console in the Baidu cloud push project.
+2. Enter the **API Key** that you obtained from the Baidu console in the Baidu cloud push project.
 3. Enter the **Secret Key** that you obtained from the Baidu console in the Baidu cloud push project.
 4. Select **Save**.
 
@@ -161,8 +161,8 @@ In this quickstart, you learned how to configure platform notification system se
 
 To learn more about how to push notifications to various platforms, see these tutorials:
 
--[Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md)
--[Send notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
--[Send notifications to a UWP app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
--[Send notifications to a Windows Phone 8 app by using MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
--[Send notifications by using Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)
+* [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md)
+* [Send notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
+* [Send notifications to a UWP app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+* [Send notifications to a Windows Phone 8 app by using MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
+* [Send notifications by using Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md)
