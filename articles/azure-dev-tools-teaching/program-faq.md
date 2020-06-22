@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about Azure Dev Tools for Teaching
 description: Find answers to some common questions about Azure Dev Tools for Teaching.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+author: v-dihans
+ms.author: rymend
+ms.prod: education
 ms.topic: overview
-ms.date: #Required; mm/dd/yyyy format.
+ms.date:  06/30/2020
 ---
 
 # Frequently asked questions about Azure Dev Tools for Teaching
@@ -73,7 +73,7 @@ You can find the Microsoft Azure Dev Tools for Teaching privacy and cookies info
 
 ## Are Education Hub Store training resources available?
 
-Yes. Education Hub Store training resources are available 
+Yes. Education Hub Store training resources are available
 <!---Add a link to point to the new TOC--->
 
 ## Are faculty members who take departmental courses able to download Azure Dev Tools for Teaching software?
