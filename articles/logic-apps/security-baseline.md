@@ -4,7 +4,7 @@ description: Azure security baseline for Logic Apps
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1097,13 +1097,13 @@ You can also implement Credential Scanner to identify credentials within code. C
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Backup), however it does not run on your content.
+**Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Backup), however it does not run on your content.
 
 Pre-scan any files being uploaded to non-compute Azure resources, such as App Service, Data Lake Storage, Blob Storage, etc.
 
 Use Azure Security Center's Threat detection for data services to detect malware uploaded to storage accounts.
 
-* [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Understand Microsoft Anti-malware for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 
 * [Understand Azure Security Center's Threat detection for data services](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
 
