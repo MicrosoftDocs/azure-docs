@@ -19,9 +19,9 @@ Communication between a client application and an Azure Storage account is encry
 
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. TLS 1.2 is the most secure version of TLS. Azure Storage uses TLS 1.2 on public HTTPs endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
-By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. For information about how to configure the minimum version of TLS required by your Azure Storage account, see [Configure Transport Layer Security (TLS) for a storage account](transport-layer-security-configure.md).
+By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS.
 
-This article describes how to enforce a minimum version of TLS for an Azure Storage account. For information about how to specify a particular version of TLS in a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
+This article describes how to configure a storage account to require that clients send requests with a minimum version of TLS. For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
 ## Detect the TLS version used by client applications
 
@@ -47,7 +47,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
 For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting.
 
-For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](common/monitor-storage-reference.md#resource-logs-preview).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](monitor-storage-reference.md#resource-logs-preview).
 
 ### Query logged requests by TLS version
 

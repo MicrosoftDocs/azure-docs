@@ -1,7 +1,7 @@
 ---
 title: Configure Transport Layer Security (TLS) for a client application
 titleSuffix: Azure Storage
-description: 
+description: Configure a client application to communicate with Azure Storage using a minimum version of Transport Layer Security (TLS).
 services: storage
 author: tamram
 
@@ -17,7 +17,7 @@ ms.subservice: common
 
 For security purposes, an Azure Storage account may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Storage will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a storage account requires TLS 1.2, then a a request sent by a client who is using TLS 1.1 will fail.
 
-This article describes how to configure a client application to use a particular version of TLS. For information about how to configure a minimum version of TLS for an Azure Storage account, see [Configure minimum required version of Transport Layer Security (TLS) for a storage account](transport-layer-security-configure-minimum-version.md).
+This article describes how to configure a client application to use a particular version of TLS. For information about how to configure a minimum required version of TLS for an Azure Storage account, see [Configure minimum required version of Transport Layer Security (TLS) for a storage account](transport-layer-security-configure-minimum-version.md).
 
 ## Configure the client TLS version
 
