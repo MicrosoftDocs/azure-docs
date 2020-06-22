@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 06/15/2020
+ms.date: 06/22/2020
 
 ## Customer intent: As a data scientist, I want to create dataset monitors and set alerts to monitor data drift in my datasets.
 ---
@@ -248,11 +248,13 @@ The following image is an example of charts seen in the **Drift overview**  resu
 
 ### Feature details
 
-The **Feature details** section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time. 
+The **Feature details** section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time.
 
 The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this statistical distance is for an individual feature. Min, max, and mean are also available. 
 
-In the Azure Machine Learning studio, if you click on a data point in the graph the distribution of the feature being shown will adjust accordingly. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature. 
+In the Azure Machine Learning studio, if you click on a data point in the graph the distribution of the feature being shown will adjust accordingly. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature.
+
+:::image type="content" source="media/how-to-monitor-datasets/feature_contribution.gif" alt-text="Feature details":::
 
 These metrics can also be retrieved in the Python SDK through the `get_metrics()` method on a `DataDriftDetector` object.
 
