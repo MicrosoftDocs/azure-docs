@@ -114,6 +114,8 @@
         href: ./security/synapse-workspace-managed-vnet.md
       - name: Synapse workspace Managed private endpoints
         href: ./security/synapse-workspace-managed-private-endpoints.md
+      - name: Security baseline
+        href: security-baseline.md
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory

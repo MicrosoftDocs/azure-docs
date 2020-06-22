@@ -4,7 +4,7 @@ description: Azure security baseline for Synapse Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -44,7 +44,7 @@ Alternatively, when connecting to your Synapse SQL pool, narrow down the scope o
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into a Azure Storage Account for traffic auditing.
+**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing.
 
 You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
@@ -90,7 +90,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 ### 1.5: Record network packets
 
-**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into a Azure Storage Account for traffic auditing. You can also send flow logs to a Log Analytics workspace or stream them to Event Hubs. If required for investigating anomalous activity, enable Network Watcher packet capture.
+**Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing. You can also send flow logs to a Log Analytics workspace or stream them to Event Hubs. If required for investigating anomalous activity, enable Network Watcher packet capture.
 
 * [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
@@ -100,7 +100,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Use Advanced Threat Protection (ATP) for Azure Synapse SQL. ATP detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger various alerts, such as, "Potential SQL injection," and, "Access from unusual location." ATP is part of the Advanced data security (ADS) offering and can be accessed and managed via the central SQL ADS portal. ATP also integrates alerts with Azure Security Center.
 
@@ -136,7 +136,7 @@ When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure
 
 **Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
 
-Use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -150,7 +150,7 @@ Use Azure Blueprints to simplify large scale Azure deployments by packaging key 
 
 **Guidance**: Use tags for network security groups (NSG) and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
@@ -244,7 +244,7 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 **Guidance**: Analyze and monitor logs for anomalous behaviors and regularly review results. Use Advanced Threat Protection for Azure SQL Database in conjunction with Azure Security Center to alert on unusual activity related to your SQL database. Alternatively, configure alerts based on metric values or Azure Activity Log entries related to your SQL database.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [Understand Advanced Threat Protection and alerting for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 
@@ -458,7 +458,7 @@ When using SQL authentication, create contained database users in the database. 
 
 ### 3.12: Alert on account login behavior deviation
 
-**Guidance**: Use Azure Active Directory (AAD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. Additionally, you can on-board and ingest data into Azure Sentinel for further investigation.
+**Guidance**: Use Azure Active Directory (Azure AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. Additionally, you can on-board and ingest data into Azure Sentinel for further investigation.
 
 When using SQL authentication, create contained database users in the database. Ensure that you place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
@@ -682,11 +682,11 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources related to your Synapse SQL pool within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
-Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
+Although classic Azure resources may be discovered via Azure Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 * [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -728,15 +728,15 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
-Use Azure Resource Graph to query/discover resources within your subscription(s). Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query/discover resources within your subscriptions. Ensure that all Azure resources present in the environment are approved.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -848,7 +848,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -868,11 +868,11 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1000,7 +1000,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 **Responsibility**: Shared
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: Snapshots of your data warehouse are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
@@ -1008,17 +1008,17 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 * [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Periodically test your restore points to ensure your snapshots are valid. To restore an existing SQL pool from a restore point, you can use either the Azure portal or PowerShell. Test restoration of backed up customer-managed keys.
 
-* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 * [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
@@ -1028,7 +1028,7 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: In Azure SQL Database, you can configure a single or a pooled database with a long-term backup retention policy (LTR) to automatically retain the database backups in separate Azure Blob storage containers for up to 10 years. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
