@@ -43,4 +43,4 @@ To create your data warehouse solution using the Synapse SQL pool feature of Azu
 
 
 ## Next steps
-To learn more about other partners, see [Business Intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Management partners](sql-data-warehouse-partner-data-management.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-and-ai.md).
+To learn more about other partners, see [Business Intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Management partners](sql-data-warehouse-partner-data-management.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-ai.md).
