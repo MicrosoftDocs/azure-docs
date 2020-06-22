@@ -57,7 +57,7 @@ For the quickest way to get started with Azure Spring Cloud, follow the instruct
 
 ### What Java runtime does Azure Spring Cloud support?
 
-Azure Spring Cloud supports Java 8 and 11.
+Azure Spring Cloud supports Java 8 and 11. See more details [Java runtime and OS versions](#java-runtime-and-os-versions)
 
 ### Where can I view my Spring Cloud application logs and metrics?
 
@@ -80,6 +80,48 @@ Yes.
 ### When I delete/move an Azure Spring Cloud service instance, will its extension resources be deleted/moved as well?
 
 It depends on the logics of resource providers where the extension resources belong to. The extension resources of a `Microsoft.AppPlatform` instance do not belong to the same namespace, so the behaviors vary according to different resource providers. For example, the delete/move operation will not cascade to the **diagnostics settings** resources. If a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the previous Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+
+## Java runtime and OS versions
+
+### Which verions of Java runtime are supported in Azure Spring Cloud?
+
+In principle, Azure Spring Cloud supports Java LTS versions with the most recent builds.
+For now, Java 8 build 252 and Java 11 build 7 are supported.
+
+### Who built these Java runtimes?
+
+Azul Systems.
+
+### How often will Java runtimes get updated?
+
+In principle, Java runtimes will be updated quarterly to the latest builds of each LTS version. Critical security fixes will be applied as soon as possible.
+
+### How long will Java 8 and Java 11 LTS versions be supported?
+
+Java 8 LTS will be supported until March 2025.
+Java 11 LTS will be supported until September 2026.
+See more details at [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+
+### How can I download a supported Java runtime for local development?
+
+See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+
+### What is the retire policy for older Java runtimes?
+
+Public notice will be sent out at 12 months before any old runtime version is retired. You will have 12 months to migrate to a later version.
+
+### How can I get support for issues at the Java runtime level?
+
+You can open a support ticket with Azure Support.
+
+### What is the operation system to run my apps?
+
+In principle, the most recent Ubuntu LTS version is used. For now, [Ubuntu 20.04 LTS (Focal Fossa)](https://releases.ubuntu.com/focal/) is the default OS.
+
+### How often will OS security patches be applied?
+
+Security patches applicable to Azure Spring Cloud will be rolled out to production at monthly basis.
+Critical security patches (CVE score >= 9) applicable to Azure Spring Cloud will be rolled out as soon as possible.
 
 ## Deployment
 
