@@ -22,7 +22,7 @@ You must have the following resource installed:
 
 ## Limitations
 
-* Bring your own managed identities is planned, but not yet supported.
+* Bring your own managed identities is not currently supported.
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
 * Existing AKS clusters cannot be updated or upgraded to enable managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
@@ -33,8 +33,8 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Not currently, but planned
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently, but planned
+| Control plane | not visible | Used by AKS to manage networking resources e.g. create a load balancer for ingress, public IP, etc.| Contributor role for Node resource group | Not currently supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | Reader role for node resource group | Not currently supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azurepolicy (gatekeeper) | No identity required | NA | No
