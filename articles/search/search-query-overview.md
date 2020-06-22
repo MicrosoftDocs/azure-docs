@@ -12,7 +12,7 @@ ms.date: 06/22/2020
 ---
 # Query types and composition in Azure Cognitive Search
 
-In Azure Cognitive Search, a query is a full specification of a round-trip operation. On the request, there are parameters that provide execution instructions for the engine, as well as parameters that shape the response coming back. Unspecified (`search=*`), a query that uses null or default parameters runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
+In Azure Cognitive Search, a query is a full specification of a round-trip operation. On the request, there are parameters that provide execution instructions for the engine, as well as parameters that shape the response coming back. Unspecified (`search=*`), with no match criteria and using null or default parameters, a query executes against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
 The following example is a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters so that you can get an idea of what a query looks like.
 
@@ -30,7 +30,7 @@ The following example is a representative query constructed in the [REST API](ht
 
 + **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
-+ **`search`** provides the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase* queries. Search can be undefined, as in **`search=*`**, but more likely consists of terms, phrases, and operators similar to what appears in the example.
++ **`search`** provides the match criteria, usually whole terms or phrases, but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *phrase* queries. Search can be undefined, as in **`search=*`**, but with no criteria to match on, the result set is composed of arbitrarily selected documents.
 
 + **`searchFields`** constrains query execution to specific fields. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
