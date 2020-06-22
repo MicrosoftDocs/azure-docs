@@ -40,33 +40,33 @@ Setting up Azure Security Center's advanced data security for SQL machines invol
 
 Both of these are described below.
 
-1. Provision the Log Analytics agent on your SQL server's host:
+### Step 1. Provision the Log Analytics agent on your SQL server's host:
 
-    - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the  Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [adding an Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
+- **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the  Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [adding an Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
 
-    - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+- **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
-    - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
+- **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
-        - **Deploy Azure Arc** - You can connect any Windows machine to Security Center. However, Azure Arc provides deeper integration across *all* of your Azure environment. If you set up Azure Arc, you'll see the **SQL Server – Azure Arc** page in the portal and your security alerts will appear on a dedicated **Security** tab on that page. So the first and recommended option is to [set up Azure Arc on the host](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) and follow the instructions for **SQL Server on Azure Arc**, above.
+    - **Deploy Azure Arc** - You can connect any Windows machine to Security Center. However, Azure Arc provides deeper integration across *all* of your Azure environment. If you set up Azure Arc, you'll see the **SQL Server – Azure Arc** page in the portal and your security alerts will appear on a dedicated **Security** tab on that page. So the first and recommended option is to [set up Azure Arc on the host](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) and follow the instructions for **SQL Server on Azure Arc**, above.
         
-        - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+    - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-1. Enable the optional bundle in Security Center's pricing and settings page:
+### Step 2. Enable the optional bundle in Security Center's pricing and settings page:
 
-    1. From Security Center's sidebar, open the **Pricing & settings** page.
+1. From Security Center's sidebar, open the **Pricing & settings** page.
 
-        - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription id]-[region]”), select the relevant **subscription**.
+    - If you're using **Azure Security Center's default workspace** (named “defaultworkspace-[your subscription id]-[region]”), select the relevant **subscription**.
 
-        - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
+    - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
-            ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 
-    1. Toggle the option for **SQL servers on machines (Preview)** to enabled. 
+1. Toggle the option for **SQL servers on machines (Preview)** to enabled. 
 
-        [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
+    [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
     Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server. 
 
@@ -117,12 +117,17 @@ Security alerts are available in Security Center's alerts page, the resource's s
 
 1. Alerts are designed to be self-contained, with detailed remediation steps and investigation information in each one. You can investigate further by using other Azure Security Center and Azure Sentinel capabilities for a broader view:
 
-    * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience.
+    * Enable SQL Server's auditing feature for further investigations. If you're an Azure Sentinel user, you can upload the SQL auditing logs from the Windows Security Log events to Sentinel and enjoy a rich investigation experience. [Learn more about SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * To improve your security posture, use Security Center's recommendations for the host machine indicated in each alert. This will reduce the risks of future attacks. 
+
+    [Learn more about managing and responding to alerts](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
 
 ## Next steps
 
 For related material, see the following article:
 
-- [How to remediate recommendations](security-center-remediate-recommendations.md)
+- [Security alerts for SQL Database and SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [Set up email notifications for security alerts](security-center-provide-security-contact-details.md)
+- [Learn more about Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+- [Azure Security Center's advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
