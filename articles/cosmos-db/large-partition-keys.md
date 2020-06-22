@@ -18,7 +18,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 To create a large partition key, when you create a new container using the Azure portal, check the **My partition key is larger than 100-bytes** option. Unselect the checkbox if you don’t need large partition keys or if you have applications running on SDKs version older than 1.18.
 
-![Create large partition keys using Azure portal](./media/large-partition-keys/large-partition-key-with-portal.png)
+:::image type="content" source="./media/large-partition-keys/large-partition-key-with-portal.png" alt-text="Create large partition keys using Azure portal":::
 
 ## Create a large partition key (PowerShell)
 
