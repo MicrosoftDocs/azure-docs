@@ -5,19 +5,8 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics 
 ms.topic: overview
-<<<<<<< HEAD
-<<<<<<< HEAD
 ms.subservice: sql
-ms.date: 04/15/2020
-=======
-ms.subservice: 
 ms.date: 06/11/2020
->>>>>>> ac9768f15c39a68115a2027e3a7ae2bdec75a6cd
-=======
-ms.subservice: sql od
-ms.date: 04/15/2020 
-ms.date: 06/11/2020
->>>>>>> 101d4ea7360481375ce9a4878f154f0c1003fd93
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
 ---
