@@ -29,7 +29,7 @@ To create your data warehouse solution using the Synapse SQL pool feature of Azu
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM is a Cloud-based Data Modeling Tool that offers you an easy, convenient way to develop your database anywhere on any browser. All while incorporating any needed database rules and objects such as database keys, schemas, indexes, column constraints, and relationships. |[Product page](http://sqldbm.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 
 ## Next steps
-To learn more about other partners, see [Business Intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Integration partners](sql-data-warehouse-partner-data-integration.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-and-ai.md).
+To learn more about other partners, see [Business Intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Integration partners](sql-data-warehouse-partner-data-integration.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-ai.md).
 
 
 
