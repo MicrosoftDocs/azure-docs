@@ -109,7 +109,7 @@ az aks create \
 
 ## Add a proximity placement group to an existing cluster
 
-You can add a proximity placement group to an existing cluster by creating a new node pool. You can then optionally migrate exisitng workloads to the new node pool, and then delete the original node pool.
+You can add a proximity placement group to an existing cluster by creating a new node pool. You can then optionally migrate existing workloads to the new node pool, and then delete the original node pool.
 
 Use the resource ID from the proximity placement group you created earlier, and add a new node pool:
 
