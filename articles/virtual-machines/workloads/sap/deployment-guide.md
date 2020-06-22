@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 06/22/2020
 ms.author: sedusch
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
@@ -1029,7 +1029,11 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
 
 The process will be automated in the next version of Azure PowerShell (> 4.2.0). We will update this article once the new version is available. Until then, please follow these steps to install the extension manually.
 
+> [!NOTE]
+> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
+
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
+1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Follow the steps in the [Configure managed identities for Azure resources on an Azure VM using PowerShell][qs-configure-powershell-windows-vm] article to enable a System-Assigned Managed Identity to the VM. User-Assigned Managed Identities are not supported by the VM extension for SAP. However, you can enable both, a system-assigned and a user-assigned identity.
     
@@ -1068,7 +1072,11 @@ The process will be automated in the next version of Azure PowerShell (> 4.2.0).
 
 The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using Azure CLI, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
 
+> [!NOTE]
+> The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
+
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
+1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
 1. Install Azure CLI 2.0, as described in [Install Azure CLI 2.0][azure-cli-2].
 
 1. Sign in with your Azure account:
@@ -1427,7 +1435,7 @@ The extension is not installed. Determine whether this is a proxy issue (as desc
 
 The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 
-If troubleshooting by using SAP Note [1999351], open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
 
 #### ![Linux][Logo_Linux] Azure performance counters do not show up at all
 
@@ -1449,7 +1457,7 @@ Performance metrics in Azure are collected by a daemon, which gets data from sev
 
 For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
 
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-&lt;version>/logapp.txt to the incident.
 
 ## Azure Extension Error Codes
 
