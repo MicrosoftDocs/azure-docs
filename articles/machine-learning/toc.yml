@@ -150,7 +150,7 @@
       href: concept-ml-pipelines.md
     - name: Enterprise readiness & security
       items: 
-        - name: Enterprise security
+        - name: Enterprise security and governance
           items: 
             - name: Enterprise security overview
               displayName: authorization authentication encryption aad azure active directory
@@ -284,14 +284,14 @@
             - name: Tune hyperparameters
               displayName: parameter
               href: how-to-tune-hyperparameters.md
-            - name: Scikit-learn
-              href: how-to-train-scikit-learn.md
-            - name: TensorFlow
-              href: how-to-train-tensorflow.md
-            - name: Keras
-              href: how-to-train-keras.md
-            - name: PyTorch
-              href: how-to-train-pytorch.md
+        - name: Scikit-learn
+          href: how-to-train-scikit-learn.md
+        - name: TensorFlow
+          href: how-to-train-tensorflow.md
+        - name: Keras
+          href: how-to-train-keras.md
+        - name: PyTorch
+          href: how-to-train-pytorch.md
         - name: Track & monitor training
           items: 
             - name: Start, monitor or cancel runs
