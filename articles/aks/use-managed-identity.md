@@ -61,7 +61,7 @@ az group create --name myResourceGroup --location westus2
 Then, create an AKS cluster:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
 A successful cluster creation using managed identities contains this service principal profile information:
