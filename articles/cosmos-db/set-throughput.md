@@ -35,7 +35,7 @@ We recommend that you configure throughput at the container granularity when you
 
 The following image shows how a physical partition hosts one or more logical partitions of a container:
 
-![Physical partition](./media/set-throughput/resource-partition.png)
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition" border="false":::
 
 ## Set throughput on a database
 
@@ -67,7 +67,7 @@ If your Azure Cosmos DB account already contains a shared throughput database wi
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
-![Physical partition](./media/set-throughput/resource-partition2.png)
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition" border="false":::
 
 ## Set throughput on a database and a container
 
@@ -76,7 +76,7 @@ You can combine the two models. Provisioning throughput on both the database and
 * You can create an Azure Cosmos database named *Z* with standard (manual) provisioned throughput of *"K"* RUs. 
 * Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database. When creating container B, make sure to enable **Provision dedicated throughput for this container** option and explicitly configure *"P"* RUs of provisioned throughput on this container. Note that you can configure shared and dedicated throughput only when creating the database and container. 
 
-   ![Setting the throughput at the container-level](./media/set-throughput/coll-level-throughput.png)
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Setting the throughput at the container-level":::
 
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container's throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
@@ -86,11 +86,16 @@ You can combine the two models. Provisioning throughput on both the database and
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) depends on the following factors: 
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. 
 
-* The current data size that you store in the container
-* The maximum throughput that you ever provision on the container
-* The current number of Azure Cosmos containers that you have in a database with shared throughput. 
+To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) of a database or container, find the maximum of:
+
+* 400 RU/s 
+* Current storage in GB * 10 RU/s
+* Highest RU/s provisioned on the database or container / 100
+* Container count * 100 RU/s (shared throughput database only)
+
+The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value. 
 
