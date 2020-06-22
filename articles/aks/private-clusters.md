@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
+ms.date: 6/18/2020
 
 ---
 
@@ -67,11 +67,11 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option.  Expres
 
 As mentioned, VNet peering is one way to access your private cluster. To use VNet peering you need to set up a link between virtual network and the private DNS zone.
     
-1. Go to the MC_* resource group in the Azure portal.  
+1. Go to the node resource group in the Azure portal.  
 2. Select the private DNS zone.   
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-5. Go back to the MC_* resource group in the Azure portal.  
+5. In the Azure portal, navigate to the resource group that contains your cluster's VNet.  
 6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
@@ -98,7 +98,6 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
 * Availability Zones are currently supported for certain regions, see the beginning of this document 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces

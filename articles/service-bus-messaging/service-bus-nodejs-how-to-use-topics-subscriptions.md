@@ -81,7 +81,7 @@ var azure = require('azure');
 ```
 
 ### Set up a Service Bus connection
-The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained from the earlier step, "Obtain the credentials." If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
+The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained as part of the [prerequisites](#prerequisites). If you need instructions for getting the connection string again, see [Get the connection string](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
 
 For an example of setting the environment variables for an Azure Cloud Service, see [Set environment variables](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 

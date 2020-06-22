@@ -36,7 +36,7 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. Search for and select **Azure Cosmos DB**.
 
-   ![The Azure portal Databases pane](./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="The Azure portal Databases pane":::
 
 1. Select **Add**.
 1. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account. 
@@ -58,17 +58,17 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB
 > [!NOTE]
 > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
    
-   ![The new account page for Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png)
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="The new account page for Azure Cosmos DB":::
 
 1. Select **Review + create**. You can skip the **Network** and **Tags** sections.
 
 1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**. 
 
-    ![The Azure portal Notifications pane](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="The Azure portal Notifications pane":::
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-    ![The Azure Cosmos DB account page](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="The Azure Cosmos DB account page":::
 
 <a id="create-container-database"></a>
 ## Add a database and a container 
@@ -79,7 +79,7 @@ You can use the Data Explorer in the Azure portal to create a database and conta
     
     You may need to scroll right to see the **Add Container** window.
     
-    ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
     
 1.  In the **Add container** pane, enter the settings for the new container.
     
@@ -101,7 +101,7 @@ Add data to your new database using Data Explorer.
 
 1. In **Data Explorer**, expand the **ToDoList** database, and expand the **Items** container. Next, select **Items**, and then select **New Item**. 
    
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
    
 1. Add the following structure to the document on the right side of the **Documents** pane:
 
@@ -117,7 +117,7 @@ Add data to your new database using Data Explorer.
 
 1. Select **Save**.
    
-   ![Copy in json data and select Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copy in json data and select Save in Data Explorer in the Azure portal":::
    
 1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 
