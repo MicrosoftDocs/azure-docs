@@ -6,8 +6,8 @@ author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 04/24/2020
 ms.service: storage
-ms.subservice: common
-ms.topic: conceptual
+ms.subservice: blobs
+ms.topic: how-to
 ms.reviewer: hux
 ---
 
@@ -18,7 +18,7 @@ Blob Index tags categorize data in your storage account utilizing key-value tag 
 To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 > [!NOTE]
-> Blob Index is in public preview, and is available in the **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> Blob Index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 ## Prerequisites
 # [Portal](#tab/azure-portal)
@@ -200,6 +200,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -250,9 +251,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)

@@ -160,6 +160,11 @@ If you're using a network configuration to further restrict access from RHEL PAY
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
+
+>[!NOTE]
+>Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps [here](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## Azure RHUI Infrastructure
 
@@ -237,6 +242,6 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 
 
 ## Next steps
-* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

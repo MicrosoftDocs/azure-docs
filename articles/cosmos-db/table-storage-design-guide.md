@@ -4,7 +4,7 @@ description: "Azure Table storage design guide: Scalable and performant tables i
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
@@ -130,7 +130,7 @@ The account name, table name, and `PartitionKey` together identify the partition
 In Table storage, an individual node services one or more complete partitions, and the service scales by dynamically load-balancing partitions across nodes. If a node is under load, Table storage can split the range of partitions serviced by that node onto different nodes. When traffic subsides, Table storage can merge the partition ranges from quiet nodes back onto a single node.  
 
 For more information about the internal details of Table storage, and in particular how it manages partitions, see [Microsoft Azure Storage: A highly available
-cloud storage service with strong consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+cloud storage service with strong consistency](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### Entity group transactions
 In Table storage, entity group transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions*. EGTs can only operate on entities stored in the same partition (sharing the same partition key in a particular table), so anytime you need atomic transactional behavior across multiple entities, ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition), and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it's important to ensure that those EGTs don't operate on entities that are common across EGTs. Otherwise, you risk delaying processing.
@@ -635,7 +635,7 @@ For this option, use index entities that store the following data:
 
 ![Graphic showing employee entity, with string containing a list of employee IDs with same last name][15]
 
-The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
+The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
 
 You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 

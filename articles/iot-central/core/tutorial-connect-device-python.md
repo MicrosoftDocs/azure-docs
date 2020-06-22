@@ -7,6 +7,7 @@ ms.date: 03/24/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
+ms.custom: tracking-python
 
 # As a device developer, I want to try out using Python device code that uses the Azure IoT Python SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using synchronous and asynchronous commands.
 ---
@@ -302,10 +303,11 @@ You can see how the device responds to commands and property updates:
 
 ## Next steps
 
-As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
+As a device developer, now that you've learned the basics of how to create a device using Python, some suggested next steps are to:
 
-- Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
-- Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+* Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
+* Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
+* Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
 
 If you'd prefer to continue through the set of IoT Central tutorials and learn more about building an IoT Central solution, see:
 

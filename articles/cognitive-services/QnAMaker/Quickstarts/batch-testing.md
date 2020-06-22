@@ -1,15 +1,8 @@
 ---
 title: "Quickstart: Test knowledge base with batch questions"
-titleSuffix: Azure Cognitive Services
-description:
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
+description: Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Maker resource for expected answers, confidence scores, and multi-turn prompts.
+ms.topic: tutorial
+ms.date: 05/26/2020
 ---
 
 # Quickstart: Test knowledge base with batch questions and expected answers

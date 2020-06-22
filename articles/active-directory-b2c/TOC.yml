@@ -36,6 +36,9 @@
       href: tutorial-desktop-app.md
     - name: Single page
       href: tutorial-single-page-app.md
+    - name: Python
+      href: tutorial-web-app-python.md
+      displayName: flask
   - name: Grant API access
     items:
     - name: ASP.NET
@@ -87,11 +90,11 @@
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
-    - name: Register a Graph application
+    - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
     - name: Add a web API application
-      href: add-web-application.md
+      href: add-web-api-application.md
     - name: Add a native client application
       href: add-native-application.md
     - name: iOS ObjC using App Auth
@@ -336,10 +339,10 @@
           - name: OpenID Connect
             href: openid-connect-technical-profile.md
           - name: Phone factor
-            href: phone-factor-technical-profile.md 
+            href: phone-factor-technical-profile.md
           - name: REST
             href: restful-technical-profile.md
-          - name: SAML identity provider 
+          - name: SAML identity provider
             href: saml-identity-provider-technical-profile.md
           - name: SAML token issuer
             href: saml-issuer-technical-profile.md
@@ -354,6 +357,20 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: Partner integration
+    items:
+    - name: Azure AD B2C partner gallery
+      href: partner-gallery.md
+    - name: Arkose Labs
+      href: partner-arkose-labs.md
+    - name: IDology
+      href: partner-idology.md
+    - name: itsme
+      href: partner-itsme.md
+    - name: Trusona
+      href: partner-trusona.md
+    - name: Twilio
+      href: partner-twilio.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
@@ -397,6 +414,8 @@
       href: user-migration.md
 - name: Reference
   items:
+  - name: App registrations
+    href: app-registrations-training-guide.md
   - name: Billing model
     href: billing.md
   - name: Code samples

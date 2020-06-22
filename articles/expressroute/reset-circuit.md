@@ -5,7 +5,7 @@ services: expressroute
 author: anzaman
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18

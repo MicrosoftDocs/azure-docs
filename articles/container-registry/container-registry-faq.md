@@ -46,7 +46,7 @@ To get credentials using the Azure CLI:
 az acr credential show -n myRegistry
 ```
 
-Using Azure Powershell:
+Using Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -115,7 +115,7 @@ If you are on bash:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-For Powershell:
+For PowerShell:
 
 ```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
@@ -216,7 +216,7 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Or, assign the role to a service principle identified by its application ID:
+  Or, assign the role to a service principal identified by its application ID:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -430,8 +430,8 @@ Please contact your network administrator or check your network configuration an
 
 ### Why does my pull or push request fail with disallowed operation?
 
-Here are some scenarios where operations maybe disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
+Here are some scenarios where operations may be disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 

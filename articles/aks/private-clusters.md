@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 2/21/2020
+ms.date: 6/18/2020
 
 ---
 
@@ -67,11 +67,11 @@ Creating a VM in the same VNET as the AKS cluster is the easiest option.  Expres
 
 As mentioned, VNet peering is one way to access your private cluster. To use VNet peering you need to set up a link between virtual network and the private DNS zone.
     
-1. Go to the MC_* resource group in the Azure portal.  
+1. Go to the node resource group in the Azure portal.  
 2. Select the private DNS zone.   
 3. In the left pane, select the **Virtual network** link.  
 4. Create a new link to add the virtual network of the VM to the private DNS zone. It takes a few minutes for the DNS zone link to become available.  
-5. Go back to the MC_* resource group in the Azure portal.  
+5. In the Azure portal, navigate to the resource group that contains your cluster's VNet.  
 6. In the right pane, select the virtual network. The virtual network name is in the form *aks-vnet-\**.  
 7. In the left pane, select **Peerings**.  
 8. Select **Add**, add the virtual network of the VM, and then create the peering.  
@@ -87,7 +87,7 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 
 2. The private DNS zone is linked only to the VNet that the cluster nodes are attached to (3). This means that the private endpoint can only be resolved by hosts in that linked VNet. In scenarios where no custom DNS is configured on the VNet (default), this works without issue as hosts point at 168.63.129.16 for DNS which can resolve records in the private DNS zone due to the link.
 
-3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using Azure Policy or other event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
+3. In scenarios where the VNet containing your cluster has custom DNS settings (4), cluster deployment fails unless the private DNS zone is linked to the VNet that contains the custom DNS resolvers (5). This link can be created manually after the private zone is created during cluster provisioning or via automation upon detection of creation of the zone using event-based deployment mechanisms (for example, Azure Event Grid and Azure Functions).
 
 ## Dependencies  
 
@@ -98,13 +98,13 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 * IP authorized ranges cannot be applied to the private api server endpoint, they only apply to the public API server
 * Availability Zones are currently supported for certain regions, see the beginning of this document 
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for virtual nodes in a private cluster to spin private Azure Container Instances (ACI) in a private Azure virtual network
-* No support for Azure DevOps integration out of the box with private clusters
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents][devops-agents]. 
 * For customers that need to enable Azure Container Registry to work with private AKS, the Container Registry virtual network must be peered with the agent cluster virtual network.
 * No current support for Azure Dev Spaces
 * No support for converting existing AKS clusters into private clusters
 * Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning. 
 * Azure Monitor for containers Live Data isn't currently supported.
+* Uptime SLA isn't currently supported.
 
 
 <!-- LINKS - internal -->
@@ -116,4 +116,4 @@ As mentioned, VNet peering is one way to access your private cluster. To use VNe
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

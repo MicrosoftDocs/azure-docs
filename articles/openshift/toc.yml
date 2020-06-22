@@ -17,7 +17,7 @@
 - name: How-to guides
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
-      href: create-private-cluster.md
+      href: howto-create-private-cluster-4x.md
     - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
     - name: Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster
@@ -48,7 +48,7 @@
         - name: Manage projects in an Azure Red Hat OpenShift 3.11 cluster
           href: howto-manage-projects.md
         - name: Create a private Azure Red Hat OpenShift 3.11 cluster
-          href: howto-create-private-cluster.md
+          href: howto-create-private-cluster-3x.md
         - name: Monitoring and logging for Azure Red Hat OpenShift 3.11
           items:
             - name: Azure Monitor for containers in Azure Red Hat OpenShift 3.11 (preview)
@@ -70,13 +70,13 @@
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
-      href: /cli/azure/openshift
+      href: /cli/azure/aro
     - name: Azure Red Hat OpenShift REST APIs
       href: /rest/api/openshift
 
 - name: Resources
   items:
-    - name: Common questions
+    - name: Frequently asked questions
       href: openshift-faq.md
     - name: Troubleshooting
       href: troubleshoot.md

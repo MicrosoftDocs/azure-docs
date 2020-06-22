@@ -10,7 +10,7 @@ ms.date: 04/09/2020
 
 ---
 
-# Tag images in a labeling project
+# Tag images in a labeling project (preview)
 
 After your project administrator [creates a labeling project](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, you can use the labeling tool (public preview) to rapidly prepare data for a Machine Learning project. This article describes:
 
@@ -61,11 +61,13 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 ### Assisted machine learning 
 
-Machine learning algorithms may be triggered during a multi-class or multi-label classification task. If these algorithms are enabled in your project, you may see the following:
+Machine learning algorithms may be triggered. If these algorithms are enabled in your project, you may see the following:
 
 * After some amount of images have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
 
 * At a later point, you may see **Tasks prelabeled** next to the project name.  Images will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use images for which the model is confident, these images might still be incorrectly prelabeled.  When you see these labels, correct any wrong labels before submitting the page.  
+
+* For object detection models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 

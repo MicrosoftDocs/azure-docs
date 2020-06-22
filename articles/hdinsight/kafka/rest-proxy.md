@@ -6,8 +6,8 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
-ms.custom: has-adal-ref
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -53,6 +53,8 @@ If you bring your own VNet and control network traffic with network security gro
     ![Check Membership](./media/rest-proxy/rest-proxy-membergroup.png)
 
 ## Create a Kafka cluster with REST proxy enabled
+
+The steps below use the Azure portal. For an example using Azure CLI, see [Create Apache Kafka REST proxy cluster using Azure CLI](tutorial-cli-rest-proxy.md).
 
 1. During the Kafka cluster creation workflow, in the **Security + networking** tab, check the **Enable Kafka REST proxy** option.
 

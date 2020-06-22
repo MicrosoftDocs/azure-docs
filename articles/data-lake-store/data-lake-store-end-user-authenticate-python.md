@@ -7,7 +7,7 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using Python
 > [!div class="op_single_selector"]

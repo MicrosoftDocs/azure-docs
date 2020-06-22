@@ -2,13 +2,12 @@
 title: Azure Event Grid security and authentication
 description: This article describes different ways of authenticating access to your Event Grid resources (WebHook, subscriptions, custom topics)
 services: event-grid
-author: banisadr
-manager: timlt
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
+ms.author: spelluru
 ---
 
 # Authenticating access to Azure Event Grid resources
@@ -24,12 +23,18 @@ You include the authentication value in the HTTP header. For SAS, use **aeg-sas-
 
 ### Key authentication
 
-Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>`
+Key authentication is the simplest form of authentication. Use the format: `aeg-sas-key: <your key>` in the message header.
 
 For example, you pass a key with:
 
 ```
-aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
+aeg-sas-key: XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+```
+
+You can also specify `aeg-sas-key` as a query parameter. 
+
+```
+https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 ### SAS tokens
@@ -75,8 +80,21 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 All events or data written to disk by the Event Grid service are encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
+## Use system-assigned identities for event delivery
+You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
+
+Here are the steps: 
+
+1. Create a topic or domain with a system-assigned identity, or update an existing topic or domain to enable identity. 
+1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue).
+1. When you create event subscriptions, enable the usage of the identity to deliver events to the destination. 
+
+For detailed step-by-step instructions, see [Event delivery with a managed identity](managed-service-identity.md).
+
+
 ## Authenticate event delivery to webhook endpoints
 The following sections describe how to authenticate event delivery to webhook endpoints. You need to use a validation handshake mechanism irrespective of the method you use. See [Webhook event delivery](webhook-event-delivery.md) for details. 
+
 
 ### Using Azure Active Directory (Azure AD)
 You can secure the webhook endpoint that's used to receive events from Event Grid by using Azure AD. You'll need to create an Azure AD application, create a role and service principal in your application authorizing Event Grid, and configure the event subscription to use the Azure AD application. Learn how to [Configure Azure Active Directory with Event Grid](secure-webhook-delivery.md).

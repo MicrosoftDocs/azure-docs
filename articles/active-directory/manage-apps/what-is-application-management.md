@@ -2,16 +2,15 @@
 title: Managing Applications with Azure Active Directory | Microsoft Docs
 description: This article describes the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 06/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -39,7 +38,7 @@ There are four main types of applications that you can add to your **Enterprise 
 
 ## Manage risk with Conditional Access policies
 
-Coupling Azure AD single sign-on (SSO) with [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and Conditional Access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
+Coupling Azure AD single sign-on (SSO) with [Conditional Access](../conditional-access/concept-conditional-access-cloud-apps.md) provides high levels of security for accessing applications. Security capabilities include cloud-scale identity protection, risk-based access control, native multi-factor authentication, and Conditional Access policies. These capabilities allow for granular control policies based on applications, or on groups that need higher levels of security.
 
 ## Improve productivity with single sign-on
 
