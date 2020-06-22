@@ -15,7 +15,7 @@ ms.date: 06/22/2020
 
 # Quickstart: Create an Azure SQL Managed Instance using an Azure Resource Manager template
 
-This quickstart focuses on the process of deploying a Resource Manager template to create a managed instance and vNet.
+This quickstart focuses on the process of deploying a Resource Manager template to create an Azure SQL Managed Instance and vNet.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ None.
 
 ## Create an Azure SQL Managed Instance
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is the intelligent, scalable cloud database service with a near 100% compatibility with the latest SQL Server (Enterprise Edition) database engine.
+[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is an intelligent, fully managed, scalabale cloud database, with almost 100% feature parity with the SQL Server database engine.
 
 ### Review the template
 
@@ -82,7 +82,8 @@ read
 
 ## Review deployed resources
 
-To query the database, see [Query the database](single-database-create-quickstart.md#query-the-database).
+- For a quickstart that shows how to connect to SQL Managed Instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](connect-vm-instance-configure.md).
+- For a quickstart that shows how to connect to SQL Managed Instance from an on-premises client computer by using a point-to-site connection, see [Configure a point-to-site connection](point-to-site-p2s-configure.md).
 
 ## Clean up resources
 

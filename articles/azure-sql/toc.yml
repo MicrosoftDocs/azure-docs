@@ -707,7 +707,7 @@
         href: managed-instance/scripts/create-configure-managed-instance-powershell.md
       - name: ARM template
         displayName: Resource Manager
-        href: create-template-quickstart.md
+        href: managed-instance/create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
     - name: Configure
