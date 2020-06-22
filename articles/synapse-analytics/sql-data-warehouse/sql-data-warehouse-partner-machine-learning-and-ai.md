@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Azure Synapse Analytics machine learning and AI partners
 
-This article highlights Microsoft partners with machine learning and artificial intelligence tools and solutions supporting Azure Synapse.
+This article highlights Microsoft partners with machine learning and artificial intelligence tools and solutions supporting Azure Synapse Analytics.
 
 ## Machine learning and AI partners
 | Partner | Description | Website/Product link |
