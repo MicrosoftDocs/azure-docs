@@ -1,7 +1,7 @@
 ---
-title: Custom email verifications
+title: Custom email verification with SendGrid
 titleSuffix: Azure AD B2C
-description: Learn how to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
+description: Learn how to integrate with SendGrid to customize the verification email sent to your customers when they sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -14,11 +14,11 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Custom email verification in Azure Active Directory B2C
+# Custom email verification with SendGrid
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and a third-party email provider, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and the third-party email provider SendGrid, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
-Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com) or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -37,10 +37,10 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
-1. For **Options**, choose `Manual`.
+1. For **Options**, choose **Manual**.
 1. Enter a **Name** for the policy key. For example, `SendGridSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
 1. In **Secret**, enter your client secret that you previously recorded.
-1. For **Key usage**, select `Signature`.
+1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 
 ## Create SendGrid template
@@ -230,7 +230,7 @@ This example display control is configured to:
 1. Return the `email` back to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
-![Send verification code email action](media/custom-email/display-control-verification-email-action-01.png)
+![Send verification code email action](media/custom-email-sendgrid/display-control-verification-email-action-01.png)
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
@@ -391,12 +391,12 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
 
 ## [Optional] Localize your email
 
-To localize the email, you must send localized strings to SendGrid, or your email provider. For example to localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. In the `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
+To localize the email, you must send localized strings to SendGrid, or your email provider. For example, you can localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. The `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
 
 1. In your policy, define the following string claims: subject, message, codeIntro, and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
 1. Change the `GenerateSendGridRequestBody` claims transformation to use input claims with the following XML snippet.
-1. Update your SendGrind template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
+1. Update your SendGrid template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">

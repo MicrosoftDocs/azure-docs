@@ -191,8 +191,12 @@
         displayName: ux, input, cors, html, css
       - name: Customize language
         href: custom-policy-localization.md
-      - name: Custom email
-        href: custom-email.md
+      - name: Custom email verification
+        items:
+        - name: Mailjet
+          href: custom-email-mailjet.md
+        - name: SendGrid
+          href: custom-email-sendgrid.md
         displayName: verification
       - name: Disable email verification
         href: custom-policy-disable-email-verification.md

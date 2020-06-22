@@ -39061,6 +39061,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-b2c/custom-email.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-email-sendgrid",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/add-web-application.md",
       "redirect_url": "/azure/active-directory-b2c/add-web-api-application",
       "redirect_document_id": true
