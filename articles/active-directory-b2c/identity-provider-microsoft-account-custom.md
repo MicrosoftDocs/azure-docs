@@ -156,7 +156,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. In the *TrustFrameworkExtensions.xml* file, find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 1. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `MicrosoftAccountExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
     ```
 
