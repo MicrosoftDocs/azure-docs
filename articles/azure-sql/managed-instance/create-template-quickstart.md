@@ -27,7 +27,7 @@ None.
 
 ## Create an Azure SQL Managed Instance
 
-[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is an intelligent, fully managed, scalabale cloud database, with almost 100% feature parity with the SQL Server database engine.
+[Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) is an intelligent, fully managed, scalable cloud database, with almost 100% feature parity with the SQL Server database engine.
 
 ### Review the template
 
