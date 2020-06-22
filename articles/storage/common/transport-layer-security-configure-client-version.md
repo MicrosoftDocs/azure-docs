@@ -39,9 +39,9 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name "sample-container" -Context $ctx
 ```
 
-# [.NET v12 SDK](#tab/dotnet)
+# [.NET v11 SDK](#tab/dotnet)
 
-The following sample shows how to enable TLS 1.2 in a .NET client:
+The following sample shows how to enable TLS 1.2 in a .NET client using version 11 of the Azure Storage client library:
 
 ```csharp
 static void EnableTls12()

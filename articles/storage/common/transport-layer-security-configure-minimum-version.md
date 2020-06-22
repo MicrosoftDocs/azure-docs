@@ -122,7 +122,7 @@ To check the minimum required TLS version across a set of storage accounts with 
 
 Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the minimum TLS version for each account:
 
-```msgraph-interactive
+```kusto
 resources
 | where type =~ 'Microsoft.Storage/storageAccounts'
 | extend minimumTlsVersion = parse_json(properties).minimumTlsVersion
@@ -133,7 +133,7 @@ resources
 
 ## Test the minimum TLS version from a client
 
-To test that the minimum required TLS version for a storage account forbids calls made with an earlier version, you can configure a client to use an earlier version of TLS. For more information, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
+To test that the minimum required TLS version for a storage account forbids calls made with an earlier version, you can configure a client to use an earlier version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
 When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version that was used is not permitted on this storage account.
 
