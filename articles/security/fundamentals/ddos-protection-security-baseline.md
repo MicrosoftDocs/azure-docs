@@ -4,7 +4,7 @@ description: Azure security baseline for Azure DDoS Protection Standard
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -26,7 +26,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -34,7 +34,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -50,7 +50,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.4: Deny communications with known malicious IP addresses
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -58,7 +58,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.5: Record network packets
 
-**Guidance**: Not applicable; you cannot secure Azure DDoS Protection by associating it with a virtual network, subnet, or network security group.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -66,7 +66,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -74,7 +74,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.7: Manage traffic to web applications
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -82,7 +82,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -90,7 +90,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -98,7 +98,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.10: Document traffic configuration rules
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -106,7 +106,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
-**Guidance**: Not applicable; Azure DDoS is a PaaS service fully managed by Microsoft. It is enabled on the virtual network but as an offering is not intended to be secured on a virtual network.
+**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -168,9 +168,9 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 ### 2.6: Monitor and review Logs
 
-**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Recovery Services vaults.
+**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+* [How to enable diagnostic settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
 
@@ -327,9 +327,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -337,11 +337,11 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
 
 * [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
 
-* [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [How to use Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -349,7 +349,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
-**Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
 You have access to Azure AD sign-in activity, audit and risk event log sources, which allow you to integrate with Azure Sentinel or a third-party SIEM.
 
@@ -521,13 +521,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 6.1: Use automated Asset Discovery solution
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.
 
 * [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 * [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -537,7 +537,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 ### 6.2: Maintain asset metadata
 
-**Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
+**Guidance**: Apply tags to Azure resources giving metadata to logically organize them according to a taxonomy.
 
 * [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -549,21 +549,21 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
 * [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
-* [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintainan inventory of approved Azure resources
+### 6.4: Define and Maintain an inventory of approved Azure resources
 
 **Guidance**: Define approved Azure resources and approved software for compute resources.
 
@@ -575,11 +575,11 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 
-Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query for and discover resources within their subscriptions. Ensure that all Azure resources present in the environment are approved.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -791,7 +791,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 8.1: Use centrally managed anti-malware software
 
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
+**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -799,7 +799,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
+**Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
@@ -809,7 +809,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
