@@ -322,7 +322,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | domainnames | No |  
+> | domainnames | No work is planned for classic services.
 > | virtualmachines | No | 
 
 
@@ -332,7 +332,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | networksecuritygroups | No |
+> | networksecuritygroups | No work is planned for classic services.
 > | reservedips | No | 
 > | virtualnetworks | No | 
 
@@ -405,7 +405,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | containerservices | No | 
+> | containerservices | No.<br/><br/> Service is [retired](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/).
 > | managedclusters | No | 
 > | openshiftmanagedclusters | No | 
 
@@ -538,7 +538,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | servers | No |  
+> | servers | If the service is provisioned with geo-redundant backup storage, you can use geo-restore to restore in other regions. [Learn more](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
 
 ## Microsoft.DBforMySQL
 
@@ -573,9 +573,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | elasticpools | No | 
-> | elasticpools / iothubtenants | No | 
-> | iothubs | Yes | 
+> | elasticpools | No. Resource isn't exposed.
+> | elasticpools / iothubtenants | No. Resource isn't exposed.
+> | iothubs | Yes. [Learn more](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | No | 
 
 ## Microsoft.DevSpaces
@@ -710,7 +710,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | checknameavailability |  No
+> | checknameavailability |  No.<br/><br/> IoT Central works with geographies, and not regions.
 > | graph | No
 
 ## Microsoft.IoTHub
@@ -763,7 +763,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No, it's a global service.
 
 ## Microsoft.Logic
 
@@ -837,14 +837,14 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts |  No |  
+> | accounts |  No, Azure Maps is a geospatial service. 
 
 ## Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | classicdevservices | No | 
+> | classicdevservices | No work is planned for classic services 
 
 ## Microsoft.Media
 
