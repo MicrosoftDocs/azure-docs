@@ -34,8 +34,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-
-**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
+**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -51,7 +50,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.4: Deny communications with known malicious IP addresses
 
-**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
+**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -59,13 +58,13 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 1.5: Record network packets
 
-**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
+**Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Guidance: The endpoints used by Azure Data Box are all managed by Microsoft. You are responsible for any additional controls you wish to deploy to your on-premises systems.
 
@@ -308,7 +307,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -546,7 +545,6 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 ### 6.4: Define and Maintain an inventory of approved Azure resources
 
-
 **Guidance**: Not applicable; there are none at the Data Box service level.
 
 **Azure Security Center monitoring**: Not applicable
@@ -749,7 +747,6 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 **Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
 
-
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
@@ -784,15 +781,15 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: Make sure to back up any data and the customer managed key. Data Box does not make any backups.
+**Guidance**: Make sure to back up any data and the customer-managed key. Data Box does not make any backups.
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: You should verify that all your data is in Azure Storage account before you delete it from your premises.
 
@@ -800,9 +797,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Make sure that any backups or customer managed keys you have are protected in accordance with best practices.
+**Guidance**: Make sure that any backups or customer-managed keys you have are protected in accordance with best practices.
 
 **Azure Security Center monitoring**: Not applicable
 
