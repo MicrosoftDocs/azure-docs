@@ -55,8 +55,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+## Node pools and proximity placement groups
 
-Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
+A proximity placement group is a colocation constraint and not a pinning mechanism. A proximity placement group resource is pinned to a specific data center during the deployment of the first resource to use the group.
+
+* Many node pools can be associated with a single proximity placement group.
+* A node pool may only be associated with a single proximity placement group.
 
 ## Create a new AKS cluster with a proximity placement group
 
@@ -127,7 +131,6 @@ You can add a proximity placement group to an existing cluster. TODO
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [proximity-placement-groups]: /virtual-machines/linux/co-location
-https://docs.microsoft.com/en-us/azure/virtual-machines/linux/co-location#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 
