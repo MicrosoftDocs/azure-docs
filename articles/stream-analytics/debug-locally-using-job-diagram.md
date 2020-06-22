@@ -1,17 +1,17 @@
 ---
-title: Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
-description: This article describes how to debug queries locally using job diagram in Azure Stream Analytics Tools for Visual Studio.
+title: Debug Azure Stream Analytics queries locally using job diagram
+description: This article describes how to debug queries locally using job diagram in Azure Stream Analytics Tools for Visual Studio and Visual Studio Code.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 06/22/2020
 ---
 
-# Debug Azure Stream Analytics queries locally using job diagram in Visual Studio
+# Debug Azure Stream Analytics queries locally using job diagram
 
-Jobs that output no result or unexpected results are common troubleshooting scenarios for streaming queries. You can use the job diagram while testing your query locally in Visual Studio to examine the intermediate result set and metrics for each step. Job diagrams can help you quickly isolate the source of a problem when you troubleshoot issues.
+Azure Stream Analytics jobs that output no result or unexpected results are common troubleshooting scenarios for streaming queries. You can use the job diagram while testing your query locally in Visual Studio or VS Code to examine the intermediate result set and metrics for each step. Job diagrams can help you quickly isolate the source of a problem when you troubleshoot issues.
 
 ## Debug a query using job diagram
 
@@ -22,12 +22,23 @@ An Azure Stream Analytics script is used to transform input data to output data.
 
 ### Start local testing
 
+#### [Visual Studio Code](#tab/vs-code)
+
+Use this [Quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using VS Code, or [export an existing job to a local project](visual-studio-code-explore-jobs.md). Credentials for inputs and outputs are automatically populated. If you want to test your query with local input data, reference [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md). If you want to test with live input, move to the next step. 
+
+Open the .asaql script file and click “Run locally” and select ‘Use local input’ or ‘Use live input’, the job diagram appears on the right side.
+
+#### [Visual Studio](#tab/visual-studio)
+
 Use this [Quickstart](stream-analytics-quick-create-vs.md) to learn how to create a Stream Analytics job using Visual Studio or [export an existing job to a local project](stream-analytics-vs-tools.md#export-jobs-to-a-project). If you want to test the query with local input data, follow these [instructions](stream-analytics-live-data-local-testing.md). If you want to test with live input, move to the next step.
 
 > [!NOTE]
 > If you export a job to local project and want to test against a live input stream, you need to specify the credentials for all inputs again.  
 
 Choose the input and output source from the script editor and select **Run locally**. The job diagram appears on the right side.
+
+---
+
 
 ### View the intermediate result set  
 
