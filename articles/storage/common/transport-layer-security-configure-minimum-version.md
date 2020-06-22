@@ -43,7 +43,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Under **Category details**, in the **log** section, choose which types of requests to log. For example, choosing **StorageRead** and **StorageWrite** will log read and write requests to the selected service.
 1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
 
-    :::image type="content" source="media/transport-layer-security-configure/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
 
 For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting.
 
@@ -63,7 +63,7 @@ StorageBlobLogs
 
 The results show the count of the number of requests made with each version of TLS. In this case, all requests were made using TLS version 1.2:
 
-:::image type="content" source="media/transport-layer-security-configure/log-analytics-query-version.png" alt-text="Screenshot showing results of log analytics query to return TLS version":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot showing results of log analytics query to return TLS version":::
 
 ### Query logged requests by caller IP address and user agent header
 
