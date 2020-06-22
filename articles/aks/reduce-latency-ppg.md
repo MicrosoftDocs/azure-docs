@@ -99,7 +99,7 @@ The command produces output, which includes the *id* value you need for upcoming
 }
 ```
 
-Use the proximity placement group ID for the *myPPGResourceID* value in the below command:
+Use the proximity placement group resource ID for the *myPPGResourceID* value in the below command:
 
 ```azurecli-interactive
 # Create an AKS cluster that uses a proximity placement group for the initial node pool
