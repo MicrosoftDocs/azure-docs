@@ -67,7 +67,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
         ```
 
-        This process is the default installation, which installs Teams to the %AppData% user folder. Teams won't work properly with per-user installation on a non-persistent setup.
+        This process is the default installation, which installs Teams to the **%AppData%** user folder. Teams won't work properly with per-user installation on a non-persistent setup.
 
     - Per-machine installation
 
