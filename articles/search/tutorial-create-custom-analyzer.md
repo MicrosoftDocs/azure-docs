@@ -1,6 +1,18 @@
+---
+title: 'REST API tutorial areate a custom analyzer'
+titleSuffix: Azure Cognitive Search
+description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
+manager: liamca
+author: dereklegenzoff
+ms.author: delegenz
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 06/22/2020
+---
+
 # Tutorial: Create a custom analyzer for phone numbers
 
-Analyzers are a key component in any search solution. To improve the relevance of search results, it's important to understand how analyzers work and impact these results.
+Analyzers are a key component in any search solution. To improve the quality of search results, it's important to understand how analyzers work and impact these results.
 
 In some cases, like with a free text field, simply selecting the correct [language analyzer](index-add-language-analyzers.md) will improve search results. However, some scenarios such as accurately searching phone numbers, URLs, or emails may require the use of custom analyzers.
 
@@ -55,7 +67,7 @@ Alternatively, you can set up each HTTP request from scratch. If you are unfamil
 
 ## 3 - Create an initial index
 
-In this step, we'll create an initial index, load documents into the index, and then query the documents to see how our initial searches do.
+In this step, we'll create an initial index, load documents into the index, and then query the documents to see how our initial queries perform.
 
 ### Create index
 
@@ -152,7 +164,7 @@ With the data in the index, we're ready to start searching.
 
 ### Search
 
-To make the search intuitive, it's best to not expect users to format searches in a specific way. A user could search for `(425) 555-2311` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample searches to see how they do.
+To make the search intuitive, it's best to not expect users to format queries in a specific way. A user could search for `(425) 555-2311` in any of the formats we showed above and will still expect results to be returned. In this step, we'll test out a couple of sample queries to see how they do.
 
 We start by searching `(425) 555-2311`:
 
@@ -162,7 +174,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
   api-key: <YOUR-ADMIN-API-KEY>  
 ```
 
-This search returns **three out of four expected results** but also returns **two unexpected results**:
+This query returns **three out of four expected results** but also returns **two unexpected results**:
 
 ```json
 {
@@ -198,7 +210,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
   api-key: <YOUR-ADMIN-API-KEY> 
 ```
 
-This search does even worse, only returning **one of four correct matches**.
+This query does even worse, only returning **one of four correct matches**.
 
 ```json
 {
@@ -225,28 +237,28 @@ Analyzers consist of three components: [**character filters**](#CharFilters), [*
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzer-explained.PNG)
 
-These tokens are then stored in an inverted index, which allows for fast full-text searching.
+These tokens are then stored in an inverted index, which allows for fast, full-text searches.
 
   ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index.PNG)
 
-All of search comes down to searching for these tokens. When a user makes a search:
+All of search comes down to searching for these tokens. When a user issues a query:
 
-1. The search is analyzed and broken into tokens
+1. The query is analyzed and broken into tokens
 1. The inverted index is then scanned for documents with matching tokens
 1. Finally, the results are ranked by feeding the matching tokens into a [similarity algorithm](index-ranking-similarity.md) to score the results.
 
   ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture.PNG)
 
-If the tokens from your search don't match the tokens in your inverted index, results won't be returned.
+If the tokens from your query don't match the tokens in your inverted index, results won't be returned.
 
 > [!Note]
-> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical anlysis process so the text isn't split into tokens like other searches. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching tokens don't exist in the index.
+> [Partial term searches](search-query-partial-matching.md) are an important exception to this rule. These searches (prefix search, wildcard search, regex search) bypass the lexical anlysis process so the text isn't split into tokens like other queries. If an analyzer isn't configured to support these types of queries, you'll often receive unexpected results because matching tokens don't exist in the index.
 
-### Test analyzer using the analyze text API
+### Test analyzer using the Analyze Text API
 
-Azure Cognitive Search provides an [analyze text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they tokenize text.
+Azure Cognitive Search provides an [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) that allows you to test analyzers to understand how they tokenize text.
 
-The analyze text API is called using the following request:
+The Analyze Text API is called using the following request:
 
 ```http
 POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/analyze?api-version=2019-05-06
@@ -259,7 +271,7 @@ POST https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basi
   }
 ```
 
-The API then returns a list of the tokens extracted from the text. You can see the phone number above was split into three separate tokens:
+The API then returns a list of the tokens extracted from the text. You can see that the standard Lucene analyzer splits the phone number into three separate tokens:
 
 ```json
 {
@@ -310,13 +322,13 @@ Alternatively, the phone number `4255552311` formatted without any punctuation i
 
 Keep in mind that both searches and the data in the index are tokenized. Thinking back to the search results from the previous step, we can start to see why those results were returned.
 
-In the first search, the incorrect phone numbers were returned because one of their tokens matched one of the tokens we searched. In the second search, only the one number was returned because it was the only one that had a token matching `4255552311`.
+In the first query, the incorrect phone numbers were returned because one of their tokens (555) matched one of the tokens we searched. In the second query, only the one number was returned because it was the only one that had a token matching `4255552311`.
 
 ## 5 - Build a custom analyzer
 
-Now that we understand the results we're seeing, let's build a custom analyzer to improve the results.
+Now that we understand the results we're seeing, let's build a custom analyzer to improve the tokenization logic.
 
-The goal is to provide intuitive search against phone numbers no matter what format the search or indexed data is in. To achieve this result, we'll specify a [character filter](#CharFilters), a [tokenizer](#Tokenizers), and several [token filters](#TokenFilters).
+The goal is to provide intuitive search against phone numbers no matter what format the query or indexed string is in. To achieve this result, we'll specify a [character filter](#CharFilters), a [tokenizer](#Tokenizers), and several [token filters](#TokenFilters).
 
 <a name="CharFilters"></a>
 
@@ -460,7 +472,7 @@ With our character filters, tokenizer, and token filters in place, we're ready t
 |`12345`|`[123, 1234, 12345, 234, 2345, 345]`|  
 |`(321) 555-5784`|`[321, 3215, 32155, 321555, 3215555, 32155557, 321555578, 3215555784, 215, 2155, 21555, 215555, ... ]`|
 
-Notice that any of the tokens in the output can now be searched. If our search includes any of those tokens, the phone number will be returned.
+Notice that any of the tokens in the output can now be searched. If our query includes any of those tokens, the phone number will be returned.
 
 With the custom analyzer defined, recreate the index, so that the custom analyzer will be available for testing in the next step. For simplicity, the Postman collection creates a new index with the analyzer named `tutorial-first-analyzer`.
 
@@ -545,7 +557,7 @@ In the index definition, we then specify both an `indexAnalyzer` and a `searchAn
     }
 ```
 
-With this change, you're all set. Recreate the index, index the data, and test the searches again to verify the search works as expected. If you're using the Postman collection, it will create a third index named `tutorial-second-analyzer`.
+With this change, you're all set. Recreate the index, index the data, and test the queries again to verify the search works as expected. If you're using the Postman collection, it will create a third index named `tutorial-second-analyzer`.
 
 ## Reset and rerun
 
@@ -558,7 +570,7 @@ DELETE https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-ba
 
 ## Takeaways
 
-This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then searched against the index to see what search results were returned. From there, you used the analyze text API to see the lexical analysis process in action.
+This tutorial demonstrated the process for building and testing a custom analyzer. You created an index, indexed data, and then queried against the index to see what search results were returned. From there, you used the analyze text API to see the lexical analysis process in action.
 
 While the analyzer defined in this tutorial offers an easy solution for searching against phone numbers, this same process can be used to build a custom phone analyzer for any scenario.
 
