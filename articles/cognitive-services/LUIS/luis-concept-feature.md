@@ -8,13 +8,16 @@ ms.date: 06/10/2020
 
 In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes and learns through.
 
-Machine-learning features give LUIS important cues for where to look for things that distinguish a concept. They're hints that LUIS can use, but they aren't hard rules.  Use these hints with the labels to find the data.
+Machine-learning features give LUIS important cues for where to look for things that distinguish a concept. They're hints that LUIS can use, but they aren't hard rules. LUIS uses these hints in conjunction with the labels to find the data.
 
 A feature can be described as a function, like f(x) = y. In the example utterance, the feature tells you where to look for the distinguishing trait. Use this information to help create your schema.
 
 ## Types of features
 
-LUIS supports both phrase lists and models (intent or entity) as features.
+LUIS supports both phrase lists and models as features:
+
+* Phrase list feature 
+* Model (intent or entity) as a feature
 
 Features should be considered a necessary part of your schema design.
 
@@ -50,7 +53,7 @@ As a first example, consider an app for booking a flight with a flight-reservati
 The ticket-booking entity is a machine-learning entity for the flight destination. To help extract the location, use two features to help:
 
 * A phrase list of relevant words, such as, **plane**, **flight**, **reservation**, or **ticket**
-* A prebuilt, **geographyV2** entity as a feature to the entity
+* A prebuilt **geographyV2** entity as a feature to the entity
 
 ### Pizza entity example
 
@@ -59,7 +62,7 @@ As another example, consider an app for ordering a pizza that has a create-pizza
 The pizza entity is a machine-learning entity for the pizza details. To help extract the details, use two features to help:
 
 * A phrase list of relevant words, such as, **cheese**, **crust**, **pepperoni**, or **pineapple**
-* A prebuilt, **number** entity as a feature to the entity
+* A prebuilt **number** entity as a feature to the entity
 
 ## Create a phrase list for a concept
 
@@ -148,6 +151,7 @@ When the subentity has a phrase list, it boosts the vocabulary of the concept bu
 
 When the subentity has a feature of another entity, the JSON response includes the extracted data of that other entity.
 
+
 ## Required features
 
 A required feature has to be found in order for the model to be returned from the prediction endpoint. Use a required feature when you know your incoming data must match the feature.
@@ -161,6 +165,18 @@ A required feature uses a non-machine-learning entity:
 * Prebuilt entity
 
 If you're confident that your model will be found in the data, set the feature as required. A required feature doesn't return anything if it isn't found.
+
+Continuing with the example of the shipping address:
+
+Shipping address (machine learned entity)
+
+ * Street number (subentity) 
+ * Street address (subentity) 
+ * Street name (subentity) 
+ * City (subentity) 
+ * State or Province (subentity) 
+ * Country/Region (subentity) 
+ * Postal code (subentity)
 
 ### Required feature using prebuilt entities
 
