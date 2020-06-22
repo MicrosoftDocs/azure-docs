@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
@@ -28,7 +28,7 @@ Shared computer activation lets you to deploy Microsoft 365 Apps for enterprise 
 Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
 
    - Microsoft 365 Apps for enterprise
-   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business subscription
+   - Microsoft 365 Apps for business that comes with a Microsoft 365 Business Premium subscription
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
@@ -156,7 +156,7 @@ Here's how to install OneDrive in per-machine mode:
 
 Windows Virtual Desktop doesn't support Skype for Business.
 
-For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview. 
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview.
 
 ## Next steps
 
