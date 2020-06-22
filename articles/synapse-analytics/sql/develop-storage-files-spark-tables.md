@@ -5,7 +5,7 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice: sql od
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
