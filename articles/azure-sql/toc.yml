@@ -699,12 +699,15 @@
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
-    - name: Create 
+    - name: Create SQL Managed Instance
       items:
-      - name: Using Azure portal
+      - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
-      - name: Using PowerShell
+      - name: PowerShell
         href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
     - name: Configure
