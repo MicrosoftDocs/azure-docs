@@ -808,7 +808,7 @@ In this article, you learned how to create and manage multiple node pools in an 
 
 To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
 
-For scenarios involving low latency requirements, use [proximity placement groups][[reduce-latency-ppg].
+Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your AKS applications.
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
