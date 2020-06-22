@@ -55,6 +55,9 @@ We recommend that you use the addresses listed when defining [exceptions](automa
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region.
 
+>[!NOTE]
+>While the list of Automation DNS records provided here have been deprecated, they still remain functional to allow time for you to migrate to the new records listed under [support for Private Link](#support-for-private-link) and prevent failures with your automation processes.
+
 | **Region** | **DNS record** |
 | --- | --- |
 | Australia Central |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
@@ -75,10 +78,7 @@ If you have an Automation account that's defined for a specific region, you can 
 
 #### Support for Private Link
 
-To support the new Private Link feature in Azure Automation, the DNS record URLs have been updated. Instead of region-specific URLs, we have Automation account specific URLs.
-
->[!NOTE]
->While the previous list of Automation URLs originally provided here have been deprecated, they still remain functional to allow time for you to migrate and prevent failures with your automation processes.
+To support [Private Link](../private-link/private-link-overview.md) in Azure Automation, the DNS records have been updated. Instead of region-specific URLs, the URLs are Automation account specific.
 
 | **Region** | **DNS record** |
 | --- | --- |
