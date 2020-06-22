@@ -6,7 +6,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: EricRadzikowskiMSFT
+ms.author: ericad
 ms.reviwer: mimckitt
 
 ---
