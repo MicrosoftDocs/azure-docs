@@ -10,7 +10,7 @@ ms.date: 06/22/2020
 # Use proximity placement groups to reduce latency (Preview)
 
 > [!Note]
-> Proximity placement groups improve latency, but may reduce an application's availability since resources are located in the same datacenter.
+> Proximity placement groups improve latency, but may reduce an application's availability since resources are located in the same datacenter. You can mitigate this risk by deploying multiple node pools across multiple proximity placement groups.
 
 When deploying your application in Azure, spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure that Azure compute resources are physically located close to each other. For AKS workloads that require low latency scenarios, use proximity placement groups.
 
@@ -18,7 +18,7 @@ When deploying your application in Azure, spreading instances across regions or 
 
 * The proximity placement group spans a single availability zone.
 * There is no current support for AKS clusters that use Virtual Machine Availability Sets.
-* The proximity placement group ID can only be set during the initial node pool creation.
+* The proximity placement group ID can only be set during node pool creation.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
@@ -30,7 +30,6 @@ When deploying your application in Azure, spreading instances across regions or 
 
 You must have the following resources installed:
 
-- The Azure CLI, version 2.7.0 or later
 - The aks-preview 0.4.51 extension
 
 ### Set up the preview feature for proximity placement groups
@@ -101,9 +100,7 @@ az aks create \
 
 ## Add a proximity placement group to an existing cluster
 
-You can add a proximity placement group to an existing cluster by modifying the [system pool][system-pool].
-
-TODO
+You can add a proximity placement group to an existing cluster. TODO
 
 
 ## Next steps
