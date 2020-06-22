@@ -1,6 +1,6 @@
 ---
 title: Use proximity placement groups to reduce latency for AKS clusters
-description: Learn how to use placement proximity groups to reduce latency for your AKS cluster workloads.
+description: Learn how to use proximity placement groups to reduce latency for your AKS cluster workloads.
 services: container-service
 manager: gwallace
 ms.topic: article
