@@ -81,7 +81,7 @@ Run the following command, and store the ID that is returned:
 az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
 ```
 
-The command produces output, which includes the id value you need for upcoming CLI commands:
+The command produces output, which includes the *id* value you need for upcoming CLI commands:
 
 ```output
 {
