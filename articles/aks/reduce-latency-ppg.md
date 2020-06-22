@@ -136,7 +136,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Next steps
 
-* Learn about [proximity placement groups][proximity-placement-groups].
+* Learn more about [proximity placement groups][proximity-placement-groups].
 
 <!-- LINKS - Internal -->
 [azure-ad-rbac]: azure-ad-rbac.md
