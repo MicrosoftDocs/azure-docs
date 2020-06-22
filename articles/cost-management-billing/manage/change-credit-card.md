@@ -23,9 +23,9 @@ If you have a Microsoft Customer Agreement, your payment methods are associated 
 
 ## Manage credit cards for an Azure subscription
 
-The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions.
+The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### Change credit card for a subscription
+### Change credit card for a subscription by adding a new credit card
 
 You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card. If more than one of your subscriptions have the same active payment method, then changing the active payment method on any of these subscriptions also updates the active payment method on the others.
 
@@ -51,7 +51,7 @@ You can change your subscription's default credit card to a new one by following
 
 1. Select **Next**.
 
-If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### Change credit card for a subscription to a previously saved credit card
 
 You can also change your subscription's default credit card to a one that is already saved to your account by following these steps:
 
@@ -110,6 +110,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 
 ### Change default credit card
+
 If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account.
 
 If you'd like to change your billing profile's default payment method to check/wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
@@ -153,9 +154,11 @@ To edit or delete a credit card, follow these steps:
 1. To delete your credit card, select **Delete** from the context menu.
 
 ## Troubleshooting
+
 We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Frequently asked questions
+
 The following sections answer commonly asked questions about changing your credit card information.
 
 ### My subscription is disabled. Why can't I remove my credit card now?
@@ -183,6 +186,7 @@ If you're [paying by invoice](pay-by-invoice.md), send your payment to the locat
 To add or update tax ID, update your profile in the  [Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Check the type of your account
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## Need help? Contact us.
@@ -190,4 +194,5 @@ To add or update tax ID, update your profile in the  [Azure Account Center](http
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
+
 - Learn about [Azure reservations](../reservations/save-compute-costs-reservations.md) to see if they can save you money.

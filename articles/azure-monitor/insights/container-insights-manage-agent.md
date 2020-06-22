@@ -2,7 +2,7 @@
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 06/15/2020
 
 ---
 
@@ -12,13 +12,13 @@ Azure Monitor for containers uses a containerized version of the Log Analytics a
 
 ## How to upgrade the Azure Monitor for containers agent
 
-Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) the agent is not managed, and you need to manually upgrade the agent.
+Azure Monitor for containers uses a containerized version of the Log Analytics agent for Linux. When a new version of the agent is released, the agent is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) and Azure Red Hat OpenShift version 3.x. For a [hybrid Kubernetes cluster](container-insights-hybrid-setup.md) and Azure Red Hat OpenShift version 4.x, the agent is not managed, and you need to manually upgrade the agent.
 
-If the agent upgrade fails for a cluster hosted on AKS, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+If the agent upgrade fails for a cluster hosted on AKS or Azure Red Hat OpenShift version 3.x, this article also describes the process to manually upgrade the agent. To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
-### Upgrade agent on monitored Kubernetes cluster
+### Upgrade agent on AKS cluster
 
-The process to upgrade the agent on clusters, other than Azure Red Hat OpenShift, consists of two straight forward steps. The first step is to disable monitoring with Azure Monitor for containers using Azure CLI. Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. Using Azure CLI allows us to remove the agent from the nodes in the cluster without impacting the solution and the corresponding data that is stored in the workspace. 
+The process to upgrade the agent on AKS clusters consists of two straight forward steps. The first step is to disable monitoring with Azure Monitor for containers using Azure CLI. Follow the steps described in the [Disable monitoring](container-insights-optout.md?#azure-cli) article. Using Azure CLI allows us to remove the agent from the nodes in the cluster without impacting the solution and the corresponding data that is stored in the workspace. 
 
 >[!NOTE]
 >While you are performing this maintenance activity, the nodes in the cluster are not forwarding collected data, and performance views will not show data between the time you remove the agent and install the new version. 
@@ -49,16 +49,22 @@ The status should resemble the following example, where the value for *omi* and 
 	omsagent 1.6.0-163
 	docker-cimprov 1.0.0.31
 
-## Upgrade agent on hybrid Kubernetes cluster
+### Upgrade agent on hybrid Kubernetes cluster
 
-The process to upgrade the agent on a Kubernetes cluster hosted on-premises, AKS Engine on Azure and Azure Stack can be completed by running the following command:
+Perform the following steps to upgrade the agent on a Kubernetes cluster running on:
+
+* Self-managed Kubernetes clusters hosted on Azure using AKS Engine.
+* Self-managed Kubernetes clusters hosted on Azure Stack or on-premises using AKS Engine.
+* Red Hat OpenShift version 4.x.
+
+If the Log Analytics workspace is in commercial Azure, run the following command:
 
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-If the Log Analytics workspace is in Azure China, run the following command:
+If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -70,6 +76,33 @@ If the Log Analytics workspace is in Azure US Government, run the following comm
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+```
+
+### Upgrade agent on Azure Red Hat OpenShift v4
+
+Perform the following steps to upgrade the agent on a Kubernetes cluster running on Azure Red Hat OpenShift version 4.x. 
+
+>[!NOTE]
+>Azure Red Hat OpenShift version 4.x only supports running in the Azure commercial cloud.
+>
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
+### Upgrade agent on Azure Arc enabled Kubernetes
+
+Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster without a proxy endpoint.
+
+```
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+Perform the following command to upgrade the agent when a proxy endpoint is specified. For more information about the proxy endpoint, see [Configure proxy endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+
+```
+helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## How to disable environment variable collection on a container

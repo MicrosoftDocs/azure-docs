@@ -22,7 +22,7 @@ ms.localizationpriority: high
 
 ::: zone target = "chromeless"
 
-# Return Azure Data Box Heavy and verify data upload to Azure
+## Return Azure Data Box Heavy and verify data upload to Azure
 
 ::: zone-end
 

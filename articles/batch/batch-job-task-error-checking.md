@@ -2,7 +2,7 @@
 title: Check for job and task errors
 description: Errors to check for and troubleshooting jobs and tasks
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/10/2019
 ms.author: markscu
 ---

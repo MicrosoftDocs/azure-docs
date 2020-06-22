@@ -52,7 +52,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MinReplicaSetSize|int, default is 0|Static|The MinReplicaSetSize for BackupRestoreService |
 |PlacementConstraints|string, default is    ""|Static|    The PlacementConstraints for BackupRestore service |
 |SecretEncryptionCertThumbprint|string, default is    ""|Dynamic|Thumbprint of the Secret encryption X509 certificate |
-|SecretEncryptionCertX509StoreName|string, default is    "My"|    Dynamic|    This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
+|SecretEncryptionCertX509StoreName|string, recommended value is "My" (no default) |    Dynamic|    This indicates the certificate to use for encryption and decryption of creds Name of X.509 certificate store that is used for encrypting decrypting store credentials used by Backup Restore service |
 |TargetReplicaSetSize|int, default is    0|Static| The TargetReplicaSetSize for BackupRestoreService |
 
 ## ClusterManager

@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Azure Synapse Analytics workload group isolation (Preview)
+# Azure Synapse Analytics workload group isolation
 
 This article explains how workload groups can be used to configure workload isolation, contain resources, and apply runtime rules for query execution.
 

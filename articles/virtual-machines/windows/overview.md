@@ -92,7 +92,7 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Resource group](../../azure-resource-manager/management/overview.md) |Yes |The VM must be contained in a resource group. |
 | [Storage account](../../storage/common/storage-create-storage-account.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
-| [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
+| [Public IP address](../../virtual-network/public-ip-addresses.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
 | [Data disks](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |The VM can include data disks to expand storage capabilities. |
 

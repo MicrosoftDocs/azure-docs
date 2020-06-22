@@ -7,18 +7,26 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET app
-    href: cache-web-app-howto.md
-  - name: .NET Core app
-    href: cache-dotnet-core-quickstart.md
-  - name: .NET app
-    href: cache-dotnet-how-to-use-azure-redis-cache.md
-  - name: Java app
-    href: cache-java-get-started.md
-  - name: Node.js app
-    href: cache-nodejs-get-started.md
-  - name: Python app
-    href: cache-python-get-started.md
+  - name: Create a cache
+    items:
+    - name: Basic, Standard and Premium tiers
+      href: quickstart-create-redis.md
+    - name: Enterprise tiers
+      href: quickstart-create-redis-enterprise.md
+  - name: Use a cache
+    items:
+    - name: ASP.NET app
+      href: cache-web-app-howto.md
+    - name: .NET Core app
+      href: cache-dotnet-core-quickstart.md
+    - name: .NET app
+      href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Java app
+      href: cache-java-get-started.md
+    - name: Node.js app
+      href: cache-nodejs-get-started.md
+    - name: Python app
+      href: cache-python-get-started.md
 - name: Tutorials
   items:
   - name: Use caching with leaderboards
@@ -154,5 +162,5 @@
     href: cache-faq.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecache&filter=alltypes&sort=lastpostdesc
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cache-redis.html

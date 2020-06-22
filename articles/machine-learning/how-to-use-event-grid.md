@@ -1,18 +1,18 @@
 ---
 title: Trigger events in ML workflows 
 titleSuffix: Azure Machine Learning
-description: Learn how to trigger event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events to simplify your ML lifecycle.
+description: Set up event-driven applications, processes, or CI/CD machine learning workflows in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
-ms.date: 03/11/2020
+ms.date: 05/11/2020
 ---
 
-# Trigger event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
+# Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (Preview)
 
 In this article, you learn how to set up event-driven applications, processes, or CI/CD workflows based on Azure Machine Learning events, such as failure notification emails or ML pipeline runs, when certain conditions are detected by [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 

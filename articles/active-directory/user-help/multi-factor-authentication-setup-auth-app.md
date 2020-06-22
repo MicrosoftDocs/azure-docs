@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ---
@@ -25,7 +25,7 @@ You can set up an authenticator app to send a notification to your mobile device
 
 ## Set up the Microsoft Authenticator app to send notifications
 
-1. On the **Additional security verification** page, select **Mobile app** from the **Step 1: How should we contact you** area.
+1. On the [Additional security verification page](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1), select **Mobile app** from the **Step 1: How should we contact you** area.
 
 2. Select **Receive notifications for verification** from the **How do you want to use the mobile app** area, and then select **Set up**.
 

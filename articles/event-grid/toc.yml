@@ -92,6 +92,8 @@
     href: template-samples.md
   - name: Code samples
     href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
+  - name: Azure Policy built-ins
+    href: ./policy-samples.md
 - name: Concepts
   items:    
   - name: Event Grid terminology
@@ -106,6 +108,8 @@
       items:
       - name: Azure App Configuration
         href: event-schema-app-configuration.md
+      - name: Azure App Service
+        href: event-schema-app-service.md
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
       - name: Azure Container Registry
@@ -130,6 +134,14 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
+  - name: Partner topics
+    items:
+    - name: Overview of partner topics
+      href: partner-topics-overview.md
+    - name: Auth0
+      href: auth0-overview.md
+    - name: Become an Event Grid Partner
+      href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
   - name: Event schema formats
@@ -139,8 +151,21 @@
     - name: Cloud event schema
       href: cloud-event-schema.md
   - name: Event handlers
-    displayName: Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks
-    href: event-handlers.md
+    href: event-handlers.md  
+    items:
+    - name: Webhooks
+      displayName: Azure Automation, Webhooks, Logic Apps
+      href: handler-webhooks.md
+    - name: Azure Functions
+      href: handler-functions.md
+    - name: Event Hubs 
+      href: handler-event-hubs.md
+    - name: Service Bus
+      href: handler-service-bus.md
+    - name: Relay hybrid connections
+      href: handler-relay-hybrid-connections.md
+    - name: Storage queues
+      href: handler-storage-queues.md
   - name: Event delivery
     items: 
     - name: Event filtering
@@ -169,8 +194,18 @@
       href: metrics.md
 - name: How-to guides
   items:
+  - name: Create, view, and manage system topics
+    items:
+    - name: Azure portal
+      href: create-view-manage-system-topics.md
+    - name: Azure CLI
+      href: create-view-manage-system-topics-cli.md
+    - name: Azure Resource Manager template
+      href: create-view-manage-system-topics-arm.md      
   - name: Post to custom topic
     href: post-to-custom-topic.md
+  - name: Subscribe to Auth0 events
+    href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
   - name: Dead letter and retry
@@ -199,6 +234,8 @@
       href: configure-firewall.md
     - name: Secure WebHook with AAD
       href: secure-webhook-delivery.md
+    - name: Event delivery with managed identity
+      href: managed-service-identity.md
   - name: Troubleshoot
     items: 
     - name: Enable diagnostic logs
@@ -207,7 +244,7 @@
       href: troubleshoot-errors.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
-    - name: Monitor event delivery
+    - name: View metrics and create alerts
       href: monitor-event-delivery.md
 - name: Reference
   items:
@@ -224,7 +261,9 @@
   - name: Python
     href: /python/api/overview/azure/event-grid
   - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid
+    href: /javascript/api/overview/azure/eventgrid  
+  - name: Quotas and limits
+    href: quotas-limits.md
   - name: Subscription schema
     href: subscription-creation-schema.md
   - name: Template resources

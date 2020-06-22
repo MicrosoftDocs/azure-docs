@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least a trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or P2 trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
 * An account with *global administrator* privileges.
@@ -57,6 +57,10 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
    * The user organizational units (OUs) you want to be in scope for SSPR
 
 If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
+
+> [!TIP]
+>
+> If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly.
 
 To set up the appropriate permissions for password writeback to occur, complete the following steps:
 

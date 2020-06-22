@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
+ms.date: 05/19/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -141,9 +141,7 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
-* Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
-
-* Register the Azure Machine Learning and Azure Cosmos DB resource providers in your subscription, if not done already.
+* Register the Microsoft.MachineLearning and Microsoft.DocumentDB resource providers in your subscription, if not done already.
 
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 

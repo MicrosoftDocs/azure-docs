@@ -19,6 +19,10 @@ You can reduce your total Windows Virtual Desktop deployment cost by scaling you
 
 In this article, you'll learn about the scaling tool built with Azure Automation and Azure Logic Apps that will automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
+## Report issues
+
+Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issues with the scaling tool, you can report them bu opening a GitHub issue labeled "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+
 ## How the scaling tool works
 
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
@@ -105,7 +109,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
 Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account to access your Azure resources.
 
-An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limiting Run As account permissions](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limit Run As account permissions](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
 Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account by following the next section's instructions.
 
@@ -253,6 +257,3 @@ Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resour
 
 ![An image of the output window for the scaling tool.](../media/tool-output.png)
 
-## Report issues
-
-If you encounter any issues with the scaling tool, you can report them at the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

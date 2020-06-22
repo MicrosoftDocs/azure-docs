@@ -98,7 +98,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     
     > [!NOTE]
     > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
-    > In the following response, the access_token element as been shortened for brevity.
+    > In the following response, the access_token element has been shortened for brevity.
     
     ```bash
     {"access_token":"eyJ0eXAiOiJ...",

@@ -278,7 +278,7 @@ These best practices are the result of hundreds of customer deployments:
 
 - The virtual networks the SAP application is deployed into don't have access to the internet.
 - The database VMs run in the same virtual network as the application layer.
-- The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
+- The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](../../../virtual-network/public-ip-addresses.md).
 - Routing restrictions to and from the DBMS VMs are *not* set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - To separate and isolate traffic to the DBMS VM, assign different NICs to the VM. Every NIC gets a different IP address, and every NIC is assigned to a different virtual network subnet. Every subnet has different NSG rules. The isolation or separation of network traffic is a measure for routing. It's not used to set quotas for network throughput.
 
