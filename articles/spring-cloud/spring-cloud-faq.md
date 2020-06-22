@@ -111,7 +111,7 @@ Public notice will be sent out at 12 months before any old runtime version is re
 
 ### How can I get support for issues at the Java runtime level?
 
-You can open a support ticket with Azure Support.  See [How to create an Azure support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request).
+You can open a support ticket with Azure Support.  See [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### What is the operation system to run my apps?
 
