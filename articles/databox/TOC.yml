@@ -46,12 +46,12 @@
           href: data-box-system-requirements-rest.md
       - name: Understand limits
         href: data-box-limits.md
-        - name: Security
-          items:
-          - name: Security baseline
-            href: security-baseline.md
-          - name: Review security 
-            href: data-box-security.md 
+      - name: Security
+        items:
+        - name: Security baseline
+          href: security-baseline.md
+        - name: Review security 
+          href: data-box-security.md 
       - name: FAQ
         href: data-box-faq.md 
     - name: How to
