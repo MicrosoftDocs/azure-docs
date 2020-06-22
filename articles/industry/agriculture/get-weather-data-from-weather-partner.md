@@ -11,7 +11,7 @@ ms.author: sunasing
 
 Azure FarmBeats helps you to bring weather data from your weather data provider(s) using a docker-based Connector Framework. Using this framework, weather data providers implement a docker that can be integrated with FarmBeats. Currently the following weather data providers are supported:
 
-[NOAA data from Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)
+[DTN](https://www.dtn.com/dtn-content-integration/)
 
 The weather data can be used to generate actionable insights and build AI/ML models on FarmBeats.
 
@@ -23,7 +23,7 @@ To get weather data, ensure that you have installed FarmBeats. **Weather integra
 
 To start getting weather data on your FarmBeats Data hub, follow the steps below:
 
-1. Go to your FarmBeats Data hub swagger (https://yourdatahub.azurewebsites.net/swagger)
+1. Go to your FarmBeats Data hub swagger (https://farmbeatswebsite-api.azurewebsites.net/swagger)
 
 2. Navigate to /Partner API and make a POST request with the following input payload:
 
@@ -54,13 +54,13 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
    }  
    ```
 
-   For example, to get weather data from NOAA by Azure Open Datasets, use the payload below. You can modify the name and description as per your preference.
+   For example, to get weather data from DTN, use the payload below. You can modify the name and description as per your preference.
 
    ```json
    {
  
      "dockerDetails": {
-       "imageName": "azurefarmbeats/farmbeats-noaa",
+       "imageName": "dtnweather/dtn-farm-beats",
        "imageTag": "latest",
        "azureBatchVMDetails": {
          "batchVMSKU": "standard_d2_v2",
@@ -68,9 +68,12 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
          "nodeAgentSKUID": "batch.node.ubuntu 18.04"
        }
      },
+     "partnerCredentials": {
+      "apikey": "<API key from DTN>"
+      },
      "partnerType": "Weather",
-     "name": "ods-noaa",
-     "description": "NOAA data from Azure Open Datasets registered as a Weather Partner"
+     "name": "dtn-weather",
+     "description": "DTN registered as a Weather Partner in FarmBeats"
    }  
    ```
 
@@ -88,10 +91,12 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
 
 5. Now your FarmBeats instance has an active weather data partner and you can run jobs to request weather data for a particular location (latitude/longitude) and a date range. The JobType(s) will have details on what parameters are required to run weather jobs.
 
-   For example, for NOAA data from Azure Open Datasets, following JobType(s) will be created:
-
-   - get_weather_data (Get ISD/historical weather data)
-   - get_weather_forecast_data (Get GFS/forecast weather data)
+   For example, for DTN, following JobType(s) will be created:
+   
+   - get_dtn_daily_observations (Get daily observations for a location and time period)
+   - get_dtn_daily_forecasts (Get daily forecasts for a location and time period)
+   - get_dtn_hourly_observations (Get hourly observations for a location and time period)
+   - get_dtn_hourly_forecasts (Get hourly forecasts for a location and time period)
 
 6. Make a note of the **ID** and the parameters of the JobType(s).
 
@@ -111,17 +116,15 @@ To start getting weather data on your FarmBeats Data hub, follow the steps below
        }
    ```
 
-   For example, to run **get_weather_data**, use the following payload:
+   For example, to run **get_dtn_daily_observations**, use the following payload:
 
    ```json
-   {
- 
+   { 
          "typeId": "<id of the JobType>",
          "arguments": {
                "latitude": 47.620422,
                "longitude": -122.349358,
-               "start_date": "yyyy-mm-dd",
-               "end_date": "yyyy-mm-dd"
+               "days": 5
          },
          "name": "<name of the job>",
          "description": "<description>",
