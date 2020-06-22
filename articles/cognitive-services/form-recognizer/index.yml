@@ -128,7 +128,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm
           - text: Form Recognizer API v1.0
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
           - text: .NET SDK
