@@ -9,20 +9,21 @@ ms.topic: conceptual
 
 # DNS records used by Azure Automation
 
-The [Azure Automation](automation-intro.md) service uses a number of DNS records for features to connect to the service. If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it is hosted behind a firewall:
+The [Azure Automation](../automation-intro.md) service uses a number of DNS records for features to connect to the service. If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. You might need to know these records to allow the following Automation features to work when it is hosted behind a firewall:
 
 * Hybrid Runbook Worker
-* Update Management
-* Change Tracking and Inventory
 * State Configuration
 * Webhooks
+
+>[!NOTE]
+>Linux Hybrid Runbook Worker registration will fail with the new records unless it is version 1.6.10.2 or higher. You must upgrade to a newer version of the [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) in order for the machine to receive an updated version of the worker role and use these new records. Existing machines will continue working without any issues.  
 
 ## DNS records per region
 
 The following table provides the DNS record for each region.
 
 >[!NOTE]
->While the list of Automation DNS records provided here have been deprecated, they still remain functional to allow time for you to migrate to the new records listed under [support for Private Link](#support-for-private-link) and prevent failures with your automation processes.
+>While the list of Automation DNS records provided here have been retired, they still remain functional to allow time for you to migrate to the new records listed under [support for Private Link](#support-for-private-link) and prevent failures with your automation processes.
 
 | **Region** | **DNS record** |
 | --- | --- |
@@ -44,7 +45,7 @@ The following table provides the DNS record for each region.
 
 ### Support for Private Link
 
-To support [Private Link](../private-link/private-link-overview.md) in Azure Automation, the DNS records for every supported datacenter have been updated. Instead of region-specific URLs, the URLs are Automation account specific.
+To support [Private Link](../../private-link/private-link-overview.md) in Azure Automation, the DNS records for every supported datacenter have been updated. Instead of region-specific URLs, the URLs are Automation account specific.
 
 | **Region** | **DNS record** |
 | --- | --- |
@@ -78,7 +79,7 @@ To support [Private Link](../private-link/private-link-overview.md) in Azure Aut
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-We recommend that you use the addresses listed when defining [exceptions](automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. An updated IP address file is posted weekly.
+We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. An updated IP address file is posted weekly.
 
 The IP address file lists the IP address ranges that are used in the Microsoft Azure datacenters. It includes compute, SQL, and storage ranges, and reflects currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 
