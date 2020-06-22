@@ -80,10 +80,10 @@ DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data 
 
 Caller must have one of the following permissions to execute OPENROWSET function:
 
-1. One of the permissions to execute OPENROWSET
-  1. ADMINISTER BULK OPERATION enables login to execute OPENROWSET function
-  2. ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
-2. REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
+- One of the permissions to execute OPENROWSET:
+  - ADMINISTER BULK OPERATION enables login to execute OPENROWSET function.
+  - ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
+- REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
 #### Accessing anonymous data sources
 
@@ -106,8 +106,8 @@ CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
 WITH
 (
 LOCATION='/DimProduct/year=*/month=*' ,
-DATA\_SOURCE = AzureDataLakeStore ,
-FILE\_FORMAT = TextFileFormat
+DATA_SOURCE = AzureDataLakeStore ,
+FILE_FORMAT = TextFileFormat
 ) ;
 ```
 
@@ -116,7 +116,7 @@ User with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDE
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL cred
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
- SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
  WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
@@ -124,7 +124,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
  ) ;
 ```
 
-DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source (currently SAS and Managed Identity, in future SAK, Application Identity, Azure Key Vault).
+DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source.
 
 ### Reading external files with EXTERNAL TABLE
 
@@ -136,8 +136,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Caller must have the following permissions to read data:
-1. SELECT permission ON external table
-2. REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
+- SELECT permission ON external table
+- REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
 
 ## Permissions
 
@@ -145,13 +145,13 @@ The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
-| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\&lt;URL\&gt; for SAS-protected storage |
+| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::<URL> for SAS-protected storage |
 | OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
 | OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
 | CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
 | CREATE EXTERNAL TABLE | CREATE TABLE, ALTER ANY SCHEMA, ALTER ANY EXTERNAL FILE FORMAT, ALTER ANY EXTERNAL DATA SOURCE |
 | SELECT FROM EXTERNAL TABLE | SELECT TABLE |
-| CETAS | -- For create table - CREATE TABLE ALTER ANY SCHEMA ALTER ANY DATA SOURCE+ALTER ANY EXTERNAL FILE FORMAT<br/>-- To read: ADMIN BULK OPERATIONS+REFERENCES CREDENTIAL or SELECT TABLE per each table/view/function in query + R/W permission on storage |
+| CETAS | To create table - CREATE TABLE ALTER ANY SCHEMA ALTER ANY DATA SOURCE+ALTER ANY EXTERNAL FILE FORMAT. To read data: ADMIN BULK OPERATIONS+REFERENCES CREDENTIAL or SELECT TABLE per each table/view/function in query + R/W permission on storage |
 
 ## Next steps
 
