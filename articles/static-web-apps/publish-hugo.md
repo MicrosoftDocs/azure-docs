@@ -128,9 +128,9 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Click the **Next: Build >** button to edit the build configuration
 
-1. Set _App location_ to **public**.
+1. Set _App location_ to **/**.
 
-1. Leave the _App artifact location_ blank.
+1. Set _App artifact location_ to **public**.
 
    A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
 

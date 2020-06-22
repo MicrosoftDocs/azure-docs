@@ -41,9 +41,6 @@ Before you begin this tutorial, you should:
 
 [Review](migrate-architecture.md) the migration architecture.
 
-
-
-
 ## Prepare Azure
 
 Prepare Azure for migration with Server Migration.
@@ -88,7 +85,10 @@ Make sure machines comply with requirements for migration to Azure.
 
 1. [Verify](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements.
 2. Verify that on-premises machines that you replicate to Azure comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-
+3. There are some changes needed on VMs before you migrate them to Azure.
+    - For some operating systems, Azure Migrate makes these changes automatically. 
+    - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure. 
+Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ### Prepare a machine for the replication appliance
 

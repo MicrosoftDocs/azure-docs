@@ -169,8 +169,8 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/""[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
@@ -519,7 +519,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start and end with alphanumeric. |
+> | namespaces | global | 6-50 | Alphanumerics and hyphens<br><br>Start with letter. End with alphanumeric. |
 > | namespaces / AuthorizationRules | namespace | 1-256 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 > | namespaces / notificationHubs | namespace | 1-260 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
 > | namespaces / notificationHubs / AuthorizationRules | notification hub | 1-256 | Alphanumerics, periods, hyphens, and underscores.<br><br>Start alphanumeric. |
