@@ -52,6 +52,12 @@ Microsoft Teams desktop clients for Windows and Mac support modern authenticatio
 
 For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
 
+## Why are some tabs not working in Microsoft Teams after enabling Conditional Access policies?
+
+After enabling some Conditional Access policies on the tenant in Microsoft Teams, certain tabs may no longer function in the desktop client as expected. However, the affected tabs function when using the Microsoft Teams web client. The tabs affected may include PowerBI, Forms, VSTS, PowerApps, and SharePoint List.
+
+To see the affected tabs you must use the Teams web client in Edge, Internet Explorer, or Chrome with the Windows 10 Accounts extension installed. Some tabs depend on web authentication, which doesn't work in the Microsoft Teams desktop client when Conditional Access is enabled. Microsoft is working with partners to enable these scenarios. To date we have enabled Planner, OneNote, and Stream.
+
 ## Next steps
 
 - To configure Conditional Access policies for your environment, see the [Best practices for Conditional Access in Azure Active Directory](best-practices.md). 
