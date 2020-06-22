@@ -485,7 +485,7 @@
       displayName: bugs, errors, troubleshoot
       href: resource-known-issues.md
     - name: User forum
-      href: https://aka.ms/aml-forum-service
+      href: https://docs.microsoft.com/answers/topics/azure-machine-learning.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
