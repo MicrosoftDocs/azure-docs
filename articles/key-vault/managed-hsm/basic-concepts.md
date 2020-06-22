@@ -1,29 +1,29 @@
 ---
-title: What is Azure Key Vault? | Microsoft Docs
-description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
+title: What is Azure Key Vault Managed HSM? | Microsoft Docs
+description: Learn about Managed HSM basic concepts..
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat   
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/18/2019
-ms.author: mbaldwin
-#Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
+ms.date: 09/17/2020
+ms.author: ambapat
+#Customer intent: As someone new to Managed HSM, I'm trying to learn basic concepts that can help me understand Managed HSM documentation.
 ---
 # Azure Key Vault basic concepts
 
-Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A vault is a logical group of secrets.
+Azure Key Vault Managed HSM is a tool for securely storing and managing encryption keys. To use Managed HSM, you create a Managed HSM pool via Azure Resource Manager. An HSM pool consists of multiple HSMs for high availability, resiliency and load-balancing.
 
 Here are other important terms:
 
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used to refer to the set of Azure and Office 365 services for an organization.
 
-- **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
+- **Managed HSM Administrators**: Users who are assigned the Administrator role have complete control over a Managed HSM pool. They can create more role assignments to delegate controlled access to other users.
 
-- **Vault consumer**: A vault consumer can perform actions on the assets inside the key vault when the vault owner grants the consumer access. The available actions depend on the permissions granted.
+- **Managed HSM Crypto Officer/User**: Built-in roles that are usually assigned to users or service principals that will perform cryptographic operations using keys in Managed HSM. Crypto User can create new keys, but cannot delete keys.
 
 - **Resource**: A resource is a manageable item that's available through Azure. Common examples are virtual machine, storage account, web app, database, and virtual network. There are many more.
 
