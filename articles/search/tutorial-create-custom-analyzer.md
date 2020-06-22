@@ -1,5 +1,5 @@
 ---
-title: 'REST API tutorial areate a custom analyzer'
+title: 'REST API tutorial create a custom analyzer'
 titleSuffix: Azure Cognitive Search
 description: Learn how to build a custom analyzer to improve the quality of search results in Azure Cognitive Search.
 manager: liamca
@@ -247,7 +247,7 @@ All of search comes down to searching for these tokens. When a user issues a que
 1. The inverted index is then scanned for documents with matching tokens
 1. Finally, the results are ranked by feeding the matching tokens into a [similarity algorithm](index-ranking-similarity.md) to score the results.
 
-  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture.PNG)
+  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 If the tokens from your query don't match the tokens in your inverted index, results won't be returned.
 
