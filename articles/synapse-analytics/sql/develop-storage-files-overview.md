@@ -216,7 +216,7 @@ You can find query samples for accessing elements from repeated columns in the [
 
 ## Query samples
 
-You can learm more about querying various types of data using the sample queries.
+You can learn more about querying various types of data using the sample queries.
 
 ### Tools
 
