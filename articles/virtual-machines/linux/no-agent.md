@@ -188,7 +188,7 @@ WantedBy=multi-user.target
 
 This systemd service does three things for basic provisioning:
 
-1. Reports ready to Azure (to indicate that it came up succuessfully).
+1. Reports ready to Azure (to indicate that it came up successfully).
 1. Renames the VM based off of the user-supplied VM name by pulling this data from IMDS.
 1. Disables itself so that it only runs on first boot and not on subsequent reboots.
 
