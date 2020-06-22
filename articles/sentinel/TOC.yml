@@ -40,7 +40,7 @@
         href: connect-aws.md
       - name: Azure AD
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Microsoft 365
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
