@@ -560,7 +560,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 ## Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Manage the Azure app
 

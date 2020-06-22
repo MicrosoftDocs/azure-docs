@@ -11,7 +11,7 @@
     items: 
     - name: Portal
       href: quickstart-create-databricks-workspace-portal.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: quickstart-create-databricks-workspace-powershell.md
     - name: ARM template
       displayName: Resource Manager
@@ -860,14 +860,14 @@
       - name: Model inference examples
         href: /azure/databricks/applications/deep-learning/inference/model-inference-examples
         maintainContext: true 
-      - name: Model inference using Keras
+      - name: Model inference using TensorFlow Keras
         href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-keras
         maintainContext: true 
       - name: Model inference using PyTorch
         href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-pytorch
         maintainContext: true 
-      - name: Model inference using TensorFlow
-        href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
+      - name: Model inference using TensorFlow and TensorRT
+        href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorrt
         maintainContext: true
       - name: Model inference performance tuning
         href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
@@ -1072,14 +1072,22 @@
         maintainContext: true
     - name: GDPR best practices
       href: /azure/databricks/security/privacy/gdpr-delta
+      maintainContext: true
+    - name: Data governance best practices
+      href: /azure/databricks/security/data-governance
+      maintainContext: true
     - name: IP access list
-      href: /azure/databricks/security/network/ip-access-list     
+      href: /azure/databricks/security/network/ip-access-list
+      maintainContext: true
     - name: Encrypt traffic between cluster worker nodes
       href: /azure/databricks/security/encryption/encrypt-otw
+      maintainContext: true
     - name: Enable customer-managed keys for notebooks
       href: /azure/databricks/security/keys/customer-managed-key-notebook
+      maintainContext: true
     - name: Enable customer-managed keys for DBFS
       href: /azure/databricks/security/keys/customer-managed-keys-dbfs
+      maintainContext: true
   - name: Administration
     items:
     - name: Administration overview
@@ -1196,6 +1204,8 @@
       - name: User-defined route settings 
         href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
         maintainContext: true
+      - name: MySQL IP addresses
+        href: mysql-ip-address.md
   - name: Troubleshooting
     items:
     - name: Common questions
@@ -1886,13 +1896,13 @@
         - name: Runtime releases
           href: /azure/databricks/release-notes/runtime/releases
           maintainContext: true
-        - name: Databricks Runtime 7.0 (Beta)
+        - name: Databricks Runtime 7.0 
           href: /azure/databricks/release-notes/runtime/7.0
           maintainContext: true
         - name: Databricks Runtime 7.0 ML (Beta)
           href: /azure/databricks/release-notes/runtime/7.0ml
           maintainContext: true
-        - name: Databricks Runtime 7.0 Genomics (Beta)
+        - name: Databricks Runtime 7.0 Genomics 
           href: /azure/databricks/release-notes/runtime/7.0genomics
           maintainContext: true
         - name: Databricks Runtime 6.6

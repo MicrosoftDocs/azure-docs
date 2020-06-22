@@ -80,7 +80,7 @@ You can move the resources in the group to another resource group. For more info
 
 Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
 
-1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
+1. Open the resource group you want to lock.  See [Open resource groups](#open-resource-groups).
 2. In the left pane, select **Locks**.
 3. To add a lock to the resource group, select **Add**.
 4. Enter **Lock name**, **Lock type**, and **Notes**. The lock types include **Read-only**, and **Delete**.

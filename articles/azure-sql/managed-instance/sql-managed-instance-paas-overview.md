@@ -160,12 +160,12 @@ The following table summarizes operations and typical overall durations:
 
 ### Instance availability during management operations
 
-SQL Managed Instance is not available to client applications during deployment and deletion operations.
-
-SQL Managed Instance is available during update operations, except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [accelerated database recovery](../accelerated-database-recovery.md).
+SQL Managed Instance **is available during update operations**, except a short downtime caused by the failover that happens at the end of update. It typically lasts up to 10 seconds even in case of interrupted long-running transactions, thanks to the [accelerated database recovery](../accelerated-database-recovery.md).
 
 > [!IMPORTANT]
 > It's not recommended to scale compute or storage of Azure SQL Managed Instance or to change the service tier at the same time with the long-running transactions (data import, data processing jobs, index rebuild, etc.). Database failover that will be performed at the end of the operation will cancel all ongoing transactions.
+
+SQL Managed Instance is not available to client applications during deployment and deletion operations.
 
 ### Management operations cross-impact
 
