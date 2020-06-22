@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
@@ -27,7 +27,7 @@ With media optimization for Microsoft Teams, the Windows Desktop client handles 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 - Install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
@@ -48,7 +48,7 @@ To enable Teams per-machine installation, set the following registry key on the 
 
 ### Install the Teams WebSocket Service
 
-Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vkL6) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 ### Install Microsoft Teams
 
@@ -132,7 +132,7 @@ If you encounter issues with calls and meetings, collect Teams Web client logs w
 
 ## Contact Microsoft Teams support
 
-To contact Microsoft Teams support, go to the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+To contact Microsoft Teams support, go to the [Microsoft 365 admin center](/microsoft-365/admin/contact-support-for-business-products).
 
 ## Customize Remote Desktop Protocol properties for a host pool
 

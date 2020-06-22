@@ -270,9 +270,12 @@ Customers are usually billed monthly for any purchases in the previous billing c
 
 ### How often will I receive payouts for sales through the commercial marketplace?
 
-Payouts happen monthly. Collections processed in the previous month are paid out at once, and the sales must have a minimum combined value of $50.00.
+Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout Policy Details](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
 
-Credit card subscriptions and purchases are billed monthly, and invoices against a Microsoft Customer Agreement or Enterprise Agreement might be less frequent. From the time that customers are billed, we give them 30 days to pay. After we receive their payment, credit card transactions go into a 30-day escrow period.
+- For transactions where the customer used an Enterprise Agreement, payouts are issued in the next payout cycle 30-days post customer invoice. 
+- For transactions where the customer used a credit card, there is an additional 30-day escrow period after we receive payment to ensure funds clear and there are no chargebacks or suspected fraud.
+
+Payouts are issued only when sales have reached a minimum combined value of $50.00.
 
 For more information, see [Payment thresholds, methods, and time frames](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
 

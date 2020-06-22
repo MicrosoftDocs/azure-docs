@@ -52,7 +52,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Import a database from a BACPAC file](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Imports a database to SQL Database from a BACPAC file. |
 |||
 
-Learn more about the [single-database Azure CLI API](single-database-manage.md#azure-cli).
+Learn more about the [single-database Azure CLI API](single-database-manage.md#the-azure-cli).
 
 # [Azure SQL Managed Instance](#tab/managed-instance)
 
@@ -70,6 +70,6 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 
 For additional SQL Managed Instance examples, see the [create](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [update](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [move a database](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
 
-Learn more about the [SQL Managed Instance Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-manage-managed-instances).
+Learn more about the [SQL Managed Instance Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 
 ---

@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
 ---
 
@@ -38,14 +38,39 @@ In addition to the built-in roles, users may also create [custom roles](../role-
 
 ## Preventing changes from Cosmos SDK
 
-The Cosmos resource provider can be locked down to prevent any changes to resources including Cosmos account, databases, containers and throughput from any client connecting via account keys (i.e. applications connecting via Cosmos SDK). When set, changes to any resource must be from a user with the proper RBAC role and credentials. This capability is set with `disableKeyBasedMetadataWriteAccess` property value in the Cosmos resource provider. An example of an Azure Resource Manager template with this property setting is below.
+> [!WARNING]
+> Enabling this feature can have dangerous impact on your application. Please thoroughly read before enabling this feature.
+
+The Azure Cosmos DB resource provider can be locked down to prevent any changes to resources made from any client connecting using account keys (i.e. applications connecting via Cosmos SDK). This also includes changed made from the Azure portal. This may be desirable for users who want higher degrees of control and governance for production environments and enable features such as resource locks and also enable diagnostic logs for control plane operations. Clients connecting via Cosmos DB SDK will be prevented from changing any property for Cosmos accounts, databases, containers, and throughput. Operations involving reading and writing data to Cosmos containers themselves are not impacted.
+
+When set, changes to any resource can only be made from a user with the proper RBAC role and Azure Active Directory credentials including Managed Service Identities.
+
+### Check list before enabling
+
+This setting will prevent any changes to any Cosmos resource from any client connecting using account keys including any Cosmos DB SDK, any tools that connect via account keys, or from the Azure portal. To prevent issues or errors from applications after enabling this feature, check if  applications or Azure portal users perform any of the following actions before enabling this feature, including:
+
+- Any change to the Cosmos account including any properties or adding or removing regions.
+
+- Creating, deleting child resources such as databases and containers. This includes resources for other API's such as Cassandra, MongoDB, Gremlin and table resources.
+
+- Updating throughput on database or container level resources.
+
+- Modifying container properties including index policy, TTL and unique keys.
+
+- Modifying stored procedures, triggers or user-defined functions.
+
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+
+### Set via ARM Template
+
+To set this property using an ARM template, update your existing template or export a new template for your current deployment, then include the `"disableKeyBasedMetadataWriteAccess": true` to the properties for the databaseAccounts resources. Below is a basic example of an Azure Resource Manager template with this property setting.
 
 ```json
 {
     {
       "type": "Microsoft.DocumentDB/databaseAccounts",
       "name": "[variables('accountName')]",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-04-01",
       "location": "[parameters('location')]",
       "kind": "GlobalDocumentDB",
       "properties": {
@@ -57,11 +82,25 @@ The Cosmos resource provider can be locked down to prevent any changes to resour
     }
 }
 ```
-If you export an existing Resource Manager template and update it with this property, it can completely replace the functionality of your template. So if all values are not included, they will be reset to default. Another way to disable the key-based metadata write access is by using Azure CLI as shown in the following command:
 
-```cli
-az cosmosdb update  --name CosmosDBAccountName --resource-group ResourceGroupName  --disable-key-based-metadata-write-access true
+> [!IMPORTANT]
+> Make sure you include the other properties for your account and child resources when redploying with this property. Do not deploy this template as is or it will reset all of your account properties.
 
+### Set via Azure CLI
+
+To enable using Azure CLI use the command below:
+
+```azurecli-interactive
+az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true
+
+```
+
+### Set via PowerShell
+
+To enable using Azure PowerShell, use the command below:
+
+```azurepowershell-interactive
+Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBAccountName] -DisableKeyBasedMetadataWriteAccess true
 ```
 
 ## Next steps

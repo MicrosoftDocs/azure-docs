@@ -4,7 +4,7 @@ description: This article shows you how to migrate Azure Application Gateway and
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ---

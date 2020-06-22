@@ -4,24 +4,20 @@ description: Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
 
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network.
+This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a VNet. VNet Integration doesn't enable your apps to be accessed privately.
 
-Azure App Service has two variations:
+Azure App Service has two variations on the VNet Integration feature:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## Enable VNet Integration
-
-> [!NOTE]
-> If the "Networking” blade is disabled (grayed out) in the menu for your Linux apps, it means that feature is currently not available.
->
 
 1. Go to the **Networking** UI in the App Service portal. Under **VNet Integration**, select **Click here to configure**.
 
@@ -70,8 +66,8 @@ Gateway-required VNet Integration supports connecting to a VNet in another regio
 
 You can't use gateway-required VNet Integration:
 
-* With Linux apps.
 * With a VNet connected with Azure ExpressRoute.
+* From a Linux app
 * To access service endpoint secured resources.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 

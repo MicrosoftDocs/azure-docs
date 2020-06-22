@@ -4,7 +4,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/23/2019
+ ms.date: 06/15/2020
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -38,9 +38,22 @@ The following VM sizes are not supported for Spot VMs:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
 
-Spot VMs can't currently use ephemeral OS disks.
-
 Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet.
+
+Some subscription channels are not supported:
+
+<a name="channel"></a>
+
+| Azure Channels               | Azure Spot VMs Availability       |
+|------------------------------|-----------------------------------|
+| Enterprise Agreement         | Yes                               |
+| Pay As You Go                | Yes                               |
+| Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Benefits                     | Not available                     |
+| Sponsored                    | Not available                     |
+| Free Trial                   | Not available                     |
+
+
 
 ## Pricing
 
@@ -70,23 +83,6 @@ With variable pricing, you have option to set a max price, in US dollars (USD), 
 **Q:** Can I request for additional quota for Spot?
 
 **A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**Q:** What channels support Spot VMs?
-
-**A:** See the table below for Spot VM availability.
-
-<a name="channel"></a>
-
-| Azure Channels               | Azure Spot VMs Availability       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Microsoft Customer Agreement | Yes                               |
-| Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
-| Free Trial                   | Not available                     |
 
 
 **Q:** Where can I post questions?

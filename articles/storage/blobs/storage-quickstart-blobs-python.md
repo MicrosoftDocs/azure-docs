@@ -8,6 +8,7 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: tracking-python
 ---
 
 # Quickstart: Manage blobs with Python v12 SDK
@@ -285,5 +286,5 @@ To see Blob storage sample apps, continue to:
 > [!div class="nextstepaction"]
 > [Azure Blob storage SDK v12 Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* To learn more, see the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* To learn more, see the [Azure Storage client libraries for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
 * For tutorials, samples, quickstarts, and other documentation, visit [Azure for Python Developers](/azure/python/).

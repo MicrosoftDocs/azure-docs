@@ -155,7 +155,6 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## I used to see data, but it has stopped
-* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## I don't see all the data I'm expecting

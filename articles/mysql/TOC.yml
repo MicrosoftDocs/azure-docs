@@ -87,7 +87,7 @@
       href: concepts-pricing-tiers.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
-    - name: Limits
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
@@ -132,6 +132,8 @@
       href: concepts-query-performance-insight.md
     - name: Performance Recommendations
       href: concepts-performance-recommendations.md
+    - name: Server parameters
+      href: concepts-server-parameters.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -190,6 +192,8 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Configure TLS
+      href: howto-tls-configurations.md
     - name: Web apps
       href: howto-connect-webapp.md
     - name: Connect with redirection

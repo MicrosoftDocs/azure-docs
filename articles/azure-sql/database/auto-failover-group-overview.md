@@ -224,9 +224,9 @@ If your application uses SQL Managed Instance as the data tier, follow these gen
 To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional `DNS Zone Partner` parameter using the Azure portal, PowerShell, or the REST API.
 
 > [!IMPORTANT]
-> The first SQL Managed Instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
+> The first managed instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
-For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### Enabling replication traffic between two instances
 
