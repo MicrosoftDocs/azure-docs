@@ -39,7 +39,7 @@ Before you begin, make sure that you're familiar with the [device identity manag
 
 ### Benefits
 
-The key benefits of giving your devcies an Azure AD identity:
+The key benefits of giving your devices an Azure AD identity:
 
 * Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](/azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
 
