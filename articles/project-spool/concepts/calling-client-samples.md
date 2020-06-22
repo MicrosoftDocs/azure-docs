@@ -175,7 +175,7 @@ call.handlePushNotificationWithCompletionHandler(jsonPayload,
 ```
 #### [.NET](#tab/dotnet)
 ```.NET
-\\ NA
+// NA
 ```
 ---
 
@@ -209,6 +209,14 @@ call.mute(completionHandler: nil);
 
 //unmute local device 
 call.unmute(completionHandler: nil);
+```
+#### [.NET](#tab/dotnet)
+```.NET
+//mute local device
+call.Mute();
+
+//unmute local device
+call.Unmute();
 ```
 ---
 
@@ -301,6 +309,10 @@ RemoteParticipant[] remoteParticipants = call.getRemoteParticipants();
 ```swift
 call.remoteParticipants
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+IReadOnlyList<RemoteParticipant> remoteParticipants = call.RemoteParticipants;
+```
 --- 
 
 #### Remote participant has set of properties
@@ -370,6 +382,24 @@ var videoStreams = remoteParticipant.videoStreams; // [ACSRemoteVideoStream, ACS
 // ACSRemoteVideoStream[] - collection of screen sharing streams this participants has
 var screenSharingStreams = remoteParticipant.screenSharingStreams; // [ACSRemoteVideoStream, ACSRemoteVideoStream, ...]
 ```
+#### [.NET](#tab/dotnet)
+```.NET
+
+/// Private Preview Only: Identity of the remote participant
+public string Identity { get; }
+
+/// Private Preview Only: Display Name of the remote participant
+public string DisplayName { get; }
+
+/// True if the remote participant is muted
+public bool IsMuted { get; }
+
+/// True if the remote participant is speaking
+public bool IsSpeaking { get; }
+
+/// Reason why participant left the call, contains code/subcode/message.
+public AcsError CallEndReason { get; set; }
+```
 --- 
 
 #### Add participant to a call
@@ -388,6 +418,10 @@ RemoteParticipant remoteParticipant = call.addParticipant("userId");
 #### [iOS (Swift)](#tab/swift)
 ```swift
 ACSRemoteParticipant* remoteParticipant = self.call.addParticipant("userId");
+```
+#### [.NET](#tab/dotnet)
+```.NET
+var remoteParticipant = call.AddParticipant("userId");
 ```
 --- 
 
