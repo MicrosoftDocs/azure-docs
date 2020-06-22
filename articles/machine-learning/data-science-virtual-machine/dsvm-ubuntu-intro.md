@@ -50,7 +50,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine Ubu
 
        * **Username**: Enter the administrator username. This is the username you will use to log into your virtual machine, and need not be the same as your Azure username. Do *not* use capitalized letters.
          
-         > [!NOTE]
+         > [!IMPORTANT]
          > If you use capitalized letters in your username, JupyterHub will not work, and you will encounter a 500 internal server error.
 
        * **Password**: Enter the password you will use to log into your virtual machine.    
@@ -120,6 +120,9 @@ The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a m
    1. Enter the username and password that you used to create the VM, and sign in. 
 
       ![Enter Jupyter login](./media/dsvm-ubuntu-intro/jupyter-login.png)
+
+>[!NOTE]
+> If you receive a 500 Error at this stage, it is likely that you used capitalized letters in your username. This is a known interaction between Jupyter Hub and the PAMAuthenticator it uses. 
 
    1. Browse the many sample notebooks that are available.
 
