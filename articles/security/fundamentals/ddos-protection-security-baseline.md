@@ -64,7 +64,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Responsibility**: Not applicable
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
 
@@ -683,7 +683,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -703,7 +703,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -741,7 +741,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -827,7 +827,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -835,7 +835,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
@@ -843,7 +843,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
 
