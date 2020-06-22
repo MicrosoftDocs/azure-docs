@@ -39,6 +39,6 @@ To create your complete data warehouse solution using Synapse SQL pool within Az
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## Next Steps
-To learn more about some of our other partners, see [Data Integration partners](sql-data-warehouse-partner-data-integration.md) and [Data Management partners](sql-data-warehouse-partner-data-management.md).
+To learn more about some of our other partners, see [Data Integration partners](sql-data-warehouse-partner-data-integration.md), [Data Management partners](sql-data-warehouse-partner-data-management.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-and-ai.md).
 
  

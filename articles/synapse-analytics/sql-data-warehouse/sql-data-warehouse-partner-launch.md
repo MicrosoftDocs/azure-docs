@@ -13,7 +13,7 @@ ms.reviewer: mabasile
 ms.custom: seo-lt-2019
 ---
 
-# Azure Synapse Analytics Launch Partners
+# Azure Synapse Analytics Launch partners
 
 Azure Synapse Analytics partners come with deep integration tools & delivery expertise across industries to help our customers accelerate their digital transformation with cloud scale analytics. Check out the offerings from the following partners who are supporting the launch of public preview on May 19 with social amplification, workshops, and offers.
 
@@ -37,6 +37,6 @@ Azure Synapse Analytics partners come with deep integration tools & delivery exp
 | ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Talend Cloud**<br>Talend Cloud is an enterprise data integration platform to connect, access, and transform any data across the cloud or on-premises. It's an integration platform-as-a-service (iPaaS) that provides broad connectivity, built-in data quality, and native support for the latest big data and cloud technologies. |[Product page](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
 
 ## Next Steps
-To learn more about some of our other partners, see [Business intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Integration partners](sql-data-warehouse-partner-data-integration.md), and [Data Management partners](sql-data-warehouse-partner-data-management.md).
+To learn more about some of our other partners, see [Business intelligence partners](sql-data-warehouse-partner-business-intelligence.md), [Data Integration partners](sql-data-warehouse-partner-data-integration.md), [Data Management partners](sql-data-warehouse-partner-data-management.md) and [Machine Learning and AI partners](sql-data-warehouse-partner-machine-learning-and-ai.md)..
 
  
