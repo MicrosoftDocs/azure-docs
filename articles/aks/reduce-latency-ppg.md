@@ -85,7 +85,7 @@ Run the following command, and store the ID that is returned:
 az ppg create -n myPPG -g myPPGGroup -l centralus -t standard
 ```
 
-Use the proximity placement group ID for the *ppg parameter* below (myResourceID):
+Use the proximity placement group ID for the *myResourceID* value in the below command:
 
 ```azurecli-interactive
 # Create an AKS cluster
