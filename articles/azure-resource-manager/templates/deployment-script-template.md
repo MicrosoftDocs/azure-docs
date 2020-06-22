@@ -362,7 +362,7 @@ Using Azure CLI, you can manage deployment scripts at subscription or resource g
 - [az deployment-scripts show](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show):	Retrieve a deployment script.
 - [az deployment-scripts show-log](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log):	Show deployment script logs.
 
-The list command output is simliar to:
+The list command output is similar to:
 
 ```json
 [
