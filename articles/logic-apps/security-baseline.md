@@ -407,9 +407,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
-**Guidance**: &lt;For service owner review&gt;
-
-[Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your Recovery Services vaults via API calls.
+**Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your Recovery Services vaults via API calls.
 
 Many connectors also require that you first create a connection to the target service or system and provide authentication credentials or other configuration details before you can use a trigger or action in your logic app. For example, you must authorize a connection to a Twitter account for accessing data or to post on your behalf.]
 
@@ -421,7 +419,7 @@ For connectors that use Azure Active Directory (Azure AD) OAuth, creating a conn
 
 * [Workflow Triggers API information](https://docs.microsoft.com/rest/api/logic/workflowtriggers)
 
-* [[Understand connector configuration](https://docs.microsoft.com/azure/connectors/apis-list])
+* [Understand connector configuration](https://docs.microsoft.com/azure/connectors/apis-list])
 
 **Azure Security Center monitoring**: N/A
 
