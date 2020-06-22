@@ -33,7 +33,7 @@ Our recommendation is to use a vault per application per environment (Developmen
 
 Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
 
-### Azure Powershell Backup Commands
+### Azure PowerShell Backup Commands
 
 * [Backup Certificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
 * [Backup Key](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
