@@ -23,13 +23,13 @@ For more information on what is vs. what isn't currently supported, read the [SQ
 
 When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
 
-## Extensions
+## Overview
 
 To support a smooth experience for in place querying of data that's located in Azure Storage files, SQL on-demand uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
 
 - [Query multiple files or folders](#query-multiple-files-or-folders)
-- [PARQUET file format](#parquet-file-format)
-- [Additional options for working with delimited text (field terminator, row terminator, escape char)](#additional-options-for-working-with-delimited-text)
+- [PARQUET file format](#query-parquet-files)
+- [Query CSV and delimited text (field terminator, row terminator, escape char)](#query-csv-files)
 - [Read a chosen subset of columns](#read-a-chosen-subset-of-columns)
 - [Schema inference](#schema-inference)
 - [filename function](#filename-function)
