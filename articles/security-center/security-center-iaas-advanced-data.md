@@ -17,41 +17,38 @@ ms.author: memildin
 ---
 
 # Advanced data security for SQL machines (Preview)
-Advanced data security for SQL machines is a unified package for advanced SQL security capabilities. This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database. 
 
-This offering is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse, and SQL Managed Instances.
+Azure Security Center's advanced data security for SQL machines protects SQL Servers hosted in Azure, on other cloud environments, and even on-premises machines. This extends the protections for your Azure-native SQL Servers to fully support hybrid environments.
 
+This preview feature includes functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your database: 
 
-## Overview
+* **Vulnerability assessment** - The scanning service to discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
 
-Advanced data security provides a set of advanced SQL security capabilities, consisting of Vulnerability assessment and Advanced Threat Protection.
+* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) - The detection service that continuously monitors your SQL servers for threats such as SQL injection, brute-force attacks, and privilege abuse. This service provides action-oriented security alerts in Azure Security Center with details of the suspicious activity, guidance on how to mitigate to the threats, and options for continuing your investigations with Azure Sentinel.
 
-* **Vulnerability assessment** is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. Assessment scans provide an overview of your SQL machines' security state, and details of any security findings. 
-
-* [Advanced Threat Protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
-
+>[!TIP]
+> Advanced data security for SQL machines is an extension of Azure Security Center's [advanced data security package](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security), already available for Azure SQL Databases, Synapse, and SQL Managed Instances.
 
 
 ## Set up advanced data security for SQL machines 
 
 Setting up Azure Security Center's advanced data security for SQL machines involves two steps:
 
-* Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure. 
+* Provision the Log Analytics agent on your SQL server's host. This provides the connection to Azure.
 
-* Enable the optional bundle in Security Center's pricing and settings page
+* Enable the optional bundle in Security Center's pricing and settings page.
 
 Both of these are described below.
 
 1. Provision the Log Analytics agent on your SQL server's host:
 
-    - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, the procedure is the same as [adding any Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines). It can even be auto provisioned.
+    - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the  Log Analytics agent](security-center-enable-data-collection.md##workspace-configuration). Alternatively, you can follow the manual procedure for [adding an Azure VM](quick-onboard-azure-stack.md#add-the-virtual-machine-extension-to-your-existing-azure-stack-virtual-machines).
 
-    - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, connect it with the Log Analytics agent as described in the [Azure Arc documentation](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows).
+    - **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](https://docs.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
     - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
-        - **Deploy Azure Arc** - You can connect any Windows machine to Security Center. However, to benefit from the security tab in the **SQL Server – Azure Arc** page, set up Azure Arc on the host and follow the instructions for an Azure Arc hosted SQL machine, above.
-        In addition to the alerts appearing in the security tab, Azure Arc provides deeper integration across *all* of your Azure environment.
+        - **Deploy Azure Arc** - You can connect any Windows machine to Security Center. However, Azure Arc provides deeper integration across *all* of your Azure environment. If you set up Azure Arc, you'll see the **SQL Server – Azure Arc** page in the portal and your security alerts will appear on a dedicated **Security** tab on that page. So the first and recommended option is to [set up Azure Arc on the host](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) and follow the instructions for **SQL Server on Azure Arc**, above.
         
         - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
@@ -71,10 +68,7 @@ Both of these are described below.
 
         [![Security Center pricing page with optional bundles](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png)](media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-large.png#lightbox)
 
-    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace or subscription.
-
-    >[!NOTE]
-    > The protection will be fully active after the first restart of the SQL Server. 
+    Advanced Data Security for SQL servers on machines will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server. 
 
     >[!TIP] 
     > To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
