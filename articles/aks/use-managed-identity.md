@@ -41,7 +41,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | azurepolicy | No identity required | NA | No
 | Add-on | Calico | No identity required | NA | No
 | Add-on | Dashboard | No identity required | NA | No
-| Add-on | HTTPApplicationRouting | Manages requited network resources | Reader role for node resource Group, contributor role for DNS zone | No
+| Add-on | HTTPApplicationRouting | Manages requited network resources | Reader role for node resource group, contributor role for DNS zone | No
 | Add-on | Ingress application gateway | | Contributor role for node resource group | No
 | Add-on | omsagent | | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | | Contributor role for node resource group | No
