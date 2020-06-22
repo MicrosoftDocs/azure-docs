@@ -5,7 +5,7 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: quickstart  
-ms.subservice: sql pool  
+ms.subservice: sql  
 ms.date: 3/19/2020  
 ms.author: jrasnick
 ms.reviewer: jrasnick
