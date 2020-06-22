@@ -59,6 +59,8 @@
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
+        - name: Manage DNS record used by Automation
+          href: how-to/automation-region-dns-records.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
         - name: Manage role permissions and security
