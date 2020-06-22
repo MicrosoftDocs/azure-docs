@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB .NET 
 author: j82w
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/16/2020
 ms.author: jawilley
 
 ---
@@ -83,9 +83,8 @@ Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Addi
 For SDK V3, you configure the connection mode when you create the `CosmosClient` instance, in `CosmosClientOptions`. Remember that direct mode is the default.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -94,6 +93,18 @@ new CosmosClientOptions
 
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway.
 
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+
+**Ephemeral port exhaustion**
+
+If you see a high connection volume or high port usage on your instances, first verify that your client instances are singletons. In other words, the client instances should be unique for the lifetime of the application.
+
+When running on the TCP protocol, the client optimizes for latency by using the long-lived connections as opposed to the HTTPS protocol, which terminates the connections after 2 minutes of inactivity.
+
+In scenarios where you have sparse access and if you notice a higher connection count when compared to the gateway mode access, you can:
+
+* Configure the [CosmosClientOptions.PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) property to `PrivatePortPool` (effective with framework version>= 4.6.1 and .net core version >= 2.0): This property allows the SDK to use a small pool of ephemeral ports for different Azure Cosmos DB destination endpoints.
+* Configure the [CosmosClientOptions.IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) property must be greater than or equal to 10 minutes. The recommended values are between 20 minutes and 24 hours.
 
 <a id="same-region"></a>
 
@@ -101,7 +112,8 @@ Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS
 
 When possible, place any applications that call Azure Cosmos DB in the same region as the Azure Cosmos DB database. Here's an approximate comparison: calls to Azure Cosmos DB within the same region complete within 1 ms to 2 ms, but the latency between the West and East coast of the US is more than 50 ms. This latency can vary from request to request, depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. You can get the lowest possible latency by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure regions](https://azure.microsoft.com/regions/#services).
 
-![The Azure Cosmos DB connection policy](./media/performance-tips/same-region.png)
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+
    <a id="increase-threads"></a>
 
 **Increase the number of threads/tasks**

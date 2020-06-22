@@ -32,7 +32,7 @@ Data scientists, analysts, and developers across industries can use automated ML
 
 Classification is a common machine learning task. Classification is a type of supervised learning in which models learn using training data, and apply those learnings to new data. Azure Machine Learning offers featurizations specifically for these tasks, such as deep neural network text featurizers for classification. Learn more about [featurization options](how-to-configure-auto-features.md#featurization). 
 
-The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection.  Learn more and see an example of [classification with automated machine learning](tutorial-train-models-with-aml.md).
+The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. Learn more and see an example at [Create a classification model with automated ML](tutorial-first-experiment-automated-ml.md).
 
 See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
@@ -93,6 +93,10 @@ The following diagram illustrates this process.
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
+
+Learn how to use a [remote compute target](how-to-auto-train-remote.md).
+
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
@@ -266,11 +270,6 @@ The ONNX runtime also supports C#, so you can use the model built automatically 
 
 ## Next steps
 
-> [!Note]
-> Automated machine learning capabilities are also available in other Microsoft solutions such as, 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
-[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
-
 There are multiple resources to get you up and running with AutoML. 
 
 ### Tutorials/ how-tos
@@ -294,4 +293,9 @@ Review detailed code examples and use cases in the [Github notebook repository f
 ### Python SDK reference 
 
 Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+
+> [!Note]
+> Automated machine learning capabilities are also available in other Microsoft solutions such as, 
+[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
+[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
 

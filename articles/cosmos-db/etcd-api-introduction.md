@@ -27,7 +27,7 @@ Azure Cosmos DB implements the wire-protocol of etcd version 3, and allows the [
 
 The following diagram shows the components of a Kubernetes cluster. In the cluster master, the API Server uses Azure Cosmos DB etcd API, instead of locally installed etcd. 
 
-![Azure Cosmos DB implementing the etcd wire-protocol](./media/etcd-api-introduction/etcd-api-wire-protocol.png)
+:::image type="content" source="./media/etcd-api-introduction/etcd-api-wire-protocol.png" alt-text="Azure Cosmos DB implementing the etcd wire-protocol" border="false":::
 
 ## Key benefits
 

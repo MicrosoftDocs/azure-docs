@@ -79,7 +79,7 @@
         href: allbound-sso-tutorial.md  
       - name: Allocadia
         href: allocadia-tutorial.md
-      - name: Ally
+      - name: Ally.io
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
@@ -245,6 +245,8 @@
         href: britive-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
+      - name: BullseyeTDP
+        href: bullseyetdp-tutorial.md
       - name: Bynder
         href: bynder-tutorial.md
     - name: C
@@ -722,6 +724,8 @@
         href: hr2day-tutorial.md
       - name: HRworks Single Sign-On
         href: hrworks-single-sign-on-tutorial.md
+      - name: Hub Planner
+        href: hub-planner-tutorial.md
       - name: HubSpot SAML
         href: hubspot-tutorial.md
       - name: Huddle
@@ -736,6 +740,8 @@
         href: hyperanna-tutorial.md
       - name: IamIP Patent Platform
         href: iamip-patent-platform-tutorial.md
+      - name: IBM Digital Business Automation on Cloud
+        href: ibm-digital-business-automation-on-cloud-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -890,6 +896,8 @@
         href: kindling-tutorial.md
       - name: Kintone
         href: kintone-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-tutorial.md
       - name: Kiteworks
         href: kiteworks-tutorial.md
       - name: Klue
@@ -970,6 +978,8 @@
         href: m-files-tutorial.md
       - name: Mail Luck!
         href: mail-luck-tutorial.md
+      - name: MailGates
+        href: mailgates-tutorial.md
       - name: Manabi Pocket
         href: manabipocket-tutorial.md
       - name: Mapbox
@@ -1242,12 +1252,16 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
+      - name: Proto.io
+        href: proto.io-tutorial.md
       - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
       - name: PurelyHR
         href: purelyhr-tutorial.md
+      - name: pymetrics
+        href: pymetrics-tutorial.md
     - name: Q - R
       items:
       - name: Qlik Sense Enterprise
@@ -1266,6 +1280,8 @@
         href: qumucloud-tutorial.md
       - name: Rackspace SSO
         href: rackspacesso-tutorial.md
+      - name: Raketa
+        href: raketa-tutorial.md
       - name: Rally Software
         href: rally-software-tutorial.md
       - name: Real Links
@@ -1384,6 +1400,8 @@
         href: securejoinnow-tutorial.md
       - name: Sedgwick CMS
         href: sedgwickcms-tutorial.md
+      - name: Segment
+        href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
@@ -1406,6 +1424,8 @@
         href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
+      - name: Shopify Plus
+        href: shopify-plus-tutorial.md
       - name: Showpad
         href: showpad-tutorial.md
       - name: Shuccho Navi

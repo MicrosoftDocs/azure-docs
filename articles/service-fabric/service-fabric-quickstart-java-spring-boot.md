@@ -56,7 +56,7 @@ Inside the *gs-spring-boot/complete* directory, run the command below to build t
     #!/bin/bash
     BASEDIR=$(dirname $0)
     cd $BASEDIR
-    java -jar gs-spring-boot-0.1.0.jar
+    java -jar *spring-boot*.jar
     ```
 
 1. Add the **Endpoints** resource in the *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml* file
