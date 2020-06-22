@@ -97,24 +97,39 @@ The command produces output, which includes the id value you need for upcoming C
 }
 ```
 
-Use the proximity placement group ID for the *myResourceID* value in the below command:
+Use the proximity placement group ID for the *myPPGResourceID* value in the below command:
 
 ```azurecli-interactive
 # Create an AKS cluster
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
-    --node-count 2 \
-    --generate-ssh-keys \
-    --load-balancer-sku standard
-    --ppg myResourceID
+    --ppg myPPGResourceID
 ```
 
 ## Add a proximity placement group to an existing cluster
 
-You can add a proximity placement group to an existing cluster. TODO
+You can add a proximity placement group to an existing cluster by creating a new node pool. You can then optionally migrate exisitng workloads to the new node pool, and then delete the original node pool.
 
+Use the resource ID from the proximity placement group you created earlier, and add a new node pool:
+
+Add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that uses the proximity placement group you created earlier:
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name mynodepool \
+    –-ppg myPPGResourceID
+```
+
+## Clean up
+
+To delete the cluster, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
 
 ## Next steps
 
@@ -133,4 +148,5 @@ You can add a proximity placement group to an existing cluster. TODO
 [proximity-placement-groups]: /virtual-machines/linux/co-location
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 
