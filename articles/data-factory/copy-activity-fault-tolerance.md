@@ -93,8 +93,6 @@ path | The path of the log files. | Specify the path that you use to store the l
 > For skipping particular files when they are verified to be inconsistent between source and destination store:
 > - You can get more details from data consistency doc [here](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-data-consistency).
 
-
-
 ### Monitoring 
 
 #### Output from copy activity
