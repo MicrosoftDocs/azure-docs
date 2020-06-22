@@ -44,7 +44,7 @@ First, create a spoke virtual network where you can place your servers.
 3. Under **Subnet name**, select **default**.
 4. Change the subnet name to **Workload-SN**.
 5. For **Subnet address range**, type **10.0.1.0/24**.
-6. Select **Save**..
+6. Select **Save**.
 
 Next, create a subnet for a jump server.
 
@@ -92,7 +92,7 @@ Now you can peer the hub and spoke VNets.
 5. For **Hubs**, select **Hub-01**.
 6. For **Resource group**, select **FW-Manager**.
 7. For **Virtual network**, select **Spoke-01**.
-8. Select **OK**.
+8. Select **Create**.
 
 ## Create a firewall policy and secure your hub
 
@@ -112,7 +112,7 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 12. For **Source type**, select **IP address**.
 13. For **Source**, type **\***.
 14. For **Protocol**, type **http,https**.
-15. Ensure **Destination type is **FQDN**.
+15. Ensure **Destination type** is **FQDN**.
 16. For **Destination**, type **\*.microsoft.com**.
 17. Select **Add**.
 18. Select **Next: Threat intelligence**.
