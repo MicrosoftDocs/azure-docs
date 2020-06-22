@@ -28447,6 +28447,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-security-tls.md",
+      "redirect_url": "/azure/storage/common/transport-layer-security-configure-minimum-version",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-ruby-how-to-use-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-ruby-how-to-use-blob-storage",
       "redirect_document_id": true
