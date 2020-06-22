@@ -4,7 +4,7 @@ description: Azure security baseline for Azure Data Box
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -32,7 +32,8 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Responsibility**: Not applicable
 
-### 1.2: Monitor and log theconfiguration and traffic of virtual networks, subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+
 
 **Guidance**: Not applicable; your Azure Data Box cannot be associated with a virtual network. You control traffic from the Data Box to Azure-hosted storage via the Azure Portal. When you leverage Data Box, data is transferred over the Azure backbone.
 
@@ -543,7 +544,8 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 **Responsibility**: Microsoft
 
-### 6.4: Define and Maintainan inventory of approved Azure resources
+### 6.4: Define and Maintain an inventory of approved Azure resources
+
 
 **Guidance**: Not applicable; there are none at the Data Box service level.
 
@@ -745,7 +747,8 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 ### 8.1: Use centrally managed anti-malware software
 
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -753,7 +756,7 @@ Azure Data Box implements AES 256-bit encryption for Data-at-rest.Additionally, 
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure Customer Lockbox), however it does not run on customer content.
+**Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Customer Lockbox), however it does not run on customer content.
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
