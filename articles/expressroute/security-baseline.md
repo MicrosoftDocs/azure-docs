@@ -4,7 +4,7 @@ description: Azure security baseline for ExpressRoute
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -148,7 +148,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ### 2.2: Configure central security log management
 
-**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Expressroute resources.
+**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
 
 * [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
@@ -158,7 +158,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resourcess at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
+**Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure ExpressRoute resources at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your ExpressRoute resources.
 
 While metrics are available by enabling Diagnostic Settings, audit logging at the data plane is [not yet available] for ExpressRoute.
 
@@ -441,7 +441,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 * [How to configure Site to Site IPSEC over ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
 
-How to configure Site to Site IPSEC over ExpressRoute : https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -469,7 +469,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 * [Leverage RBAC in the ExpressRoute Partner Resource Manager API](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
-* [Understand administraiton roles in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
+* [Understand administration roles in ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -833,7 +833,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 8.1: Use centrally managed anti-malware software
 
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -841,7 +841,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
-**Guidance**: Microsoft Antimalware is enabled on the underlying host that supports Azure services (for example, Azure ExpressRoute), however it does not run on customer content.
+**Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure ExpressRoute), however it does not run on customer content.
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
@@ -851,7 +851,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ### 8.3: Ensure anti-malware software and signatures are updated
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -911,7 +911,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [How to configure Workflow Automation within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 * [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
