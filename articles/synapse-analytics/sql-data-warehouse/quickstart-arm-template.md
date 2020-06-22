@@ -34,7 +34,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The template creates one resource:
 
-[Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
+- [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
 
 ## Deploy the template
 
