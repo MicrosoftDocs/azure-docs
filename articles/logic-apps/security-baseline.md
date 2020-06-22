@@ -132,7 +132,7 @@ Otherwise, you can leverage a third-party solution from the marketplace to satis
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities. If intrusion detection and/or prevention based on payload inspection is not a requirement, Azure Firewall with Threat Intelligence can be used. Azure Firewall Threat intelligence-based filtering can alert and deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
@@ -180,7 +180,7 @@ Diagnostic logs in Logic Apps should be enabled
 
 DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager (ARM) templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -194,7 +194,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
 
@@ -294,7 +294,7 @@ In Azure Monitor, set log retention period for logs associated with your Azure L
 
 You can also enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Azure Logic Apps.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/monitor-logic-apps-log-analytics)
 
@@ -491,7 +491,7 @@ Azure Logic Apps supports both system-assigned and user-assigned managed identit
 - Azure API Management
 - Azure App Services
 
-* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 * [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/create-managed-service-identity)
 
@@ -765,7 +765,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -803,7 +803,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: N/A
 
@@ -899,7 +899,7 @@ Logic Apps that are required for business operations, but may incur higher risk 
 
 **Guidance**: Define and implement standard security configurations for your Azure Logic Apps instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.Logic" namespace to create custom policies to audit or enforce the configuration of your Logic Apps instances. For example, you can block others from creating or using connections to resources where you want to restrict access.
 
-Additionally, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Additionally, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 Also, use secured parameters to protect sensitive data and secrets.
 
@@ -931,11 +931,11 @@ Also, use secured parameters to protect sensitive data and secrets.
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 Define and implement standard security configurations for your Azure Logic Apps instances with Azure Policy. Use Azure Policy aliases in the "Microsoft.Logic" namespace to create custom policies to audit or enforce the configuration of your Logic Apps instances. For example, you can block others from creating or using connections to resources where you want to restrict access.
 
-Additionally, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Additionally, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 Also, ensure that you secure data in run history by using obfuscation.
 
@@ -969,9 +969,9 @@ Also, ensure that you secure data in run history by using obfuscation.
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-Additionally, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Additionally, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -1011,7 +1011,7 @@ Additionally, Azure Resource Manager has the ability to export the template in J
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Logic" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Logic" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -1139,7 +1139,7 @@ Additionally, you should expand your logic app's underlying workflow definition 
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: Implement a disaster recovery (DR) solution in place so that you can protect data, quickly restore the resources that support critical business functions, and keep operations running to maintain business continuity (BC).
 
@@ -1161,11 +1161,11 @@ Every request endpoint on a logic app has a Shared Access Signature (SAS) in the
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
 **Guidance**: Your disaster recovery strategy should focus on setting up your primary logic app to failover onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
 
-Test restoration of backed up customer managed keys. Note that this applies to Logic Apps running on integration service environments (ISE) only.
+Test restoration of backed up customer-managed keys. Note that this applies to Logic Apps running on integration service environments (ISE) only.
 
 * [Learn more about business continuity and disaster recovery for Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/business-continuity-disaster-recovery-guidance)
 
@@ -1177,11 +1177,11 @@ Test restoration of backed up customer managed keys. Note that this applies to L
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Your disaster recovery strategy should focus on setting up your primary logic app to failover onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
 
-Protect backed up customer managed keys. Note that this applies to Logic Apps running on integration service environments (ISE) only.
+Protect backed up customer-managed keys. Note that this applies to Logic Apps running on integration service environments (ISE) only.
 
 Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.
 
