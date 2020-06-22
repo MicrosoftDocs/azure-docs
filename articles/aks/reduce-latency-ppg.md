@@ -34,9 +34,6 @@ You must have the following resources installed:
 
 ### Set up the preview feature for proximity placement groups
 
-> [!CAUTION]
-> After you register a feature on a subscription, you can't currently unregister that feature. When you enable some preview features, defaults might be used for all AKS clusters created afterward in the subscription. Don't enable preview features on production subscriptions. Instead, use a separate subscription to test preview features and gather feedback.
-
 ```azurecli-interactive
 # register the preview feature
 az feature register --namespace "Microsoft.ContainerService" --name "proximityPlacementGPreview"
