@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -71,15 +71,15 @@ The following example sets the minimum TLS version to 1.2. Remember to replace t
 
 ```azurecli-interactive
 storage_account_id=$(az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
+  --name <storage-account> \
+  --resource-group <resource-group> \
+  --resource-type Microsoft.Storage/storageAccounts \
+  --query id \
+  --output tsv)
 
 az resource update \
-    --ids $storage_account_id \
-    --set properties.minimumTlsVersion="TLS1_2"
+  --ids $storage_account_id \
+  --set properties.minimumTlsVersion="TLS1_2"
 ```
 
 > [!NOTE]
@@ -89,7 +89,7 @@ az resource update \
 
 To determine the minimum TLS version that is configured for a storage account, check the Azure Resource Manager **minimumTlsVersion** property ???will be available in both ARM and SRP? i'm a bit confused on relationship???. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer. ???when SRP support is available, i will also note here that you can use List Storage Accounts for a small number of accounts???
 
-## Check the minimum TLS version for a single storage account
+### Check the minimum TLS version for a single storage account
 
 To check the minimum TLS version for a single storage account using Azure CLI, call the **az resource show** command and query for the **minimumTlsVersion** property:
 
@@ -102,7 +102,7 @@ az resource show \
     --output tsv
 ```
 
-## Check the minimum TLS version for a set of storage accounts
+### Check the minimum TLS version for a set of storage accounts
 
 To check the minimum TLS version across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
@@ -144,20 +144,18 @@ For the client to negotiate TLS 1.2, the OS and the .NET Framework version both 
 The following sample shows how to enable TLS 1.2 in your .NET client.
 
 ```csharp
+static void EnableTls12()
+{
+    // Enable TLS 1.2 before connecting to Azure Storage
+    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
-    static void EnableTls12()
-    {
-        // Enable TLS 1.2 before connecting to Azure Storage
-        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+    // Connect to Azure Storage
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName={yourstorageaccount};AccountKey={yourstorageaccountkey};EndpointSuffix=core.windows.net");
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-        // Connect to Azure Storage
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName={yourstorageaccount};AccountKey={yourstorageaccountkey};EndpointSuffix=core.windows.net");
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-        CloudBlobContainer container = blobClient.GetContainerReference("foo");
-        container.CreateIfNotExists();
-    }
-
+    CloudBlobContainer container = blobClient.GetContainerReference("foo");
+    container.CreateIfNotExists();
+}
 ```
 
 ## Test the minimum TLS version from a client
@@ -165,6 +163,8 @@ The following sample shows how to enable TLS 1.2 in your .NET client.
 When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version of the connection is not permitted on this storage account.
 
 verify with fiddler
+
+
 
 ## Next steps
 
