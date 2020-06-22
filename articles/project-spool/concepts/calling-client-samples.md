@@ -53,6 +53,14 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 }));
 
 ```
+For .NET, to create a `CallClient`, you have to instantiate a `CallClientManager` object and asynchronously wait for it to be initialized. You must pass in a tokenProvider object of type `ITokenProvider` as well as an `InitializationOptions` object.
+
+#### [.NET](#tab/dotnet)
+```.NET
+sessionClient = new CallClientManager();
+await sessionClient.Initialize(tokenProvider, new InitializationOptions());
+var callClient = sessionClient.AdHocCallClient;
+```
 --- 
 
 ## Make outgoing call
@@ -78,6 +86,11 @@ call = callClient.call(participants, callOptions);
 ```swift
 let placeCallOptions = ACSPlaceCallOptions();
 let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(participants: ['acsUserId'], options: placeCallOptions);
+```
+#### [.NET](#tab/dotnet)
+```.NET
+var options = new PlaceCallOptions();
+call = callClient.Call(new[] { callee }, options);
 ```
 ---
 
@@ -159,6 +172,10 @@ call.handlePushNotificationWithCompletionHandler(jsonPayload,
                     self.call.delegate = self; // To get notified about call state changes
                 }
 });
+```
+#### [.NET](#tab/dotnet)
+```.NET
+\\ NA
 ```
 ---
 
