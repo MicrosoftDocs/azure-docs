@@ -219,13 +219,8 @@ In your command window, run the program with this command:
 ```cmd/sh
 dotnet run
 ```
-You will see the following output.
-```cmd/sh
-Hello World!
-Service client created - ready to go
+"Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
 
-Upload a model
-```
 To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
 
 ```csharp
