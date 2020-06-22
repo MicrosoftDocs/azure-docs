@@ -64,7 +64,9 @@ A proximity placement group is a colocation constraint and not a pinning mechani
 
 ## Create a new AKS cluster with a proximity placement group
 
-The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *centralus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. Ideally, use proximity placement groups with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances][https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints], which include most Azure virtual machine with two or more vCPUs.
+The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *centralus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. 
+
+Accelerated networking greatly improving networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances][https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints], which include most Azure virtual machine with two or more vCPUs.
 
 Create a new AKS cluster with a proximity placement groups:
 
@@ -149,4 +151,5 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-create]: /cli/azure/aks#az-aks-create
 
