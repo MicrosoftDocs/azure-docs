@@ -11,7 +11,7 @@ ms.topic: samples
 
 The following snippets are ready to run and will help get you started with using Cognitive Services on Spark. The samples below are in Python.
 
-Included services:
+The samples use these Cognitive Services:
 
 - Text Analytics - given a set of sentences, get the sentiment (or mood) of them.
 - Computer Vision - given a set of images, get the tags (one-word descriptions) associated with those images.
@@ -23,7 +23,7 @@ Included services:
 ## Prerequisites
 
 1. Follow the steps in [Getting started](https://github.com/mhamilton723/big-data-docs/blob/master/big-data/getting-started-big-data.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
-1. Once you have a new notebook created in Azure Databricks, copy/paste the **Shared code** at the beginning of the samples on this page into a new cell in your notebook.
+1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
 1. Choose the run button (triangle icon) in the upper right corner of the cell, then select **Run Cell**.
@@ -47,7 +47,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 ```    
 
 ## Text Analytics
-One feature of the [Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/) service is returning the sentiment of given text input. The advanced AI will tell you if the phrase or sentence holds a positive or negative sentiment. Given a sentence or phrase as input, the service will return a score between 0.0 and 1.0, where low score indicates negative sentiment and high score indicates positive sentiment. The sample below uses three simple sentences and returns the sentiment for each.
+One feature of the [Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/) service is returning the sentiment of given text input. The advanced AI will tell you if the phrase or sentence holds a positive or negative sentiment. Given a sentence or phrase as input, the service will return a score between 0.0 and 1.0. The low score indicates negative sentiment and high score indicates positive sentiment. The sample below uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -117,7 +117,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/overview) uses Bing's image search capabilities to retrieve images that respond to a user-specified query. In this sample we use a text query that looks for images with quotes. It returns a list of URLs of images with the quotes on the image itself.
+[Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/overview) uses Bing's image search capabilities to retrieve images that respond to a user-specified query. In this sample, we use a text query that looks for images with quotes. It returns a list of URLs of images with the quotes on the image itself.
 
 ```python
 from pyspark.ml import PipelineModel
