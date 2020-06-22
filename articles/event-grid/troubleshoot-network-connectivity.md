@@ -62,11 +62,11 @@ By default, Event Grid topics/domains are accessible from internet as long as th
 
 The IP firewall rules are applied at the Event Grid topic/domain level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Grid topic/domain is rejected as forbidden. The response does not mention the IP rule.
 
-For more information, see [Configure IP firewall rules for an Azure Event Grid topic/domain](configure-firewall.md). To check whether you have IP filtering, virtual network, or certificate chain issues, see [Troubleshoot network related issues](#troubleshoot-network-related-issues).
+For more information, see [Configure IP firewall rules for an Azure Event Grid topic/domain](configure-firewall.md).
 
 #### Find the IP addresses blocked by IP Firewall
 
-Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic#enable-diagnostic-logs-for-a-custom-topic). You will see the IP address for the connection that's denied.
+Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). You will see the IP address for the connection that's denied.
 
 ```json
 {
