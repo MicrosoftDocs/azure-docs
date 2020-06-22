@@ -50,6 +50,9 @@ More template samples can be found in [Azure Quickstart Templates](https://azure
 
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
+> [!IMPORTANT]
+> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations).
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
@@ -81,6 +84,8 @@ read
 * * *
 
 ## Review deployed resources
+
+Visit the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) and verify the managed instance is in your selected resource group. Because creating a managed instance can take some time, you might need to check the **Deployments** link on your resource group's **Overview** page.
 
 - For a quickstart that shows how to connect to SQL Managed Instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](connect-vm-instance-configure.md).
 - For a quickstart that shows how to connect to SQL Managed Instance from an on-premises client computer by using a point-to-site connection, see [Configure a point-to-site connection](point-to-site-p2s-configure.md).
