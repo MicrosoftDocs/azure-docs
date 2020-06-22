@@ -17,7 +17,7 @@
       href: prepare-buy-reservation.md
     - name: App Service
       href: prepay-app-service-isolated-stamp.md
-    - name: Azure Cache for Redis reservation
+    - name: Azure Cache for Redis
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json

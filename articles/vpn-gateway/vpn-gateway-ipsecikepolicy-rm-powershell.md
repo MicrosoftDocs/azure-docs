@@ -6,7 +6,7 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/14/2018
 ms.author: yushwang
 
