@@ -18,7 +18,7 @@ When deploying your application in Azure, spreading instances across regions or 
 
 * The proximity placement group spans a single availability zone.
 * There is no current support for AKS clusters that use Virtual Machine Availability Sets.
-* The proximity placement group ID can only be set during node pool creation.
+* You can't modify existing node pools to use a proximity placement group.
 
 > [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
