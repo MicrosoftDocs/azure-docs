@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services 
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory in the Azure portal
@@ -184,17 +184,18 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 1. Click **+ (plus)** in the left pane, and click **Dataset**. 
 1. In the **New Dataset** window, select **Azure Synapse Analytics (formerly SQL DW)**, and then click **Continue**.
 1. In the **Set properties** window, under **Name**, enter **AzureSqlDWDataset**. Under **Linked service**, select **AzureSqlDWLinkedService**. Then click **OK**.
-1. Switch to the **Parameters** tab, click **+ New**, and enter **DWTableName** for the parameter name. If you copy/paste this name from the page, ensure that there's no **trailing space character** at the end of **DWTableName**.
+1. Switch to the **Parameters** tab, click **+ New**, and enter **DWTableName** for the parameter name. Click **+ New** again, and enter **DWSchema** for the parameter name. If you copy/paste this name from the page, ensure that there's no **trailing space character** at the end of *DWTableName* and *DWSchema*. 
 1. Switch to the **Connection** tab, 
 
-    a. For **Table**, check the **Edit** option. Enter **dbo** in the first table name input box. And then select into the second input box and click the **Add dynamic content** link below. 
+    1. For **Table**, check the **Edit** option. Select into the first input box and click the **Add dynamic content** link below. In the **Add Dynamic Content** page, click the **DWSchema** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWSchema`, and then click **Finish**.  
+    
+        ![Dataset connection tablename](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    ![Dataset connection tablename](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    1. Select into the second input box and click the **Add dynamic content** link below. In the **Add Dynamic Content** page, click the **DWTAbleName** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWTableName`, and then click **Finish**. 
+    
+    1. The **tableName** property of the dataset is set to the values that are passed as arguments for the **DWSchema** and **DWTableName** parameters. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
+    
 
-    b. In the **Add Dynamic Content** page, click the **DWTAbleName** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWTableName`, then click **Finish**. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
-
-    ![Dataset parameter builder](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
- 
 ## Create pipelines
 In this tutorial, you create two pipelines: **IterateAndCopySQLTables** and **GetTableListAndTriggerCopyData**. 
 
@@ -252,7 +253,8 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 1. Switch to the **Sink** tab, and do the following steps: 
 
     1. Select **AzureSqlDWDataset** for **Sink Dataset**.
-    1. Click the input box for the VALUE of DWTableName parameter -> select the **Add dynamic content** below, enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script, -> select **Finish**.
+    1. Click the input box for the VALUE of DWTableName parameter -> select the **Add dynamic content** below, enter `@item().TABLE_NAME` expression as script, -> select **Finish**.
+    1. Click the input box for the VALUE of DWSchema parameter -> select the **Add dynamic content** below, enter `@item().TABLE_SCHEMA` expression as script, -> select **Finish**.
     1. For Copy method, select **PolyBase**. 
     1. Clear the **Use type default** option. 
     1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
@@ -277,7 +279,7 @@ This pipeline does two actions:
 * Triggers the pipeline "IterateAndCopySQLTables" to do the actual data copy.
 
 1. In the left pane, click **+ (plus)**, and click **Pipeline**.
-1. In the **General** tab, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
+1. In the General panel under **Properties**, change the name of the pipeline to **GetTableListAndTriggerCopyData**. 
 
 1. In the **Activities** toolbox, expand **General**, and drag-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
@@ -305,10 +307,8 @@ This pipeline does two actions:
 1. Switch to the **Settings** tab of **Execute Pipeline** activity, and do the following steps: 
 
     1. Select **IterateAndCopySQLTables** for **Invoked pipeline**. 
-    1. Expand the **Advanced** section, and clear the checkbox for **Wait on completion**.
-    1. Click **+ New** in the **Parameters** section. 
-    1. Enter **tableList** for parameter **Name**.
-    1. Click VALUE input box -> select the **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You're setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
+    1. Clear the checkbox for **Wait on completion**.
+    1. In the **Parameters** section, click the input box under VALUE -> select the **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You're setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
 
         ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 
