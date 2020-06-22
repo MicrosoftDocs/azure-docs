@@ -6,13 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.subservice: sql-dw 
-ms.date: 04/08/2020
-=======
-ms.subservice: sql dw 
 ms.date: 06/07/2020
->>>>>>> ff5d33a2a4f2c5dbe3748f54a40e1417c080cdac
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse

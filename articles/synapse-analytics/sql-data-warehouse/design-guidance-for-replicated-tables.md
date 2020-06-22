@@ -6,13 +6,8 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-<<<<<<< HEAD
 ms.subservice: sql-dw 
 ms.date: 03/19/2019
-=======
-ms.subservice: sql dw 
-ms.date: 06/18/2020
->>>>>>> ff5d33a2a4f2c5dbe3748f54a40e1417c080cdac
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
