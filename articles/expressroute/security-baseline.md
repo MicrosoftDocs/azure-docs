@@ -70,7 +70,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Responsibility**: Not applicable
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Not applicable; each customer's ExpressRoutes are contained within their own routing domains and tunneled into their own virtual network.
 
@@ -110,7 +110,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Use tags for your Azure ExpressRoute instances to provide metadata and logical organization.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
@@ -341,7 +341,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -493,7 +493,7 @@ Additionally, partners using the ExpressRoute Partner Resource Manager API can a
 
 * [How to configure MACsec on ExpressRoute Direct ports](https://docs.microsoft.com/azure/expressroute/expressroute-howto-macsec)
 
-* [Azure Security Baseline for Key Vault](https://docs.microsoft.com/azure/key-vault/general/security-baseline)
+* [Azure security baseline for Key Vault](https://docs.microsoft.com/azure/key-vault/general/security-baseline)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -587,7 +587,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
-In addition, use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -617,7 +617,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -721,7 +721,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -741,7 +741,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
@@ -781,7 +781,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -871,7 +871,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
 **Guidance**: If using Azure Key Vault to store your MACsec secrets, ensure regular automated backups of your keys.
 
@@ -881,9 +881,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: Test restoration of backed up customer managed keys.
+**Guidance**: Test restoration of backed up customer-managed keys.
 
 * [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -893,7 +893,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Not applicable
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
