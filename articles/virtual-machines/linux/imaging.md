@@ -57,7 +57,7 @@ These are images that are completely configured and not require VM and special p
 Provisioning agents are not required for these images, however, you may want to have extension handling capabilities. You can install the Linux Agent, but disable the provisioning option. Even though you do not need a provisioning agent, the image must fulfill [prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)  for Azure Images.
 
 
-## Image Storage Options
+## Image storage options
 When bringing your Linux image you have two options:
 
 1. Managed images for simple VM creation in a development and test environment.
@@ -88,7 +88,7 @@ At a high level, you create a SIG, and it is made up of:
 
 
 
-## Hyper-V Generation
+## Hyper-V generation
 
 Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Create Gen2 images if you require the additional functionality.
 
