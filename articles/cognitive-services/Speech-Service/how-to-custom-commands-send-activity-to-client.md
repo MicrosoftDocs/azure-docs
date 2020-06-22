@@ -75,9 +75,9 @@ Add labeled boxes with text indicating **on** or **off** using the following XML
 
 Since you've created a JSON payload, you need to add a reference to the [JSON.NET](https://www.newtonsoft.com/json) library to handle deserialization.
 
-- Right-client your solution.
-- Choose **Manage NuGet Packages for Solution**, Select **Install** 
-- Search for **Newtonsoft.json** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
+1. Right-client your solution.
+1. Choose **Manage NuGet Packages for Solution**, Select **Install** 
+1. Search for **Newtonsoft.json** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
 
 > [!div class="mx-imgBorder"]
 > ![Send Activity payload](media/custom-commands/send-activity-to-client-json-nuget.png)
@@ -146,4 +146,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to: set up web endpoints (Preview)](./how-to-custom-commands-setup-webendpoints.md)
+> [How to: set up web endpoints (Preview)](./how-to-custom-commands-setup-web-endpoints.md)
