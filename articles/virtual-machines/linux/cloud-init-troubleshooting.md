@@ -82,7 +82,7 @@ In all logs, start searching for "Failed", "WARNING", "WARN", "err", "error", "E
 > [!TIP]
 > If you are troubleshooting a custom image, you should consider adding a user during the image. If the provisioning fails to set the admin user, you can still log in to the OS.
 
-## Analyzing the Logs
+## Analyzing the logs
 
 Here are more details about what to look for in each cloud-init log.
 
