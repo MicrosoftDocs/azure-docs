@@ -145,7 +145,7 @@ The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
-| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::<URL> for SAS-protected storage |
+| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
 | OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
 | OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
 | CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
