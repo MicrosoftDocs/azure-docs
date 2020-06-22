@@ -6,7 +6,7 @@ author: mabasile-MSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql dw 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan

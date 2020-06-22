@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql dw 
+ms.subservice: sql-dw 
 ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
