@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/09/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -27,9 +27,9 @@ Check the version of the security daemon running on your device by using the com
 
 ### Linux devices
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version. 
+On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
 
-Get the latest package list from Microsoft:
+Get the latest repository configuration from Microsoft:
 
 * **Ubuntu Server 16.04**:
 
@@ -49,7 +49,7 @@ Get the latest package list from Microsoft:
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-Copy the generated package list so that `apt` commands can access it.
+Copy the generated list.
 
    ```bash
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/

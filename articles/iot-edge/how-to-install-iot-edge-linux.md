@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/22/2020
 ms.author: kgremban
 ---
 # Install the Azure IoT Edge runtime on Debian-based Linux systems
@@ -31,7 +31,7 @@ Use the following sections to install the most recent version of the Azure IoT E
 
 Prepare your device for the IoT Edge runtime installation.
 
-Install the Microsoft packages. Choose the **16.04** or **18.04** command that matches your device operating system:
+Install the repository configuration. Choose the **16.04** or **18.04** command that matches your device operating system:
 
 * **Ubuntu Server 16.04**:
 
@@ -51,7 +51,7 @@ Install the Microsoft packages. Choose the **16.04** or **18.04** command that m
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
 
-Copy the generated package list so that `apt` commands can access it.
+Copy the generated list.
 
    ```bash
    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
@@ -283,7 +283,7 @@ This command provides a detailed output that contains the status of kernel featu
 
 ## Install runtime using release assets
 
-Use the steps in this section if you want to install a specific version of Moby and the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains the two most recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
+Use the steps in this section if you want to install a specific version of Moby and the Azure IoT Edge runtime that isn't available through `apt-get install`. The Microsoft package list only contains a limited set of recent versions and their sub-versions, so these steps are for anyone who wants to install an older version or a release candidate version.
 
 Using curl commands, you can target the component files directly from the IoT Edge GitHub repository. Use the following steps to get all of the IoT Edge components onto your device: the Moby engine and CLI, the libiothsm, and finally the IoT Edge security daemon.
 
