@@ -51,7 +51,7 @@ Azure Automation State Configuration brings the same management layer to [PowerS
 Nodes that are managed with Azure Automation State Configuration send detailed reporting status data to the built-in pull server. You can configure Azure Automation State Configuration to send
 this data to your Log Analytics workspace. See [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
 
-## Prerequisites for using Azure Automation State Configuration
+## Prerequisites
 
 Consider the requirements in this section when using Azure Automation State Configuration.
 
