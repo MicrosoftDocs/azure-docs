@@ -1,6 +1,6 @@
 ---
 title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
-description: This article provides the firewall exceptions required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
+description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/22/2020

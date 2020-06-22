@@ -49,7 +49,7 @@ The following port and URLs are required for the Hybrid Runbook Worker:
 * Global URL of US Gov Virginia: `*.azure-automation.us`
 * Agent service: `https://<workspaceId>.agentsvc.azure-automation.net`
 
-If you have an Automation account that's defined for a specific region, you can restrict Hybrid Runbook Worker communication to that regional datacenter. Review the [DNS records used by Azure Automation](automation-region-dns-records.md) for the required DNS records.
+If you have an Automation account that's defined for a specific region, you can restrict Hybrid Runbook Worker communication to that regional datacenter. Review the [DNS records used by Azure Automation](how-to/automation-region-dns-records.md) for the required DNS records.
 
 ### Proxy server use
 

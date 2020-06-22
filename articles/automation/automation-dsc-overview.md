@@ -14,7 +14,7 @@ manager: carmonm
 # Azure Automation State Configuration overview
 
 Azure Automation State Configuration is an Azure configuration management service that allows you to write, manage, and
-compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**. 
+compile PowerShell Desired State Configuration (DSC) [configurations](/powershell/scripting/dsc/configurations/configurations) for nodes in any cloud or on-premises datacenter. The service also imports [DSC Resources](/powershell/scripting/dsc/resources/resources), and assigns configurations to target nodes, all in the cloud. You can access Azure Automation State Configuration in the Azure portal by selecting **State configuration (DSC)** under **Configuration Management**.
 
 You can use Azure Automation State Configuration to manage a variety of machines:
 
@@ -111,7 +111,7 @@ For Linux nodes, the DSC agent supports proxy and uses the `http_proxy` variable
 
 #### DNS records per region
 
-It's recommended to use the addresses listed in the [DNS records per region](automation-region-dns-records.md) table when defining exceptions.
+It's recommended to use the addresses listed in the [DNS records per region](how-to/automation-region-dns-records.md) table when defining exceptions.
 
 ## Next steps
 
