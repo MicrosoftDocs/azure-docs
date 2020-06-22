@@ -57,12 +57,6 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-
-To install kubectl, use the following:
-
-```azurecli
-sudo az aks install-cli
-kubectl version --client
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
