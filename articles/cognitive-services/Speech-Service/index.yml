@@ -124,6 +124,9 @@ conceptualContent:
           text: About Speaker Recognition
           url: speaker-recognition-overview.md
         - itemType: how-to-guide
+          text: Speaker Recognition basics          
+          url: speaker-recognition-basics.md
+        - itemType: how-to-guide
           text: Speaker Recognition API reference
           url: https://docs.microsoft.com/rest/api/speakerrecognition/
     - title: Tools
