@@ -252,12 +252,15 @@ Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature 
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+In version 2.x, you can exclude certain types of telemetry from sampling. In the example above, data of type `Request` are excluded from sampling. This ensures *all* function executions (requests) are logged while other types of telemetry remain subject to sampling.
 
 ### Version 1.x 
 
@@ -310,7 +313,7 @@ Here's a sample JSON representation of `customDimensions` data:
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
