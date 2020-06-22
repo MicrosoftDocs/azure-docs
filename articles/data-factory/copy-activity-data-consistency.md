@@ -91,9 +91,8 @@ path | The path of the log files. | Specify the path that you want to store the 
 
 >[!NOTE]
 >- Data consistency is not supported in staging copy scenario. 
->- When copying binary files from any storage store to Azure Blob Storage or Azure Data Lake Storage Gen2, copy activity does file size and MD5 checksum verification to ensure the data consistency between source and destination stores. 
->- When copying binary files from any storage store to any storage stores other than Azure Blob Storage or Azure Data Lake Storage Gen2, copy activity does file size verification to ensure the data consistency between source and destination store.
-
+>- When copying files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) and [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
+>- ADF does file size verification when copying files between any storage stores.
 
 ## Monitoring
 

@@ -20,6 +20,17 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 > [!NOTE]
 > The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
 
+## June 2020
+
+### New features
+* **CopyModel API added to client SDKs** You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
+* **Azure Active Directory integration** You can now use your AAD credentials to authenticate your Form Recognizer client objects in the SDKs.
+* **SDK-specific changes** This includes both minor feature additions and breaking changes. See the SDK changelogs for more information.
+  * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [JavaScript SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
 ## April 2020
 
 ### New features

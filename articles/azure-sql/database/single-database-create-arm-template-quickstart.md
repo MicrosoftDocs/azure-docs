@@ -14,7 +14,6 @@ ms.date: 06/28/2019
 ---
 
 # Quickstart: Create a single database in Azure SQL Database using the Azure Resource Manager template
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Creating a [single database](single-database-overview.md) is the quickest and simplest option for creating a database in Azure SQL Database. This quickstart shows you how to create a single database using the Azure Resource Manager template.
 
@@ -24,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-None
+None.
 
 ## Create a single database
 
@@ -68,7 +67,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -107,7 +106,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -123,6 +122,7 @@ az group delete --name $resourceGroupName
 - After you create a server-level firewall rule, [connect and query](connect-query-content-reference-guide.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To create a single database using Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
+- To create a single database using the Azure CLI, see [Azure CLI samples](az-cli-script-samples-content-guide.md).
 - To create a single database using Azure PowerShell, see [Azure PowerShell samples](powershell-script-content-guide.md).
 - To learn how to create Resource Manager templates, see [Create your first template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
+ 

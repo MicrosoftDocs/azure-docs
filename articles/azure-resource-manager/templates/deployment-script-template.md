@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/17/2020
 ms.author: jgao
 
 ---
@@ -126,7 +126,7 @@ The following json is an example.  The latest template schema can be found [here
 ```
 
 > [!NOTE]
-> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUris** can't coexist in a template.
+> The example is for demonstration purpose.  **scriptContent** and **primaryScriptUri** can't coexist in a template.
 
 Property value details:
 
@@ -147,9 +147,9 @@ Property value details:
 
 ### Additional samples
 
-- [create and assign a certificate to a key vault](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
-
-- [create and assign a user-assigned managed identity to a resource group, and run a deployment script](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json).
+- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): create a key vault and use deployment script to assign a certificate to the key vault.
+- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
+- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 
 > [!NOTE]
 > It is recommended to create a user-assigned identity and grant permissions in advance. You might get sign-in and permission related errors if you create the identity and grant permissions in the same template where you run deployment scripts. It takes some time before the permissions to become effective.
@@ -243,8 +243,9 @@ Deployment script outputs must be saved in the AZ_SCRIPTS_OUTPUT_PATH location, 
 
 ### Handle non-terminating errors
 
-You can control how PowerShell responds to non-terminating errors by using the [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) variable in your deployment script. The script service doesn't set/change the value.  Despite the value you set for $ErrorActionPreference, deployment script sets the resource provisioning state to *Failed* when the script encounters an error.
+You can control how PowerShell responds to non-terminating errors by using the **$ErrorActionPreference** variable in your deployment script. If the variable is not set in your deployment script, the script service uses the default value **Continue**.
+
+The script service sets the resource provisioning state to **Failed** when the script encounters an error despite the setting of $ErrorActionPreference.
 
 ### Pass secured strings to deployment script
 
@@ -349,7 +350,7 @@ The life cycle of these resources is controlled by the following properties in t
 
 - **cleanupPreference**: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
-  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script services persist the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
+  - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
   - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
@@ -374,17 +375,9 @@ Deployment script execution is an idempotent operation. If none of the deploymen
 
 ## Configure development environment
 
-You can use a pre-configured docker container image as your deployment script development environment. The following procedure shows you how to configure the docker image on Windows. For Linux and Mac, you can find the information on the Internet.
+You can use a pre-configured docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
+You also need to configure file sharing to mount the directory which contains the deployment scripts into Docker container.
 
-1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) on your development computer.
-1. Open Docker Desktop.
-1. Select the Docker Desktop icon from taskbars, and then select **Settings**.
-1. Select **Shared Drives**, select a local drive that you want to be available to your containers, and then select **Apply**
-
-    ![Resource Manager template deployment script docker drive](./media/deployment-script-template/resource-manager-deployment-script-docker-setting-drive.png)
-
-1. Enter your windows credentials at the prompt.
-1. Open a terminal window, either Command Prompt or Windows PowerShell (Do not use PowerShell ISE).
 1. Pull the deployment script container image to the local computer:
 
     ```command
@@ -421,12 +414,11 @@ You can use a pre-configured docker container image as your deployment script de
     docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
     ```
 
-1. Select **Share it** when you get a prompt.
-1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in d:\docker folder.
+1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in the shared drive.
 
     ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-After the script is tested successfully, you can use it as a deployment script.
+After the script is tested successfully, you can use it as a deployment script in your templates.
 
 ## Next steps
 

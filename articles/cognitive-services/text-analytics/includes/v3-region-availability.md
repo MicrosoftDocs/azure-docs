@@ -7,11 +7,11 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/14/2020
+ms.date: 06/03/2020
 ms.author: aahi
 ---
 
 > [!IMPORTANT]
-> Text Analytics API v3 is not available in the following regions: Central India, Fairfax, UAE North, South Africa North, China North 2, China East.
+> Text Analytics API v3 is not available in the following regions: Central India, UAE North, China North 2, China East.
 
 

@@ -66,7 +66,7 @@ A forest trust can only be created between a forest root domain in one forest an
 
 The following diagram shows two separate forest trust relationships between three AD DS forests in a single organization.
 
-![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts.png)
+![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 This example configuration provides the following access:
 
@@ -158,7 +158,7 @@ When a workstation in one forest attempts to access data on a resource computer 
 
 The following diagram and steps provide a detailed description of the Kerberos authentication process that's used when computers running Windows attempt to access resources from a computer located in another forest.
 
-![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
 1. *User1* logs on to *Workstation1* using credentials from the *europe.tailspintoys.com* domain. The user then attempts to access a shared resource on *FileServer1* located in the *usa.wingtiptoys.com* forest.
 
@@ -272,7 +272,7 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

@@ -10,7 +10,7 @@ ms.subservice: alerts
 
 # Log alerts in Azure Monitor
 
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
+Log alerts are one of the alert types that are supported in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). Log alerts allow users to use the Azure analytics platform as a basis for alerting.
 
 Log Alert consists of Log Search rules created for [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md)
 
