@@ -15,15 +15,15 @@ ms.reviewer: jrasnick, carlrab
 This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
 
 - OPENROWSET function that enables ad-hoc queries over the files in Azure Storage.
-- External table that is static predefined data structure built on top of set of external files.
+- External table that is a predefined data structure built on top of set of external files.
 
 User can use different authentication methods such as Azure AD passthrough authentication (default for Azure AD principals) and SAS authentication (default for SQL principals)
 
-# OPENROWSET
+## OPENROWSET
 
 OPENROWSET function enables user to read the files from Azure storage.
 
-## Query files using OPENROWSET
+### Query files using OPENROWSET
 
 OPENROWSET enables users to query external files on Azure storage if they have access on storage. User who is connected to Synapse SQL on-demand endpoint should use the following query to read the content of the files on Azure storage:
 
@@ -37,7 +37,7 @@ User can access storage using the following access rules:
 - Azure AD user - OPENROWSET will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
 - SQL user – OPENROWSET will access storage with anonymous access.
 
-SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace In SQL user scenario, this statement would work ONLY if a power user with ALTER ANY CREDENTIAL permission created a server-scoped credential that matches URL (using storage name and container – similar to RESTORE DATABASE FROM URL) and granted REFERENCES permission for this credentials to the caller of OPENROWSET:
+SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with ALTER ANY CREDENTIAL permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
 
 ```sql
 EXECUTE AS somepoweruser
@@ -53,7 +53,7 @@ If there is no server-level CREDENTIAL that matches URL or SQL user don't have r
 > [!NOTE]
 > This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
 
-## Querying data sources using OPENROWSET
+### Querying data sources using OPENROWSET
 
 OPENROWSET enables user to query the files placed on some external data source:
 
@@ -85,7 +85,7 @@ Caller must have one of the following permissions to execute OPENROWSET function
   2. ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
 2. REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
-### Accessing anonymous data sources
+#### Accessing anonymous data sources
 
 User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
 
@@ -94,7 +94,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
 ```
 
-# EXTERNAL TABLE
+## EXTERNAL TABLE
 
 User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
 
@@ -139,14 +139,14 @@ Caller must have the following permissions to read data:
 1. SELECT permission ON external table
 2. REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
 
-# Permissions
+## Permissions
 
 The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
 | OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\&lt;URL\&gt; for SAS-protected storage |
-| OPENROWSET(BULK) with datasourcewithout credential | ADMINISTER BULK ADMIN |
+| OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
 | OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
 | CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
 | CREATE EXTERNAL TABLE | CREATE TABLE, ALTER ANY SCHEMA, ALTER ANY EXTERNAL FILE FORMAT, ALTER ANY EXTERNAL DATA SOURCE |
