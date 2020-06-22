@@ -51,7 +51,6 @@ Refer to the following list to configure managed identity for Azure App Service 
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
-
 ### Azure Arc enabled Kubernetes
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
