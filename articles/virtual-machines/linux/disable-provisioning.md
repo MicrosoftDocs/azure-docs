@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -24,8 +24,9 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 * Third-party products, such as AV products, VM vulnerability tools, VM and App monitoring tooling.
 * Extensions can be bundled with a new VM deployment. For example, they can be part of a larger deployment, configuring applications on VM provision, or run against any supported extension operated systems post deployment.
 
-## Disabling Extension Processing
->Note! There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](https://docs.microsoft.com/en-us/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+## Disabling extension processing
+
+There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
@@ -55,7 +56,7 @@ This **must** be done in conjunction with 'Disable at the control plane'.
 
 Ensure you have **removed** all existing extensions from the VM before, as per above.
 
-### Step 1: Disable Extension Processing
+### Step 1: Disable extension processing
 
 You must disable extension processing.
 
@@ -83,10 +84,12 @@ yum -y remove WALinuxAgent
 zypper --non-interactive remove python-azure-agent
 ```
 
-### Step 3: (Optional) Remove the Azure Linux Agent Artifacts
-> NOTE! You can remove all Artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
+### Step 3: (Optional) Remove the Azure Linux Agent artifacts
+> [!IMPORTANT] 
+>
+> You can remove all Artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
 
-If you know you will not ever reinstall the Linux Agent again, then you can run the below:
+If you know you will not ever reinstall the Linux Agent again, then you can run the following:
 
 #### For Ubuntu >=18.04
 ```bash
@@ -191,3 +194,4 @@ Alternatively, you can do this using Azure Resource Manager (ARM) templates, by 
 
 ## Next steps
 
+For more information, see [Provisioning Linux](provisioning.md).
