@@ -124,7 +124,7 @@ The capability matrix for SAP workload looks like:
 | Azure Backup VM snapshots possible | YES | except for [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) cached disks  |
 | Costs | MEDIUM | - |
 
-Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA redolog writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
+Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
 
 
