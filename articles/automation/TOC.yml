@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
     - name: Data security
       items:
         - name: Encryption of secure assets

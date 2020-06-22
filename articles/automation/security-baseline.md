@@ -28,7 +28,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 **Guidance**: Azure Automation account does not yet support Azure Private Link for restricting access to the service through private endpoints. Runbooks that authenticate and run against resources in Azure run on an Azure sandbox, and leverage shared backend resources, which Microsoft is responsible for isolating from each other; their networking is unrestricted and can access public resources. Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-To get further isolation for your runbooks you can use Hybrid Runbook Workers running on Azure virtual machines. When you create an Azure virtual machine, you must create a virtual network (VNet) or use an existing VNet and configure your VMs with a subnet. Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service specific requirements, refer to the security recommendation for that specific service.
+To get further isolation for your runbooks you can use Hybrid Runbook Workers running on Azure virtual machines. When you create an Azure virtual machine, you must create a virtual network (VNet) or use an existing VNet and configure your VMs with a subnet. Ensure that all deployed subnets have a Network Security Group applied with network access controls specific to your applications trusted ports and sources. For service-specific requirements, refer to the security recommendation for that specific service.
 
 Alternatively, if you have a specific requirement, Azure Firewall may also be used to meet it.
 
@@ -106,7 +106,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 **Responsibility**: Customer
 
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 **Guidance**: Azure Automation does not currently have virtual network integration for private networking beyond the support for Hybrid Runbook Workers. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
@@ -144,7 +144,7 @@ If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you ca
 
 **Guidance**: Define and implement standard security configurations for network resources used by Azure Automation with Azure Policy.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -160,7 +160,7 @@ You may also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
 
@@ -264,7 +264,7 @@ When using the Hybrid Runbook Worker feature, Azure Security Center provides Sec
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor log queries to review logs and perform queries on log data.
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM.
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -348,7 +348,7 @@ However, when using the Hybrid Runbook Worker feature, Azure Security Center pro
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: Azure Automation Account does not have the concept of default passwords. Customers are responsible for third party applications and marketplace services that may use default passwords that run on top on the service or its Hybrid Runbook Workers.
+**Guidance**: Azure Automation Account does not have the concept of default passwords. Customers are responsible for third-party applications and marketplace services that may use default passwords that run on top on the service or its Hybrid Runbook Workers.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -490,7 +490,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Guidance**: For Azure Automation Accounts, Microsoft support can access platform resource metadata during an open support case without usage of another tool.
 
-However, when using Hybrid Runbook Workers backed by Azure virtual machines and a third party needs to access customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
+However, when using Hybrid Runbook Workers backed by Azure virtual machines and a third-party needs to access customer data (such as during a support request), use Customer Lockbox (Preview) for Azure virtual machines to review and approve or reject customer data access requests.
 
 * [Understanding Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -562,7 +562,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
-**Guidance**: Use a third party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
+**Guidance**: Use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located onsite or at a remote service provider and update the organization's sensitive information inventory.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -586,7 +586,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Guidance**: Azure Automation does not currently expose the underlying multi-tenant runbook worker's virtual machines, and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Runbook Workers.
 
-If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you need to use a third party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines.
+If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you need to use a third-party host-based data loss prevention solution to enforce access controls to your hosted Hybrid Runbook Worker virtual machines.
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,7 +594,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 ### 4.8: Encrypt sensitive information at rest
 
-**Guidance**: Use customer managed keys with Azure Automation. Azure Automation supports the use of customer managed keys to encrypt all 'Secure assets' used such as : credentials, certificates, connections, and encrypted variables. Leverage encrypted variables with your runbooks for all of your persistent variable lookup needs to prevent unintended exposure.
+**Guidance**: Use customer-managed keys with Azure Automation. Azure Automation supports the use of customer-managed keys to encrypt all 'Secure assets' used such as : credentials, certificates, connections, and encrypted variables. Leverage encrypted variables with your runbooks for all of your persistent variable lookup needs to prevent unintended exposure.
 
 When using Hybrid Runbook Workers, the virtual disks on the virtual machines are encrypted at rest using either server-side encryption or Azure disk encryption (ADE). Azure disk encryption leverages the BitLocker feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
@@ -740,7 +740,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -748,9 +748,9 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -758,9 +758,9 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
-**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the Portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
+**Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure Portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
+If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
 
 * [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
@@ -796,7 +796,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types
 - Allowed resource types
 
@@ -812,7 +812,7 @@ If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Az
 
 **Guidance**: When using the Hybrid Runbook Worker feature, you may use the Azure Security Center Adaptive Application Controls feature with your hybrid worker virtual machines.
 
-Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third party solution if this does not meet your organization's requirement.
+Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Implement third-party solution if this does not meet your organization's requirement.
 
 * [How to use Azure Security Center Adaptive Application Controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
@@ -872,7 +872,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 
 **Guidance**: Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure Automation and related resources. You may also use built-in Azure Policy definitions.
 
-Also, Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
+Also, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
@@ -880,7 +880,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 * [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
 
 * [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
 
@@ -906,7 +906,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure Resource Manager templates and Azure Policy to securely configure Azure resources associated with Azure Automation. Azure Resource Manager templates are JSON based files used to deploy Azure resources, and any custom templates will need to be stored and maintained securely in a code repository. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository. Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Resource Manager templates and Azure Policy to securely configure Azure resources associated with Azure Automation. Azure Resource Manager templates are JSON based files used to deploy Azure resources, and any custom templates will need to be stored and maintained securely in a code repository. Use the source control integration feature to keep your runbooks in your Automation account up to date with scripts in your source control repository. Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 * [Use source control integration](https://docs.microsoft.com/azure/automation/source-control-integration)
 
@@ -918,7 +918,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 * [Deploy an Automation Account using an Azure Resource Manager template](https://docs.microsoft.com/azure/automation/automation-create-account-template#deploy-the-template)
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -930,7 +930,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 When using the Hybrid Runbook Worker feature, there are several options for maintaining a secure configuration for Azure virtual machines for deployment:
 
-1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure Portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
+1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
 
 2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
 
@@ -984,7 +984,7 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 
 * [How to use Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1014,7 +1014,7 @@ When using the Hybrid Runbook Worker feature, leverage Azure Security Center to 
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
-* [Azure policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
+* [Azure Policy sample built-ins for Azure Automation](https://docs.microsoft.com/azure/automation/policy-samples)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1142,9 +1142,9 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 **Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer managed keys
+### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: Use Azure Resource Manager to deploy Azure Automation accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Backup customer managed keys within Azure Key Vault. You can export your runbooks to script files using either Azure portal or PowerShell.
+**Guidance**: Use Azure Resource Manager to deploy Azure Automation accounts, and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Azure Automation accounts and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Backup customer-managed keys within Azure Key Vault. You can export your runbooks to script files using either Azure portal or PowerShell.
 
 * [Overview of Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
 
@@ -1168,9 +1168,9 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 **Responsibility**: Customer
 
-### 9.3: Validate all backups including customer managed keys
+### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up customer managed keys.
+**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up customer-managed keys.
 
 * [Deploy resources with ARM templates and Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
 
@@ -1182,7 +1182,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 **Responsibility**: Customer
 
-### 9.4: Ensure protection of backups and customer managed keys
+### 9.4: Ensure protection of backups and customer-managed keys
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
