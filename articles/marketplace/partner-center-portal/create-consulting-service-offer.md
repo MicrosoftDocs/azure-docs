@@ -117,8 +117,8 @@ Here's an example of how offer information appears in Azure Marketplace:
 4. Industries
 5. Offer name
 6. Summary
-7. Screenshots/videos
-8. Description
+7. Description
+8. Screenshots/videos
 
 <br>Here's an example of how offer information appears in Microsoft AppSource:
 
