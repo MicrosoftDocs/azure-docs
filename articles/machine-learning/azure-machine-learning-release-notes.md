@@ -20,16 +20,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2020-06-22
 
 ### Azure Machine Learning SDK for Python v1.8.0
-
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
   
   + **Preview features**
     + **azureml-contrib-fairness**
     	The `azureml-contrib-fairness` package provides integration between the open source fairness assessment and unfairness mitigation package [Fairlearn](https://fairlearn.github.io) and Azure Machine Learning studio. In particular, the package enables model fairness evaluation dashboards to be uploaded as part of an AzureML Run and appear in Azure Machine Learning studio
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
