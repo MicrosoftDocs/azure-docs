@@ -26,7 +26,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `None`. Se
 
 The following example shows a technical profile for `JwtIssuer`:
 
-```XML
+```xml
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
   <Protocol Name="OpenIdConnect" />
