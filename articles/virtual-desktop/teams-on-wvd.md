@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
@@ -132,7 +132,7 @@ If you encounter issues with calls and meetings, collect Teams Web client logs w
 
 ## Contact Microsoft Teams support
 
-To contact Microsoft Teams support, go to the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+To contact Microsoft Teams support, go to the [Microsoft 365 admin center](/microsoft-365/admin/contact-support-for-business-products).
 
 ## Customize Remote Desktop Protocol properties for a host pool
 
