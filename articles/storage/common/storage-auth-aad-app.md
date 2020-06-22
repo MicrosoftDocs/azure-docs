@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: has-adal-ref
@@ -54,7 +54,7 @@ Next, grant your application permissions to call Azure Storage APIs. This step e
 
     ![Screenshot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-The **API permissions** pane now shows that your registered Azure AD application has access to both Microsoft Graph and the Azure Storage. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
+The **API permissions** pane now shows that your registered Azure AD application has access to both Microsoft Graph and the Azure Storage API. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
 
 ![Screenshot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
@@ -209,7 +209,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that MSAL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
@@ -280,8 +280,8 @@ CloudBlockBlob blob = new CloudBlockBlob(
 To run the sample, you may need to configure the implicit grant flow for your app registration. Follow these steps:
 
 1. Navigate to your app registration in the Azure portal.
-1. In the Manage section, select the **Authentication** setting.
-1. Under **Advanced settings**, in the **Implicit grant** section, select the check boxes to enable access tokens and ID tokens, as shown in the following image:
+1. In the **Manage** section, select the **Authentication** setting.
+1. In the **Implicit grant** section, select the check box to enable ID tokens, as shown in the following image:
 
     ![Screenshot showing how to enable settings for implicit grant flow](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
 
