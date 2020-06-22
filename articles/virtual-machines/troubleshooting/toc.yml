@@ -67,10 +67,11 @@
       href: troubleshoot-vm-boot-error.md
   - name: Windows
     href: boot-error-troubleshoot.md
-
     items:
     - name: Boot diagnostics
       href: boot-diagnostics.md
+    - name: Boot Error - Disk Read Error Occurred
+      href: boot-error-disk-read-error-occurred.md
     - name: BitLocker errors
       href: troubleshoot-bitlocker-boot-error.md
     - name: Blue screen errors
@@ -99,6 +100,8 @@
       href: unresponsive-vm-apply-windows-update.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
+    - name: VM is unresponsive when applying security policy
+      href: unresponsive-vm-apply-security-policy.md
 - name: Cannot connect to my VM
   items:
   - name: RDP

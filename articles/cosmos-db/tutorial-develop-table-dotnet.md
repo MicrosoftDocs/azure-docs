@@ -61,7 +61,7 @@ To obtain the NuGet package, follow these steps:
 
 1. Open the **Connection String** or **Access keys** pane. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
-   ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="View and copy the PRIMARY CONNECTION STRING in the Connection String pane":::
    
 1. To configure your connection string, from visual studio right click on your project **CosmosTableSamples**.
 
@@ -416,7 +416,7 @@ namespace CosmosTableSamples
 
 Now build the solution and press F5 to run the project. When the project is run, you will see the following output in the command prompt:
 
-![Output from command prompt](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Output from command prompt":::
 
 If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
 
@@ -429,7 +429,7 @@ If you receive an error that says Settings.json file can’t be found when runni
 ```
 Now you can sign into the Azure portal and verify that the data exists in the table. 
 
-![Results in portal](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Results in portal":::
 
 ## Next steps
 

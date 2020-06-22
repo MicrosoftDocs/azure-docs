@@ -1,12 +1,12 @@
 ---
- title: NCv3-series - Azure Virtual Machines
- description: Specifications for the NCv3-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NCv3-series - Azure Virtual Machines
+description: Specifications for the NCv3-series VMs.
+ms.subservice: sizes
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NCv3-series

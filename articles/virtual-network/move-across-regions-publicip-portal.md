@@ -4,7 +4,7 @@ description: Use a template to move Azure Public IP configuration from one Azure
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
 ---

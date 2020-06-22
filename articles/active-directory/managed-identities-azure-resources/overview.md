@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2020
+ms.date: 06/18/2020
 ms.author: markvi
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
@@ -40,7 +40,7 @@ The following terms are used throughout the managed identities for Azure resourc
 - **Principal ID** - the object ID of the service principal object for your managed identity that is used to grant role-based access to an Azure resource.
 - **Azure Instance Metadata Service (IMDS)** - a REST endpoint accessible to all IaaS VMs created via the Azure Resource Manager. The endpoint is available at a well-known non-routable IP address (169.254.169.254) that can be accessed only from within the VM.
 
-## How does the managed identities for Azure resources work?
+## Managed identity types
 
 There are two types of managed identities:
 
@@ -51,6 +51,9 @@ Internally, managed identities are service principals of a special type, which a
 Also, when a User-Assigned or System-Assigned Identity is created, the Managed Identity Resource Provider (MSRP) issues a certificate internally to that identity. 
 
 Your code can use a managed identity to request access tokens for services that support Azure AD authentication. Azure takes care of rolling the credentials that are used by the service instance. 
+
+## Credential Rotation
+Credential rotation is controlled by the resource provider that hosts the Azure resource. The default rotation of the credential occurs every 46 days. It's up to the resource provider to call for new credentials, so the resource provider could wait longer than 46 days.
 
 The following diagram shows how managed service identities work with Azure virtual machines (VMs):
 
@@ -101,9 +104,6 @@ The following diagram shows how managed service identities work with Azure virtu
 
 6. A call is made to Azure AD to request an access token (as specified in step 5) by using the client ID and certificate configured in step 3. Azure AD returns a JSON Web Token (JWT) access token.
 7. Your code sends the access token on a call to a service that supports Azure AD authentication.
-
-## Credential Rotation
-Credential rotation is controlled by the resource provider that hosts the Azure resource. The default rotation of the credential occurs every 46 days. It's up to the resource provider to call for new credentials, so the resource provider could wait longer than 46 days.
 
 ## How can I use managed identities for Azure resources?
 

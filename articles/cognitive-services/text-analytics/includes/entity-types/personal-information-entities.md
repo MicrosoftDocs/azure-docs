@@ -35,8 +35,8 @@ The following entity categories are returned when sending requests to the `/v3.1
 | DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
 | Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
 | Quantity | Age | Ages. | `2019-10-01` | | |
-| International Classification of Diseases (ICD-10-CM) | N/A | Entities relating to the International Classification of Diseases, Ninth Revision.   | `2020-04-01` | Also returned with `domain=phi`. |
-| International Classification of Diseases (ICD-10-CM) | N/A | Entities relating to the International Classification of Diseases, Tenth Revision.    | `2020-04-01` | Also returned with `domain=phi`. |
+| International Classification of Diseases (ICD-9-CM) | N/A | Entities relating to the International Classification of Diseases, Ninth Revision.   | `2020-04-01` | |
+| International Classification of Diseases (ICD-10-CM) | N/A | Entities relating to the International Classification of Diseases, Tenth Revision.    | `2020-04-01` | |
 
 ## Azure information
 

@@ -80,7 +80,9 @@ Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the beh
 - Synchronize property values between the device and IoT Central. The device template specifies the property names and data types so that IoT Central can display the information.
 - Implement command handlers for the commands specifies in the device template. The device template specifies the command names and parameters that the device should use.
 
-For more information, see [Create and connect a Node.js client application](./tutorial-connect-device-nodejs.md) or [Create and connect a Python client application](./tutorial-connect-device-python.md).
+For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md).
+
+For some sample code, see [Create and connect a Node.js client application](./tutorial-connect-device-nodejs.md) or [Create and connect a Python client application](./tutorial-connect-device-python.md).
 
 ### Languages and SDKs
 

@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions in the same or different Azure Active Directory tenant.
 services: virtual-network
 documentationcenter: ''
-author: anavinahar
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
-ms.author: anavin
+ms.author: kumud
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions and Azure Active Directory tenants

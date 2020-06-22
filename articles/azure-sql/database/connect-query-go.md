@@ -1,6 +1,7 @@
 ---
 title: Use Go to query
-description: Use Go to create a program that connects to a database in Azure SQL Database, and use Transact-SQL statements to query and modify data.
+description: Use Go to create a program that connects to a database in Azure SQL Database or Azure SQL Managed Instance, and runs queries.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -8,21 +9,21 @@ ms.custom: sqldbrb=2 
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: craigg
+ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ---
-# Quickstart: Use Golang to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Golang to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to a database in Azure SQL Database. You'll then run Transact-SQL statements to query and modify data. [Golang](https://golang.org/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
+In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to a database in Azure SQL Database or Azure SQL Managed Instance. You'll then run Transact-SQL statements to query and modify data. [Golang](https://golang.org/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+- A database in Azure SQL Database or Azure SQL Managed Instance. You can use one of these quickstarts to create a database:
 
   || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
@@ -46,7 +47,7 @@ To complete this quickstart, you need:
 
 ## Get server connection information
 
-Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

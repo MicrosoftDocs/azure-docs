@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
 
 
 ---
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
@@ -24,7 +25,7 @@ ms.author: anfeldma
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports synchronous operations.
@@ -43,6 +44,12 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
 
 ## Release notes
+
+### <a name="2.5.1"></a>2.5.1
+* Fixes master partition cache issue on documentCollection query.
+
+### <a name="2.5.0"></a>2.5.0
+* Added support for 449 retry custom configuration.
 
 ### <a name="2.4.7"></a>2.4.7
 * Fixes connection pool timeout issue.
@@ -264,6 +271,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |June 03, 2020 |--- |
+| [2.5.0](#2.5.0) |May 12, 2020 |--- |
 | [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
 | [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
 | [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
