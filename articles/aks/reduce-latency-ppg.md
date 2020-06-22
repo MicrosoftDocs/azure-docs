@@ -102,7 +102,7 @@ The command produces output, which includes the *id* value you need for upcoming
 Use the proximity placement group ID for the *myPPGResourceID* value in the below command:
 
 ```azurecli-interactive
-# Create an AKS cluster
+# Create an AKS cluster that uses a proximity placement group for the initial node pool
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -118,6 +118,7 @@ Use the resource ID from the proximity placement group you created earlier, and 
 Add a second node pool using the [`az aks nodepool add`][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that uses the proximity placement group you created earlier:
 
 ```azurecli-interactive
+# Add a new node pool that uses a proximity placement group
 az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
