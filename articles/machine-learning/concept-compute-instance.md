@@ -8,20 +8,21 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/13/2019
+ms.date: 06/22/2020
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance (preview) is a fully-managed cloud-based workstation for data scientists. 
+An Azure Machine Learning compute instance is a fully-managed cloud-based workstation for data scientists. 
 
 Compute instances make it easy to get started with Azure Machine Learning development as well as provide management and enterprise readiness capabilities for IT administrators.  
 
 Use a compute instance as your fully configured and managed development environment in the cloud.
 
-Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  
 
+For production level training use an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities. For production level deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
 ## Why use a compute instance?
 
@@ -108,15 +109,7 @@ In your workspace in Azure Machine Learning studio, select **Compute**, then sel
 
 You can perform the following actions:
 
-* Create a compute instance. In the resulting form, specify:
-    * Name of the compute instance.
-    * Azure VM type including GPUs. (VM type can not be changed after creation).
-    * Whether the instance is for yourself or created for another user of the workspace.
-    * Enable/disable SSH access. SSH access is disabled by default but can be enabled at compute instance creation time.
-    * Configure virtual network settings optionally. 
-
-    You can also create an instance directly from integrated notebooks, Azure portal, Resource Manager template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota.
-
+* [Create a compute instance](#create). 
 * Refresh the compute instances tab.
 * Start, stop and restart a compute instance.  You do pay for the instance whenever it is running. Stop the VM when you are not using it to reduce cost. Then start it again when you need it. 
 * Delete a compute instance.
@@ -130,11 +123,40 @@ For each compute instance in your workspace that you have access to, you can:
 
 [RBAC](/azure/role-based-access-control/overview) allows you to control which users in the workspace can create, delete, start, stop, restart a compute instance. All users in the workspace contributor and owner role can create, delete, start, stop, and restart compute instances across the workspace. However, only the creator of a specific compute instance is allowed to access Jupyter, JupyterLab, and RStudio on that compute instance. The creator of the compute instance has the compute instance dedicated to them, have root access, and can terminal in through Jupyter. Compute instance will have single-user login of creator user and all actions will use that user’s identity for RBAC and attribution of experiment runs. SSH access is controlled through public/private key mechanism.
 
+These actions can be controlled by RBAC:
+* *Microsoft.MachineLearningServices/workspaces/computes/read*
+* *Microsoft.MachineLearningServices/workspaces/computes/write*
+* *Microsoft.MachineLearningServices/workspaces/computes/delete*
+* *Microsoft.MachineLearningServices/workspaces/computes/start/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
+* *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
+
+### <a name="create"></a>Create a compute instance
+
+In your workspace in Azure Machine Learning studio, create a new compute instance from either the **Compute** section or in the **Notebooks** section when you are ready to run one of your notebooks.
+
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Create a new compute instance":::
+
+ * Use these rules to name the compute instance:
+    * Name is required and must be between 3 to 24 characters long.
+    * Valid characters are upper and lower case letters, digits, and the  **-** character.
+    * Name must start with a letter.
+    * Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique.
+    * If **-**  character is used, then it needs to be followed by at least one letter later in the name.
+
+* Select the Azure VM type including GPUs. The VM type can not be changed after creation.
+* Select whether the instance is for yourself or created for another user of the workspace.
+* Enable/disable SSH access. SSH access is disabled by default but can be enabled at compute instance creation time.
+* Optionally, configure virtual network settings. 
+
+To create the compute instance within an Azure Virtual Network, see [Secure your machine learning lifecycles with private virtual networks](how-to-enable-virtual-network.md#compute-instance). You can create compute instance in workspaces which has [Azure Private Link](how-to-configure-private-link.md) enabled.
+
 You can also create an instance
-* Directly from the integrated notebooks experience
+* Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
 * In Azure portal
 * From Azure Resource Manager template
 * With Azure Machine Learning SDK
+* From the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 The dedicated cores per region quota, which applies to compute instance creation is unified and shared with Azure Machine Learning training cluster quota. 
 
