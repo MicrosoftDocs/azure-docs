@@ -40,7 +40,7 @@ Scheduled Events provides events in the following use cases:
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
 
-## The Basics  
+## The basics  
 
   Metadata Service exposes information about running VMs by using a REST endpoint that's accessible from within the VM. The information is available via a nonroutable IP so that it's not exposed outside the VM.
 
@@ -57,7 +57,7 @@ Scheduled events are delivered to:
 
 As a result, check the `Resources` field in the event to identify which VMs are affected.
 
-### Endpoint Discovery
+### Endpoint discovery
 For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
@@ -65,7 +65,7 @@ For VNET enabled VMs, Metadata Service is available from a static nonroutable IP
 If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
-### Version and Region Availability
+### Version and region availability
 The Scheduled Events service is versioned. Versions are mandatory; the current version is `2019-01-01`.
 
 | Version | Release Type | Regions | Release Notes | 
@@ -81,12 +81,12 @@ The Scheduled Events service is versioned. Versions are mandatory; the current v
 > [!NOTE] 
 > Previous preview releases of Scheduled Events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
-### Enabling and Disabling Scheduled Events
+### Enabling and disabling Scheduled Events
 Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
 
 Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
-### User-initiated Maintenance
+### User-initiated maintenance
 User-initiated VM maintenance via the Azure portal, API, CLI, or PowerShell results in a scheduled event. You then can test the maintenance preparation logic in your application, and your application can prepare for user-initiated maintenance.
 
 If you restart a VM, an event with the type `Reboot` is scheduled. If you redeploy a VM, an event with the type `Redeploy` is scheduled.
@@ -124,7 +124,7 @@ In the case where there are scheduled events, the response contains an array of 
 }
 ```
 
-### Event Properties
+### Event properties
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -136,7 +136,7 @@ In the case where there are scheduled events, the response contains an array of 
 | Description | Description of this event. <br><br> Example: <br><ul><li> Host server is undergoing maintenance. |
 | EventSource | Initiator of the event. <br><br> Example: <br><ul><li> `Platform`: This event is initiated by platform. <li>`User`: This event is initiated by user. |
 
-### Event Scheduling
+### Event scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
 
 |EventType  | Minimum notice |
