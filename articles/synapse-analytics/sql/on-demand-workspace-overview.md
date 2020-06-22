@@ -84,9 +84,9 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [Query multiple files or folders](develop-storage-files-overview.md#query-multiple-files-or-folders)
 
-[PARQUET file format](develop-storage-files-overview.md#parquet-file-format)
+[PARQUET file format](develop-storage-files-overview.md#query-parquet-files)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](develop-storage-files-overview.md#query-csv-files)
 
 [Read a chosen subset of columns](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
 
