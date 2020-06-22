@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/15/2020
+ms.date: 06/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -49,7 +49,7 @@ For SAP HANA certified and supported Azure storage types read the article [SAP H
 
 The sections describing the different Azure storage types will give you more background about the restrictions and possibilities using the SAP supported storage. 
 
-## Summary and recommendations
+## Storage recommendations for SAP storage scenarios
 Before going into the details, we are presenting the summary and recommendations already at the beginning of the document. Whereas the details for the particular types of Azure storage are following this section of the document. Summarizing the storage recommendations for the SAP storage scenarios in a table, it looks like:
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
