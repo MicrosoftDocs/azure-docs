@@ -4,7 +4,7 @@ description: Release notes for Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql dw 
 ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
