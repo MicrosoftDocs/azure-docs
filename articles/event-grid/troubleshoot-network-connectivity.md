@@ -12,7 +12,7 @@ ms.date: 06/21/2020
 ms.author: batrived
 ---
 
-# Troubleshoot connectivity issues - Azure Event Hubs
+# Troubleshoot connectivity issues - Azure Event Grid
 
 There are various reasons for client applications not able to connect to an Event Grid topic/domain. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the your organization's firewall settings, IP firewall settings, service tags, private endpoints, and more. For transient issues, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues.
 
@@ -24,11 +24,11 @@ If the application isn't able to connect to the event grid at all, follow steps 
 
 ### Check if there is a service outage
 
-Check for the Azure Event Hubs service outage on the [Azure service status site](https://azure.microsoft.com/status/).
+Check for the Azure Event Grid service outage on the [Azure service status site](https://azure.microsoft.com/status/).
 
 ### Check if the ports required to communicate with Event Grid aren't blocked by organization's firewall
 
-Verify that ports used in communicating with Azure Event Hubs aren't blocked on your organization's firewall. See the following table for the outbound ports you need to open to communicate with Azure Event Hubs.
+Verify that ports used in communicating with Azure Event Grid aren't blocked on your organization's firewall. See the following table for the outbound ports you need to open to communicate with Azure Event Grid.
 
 | Protocol | Ports |
 | -------- | ----- |
