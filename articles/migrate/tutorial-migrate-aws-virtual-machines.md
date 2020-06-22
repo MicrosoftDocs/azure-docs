@@ -34,8 +34,8 @@ Before you migrate to Azure, we recommend that you perform a VM discovery and mi
 
 Set up an assessment as follows:
 
-- An assessment can be performed by treating your AWS VMs as physical machines for the purpose of conducting an assessment using the Azure Migrate: Server Assessment tool. Follow the [tutorial](https://docs.microsoft.com/en-us/azure/migrate/tutorial-prepare-physical) to set up Azure and prepare your AWS VMs for an assessment.
-- Then, follow this [tutorial](https://docs.microsoft.com/en-us/azure/migrate/tutorial-assess-physical) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
+- An assessment can be performed by treating your AWS VMs as physical machines for the purpose of conducting an assessment using the Azure Migrate: Server Assessment tool. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical) to set up Azure and prepare your AWS VMs for an assessment.
+- Then, follow this [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn’t a mandatory step to be able to migrate VMs.
 
@@ -44,8 +44,8 @@ Although we recommend that you try out an assessment, performing an assessment i
 ## 1. Prerequisites for Migration
 
 - Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) for the physical server migration workflow. We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
-- Make sure your AWS VMs comply with the [supported configurations](https://docs.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) for migration to Azure.
-- Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements.](https://docs.microsoft.com/en-us/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements)
+- Make sure your AWS VMs comply with the [supported configurations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) for migration to Azure.
+- Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements.](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements)
 - There are some changes needed on the VMs before you migrate them to Azure.
     - For some operating systems, Azure Migrate makes these changes automatically.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
@@ -93,7 +93,7 @@ Azure Migrate: Server Migration uses a replication appliance to replicate machin
 
 Prepare for appliance deployment as follows:
 
-- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](https://docs.microsoft.com/en-us/azure/migrate/migrate-replication-appliance#appliance-requirements) the hardware, software, and networking requirements for the appliance.
+- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements) the hardware, software, and networking requirements for the appliance.
 - The appliance shouldn't be installed on a source VM that you want to replicate. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this. It is recommended that the replication appliance is deployed in the same VPC as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs need to be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
