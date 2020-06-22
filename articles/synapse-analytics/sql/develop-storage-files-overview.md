@@ -23,20 +23,20 @@ For more information on what is vs. what isn't currently supported, read the [SQ
 
 When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
 
-## Extensions
+## Overview
 
 To support a smooth experience for in place querying of data that's located in Azure Storage files, SQL on-demand uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
 
 - [Query multiple files or folders](#query-multiple-files-or-folders)
-- [PARQUET file format](#parquet-file-format)
-- [Additional options for working with delimited text (field terminator, row terminator, escape char)](#additional-options-for-working-with-delimited-text)
+- [PARQUET file format](#query-parquet-files)
+- [Query CSV and delimited text (field terminator, row terminator, escape char)](#query-csv-files)
 - [Read a chosen subset of columns](#read-a-chosen-subset-of-columns)
 - [Schema inference](#schema-inference)
 - [filename function](#filename-function)
 - [filepath function](#filepath-function)
 - [Work with complex types and nested or repeated data structures](#work-with-complex-types-and-nested-or-repeated-data-structures)
 
-### Query multiple files or folders
+## Query multiple files or folders
 
 To run a T-SQL query over a set of files within a folder or set of folders while treating them as a single entity or rowset, provide a path to a folder or a pattern (using wildcards) over a set of files or folders.
 
@@ -52,7 +52,7 @@ N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
 
 Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
 
-### PARQUET file format
+## Query PARQUET files
 
 To query Parquet source data, use FORMAT = 'PARQUET'
 
@@ -70,7 +70,7 @@ AS table_alias(column_alias,...n)
 
 Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
 
-### Additional options for working with delimited text
+## Query CSV files
 
 These additional parameters are introduced for working with CSV (delimited text) files:
 
@@ -108,7 +108,7 @@ OPENROWSET
 
 For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
 
-### Schema inference
+## Schema inference
 
 By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
 
@@ -121,6 +121,8 @@ BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
 Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
+
+## file metadata functions
 
 ### Filename function
 
@@ -141,7 +143,7 @@ For additional information, read the Filepath section of the [Query specific fil
 
 Return data type is nvarchar(1024). For optimal performance, always cast result of filepath function to appropriate data type. If you use character data type, make sure appropriate length is used.
 
-### Work with complex types and nested or repeated data structures
+## Work with complex types and nested or repeated data structures
 
 To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
 
