@@ -65,13 +65,13 @@ Business One is an application that has two tiers:
 - A client tier with a 'fat' client
 - A database tier that contains the database schema for a tenant
 
-A better overview which components are running in the client part and which parts are running in the server part is documented in [SAP Business One Administrator's Guide](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) 
+A better overview which components are running in the client part and which parts are running in the server part is documented in [SAP Business One Administrator's Guide](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf) 
 
 Since there is heavy latency critical interaction between the client tier and the DBMS tier, both tiers need to be located in Azure when deploying in Azure. it is usual that the users then RDS into one or multiple VMs running an RDS service for the Business One client components.
 
 ### Sizing VMs for SAP Business One
 
-Regarding the sizing of the client VM(s), the resource requirements are documented by SAP in the document [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document.
+Regarding the sizing of the client VM(s), the resource requirements are documented by SAP in the document [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document.
 
 As Azure virtual machines for hosting the Business One client components and the DBMS host, only VMs that are SAP NetWeaver supported are allowed. To find the list of SAP NetWeaver supported Azure VMs, read [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
