@@ -1,12 +1,12 @@
 ---
-title: Create Resource Health alerts using azure portal
+title: Create Resource Health Alerts Using Azure Portal
 description: Create alert using Azure portal that notify you when your Azure resources become unavailable.
 ms.topic: conceptual
 ms.date: 6/23/2020
 
 ---
 
-# Configure resource health alerts using Azure Portal
+# Configure resource health alerts using Azure portal
 
 This article shows you how to set up activity log alerts for resource health notifications by using the Azure portal.
 
@@ -36,7 +36,7 @@ To learn more about action groups, see [Create and manage action groups](https:/
 For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide).
 Resource Health Alert using Azure portal
 
-## Resource Health Alert using Azure portal
+## Resource Health Alert Using Azure Portal
 
 1. In the Azure [portal](https://portal.azure.com/), select **Service Health**.
 
@@ -45,12 +45,13 @@ Resource Health Alert using Azure portal
 3. Select **Add resource health alert** and fill in the fields.
 4. Under Alert target, select the **Subscription**, **Resource Types**, **Resource Groups** and **Resource** you want to be alerted for.
 
-    ![Target selection Selection](./media/resource-health-alert-monitor-guide/resource-health-target.png)
+    ![Target selection Selection](./media/resource-health-alert-monitor-guide/alert-target.png)
+
 5. Under alert condition select:
     1. The **Event Status** you want to be alerted for. The severity level of the event: Active, Resolved, In Progress, Updated
     2. The **Resource Status** you want to be alerted for. The resource status of the event: Available, Unavailable, Unknown, Degraded
     3. The **Reason Type** you want to be alerted for. The cause of the event: Platform Initiated, User Initiated
-    ![Alert condition selection Health Selection](./media/resource-health-alert-monitor-guide/resource-health-alert-condition.png)
+    ![Alert condition selection Health Selection](./media/resource-health-alert-monitor-guide/alert-condition.png)
 6. Under Define alert details, provide the following details:
     1. **Alert rule name**: The name for the new alert rule.
     2. **Description**: The description for the new alert rule.
