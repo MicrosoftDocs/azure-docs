@@ -20,7 +20,7 @@ This article helps you update contact information for your account in the Azure 
 
 *Contact email address for service and marketing emails* - You can specify an email address that's different from the email address that you sign in with, to receive important billing, service, and recommendation-related notifications about your Azure account.  
 
-## Update an MOSP billing account sold-to or bill-to address
+## Update an MOSP billing account address
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) using the email address, which has the account administrator permission on the account.
 1. Search for **Cost Management + Billing**.  
@@ -76,7 +76,7 @@ Enter the email address where you want to receive communications about your acco
 
 You can change your contact email address by using one of the following methods. Updating your contact email address doesn't update the email address that you sign in with.
 
-* If you're an account administrator for an MOSP account, follow the instructions in [Update sold-to or bill-to for a MOSP billing account](#update-an-mosp-billing account sold-to-or-bill-to-address) and select **Update contact info** in the last step. Next, enter the new email address.
+* If you're an account administrator for an MOSP account, follow the instructions in [Update an MOSP billing account address](#update-an-mosp-billing-account-address) and select **Update contact info** in the last step. Next, enter the new email address.
 
 * Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
 
