@@ -85,29 +85,25 @@ Run the following command, and store the ID that is returned:
 az ppg create -n myPPG -g myPPGGroup -l centralus -t standard
 ```
 
-```azurecli-interactive
-# Create the AKS cluster
-az ppg create -n myPPG -g myPPGGroup -l centralus -t standard
-```
+Use the proximity placement group ID for the *ppg parameter* below (myResourceID):
 
+```azurecli-interactive
+# Create an AKS cluster
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 2 \
+    --generate-ssh-keys \
+    --load-balancer-sku standard
+    --ppg myResourceID
+```
 
 ## Add a proximity placement group to an existing cluster
 
-You can 
+You can add a proximity placement group to an existing cluster by modifying the [system pool][system-pool].
 
-Az aks create –ppg <resource-id> 
-
-Affects first agent pool only 
-
-Primary pool requires cluster recreation to update (needs mutable primary pool) 
-
-Az aks nodepool add –ppg <resource-id> 
-
-Affects individual agent pools created 
-
-Requires user to provision a PPG separately 
-
-az ppg create -n myPPG -g myPPGGroup -l westus -t standard  
+TODO
 
 
 ## Next steps
@@ -126,4 +122,5 @@ az ppg create -n myPPG -g myPPGGroup -l westus -t standard
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [proximity-placement-groups]: /virtual-machines/linux/co-location
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[system-pool]: ./use-system-pools.md
 
