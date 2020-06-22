@@ -145,24 +145,28 @@ To begin, install [Azure Storage Explorer](https://azure.microsoft.com/features/
 
 ### Connect to source
 
-Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. 
+You use Storage Explorer to copy tables from the source Azure Storage account. 
 
-You can [sign in to access resources in your subscription](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+Connect Storage Explorer to the your source table resources in Microsoft Azure Germany. You can [sign in to access resources in your subscription](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
 
 ### Connect to target
 
-Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
+You use Storage Explorer to paste tables to the target Azure Storage account.
+
+Connect Storage Explorer to your target Microsoft Azure subscription or Azure Storage. You can [sign in to access resources in your subscription](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) or you can [attach to specific Storage resources](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#attach-a-specific-resource). 
 
 
 ### Migrate tables
 
-Copy tables from Germany source to global storage table
+Copy tables from Germany source to global storage table using Storage Explorer. You can copy tables by right clicking the table you want to copy and choosing **Copy table** from the shortcut menu. The following example shows copying the *testmigrationtable* from an *Azure Germany subscription*.
+
 ![Copy table menu selected from Azure Germany subscription](./media/germany-migration-storage/copy-table.png)
 
-Paste table
+Paste the table into the target Azure Storage account using Storage Explorer. You can past tables by right clicking the *Tables* node within the target Azure Storage account. The following example shows pasting the *testmigrationtable* to a connected Azure Storage account.
+ 
 ![Paste table menu selected from target Azure Storage](./media/germany-migration-storage/paste-table.png)
 
-Verify migration
+Repeat the copy and paste steps for each table you want to migrate.
 
 ## Next steps
 
