@@ -242,6 +242,8 @@
       href: enable-diagnostic-logs-topic.md
     - name: Troubleshoot errors
       href: troubleshoot-errors.md
+    - name: Troubleshoot network connectivity issues
+      href: troubleshoot-network-connectivity.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
     - name: View metrics and create alerts
