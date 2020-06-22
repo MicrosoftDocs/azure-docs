@@ -27,6 +27,14 @@ This article provides a quick view into the network connectivity in Azure Virtua
 * **Automated spoke setup and configuration:** Connect your virtual networks and workloads to the Azure hub seamlessly.
 * **Intuitive troubleshooting:** You can see the end-to-end flow within Azure, and then use this information to take required actions.
 
+## <a name="basicstandard"></a>Basic and Standard virtual WANs
+
+There are two types of virtual WANs: Basic and Standard. The following table shows the available configurations for each type.
+
+[!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
+
+For steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+
 ## <a name="architecture"></a>Architecture
 
 For information about Virtual WAN architecture and how to migrate to Virtual WAN, see the following articles:
@@ -62,7 +70,7 @@ Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User V
 
 You can connect to your resources in Azure over a Site-to-site IPsec/IKE (IKEv2) connection. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simplify use the step by step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
+This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simplify use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 
