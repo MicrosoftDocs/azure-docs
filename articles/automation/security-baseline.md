@@ -1,5 +1,5 @@
 ---
-title: Azure security baseline for Automation
+title: Azure security baseline for Azure Automation
 description: Azure security baseline for Automation
 author: msmbaldwin
 ms.service: security
@@ -760,7 +760,7 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 **Guidance**: The Azure Automation offering does not currently expose the underlying multi-tenant runbook worker's virtual machines and this is handled by the platform. This control is not applicable if you are using the out-of-the box service without Hybrid Workers. However, it is possible to install, remove, and manage the PowerShell, or Python modules that runbooks can access via the portal or cmdlets. Unapproved or old module should be removed or updated for the runbooks.
 
-If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Note: Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
+If you are using Hybrid Runbook Workers backed by Azure Virtual Machines then Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. Leverage Azure Virtual Machine Inventory to automate the collection of information about all software on Virtual Machines. Software Name, Version, Publisher, and Refresh time are available from the Azure portal. To get access to install date and other information, customer required to enable guest-level diagnostic and bring the Windows Event logs into a Log Analytics Workspace.
 
 * [An introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
 
@@ -930,11 +930,9 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 When using the Hybrid Runbook Worker feature, there are several options for maintaining a secure configuration for Azure virtual machines for deployment:
 
-1- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
-
-2- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
-
-3- Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
+- Azure Resource Manager templates: These are JSON based files used to deploy a VM from the Azure portal, and custom template will need to be maintained. Microsoft performs the maintenance on the base templates.
+- Custom Virtual hard disk (VHD): In some circumstances it may be required to have custom VHD files used such as when dealing with complex environments that cannot be managed through other means.
+- Azure Automation State Configuration: Once the base OS is deployed, this can be used for more granular control of the settings, and enforced through the automation framework.
 
 For most scenarios, the Microsoft base VM templates combined with the Azure Automation State Configuration can assist in meeting and maintaining the security requirements.
 
