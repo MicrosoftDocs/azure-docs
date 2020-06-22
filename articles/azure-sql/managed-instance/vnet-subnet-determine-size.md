@@ -35,15 +35,15 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 
 ## Determine subnet size
 
-If you plan to deploy multiple SQL Managed Instances inside the subnet and need to optimize on subnet size. In addition, during scaling operation instances temporarily require additional IP capacity. Size your subnet according to the future instance deployment and scaling needs. Following parameters can help you in forming a calculation:
+Size your subnet according to the future instance deployment and scaling needs. Following parameters can help you in forming a calculation:
 
 - Azure uses five IP addresses per hardware generation in the subnet for its own needs
 - Each virtual cluster allocates additional number of addresses 
 - Each managed instance uses number of addresses that depends on pricing tier and hardware generation
 
-General purpose = GP; 
-Busines critical = BC; 
-Virtual cluster = VC
+GP = general purpose; 
+BC = business critical; 
+VC = virtual cluster
 
 | **Hardware gen** | **Pricing tier** | **Azure usage** | **VC usage** | **Instance usage** | **Total*** |
 | --- | --- | --- | --- | --- | --- |
@@ -60,6 +60,8 @@ Virtual cluster = VC
 
 ### Address requirements for update scenarios
 
+During scaling operation instances temporarily require additional IP capacity
+
 | **Hardware gen** | **Pricing tier** | **Scenario** | **Additional addresses*** |
 | --- | --- | --- | --- |
 | Gen4 | GP or BC | Scaling vCores | 5 |
@@ -73,7 +75,7 @@ Virtual cluster = VC
 | Gen5 | GP | Switching to BC | 5 |
 | Gen5 | BC | Scaling vCores | 5 |
 | Gen5 | BC | Scaling storage | 5 |
-| Gen5 | BC | Switching to BC | 3 |
+| Gen5 | BC | Switching to GP | 3 |
 
 \* Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check management operations details). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by Virtual cluster usage column summed with addresses required for instances placed in that virtual cluster (instance usage column) in Table 1.
 
