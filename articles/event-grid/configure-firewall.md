@@ -276,3 +276,4 @@ Invoke-RestMethod -Method 'Get'
 * For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)
