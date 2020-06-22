@@ -39,7 +39,7 @@ Learn more about:
 
 - [Tabular source to tabular sink](#tabular-source-to-tabular-sink)
 - [Hierarchical source to tabular sink](#hierarchical-source-to-tabular-sink)
-- [Tabular/Hierarchical source to hierarchical sink](#tabular-hierarchical-to-hierarchical-copy)
+- [Tabular/Hierarchical source to hierarchical sink](#tabularhierarchical-to-hierarchical-copy)
 
 You can configure the mapping on Data Factory authoring UI -> copy activity -> mapping tab, or programmatically specify the mapping in copy activity -> `translator` property. The following properties are supported in `translator` -> `mappings` array -> objects ->  `source` and `sink`, which points to the specific column/field to map data.
 
