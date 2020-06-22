@@ -216,7 +216,7 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Or, assign the role to a service principle identified by its application ID:
+  Or, assign the role to a service principal identified by its application ID:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
