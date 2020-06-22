@@ -235,11 +235,11 @@ An *analyzer* is a component of the [full text search engine](search-lucene-quer
 
 Analyzers consist of three components: [**character filters**](#CharFilters), [**tokenizers**](#Tokenizers), and [**token filters**](#TokenFilters). These three components work together to convert text into a collection of tokens that are then stored in the search index.
 
-  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzer-explained.PNG)
+  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/analyzer-explained.png)
 
 These tokens are then stored in an inverted index, which allows for fast, full-text searches.
 
-  ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index.PNG)
+  ![Example inverted index](media/tutorial-create-custom-analyzer/inverted-index.png)
 
 All of search comes down to searching for these tokens. When a user issues a query:
 
@@ -247,7 +247,7 @@ All of search comes down to searching for these tokens. When a user issues a que
 1. The inverted index is then scanned for documents with matching tokens
 1. Finally, the results are ranked by feeding the matching tokens into a [similarity algorithm](index-ranking-similarity.md) to score the results.
 
-  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture.PNG)
+  ![Diagram of Analyzer process](media/tutorial-create-custom-analyzer/query-architecture.png)
 
 If the tokens from your query don't match the tokens in your inverted index, results won't be returned.
 
