@@ -39,7 +39,7 @@ To develop a function with Java and IntelliJ, install the following software:
 2. To sign in to your Azure account, open sidebar **Azure Explorer**, and then click the **Azure Sign In** icon in the bar on top (or from IDEA menu **Tools/Azure/Azure Sign in**).
     ![The IntelliJ Azure Sign In command][I01]
 
-3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](https://github.com/MicrosoftDocs/azure-dev-docs-pr/blob/master/articles/java/toolkit-for-intellij/sign-in-instructions.md)).
+3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![The Azure Sign In window with device login selected][I02]
 
