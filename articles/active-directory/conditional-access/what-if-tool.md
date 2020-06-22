@@ -38,7 +38,7 @@ In the **Conditional Access What If tool**, you first need to configure the sett
      
 As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 
-When the evaluation has finished, the tool generates a report of the affected policies. To gather more information about a Conditional Access policy the [Conditional Access insights and reporting workbook](howto-conditional-access-insights-reporting.md) can provide additional details about policies in report-only mode and those that are currently enabled.
+When the evaluation has finished, the tool generates a report of the affected policies. To gather more information about a Conditional Access policy, the [Conditional Access insights and reporting workbook](howto-conditional-access-insights-reporting.md) can provide additional details about policies in report-only mode and those policies currently enabled.
 
 ## Running the tool
 
