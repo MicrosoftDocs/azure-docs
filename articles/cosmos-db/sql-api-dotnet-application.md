@@ -21,7 +21,7 @@ ms.author: sngun
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
 
-![Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+:::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png" alt-text="Screenshot of the todo list MVC web application created by this tutorial - ASP NET Core MVC tutorial step by step":::
 
 If you don't have time to complete the tutorial, you can download the complete sample project from [GitHub][GitHub].
 
@@ -65,7 +65,7 @@ In the next section, you create a new ASP.NET Core MVC application.
 
 1. In **Create a new project**, find and select **ASP.NET Core Web Application** for C#. Select **Next** to continue.
 
-   ![Create new ASP.NET Core web application project](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png" alt-text="Create new ASP.NET Core web application project":::
 
 1. In **Configure your new project**, name the project *todo* and select **Create**.
 
@@ -83,7 +83,7 @@ Now that we have most of the ASP.NET Core MVC framework code that we need for th
 
 1. In the **NuGet Package Manager**, search for and select **Microsoft.Azure.Cosmos**. Select **Install**.
 
-   ![Install NuGet package](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Install NuGet package":::
 
    Visual Studio  downloads and installs the Azure Cosmos DB package and its dependencies.
 
@@ -130,7 +130,7 @@ Next, let's create the following three views.
    * In **Model class**, select **Item (todo.Models)**.
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
 
-   ![Screenshot showing the Add MVC View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
 
 1. After you add these values, select **Add** and let Visual Studio create a new template view.
 
@@ -216,7 +216,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
 1. In **Add Scaffold**, select **MVC Controller - Empty** and select **Add**.
 
-   ![Select MVC Controller - Empty in Add Scaffold](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png" alt-text="Select MVC Controller - Empty in Add Scaffold":::
 
 1. Name your new controller *ItemController*.
 
@@ -234,7 +234,7 @@ To test the application on your local computer, use the following steps:
 
 1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
 
-   ![Screenshot of the todo list web application created by this tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png" alt-text="Screenshot of the todo list web application created by this tutorial":::
    
    If the application instead opens to the home page, append `/Item` to the url.
 
@@ -242,11 +242,11 @@ To test the application on your local computer, use the following steps:
 
 1. Select **Create**. The app sends you back to the **Index** view, and your item appears in the list. You can add a few more items to your **To-Do** list.
 
-    ![Screenshot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png" alt-text="Screenshot of the Index view":::
   
 1. Select **Edit** next to an **Item** on the list. The app opens the **Edit** view where you can update any property of your object, including the **Completed** flag. If you select **Completed** and select **Save**, the app displays the **Item** as completed in the list.
 
-   ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png" alt-text="Screenshot of the Index view with the Completed box checked":::
 
 1. Verify the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
 
@@ -266,7 +266,7 @@ Now that you have the complete application working correctly with Azure Cosmos D
 
 1. Find your profile, and then select **OK**. Next search the required Azure App Service and select **OK**.
 
-   ![App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png" alt-text="App Service dialog box in Visual Studio":::
 
 Another option is to create a new profile:
 
@@ -278,7 +278,7 @@ Another option is to create a new profile:
 
 1. In **App Service**, enter your Web App name and the appropriate subscription, resource group, and hosting plan, then select **Create**.
 
-   ![Create App Service dialog box in Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png)
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png" alt-text="Create App Service dialog box in Visual Studio":::
 
 In a few seconds, Visual Studio publishes your web application and launches a browser where you can see your project running in Azure!
 

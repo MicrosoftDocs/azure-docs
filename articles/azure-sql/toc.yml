@@ -39,7 +39,8 @@
       href: temporal-tables.md
     - name: Scale up / down
       href: database/scale-resources.md
-
+    - name: Read Scale-Out
+      href: database/read-scale-out.md
     - name: Security
       items:
       - name: Overview
@@ -299,8 +300,6 @@
       href: database/connectivity-architecture.md
     - name: Connectivity settings
       href: database/connectivity-settings.md
-    - name: Read Scale-Out
-      href: database/read-scale-out.md      
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
@@ -994,9 +993,12 @@
         - name: Licensing model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
+        - name: Edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Version
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Azure Storage for backup & restore
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate
@@ -1011,8 +1013,6 @@
           items:
           - name: Azure SQL VM CLI
             href: virtual-machines/windows/availability-group-az-cli-configure.md
-          - name: Azure portal template
-            href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
           - name: Azure Quickstart templates
             href: virtual-machines/windows/availability-group-quickstart-template-configure.md
           - name: Multiple regions
@@ -1065,6 +1065,7 @@
         href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+
   - name: Linux
     items: 
     - name: Overview
