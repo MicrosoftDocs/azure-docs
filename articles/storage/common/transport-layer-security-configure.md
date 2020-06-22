@@ -49,7 +49,7 @@ StorageBlobLogs
 
 The results show the count of the number of requests made with each version of TLS. In this case, all requests were made using TLS version 1.2:
 
-:::image type="content" source="media/transport-layer-security-overview/log-analytics-query-version.png" alt-text="Screenshot showing results of log analytics query to return TLS version":::
+:::image type="content" source="media/transport-layer-security-configure/log-analytics-query-version.png" alt-text="Screenshot showing results of log analytics query to return TLS version":::
 
 ### Query logged requests by caller IP address and user agent header
 
@@ -81,6 +81,9 @@ az resource update \
     --ids $storage_account_id \
     --set properties.minimumTlsVersion="TLS1_2"
 ```
+
+> [!NOTE]
+> After you update the minimum TLS version for the storage account, it may take up to 30 seconds before the change is fully propagated.
 
 ## Check the minimum TLS version for an account
 
@@ -118,13 +121,9 @@ resources
 
 In order for a client to send a request with TLS 1.2, the operating system must support TLS 1.2. For more information, see [Support for TLS 1.2](/dotnet/framework/network-programming/tls#support-for-tls-12).
 
-OS and the .NET Framework version both need to support TLS 1.2. See more details in Support for TLS 1.2.
+To configure a client application for TLS 1.2, ...
 
-To configure a client application for TLS 1.2, 
-
-## Test the minimum TLS version from a client
-
-When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version of the connection is not permitted on this storage account.
+### PowerShell client
 
 The following example assumes that the minimum TLS version for the storage account has been set to 1.2. When the PowerShell client is configured to use TLS 1.1, then calls to read and write data will fail.  
 
@@ -138,8 +137,35 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name "sample-container" -Context $ctx
 ```
 
-> [!NOTE]
-> After you update the minimum TLS version for the storage account, it may take up to 30 seconds before the change is fully propagated.
+### .NET client
+
+For the client to negotiate TLS 1.2, the OS and the .NET Framework version both need to support TLS 1.2. See more details in [Support for TLS 1.2](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).
+
+The following sample shows how to enable TLS 1.2 in your .NET client.
+
+```csharp
+
+    static void EnableTls12()
+    {
+        // Enable TLS 1.2 before connecting to Azure Storage
+        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+        // Connect to Azure Storage
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName={yourstorageaccount};AccountKey={yourstorageaccountkey};EndpointSuffix=core.windows.net");
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        CloudBlobContainer container = blobClient.GetContainerReference("foo");
+        container.CreateIfNotExists();
+    }
+
+```
+
+## Test the minimum TLS version from a client
+
+When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version of the connection is not permitted on this storage account.
+
+verify with fiddler
 
 ## Next steps
 
+- [Security recommendations for Blob storage](../blobs/security-recommendations.md)
