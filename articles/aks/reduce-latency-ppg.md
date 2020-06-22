@@ -81,7 +81,25 @@ Run the following command, and store the ID that is returned:
 
 ```azurecli-interactive
 # Create proximity placement group
-az ppg create -n myPPG -g myPPGGroup -l centralus -t standard
+az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
+```
+
+The command produces output, which includes the id value you need for upcoming CLI commands:
+
+```output
+{
+  "availabilitySets": null,
+  "colocationStatus": null,
+  "id": "/subscriptions/yourSubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myPPG",
+  "location": "centralus",
+  "name": "myPPG",
+  "proximityPlacementGroupType": "Standard",
+  "resourceGroup": "myResourceGroup",
+  "tags": {},
+  "type": "Microsoft.Compute/proximityPlacementGroups",
+  "virtualMachineScaleSets": null,
+  "virtualMachines": null
+}
 ```
 
 Use the proximity placement group ID for the *myResourceID* value in the below command:
