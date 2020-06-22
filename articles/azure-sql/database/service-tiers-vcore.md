@@ -85,10 +85,11 @@ Fsv2-series in only supported in the General Purpose tier.  For regions where Fs
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is only supported in the Business Critical tier and does not support zone redundancy.
+M-series is only supported in the Business Critical tier and does not support zone redundancy.  The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For regions where M-series is available, see [M-series availability](#m-series).
 
+<!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
-
+-->
 
 ### Compute and memory specifications
 
@@ -189,6 +190,7 @@ Australia Central, Australia Central 2, Australia East, Australia Southeast, Bra
 
 M-series is available in the following regions:
 East US, North Europe, West Europe, West US 2.
+<!--
 M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
 To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
@@ -214,7 +216,7 @@ On the **Details** page, provide the following:
     For regions where M-series is available, see [M-series availability](#m-series).
 
 Approved support requests are typically fulfilled within 5 business days.
-
+-->
 
 ## Next steps
 
