@@ -14,9 +14,9 @@ ms.author: batrived
 
 # Troubleshoot connectivity issues - Azure Event Hubs
 
-There are various reasons for client applications not able to connect to an event hub. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the connection string, your organization's firewall settings, IP firewall settings, network security settings (service endpoints, private endpoints, etc.), and more. For transient issues, upgrading to latest version of the SDK, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues.
+There are various reasons for client applications not able to connect to an Event Grid topic/domain. The connectivity issues that you experience may be permanent or transient. If the issue happens all the time (permanent), you may want to check the your organization's firewall settings, IP firewall settings, service tags, private endpoints, and more. For transient issues, running commands to check dropped packets, and obtaining network traces may help with troubleshooting the issues.
 
-This article provides tips for troubleshooting connectivity issues with Azure Event Hubs.
+This article provides tips for troubleshooting connectivity issues with Azure Event Grid.
 
 ## Troubleshoot permanent connectivity issues
 
