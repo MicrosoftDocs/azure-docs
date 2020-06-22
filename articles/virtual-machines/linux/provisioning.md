@@ -29,7 +29,7 @@ Whilst there are currently two provisioning agents, cloud-init should be the pro
 If you have a Linux kernel that cannot support running either agent, but wish to set some of the VM Create properties, such as hostname, customData, userName, password, ssh keys, then in this document discusses how you can [create generalized images without an agent](no-agent.md), and meet platform requirements.
 
 
-## Provisioning Agent Responsibilities
+## Provisioning agent responsibilities
 
 **Image Provisioning**
   
@@ -65,7 +65,7 @@ The information flow from the platform to the agent occurs via two channels:
 - A TCP endpoint exposing a REST API used to obtain deployment, and topology configuration.
 - IMDS <!-- Do we want to mention this? -->
 
-## Azure Provisioning Agent Requirements
+## Azure provisioning agent requirements
 The Linux Agent, and cloud-init, depend on some system packages in order to function properly:
 - Python 2.6+
 - OpenSSL 1.0+
