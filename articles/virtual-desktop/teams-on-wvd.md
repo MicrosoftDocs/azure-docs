@@ -150,7 +150,7 @@ Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as mult
 
 Enabling device redirections is not required when using Teams with media optimization. If you are using Teams without media optimization, set the following RDP properties to enable microphone and camera redirection:
 
-- `audiocapturemode:i:1` enables audio capture from the local device and redirets audio applications in the remote session.
+- `audiocapturemode:i:1` enables audio capture from the local device and redirects audio applications in the remote session.
 - `audiomode:i:0` plays audio on the local computer.
 - `camerastoredirect:s:*` redirects all cameras.
 
