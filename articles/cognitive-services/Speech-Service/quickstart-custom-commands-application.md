@@ -98,7 +98,7 @@ Before you can access this application from outside Speech Studio, you need to p
 
 ### Publish the application
 
-Select  **Publish** on top of the right pane. Once publish completes, a new window will appear. Note down the **Application id** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
+Select  **Publish** on top of the right pane. Once publish completes, a new window will appear. Note down the **Application ID** and **Speech resource key** value from it. You will need these two values to be able to access the application from outside Speech Studio.
 
 Alternatively, you can also get these values by selecting **Settings** > **General** section.
 
@@ -106,13 +106,13 @@ Alternatively, you can also get these values by selecting **Settings** > **Gener
 
 In the scope of this article, we will be using the Windows Voice Assistant client you downloaded as part of the pre-requisites. Unzip the folder.
 1. Launch **VoiceAssistantClient.exe**.
-1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app Id**.
-  > [!div class="mx-imgBorder"]
-  > ![WVAC Create profile](media/custom-commands/wvac-create-profile.png)
+1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app ID**.
+    > [!div class="mx-imgBorder"]
+    > ![WVAC Create profile](media/custom-commands/create-profile.png)
 1. Select **Save and Apply Profile**.
 1. Now try out the following inputs via speech/text
     > [!div class="mx-imgBorder"]
-  > ![WVAC Create profile](media/custom-commands/wvac-conversation.png)
+    > ![WVAC Create profile](media/custom-commands/conversation.png)
 
 
 > [!TIP]

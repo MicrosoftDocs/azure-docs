@@ -53,7 +53,7 @@ Whether you choose [Direct Line Speech](direct-line-speech.md) or [Custom Comman
 We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of voice assistant quickstarts, organized by language.
 
 * [Quickstart: Create a custom voice assistant using Direct Line Speech](quickstarts/voice-assistants.md)
-* [Quictstart: Build a voice commanding app using Custom Commands](quickstart-custom-commands-application.md)
+* [Quickstart: Build a voice commanding app using Custom Commands](quickstart-custom-commands-application.md)
 
 ## Sample code and Tutorials
 

@@ -36,7 +36,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 1. Go to "Web endpoints", click "New web endpoint".
 
    > [!div class="mx-imgBorder"]
-   > ![New web endpoint](media/custom-commands/setup-webendpoint-new-endpoint.png)
+   > ![New web endpoint](media/custom-commands/setup-web-endpoint-new-endpoint.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -59,7 +59,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 1. In **Edit Action - Endpoints**, select **UpdateDeviceState**, which is the web endpoint we created.  
 1. In **Configuration**, put the following values: 
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action parameters](media/custom-commands/setup-webendpoint-edit-action-parameters.png)
+   > ![Call web endpoints action parameters](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -73,7 +73,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 1. In **On Success - Action to execute**, select **Send speech response**.
    
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-webendpoint-edit-action-onsuccess-send-response.png)
+   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -84,7 +84,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 
 1. In **On Failure - Action to execute**, select **Send speech response**
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Fail](media/custom-commands/setup-webendpoint-edit-action-onfail.png)
+   > ![Call web endpoints action On Fail](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -98,11 +98,11 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 - On Success response\
 Save, train and test
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-webendpoint-onsuccess-response.png)
+   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - On Fail response\
 Remove one of the query parameters, save, retrain, and test
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-webendpoint-onfail-response.png)
+   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-on-fail-response.png)
 
 ## Integrate with client application
 
@@ -123,7 +123,7 @@ However, in most of the cases you only want to send activity to the client appli
    }
    ```
     > [!div class="mx-imgBorder"]
-    > ![Send activity on success](media/custom-commands/setup-webendpoint-edit-action-onsuccess-send-activity.png)
+    > ![Send activity on success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 Now you only send activity to client when the request to web endpoint is successful.
 
@@ -186,15 +186,15 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 1. Click Sync Device State.\
 If you tested out the app with `turn on tv` in previous section, you would see the TV shows as "on".
     > [!div class="mx-imgBorder"]
-    > ![Sync device state](media/custom-commands/setup-webendpoint-sync-device-state.png)
+    > ![Sync device state](media/custom-commands/setup-web-endpoint-sync-device-state.png)
 1. Select Enable microphone
 1. Select the Talk button
 1. Say `turn on the fan`
 1. The visual state of the fan should change to "on"
     > [!div class="mx-imgBorder"]
-    > ![Turn on fan](media/custom-commands/setup-webendpoint-turn-on-fan.png)
+    > ![Turn on fan](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-CICD.md)
+> [Enable a CI/CD process for your Custom Commands application](./how-to-custom-commands-deploy-cicd.md)

@@ -82,10 +82,10 @@ Next, the command needs to have a completion rule. This rule tells the user that
 1. Alternatively, you can delete the existing default completion rule and create a new one by selecting the **Add** at the top of the middle pane.
 1. Provide value in **Name** section.
 1. Add an action.
-   - Create an action by selecting **Add an action** in the **Actions** section.
-   - In the **New Action** window, in the **Type** list, select **Send speech response**.
-   - Under **Response**, select **Simple editor**.
-       - In the **First variation** field, provide value for response as `Ok, turning the tv on`.
+   1. Create an action by selecting **Add an action** in the **Actions** section.
+   1. In the **New Action** window, in the **Type** list, select **Send speech response**.
+   1. Under **Response**, select **Simple editor**.
+   1. In the **First variation** field, provide value for response as `Ok, turning the tv on`.
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-commands/create-speech-response-action.png)

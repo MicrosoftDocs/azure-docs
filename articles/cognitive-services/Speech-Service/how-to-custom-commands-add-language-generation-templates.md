@@ -48,10 +48,10 @@ This change introduces variation to the speech responses being sent to the clien
 
 Taking advantage of LG templates also allows you to define complex speech responses for commands using adaptive expressions. You can refer to the [LG templates format](https://aka.ms/speech/cc-lg-format) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
 
-1. In the LG templates entities are represented as ${entityName}. In Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
-1. Template composition and expansion are not supported in Custom Commands. This is because you never edit the `.lg` file directly, but only the responses of automatically created templates.
-1. Custom functions injected by LG  are not supported in Custom Commands. Predefined functions are still supported.
-1. Options (strict, replaceNull & lineBreakStyle) are not supported in Custom Commands.
+* In the LG templates entities are represented as ${entityName}. In Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
+* Template composition and expansion are not supported in Custom Commands. This is because you never edit the `.lg` file directly, but only the responses of automatically created templates.
+* Custom functions injected by LG  are not supported in Custom Commands. Predefined functions are still supported.
+* Options (strict, replaceNull & lineBreakStyle) are not supported in Custom Commands.
 
 ## Add template responses to TurnOnOff command
 

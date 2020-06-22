@@ -67,7 +67,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. Note that these scripts assume that you are using the region `westus2`, if that's not the case update the arguments of the tasks accordingly
 
     > [!div class="mx-imgBorder"]
-    > ![Send Activity payload](media/custom-commands/CICD-new-pipeline-yaml.png)
+    > ![Send Activity payload](media/custom-commands/cicd-new-pipeline-yaml.png)
 
 1. In the "Save and run" button, open the dropdown and click "Save"
 
@@ -80,13 +80,13 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     
     | Variable | Description |
     | ------- | --------------- | ----------- |
-    | SourceAppId | Id of the DEV application |
-    | TargetAppId | Id of the PROD application |
+    | SourceAppId | ID of the DEV application |
+    | TargetAppId | ID of the PROD application |
     | SubscriptionKey | Subscription key used for both applications |
     | Culture | Culture of the applications (i.e. en-us) |
 
     > [!div class="mx-imgBorder"]
-    > ![Send Activity payload](media/custom-commands/CICD-edit-pipeline-variables.png)
+    > ![Send Activity payload](media/custom-commands/cicd-edit-pipeline-variables.png)
 
 1. Click "Run" and then click in the "Job" running. 
 
@@ -109,7 +109,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
     | ------- | --------------- | ----------- |
     | region | region of the application, i.e. westus2. |
     | subscriptionkey | subscription key of your speech resource. |
-    | appid | the Custom Commands' application id you want to export. |
+    | appid | the Custom Commands' application ID you want to export. |
 
 1. Push these changes to your repository.
 
@@ -156,7 +156,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 
     | Variable | Description |
     | ------- | --------------- | ----------- |
-    | TargetAppId | Id of the PROD application |
+    | TargetAppId | ID of the PROD application |
     | SubscriptionKey | Subscription key used for both applications |
     | Culture | Culture of the applications (i.e. en-us) |
 

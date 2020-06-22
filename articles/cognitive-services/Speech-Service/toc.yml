@@ -423,19 +423,19 @@
                 - name: Send activity to client application
                   href: how-to-custom-commands-send-activity-to-client.md
                 - name: Set up web endpoints
-                  href: how-to-custom-commands-setup-webendpoints.md
+                  href: how-to-custom-commands-setup-web-endpoints.md
             - name: Deploy
               items:
                 - name: Continuous Deployment with Azure DevOps
-                  href: how-to-custom-commands-deploy-CICD.md
+                  href: how-to-custom-commands-deploy-cicd.md
             - name: Test
               items:
               - name: Test your Custom Commands app
-                href: how-to-custom-commands-developerflow-test.md
+                href: how-to-custom-commands-developer-flow-test.md
             - name: Debug
               items:
               - name: Debug errors when authoring the app
-                href: how-to-custom-commands-debug-buildtime.md
+                href: how-to-custom-commands-debug-build-time.md
               - name: Debug errors when running the app
                 href: how-to-custom-commands-debug-runtime.md
             - name: References

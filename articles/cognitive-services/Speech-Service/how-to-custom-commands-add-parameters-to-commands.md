@@ -26,23 +26,23 @@ In this article, you learn how to add parameters to Custom Commands. Parameters 
 Edit the existing **TurnOn** command to turn on and turn off multiple devices.
 
 1. Because the command will now handle both on and off scenario, rename the Command to **TurnOnOff**.
-   - In the left pane, select the **TurnOn** command and then select the ellipsis (...) button next to **New command** at the top of the pane.
+   1. In the left pane, select the **TurnOn** command and then select the ellipsis (...) button next to **New command** at the top of the pane.
    
-   - Select **Rename**. In the **Rename command** windows, change **Name** to **TurnOnOff**.
+   1. Select **Rename**. In the **Rename command** windows, change **Name** to **TurnOnOff**.
 
 1. Next, you add a new parameter to this command which represents whether the user wants to turn the device on or off.
-   - Select  **Add** present at top of the middle pane. From the drop-down, select **Parameter**.
-   - In the right pane, in the **Parameters** section, add value in the **Name** box as **OnOff**.
-   - Select **Required**. In the **Add response for a required parameter** window, select **Simple editor**. In the **First variation**, add
+   1. Select  **Add** present at top of the middle pane. From the drop-down, select **Parameter**.
+   1. In the right pane, in the **Parameters** section, add value in the **Name** box as **OnOff**.
+   1. Select **Required**. In the **Add response for a required parameter** window, select **Simple editor**. In the **First variation**, add
         ```
         On or Off?
         ```
-   - Select **Update**.
+   1. Select **Update**.
 
        > [!div class="mx-imgBorder"]
        > ![Create required parameter response](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   - Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the rest of the properties of the parameter as follows:
+   1. Now we configure the parameters properties. For explanation of all the configuration properties of a command, go to [references](./custom-commands-references.md). Configure the rest of the properties of the parameter as follows:
       
 
        | Configuration      | Suggested value     | Description                                                      |
@@ -58,11 +58,11 @@ Edit the existing **TurnOn** command to turn on and turn off multiple devices.
         > [!div class="mx-imgBorder"]
         > ![Create parameter](media/custom-commands/create-on-off-parameter.png)
 
-   -  Select **Save** to save all configurations of the parameter.
-   - 
+   1. Select **Save** to save all configurations of the parameter.
+ 
  ### Add SubjectDevice parameter 
 
-   - Next, select **Add** again to add a second parameter to represent the name of the devices which can be controlled using this command. Use the following configuration.
+   1. Next, select **Add** again to add a second parameter to represent the name of the devices which can be controlled using this command. Use the following configuration.
    
 
        | Setting            | Suggested value       |
@@ -76,15 +76,15 @@ Edit the existing **TurnOn** command to turn on and turn off multiple devices.
        | Predefined input values | `tv`, `fan`               |
        | Aliases (`tv`)      | `television`, `telly`     |
 
-   - Select **Save**
+   1. Select **Save**
 
 ### Modify example sentences
 
 For commands with parameters, it's helpful to add example sentences that cover all possible combinations. For example:
 
-1. Complete parameter information - `turn {OnOff} the {SubjectDevice}`
-1. Partial parameter information - `turn it {OnOff}`
-1. No parameter information - `turn something`
+* Complete parameter information - `turn {OnOff} the {SubjectDevice}`
+* Partial parameter information - `turn it {OnOff}`
+* No parameter information - `turn something`
 
 Example sentences with different degree of information allow the Custom Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
 
@@ -97,6 +97,7 @@ turn it {OnOff}
 turn something {OnOff}
 turn something
 ```
+
 Select **Save**.
 
 > [!TIP]

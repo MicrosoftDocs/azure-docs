@@ -43,13 +43,13 @@ Idle connections are terminated by server after 5 mins. Try to reconnect.
 
 - Your custom command applicationId is not valid
 
-    Make sure your custom command application Id is correct.
+    Make sure your custom command application ID is correct.
 
 - You are trying to access an custom command application outside your speech resource
 
     Make sure the custom command application is created under your speech resource.
 
-## Dialog is cancelled
+## Dialog is canceled
 
 When running your Custom Commands application, the dialog would be canceled when some errors occur.
 
@@ -75,7 +75,7 @@ The CancelledDialog event consists of cancellation code and description, as list
 | RecognizerError | Recognizer returns an error |
 
 ### No progress was made after the max number of turns allowed
-The dialog is cancelled when a required slot is not successfully updated after certain number of turns. The build-in max number is 3.
+The dialog is canceled when a required slot is not successfully updated after certain number of turns. The build-in max number is 3.
 
 ### Recognizer usage quota exceeded
 Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer usage quota exceeded error" can be caused by: 

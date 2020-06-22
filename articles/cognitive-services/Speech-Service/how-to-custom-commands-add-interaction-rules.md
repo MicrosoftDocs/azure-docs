@@ -16,8 +16,8 @@ ms.author: sausin
 
 In this article, you learn about **interaction rules**. These are additional rules to handle more specific or complex situations. While you're free to author your own custom interaction rules, in this article, you make use of interaction rules for the following targeted scenarios:
 
-1. Confirming commands
-1. Adding one step correction to commands
+* Confirming commands
+* Adding one step correction to commands
 
 Go to [references](./custom-commands-references.md) section to learn more about interaction rules.
 
