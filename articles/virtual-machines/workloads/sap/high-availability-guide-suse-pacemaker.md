@@ -455,7 +455,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[1]** Install Cluster
-
+- if using SBD devices for fencing
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -464,6 +464,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+- if *not using* SBD devices for fencing
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? n
+   #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
