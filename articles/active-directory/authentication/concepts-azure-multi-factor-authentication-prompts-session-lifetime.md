@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 06/22/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -124,3 +124,5 @@ The following table summarizes the recommendations based on licenses:
 | Reauthentication settings    | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |
 
 ## Next steps
+
+To get started, complete the tutorial to [Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md) or [Use risk detections for user sign-ins to trigger Azure Multi-Factor Authentication](tutorial-risk-based-sspr-mfa.md).
