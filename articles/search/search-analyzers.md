@@ -8,27 +8,29 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/20/2020
 ---
 
 # Analyzers for text processing in Azure Cognitive Search
 
-An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Processes are transformative, modifying a string through actions such as these:
+An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Text processing (also known as lexical analysis) is transformative, modifying a string through actions such as these:
 
 + Remove non-essential words (stopwords) and punctuation
 + Split up phrases and hyphenated words into component parts
 + Lower-case any upper-case words
 + Reduce words into primitive root forms for storage efficiency and so that matches can be found regardless of tense
 
-Analysis occurs during indexing when the index is built, and then again during query execution when the index is read. You are more likely to get the search results you expect if you use the same analyzer for both operations.
+Analysis applies to `Edm.String` fields that are marked as "searchable", which indicates full text search. For fields with this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
 
-If you are unfamiliar with text analysis, listen to the following video clip for a brief explanation of how text processing works in Azure Cognitive Search.
+Query types that are not full text search, such as regular expression or fuzzy search, do not go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To get whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
+
+For more background on lexical analysis, listen to the following video clip for a brief explanation.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
 
 ## Default analyzer  
 
-In Azure Cognitive Search queries, a text analyzer is automatically invoked on all string fields marked as searchable. 
+In Azure Cognitive Search queries, an analyzer is automatically invoked on all string fields marked as searchable. 
 
 By default, Azure Cognitive Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
@@ -48,14 +50,19 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 ## How to specify analyzers
 
-1. (for custom analyzers only) Create a named **analyzer** section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
+Setting an analyzer is optional. As a general rule, try using the default standard Lucene analyzer first to see how it performs. If queries fail to return the expected results, switching to a different analyzer is often the right solution.
 
-2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema. Plan on assigning analyzer in the index definition phase before the index is created in the service.
+The best time to assign an analyzer is during the development phase before the index is populated.
 
-3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. You would use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+1. On a field definition in the [index](https://docs.microsoft.com/rest/api/searchservice/create-index), set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`). 
+ 
+   Valid values can be the name of a predefined analyzer (such as `keyword`), a [language analyzer](index-add-language-analyzers.md) (such as `ja.lucene`), or a custom analyzer also defined in the index schema.
 
-> [!NOTE]
-> It is not possible to use a different [language analyzer](index-add-language-analyzers.md) at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
+   If you are using a [language analyzer](index-add-language-analyzers.md), you must use the **analyzer** property to specify it. The **searchAnalyzer** and **indexAnalyzer** properties do not support language analyzers.
+
+1. Optionally, instead of one **analyzer** property, you can set a pair of analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field properties. These properties are set together; if you set one, set both. You might use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+
+1. For custom analyzers only, create a named **analyzer** section in the index definition, and then assign your custom analyzer to the field definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
 
 Assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed. If any of this is unclear, review the following table for a breakdown of which actions require a rebuild and why.
  
@@ -82,7 +89,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field parameters. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field properties. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 06/20/2020
 ---
 # Partial term search and patterns with special characters (wildcard, regex, patterns)
 
@@ -16,10 +16,10 @@ A *partial term search* refers to queries consisting of term fragments, where in
 
 Partial and pattern search can be problematic if the index doesn't have terms in the expected format. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, composite and compound strings are split up, and whitespace is deleted; all of which can cause pattern queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary,  so that you can match on partial terms and patterns. Creating an additional field for an intact string, plus using a content-preserving analyzer, is the basis of the solution.
+The solution is to invoke an analyzer that preserves a complete string, including spaces and special characters if necessary, so that you can match on portions or patterns within the token. Creating an additional field for an intact string, plus using a content-preserving analyzer that emits whole-string tokens, is the basis of the solution.
 
 > [!TIP]
-> Familiar with Postman and REST APIs? [Download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
+> Are you familiar with Postman and REST APIs? [Download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
 
 ## What is partial search in Azure Cognitive Search
 
@@ -38,7 +38,7 @@ As noted, all of the above require that the index contains strings in a format c
 When you need to search on fragments or patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the whole string. Taking a step back, the approach looks like this:
 
 + Define a field to store an intact version of the string (assuming you want analyzed and non-analyzed text)
-+ Choose a predefined analyzer or define a custom analyzer to output a non-analyzed intact string
++ Choose a predefined analyzer or define a custom analyzer to output tokens that consist of an intact string
 + Assign the custom analyzer to the field
 + Build and test the index
 
@@ -283,7 +283,7 @@ To specify role-specific analysis, you can set properties on the field for each 
 
 ```json
 "name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
+"indexAnalyzer":"mycustomanalyzer",
 "searchAnalyzer":"standard",
 ```
 
