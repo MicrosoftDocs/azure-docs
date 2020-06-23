@@ -1,11 +1,11 @@
 ---
 title: What is the Azure Education Hub?
 description: Explains the purpose of the Azure Education Hub, including prerequisites and support options.
-author: 
-ms.author: 
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: 
-ms.date: 06/18/2020
+author: denrea
+ms.author: rymend
+ms.topic: overview
+ms.date: 06/30/2020
+ms.prod: azure
 ---
 
 # What is the Azure Education Hub?
