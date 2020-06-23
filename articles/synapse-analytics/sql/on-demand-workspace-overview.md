@@ -87,7 +87,7 @@ In order to enable smooth experience for in place querying of data residing in f
 
 [PARQUET file format](query-data-storage.md#query-parquet-files)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](develop-storage-files-overview.md#query-csv-files)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
 [Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
