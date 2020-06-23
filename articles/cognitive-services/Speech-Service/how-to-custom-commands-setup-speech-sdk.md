@@ -1,32 +1,29 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech service'
+title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure Cognitive Services
-description: In this article, you will create a Speech SDK client application with Custom Commands.
+description: In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
-author: nitinme
+author: xiaojul
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: nitinme
+ms.date: 06/18/2020
+ms.author: xiaojul
 ---
 
-# Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)
+# Integrate with a client application using Speech SDK
 
-After creating a hosted Custom Commands application, you can begin talking to it from a client device.
-
-In this article, you'll:
+In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application. In order to establish a connection to the Custom Commands application, you do the following tasks:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
 - Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
 
-A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
+A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application, you can do so following the quickstarts:
 > [!div class = "checklist"]
-> * [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
-> * [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> * [Create a Custom Commands application](quickstart-custom-commands-application.md)
 
 You'll also need:
 > [!div class = "checklist"]
@@ -34,16 +31,12 @@ You'll also need:
 > * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
 > * [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
-## Optional: Get started fast
-
-This quickstart describes, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
-
 ## Step 1: Publish Custom Commands application
 
-1. Open your [previously created Custom Commands application (Preview)](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
+1. Open your previously created Custom Commands application (Preview) and select **Publish**
 
    > [!div class="mx-imgBorder"]
-   > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
+   > ![Publish application](media/custom-commands/setup-speech-sdk-publish-application.png)
 
 1. Copy the App ID from the publish notification for later use
 1. Copy the Speech Resource Key for later use
@@ -54,7 +47,7 @@ This quickstart describes, step by step, how to make a client application to con
 
 ## Step 3: Add sample code
 
-In this step we add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
+In this step, we add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
 
 ### XAML code
 
@@ -79,7 +72,7 @@ Create the application's user interface by adding the XAML code.
            <StackPanel Orientation="Vertical" HorizontalAlignment="Center"
                        Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"
-                       Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked"
+                       Margin="0,10,10,0" Click="EnableMicrophone_ButtonClicked"
                        Height="35"/>
                <Button x:Name="ListenButton" Content="Talk"
                        Margin="0,10,10,0" Click="ListenButton_ButtonClicked"
@@ -402,7 +395,7 @@ Add the code-behind source as follows:
 
 1. From the menu bar, choose **File** > **Save All** to save your changes
 
-## Build and run the application
+## Try it out
 
 1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors.
 
@@ -419,8 +412,4 @@ Add the code-behind source as follows:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to: Fulfill commands on the client with the Speech SDK (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
-
-## Sample source code
-Check out our client sample codes at [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)
+> [How-to: send activity to client application (Preview)](./how-to-custom-commands-send-activity-to-client.md)

@@ -4,16 +4,13 @@ description: This article provides a walkthrough for creating a .NET Core app th
 services: event-hubs
 documentationcenter: na
 author: spelluru
-editor: ''
 
 ms.assetid:
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
+ms.reviewer: shvija
 
 ---
 
