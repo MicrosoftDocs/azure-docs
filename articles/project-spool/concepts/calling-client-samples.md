@@ -53,13 +53,16 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 }));
 
 ```
-For .NET, to create a `CallClient`, you have to instantiate a `CallClientManager` object and asynchronously wait for it to be initialized. You must pass in a tokenProvider object of type `ITokenProvider` as well as an `InitializationOptions` object.
-
+For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task<AdHocCallClient>.
+    
 #### [.NET](#tab/dotnet)
 ```.NET
-sessionClient = new CallClientManager();
-await sessionClient.Initialize(tokenProvider, new InitializationOptions());
-var callClient = sessionClient.AdHocCallClient;
+var tokenTask = tokenProvider.GetToken();
+Task.WhenAll(tokenTask).Wait();
+string token = tokenTask.Result;
+Task<AdHocCallClient> clientTask = CallClientFactory.Create(token);
+Task.WhenAll(clientTask).Wait();
+AdHocCallClient callClient = clientTask.Result;
 ```
 --- 
 
