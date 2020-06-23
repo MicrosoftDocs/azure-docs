@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: jgao
 
 ---
@@ -138,7 +138,7 @@ Property value details:
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
-    Inline arguments support double escapeing quotes. The arguments are split by invoking [CommandLineToArgvW function](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For an example, in the previous sample template, The argument is **-name \"John Dole\"**.  The escaped string is **-name \\\"John dole\\\"**. [Here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json) is an example.
+    Inline arguments support double escaping quotes. The arguments are split by invoking [CommandLineToArgvW function](https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For example, in the previous sample template, The argument is **-name \"John Dole\"**.  The escaped string is **-name \\\"John dole\\\"**. [Here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json) is an example.
 
     To pass an ARM template parameter of type object as an argument, convert the object to a string by using the string() function, and then use the replace() function to replace any \" into \\\".
 
