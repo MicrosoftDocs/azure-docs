@@ -28,6 +28,7 @@ Azure Front Door is updated on an ongoing basis. To stay updated with the most r
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+| Rules Engine GA | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |June 2020 |
 | Rules Engine (Preview) | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |April 2020 |
 
 
