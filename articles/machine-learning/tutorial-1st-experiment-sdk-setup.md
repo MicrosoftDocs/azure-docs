@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Create your first ML experiment"
-titleSuffix: Azure Machine Learning
+title: "Tutorial: Experiment in Jupyter notebooks (Python)"
+titleSuffix: Machine Learning - Azure 
 description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  In Part 1, you create a workspace in which you'll manage experiments and ML models. 
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +10,7 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
+ms.custom: tracking-python
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK

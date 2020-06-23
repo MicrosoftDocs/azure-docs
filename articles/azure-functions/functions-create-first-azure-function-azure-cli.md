@@ -3,6 +3,7 @@ title: Create a function in Azure that responds to HTTP requests
 description: Learn how to create a function from the command line, then publish the local project to serverless hosting in Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -387,6 +388,11 @@ Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the param
 
 > [!TIP]
 > To view near real-time logs for a published function app, use the [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
+>
+> Run the following command to open the live metrics stream in a browser.
+>   ```
+>   func azure functionapp logstream <APP_NAME> --browser
+>   ```
 
 ## Clean up resources
 

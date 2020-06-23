@@ -10,10 +10,10 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/30/2020
+ms.date: 06/10/2020
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL Database
+# Incrementally load data from multiple tables in SQL Server to an Azure SQL Database using PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

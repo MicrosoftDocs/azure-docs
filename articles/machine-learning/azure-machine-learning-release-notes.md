@@ -17,6 +17,139 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-06-22
+
+### Azure Machine Learning SDK for Python v1.8.0
+  
+  + **Preview features**
+    + **azureml-contrib-fairness**
+    	The `azureml-contrib-fairness` package provides integration between the open source fairness assessment and unfairness mitigation package [Fairlearn](https://fairlearn.github.io) and Azure Machine Learning studio. In particular, the package enables model fairness evaluation dashboards to be uploaded as part of an AzureML Run and appear in Azure Machine Learning studio
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Support getting logs of init container.
+    + Added new CLI commands to manage ComputeInstance
+  + **azureml-automl-core**
+    + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
+    + Added a new type of user exception `azureml.automl.core.shared.exceptions.CacheStoreCorruptedException` which is raised if the cache store contents have been tampered with
+  + **azureml-automl-runtime**
+    + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
+  + **azureml-contrib-itp**
+    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
+  + **azureml-contrib-notebook**
+    + Doc improvements to azureml-contrib-notebook package.
+  + **azureml-contrib-pipeline-steps**
+    + Doc improvements to azureml-contrib--pipeline-steps package.
+  + **azureml-core**
+    + Add set_connection, get_connection, list_connections, delete_connection functions for customer to operate on workspace connection resource
+    + Documentation updates to azureml-coore/azureml.exceptions package.
+    + Documentation updates to azureml-core package.
+    + Doc updates to ComputeInstance class.
+    + Doc improvements to azureml-core/azureml.core.compute package.
+    + Doc improvements for webservice-related classes in azureml-core.
+    + Support user selected datastore to store profiling data
+    + Added expand and page_count property for model list API
+    + Fixed bug where removing the overwrite property will cause the submitted run to fail with deserialization error.
+    + Fixed inconsistent folder structure when downloading or mounting a FileDataset referencing to a single file.
+    + Loading a dataset of parquet files to_spark_dataframe is now faster and supports all parquet and Spark SQL datatypes.
+    + Support getting logs of init container.
+    + AutoML runs are now marked as child run of Parallel Run Step.
+  + **azureml-datadrift**
+    + Doc improvements to azureml-contrib-notebook package.
+  + **azureml-dataprep**
+    + Loading a dataset of parquet files to_spark_dataframe is now faster and supports all parquet and Spark SQL datatypes.
+    + Better memory handling in case of OutOfMemory issue for to_pandas_dataframe.
+  + **azureml-interpret**
+    + Upgraded azureml-interpret to use interpret-community version 0.12.*
+  + **azureml-mlflow**
+    + Doc improvements to azureml-mlflow.
+    + Adds support for AML model registry with MLFlow.
+  + **azureml-opendatasets**
+    + Added support for Python 3.8
+  + **azureml-pipeline-core**
+    + Updated `PipelineDataset`'s documentation to make it clear it is an internal class.
+    + ParallelRunStep updates to accept multiple values for one argument, for example: "--group_column_names", "Col1", "Col2", "Col3"
+    + Removed the passthru_automl_config requirement for intermediate data usage with AutoMLStep in Pipelines.
+  + **azureml-pipeline-steps**
+    + Doc improvements to azureml-pipeline-steps package.
+    + Removed the passthru_automl_config requirement for intermediate data usage with AutoMLStep in Pipelines.
+  + **azureml-telemetry**
+    + Doc improvements to azureml-telemetry.
+  + **azureml-train-automl-client**
+    + Fixed a bug where `experiment.submit()` called twice on an `AutoMLConfig` object resulted in different behavior.
+    + Users are now able to enable stack ensemble iteration for Timeseries tasks with a warning that it could potentially overfit.
+    + Changed AutoML run behavior to raise UserErrorException if service throws user error
+    + Fixes a bug that caused azureml_automl.log to not get generated or be missing logs when performing an AutoML experiment on a remote compute target.
+    + For Classification data sets with imbalanced classes, we will apply weight balancing, if the feature sweeper find it to be better than the baseline
+    + AutoML runs are now marked as child run of Parallel Run Step.
+  + **azureml-train-automl-runtime**
+    + Changed AutoML run behavior to raise UserErrorException if service throws user error
+    + AutoML runs are now marked as child run of Parallel Run Step.
+
+  
+## 2020-06-08
+
+### Azure Machine Learning SDK for Python v1.7.0
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
+    + Upgrades the min Azure Cli version to 2.3.0
+  + **azureml-automl-core**
+    + Better exception message on featurization step fit_transform() due to custom transformer parameters.
+    + Add support for multiple languages for deep learning transformer models such as BERT in automated ML.
+    + Remove deprecated lag_length parameter from documentation.
+    + The forecasting parameters documentation was improved. The lag_length parameter was deprecated.
+  + **azureml-automl-runtime**
+    + Fixed the error raised when one of categorical columns is empty in forecast/test time.
+    + Fix the run failures happening when the lookback features are enabled and the data contain short grains.
+    + Fixed the issue with duplicated time index error message when lags or rolling windows were set to 'auto'.
+    + Fixed the issue with Prophet and Arima models on data sets, containing the lookback features.
+    + Added support of dates before 1677-09-21 or after 2262-04-11 in columns other then date time in the forecasting tasks. Improved error messages.
+    + The forecasting parameters documentation was improved. The lag_length parameter was deprecated.
+    + Better exception message on featurization step fit_transform() due to custom transformer parameters.
+    + Add support for multiple languages for deep learning transformer models such as BERT in automated ML.
+    + Cache operations that result in some OSErrors will raise user error.
+    + Added checks to ensure training and validation data have the same number and set of columns
+    + Fixed issue with the autogenerated AutoML scoring script when the data contains quotation marks
+    + Enabling explanations for AutoML Prophet and ensembled models that contain Prophet model.
+    + A recent customer issue revealed a live-site bug wherein we log messages along Class-Balancing-Sweeping even when the Class Balancing logic isn't properly enabled. Removing those logs/messages with this PR.
+  + **azureml-cli-common**
+    + Completed the removal of model profiling from mir contrib by cleaning up cli commands and package dependencies, Model profiling is available in core.
+  + **azureml-contrib-reinforcementlearning**
+    + Load testing tool
+  + **azureml-core**
+    + Documentation changes on Script_run_config.py
+    + Fixes a bug with printing the output of run submit-pipeline CLI
+    + Documentation improvements to azureml-core/azureml.data
+    + Fixes issue retrieving storage account using hdfs getconf command
+    + Improved register_azure_blob_container and register_azure_file_share documentation
+  + **azureml-datadrift**
+    + Improved implementation for disabling and enabling dataset drift monitors
+  + **azureml-interpret**
+    + In explanation client, remove NaNs or Infs prior to json serialization on upload from artifacts
+    + Update to latest version of interpret-community to improve out of memory errors for global explanations with many features and classes
+    + Add true_ys optional parameter to explanation upload to enable additional features in the studio UI
+    + Improve download_model_explanations() and list_model_explanations() performance
+    + Small tweaks to notebooks, to aid with debugging
+  + **azureml-opendatasets**
+    + azureml-opendatasets needs azureml-dataprep version 1.4.0 or higher. Added warning if lower version is detected
+  + **azureml-pipeline-core**
+    + This change allows user to provide an optional runconfig to the moduleVersion when calling module.Publish_python_script.
+    + Enable node account can be a pipeline parameter in ParallelRunStep in azureml.pipeline.steps
+  + **azureml-pipeline-steps**
+    + This change allows user to provide an optional runconfig to the moduleVersion when calling module.Publish_python_script.
+  + **azureml-train-automl-client**
+    + Add support for multiple languages for deep learning transformer models such as BERT in automated ML.
+    + Remove deprecated lag_length parameter from documentation.
+    + The forecasting parameters documentation was improved. The lag_length parameter was deprecated.
+  + **azureml-train-automl-runtime**
+    + Enabling explanations for AutoML Prophet and ensembled models that contain Prophet model.
+    + Documentation updates to azureml-train-automl-* packages.
+  + **azureml-train-core**
+    + Supporting TensorFlow version 2.1 in the PyTorch Estimator
+    + Improvements to azureml-train-core package.
+  
 ## 2020-05-26
 
 ### Azure Machine Learning SDK for Python v1.6.0

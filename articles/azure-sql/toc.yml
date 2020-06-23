@@ -39,7 +39,8 @@
       href: temporal-tables.md
     - name: Scale up / down
       href: database/scale-resources.md
-
+    - name: Read Scale-Out
+      href: database/read-scale-out.md
     - name: Security
       items:
       - name: Overview
@@ -299,8 +300,6 @@
       href: database/connectivity-architecture.md
     - name: Connectivity settings
       href: database/connectivity-settings.md
-    - name: Read Scale-Out
-      href: database/read-scale-out.md      
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
@@ -474,7 +473,7 @@
       - name: Use Resource Health for connectivity issues
         href: database/resource-health-to-troubleshoot-connectivity.md
       - name: Migrate DTU to vCore
-        href: database/resource-health-to-troubleshoot-connectivity.md        
+        href: database/migrate-dtu-to-vcore.md        
       - name: Scale database resources
         href: database/single-database-scale.md
       - name: Scale pool resources
@@ -700,12 +699,15 @@
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
-    - name: Create 
+    - name: Create SQL Managed Instance
       items:
-      - name: Using Azure portal
+      - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
-      - name: Using PowerShell
+      - name: PowerShell
         href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: managed-instance/create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
     - name: Configure
@@ -994,9 +996,12 @@
         - name: Licensing model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
+        - name: Edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Version
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-version.md
         - name: Azure Storage for backup & restore
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate
@@ -1011,8 +1016,6 @@
           items:
           - name: Azure SQL VM CLI
             href: virtual-machines/windows/availability-group-az-cli-configure.md
-          - name: Azure portal template
-            href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
           - name: Azure Quickstart templates
             href: virtual-machines/windows/availability-group-quickstart-template-configure.md
           - name: Multiple regions
@@ -1065,6 +1068,7 @@
         href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
       - name: Stack Overflow
         href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
+
   - name: Linux
     items: 
     - name: Overview

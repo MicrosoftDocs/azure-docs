@@ -75,7 +75,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    ```output
    {
    "id": "/subscriptions/yourSubscriptionID/providers/Microsoft.NotificationHubs/checkNamespaceAvailability",
-   "isAvailiable": true,
+   "isAvailable": true,
    "location": null,
    "name": "spnhubns",
    "properties": false,
@@ -108,7 +108,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 2. Get a list of namespaces.
 
-   To see the details about your new namespace use the [az notification-hub namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) command.  The `--resource-group` parameter is optional if you want to see all namespaces for a subscription.
+   To see the details about your new namespace use the [az notification-hub namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) command.  The `--resource-group` parameter is optional if you want to see all namespaces for a subscription.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -134,7 +134,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 3. Get a list of notification hubs.
 
-   Azure CLI returns either a success or error message with each executed command; however, being able to query for a list of notification hubs is reassuring.  The [az notification-hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) command was designed for this purpose.
+   Azure CLI returns either a success or error message with each executed command; however, being able to query for a list of notification hubs is reassuring.  The [az notification-hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) command was designed for this purpose.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

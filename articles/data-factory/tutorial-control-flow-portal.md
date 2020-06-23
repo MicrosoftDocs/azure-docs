@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ---
 
-# Branching and chaining activities in a Data Factory pipeline
+# Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

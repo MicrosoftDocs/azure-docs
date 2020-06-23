@@ -1,17 +1,17 @@
 ---
-title: Query folders and multiple CSV files using SQL on-demand (preview)  
+title: Query folders and multiple files using SQL on-demand (preview)  
 description: SQL on-demand (preview) supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
 services: synapse analytics 
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query folders and multiple CSV files  
+# Query folders and multiple files  
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics.
 

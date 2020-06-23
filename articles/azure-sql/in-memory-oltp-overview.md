@@ -44,7 +44,7 @@ Because of the more efficient query and transaction processing, in-memory techno
 
 Here are two examples of how In-Memory OLTP helped to significantly improve performance:
 
-- By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs by 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs by 70%](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). For more information, see the blog post: [In-Memory OLTP](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -168,7 +168,7 @@ When you use clustered columnstore indexes, columnar compression is used for the
 
 For example, if you have a database with a maximum size of 1 terabyte (TB) and you achieve 10 times the compression by using columnstore indexes, you can fit a total of 10 TB of user data in the database.
 
-When you use nonclustered columnstore indexes, the base table is still stored in the traditional rowstore format. Therefore, the storage savings aren't as big as with clustered columnstore indexes. However, if you're replacing a number of traditional nonclustered indexes with a single columnstore index, you can still see an overall savings in the storage footprint for the table.
+When you use nonclustered columnstore indexes, the base table is still stored in the traditional rowstore format. Therefore, the storage savings aren't as significant as with clustered columnstore indexes. However, if you're replacing a number of traditional nonclustered indexes with a single columnstore index, you can still see an overall savings in the storage footprint for the table.
 
 ### Changing service tiers of databases containing Columnstore indexes
 
@@ -177,7 +177,7 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
 > [!Note]
-> SQL Managed Instance supports ColumnStore indexes in all tiers.
+> SQL Managed Instance supports Columnstore indexes in all tiers.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 

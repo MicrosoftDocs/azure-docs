@@ -63,7 +63,7 @@ For the Application Gateway and WAF v1 SKU, the TLS policy applies to both front
 
 For the Application Gateway and WAF v2 SKU, the TLS policy applies only to the frontend traffic and all ciphers are offered to the backend server, which has control to select specific ciphers and TLS version during the handshake.
 
-Application Gateway only communicates with those backend servers that have either whitelisted their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
+Application Gateway only communicates with those backend servers that have either allow listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
 If the certificates of the members in the backend pool are not signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
@@ -75,9 +75,9 @@ If the certificates of the members in the backend pool are not signed by well-kn
 
 In this example, requests using TLS1.2 are routed to backend servers in Pool1 using end to end TLS.
 
-## End to end TLS and whitelisting of certificates
+## End to end TLS and allow listing of certificates
 
-Application Gateway only communicates with known backend instances that have whitelisted their certificate with the application gateway. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
+Application Gateway only communicates with known backend instances that have allow listed their certificate with the application gateway. There are some differences in the end-to-end TLS setup process with respect to the version of Application Gateway used. The following section explains them individually.
 
 ## End-to-end TLS with the v1 SKU
 
@@ -85,7 +85,7 @@ To enable end-to-end TLS with the backend servers and for Application Gateway to
 
 For HTTPS health probes, the Application Gateway v1 SKU uses an exact match of the authentication certificate (public key of the backend server certificate and not the root certificate) to be uploaded to the HTTP settings.
 
-Only connections to known and whitelisted backends are then allowed. The remaining backends are considered unhealthy by the health probes. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must be whitelisted with the application gateway as described in the preceding steps before they can be used.
+Only connections to known and allowed backends are then allowed. The remaining backends are considered unhealthy by the health probes. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must be allow listed with the application gateway as described in the preceding steps before they can be used.
 
 > [!NOTE]
 > Authentication and trusted root certificate setup are not required for trusted Azure services such as Azure App Service. They are considered trusted by default.
@@ -133,7 +133,7 @@ Scenario | v1 | v2 |
 Scenario | v1 | v2 |
 | --- | --- | --- |
 | SNI (server_name) header during the TLS handshake as FQDN | Set as FQDN from the backend pool. As per [RFC 6066](https://tools.ietf.org/html/rfc6066), literal IPv4 and IPv6 addresses are not permitted in SNI hostname. <br> **Note:** FQDN in the backend pool should DNS resolve to backend server’s IP address (public or private) | SNI header (server_name) is set as the hostname from the custom probe attached to the HTTP settings (if configured), otherwise from the hostname mentioned in the HTTP settings, otherwise from the FQDN mentioned in the backend pool. The order of precedence is custom probe > HTTP settings > backend pool. <br> **Note:** If the hostnames configured in HTTP settings and custom probe are different, then according to the precedence, SNI will be set as the hostname from the custom probe.
-| If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be whitelisted in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
+| If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
 
 > [!NOTE] 
 > If a custom probe is not configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it'll be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, will not be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).

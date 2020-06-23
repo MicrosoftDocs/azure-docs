@@ -22,7 +22,7 @@ You can set up an Azure Table storage indexer by using these resources:
 
 * [Azure portal](https://ms.portal.azure.com)
 * Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
+* Azure Cognitive Search [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
 Here we demonstrate the flow by using the REST API. 
 
