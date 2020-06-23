@@ -40,31 +40,31 @@ The Read API takes the following inputs:
 
 The following Read API output shows the extracted text lines and words from an image with text at different angles, colors, and fonts
 
-![An image being rotated and its text being read and delineated](./Images/text_from_images_example.png)
+![An image being rotated and its text being read and delineated](./Images/text-from-images-example.png)
 
 ### Text from documents
 
 In addition to images, the Read API takes a PDF document as input. The following example shows text extracted from a document. 
 
-![An image being rotated and its text being read and delineated](./Images/text_from_documents_example.png)
+![An image being rotated and its text being read and delineated](./Images/text-from-documents-example.png)
 
 ### Handwritten text
 
 The Read operation supports handwritten text in English language. It detects and extracts both print and handwritten text in any document.
 
-![An image being rotated and its text being read and delineated](./Images/handwritten_example.png)
+![An image being rotated and its text being read and delineated](./Images/handwritten-example.png)
 
 ### Supported languages
 
 The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview. The following image shows extracted Spanish text from the Read API. 
 
-![An image being rotated and its text being read and delineated](./Images/supported_languages_example.png)
+![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
 ### Mixed languages
 
 The Read OCR technology supports documents with mixed languages. It does so by automatically classifying each text line in the document with the dominant language. Therefore, it does not need a language identifier as an input parameter.
 
-![An image being rotated and its text being read and delineated](./Images/mixed_language_example.png)
+![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
 
 ### Use the cloud API
 
