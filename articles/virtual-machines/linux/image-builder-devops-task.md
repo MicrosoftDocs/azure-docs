@@ -76,6 +76,10 @@ Use the resource group where the temporary image template artifact will be store
 
 The location is where the Image Builder will run. Only a set number of locations are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
 
+### VNET Support
+
+Currently the DevOps task does not support specifying an existing Subnet, this is on the roadmap, but if you want to utilize an existing VNET, you can use an ARM template, with an Image Builder template nested inside, please see the PowerShell Image Builder template examples on how this is achieved.
+
 ### Source
 
 The source images must be of the supported Image Builder OSs. You can choose existing custom images in the same region as Image Builder is running from:
