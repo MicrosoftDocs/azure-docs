@@ -33,7 +33,7 @@ By using MSAL instead of ADAL:
 
 **MSAL is now the recommended authentication library for use with the Microsoft identity platform**.
 
-## Migration steps
+## Migration guidance
 
 The following articles can help you migrate to MSAL:
 
