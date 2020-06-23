@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates for deployment of resources.
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/22/2020
 ---
 # What are ARM templates?
 
@@ -123,3 +123,4 @@ For information about nested templates, see [Using linked templates with Azure R
 * For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md).
 * For information about the properties in template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).
+* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).

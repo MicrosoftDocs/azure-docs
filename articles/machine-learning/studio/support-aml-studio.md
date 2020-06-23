@@ -5,7 +5,7 @@ description: Get support and training and provide feedback for Azure Machine Lea
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: troubleshooting
 
 author: peterclu
 ms.author: peterlu
@@ -33,7 +33,7 @@ Check out these support resources:
 
 + **Technical support for Azure Customers**: [Submit and manage support requests](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal.
 
-+ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum on MSDN](https://aka.ms/aml-forum-studio).
++ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 

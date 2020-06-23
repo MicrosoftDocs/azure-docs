@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/4/2020
+ms.date: 6/10/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -59,6 +59,9 @@ However, there are limitations to consider:
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
 
 ## Create a replica
+
+> [!IMPORTANT]
+> The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
 
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 

@@ -26,7 +26,7 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Read-only actions in the workspace. Readers can list and view assets in a workspace, but can't create or update these assets. |
+| **Reader** | Read-only actions in the workspace. Readers can list and view assets (including [datastore](how-to-access-data.md) credentials) in a workspace, but can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
 
@@ -55,6 +55,9 @@ The `user` field is the email address of an existing user in the instance of Azu
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
+
+> [!NOTE]
+> "az ml workspace share" command does not work for federated account by Azure Active Directory B2B. Please use Azure UI portal instead of command.
 
 ## Create custom role
 

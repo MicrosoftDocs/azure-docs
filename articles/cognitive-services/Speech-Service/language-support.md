@@ -23,8 +23,6 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
 To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](how-to-custom-speech.md).
 
-For more information about how you can improve pronunciation, see [Improve a model for Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
-
 <!--
 To get the AM and ML bits:
 https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
@@ -309,6 +307,26 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Vietnamese              | `vi`          |
 | Welsh                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## Speaker Recognition
+
+See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+
+| Locale | Language | Text-dependent verification | Text-independent verification | Text-independent identification |
+|----|----|----|----|----|
+| en-US | English (US) | yes | yes | yes |
+|zh-CN	|Chinese (Mandarin, simplified)|	n/a|	yes|	yes|
+|de-DE	|German (Germany)	|n/a	|yes	|yes|
+|en-GB	|English (UK)	|n/a	|yes	|yes|
+|fr-FR	|French (France)	|n/a	|yes	|yes|
+|en-AU	|English (Australia)	|n/a	|yes	|yes|
+|en-CA	|English (Canada)	|n/a|	yes|	yes|
+|fr-CA	|French (Canada)	|n/a	|yes|	yes|
+|it-IT	|Italian|	n/a	|yes|	yes|
+|es-ES|	Spanish (Spain)	|n/a	|yes|	yes|
+|es-MX	|Spanish (Mexico)	|n/a|	yes|	yes|
+|ja-JP|	Japanese	|n/a	|yes	|yes|
+|pt-BR|	Portuguese (Brazil)|	n/a|	yes|	yes|
 
 ## Next steps
 

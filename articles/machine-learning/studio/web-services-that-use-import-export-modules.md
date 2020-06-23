@@ -10,7 +10,7 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/28/2017
 ---
 # Deploy Azure Machine Learning Studio (classic) web services that use Data Import and Data Export modules
