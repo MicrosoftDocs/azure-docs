@@ -7,7 +7,7 @@ cloud: Azure Germany
 ms.author: juliako 
 ms.service: germany
 ms.date: 05/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.custom: bfmigrate
 ---
 

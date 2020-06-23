@@ -6,8 +6,8 @@ services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 12/12/2018
-ms.topic: article
+ms.date: 06/22/2020
+ms.topic: how-to
 ms.custom: bfmigrate
 ---
 
