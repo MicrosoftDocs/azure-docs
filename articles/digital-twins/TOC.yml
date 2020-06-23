@@ -32,42 +32,44 @@
   items:
   - name: Develop
     items:
-    - name: Use the Azure Digital Twins CLI
-      href: how-to-use-cli.md
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
     - name: Create custom SDKs with AutoRest
       href: how-to-create-custom-sdks.md
   - name: Deploy
     items:
+    - name: Use the Azure Digital Twins CLI
+      href: how-to-use-cli.md
     - name: Create an Azure Digital Twins instance
       href: how-to-set-up-instance.md
     - name: Authenticate a client application
       href: how-to-authenticate-client.md
-  - name: Manage
-    items:
+  - name: Design models
+    items: 
     - name: Parse and validate models
       href: how-to-use-parser.md
     - name: Manage a twin model
       href: how-to-manage-model.md
+  - name: Use live execution environment
+    items:
     - name: Manage a digital twin
       href: how-to-manage-twin.md
     - name: Manage a twin graph with relationships
       href: how-to-manage-graph.md
     - name: Manage endpoints and routes
       href: how-to-manage-routes.md
-  - name: Query
-    items:
-    - name: Query the twin graph
-      href: how-to-query-graph.md
-  - name: Connect
-    items:
     - name: Interpret event data
       href: how-to-interpret-event-data.md
     - name: Set up an Azure function for processing data
       href: how-to-create-azure-function.md
+    - name: Query the twin graph
+      href: how-to-query-graph.md
+  - name: Connect input
+    items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
+  - name: Connect output
+    items:
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
 - name: Reference
