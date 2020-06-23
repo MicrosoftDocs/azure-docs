@@ -251,7 +251,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 To enable the HELM chart, do the following:
 
 >[!NOTE]
->If your Kubernetes cluster communicates through a proxy server, configure the parameter `omsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy](#configure-proxy-endpoint) later in this article.
+>If your Kubernetes cluster communicates through a proxy server, configure the parameter `omsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
 
 1. Add the Azure charts repository to your local list by running the following command:
 
