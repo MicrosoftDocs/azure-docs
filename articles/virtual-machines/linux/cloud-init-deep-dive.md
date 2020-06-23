@@ -5,11 +5,10 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
-
 
 # Diving deeper into cloud-init
 To learn more about [cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) or troubleshoot it at a deeper level, you need to understand how it works. This document highlights the important parts, and explains the Azure specifics.
@@ -26,11 +25,11 @@ Some configurations are already baked into Azure Marketplace images that come wi
 * Image config (/etc/cloud)
 * Runtime config (/run/cloud-init), like `/etc/cloud/cloud.cfg`, `/etc/cloud/cloud.cfg.d/*.cfg`. An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have an Azure datasource directive, that tells cloud-init what datasource it should use, this saves cloud-init time:
 
-```bash
-/etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
-# to update this file, run dpkg-reconfigure cloud-init
-datasource_list: [ Azure ]
-```
+   ```bash
+   /etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
+   # to update this file, run dpkg-reconfigure cloud-init
+   datasource_list: [ Azure ]
+   ```
 
 
 ## Cloud-init boot stages (processing configuration)
@@ -43,31 +42,31 @@ When provisioning with cloud-init, there are 5 stages of boot, which process con
 
 3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in /etc/cloud/cloud.cfg will be run. The VM in Azure will be mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
 
-These are some of the cloud_init_modules:
-- `migrator`
-- `seed_random`
-- `bootcmd`
-- `write-files`
-- `growpart`
-- `resizefs`
-- `disk_setup`
-- `mounts`
-- `set_hostname`
-- `update_hostname`
-- `ssh`
+   These are some of the cloud_init_modules:
+   - `migrator`
+   - `seed_random`
+   - `bootcmd`
+   - `write-files`
+   - `growpart`
+   - `resizefs`
+   - `disk_setup`
+   - `mounts`
+   - `set_hostname`
+   - `update_hostname`
+   - `ssh`
 
 
-After this stage, cloud-init will signal to the Azure platform that the VM has been provisioned successfully. Some modules may have failed, not all module failures will result in a provisioning failure.
+   After this stage, cloud-init will signal to the Azure platform that the VM has been provisioned successfully. Some modules may have failed, not all module failures will result in a provisioning failure.
 
 4. [Cloud-init Config Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): At this stage, the modules in `cloud_config_modules` defined and listed in /etc/cloud/cloud.cfg will be run.
 
 
 5. [Cloud-init Final Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#final): At this final stage, the modules in `cloud_final_modules`, listed in /etc/cloud/cloud.cfg, will be run. Here modules that need to be run late in the boot process run, such as package installations and run scripts etc. 
 
-During this stage, you can run scripts by placing them in the directories under `/var/lib/cloud/scripts`:
-- `per-boot` - scripts within this directory, run on every reboot
-- `per-instance` - scripts within this directory run when a new instance is first booted
-- `per-once` - scripts within this directory run only once
+   -   During this stage, you can run scripts by placing them in the directories under `/var/lib/cloud/scripts`:
+   - `per-boot` - scripts within this directory, run on every reboot
+   - `per-instance` - scripts within this directory run when a new instance is first booted
+   - `per-once` - scripts within this directory run only once
 
 ## Next steps
 

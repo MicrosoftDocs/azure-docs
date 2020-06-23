@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 
@@ -31,7 +31,7 @@ If you have a Linux kernel that cannot support running either agent, but wish to
 
 ## Provisioning agent responsibilities
 
-**Image Provisioning**
+**Image provisioning**
   
 - Creation of a user account
 - Configuring SSH authentication types
@@ -61,9 +61,9 @@ If you have a Linux kernel that cannot support running either agent, but wish to
 ## Communication
 The information flow from the platform to the agent occurs via two channels:
 
-- A boot-time attached DVD for IaaS deployments. The DVD includes an OVF-compliant configuration file that includes all provisioning information, other than the actual SSH keypairs.
+- A boot-time attached DVD for IaaS deployments. The DVD includes an OVF-compliant configuration file that includes all provisioning information, other than the actual SSH key pairs.
 - A TCP endpoint exposing a REST API used to obtain deployment, and topology configuration.
-- IMDS <!-- Do we want to mention this? -->
+
 
 ## Azure provisioning agent requirements
 The Linux Agent, and cloud-init, depend on some system packages in order to function properly:

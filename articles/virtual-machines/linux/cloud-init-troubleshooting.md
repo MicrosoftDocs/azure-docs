@@ -5,7 +5,7 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 05/21/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -124,7 +124,7 @@ Cloud-init has multiple dependencies, these are documented in required prerequis
 If you still cannot isolate why cloud-init failed to provision then you need to understand what cloud-init stages, and when modules run. See [Diving deeper into cloud-init](cloud-init-deep-dive.md) for more details.
 
 
-## Step 4: Investigate why the cloud-init configuration is not being applied
+## Step 4: Investigate why the a configuration isn't being applied
 Not every failure in cloud-init results in a fatal provisioning failure. For example, if you are using the `runcmd` module in a cloud-init config, a non-zero exit code from the command it is running will cause the VM provisioning to fail. This is because it runs after core provisioning functionality that happens in the first 3 stages of cloud-init. To troubleshoot why the configuration did not apply, review the logs in Step 3, and cloud-init modules manually. For example:
 
 - `runcmd` - do the scripts run without errors? Run the configuration manually from the terminal to ensure they run as expected.

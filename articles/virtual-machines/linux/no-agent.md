@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/16/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -16,10 +16,12 @@ ms.reviewer: cynthn
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
-1. Your Linux distro/version does not support cloud-init.
-1. You require specific VM properties to be set, such as hostname.
+- Your Linux distro/version does not support cloud-init.
+- You require specific VM properties to be set, such as hostname.
 
-*Note: If you do not require any properties to be set or any form of provisioning to happen you should consider creating a specialized image.*
+> [!NOTE] 
+>
+> If you do not require any properties to be set or any form of provisioning to happen you should consider creating a specialized image.
 
 This article shows how you can setup your VM image to satisfy the Azure platform requirements and set the hostname, without installing a provisioning agent.
 
@@ -140,29 +142,29 @@ print(f'Response: {resp.status} {resp.reason}')
 wireserver_conn.close()
 ```
 
-#### Generic Steps (without using Python)
+#### Generic steps (without using Python)
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
 
 1. Retrieve the `ContainerId` and `InstanceId` by parsing the response from the WireServer: `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate`.
 
 2. Construct the following XML data, injecting the parsed `ContainerId` and `InstanceId` from the above step:
-```xml
-<Health>
-  <GoalStateIncarnation>1</GoalStateIncarnation>
-  <Container>
-    <ContainerId>CONTAINER_ID</ContainerId>
-    <RoleInstanceList>
-      <Role>
-        <InstanceId>INSTANCE_ID</InstanceId>
-        <Health>
-          <State>Ready</State>
-        </Health>
-      </Role>
-    </RoleInstanceList>
-  </Container>
-</Health>
-```
+   ```xml
+   <Health>
+     <GoalStateIncarnation>1</GoalStateIncarnation>
+     <Container>
+       <ContainerId>CONTAINER_ID</ContainerId>
+       <RoleInstanceList>
+         <Role>
+           <InstanceId>INSTANCE_ID</InstanceId>
+           <Health>
+             <State>Ready</State>
+           </Health>
+         </Role>
+       </RoleInstanceList>
+     </Container>
+   </Health>
+   ```
 
 3. Post this data to WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 

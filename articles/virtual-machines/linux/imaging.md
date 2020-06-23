@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: overview
 ms.workload: infrastructure
-ms.date: 06/15/2020
+ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
 
@@ -60,11 +60,11 @@ Provisioning agents are not required for these images, however, you may want to 
 ## Image storage options
 When bringing your Linux image you have two options:
 
-1. Managed images for simple VM creation in a development and test environment.
-1. [Shared Image Gallery](shared-image-galleries.md) for creating and sharing images at-scale.
+- Managed images for simple VM creation in a development and test environment.
+- [Shared Image Gallery](shared-image-galleries.md) for creating and sharing images at-scale.
 
 
-### Managed Images
+### Managed images
 
 Managed images can be used to create multiple VMs, but they have a lot of limitations. Managed images can only be created from a generalized source (VM or VHD). They can only be used to create VMs in the same region and they can't be shared across subscriptions and tenants.
 

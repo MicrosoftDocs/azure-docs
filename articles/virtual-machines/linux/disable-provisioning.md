@@ -1,6 +1,6 @@
 ---
-title: Disable and removing the provisioning agent 
-description: Disable or remove the provisioning agent in Linux VMs and images.
+title: Disable or remove the provisioning agent
+description: Learn how to disable or remove the provisioning agent in Linux VMs and images.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -11,7 +11,7 @@ ms.author: danis
 ms.reviewer: cynthn
 ---
 
-# Disabling & removing the Linux Agent from VMs and images
+# Disable or remove the Linux Agent from VMs and images
 
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
@@ -63,7 +63,9 @@ You must disable extension processing.
 ```bash
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
->Note! If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
+> [!Note]
+> 
+> If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
 ### Step 2: Remove the Azure Linux Agent
 
@@ -125,19 +127,22 @@ cloud-init clean --logs --seed
 ## Deprovision and create an image
 The Linux Agent has the ability to clean up some of the existing image metadata, with the step "waagent -deprovision+user", however, after it has been removed, you will need to perform actions such as the below, and remove any other sensitive data from it.
 
-- remove all existing ssh host key
-```bash
-rm /etc/ssh/ssh_host_*key*
-```
-- delete the admin account
-```bash
-touch /var/run/utmp
-userdel -f -r <admin_user_account>
-```
-- delete the root password
-```bash
-passwd -d root
-```
+- Remove all existing ssh host keys
+
+   ```bash
+   rm /etc/ssh/ssh_host_*key*
+   ```
+- Delete the admin account
+
+   ```bash
+   touch /var/run/utmp
+   userdel -f -r <admin_user_account>
+   ```
+- Delete the root password
+
+   ```bash
+   passwd -d root
+   ```
 
 Once you have completed the above, you can create the custom image using the Azure CLI.
 
@@ -162,7 +167,9 @@ az sig image-version create \
 ### Creating a VM from an image that does not contain a Linux Agent
 When you create the VM from the image with no Linux Agent, you need to ensure the VM deployment configuration indicates extensions are not supported on this VM.
 
->Note! If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
+> [Note] 
+> 
+> If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
 To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
 
