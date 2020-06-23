@@ -9,7 +9,7 @@ ms.prod: education
 ms.date: 06/30/2020
 ---
 
-# Quickstart: HOw to enroll or renew Azure Dev Tools for teaching
+# Quickstart: How to enroll or renew Azure Dev Tools for teaching
 
 ## Prerequisites
 
