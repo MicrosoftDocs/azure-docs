@@ -422,7 +422,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-  * You can configure your logic app to acknowledge it's received the IDoc by [adding an HTTP Request Response action](../connectors/connectors-native-reqres#add-a-response-action) with a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
+  * To acknowledge that your logic app received the IDoc, [add a Response action](../connectors/connectors-native-reqres.md#add-a-response-action) that returns a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
   * If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
 
