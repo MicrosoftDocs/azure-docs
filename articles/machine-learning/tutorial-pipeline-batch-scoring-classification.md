@@ -283,7 +283,7 @@ parallel_run_config = ParallelRunConfig(
     entry_script="batch_scoring.py",
     source_directory="scripts",
     output_action="append_row",
-    mini_batch_size=PipelineParameter(name="batch_size_param", default_value="20"),
+    mini_batch_size="20",
     error_threshold=1,
     compute_target=compute_target,
     process_count_per_node=2,
@@ -330,7 +330,7 @@ For a list of all the classes you can use for different step types, see the [ste
 
 Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step you created. The `steps` parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
 
-Next, use the `Experiment.submit()` function to submit the pipeline for execution. You also specify the custom parameter `param_batch_size`. The `wait_for_completion` function outputs logs during the pipeline build process. You can use the logs to see current progress.
+Next, use the `Experiment.submit()` function to submit the pipeline for execution. The `wait_for_completion` function outputs logs during the pipeline build process. You can use the logs to see current progress.
 
 > [!IMPORTANT]
 > The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
@@ -394,7 +394,7 @@ auth_header = interactive_auth.get_authentication_header()
 
 Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in Azure Machine Learning studio. 
 
-Build an HTTP POST request to the endpoint. Specify your authentication header in the request. Add a JSON payload object that has the experiment name and the batch size parameter. As noted earlier in the tutorial, `batch_size_param` is passed through to your `batch_scoring.py` script because you defined it as a `PipelineParameter` object in the step configuration.
+Build an HTTP POST request to the endpoint. Specify your authentication header in the request. Add a JSON payload object that has the experiment name.
 
 Make the request to trigger the run. Include code to access the `Id` key from the response dictionary to get the value of the run ID.
 
@@ -405,7 +405,7 @@ rest_endpoint = published_pipeline.endpoint
 response = requests.post(rest_endpoint, 
                          headers=auth_header, 
                          json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"batch_size_param": 50}})
+                               "ParameterAssignments": {"process_count_per_node": 6}})
 run_id = response.json()["Id"]
 ```
 
