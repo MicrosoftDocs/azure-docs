@@ -51,7 +51,7 @@ __Q: Is ADAL being deprecated?__
 A: Yes. Starting June 30th, 2020, we will no longer add new features to ADAL. We'll continue adding critical security fixes to ADAL until June 30th, 2022.
 
 __Q: How do I know which of my apps are using ADAL?__  
-A: If you have the source code, you can reference the above migration guides to determine which client library you’re using and how to update to MSAL. If you don’t have the source code, you can reach out to support and they can provide you with a list of apps and which client library they are using.
+A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you don't have access to your application's source code, you can [open a support request](developer-support-help-options.md#open-a-support-request) to obtain a list of your registered applications and the library each application uses.
 
 __Q: Will my existing ADAL apps continue to work?__ 
 A: Your existing apps will continue to work without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating them to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
