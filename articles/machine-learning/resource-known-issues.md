@@ -230,7 +230,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
-* **TensorFlow**: Automated machine learning does not currently support TensorFlow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release.
+* **TensorFlow**: Automated machine learning does not ship tensorflow support by default anymore. If you wish to get it working, you will need to install tensorflow==1.12.0 via CondaDependencies. 
 
 * **Experiment Charts**: Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
