@@ -1,74 +1,113 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure CycleCloud
+### YamlMime:Landing
+
+title: Azure CycleCloud Documentation
+summary: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.
+
 metadata:
-  title: CycleCloud Documentation - Quickstarts, Concepts, Resources
-  description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters.
-  services: cyclecloud
-  author: KimliW
-  ms.prod: cyclecloud
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: conceptual
-  ms.date: 08/01/2018
+  title: Azure CycleCloud Documentation
+  description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters. 
+  ms.topic: landing-page # Required
+  author: adriankjohnson
   ms.author: adjohnso
-abstract:
-  description: Azure CycleCloud is designed to enable enterprise IT organizations to provide secure and flexible cloud HPC and Big Compute environments to their end users. With dynamic scaling of clusters, the business can get the resources it needs at the right time and the right price. Azure CycleCloud’s automated configuration enables IT to focus on providing service to the business users.<p>CycleCloud 8 is now available for public preview. Please see <a href="release-notes-preview">release notes</a> for details.</p>
-  aside:
-    image:
-      alt: Get Azure CycleCloud
-      src: images/get-cyclecloud.png
-    title: Get Azure CycleCloud
-    href: https://azure.microsoft.com/en-us/features/azure-cyclecloud/
+  ms.date: 06/11/2020 
 
-sections:
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: overview
-          html: <p>Create, manage, operate, and optimize HPC & Big Compute clusters of any scale in Azure with CycleCloud.</p>
-          image:
-            src: media/index/ccswoosh.jpg
-          title: What is Azure CycleCloud?
-        - href: qs-install-marketplace
-          html: <p>New to Azure CycleCloud? Start here for a guided walkthrough of the installation, setup, and use of Azure CycleCloud.</p>
-          image:
-            src: media/index/i_quick-start.svg
-          title: Quickstarts
-        - href: concepts/clusters
-          html: <p>Learn how Azure CycleCloud uses Cluster Templates to create and scale your jobs quickly and easily.</p>
-          image:
-            src: media/index/i_get-started.svg
-          title: Clusters and Nodes
-  - title: Reference
-    items:
-    - type: list
-      style: cards
-      className: cardsD
-      items:
-        - title: Clusters
-          html: <p><a href="concepts/clusters">Clusters & Node Concepts</a></p><p><a href="how-to/cluster-templates">Cluster Templates</a></p><p><a href="how-to/projects">CycleCloud Projects</a></p><p><a href="how-to/create-custom-image">Custom Images</a></p>
-        - title: Storage
-          html: <p><a href="how-to/add-disk">Add Disks</a></p><p><a href="how-to/mount-disk">Mount Disks</a></p><p><a href="how-to/create-fileserver">Configure NFS Mounts</a></p><p><a href="how-to/storage-blobs">Blobs and Lockers</a></p>
-        - title: Networking
-          html: <p><a href="how-to/network-security">Network Security</a></p><p><a href="how-to/running-behind-proxy">Configure Proxy</a></p><p><a href="how-to/running-in-locked-down-network">Locked Down Network</a></p>
-        - title: Tools
-          html: <p><a href="how-to/install-cyclecloud-cli">CycleCloud CLI</a></p><p><a href="jetpack">Jetpack</a></p><p><a href="how-to/use-rest-api">REST API</a></p><p><a href="python-api">Python API</p>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Overview of Azure CycleCloud
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure CycleCloud?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Install with Marketplace
+            url: qs-install-marketplace.md
+      - linkListType: tutorial
+        links:
+          - text: Create a Cluster
+            url: tutorials/create-cluster.md
+      - linkListType: download
+        links:
+          - text: Get Azure CycleCloud
+            url: https://azure.microsoft.com/features/azure-cyclecloud/
+
+    # Card
+  - title: CycleCloud News
+    linkLists:            
+      - linkListType: whats-new
+        links:
+          - text: CycleCloud 7.9.6 is now available
+            url: release-notes.md
+          - text: CycleCloud 8 is now available for public preview
+            url: release-notes-preview.md
+          - text: Cloud-init is now supported
+            url: how-to/cloud-init.md
+
+  # Card
+  - title: CycleCloud Concepts
+    linkLists:            
+      - linkListType: concept
+        links:
+          - text: Core Concepts
+            url: concepts/core.md
+          - text: Clusters & Node Concepts
+            url: concepts/clusters.md
+          - text: Scheduling
+            url: concepts/scheduling.md
+
+  # Card
+  - title: Clusters
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Cluster Templates
+            url: how-to/cluster-templates.md
+          - text: Add Disks
+            url: how-to/add-disk.md
+          - text: Create Fileserver
+            url: how-to/create-fileserver.md
+          - text: Use CycleCloud Projects
+            url: how-to/projects.md
+          - text: Create Custom Images
+            url: how-to/create-custom-image.md
+          - text: Configure Network Security
+            url: how-to/network-security.md
+          - text: Run in Locked Down Network
+            url: how-to/running-in-locked-down-network.md
+
+  # Card
+  - title: Tools
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: CycleCloud CLI
+            url: how-to/install-cyclecloud-cli.md
+          - text: Jetpack
+            url: jetpack.md
+          - text: REST API
+            url: how-to/use-rest-api.md
+          - text: Python API
+            url: python-api.md
+
+  # Card
   - title: Get Help
-    items:
-    - type: paragraph
-      text: Need some help? Try these resources.
-    - type: list
-      style: unordered
-      className: spaced noBullet
-      items:
-      - html: <a href="cookbook-reference">Chef Cookbooks</a>
-      - html: <a href="cluster-references/cluster-template-reference">Cluster Template Reference</a>
-      - html: <a href="download-cluster-templates">CycleCloud Cluster Templates</a>
-      - html: <a href="https://github.com/CycleCloudCommunity">CycleCloud Community GitHub</a>
-      - html: <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecyclecloud">Azure Forums</a>
-      - html: <a href="https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request">Create an Azure Support Request</a>
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Chef Cookbooks
+            url: cookbook-reference.md
+          - text: Cluster Template Reference
+            url: cluster-references/cluster-template-reference.md
+          - text: CycleCloud Cluster Templates
+            url: download-cluster-templates.md
+          - text: CycleCloud Community GitHub
+            url: https://github.com/CycleCloudCommunity
+          - text: Azure Forums
+            url: https://social.msdn.microsoft.com/Forums/home?forum=azurecyclecloud
+          - text: Create an Azure Support Request
+            url: https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request
