@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2020
+ms.date: 06/23/2020
 ms.author: memildin
 
 ---
@@ -36,7 +36,7 @@ This page is a partial list of the Azure domains in use. Some of them are REST A
 |File Service|*.file.core.windows.net|
 |Mobile Services|*.azure-mobile.net|
 |Media Services|*.origin.mediaservices.windows.net|
-|Visual Studio Online|*.visualstudio.com|
+|Visual Studio Codespaces|*.visualstudio.com|
 |BizTalk Services|*.biztalk.windows.net|
 |CDN|*.vo.msecnd.net|
 |API Management|*.azure-api.net|

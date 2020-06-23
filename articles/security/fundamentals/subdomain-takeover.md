@@ -1,7 +1,7 @@
 ---
 
-title: Prevent dangling DNS entries and the resulting threat of subdomain takeover
-description: Learn about how to avoid the common high-severity threat of subdomain takeover
+title: Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification
+description: Learn how to avoid the common high-severity threat of subdomain takeover
 services: security
 author: memildin
 manager: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2020
+ms.date: 06/23/2020
 ms.author: memildin
 
 ---
@@ -36,7 +36,7 @@ A common scenario for a subdomain takeover:
 
     In this example, the following friendly name was created: `greatapp.contoso.com`.
 
-1. After a few months, the site is no longer needed so it is deleted **without** deleting the corresponding DNS entry. 
+1. After a few months, the site is no longer needed so it's deleted **without** deleting the corresponding DNS entry. 
 
     The CNAME DNS entry is now "dangling".
 
