@@ -20,7 +20,9 @@ Get up and running with the Ubuntu 18.04 Data Science Virtual Machine.
 ## Prerequisites
 
 To create an Ubuntu 18.04 Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
-Note Azure free accounts don't support GPU enabled virtual machine SKUs.
+
+>[!NOTE]
+>Azure free accounts don't support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
