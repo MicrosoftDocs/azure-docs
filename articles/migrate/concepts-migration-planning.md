@@ -49,11 +49,17 @@ Use the lightweight Azure Migrate appliance to perform an agentless discovery of
 
 Next, export the application inventory list to find out all SQL Server instances running on your workloads and use the Azure Migrate: Database Assessment tool to understand their readiness.
 
+ ![Application inventory on Portal](./media/concepts-migration-planning/application-inventory-portal.png)
+
+ ![Application inventory export](./media/concepts-migration-planning/application-inventory-export.png)
+
 Along with the discovery data from the Server Assessment tool, use your existing CMDB data to build our view of your server and database estate and understand server distribution across business units, application owners, geographies, etc., which can in turn help in prioritizing the workloads to be migrated.
 
 ### What dependencies exist between workloads?
 
 Once you’ve discovered your servers, use agentless dependency mapping to visualize and identify cross-server dependencies and optimization strategies for moving interdependent servers to Azure. The visualization helps to understand whether certain machines are in use, or if they can be decommissioned instead of being migrated.  Make sure you analyze dependencies to ensure that nothing is left behind and avoid surprise outages during migration. Once you have performed application inventory and dependency mapping, you can create high-confidence groups and start assessing your servers.
+
+ ![Dependency mapping](./media/concepts-migration-planning/expand-client-group.png)
 
 ### Are they optimized and sized properly?
 
@@ -74,7 +80,7 @@ Export the Azure VM assessment report and filter by the following readiness cate
 
 Using the database assessments, you can assess the readiness for migrating your SQL Server data estate to Azure SQL Databases or Azure SQL Database managed instances. You can see the migration readiness status percentage for each of your SQL server instances. Also, for each of the instances, you can see the recommended target in Azure, potential migration blockers, breaking changes count, readiness for Azure SQL DB / Azure SQL VM, and compatibility level. You can dig deeper to understand the impact of the migration blockers and recommendations to fix them.
 
- ![Database assessments](./media/tutorial-assess-vmware/assess-migrate.png)
+ ![Database assessments](./media/concepts-migration-planning/database-assessment-portal.png)
 
 ### Sizing Recommendations
 
@@ -101,6 +107,8 @@ The *performance-based* rightsizing option in assessments lets you optimize work
 ### Visualize data
 
 You can see the Server Assessment report with Azure readiness and monthly cost distribution in the portal as well as export the assessment to apply more visualizations on the discovery and assessment data to make the migration plan richer. You can create multiple assessments for different combinations of properties and choose the set of properties that work best for your business.  
+
+ ![Assessments overview](./media/concepts-migration-planning/assessment-summary.png)
 
 ### Evaluate gaps and potential blockers
 
