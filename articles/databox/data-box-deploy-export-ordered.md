@@ -13,14 +13,7 @@ ms.author: v-grpr
 ---
 # Tutorial: Create export order for Azure Data Box (Preview)
 
-Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box.
-
-You may need to export data for:
-
-* disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored
-* offline data copy for government and security
-* content distribution
-* data backup or replication
+Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored.
 
 In this tutorial, you learn about:
 
@@ -35,20 +28,22 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
+Complete the following configuration prerequisites for Data Box service and device before you order the device.
 
 ### For service
 
 [!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
+
 * Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
 
 ### For device
 
 Before you begin, make sure that:
 
-* You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* You should have a host computer connected to the datacenter network. You will copy the data from Azure Data Box to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ## Order Data Box for export
@@ -108,13 +103,13 @@ Perform the following steps in the Azure portal to order a device.
 
     > [!NOTE]
     >
-    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
+    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
     To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
 
-   To see an example of the xml output, see [Sample XML output](data-box-deploy-export-ordered.md#sample-xml-file)
+   To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
 9. In **Data selection**, review your settings and select **Next: Contact details>**.
 
@@ -182,17 +177,19 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
+When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
+
+![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
+
+Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked and the portal will show the order in **Copy Completed** state.
+
+![Data Box export data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
+
 If the device is not available, you will receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, the following actions occur:
 
 * SMB shares are created for each storage account associated with the device.
 * For each share, access credentials such as username and password are generated.
 * The device is locked and can be accessed only using the device unlock password. To retrieve the password, you need to log in to your Azure portal account and select **Device details**.
-
-When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
-
-![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
-
-Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked.
 
 Microsoft then prepares and dispatches your device through a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
@@ -212,7 +209,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ## Sample XML file
 
-The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order use when you use the **use XML file** option:
+The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order uses when you select the **use XML file** option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -228,10 +225,17 @@ The following xml shows an example of blob names, blob prefixes, and Azure files
    <!-- FileList/prefix/Share list for Azure File storage for export  -->
    <AzureFileList>
       <FilePathPrefix>/64mbfiles/</FilePathPrefix>
-      <FilePathPrefix>//4mbfiles/prefix2/subprefix</FilePathPrefix>
+      <FilePathPrefix>/4mbfiles/prefix2/subprefix</FilePathPrefix>
       <FilePathPrefix>/1tbfile/prefix</FilePathPrefix>
    </AzureFileList>
 ```
+
+Some important points in respect to xml files:
+
+* Xml tags are case sensitive and need to match exactly as specified in the above sample.
+* Opening and closing tags must match.
+* Incorrect xml tags or formatting may lead to data export failure.
+* No data will be exported if blob and/or file prefix are invalid.
 
 ### Examples of valid blob paths
 
@@ -250,8 +254,9 @@ The following table shows examples of valid blob paths:
 ## Sample log files
 
 This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
+For more information regarding copy and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
-### Verbose log
+<!-- ### Verbose log
 
 The following log files show examples of verbose logging when you select **Include verbose log**:
 
@@ -286,7 +291,9 @@ The following log files show examples of verbose logging when you select **Inclu
 
 ### Copy logs
 
-The following xml shows an example of the copy log when the export is successful:
+For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box). -->
+
+<!-- The following xml shows an example of the copy log when the export is successful:
 
 ```xml
 <CopyLog Summary="Summary">
@@ -295,6 +302,8 @@ The following xml shows an example of the copy log when the export is successful
     <FilesErrored>0</FilesErrored>
 </CopyLog>
 ```
+
+For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
 The following xml shows an example of the copy log when the export has errors:
 
@@ -319,7 +328,7 @@ The following xml shows an example of the copy log when the export has errors:
   <TotalFiles_Blobs>4</TotalFiles_Blobs>
   <FilesErrored>3</FilesErrored>
 </CopyLog>
-```
+``` -->
 
 ## Next steps
 
@@ -336,4 +345,3 @@ Advance to the next tutorial to learn how to set up your Data Box.
 
 > [!div class="nextstepaction"]
 > [Set up your Azure Data Box](./data-box-deploy-set-up.md)
-
