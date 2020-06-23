@@ -4,7 +4,7 @@ description: Azure Web Application Firewall (WAF) combined with Azure Policy can
 author: tremansdoerfer
 ms.service: web-application-firewall
 services: web-application-firewall
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: rimansdo
 ---
