@@ -16,14 +16,14 @@ A *partial term search* refers to queries consisting of term fragments, where in
 
 Partial term search and query strings that include special characters can be problematic if the index doesn't have tokens in the expected format. During the [lexical analysis phase](search-lucene-query-architecture.md#stage-2-lexical-analysis) of indexing (assuming the default standard analyzer), special characters are discarded, compound words are split up, and whitespace is deleted; all of which can cause queries to fail when no match is found. For example, a phone number like `+1 (425) 703-6214` (tokenized as `"1"`, `"425"`, `"703"`, `"6214"`) won't show up in a `"3-62"` query because that content doesn't actually exist in the index. 
 
-The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can match on portions or patterns within the token. Creating an additional field for an intact string, plus using a content-preserving analyzer that emits whole-string tokens, is the basis of the solution.
+The solution is to invoke an analyzer during indexing that preserves a complete string, including spaces and special characters if necessary, so that you can include the spaces and characters in your query string. Likewise, having a complete string that is not tokenized into smaller parts enables pattern matching for "starts with" or "ends with" queries, where the pattern you provide can be evaluated against a term that is not transformed by lexical analysis. Creating an additional field for an intact string, plus using a content-preserving analyzer that emits whole-term tokens, is the solution for both pattern matching and for matching on query strings that include special characters.
 
 > [!TIP]
 > If you are familiar with Postman and REST APIs, [download the query examples collection](https://github.com/Azure-Samples/azure-search-postman-samples/) to query partial terms and special characters described in this article.
 
 ## What is partial term search in Azure Cognitive Search
 
-In Azure Cognitive Search, a partial term is a portion of a term, usually with wildcard placeholder operators (`*` and `?`) , or a partial term that is articulated through a regular expression.
+Azure Cognitive Search scans for whole tokenized terms in the index and won't find a match on a partial term unless you include wildcard placeholder operators (`*` and `?`) , or format the query as a regular expression. Partial terms are specified using these techniques:
 
 + [Regular expression queries](query-lucene-syntax.md#bkmk_regex) can be any regular expression that is valid under Apache Lucene. 
 
@@ -31,12 +31,14 @@ In Azure Cognitive Search, a partial term is a portion of a term, usually with w
 
 + [Wildcard with infix and suffix matching](query-lucene-syntax.md#bkmk_wildcard) places the `*` and `?` operators inside or at the beginning of a term, and requires regular expression syntax (where the expression is enclosed with forward slashes). For example, the query string (`search=/.*numeric*./`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches.
 
+For partial term or pattern search, and a few other query forms like fuzzy search, analyzers are not used at query time. For these query forms, which the parser detects by the presence of operators and delimiters, the query string is passed to the engine without lexical analysis.
+
 > [!NOTE]
 > When a partial query string includes characters, such as slashes in a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
 
 ## Solving partial/pattern search problems
 
-When you need to search on fragments or patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the whole string in the index. Taking a step back, the approach looks like this:
+When you need to search on fragments or patterns or special characters, you can override the default analyzer with a custom analyzer that operates under simpler tokenization rules, retaining the entire string in the index. Taking a step back, the approach looks like this:
 
 + Define a field to store an intact version of the string (assuming you want analyzed and non-analyzed text at query time)
 + Evaluate and choose among the various analyzers that emit tokens at the right level of granularity
