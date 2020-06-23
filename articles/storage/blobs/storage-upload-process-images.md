@@ -100,9 +100,6 @@ az storage container create --name images \
 az storage container create --name thumbnails \
   --account-name $blobStorageAccount \
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 ```powershell
@@ -116,9 +113,6 @@ az storage container create --name images `
 az storage container create --name thumbnails `
   --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
-
-echo "Make a note of your Blob storage account key..."
-echo $blobStorageAccountKey
 ```
 
 Make a note of your Blob storage account name and key. The sample app uses these settings to connect to the storage account to upload the images. 
