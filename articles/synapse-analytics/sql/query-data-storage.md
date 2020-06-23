@@ -18,7 +18,7 @@ SQL on-demand (preview) enables you to query data in your data lake. It offers a
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
 For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article, or the following articles:
-- [Develop storage access](develop-storage-files-overview.md)where you cna learn how to use [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function to read data from storage.
+- [Develop storage access](develop-storage-files-overview.md) where you can learn how to use [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function to read data from storage.
 - [Control storage access](develop-storage-files-storage-access-control.md) where you can learn how to enable Synapse SQL to access storage using SAS authentication, or Managed Identity of the workspace.
 
 ## Overview
