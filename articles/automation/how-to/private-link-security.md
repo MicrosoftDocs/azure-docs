@@ -12,7 +12,7 @@ ms.subservice:
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Automation service into your VNet. Network traffic between the machines on the VNet and the Automation account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, DSC and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET. This can be achieved by deploying private endpoints.
+For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, State Configuration, and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET. This can be achieved by deploying private endpoints.
 
 This article covers when to use and how to set up a private endpoint with your Automation account.
 
@@ -26,10 +26,10 @@ With Private Link you can:
 - Connect privately to Azure Monitor Log Analytics workspace without opening any public network access.
 
     >[!NOTE]
-    >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For additional information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../azure-monitor/platform/private-link-security.md).
+    >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../azure-monitor/platform/private-link-security.md).
 
 - Ensure your Automation data is only accessed through authorized private networks.
-- Prevent data exfiltration from your private networks by defining your Azure Automation resource that connect through your private endpoint.
+- Prevent data exfiltration from your private networks by defining your Azure Automation resource that connects through your private endpoint.
 - Securely connect your private on-premises network to Azure Automation using ExpressRoute and Private Link.
 - Keep all traffic inside the Microsoft Azure backbone network.
 
@@ -136,7 +136,7 @@ $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 
 ## DNS configuration
 
-When connecting to a private link resource using a FQDN as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint.
+When connecting to a private link resource using an FQDN as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint.
 
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource.
 
@@ -148,7 +148,7 @@ You can use the following options to configure your DNS settings for private end
 
 * Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
 
-Refer to [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md) for more details.
+For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ## Next steps
 
