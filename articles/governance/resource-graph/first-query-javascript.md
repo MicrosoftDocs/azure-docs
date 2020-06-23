@@ -15,10 +15,10 @@ your first Resource Graph query.
 
 ## Prerequisites
 
-1. **Azure subscription**: If you don't have an Azure subscription, create a
-   [free](https://azure.microsoft.com/free/) account before you begin.
+- **Azure subscription**: If you don't have an Azure subscription, create a
+  [free](https://azure.microsoft.com/free/) account before you begin.
 
-1. **Node.js**: [Node.js](https://nodejs.org/) version 12 or higher is required.
+- **Node.js**: [Node.js](https://nodejs.org/) version 12 or higher is required.
 
 ## Application setup
 
