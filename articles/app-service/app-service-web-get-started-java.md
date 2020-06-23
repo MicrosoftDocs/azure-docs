@@ -55,7 +55,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 A sample process looks like:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]

@@ -163,18 +163,18 @@ This page is where you manage the copy and images for your commercial marketplac
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Azure Marketplace:
+Here's an example of how offer information appears in Azure Marketplace (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
 #### Call-out descriptions
 
 1. Logo
-2. Offer name
-3. Categories
-4. Support address (link)
-5. Terms of use
-6. Privacy policy address (link)
+2. Categories
+3. Support address (link)
+4. Terms of use
+5. Privacy policy address (link)
+6. Offer name
 7. Summary
 8. Description
 9. Screenshots/videos
