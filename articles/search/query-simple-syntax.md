@@ -90,13 +90,13 @@ When deciding on a **searchMode** setting, consider the user interaction pattern
 
 <a name="prefix-search"></a>
 
-## Prefix search
+## Wildcard prefix matching (*, ?)
 
-The suffix operator is an asterisk `*`. For example, `lingui*` will find "linguistic" or "linguini", ignoring case. 
+For "starts with" queries, add a suffix operator as the placeholder for the remainder of a term. Use an asterisk `*` for multiple characters or `?` for single characters. For example, `lingui*` will match on "linguistic" or "linguini", ignoring case. 
 
-Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. 
+Similar to filters, a prefix query looks for an exact match. As such, there is no relevance scoring (all results receive a search score of 1.0). Be aware that prefix queries can be slow, especially if the index is large and the prefix consists of a small number of characters. An alternative methodology, such as edge n-gram tokenization, might perform faster.
 
-If you want to execute a suffix query, matching on the last part of string, use a [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and the full Lucene syntax.
+For other wildcard query variants, such as suffix or infix matching against the end or middle of a term, use the [full Lucene syntax for wildcard search](query-lucene-syntax.md#bkmk_wildcard).
 
 ## Phrase search `"`
 

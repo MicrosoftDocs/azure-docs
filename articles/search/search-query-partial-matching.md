@@ -23,11 +23,13 @@ The solution is to invoke an analyzer during indexing that preserves a complete 
 
 ## What is partial term search in Azure Cognitive Search
 
-In Azure Cognitive Search, partial term search occurs in these forms:
+In Azure Cognitive Search, a partial term is a portion of a term, usually with wildcard placeholder operators (`*` and `?`) , or a partial term that is articulated through a regular expression.
 
-+ [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simple query syntax or the full Lucene query syntax for prefix search.
++ [Regular expression queries](query-lucene-syntax.md#bkmk_regex) can be any regular expression that is valid under Apache Lucene. 
 
-+ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string. Wildcard and regular expressions require the full Lucene syntax. *Suffix* and *infix* queries are formulated as a regular expression. For example, the regular expression (`search=/.*numeric.*/`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix queries. 
++ [Wildcard operators with prefix matching](query-simple-syntax.md#prefix-search) refers to a generally recognized pattern that includes the beginning of a term, followed by `*` or `?` suffix operators, such as `search=cap*` matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". Prefixing matching is supported in both simple and full Lucene query syntax.
+
++ [Wildcard with infix and suffix matching](query-lucene-syntax.md#bkmk_wildcard) places the `*` and `?` operators inside or at the beginning of a term, and requires regular expression syntax (where the expression is enclosed with forward slashes). For example, the query string (`search=/.*numeric*./`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches.
 
 > [!NOTE]
 > When a partial query string includes characters, such as slashes in a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
