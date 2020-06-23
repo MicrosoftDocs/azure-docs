@@ -1,8 +1,8 @@
 ---
 title: What is Azure Event Hubs? - a Big Data ingestion service | Microsoft Docs
 description: Learn about Azure Event Hubs, a Big Data streaming service that ingests millions of events per second.
+ms.topic: overview
 ms.date: 06/23/2020
-ms.author: spelluru
 ---
 
 # Azure Event Hubs — A big data streaming platform and event ingestion service
