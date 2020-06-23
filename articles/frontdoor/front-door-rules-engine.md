@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door | Microsoft Docs
+title: Azure Front Door
 description: This article provides an overview of the Azure Front Door Rules Engine feature. 
 services: frontdoor
 documentationcenter: ''
