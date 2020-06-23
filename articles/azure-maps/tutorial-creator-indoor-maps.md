@@ -3,7 +3,7 @@ title: Use Creator to create indoor maps
 description: Use Azure Maps Creator to create indoor maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -59,25 +59,30 @@ The Data Upload API is a long running transaction that implements the pattern de
 
 5. Click the blue **Send** button and wait for the request to process. Once the request completes, go to the **Headers** tab of the response. Copy the value of the **Location** key, which is the `status URL`.
 
-6. To check the status of the API call, create a GET HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication.
+6. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
     ```http
     https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-7. When the **GET** HTTP request completes successfully, you can use the `resourceLocation` URL to retrieve metadata from this resource in the next step.
+7. When the **GET** HTTP request completes successfully, it will return a `resourceLocation`. The `resourceLocation` contains the unique `udid` for the uploaded content. Optionally, you can use the `resourceLocation` URL to retrieve metadata from this resource in the next step.
 
     ```json
     {
-        "operationId": "{operationId}",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
     }
     ```
 
-8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL you copied in step 7. The response body contains a unique `udid` for the uploaded content, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on. An example of the overall response is:
+8. To retrieve content metadata, create a **GET** HTTP request on the `resourceLocation` URL that was retrieved in step 7. Make sure to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
-     ```json
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+9. When the **GET** HTTP request completes successfully, the response body will contain the `udid` specified in the `resourceLocation` of step 7, the location to access/download the content in the future, and some other metadata about the content like created/updated date, size, and so on. An example of the overall response is:
+
+    ```json
     {
         "udid": "{udid}",
         "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",

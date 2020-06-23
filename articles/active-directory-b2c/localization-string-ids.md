@@ -52,7 +52,7 @@ The following example shows the use of some of the user interface elements in th
 
 The ID of the identity providers is configured in the user journey  **ClaimsExchange** element. To localize the title of the identity provider, the **ElementType** is set to `ClaimsProvider`, while the **StringId** is set to the ID of the `ClaimsExchange`.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -71,7 +71,7 @@ The ID of the identity providers is configured in the user journey  **ClaimsExch
 
 The following example localizes the Facebook identity provider to Arabic:
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
@@ -215,7 +215,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -243,7 +243,7 @@ The following are the IDs for [Restful service technical profile](restful-techni
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
@@ -269,7 +269,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
@@ -296,7 +296,7 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
@@ -320,7 +320,7 @@ The following are the IDs for claims transformations error messages:
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>
