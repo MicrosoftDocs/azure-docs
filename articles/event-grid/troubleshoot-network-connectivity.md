@@ -50,13 +50,16 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 When you are working with Azure, sometimes you have to allow specific IP address ranges or URLs in your corporate firewall or proxy to access all Azure services you are using or trying to use. Verify that the traffic is allowed on IP addresses used by Event Grid. For IP addresses used by Azure Event Grid: see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519) and [Service tag - AzureEventGrid](network-security.md#service-tags).
 
+> [!NOTE]
+> New IP addresses could be added to AzureEventGrid service tag, though it's not usual. So it's good to do a weekly check on the service tags.
+
 ### Verify that AzureEventGrid service tag is allowed in your network security groups
 
 If your application is running inside a subnet and if there is a associated network security group, confirm if either internet outbound is allowed or AzureEventGrid service tag is allowed. Please see [Service Tags](../virtual-network/service-tags-overview.md)
 
 ### Check the IP Firewall settings for your Topic/Domain
 
-Check that your IP address of the machine on which the application is running isn't blocked by the EventGrid topic/domain IP firewall.
+Check that the public IP address of the machine on which the application is running isn't blocked by the EventGrid topic/domain IP firewall.
 
 By default, Event Grid topics/domains are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
@@ -111,7 +114,7 @@ Transient connectivity issues may occur because of backend service upgrades and 
 - The applications may be disconnected from the service for a few seconds.
 - Requests may be momentarily throttled.
 
-Retry connecting to the service after a couple of minutes to see if the issues go away.
+Catching these transient errors, backing off and then retrying the call will ensure that your code is resilient to these transient issues.
 
 ## Next steps
 
