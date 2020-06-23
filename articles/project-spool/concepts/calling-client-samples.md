@@ -53,7 +53,7 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 }));
 
 ```
-For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return an AdHocCallClient Task.
+For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task containing a tuple of (AdHocCallClient, DeviceManager).
     
 #### [.NET](#tab/dotnet)
 ```.NET
@@ -62,7 +62,8 @@ Task.WhenAll(tokenTask).Wait();
 string token = tokenTask.Result;
 Task<AdHocCallClient> clientTask = CallClientFactory.Create(token);
 Task.WhenAll(clientTask).Wait();
-AdHocCallClient callClient = clientTask.Result;
+Tuple<AdHocCallClient, DeviceManager> resultTuple = clientTask.Result;
+AdHocCallClient callClient = resultTuple.Item1;
 ```
 --- 
 
