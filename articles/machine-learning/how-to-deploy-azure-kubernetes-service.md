@@ -1,5 +1,5 @@
 ---
-title: How to deploy models to Azure Kubernetes Service
+title: Deploy ML models to Kubernetes Service
 titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/12/2020
+ms.date: 06/23/2020
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
