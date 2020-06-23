@@ -93,7 +93,8 @@ The first step in this tutorial is to create a new virtual machine inside a virt
 [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) is a fully managed Azure service which provides secure RDP and SSH access to virtual machines directly from the Azure portal. Using the Azure Bastion service removes the need to configure network settings related to RDP access.
 
 1. In the portal, choose **Add** at the top of the resource group view.
-2. In the search field, type `Bastion`.  Select **Bastion** in the search results.
+1. In the search field, type **Bastion**.
+1. Select **Bastion** in the search results.
 3. Select **Create** to begin the process of creating a new Azure Bastion resource. You will notice an error message in the **Virtual network** section as there is not yet an `AzureBastionSubnet` subnet. The subnet is created in the following steps. Use the settings in the table below the image:
 
     >[!div class="mx-imgBorder"]
