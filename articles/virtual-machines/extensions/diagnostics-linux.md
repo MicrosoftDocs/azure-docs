@@ -438,7 +438,7 @@ Either "table" or "sinks", or both, must be specified.
 Controls the capture of log files. LAD captures new text lines as they are written to the file and writes them to table rows and/or any specified sinks (JsonBlob or EventHub).
 
 > [!NOTE]
-> fileLogs are captured by a subcomponent of LAD called `omsagent`. In order to collect fileLogs, you must ensure that the `omsagent` user has read permissions on the files you specify, as well as execute permissions on all directories in the path to that file. You can check this by running `sudo su omsagent -c 'cat /path/to/file` after LAD is installed.
+> fileLogs are captured by a subcomponent of LAD called `omsagent`. In order to collect fileLogs, you must ensure that the `omsagent` user has read permissions on the files you specify, as well as execute permissions on all directories in the path to that file. You can check this by running `sudo su omsagent -c 'cat /path/to/file'` after LAD is installed.
 
 ```json
 "fileLogs": [
