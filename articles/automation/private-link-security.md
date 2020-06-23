@@ -43,13 +43,13 @@ After you create private endpoints for Automation, each of the public facing Aut
 
 ### Webhook scenario
 
-You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like this: `https:// <automationaccountID>.webhooks. <region>. azure-automation.net/webhooks?token= gzGMz4SMpqNo8gidqPxAJ3E%3d`
+You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like this: `https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### State Configuration (agentsvc) scenario
 
 State Configuration provides you with Azure configuration management service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter.
 
-The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like this: `https://<automation account ID>.agentsvc. <region>. azure-automation.net`. 
+The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like this: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`. 
 
 The URL for public & private endpoint would be the same, however, it would be mapped to a private IP address when Private link is enabled.
 
