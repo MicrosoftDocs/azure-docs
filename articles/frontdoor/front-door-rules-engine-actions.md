@@ -19,7 +19,7 @@ ms.author: mebeatty
 
 In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and actions. This article provides detailed descriptions of the actions you can use in AFD Rules Engine.
 
-An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions, only one of which may be a route configuration override action (forward or redirect). 
+An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies. In AFD Rules Engine, a rule can contain up to five actions, only one of which may be a route configuration override action (forward or redirect).
 
 The following actions are available to use in Azure Front Door rules engine.  
 
