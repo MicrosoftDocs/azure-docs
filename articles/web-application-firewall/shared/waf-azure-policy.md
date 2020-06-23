@@ -11,13 +11,13 @@ ms.author: rimansdo
 
 # Azure Web Application Firewall and Azure Policy
 
-Azure Web Application Firewall (WAF) combined with Azure Policy can help enforce organizational standards and assess compliance at-scale for WAF resources. Azure policy is a governance tool that provides an aggregated view to evaluate the overall state of the environment, with the ability to drill-down to the per-resource, per-policy granularity. Azure policy also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources.
+Azure Web Application Firewall (WAF) combined with Azure Policy can help enforce organizational standards and assess compliance at-scale for WAF resources. Azure policy is a governance tool that provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. Azure policy also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources.
 
 ## Azure Policies for Web Application Firewall
 
 There are several built-in Azure Policies to manage WAF resources. A breakdown of the policies and their functionalities are as follows:
 
-1. **Web Application Firewall should be enabled for Azure Front Door Service or Application Gateway**: Azure Front Door Services and Application Gateways are evaluated on if there is a WAF present on resource creation. The policy has three effects: Audit, Deny, and Disable. Audit tracks when a Azure Front Door Service or Application Gateway does not have a WAF and lets users see what Azure Front Door Service or Application Gateway does not currently comply. Deny prevents any Azure Front Door Service or Application Gateway from being created if a WAF is not attached. Disabled turns off this policy.
+1. **Web Application Firewall should be enabled for Azure Front Door Service or Application Gateway**: Azure Front Door Services and Application Gateways are evaluated on if there is a WAF present on resource creation. The policy has three effects: Audit, Deny, and Disable. Audit tracks when an Azure Front Door Service or Application Gateway does not have a WAF and lets users see what Azure Front Door Service or Application Gateway does not currently comply. Deny prevents any Azure Front Door Service or Application Gateway from being created if a WAF is not attached. Disabled turns off this policy.
 
 2. **Web Application Firewall should be a set mode for Application Gateway and Azure Front Door Service**: Web Application Firewall is evaluated on what mode it is in, either prevention or detection. The policy ensures mode consistency across Web Application Firewalls. The policy has three effects: Audit, Deny, and Disable. Audit tracks when a WAF does not fit the specified mode. Deny prevents any WAF from being created if it is not in the correct mode. Disabled turns off this policy.
 
