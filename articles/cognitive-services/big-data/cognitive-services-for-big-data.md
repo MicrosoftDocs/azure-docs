@@ -29,13 +29,39 @@ Since Cognitive Services on Spark are compatible with services from any region i
 
 ### Cognitive Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. Azure Cognitive Services can make your applications see, hear, speak, understand, and even begin to reason. Your query data is sent to the service and you get an intelligent response in return.
+[Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/), accessed through APIs and SDKs, help developers build intelligent applications without having AI or data science skills. Azure Cognitive Services can make your applications see, hear, speak, understand, and even begin to reason. Your query data is sent to the service and you get an intelligent response in return. The below services are available to be used on Spark.
 
-1. Vision: Computer Vision and Face
-1. Speech: Speech Services
-1. Language: Text Analytics
-1. Decision: Anomaly Detector
-1. Search: Bing Image Search
+#### Vision
+
+|Service Name|Service Description|
+|:-----------|:------------------|
+|[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|The Computer Vision service provides you with access to advanced algorithms for processing images and returning information.|
+|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.|
+
+#### Speech
+
+|Service Name|Service Description|
+|:-----------|:------------------|
+|[Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Speech service")|Speech service adds speech-enabled features to applications.|
+
+#### Decision
+
+|Service Name|Service Description|
+|:-----------|:------------------|
+|[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
+
+#### Language
+
+|Service Name|Service Description|
+|:-----------|:------------------|
+|[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Text Analytics")|Text Analytics provides natural language processing over raw text for sentiment analysis, key phrase extraction and language detection.|
+
+#### Search
+|Service Name|Service Description|
+|:-----------|:------------------|
+|[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search returns a display of images determined to be relevant to the user's query.|
+
+### SDK for Cognitive Services on Spark
 
 Spark has its own SDK that utilizes many different Cognitive Services to streamline access to them. It's available in both Python and Scala.
 
