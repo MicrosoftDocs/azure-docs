@@ -145,7 +145,7 @@ If possible, you can prepare files for better performance:
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. 
 
-Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
+Consequently, you will achieve better performance. For more information, check [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
