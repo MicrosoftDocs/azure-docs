@@ -1,18 +1,8 @@
 ---
 title: Azure Quickstart - Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure event hub using Azure portal and then send and receive events using .NET Standard SDK.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-#Customer intent: How do I stream data and process telemetry from an event hub? 
-
 ---
 
 # Quickstart: Create an event hub using Azure portal
