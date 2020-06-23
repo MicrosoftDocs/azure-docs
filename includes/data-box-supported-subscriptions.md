@@ -8,7 +8,7 @@ ms.author: v-grpr
 
 Before you begin, make sure that:
 
-* You have your Microsoft Azure storage account with access credentials.
+* You have your Microsoft Azure storage account with access credentials, such as storage account name and access key.
 * Make sure that the subscription you use for Data Box service is one of the following types:
   * Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
   * Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).

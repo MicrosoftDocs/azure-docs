@@ -13,14 +13,7 @@ ms.author: v-grpr
 ---
 # Tutorial: Create export order for Azure Data Box (Preview)
 
-Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box.
-
-You may need to export data for:
-
-* disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored
-* offline data copy for government and security
-* content distribution
-* data backup or replication
+Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored.
 
 In this tutorial, you learn about:
 
@@ -35,20 +28,22 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Complete the following configuration prerequisites for Data Box service and device before you deploy the device.
+Complete the following configuration prerequisites for Data Box service and device before you order the device.
 
 ### For service
 
 [!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
+
 * Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
 
 ### For device
 
 Before you begin, make sure that:
 
-* You should have a host computer connected to the datacenter network. Azure Data Box will copy the data to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+* You should have a host computer connected to the datacenter network. You will copy the data from Azure Data Box to this computer. Your host computer must run a supported operating system as described in [Azure Data Box system requirements](data-box-system-requirements.md).
+
 * Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used but the copy speeds are impacted.
 
 ## Order Data Box for export
@@ -114,7 +109,7 @@ Perform the following steps in the Azure portal to order a device.
 
    ![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
 
-   To see an example of the xml output, see [Sample XML output](data-box-deploy-export-ordered.md#sample-xml-file)
+   To see an example of the xml input, see [Sample XML input](data-box-deploy-export-ordered.md#sample-xml-file)
 
 9. In **Data selection**, review your settings and select **Next: Contact details>**.
 
@@ -182,12 +177,6 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 
 After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
-If the device is not available, you will receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, the following actions occur:
-
-* SMB shares are created for each storage account associated with the device.
-* For each share, access credentials such as username and password are generated.
-* The device is locked and can be accessed only using the device unlock password. To retrieve the password, you need to log in to your Azure portal account and select **Device details**.
-
 When the device preparation is complete, data copy will begin from the selected storage accounts. The portal shows the order in **Data copy in progress** state.
 
 ![Data Box export order processed](media/data-box-deploy-export-ordered/azure-data-box-export-15b.png)
@@ -195,6 +184,12 @@ When the device preparation is complete, data copy will begin from the selected 
 Data Box copies data from the source storage account(s). Once the data copy is complete, Data Box is locked and the portal will show the order in **Copy Completed** state.
 
 ![Data Box export data copy complete](media/data-box-deploy-export-ordered/azure-data-box-export-15c.png)
+
+If the device is not available, you will receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, the following actions occur:
+
+* SMB shares are created for each storage account associated with the device.
+* For each share, access credentials such as username and password are generated.
+* The device is locked and can be accessed only using the device unlock password. To retrieve the password, you need to log in to your Azure portal account and select **Device details**.
 
 Microsoft then prepares and dispatches your device through a regional carrier. You receive a tracking number once the device is shipped. The portal shows the order in **Dispatched** state.
 
