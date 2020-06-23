@@ -250,7 +250,7 @@ In addition to automatic traffic routing, App Service can route requests to a sp
 
 To let users opt out of your beta app, for example, you can put this link on your webpage:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
