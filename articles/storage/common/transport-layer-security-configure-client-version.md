@@ -23,7 +23,7 @@ This article describes how to configure a client application to use a particular
 
 In order for a client to send a request with a particular version of TLS, the operating system must support that version.
 
-The following examples show how to set the client's TLS version to 1.2 from PowerShell or .NET. The .NET Framework used in these scenarios must support TLS 1.2. For more information, see [Support for TLS 1.2](/dotnet/framework/network-programming/tls#support-for-tls-12).
+The following examples show how to set the client's TLS version to 1.2 from PowerShell or .NET. The .NET Framework used by the client must support TLS 1.2. For more information, see [Support for TLS 1.2](/dotnet/framework/network-programming/tls#support-for-tls-12).
 
 # [PowerShell](#tab/powershell)
 

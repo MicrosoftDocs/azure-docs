@@ -19,7 +19,7 @@ Communication between a client application and an Azure Storage account is encry
 
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. TLS 1.2 is the most secure version of TLS. Azure Storage uses TLS 1.2 on public HTTPs endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
-By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS.
+By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an earlier version will fail.
 
 This article describes how to configure a storage account to require that clients send requests with a minimum version of TLS. For information about how to specify a particular version of TLS when sending a request from a client application, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
@@ -45,7 +45,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
 
-For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting.
+After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
 For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](monitor-storage-reference.md#resource-logs-preview).
 
@@ -53,7 +53,7 @@ For a reference of fields available in Azure Storage logs in Azure Monitor, see 
 
 Azure Storage logs in Azure Monitor include the TLS version used to send a request to a storage account. Use the **TlsVersion** property to check the TLS version of a logged request.
 
-To retrieve logs for the last 7 days and determine how many requests were made against Blob storage with each version of TLS, create a new Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
+To retrieve logs for the last 7 days and determine how many requests were made against Blob storage with each version of TLS, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
 
 ```kusto
 StorageBlobLogs
@@ -61,13 +61,13 @@ StorageBlobLogs
 | summarize count() by TlsVersion
 ```
 
-The results show the count of the number of requests made with each version of TLS. In this case, all requests were made using TLS version 1.2:
+The results show the count of the number of requests made with each version of TLS:
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot showing results of log analytics query to return TLS version":::
 
 ### Query logged requests by caller IP address and user agent header
 
-Azure Storage logs in Azure Monitor also include the caller IP address and user agent header to help you to evaluate which client applications accessed the storage account. You can analyze these values to decide whether a client applications must be updated to use a newer version of TLS, or whether it's acceptable to fail the client's requests if it does not meet the minimum TLS version.
+Azure Storage logs in Azure Monitor also include the caller IP address and user agent header to help you to evaluate which client applications accessed the storage account. You can analyze these values to decide whether client applications must be updated to use a newer version of TLS, or whether it's acceptable to fail a client's request if it is not sent with the minimum TLS version.
 
 To retrieve logs for the last 7 days and determine which clients made requests with a version of TLS prior to TLS 1.2, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
 
@@ -105,7 +105,7 @@ To determine the minimum required TLS version that is configured for a storage a
 
 ### Check the minimum required TLS version for a single storage account
 
-To check the minimum required TLS version for a single storage account using Azure CLI, call the **az resource show** command and query for the **minimumTlsVersion** property:
+To check the minimum required TLS version for a single storage account using Azure CLI, call the [az resource show](/cli/azure/resource#az-resource-show) command and query for the **minimumTlsVersion** property:
 
 ```azurecli-interactive
 az resource show \
@@ -135,7 +135,7 @@ resources
 
 To test that the minimum required TLS version for a storage account forbids calls made with an earlier version, you can configure a client to use an earlier version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version that was used is not permitted on this storage account.
+When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
 
 ## Next steps
 
