@@ -1,5 +1,5 @@
 ---
-title: Azure security baseline for ExpressRoute
+title: Security baseline for Azure ExpressRoute
 description: Azure security baseline for ExpressRoute
 author: msmbaldwin
 ms.service: security
