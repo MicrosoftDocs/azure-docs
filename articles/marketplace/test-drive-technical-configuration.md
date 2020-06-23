@@ -13,13 +13,13 @@ ms.date: 08/13/2019
 
 The **Test drive** option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](what-is-test-drive.md).
 
-If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box.
+If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box. Not all offer types have a test drive available.
 
 ## Azure Resource Manager test drive
 
 This type of test drive requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings-optional) (optional), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
 
-## Dynamics 365 test drive
+## Dynamics 365 test drive <font color="red">(is this "hosted"?)</font>
 
 Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Business Central, Customer Engagement, or Operations audience.
 
@@ -33,7 +33,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Role name** (required) – Provide the security role name you have defined in your custom Dynamics 365 test drive, which will be assigned to the user during their test drive (for example, test-drive-role).
 
-## Logic app test drive
+## Logic app test drive <font color="red">(Is Logic same as D365? Is this Azure Logic App?)</font>
 
 Any custom products should use this type of test drive deployment template, which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
 
@@ -49,9 +49,15 @@ Any custom products should use this type of test drive deployment template, whic
 
 - **Deprovision logic app name** (required) – Enter the name of the Logic app that de-provisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
 
+## <font color=red>Hosted test drive? Is that the D365?</font>
+
+text
+
 ## Power BI test drive
 
-Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
+Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. All you need to do here is upload your embedded Power BI URL.
+
+For more information on setting up Power BI apps, see [What are Power BI apps?](https://docs.microsoft.com/power-bi/service-template-apps-overview)
 
 ## Deployment subscription details
 
