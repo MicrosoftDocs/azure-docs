@@ -101,7 +101,7 @@ Because high-quality columnstore segments are important, it's a good idea to use
 Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
-> For tables with less than 60 million rows, having a columstore index may not be the optimal solution.  
+> For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
 
 Furthermore, if you partition your data, then you will want to consider that each partition will need to have 1 million rows to benefit from a clustered columnstore index.  If a table has 100 partitions, then it will need to have at least 6 billion rows to benefit from a clustered columns store (60 distributions *100 partitions* 1 million rows).  
 
@@ -145,7 +145,7 @@ If possible, you can prepare files for better performance:
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. This will reduce the number of files and amount of data the query needs to read and process. 
 
-Consequently, you will achieve better performance. For more information, check [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
+Consequently, you will achieve better performance. For more information, check [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and examples on how to [query specific files](query-specific-files.md).
 
 If your data in storage is not partitioned, consider partitioning it so you can use these functions to optimize queries targeting those files.
 
