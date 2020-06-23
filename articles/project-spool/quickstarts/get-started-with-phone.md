@@ -53,8 +53,7 @@ You can initiate a callout to a phone number using the Call method of the CallCl
 #### [Javascript](#tab/javascript)
 ```js
 const placeCallOptions = {};
-const calleeIdentity = new Identity({id: '+1234567890', type: 'pstn'}); 
-oneToOneCall = callClient.call([calleeIdentity], placeCallOptions);
+oneToOneCall = callClient.call(['+1234567890'], placeCallOptions);
 ```
 
 ## Place an outgoing telephone call with explicitly selected Caller ID (Available soon)
@@ -63,8 +62,7 @@ In case you want to initiate a callout to a phone number using specific Caller I
 #### [Javascript](#tab/javascript)
 ```js
 const placeCallOptions = { fromCallerId: '+14250000001' };
-const calleeIdentity = new Identity({id: '+1234567890', type: 'pstn'}); 
-oneToOneCall = callClient.call([calleeIdentity], placeCallOptions);
+oneToOneCall = callClient.call(['+1234567890'], placeCallOptions);
 ```
 ---
 
@@ -76,8 +74,7 @@ In the Azure Portal UI, you can specify which of the telephone numbers is suppos
 #### [Javascript](#tab/javascript)
 ```js
 const placeCallOptions = {};
-const calleeIdentity = new Identity({id: '+1234567890', type: 'pstn'}); 
-oneToOneCall = callClient.call([calleeIdentity], placeCallOptions);
+oneToOneCall = callClient.call(['+1234567890'], placeCallOptions);
 ```
 
 When triggering a call without explicitly selected Caller ID, the default one will be used (425-555-1234 in case of the screenshot).
