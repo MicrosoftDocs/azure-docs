@@ -43,22 +43,9 @@ New-AzStorageContainer -Name "sample-container" -Context $ctx
 
 The following sample shows how to enable TLS 1.2 in a .NET client using version 12 of the Azure Storage client library:
 
-```csharp
-public static async Task EnableTls12()
-{
-    // Enable TLS 1.2 before connecting to Azure Storage
-    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Networking.cs" id="Snippet_ConfigureTls12":::
 
-    // Add your connection string here.
-    string connectionString = "";
-
-    // Create a new container with Shared Key authorization.
-    BlobContainerClient containerClient = new BlobContainerClient(connectionString, "sample-container");
-    await containerClient.CreateIfNotExistsAsync();
-}
-```
-
-# [.NET v11 SDK](#tab/dotnet)
+# [.NET v11 SDK](#tab/dotnet11)
 
 The following sample shows how to enable TLS 1.2 in a .NET client using version 11 of the Azure Storage client library:
 
