@@ -213,7 +213,7 @@ To learn how to create a general-purpose v2 storage account, see [Create an Azur
 ### Locate and copy your connection string
 A connection string is required to configure storage. Keep this connection string for the next steps.
 
-1. In the [Azureportal](https://portal.azure.com), navigate to your storage account and select **Settings**.
+1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and select **Settings**.
 1. In **Settings**, select **Access keys**.
 1. For the **Connection string** under **key1**, select the **Copy to clipboard** icon.
 
