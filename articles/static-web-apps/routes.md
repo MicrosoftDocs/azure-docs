@@ -21,6 +21,8 @@ Routing in Azure Static Web Apps defines back-end routing rules and authorizatio
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
+See the [example route file](#example-route-file) for details.
+
 ## Location
 
 The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
@@ -242,6 +244,8 @@ The following examples describe what happens when a request matches a rule.
 
 - The _routes.json_ file cannot be more than 100 KB
 - The _routes.json_ file supports a maximum of 50 distinct roles
+
+See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 ## Next steps
 

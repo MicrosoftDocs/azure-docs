@@ -10,21 +10,19 @@ ms.author: jrasnick
 ms.date: 06/09/2020
 ---
 
-# Quickstart: Create an Azure Synapse Analytics SQL pool by using Azure Resource Manager template
+# Quickstart: Create an Azure Synapse Analytics SQL pool by using an ARM template
 
 This template will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-If your environment meets the prerequisites and you're familiar with using Azure Resource Manager templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
-None.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
@@ -32,7 +30,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json" highlight="57-97":::
 
-The template creates one resource:
+The template defines one resource:
 
 - [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
 
@@ -41,6 +39,7 @@ The template creates one resource:
 1. Select the following image to sign in to Azure and open the template. This template creates an Synapse SQL pool.
    
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+
 1. Enter or update the following values:
 
    * **Subscription**: Select an Azure subscription.
