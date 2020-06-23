@@ -6,7 +6,7 @@ ms.author: sivethe
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB

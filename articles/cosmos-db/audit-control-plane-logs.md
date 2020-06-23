@@ -3,7 +3,7 @@ title: How to audit Azure Cosmos DB control plane operations
 description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: sngun
 
@@ -47,7 +47,7 @@ Use the following steps to enable logging on control plane operations:
 
 You can also store the logs in a storage account or stream to an event hub. This article shows how to send logs to log analytics and then query them. After you enable, it takes a few minutes for the diagnostic logs to take effect. All the control plane operations performed after that point can be tracked. The following screenshot shows how to enable control plane logs:
 
-![Enable control plane requests logging](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Enable control plane requests logging":::
 
 ## View the control plane operations
 
@@ -65,17 +65,17 @@ After you turn on logging, use the following steps to track down operations for 
 
 The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account:
 
-![Control plane logs when a VNet is added](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
 The following screenshots capture logs when throughput of a Cassandra table is updated:
 
-![Control plane logs when throughput is updated](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
 ## Identify the identity associated to a specific operation
 
 If you want to debug further, you can identify a specific operation in the **Activity log** by using the Activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
 
-![Use the activity ID and find the operations](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use the activity ID and find the operations":::
 
 ## Control plane operations for Azure Cosmos account
 

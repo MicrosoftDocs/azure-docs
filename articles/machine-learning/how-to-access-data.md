@@ -101,7 +101,7 @@ You can find the information that you need to populate the `register_azure_*()` 
       1. For account keys, go to **Access keys** on the **Settings** pane. 
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
-* If you plan to use a service principle for authentication, go to your **App registrations** and select which app you want to use. 
+* If you plan to use a service principal for authentication, go to your **App registrations** and select which app you want to use. 
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]

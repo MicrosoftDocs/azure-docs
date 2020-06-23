@@ -21,6 +21,8 @@ Routing in Azure Static Web Apps defines back-end routing rules and authorizatio
 
 The topic of routing significantly overlaps with authentication and authorization concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
+See the [example route file](#example-route-file) for details.
+
 ## Location
 
 The _routes.json_ file must exist at the root of app's build artifact folder. If your web app includes a build step that copies built files from a specific folder to your build artifact folder, then the _routes.json_ file needs to exist in that specific folder.
@@ -41,7 +43,7 @@ Routes are defined in the _routes.json_ file as an array of route rules on the `
 | Rule property  | Required | Default value | Comment                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
 | `route`        | Yes      | n/a          | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths. For instance, the route _admin/\*_ matches any route under the _admin_ path.<li>A route's default file is _index.html_.</ul>|
-| `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If a `serve` value is defined, then the requested path is used. Querystring parameters are not supported; `serve` values must point to actual files.  |
+| `serve`        | No       | n/a          | Defines the file or path returned from the request. The file path and name can be different from the requested path. If a `serve` value is not defined, then the requested path is used. Querystring parameters are not supported; `serve` values must point to actual files.  |
 | `allowedRoles` | No       | anonymous     | An array of role names. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role `anonymous` applies to all unauthenticated users.<li>The built-in role `authenticated` applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis. If a user is in any of the listed roles, then access is granted.<li>Individual users are associated to roles by through [invitations](authentication-authorization.md).</ul> |
 | `statusCode`   | No       | 200           | The [HTTP status code](https://wikipedia.org/wiki/List_of_HTTP_status_codes) response for the request. |
 
@@ -242,6 +244,8 @@ The following examples describe what happens when a request matches a rule.
 
 - The _routes.json_ file cannot be more than 100 KB
 - The _routes.json_ file supports a maximum of 50 distinct roles
+
+See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |9.0 |Generally Available, released May 2019 |
+| [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) |9.0 |Generally Available, released May 2019 |
 | [.NET SDK Preview](https://aka.ms/search-sdk-preview) |8.0-preview |Preview, released April 2019 |
 | [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Generally Available |
 | [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-Preview |Preview |
