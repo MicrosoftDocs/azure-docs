@@ -33,9 +33,7 @@ Complete the following configuration prerequisites for Data Box service and devi
 ### For service
 
 [!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
-
 * Make sure that you have an existing resource group that you can use with your Azure Data Box.
-
 * Make sure that your Azure Storage account that you want to export data from is one of the supported Storage account types as described [Supported storage accounts for Data Box](data-box-system-requirements.md#supported-storage-accounts).
 
 ### For device
