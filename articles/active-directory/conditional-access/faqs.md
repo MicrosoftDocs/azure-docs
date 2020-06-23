@@ -5,7 +5,7 @@ description: Get answers to frequently asked questions about Conditional Access 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/22/2020
 
 ms.author: joflore
