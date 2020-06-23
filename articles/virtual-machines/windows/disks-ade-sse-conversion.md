@@ -100,6 +100,8 @@ Start-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 
 ## [Optional] Check the status of your encryption
 
+If you like, you can confirm that the encryption has completed with the following command:
+
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
 
 ## Next steps

@@ -102,6 +102,8 @@ az vm start --resource-group myResourceGroup --name myVM
 
 ## [Optional] Check the status of your encryption
 
+If you like, you can confirm that the encryption has completed with the following command:
+
 [!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
 
 ## Next steps
