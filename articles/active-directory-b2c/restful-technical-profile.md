@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 The following example shows a RESTful technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-UserMembershipValidator">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -38,7 +38,7 @@ The following example shows a RESTful technical profile:
 
 The **InputClaims** element contains a list of claims to send to the REST API. You can also map the name of your claim to the name defined in the REST API. Following example shows the mapping between your policy and the REST API. The **givenName** claim is sent to the REST API as **firstName**, while **surname** is sent as **lastName**. The **email** claim is set as is.
 
-```XML
+```xml
 <InputClaims>
   <InputClaim ClaimTypeReferenceId="email" />
   <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
@@ -63,7 +63,7 @@ To send a complex JSON payload:
 
 The following example `TechnicalProfile` sends a verification email by using a third-party email service (in this case, SendGrid).
 
-```XML
+```xml
 <TechnicalProfile Id="SendGrid">
   <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -137,7 +137,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 If the type of authentication is set to `None`, the **CryptographicKeys** element is not used.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -158,7 +158,7 @@ If the type of authentication is set to `Basic`, the **CryptographicKeys** eleme
 
 The following example shows a technical profile with basic authentication:
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -180,7 +180,7 @@ If the type of authentication is set to `ClientCertificate`, the **Cryptographic
 | --------- | -------- | ----------- |
 | ClientCertificate | Yes | The X509 certificate (RSA key set) to use to authenticate. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -201,7 +201,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 | --------- | -------- | ----------- |
 | BearerAuthenticationToken | No | The OAuth 2.0 Bearer Token. |
 
-```XML
+```xml
 <TechnicalProfile Id="REST-API-SignUp">
   <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -220,7 +220,7 @@ If the type of authentication is set to `Bearer`, the **CryptographicKeys** elem
 
 Your REST API may need to return an error message, such as 'The user was not found in the CRM system'. If an error occurs, the REST API should return an HTTP 4xx error message, such as, 400 (bad request), or 409 (conflict) response status code. The response body contains error message formatted in JSON:
 
-```JSON
+```json
 {
   "version": "1.0.0",
   "status": 409,

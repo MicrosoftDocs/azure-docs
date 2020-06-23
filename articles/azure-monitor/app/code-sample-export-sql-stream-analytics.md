@@ -7,7 +7,7 @@ ms.date: 09/11/2017
 ---
 
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
-This article shows how to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+This article shows how to move your telemetry data from [Azure Application Insights][start] into Azure SQL Database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 
@@ -66,7 +66,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
    
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
-The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
+The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to SQL Database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
 Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.
@@ -216,7 +216,7 @@ Select SQL as the output.
 
 ![In stream analytics, select Outputs](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Specify the SQL database.
+Specify the database.
 
 ![Fill in the details of your database](./media/code-sample-export-sql-stream-analytics/SA007.png)
 
