@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 tags: connectors
 ---
 
@@ -412,9 +412,9 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 #### Filter with SAP actions
 
-You can optionally filter the messages that your logic app receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages without filtering from your SAP server. 
+You can optionally filter the messages that your logic app receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages from your SAP server without filtering. 
 
-When you set up the array filter, the trigger only receives the specified messages and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
+When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
 
 Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, see [how to send test IDocs to Logic Apps from SAP](#send-idocs-from-sap).
 
@@ -422,18 +422,40 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 * `The RequestContext on the IReplyChannel was closed without a reply being`: Unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
-* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDOC XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
+  * You can configure your logic app to acknowledge it's received the IDoc by [adding an HTTP Request Response action](../connectors/connectors-native-reqres#add-a-response-action) with a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-For full error messages, check your SAP adapter's extended logs. By default, these logs are disabled because they might negatively affect performance when always enabled. To retrieve extended logs, follow these steps:
+  * If you need to reject the IDoc instead, respond with any other HTTP status code than `200 OK` to make the SAP Adapter issue an exception back to SAP on your behalf. 
+
+* `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
+
+  * To have these segments released by SAP, contact the ABAP engineer for your SAP system.
+
+<a name="find-extended-error-logs"></a>
+
+#### Find extended error logs
+
+For full error messages, check your SAP adapter's extended logs. 
+
+For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+
+For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default. To retrieve extended logs, follow these steps:
 
 1. In your on-premises data gateway installation folder, open the `Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config` file. 
+
 1. For the **SapExtendedTracing** setting, change the value from **False** to **True**.
+
 1. Optionally, for fewer events, change the **SapTracingLevel** value from **Informational** (default) to **Error** or **Warning**. Or, for more events, change **Informational** to **Verbose**.
+
 1. Save the configuration file.
+
 1. Restart your data gateway. Open your on-premises data gateway installer app, and go to the **Service Settings** menu. Under **Restart the gateway**,  select **Restart now**.
+
 1. Reproduce your issue.
+
 1. Export your gateway logs. In your data gateway installer app, go to the **Diagnostics** menu. Under **Gateway logs**, select **Export logs**. These files include SAP logs organized by date. Depending on log size, multiple log files might exist for a single date.
+
 1. In the configuration file, revert the **SapExtendedTracing** setting to **False**.
+
 1. Restart the gateway service.
 
 ### Test your logic app
@@ -461,7 +483,7 @@ To send IDocs from SAP to your logic app, you need the following minimum configu
 
 1. [Create a sender port](#create-sender-port)
 
-1. [Create a logic system partner](#create-logical-system-partner)
+1. [Create a logical system partner](#create-logical-system-partner)
 
 1. [Create a partner profile](#create-partner-profiles)
 
@@ -563,7 +585,7 @@ For production environments, you must create two partner profiles. The first pro
 
     * Enter your [receiver port's identifier](#create-receiver-port).
 
-    * Enter an IDoc size for **Pack. Size**. Or, to send IDocs one at a time from SAP, select **Pass IDoc Immediately**.
+    * Enter an IDoc size for **Pack. Size**. Or, to [send IDocs one at a time from SAP](#receive-idoc-packets-from-sap), select **Pass IDoc Immediately**.
 
 1. Save your changes.
 
@@ -581,7 +603,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. To start outbound IDoc processing, select **Continue**. When processing finishes, the **IDoc sent to SAP system or external program** message appears.
 
-1.  To check for processing errors, use the **sm458** transaction code (T Code) with the **/n** prefix.
+1.  To check for processing errors, use the **sm58** transaction code (T Code) with the **/n** prefix.
 
 ## Receive IDoc packets from SAP
 
@@ -832,6 +854,9 @@ When messages are sent with **Safe Typing** enabled, the DATS and TIMS response 
 ### Change language headers
 
 When you connect to SAP from Logic Apps, the default language for the connection is English. You can set the language for your connection by using [the standard HTTP header `Accept-Language`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4) with your inbound requests.
+
+> [!TIP]
+> Most web browsers add an `Accept-Language` header based on the user's settings. The web browser applies this header when you create a new SAP connection in the Logic Apps designer. If you don't want to create SAP connections in your web browser's preferred language, either update your web browser's settings to use your preferred language, or create your SAP connection using ARM instead of the Logic Apps designer. 
 
 For example, you can send a request with the `Accept-Language` header to your logic app by using the **HTTP Request** trigger. All the actions in your logic app receive the header. Then, SAP uses the specified languages in its system messages, such as BAPI error messages.
 
