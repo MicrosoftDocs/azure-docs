@@ -261,6 +261,12 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 This section contains general information about and guidelines for using the APIs and SDKs.
 
+> [!NOTE]
+> Please note that during preview, Azure Digital Twins does not support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) connector, you may see a policy error.
+> To resolve this error, you can do one of the following:
+> * Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
+> * Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
+
 * To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
 * You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure functions set up with MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
 * All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
