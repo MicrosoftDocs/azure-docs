@@ -328,7 +328,7 @@ The proxy configuration value has the following syntax: `[protocol://][user:pass
 |proxyhost | Address or FQDN of the proxy server |
 |port | Optional port number for the proxy server |
 
-For example: `omsagent.proxy=http://user01:password@proxy01.contoso.com:3128`
+For example: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
 
