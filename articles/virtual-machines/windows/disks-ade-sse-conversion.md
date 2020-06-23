@@ -1,6 +1,6 @@
 ---
-title: Identify unattached Azure disks - Azure portal
-description: How to find unattached Azure managed and unmanaged (VHDs/page blobs) disks by using the Azure portal.
+title: Migrate to server-side encryption - PowerShell
+description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption using PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -9,9 +9,11 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Converting from ADE to SSE
+# Migrate managed disks from ADE to SSE - PowerShell
 
-## Prerequisite
+This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE). To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
+
+## Prerequisites
 
 Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subscription and region as the VM. This can be the same key vault and key used with ADE.) 
 
@@ -99,3 +101,7 @@ Start-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 ## [Optional] Check the status of your encryption
 
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
+
+## Next steps
+
+[Replicate machines with Customer-Managed Keys (CMK) enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)

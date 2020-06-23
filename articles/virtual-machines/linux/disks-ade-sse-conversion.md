@@ -1,6 +1,6 @@
 ---
-title: Identify unattached Azure disks - Azure portal
-description: How to find unattached Azure managed and unmanaged (VHDs/page blobs) disks by using the Azure portal.
+title: Migrate to server-side encryption - Azure CLI
+description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption using the Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: how-to
@@ -9,13 +9,13 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Converting from ADE to SSE
+# Migrate managed disks from ADE to SSE - Azure CLI
 
+This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE). To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
 
+## Prerequisites
 
-## Prerequisite
-
-In order to convert to server-side encryption with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with Azure Disk Encryption (ADE).
+In order to convert to SSE with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
@@ -103,3 +103,7 @@ az vm start --resource-group myResourceGroup --name myVM
 ## [Optional] Check the status of your encryption
 
 [!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]
+
+## Next steps
+
+[Replicate machines with Customer-Managed Keys (CMK) enabled disks](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
