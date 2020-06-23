@@ -4,7 +4,7 @@ description: Learn how to use Azure Diagnostic settings to monitor the performan
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sngun
 ---

@@ -40,7 +40,7 @@ A renamed database is treated as a new database. Therefore, the service will tre
 
 Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections.
 
-### What permissions should be set for Azure to be able to back up SAP HANA databases?
+### What permissions should be set so Azure can back up SAP HANA databases?
 
 Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
@@ -72,11 +72,31 @@ To back up data from the active (primary) node at any given point in time, you c
 
 To perform this **switch protection**, follow these steps:
 
-- [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) on primary
+- [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
 - Run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the secondary node
 - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
 
 These steps need to be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
+
+Here is a detailed example of how **switch protection** must be performed:
+
+In this example, you have two nodes - Node 1 (primary) and Node 2 (secondary) in the HSR set-up.  Backups are configured on Node 1. As mentioned above, don't attempt yet to configure backups on Node 2.
+
+When the first failover happens, Node 2 becomes the primary. Then,
+
+1. Stop protection of Node 1 (previous primary) with the retain data option.
+1. Run the pre-registration script on Node 2 (which is now the primary).
+1. Discover databases on Node 2, assign backup policy, and configure backups.
+
+Then a first full backup is triggered on Node 2 and after that completes, log backups start.
+
+When the next fail-over happens, Node 1 becomes primary again and Node 2 becomes secondary. Now repeat the process:
+
+1. Stop protection of Node 2 with retain data option.
+1. Run the pre-registration script on Node 1 (which has become the primary again)
+1. Then [Resume backup](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) on Node 1 with the required policy (as the backups were stopped earlier on Node 1).
+
+Then full backup will again be triggered on Node 1 and after that completes, log backups start.
 
 ## Restore
 
