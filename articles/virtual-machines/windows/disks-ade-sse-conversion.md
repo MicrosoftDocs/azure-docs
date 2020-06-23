@@ -4,7 +4,7 @@ description: How to find unattached Azure managed and unmanaged (VHDs/page blobs
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 06/23/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -18,6 +18,8 @@ Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subs
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
 ## Create a backup of the encrypted VMs or take a snapshot of the disks 
+
+Before you start the migration process, take a snapshot of your disks. So that you can revert to them just in case.
 
 ```azurepowershell
 $resourceGroupName = 'myResourceGroup' 
@@ -42,17 +44,21 @@ New-AzSnapshot
 
 ## Disable Azure Disk Encrypton
 
+Since ADE and SSE are incompatible, you must disable ADE to start the migration process.
+
 [!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-encryption-powershell.md)]
 
 ## Verify encryption status
 
-Verify encryption status is 'NotEncrypted' with PowerShell or CLI (Note: do not remove the extension until encryption status changes from 'DecryptionInProgress' to 'NotEncrypted'. Progress message will say 'Disable Encryption completed successfully'.)
+Verify encryption status is 'NotEncrypted' with. (Note: do not remove the extension until encryption status changes from 'DecryptionInProgress' to 'NotEncrypted'. Progress message will say 'Disable Encryption completed successfully'.)
 
 ```azurepowershell
 Get-AzVmDiskEncryptionStatus -ResourceGroupName "MyResourceGroup001" -VMName "VM001"
 ```
 
 ## Remove the Azure Disk Encryption extension 
+
+Once you've confirmed the encryption status has changed and the encryption has been disabled, you can remove the ADE extension.
 
 Use the following cmd to remove the Azure Disk Encryption extension from your VM.
 
@@ -62,14 +68,15 @@ Remove-AzVMExtension -ResourceGroupName "ResourceGroup11" -Name "AzureiDskEncryp
 
 ## Stop the VM
 
+You must stop the VM in order to swap the encryption to SSE with customer-managed keys.
+
 ```azurepowershell
 Stop-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 ```
 
 ## Change disk encryption type
 
-Set encryption type on disk to encryption at rest with CMK using Powershell or CLI or Portal using the DES and key vault from the step 1
-
+Now that you've stopped the VM you can change your disks encryption type. Use the following command to change the encryption type, make sure to use the values for your disk encryption set and your key vault from earlier in this article:
 
 ```azurepowershell
 $rgName = "yourResourceGroupName"
@@ -83,11 +90,12 @@ New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEn
 
 ## Start the VM
 
+Now that you've swapped the encryption type, you can start your VM again. The following command will start your VM:
 
 ```azurepowershell
 Start-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 ```
 
-## [Optional] You can again check the status of SSE with CMK using PowerShell or CLI
+## [Optional] Check the status of your encryption
 
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
