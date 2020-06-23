@@ -22,16 +22,16 @@ This article covers when to use and how to set up a private endpoint with your A
 
 With Private Link you can:
 
-- Connect privately to Azure Automation without opening up any public network access
-- Connect privately to Azure Monitor Log Analytics workspace without opening any public network access
+- Connect privately to Azure Automation without opening up any public network access.
+- Connect privately to Azure Monitor Log Analytics workspace without opening any public network access.
 
     >[!NOTE]
     >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For additional information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../azure-monitor/platform/private-link-security.md).
 
-- Ensure your Automation data is only accessed through authorized private networks
-- Prevent data exfiltration from your private networks by defining your Azure Automation resource that connect through your private endpoint
-- Securely connect your private on-premises network to Azure Automation using ExpressRoute and Private Link
-- Keep all traffic inside the Microsoft Azure backbone network
+- Ensure your Automation data is only accessed through authorized private networks.
+- Prevent data exfiltration from your private networks by defining your Azure Automation resource that connect through your private endpoint.
+- Securely connect your private on-premises network to Azure Automation using ExpressRoute and Private Link.
+- Keep all traffic inside the Microsoft Azure backbone network.
 
 For more information, see  [Key Benefits of Private Link](../private-link/private-link-overview.md#key-benefits).
 
@@ -122,11 +122,17 @@ If the service consumer has RBAC permissions on the Automation resource, they ca
 
 ## Set public network access flags
 
-You can control how this resource can be reached from outside of the private link. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `false`.
+You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `$true`.
 
-$account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourcegroupname>" -Name "<automationaccountname>" -ApiVersion "2020-01-13-preview"
+When **Deny public network access** setting is set to `true`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an error message.
+
+The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the Automation account level:
+
+```powershell
+$account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
 $account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
+```
 
 ## DNS configuration
 
@@ -136,9 +142,9 @@ The network interface associated with the private endpoint contains the complete
 
 You can use the following options to configure your DNS settings for private endpoints:
 
-* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override the DNS.
+* Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first.
 
-* Use a [private DNS zone](../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on the customer VM to hit the private endpoint, create a Private DNS as privatelink.azure-automation.net. Add a new DNS ‘A’ record mapping to the IP of the private endpoint
+* Use a [private DNS zone](../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on your virtual machine to communicate over the private endpoint, create a Private DNS record as `privatelink.azure-automation.net`. Add a new DNS *A* record mapping to the IP of the private endpoint.
 
 * Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
 
@@ -146,3 +152,4 @@ Refer to [Azure Private Endpoint DNS configuration](../private-link/private-endp
 
 ## Next steps
 
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../private-link/private-endpoint-overview.md).
