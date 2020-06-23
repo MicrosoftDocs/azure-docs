@@ -209,7 +209,7 @@ If your development factory has an associated git repository, you can override t
 
 To override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
 
-
+![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
 
 When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
