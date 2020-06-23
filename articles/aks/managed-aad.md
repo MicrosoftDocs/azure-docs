@@ -58,9 +58,6 @@ kubectl version --client
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
 
-> [!CAUTION]
-> After you register a feature on a subscription, you can't currently unregister that feature. When you enable some preview features, defaults might be used for all AKS clusters created afterward in the subscription. Don't enable preview features on production subscriptions. Instead, use a separate subscription to test preview features and gather feedback.
-
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
 ```
