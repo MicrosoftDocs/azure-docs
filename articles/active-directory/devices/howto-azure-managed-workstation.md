@@ -5,7 +5,7 @@ description: Learn how to deploy secure, Azure-managed workstations to reduce th
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 
 ms.author: joflore

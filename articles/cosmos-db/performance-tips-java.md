@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos database
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 
