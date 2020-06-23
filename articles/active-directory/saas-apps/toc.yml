@@ -1853,7 +1853,7 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
-      - name: Dropbox for Business
+      - name: Dropbox Business
         href: dropboxforbusiness-provisioning-tutorial.md
       - name: Dynamic Signal
         href: dynamic-signal-provisioning-tutorial.md
