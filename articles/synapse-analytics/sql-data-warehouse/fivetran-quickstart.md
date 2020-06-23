@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Quickstart: Fivetran with data warehouse 
 
-This quickstart describes how to set up a new Fivetran user to work with an Azure Synapse Analytics data warehouse provisioned with a SQL Pool. The article assumes that you have an existing data warehouse.
+This quickstart describes how to set up a new Fivetran user to work with an Azure Synapse Analytics data warehouse provisioned with a SQL pool. The article assumes that you have an existing data warehouse.
 
 ## Set up a connection
 

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -20,6 +20,8 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 > [!IMPORTANT]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
+
+If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](interactive-query/apache-hive-warehouse-connector.md).
 
 ## Cluster setup methods
 
@@ -124,6 +126,9 @@ During configuration, for the default storage endpoint you specify a blob contai
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
+> [!IMPORTANT]
+> Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
+
 ### Metastore settings
 
 You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores.
@@ -164,7 +169,7 @@ For more information on creating domain-joined HDInsight cluster, see [Create do
 
 ### TLS
 
-For more information, see [Transport Layer Security](./hdinsight-plan-virtual-network-deployment.md#transport-layer-security)
+For more information, see [Transport Layer Security](./transport-layer-security.md)
 
 ### Virtual network
 

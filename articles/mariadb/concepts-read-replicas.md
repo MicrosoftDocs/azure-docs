@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 6/10/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -15,6 +15,12 @@ The read replica feature allows you to replicate data from an Azure Database for
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
 ## When to use a read replica
 
@@ -28,9 +34,6 @@ The read replica feature uses asynchronous replication. The feature isn't meant 
 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
-
-> [!NOTE]
-> Cross region replication is in preview.
 
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
@@ -57,6 +60,9 @@ However, there are limitations to consider:
 
 ## Create a replica
 
+> [!IMPORTANT]
+> The read replica feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
+
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 
 When you start the create replica workflow, a blank Azure Database for MariaDB server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
@@ -68,7 +74,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules or VNet service endpoint of the master server. Afterwards, these rules are independent from the the master server.
+At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -106,6 +112,9 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
 
+> [!NOTE]
+> The cost of running the replica server is based on the region where the replica server is running.
+
 ### Master server restart
 
 When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
@@ -121,7 +130,7 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
-Firewall rules, virtual network rules, and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
+Firewall rules and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
 
 ### Stopped replicas
 
@@ -144,6 +153,8 @@ The following server parameters are locked on both the master and replica server
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parameter is locked on the replica servers.
+
+To update one of the above parameters on the master server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
 ### Other
 

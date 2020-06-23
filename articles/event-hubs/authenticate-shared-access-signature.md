@@ -7,7 +7,7 @@ documentationcenter: ''
 author: spelluru
 
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 06/23/2020
 ms.author: spelluru
 
 ---
@@ -18,7 +18,7 @@ Shared access signature (SAS) gives you granular control over the type of access
 - The permissions granted by the SAS. For example, a SAS for an Event Hubs namespace might grant the listen permission, but not the send permission.
 - Only clients that present valid credentials can send data to an event hub.
 - A client can't impersonate another client.
-- A rouge client can be blocked from sending data to an event hub.
+- A rogue client can be blocked from sending data to an event hub.
 
 This article covers authenticating the access to Event Hubs resources using SAS. To learn about **authorizing** access to Event Hubs resources using SAS, see [this article](authorize-access-shared-access-signature.md). 
 

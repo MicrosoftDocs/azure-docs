@@ -3,16 +3,16 @@ title: Access to Azure virtual networks
 description: Overview about how integration service environments (ISEs) help logic apps access Azure virtual networks (VNETs)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
-Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an isolated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
+Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is a dedicated instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service.
 
-Running logic apps in your own separate isolated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
+Running logic apps in your own separate dedicated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
 * Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multi-tenant service. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at those destination systems for each ISE.
 
@@ -36,7 +36,7 @@ Logic apps can access resources that are inside or connected to your virtual net
 
 You can still also use connectors that don't have the **CORE** or **ISE** label with the logic apps in your ISE. These connectors run in the multi-tenant Logic Apps service instead. For more information, see these sections:
 
-* [Isolated versus multi-tenant](#difference)
+* [Dedicated versus multi-tenant](#difference)
 * [Connect from an integration service environment](../connectors/apis-list.md#integration-service-environment)
 * [ISE connectors](../connectors/apis-list.md#ise-connectors)
 
@@ -50,7 +50,7 @@ This overview describes more information about how an ISE gives your logic apps 
 
 <a name="difference"></a>
 
-## Isolated versus multi-tenant
+## Dedicated versus multi-tenant
 
 When you create and run logic apps in an ISE, you get the same user experiences and similar capabilities as the multi-tenant Logic Apps service. You can use all the same built-in triggers, actions, and managed connectors that are available in the multi-tenant Logic Apps service. Some managed connectors offer additional ISE versions. The difference between ISE connectors and non-ISE connectors exist in where they run and the labels that they have in the Logic App Designer when you work within an ISE.
 
@@ -115,16 +115,18 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 
 ## ISE endpoint access
 
-When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network.
-
-These endpoints also affect the way that you can access inputs and outputs in your logic apps' run history.
-
-* **Internal**: Private endpoints that permit calls to logic apps in your ISE where you can view and access your logic apps' inputs and outputs in run history *only from inside your virtual network*
-
-* **External**: Public endpoints that permit calls to logic apps in your ISE where you can view and access your logic apps' inputs and outputs in run history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs. For more information, see [Enable access for ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. These endpoints also affect the way that you can access the inputs and outputs from your logic apps' runs history.
 
 > [!IMPORTANT]
-> The access endpoint option is available only at ISE creation and can't be changed later.
+> You can select the access endpoint only during ISE creation and can't change this option later.
+
+* **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*. Make sure that you have network connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual private network.
+
+* **External**: Public endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs. For more information, see [Enable access for ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+To determine whether your ISE uses an internal or external access endpoint, on your ISE's menu, under **Settings**, select **Properties**, and find the **Access endpoint** property:
+
+![Find ISE access endpoint](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

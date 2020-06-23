@@ -75,12 +75,12 @@ In the preceding diagram, the numbers represent the flow of the requests in chro
        The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.
    * Media Services resource URI. 
 
-       This URI is the same for Media Services accounts that are in the same Azure environment (for example, https://rest.media.azure.net).
+       This URI is the same for Media Services accounts that are in the same Azure environment (for example, https:\//rest.media.azure.net).
 
    * Media Services (native) application client ID.
    * Media Services (native) application redirect URI.
    * Resource URI for REST Media Services.
-		
+        
        The URI represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
 
      To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) using the user authentication option.
@@ -109,7 +109,7 @@ After you create your Azure AD application, you get values for the following set
 - Client secret 
 
 In the preceding figure, the numbers represent the flow of the requests in chronological order:
-	
+    
 1. A middle-tier app (web API or web application) requests an Azure AD access token that has the following parameters:  
 
    * Azure AD tenant endpoint.
@@ -117,14 +117,14 @@ In the preceding figure, the numbers represent the flow of the requests in chron
        The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.
    * Media Services resource URI. 
 
-       This URI is the same for Media Services accounts that are located in the same Azure environment (for example, https://rest.media.azure.net).
+       This URI is the same for Media Services accounts that are located in the same Azure environment (for example, https:\//rest.media.azure.net).
 
    * Resource URI for REST Media Services.
 
        The URI represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
 
    * Azure AD application values: the client ID and client secret.
-	
+    
      To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) by using the service principal authentication option.
 
 2. The Azure AD access token is sent to the middle tier.

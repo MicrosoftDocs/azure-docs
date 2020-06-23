@@ -5,7 +5,21 @@
   - name: What is Azure IoT Central
     href: overview-iot-central.md
   - name: Tour of the UI
-    href: overview-iot-central-tour.md    
+    href: overview-iot-central-tour.md
+  - name: Develop devices
+    href: overview-iot-central-developer.md
+  - name: Recent updates
+    items:
+    - name: May 2020 jobs and metrics updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
+    - name: May 2020 dashboard updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
+    - name: April 2020 new features
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
+    - name: April 2020 updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/
+    - name: March 2020
+      href: https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/
 - name: Quickstarts
   expanded: true
   items:
@@ -47,6 +61,8 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
+    - name: What are device templates?
+      href: concepts-device-templates.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
@@ -55,10 +71,12 @@
   items:
     - name: Get connected
       items:
-        - name: Setup a device template
+        - name: Set up a device template
           href: howto-set-up-template.md
         - name: Prepare and connect an MXChip IoT DevKit
           href: howto-connect-devkit.md
+        - name: Prepare and connect an Azure Sphere DevKit
+          href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
@@ -89,12 +107,16 @@
           href: howto-export-data.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Connect Azure Monitor action groups on rules
           href: howto-use-action-groups.md
         - name: Create custom rules
           href: howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: howto-create-custom-analytics.md
+        - name: Visualize your data in Power BI
+          href: howto-connect-powerbi.md
     - name: Administration
       items:
         - name: Manage your application
@@ -109,6 +131,8 @@
               href: howto-customize-ui.md
             - name: Export your application
               href: howto-use-app-templates.md
+            - name: Monitor application health
+              href: howto-monitor-application-health.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -117,6 +141,8 @@
               href: howto-manage-iot-central-from-cli.md
             - name: Manage from Azure PowerShell
               href: howto-manage-iot-central-from-powershell.md
+            - name: Manage programmatically
+              href: howto-manage-iot-central-programmatically.md
             - name: Manage from CSP portal
               href: howto-create-and-manage-applications-csp.md
         - name: Personalize application
@@ -133,7 +159,7 @@
   - name: Industry application templates
     items:
     - name: Retail
-      href: ../retail/overview-iot-central-retail-pnp.md
+      href: ../retail/overview-iot-central-retail.md
     - name: Energy
       href: ../energy/overview-iot-central-energy.md
     - name: Government

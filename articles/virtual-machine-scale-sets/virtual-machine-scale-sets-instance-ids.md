@@ -2,12 +2,13 @@
 title: Understand instance IDs for Azure VM scale set VMs
 description: Understand instance IDs for Azure VM scale sets virtual machines and the various ways that they surface.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 02/22/2018
 ms.author: mimckitt
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 02/22/2018
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Understand instance IDs for Azure VM scale set VMs
@@ -17,7 +18,7 @@ This article describes instance IDs for scale sets and the various ways they sur
 
 Each VM in a scale set gets an instance ID that uniquely identifies it. This instance ID is used in the scale set APIs to do operations on a specific VM in the scale set. For instance, you can specify a specific instance ID to reimage when using the reimage API:
 
-REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (for more information, see the [REST API documentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
 
 Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 

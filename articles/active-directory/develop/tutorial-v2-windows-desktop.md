@@ -249,7 +249,6 @@ In this section, you use MSAL to get a token for the Microsoft Graph API.
         }
     ```
 
-<!--start-collapse-->
 ### More information
 
 #### Get a user token interactively
@@ -269,7 +268,6 @@ Eventually, the `AcquireTokenSilent` method will fail. Reasons for failure might
 * The code in the sample then handles the exception by calling `AcquireTokenInteractive`, which results in prompting the user to sign in.
 
 * It can instead present a visual indication to users that an interactive sign-in is required, so that they can select the right time to sign in. Or the application can retry `AcquireTokenSilent` later. This pattern is frequently used when users can use other application functionality without disruption--for example, when offline content is available in the application. In this case, users can decide when they want to sign in to either access the protected resource or refresh the outdated information. Alternatively, the application can decide to retry `AcquireTokenSilent` when the network is restored after having been temporarily unavailable.
-<!--end-collapse-->
 
 ## Call the Microsoft Graph API by using the token you just obtained
 
@@ -302,11 +300,9 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 }
 ```
 
-<!--start-collapse-->
 ### More information about making a REST call against a protected API
 
 In this sample application, you use the `GetHttpContentWithToken` method to make an HTTP `GET` request against a protected resource that requires a token and then return the content to the caller. This method adds the acquired token in the HTTP Authorization header. For this sample, the resource is the Microsoft Graph API *me* endpoint, which displays the user's profile information.
-<!--end-collapse-->
 
 ## Add a method to sign out a user
 
@@ -337,13 +333,11 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 }
 ```
 
-<!--start-collapse-->
 ### More information about user sign-out
 
 The `SignOutButton_Click` method removes users from the MSAL user cache, which effectively tells MSAL to forget the current user so that a future request to acquire a token will succeed only if it is made to be interactive.
 
 Although the application in this sample supports single users, MSAL supports scenarios where multiple accounts can be signed in at the same time. An example is an email application where a user has multiple accounts.
-<!--end-collapse-->
 
 ## Display basic token information
 
@@ -364,10 +358,8 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 }
 ```
 
-<!--start-collapse-->
 ### More information
 
 In addition to the access token that's used to call the Microsoft Graph API, after the user signs in, MSAL also obtains an ID token. This token contain a small subset of information that's pertinent to users. The `DisplayBasicTokenInfo` method displays the basic information that's contained in the token. For example, it displays the user's display name and ID, as well as the token expiration date and the string representing the access token itself. You can select the *Call Microsoft Graph API* button multiple times and see that the same token was reused for subsequent requests. You can also see the expiration date being extended when MSAL decides it is time to renew the token.
-<!--end-collapse-->
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]

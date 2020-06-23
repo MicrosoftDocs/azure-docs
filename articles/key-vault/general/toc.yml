@@ -1,9 +1,12 @@
 - name: General
   href: index.yml
 - name: Overview 
+  expanded: true
   items:
-  - name: What is Azure Key Vault?
+  - name: About Azure Key Vault
     href: overview.md
+  - name: About keys, secrets, and certificates
+    href: about-keys-secrets-certificates.md
 
 - name: Tutorials 
   items:
@@ -13,8 +16,22 @@
       href: tutorial-net-windows-virtual-machine.md
     - name: Use Azure Key Vault with a Windows virtual machine in Python
       href: tutorial-python-windows-virtual-machine.md
-  - name: Use Azure Key Vault with an Azure web app in .NET
+  - name: Azure Kubernetes Service
+    items: 
+    - name: Integrate Azure Key Vault with Kubernetes
+      href: key-vault-integrate-kubernetes.md
+  - name: Azure Databricks
+    items: 
+    - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
+      href: integrate-databricks-blob-storage.md
+  - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
+
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Concepts 
   items:
@@ -48,6 +65,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
+  - name: Azure Key Vault availability and redundancy
+    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
@@ -55,6 +74,8 @@
   items:
   - name: Authenticate
     items:
+    - name: Authenticate to Key Vault
+      href: authentication.md
     - name: Use an App Service managed identity
       href: managed-identity.md
     - name: Use an access control policy
@@ -71,6 +92,8 @@
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
     items:
+    - name: Configure monitoring and alerting for Azure Key Vault
+      href: alert.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
     - name: Azure Key Vault logging
@@ -91,6 +114,14 @@
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
       href: soft-delete-powershell.md
+  - name: Move Key Vault
+    items: 
+    - name: Move Key Vault to Another Resource Group
+      href: keyvault-moveresourcegroup.md
+    - name: Move Key Vault to Another Subscription
+      href: keyvault-move-subscription.md
+    - name: Move Key Vault to Another Region
+      href: keyvault-moveregion.md
   - name: Troubleshoot
     items:
     - name: Change the key vault tenant ID after a subscription move
@@ -107,13 +138,13 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
   - name: Java
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
   - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
+    href: /python/api/overview/azure/keyvault/management?view=azure-python
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

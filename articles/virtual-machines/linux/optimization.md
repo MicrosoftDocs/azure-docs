@@ -1,20 +1,10 @@
 ---
 title: Optimize your Linux VM on Azure 
 description: Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure
-keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
@@ -120,6 +110,8 @@ For the Red Hat distribution family, you only need the following command:
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
+
+Ubuntu 18.04 with the Azure-tuned kernel uses multi-queue I/O schedulers. In that scenario, `none` is the appropriate selection instead of `noop`. For more information, see [Ubuntu I/O Schedulers](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## Using Software RAID to achieve higher I/Ops
 If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.

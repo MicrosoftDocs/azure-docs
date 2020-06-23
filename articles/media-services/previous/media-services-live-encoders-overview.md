@@ -30,7 +30,7 @@ For information on how to configure the [Haivision KB Encoder](https://www.haivi
 For information on how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## Elemental Live
-For more information, see [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
+For more information, see [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

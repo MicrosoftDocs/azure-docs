@@ -1,18 +1,20 @@
 ---
-title: Custom metrics in Azure Monitor
+title: Custom metrics in Azure Monitor (Preview)
 description: Learn about custom metrics in Azure Monitor and how they are modeled.
 author: ancav
-services: azure-monitor
-
-ms.topic: conceptual
-ms.date: 09/09/2019
 ms.author: ancav
+services: azure-monitor
+ms.topic: conceptual
+ms.date: 06/01/2020
 ms.subservice: metrics
 ---
-# Custom metrics in Azure Monitor
+# Custom metrics in Azure Monitor (Preview)
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights.
-These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. 
+
+You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
+
+Azure Monitor custom metrics are current in public preview. 
 
 ## Methods to send custom metrics
 
@@ -22,19 +24,15 @@ Custom metrics can be sent to Azure Monitor via several methods:
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## Pricing model
+## Pricing model and retention
 
-There is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store. Custom metrics ingested into the Azure Monitor metrics store will be billed per MByte with each custom metric datapoint written considered as 8 bytes in size. All ingested metrics are retained for 90 days.
+Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incur costs when they enter general availability. Metric API queries do incur costs.
 
-Metric queries will be charged based on the number of standard API calls. A standard API call is a call that analyzes 1,440 data points (1,440 is also the total number of data points that can be stored per metric per day). If an API call analyzes more than 1,440 data points, then it will count as multiple standard API calls. If an API call analyzes less than 1,440 data points, it will count as less than one API call. The number of standard API calls is calculated every day as the total number of data points analyzed per day divided by 1,440.
-
-Specific price details for custom metrics and metric queries are available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
+Custom metrics are retained for the [same amount of time as platform metrics](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Metrics sent to Azure Monitor via the Application Insights SDK will be billed as ingested log data, and incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]  
-> Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. 
 
 ## How to send custom metrics
 
@@ -74,7 +72,7 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
+A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
@@ -192,6 +190,7 @@ During the public preview, the ability to publish custom metrics is available on
 |Central US      | https:\//centralus.monitoring.azure.com |
 |Canada Central | https:\//canadacentral.monitoring.azure.comc
 |East US| https:\//eastus.monitoring.azure.com/ |
+|East US 2 | https:\//eastus2.monitoring.azure.com/
 | **Europe** | |
 |North Europe    | https:\//northeurope.monitoring.azure.com/ |
 |West Europe     | https:\//westeurope.monitoring.azure.com/ |
@@ -207,6 +206,11 @@ During the public preview, the ability to publish custom metrics is available on
 |East Asia | https:\//eastasia.monitoring.azure.com
 |Korea Central   | https:\//koreacentral.monitoring.azure.com
 
+## Latency and storage retention
+
+Adding a brand new metric or a new dimension being added to a metric may take up to 2 to 3 minutes to appear. Once in the system, data should appear in less than 30 seconds 99% of the time. 
+
+If you delete a metric or remove a dimension, the change can take a week to a month to be deleted from the system.
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:

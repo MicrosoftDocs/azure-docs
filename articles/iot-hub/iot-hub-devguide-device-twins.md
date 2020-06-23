@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/01/2020
+ms.custom: mqtt
 ---
 
 # Understand and use device twins in IoT Hub
@@ -193,7 +194,7 @@ The solution back end operates on the device twin using the following atomic ope
 
   - Body
         
-    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the “$metadata” elements. For example,
+    This section includes all the twin changes in a JSON format. It uses the same format as a patch, with the difference that it can contain all twin sections: tags, properties.reported, properties.desired, and that it contains the "$metadata" elements. For example,
 
     ```json
     {

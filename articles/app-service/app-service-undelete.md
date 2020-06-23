@@ -43,6 +43,8 @@ The detailed information includes:
 - **Deletion Time**: When was the app deleted  
 
 ## Restore deleted app
+>[!NOTE]
+> `Restore-AzDeletedWebApp` isn't supported for function apps.
 
 Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 
@@ -59,7 +61,7 @@ The inputs for command are:
 - **Name**: Name for the app, should be globally unique.
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
-By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
+By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
 
 > [!NOTE]
 > If the app was hosted on and then deleted from an App Service Environment then it can be restored only if the corresponding App Service Environment still exist.

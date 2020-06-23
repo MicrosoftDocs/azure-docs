@@ -60,7 +60,7 @@ Use the following command to invite the user to B2B collaboration:
 ```powershell
 Uninstall-Module AzureADPreview
 Install-Module AzureADPreview
-$ADGraphUser = Get-AzureADUser -searchstring "<<external email>>"
+$ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
 ```
@@ -74,22 +74,24 @@ POST https://graph.microsoft.com/v1.0/invitations
 Authorization: Bearer eyJ0eX...
 ContentType: application/json
 {
-    "invitedUserEmailAddress": "<<external email>>"",
-    "sendInvitationMessage": true,
-    "invitedUserMessageInfo": {
-        "messageLanguage": "en-US",
-        "ccRecipients": [
-            {
-                "emailAddress": {
-                    "name": null,
-                    "address": "<<optional additional notification email>>""
-                }
-            }
-        ],
-        "customizedMessageBody": "<<custom message>>"
-    },
-    "inviteRedirectUrl": "https://myapps.microsoft.com?tenantId=",
-    "invitedUser": {"id": "<<ID for the user you want to convert>>"}
+    "invitedUserEmailAddress": "<<external email>>",
+    "sendInvitationMessage": true,
+    "invitedUserMessageInfo": {
+        "messageLanguage": "en-US",
+        "ccRecipients": [
+            {
+                "emailAddress": {
+                    "name": null,
+                    "address": "<<optional additional notification email>>"
+                }
+            }
+        ],
+        "customizedMessageBody": "<<custom message>>"
+    },
+    "inviteRedirectUrl": "https://myapps.microsoft.com?tenantId=",
+    "invitedUser": {
+        "id": "<<ID for the user you want to convert>>"
+    }
 }
 ```
 

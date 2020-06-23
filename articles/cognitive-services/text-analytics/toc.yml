@@ -54,6 +54,10 @@
     href: language-support.md
   - name: Text offsets
     href: concepts/text-offsets.md
+  - name: Data limits
+    href: concepts/data-limits.md
+  - name: Model versioning
+    href: concepts/model-versioning.md
 - name: How-to guides
   items:
    - name: Call the Text Analytics API
@@ -76,6 +80,8 @@
         href: how-tos/text-analytics-how-to-use-container-instances.md
       - name: Use kubernetes service (AKS)
         href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+   - name: Migrate to version 3 of the API
+     href: migration-guide.md
 - name: Reference
   items:
   - name: CLI reference

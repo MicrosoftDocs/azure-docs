@@ -1,8 +1,8 @@
 ---
 title: Pricing tiers - Azure Database for PostgreSQL - Single Server
 description: This article describes the compute and storage options in Azure Database for PostgreSQL - Single Server.
-author: jan-eng
-ms.author: janeng
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
@@ -46,7 +46,7 @@ The storage you provision is the amount of storage capacity available to your Az
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!NOTE]
-> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2 and West Central US.
 >
 > All other regions support up to 4TB of storage and 6000 IOPS.
 >

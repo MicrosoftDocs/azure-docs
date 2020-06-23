@@ -5,7 +5,7 @@ description: 'Use Azure Private Link to securely access your Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
@@ -94,14 +94,13 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Using a workspace over a private endpoint
 
-Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network or a machine connected to the virtual network using a VPN gateway.
+Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
 
 > [!IMPORTANT]
 > To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling Private Link. 
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
-For information on VPN gateways, see [What is VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## Using Azure Storage
 
@@ -113,7 +112,7 @@ For information on putting the storage account in the virtual network, see [Use 
 
 To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
 
-For information on putting the key vault in the virtual network, see [Use a key vault instance with your workspace](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+For information on putting the key vault in the virtual network, see [Use a key vault instance with your workspace](how-to-enable-virtual-network.md#key-vault-instance).
 
 For information on enabling Private Link for the key vault, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/private-link-service).
 
@@ -126,7 +125,7 @@ To secure the Azure Kubernetes services used by your workspace, put it inside a 
 
 ## Azure Container Registry
 
-For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+For information on securing Azure Container Registry inside the virtual network, see [Use Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > If you are using Private Link for your Azure Machine Learning workspace, and put the Azure Container Registry for your workspace in a virtual network, you must also apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR over the Private Link.

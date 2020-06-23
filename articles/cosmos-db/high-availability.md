@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -14,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-![Physical partitioning](./media/high-availability/cosmosdb-data-redundancy.png)
+:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Physical partitioning" border="false":::
 
 - The data within Cosmos containers is [horizontally partitioned](partitioning-overview.md).
 
@@ -78,21 +78,7 @@ Zone redundancy is a *supplemental capability* to the [multi-master replication]
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in following Azure regions:
-
-- UK South
-
-- Southeast Asia
-
-- East US
-
-- East US 2
-
-- Central US
-
-- West Europe
-
-- West US 2
+This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Australia East, Japan East, North Europe, France Central* regions.
 
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
@@ -138,7 +124,7 @@ az cosmosdb create \
 
 You can enable Availability Zones by using Azure portal when creating an Azure Cosmos account. When you create an account, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported:
 
-![Enable Availability Zones using Azure portal](./media/high-availability/enable-availability-zones-using-portal.png) 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Enable Availability Zones using Azure portal"::: 
 
 ## Building highly available applications
 

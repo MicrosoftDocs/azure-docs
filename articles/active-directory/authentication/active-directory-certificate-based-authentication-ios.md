@@ -32,6 +32,7 @@ This article details the requirements and the supported scenarios for configurin
 | Azure Information Protection app |![Check mark signifying support for this application][1] |
 | Intune Company Portal |![Check mark signifying support for this application][1] |
 | Microsoft Teams |![Check mark signifying support for this application][1] |
+| Office (mobile) |![Check mark signifying support for this application][1] |
 | OneNote |![Check mark signifying support for this application][1] |
 | OneDrive |![Check mark signifying support for this application][1] |
 | Outlook |![Check mark signifying support for this application][1] |

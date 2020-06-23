@@ -2,20 +2,14 @@
 title: 'Quickstart: Read captured data from Python app - Azure Event Hubs'
 description: 'Quickstart: Scripts that use the Azure Python SDK to demonstrate the Event Hubs Capture feature.'
 services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-editor: ''
+author: spelluru
 
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
 ---
 
 # Quickstart: Event Hubs Capture walkthrough: Python (azure-eventhub version 1)

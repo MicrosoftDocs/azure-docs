@@ -142,7 +142,7 @@ This section contains the following examples:
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> |Automatically decompress files.|**--decompress**|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 

@@ -1,29 +1,26 @@
 ---
-title: Use Azure Resource Manager templates to onboard Update Management | Microsoft Docs
-description: You can use an Azure Resource Manager template to onboard the Azure Automation Update Management solution.
+title: Enable Update Management using Azure Resource Manager template | Microsoft Docs
+description: This article tells how to use an Azure Resource Manager template to enable Update Management.
 ms.service:  automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/30/2020
+ms.date: 06/10/2020
 ---
 
-# Onboard Update Management solution using Azure Resource Manager template
+# Enable Update Management using Azure Resource Manager template
 
-You can use [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management solution in your resource group. This article provides a sample template that automates the following:
+You can use an [Azure Resource Manager template](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
 
 * Creation of a Azure Monitor Log Analytics workspace.
 * Creation of an Azure Automation account.
 * Linking the Automation account to the Log Analytics workspace, if not already linked.
-* Onboarding the Azure Automation Update Management solution.
+* Enabling Update Management.
 
-The template does not automate the onboarding of one or more Azure or non-Azure VMs.
+The template does not automate enabling Update Management on one or more Azure or non-Azure VMs.
 
-If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. The workspace doesn't already have the Update Management solution deployed. Using this template successfully creates the link and deploys the Update Management solution. 
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+If you already have a Log Analytics workspace and Automation account deployed in a supported region in your subscription, they are not linked. Using this template successfully creates the link and deploys Update Management.
 
 ## API versions
 
@@ -31,8 +28,8 @@ The following table lists the API versions for the resources used in this templa
 
 | Resource | Resource type | API version |
 |:---|:---|:---|
-| Workspace | workspaces | 2017-03-15-preview |
-| Automation account | automation | 2015-10-31 | 
+| Workspace | workspaces | 2020-03-01-preview |
+| Automation account | automation | 2018-06-30 | 
 | Solution | solutions | 2015-11-01-preview |
 
 ## Before using the template
@@ -43,10 +40,11 @@ If you choose to install and use the CLI locally, this article requires that you
 
 The JSON template is configured to prompt you for:
 
-* The name of the workspace
-* The region in which to create the workspace
-* The name of the Automation account
-* The region in which to create the account
+* The name of the workspace.
+* The region in which to create the workspace.
+* To enable resource or workspace permissions.
+* The name of the Automation account.
+* The region in which to create the account.
 
 The JSON template specifies a default value for the other parameters that are likely to be used for a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -54,14 +52,20 @@ The following parameters in the template are set with a default value for the Lo
 
 * sku - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 * data retention - defaults to thirty days
-* capacity reservation - defaults to 100 GB
 
 >[!WARNING]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
->[!NOTE]
->Before using this template, review [additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level. If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and understand the design implementation strategies we recommend for your organization.
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+It is important to understand the following configuration details if you are new to Azure Automation and Azure Monitor, in order to avoid errors when attempting to create, configure, and use a Log Analytics workspace linked to your new Automation account.
+
+* Review [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+
+* Because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription, review [Workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameters file.
+
+* If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
@@ -102,44 +106,17 @@ The following parameters in the template are set with a default value for the Lo
                 "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
             }
         },
-        "immediatePurgeDataOn30Days": {
-            "type": "bool",
-            "defaultValue": "[bool('false')]",
-            "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
-            }
-        },
         "location": {
             "type": "string",
-            "allowedValues": [
-                "australiacentral",
-                "australiaeast",
-                "australiasoutheast",
-                "brazilsouth",
-                "canadacentral",
-                "centralindia",
-                "centralus",
-                "eastasia",
-                "eastus",
-                "eastus2",
-                "francecentral",
-                "japaneast",
-                "koreacentral",
-                "northcentralus",
-                "northeurope",
-                "southafricanorth",
-                "southcentralus",
-                "southeastasia",
-                "uksouth",
-                "ukwest",
-                "westcentralus",
-                "westeurope",
-                "westus",
-                "westus2"
-            ],
             "metadata": {
                 "description": "Specifies the location in which to create the workspace."
             }
+        },
+        "resourcePermissions": {
+              "type": "bool",
+              "metadata": {
+                "description": "true to use resource or workspace permissions. false to require workspace permissions."
+              }
         },
         "automationAccountName": {
             "type": "string",
@@ -164,13 +141,11 @@ The following parameters in the template are set with a default value for the Lo
         {
         "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2020-03-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "Name": "[parameters('sku')]",
-                    "name": "CapacityReservation",
-                    "capacityReservationLevel": 100
+                    "name": "[parameters('sku')]",
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -182,7 +157,7 @@ The following parameters in the template are set with a default value for the Lo
             "resources": [
                 {
                     "apiVersion": "2015-11-01-preview",
-                    "location": "[resourceGroup().location]",
+                    "location": "[parameters('location')]",
                     "name": "[variables('Updates').name]",
                     "type": "Microsoft.OperationsManagement/solutions",
                     "id": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.OperationsManagement/solutions/', variables('Updates').name)]",
@@ -203,7 +178,7 @@ The following parameters in the template are set with a default value for the Lo
         },
         {
             "type": "Microsoft.Automation/automationAccounts",
-            "apiVersion": "2015-01-01-preview",
+            "apiVersion": "2018-06-30",
             "name": "[parameters('automationAccountName')]",
             "location": "[parameters('automationAccountLocation')]",
             "dependsOn": [],
@@ -215,10 +190,10 @@ The following parameters in the template are set with a default value for the Lo
             },
         },
         {
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2020-03-01-preview",
             "type": "Microsoft.OperationalInsights/workspaces/linkedServices",
             "name": "[concat(parameters('workspaceName'), '/' , 'Automation')]",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location')]",
             "dependsOn": [
                 "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]",
                 "[concat('Microsoft.Automation/automationAccounts/', parameters('automationAccountName'))]"
@@ -255,10 +230,8 @@ The following parameters in the template are set with a default value for the Lo
 
 ## Next steps
 
-Now that you have the Update Management solution deployed, you can enable VMs for management, review update assessments, and deploy updates to bring them into compliance.
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
 
-- From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines and manually for non-Azure machines.
+* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
 
-- For a single Azure VM from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-
-- For [multiple Azure VMs](manage-update-multi.md) by selecting them from the **Virtual machines** page in the Azure portal. 
+* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).

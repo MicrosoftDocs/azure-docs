@@ -5,12 +5,12 @@ description: Learn about the data and resources collected for Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 03/06/2020
+ms.date: 04/27/2020
 ---
 
 # Azure machine learning monitoring data reference
@@ -159,6 +159,22 @@ The following are dimensions that can be used to filter quota metrics:
 | Cluster Name | All quota metrics | The name of the compute instance. |
 | Vm Family Name | Quota utilization percentage | The name of the VM family used by the cluster. |
 | Vm Priority | Quota utilization percentage | The priority of the VM.
+
+**Resource**
+
+| Metric | Unit | Description |
+| ----- | ----- | ----- |
+| CpuUtilization | Percent | How much percent of CPU was utilized for a given node during a run/job. This metric is published only when a job is running on a node. One job may use one or more nodes. This metric is published per node. |
+| GpuUtilization | Percent | How much percentage of GPU was utilized for a given node during a run/job. One node can have one or more GPUs. This metric is published per GPU per node. |
+
+The following are dimensions that can be used to filter resource metrics:
+
+| Dimension | Description |
+| ----- | ----- |
+| CreatedTime | |
+| DeviceId | ID of the device (GPU). Only available for GpuUtilization. |
+| NodeId | ID of the node created where job is running. |
+| RunId | ID of the run/job. |
 
 **Run**
 
