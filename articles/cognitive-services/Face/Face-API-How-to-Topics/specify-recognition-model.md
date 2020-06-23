@@ -18,11 +18,11 @@ This guide shows you how to specify a face recognition model for face detection,
 
 The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-The Azure Face service has three recognition models available. The models recognition_01 (published 2017) and recognition_02 (published 2019) are continually supported to ensure backwards compatibility for customers using FaceLists or PersonGroups created with these models. A FaceList or Persongroup will always use the recognition model it was created with, and new faces will become associated with this model when they are added. This cannot be changed after creation and customers will need to use the corresponding recognition model with the corresponding FaceList or PersonGroup.
+The Azure Face service has three recognition models available. The models _recognition_01_ (published 2017) and _recognition_02_ (published 2019) are continually supported to ensure backwards compatibility for customers using FaceLists or **PersonGroup**s created with these models. A **FaceList** or **Persongroup** will always use the recognition model it was created with, and new faces will become associated with this model when they are added. This cannot be changed after creation and customers will need to use the corresponding recognition model with the corresponding **FaceList** or **PersonGroup**.
 
 You can move to later recognition models at your own convenience; however, you will need to create new FaceLists and PersonGroups with the recognition model of your choice.
 
-Recognition_03 (published 2020) is the most accurate model currently available. If you're a new customer, we recommend using this model. Recognition_03 will provide improved accuracy for both similar, and different, individual comparison operations. Note that each model operates independently of the others, and a confidence threshold set for one model is not meant to be compared across the other recognition models.
+The _recognition_03_ model (published 2020) is the most accurate model currently available. If you're a new customer, we recommend using this model. _Recognition_03_ will provide improved accuracy for both similarity comparisons and person-matching comparisons. Note that each model operates independently of the others, and a confidence threshold set for one model is not meant to be compared across the other recognition models.
 
 Read on to learn how to specify a selected model in different Face operations while avoiding model conflicts. If you are an advanced user and would like to determine whether you should switch to the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
@@ -41,9 +41,9 @@ Face detection identifies the visual landmarks of human faces and finds their bo
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
 When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter. The available values are:
-* recognition_01 (published 2017)
-* recognition_02 (published 2019)
-* recognition_03 (published 2020)
+* recognition_01
+* recognition_02
+* recognition_03
 
 
 Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
@@ -93,7 +93,7 @@ There is no change in the [Face - Find Similar] API; you only specify the model 
 
 ## Verify faces with specified model
 
-The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but you can only compare faces that were detected with the same model. So, the two faces will both need to have been detected using either `recognition_01`, `recognition_02`, or `recognition_03`.
+The [Face - Verify] API checks whether two faces belong to the same person. There is no change in the Verify API with regard to recognition models, but you can only compare faces that were detected with the same model.
 
 ## Evaluate different models
 
