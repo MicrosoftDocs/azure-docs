@@ -5,7 +5,7 @@ description: Learn how you can understand the impact of your Conditional Access 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2020
 
 ms.author: joflore
