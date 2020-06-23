@@ -12,12 +12,12 @@ ms.date: 06/22/2020
 > [!Note]
 > Proximity placement groups help to improve latency, but may reduce an application's availability since resources are colocated in the same datacenter. You can mitigate this risk by deploying multiple node pools across multiple proximity placement groups.
 
-When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. For Azure Kubernetes Service (AKS) workloads that require low latency, use [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups).
+When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups) for your cluster’s node pools.
 
 ## Limitations
 
 * The proximity placement group spans a single availability zone.
-* There is no current support for AKS clusters that use Virtual Machine Availability Sets.
+* There's no current support for AKS clusters that use Virtual Machine Availability Sets.
 * You can't modify existing node pools to use a proximity placement group.
 
 > [!IMPORTANT]
@@ -126,7 +126,7 @@ az aks nodepool add \
 
 ## Clean up
 
-To delete the cluster, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+To delete the cluster, use the [`az group delete`][az-group-delete] command to delete the AKS resource group:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
