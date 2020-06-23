@@ -30,7 +30,7 @@ When deploying your application in Azure, spreading Virtual Machine (VM) instanc
 
 You must have the following resources installed:
 
-- The aks-preview 0.4.51 extension
+- The aks-preview 0.4.53 extension
 
 ### Set up the preview feature for proximity placement groups
 
