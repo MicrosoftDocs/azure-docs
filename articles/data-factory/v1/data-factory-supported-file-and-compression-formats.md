@@ -219,7 +219,7 @@ In this sample, you expect one root JSON object maps to single record in tabular
 ```
 and you want to copy it into an Azure SQL table in the following format, by extracting data from both objects and array:
 
-| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -349,7 +349,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
 
 If you have the following table in SQL Database:
 
-| id | order_date | order_price | order_by |
+| ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |

@@ -15,7 +15,7 @@ author: mlearned
 Azure DevOps Starter presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Starter also:
-* Automatically creates Azure resources, such as adatabase in Azure SQL Database.
+* Automatically creates Azure resources, such as a database in Azure SQL Database.
 * Creates and configures a release pipeline in Azure Pipelines that includes a build pipeline for CI.
 * Sets up a release pipeline for CD. 
 * Creates an Azure Application Insights resource for monitoring.
