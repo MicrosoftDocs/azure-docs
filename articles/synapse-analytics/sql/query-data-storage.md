@@ -12,16 +12,14 @@ ms.reviewer: jrasnick, carlrab
 ---
 # Query storage files using SQL on-demand (preview) resources within Synapse SQL
 
-SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
+SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
 
-For querying, the following T-SQL aspects are supported:
-
-- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions, operators](overview-features.md). You can [query files on storage](develop-storage-files-overview.md) using [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function.
+- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions and operators](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article.
-
-When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
+For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article, or the following articles:
+- [Develop storage access](develop-storage-files-overview.md) where you can learn how to use [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function to read data from storage.
+- [Control storage access](develop-storage-files-storage-access-control.md) where you can learn how to enable Synapse SQL to access storage using SAS authentication, or Managed Identity of the workspace.
 
 ## Overview
 
