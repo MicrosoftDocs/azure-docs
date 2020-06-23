@@ -27,7 +27,7 @@ In Azure Cognitive Search, partial term search occurs in these forms:
 
 + [Prefix search](query-simple-syntax.md#prefix-search), such as `search=cap*`, matching on "Cap'n Jack's Waterfront Inn" or "Gacc Capital". You can use the simple query syntax or the full Lucene query syntax for prefix search.
 
-+ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string. Wildcard and regular expressions require the full Lucene syntax. *Suffix* and *infix* queries are formulated as a regular expression. For example, the regular expression (`search=/.*numeric.*/`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix queries. 
++ [Wildcard search](query-lucene-syntax.md#bkmk_wildcard) or [Regular expressions](query-lucene-syntax.md#bkmk_regex) that search for a pattern or parts of an embedded string. Wildcard and regular expressions require the full Lucene syntax. *Suffix* and *infix* queries are formulated as a regular expression. For example, the regular expression (`search=/.*numeric.*/`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches. 
 
 > [!NOTE]
 > When a partial query string includes characters, such as slashes in a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
