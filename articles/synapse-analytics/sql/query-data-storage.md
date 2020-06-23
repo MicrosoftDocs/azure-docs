@@ -16,7 +16,7 @@ SQL on-demand (preview) enables you to query data in your data lake. It offers a
 
 For querying, the following T-SQL aspects are supported:
 
-- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of SQL functions, operators, and so on.
+- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of [SQL functions, operators](overview-features.md). You can [query files on storage](develop-storage-files-overview.md) using [External table](develop-tables-external-tables.md) and [OPENROWSET](develop-openrowset.md) function.
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
 
 For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article.
