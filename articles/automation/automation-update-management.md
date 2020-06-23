@@ -221,8 +221,8 @@ The next table defines the supported classifications for Linux updates.
 
 >[!NOTE]
 >Update classification for Linux machines are only available when used in the supported Azure public cloud regions. When using Update Management in the following national cloud regions:
-* Azure US Government
-* 21Vianet in China
+>* Azure US Government
+>* 21Vianet in China
 > there are no classification of Linux updates and they are reported under the **Other updates** category. Update Management uses data published by the supported distributions, specifically their released [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) files. Because internet access is restricted from these national clouds, Update Management cannot access and consume these files.
 
 For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
