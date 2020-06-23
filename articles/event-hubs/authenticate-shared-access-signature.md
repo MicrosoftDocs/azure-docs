@@ -1,15 +1,8 @@
 ---
 title: Authenticate access to Azure Event Hubs with shared access signatures
 description: This article shows you how to authenticate access to Event Hubs resources using shared access signatures.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-
 ---
 # Authenticate access to Event Hubs resources using shared access signatures (SAS)
 Shared access signature (SAS) gives you granular control over the type of access you grant to the clients who has the shared access signature. Here are some of the controls you can set in a SAS: 
