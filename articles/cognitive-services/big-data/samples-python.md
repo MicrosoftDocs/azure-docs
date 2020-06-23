@@ -7,22 +7,24 @@ ms.date: 06/20/2020
 ms.topic: samples
 ---
 
-# Samples in Python
+# Quick Examples
 
-The following snippets are ready to run and will help get you started with using Cognitive Services on Spark. The samples below are in Python.
+The following snippets are ready to run and will help get you started with using Cognitive Services on Spark.
+ The samples below are in Python.
 
 The samples use these Cognitive Services:
 
-- Text Analytics - given a set of sentences, get the sentiment (or mood) of them.
-- Computer Vision - given a set of images, get the tags (one-word descriptions) associated with those images.
-- Bing Image Search - search for a topic (a word or phrase) in Bing and get images related to it.
-- Speech-to-text - given audio file URLs, retrieve the transcription of the speech into text (language choice is adjustable).
-- Anomaly Detector - given time series data, detect if there are any anomalies within it.
-- Arbitrary Web APIs - using the World Bank API, collect information about the countries you specify.
+- Text Analytics - get the sentiment (or mood) of a set of sentences.
+- Computer Vision - get the tags (one-word descriptions) associated with a set of images.
+- Bing Image Search - search the web for images related to a natural language query.
+- Speech-to-text - transcribe audio files to extract text-based transcripts.
+- Anomaly Detector - detect anomalies within a time series data.
+- Arbitrary Web APIs - collect information about countries with the World Bank API.
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](https://github.com/mhamilton723/big-data-docs/blob/master/big-data/getting-started-big-data.md) to set up your Azure Databricks and Cognitive Services environment. This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
+1. Follow the steps in [Getting started](getting-started-big-data.md) to set up your Azure Databricks and Cognitive Services environment. 
+This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
 1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
 1. Replace any of the service subscription key placeholders with your own key.
@@ -30,7 +32,7 @@ The samples use these Cognitive Services:
 1. View results in a table below the cell.
 
 ## Shared code
-This code snippet is shared by all samples below it.
+To get started, first we need to import the 
 
 ```python
 from mmlspark.cognitive import *
@@ -47,7 +49,12 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 ```    
 
 ## Text Analytics
-One feature of the [Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/) service is returning the sentiment of given text input. The advanced AI will tell you if the phrase or sentence holds a positive or negative sentiment. Given a sentence or phrase as input, the service will return a score between 0.0 and 1.0. The low score indicates negative sentiment and high score indicates positive sentiment. The sample below uses three simple sentences and returns the sentiment for each.
+The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 
+service provides several algorithms for extracting intelligent insights from text. 
+For example, we can find the sentiment of given input text. 
+The service will return a score between 0.0 and 1.0 where low scores
+ indicate negative sentiment and high score indicates positive sentiment. 
+ The sample below uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -82,7 +89,8 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("scor
 
 ## Computer Vision
 
-[Computer Vision](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) analyzes an image in many different ways. In this sample, we provide image URLs and query for things like description or objects in the image. You can choose to display whichever features you'd like. In this sample, we show which "tags" are detected in an image. Tags are one-word descriptions of all things in the image like recognizable objects, living beings, scenery, and actions.
+[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions.
+ In this sample, we "tag" a list of images. "Tags" are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ```python
 
@@ -117,7 +125,10 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/overview) uses Bing's image search capabilities to retrieve images that respond to a user-specified query. In this sample, we use a text query that looks for images with quotes. It returns a list of URLs of images with the quotes on the image itself.
+[Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/overview) 
+searches the web to retrieve images related to a user's natural language query. 
+In this sample, we use a text query that looks for images with quotes. 
+It returns a list of image URLs that contain photos related to our query.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -162,7 +173,8 @@ display(pipeline.transform(bingParameters))
 
 
 ## Speech-to-Text
-The [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-speech-to-text) service takes streams of spoken audio and converts them into text. In this sample, we will take a few audio snippets and transcribe them using Speech to Text.
+The [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. 
+In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```python
 
@@ -195,7 +207,9 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 
 ## Anomaly Detector
-[Anomaly Detector](https://docs.microsoft.com/en-us/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
+[Anomaly Detector](https://docs.microsoft.com/en-us/azure/cognitive-services/anomaly-detector/) 
+is great for detecting irregularities in your time series data. 
+In this sample, we use the service to find anomalies in the entire time series.
 
 ```python
 from pyspark.sql.functions import lit
@@ -254,7 +268,9 @@ display(anamoly_detector.transform(df).select("timestamp", "value", "anomalies.i
 | 1973-03-01T00:00:00Z |    9000 | True        |
 
 ## Arbitrary Web APIs
-With HTTP on Spark, any web service can be used in your big data pipeline. In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) to get information about various countries around the world.
+With HTTP on Spark, any web service can be used in your big data pipeline. 
+In this example, we use the [World Bank API](http://api.worldbank.org/v2/country/) 
+to get information about various countries around the world.
 
 ```python
 from requests import Request
