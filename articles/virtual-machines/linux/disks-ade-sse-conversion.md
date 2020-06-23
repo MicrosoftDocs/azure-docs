@@ -93,4 +93,6 @@ az disk update -n $diskName -g $rgName --encryption-type EncryptionAtRestWithCus
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-## [Optional] You can again check the status of SSE with CMK using PowerShell or CLI.
+## [Optional] You can again check the status of SSE with CMK using PowerShell or CLI
+
+[!INCLUDE [virtual-machines-disks-encryption-status-cli](../../../includes/virtual-machines-disks-encryption-status-cli.md)]

@@ -88,4 +88,6 @@ New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEn
 Start-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 ```
 
-## [Optional] You can again check the status of SSE with CMK using PowerShell or CLI.
+## [Optional] You can again check the status of SSE with CMK using PowerShell or CLI
+
+[!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
