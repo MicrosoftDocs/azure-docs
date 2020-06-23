@@ -43,36 +43,6 @@ const fetchNewUserTokenFunc = async () => {
 const communicationUserCredential = new CommunicationUserCredential(fetchNewUserTokenFunc, userToken);
 const callClient = await CallClientFactory.create(communicationUserCredential);
 ```
-#### [Android (Java)](#tab/java)
-```java
-String userToken = "<user token>";
-android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
-Future<AdHocCallClient> callClientFuture = CallClientFactory.create(userToken, appContext);
-```
-#### [iOS (Swift)](#tab/swift)
-```swift
-let userToken = "<user token>";
-let callClientInstance: CallClient? = nil;
-CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> Void in
-    if(error != nil)
-    {
-        // handle error
-        return;
-    }
-    
-    callClientInstance = callClient;
-}));
-
-```
-For .NET, to create a `CallClient`, you have to instantiate a `CallClientManager` object and asynchronously wait for it to be initialized. You must pass in a tokenProvider object of type `ITokenProvider` as well as an `InitializationOptions` object.
-
-#### [.NET](#tab/dotnet)
-```.NET
-sessionClient = new CallClientManager();
-await sessionClient.Initialize(tokenProvider, new InitializationOptions());
-var callClient = sessionClient.AdHocCallClient;
-```
---- 
 
 ## Place an outgoing telephone call
 
@@ -102,3 +72,12 @@ oneToOneCall = callClient.call([calleeIdentity], placeCallOptions);
 In the Azure Portal UI, you can specify which of the telephone numbers is supposed to be used as a Caller ID in case the callout is started with no explicitly specified number.
 
 ![Screenshot of default caller ID](../media/default-caller-id.png)
+
+#### [Javascript](#tab/javascript)
+```js
+const placeCallOptions = {};
+const calleeIdentity = new Identity({id: '+1234567890', type: 'pstn'}); 
+oneToOneCall = callClient.call([calleeIdentity], placeCallOptions);
+```
+
+When triggering a call without explicitly selected Caller ID, the default one will be used (425-555-1234 in case of the screenshot).
