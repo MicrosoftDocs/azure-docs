@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/26/2020
+ms.date: 06/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -73,6 +73,10 @@ The Exchange Hybrid Deployment feature allows for the co-existence of Exchange m
 **Q:  Can I install the cloud provisioning agent on Windows Server Core?**
 
 No, installing the agent on server core is not supported.
+
+**Q:  Can I use a staging server with the cloud provisioning agent?**
+
+No, staging servers are not supported.
 
 ## Next steps 
 
