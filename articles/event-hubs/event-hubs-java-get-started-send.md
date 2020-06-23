@@ -5,9 +5,8 @@ services: event-hubs
 author: spelluru
 
 ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
 
 ---
