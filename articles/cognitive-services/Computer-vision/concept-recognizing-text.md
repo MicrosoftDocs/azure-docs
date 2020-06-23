@@ -28,11 +28,11 @@ The Read API is asynchronous. The first step is to call the Read operation. The 
 
 The second step is to call the Get Results operation to get the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and a confidence scores.
 
-### Input Limitations
+### Input requirements
 
 The Read API takes the following inputs:
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF.
-* For PDF AND TIFF, up to 2000 pages are processed (For free tier subscribers, only the first two pages are processed).
+* For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The image file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
