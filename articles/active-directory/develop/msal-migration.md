@@ -53,20 +53,20 @@ A: Yes. Starting June 30th, 2020, we will no longer add new features to ADAL. We
 __Q: How do I know which of my apps are using ADAL?__  
 A: If you have the source code, you can reference the above migration guides to determine which client library you’re using and how to update to MSAL. If you don’t have the source code, you can reach out to support and they can provide you with a list of apps and which client library they are using.
 
-__Q: What about my existing ADAL apps?__  
-A: Your existing apps will continue to work without any changes. If you are planning on keeping them beyond June 30th, 2022, you could consider updating them to MSAL to keep them secure, but it is not required to maintain existing functionality.
+__Q: Will my existing ADAL apps continue to work?__ 
+A: Your existing apps will continue to work without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating them to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
 
 __Q: Why should I invest in moving to MSAL?__  
-A: MSAL contains new features that are not in ADAL, such as incremental consent, single sign-on, and token cache management. MSAL will also continue to receive security patches beyond June 30th, 2022. [Learn more.](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+A: MSAL contains new features not in ADAL including incremental consent, single sign-on, and token cache management. Also, unlike ADAL, MSAL will continue to receive security patches beyond June 30th, 2022. [Learn more](msal-overview.md).
 
 __Q: Will you release a tool that helps me move my apps from ADAL to MSAL?__  
-A: No, there are some differences between the two that make the cost of such a tool expensive and we would rather spend that time on new feature investments in MSAL. However, we do provide you a set of migration guides above to make the changes needed.
+A: No. Differences between the libraries would require dedicating resources to development and maintenance of the tool that would otherwise be spent improving MSAL. However, we do provide the preceding set of migration guides to help you make the required changes in your application.
 
 __Q: How does MSAL work with AD FS?__  
-A: MSAL.NET supports certain scenarios to authenticate against AD FS 2019. If your app needs to acquire tokens directly from earlier version of AD FS, you should remain on ADAL. [Learn more.](https://docs.microsoft.com/azure/active-directory/develop/msal-net-adfs-support)
+A: MSAL.NET supports certain scenarios to authenticate against AD FS 2019. If your app needs to acquire tokens directly from earlier version of AD FS, you should remain on ADAL. [Learn more](msal-net-adfs-support.md).
 
 __Q: How do I get help migrating my application?__  
-A: Each platform (e.g. MSAL.NET) has its own migration guides (see above). If after reading those guides you have further questions, you can post on Stack Overflow with the tag ‘adal-deprecation’ or open an issue against the platform’s Github repo. 
+A: See the [Migration guidance](#migration-guidance) section of this article. If, after reading the guide for your app's platform, you have additional questions, you can post on Stack Overflow with the tag `[adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
 
 ## Next steps
 
