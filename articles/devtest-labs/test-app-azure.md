@@ -28,7 +28,7 @@ This article provides steps for testing your application in Azure using DevTest 
 4. Create a file share in your Azure storage by following instructions in the [Create a file share in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
 
 ## Mount the file share on your local machine
-1. On your local machine, use the script from [Persisting Azure file share credentials in Windows](../storage/files/storage-how-to-use-files-windows.md#persisting-azure-file-share-credentials-in-windows) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
+1. On your local machine, use the script from [Mount the Azure file share](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
 2. Then, use `net use` command to mount the file share on your machine. Here is the sample command: Specify your Azure storage name and file share name before running the command. 
 
     `net use Z: \\<YOUR AZURE STORAGE NAME>.file.core.windows.net\<YOUR FILE SHARE NAME> /persistent:yes`
