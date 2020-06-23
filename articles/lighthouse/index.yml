@@ -77,6 +77,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Manage Azure Sentinel workspaces at scale
+            url: ./how-to/manage-sentinel-workspaces.md
           - text: Use Azure Monitor Logs at scale
             url: ./how-to/monitor-at-scale.md
           - text: Monitor delegation changes
