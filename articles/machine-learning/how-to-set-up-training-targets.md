@@ -293,7 +293,7 @@ You can access the compute targets that are associated with your workspace in th
 
 
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
-i
+
 ```python
 from azureml.core.compute import ComputeTarget
 myvm = ComputeTarget(workspace=ws, name='my-vm-name')
