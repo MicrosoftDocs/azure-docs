@@ -126,11 +126,11 @@ This is where you define details for your offer such as name, description, and i
 > [!NOTE]
 > You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-## Call-out descriptions
+#### Call-out descriptions
 
 1. Logo
 2. Products
@@ -140,8 +140,8 @@ Here's an example of how offer information appears in Microsoft AppSource:
 6. Privacy policy
 7. Offer name
 8. Summary
-9. Screenshots/videos
-10. Description
+9. Description
+10. Screenshots/videos
 
 ### Name
 

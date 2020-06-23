@@ -219,8 +219,7 @@ In your command window, run the program with this command:
 ```cmd/sh
 dotnet run
 ```
-
-You'll notice that right now, there is no output indicating the call was successful. 
+"Upload a model" will be printed in the output, but there is no output yet to indicate whether or not models were uploaded successfully.
 
 To add a print statement indicating whether models are actually uploaded successfully, add the following code right after the previous section:
 
