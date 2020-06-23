@@ -3,9 +3,8 @@ title: Troubleshooting Azure Dev Tools account access
 description: This describes how students who have a pre-existing Microsoft account can attach that account to their account for Azure Dev Tools.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: troubleshooting
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 
 ---

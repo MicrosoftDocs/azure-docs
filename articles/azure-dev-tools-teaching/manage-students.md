@@ -3,9 +3,8 @@ title: Setting up access for Azure Dev Tools for teaching
 description: This describes how to set up access for Azure Dev Tools for teaching.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: overview
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 ---
 

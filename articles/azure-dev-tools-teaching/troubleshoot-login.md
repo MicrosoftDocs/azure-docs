@@ -3,9 +3,8 @@ title: Error message when logging into Azure Dev Tools for Teaching
 description: This describes the actions a student should take if they receive an error message when logging in to Azure Dev Tools for Teaching.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: troubleshooting
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 ---
 

@@ -3,9 +3,8 @@ title: Getting started with the Education Hub Start Page
 description: This describes how to start using the Education Hub Start Page.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: quickstart
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 ---
 

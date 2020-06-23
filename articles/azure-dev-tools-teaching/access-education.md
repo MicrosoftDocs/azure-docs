@@ -3,9 +3,8 @@ title: Accessing the Azure Education hub
 description: This describes the prerequisites for using the Azure Education hub.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: quickstart
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 ---
 

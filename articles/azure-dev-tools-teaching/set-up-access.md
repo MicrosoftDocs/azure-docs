@@ -3,9 +3,8 @@ title: Setting up access for Azure Dev tools for teaching
 description: How to deploy software to students and labs.
 author: rymend
 ms.author: rymend
-ms.service: Azure Education
 ms.topic: quickstart
-ms.prod: education
+ms.prod: azure
 ms.date: 06/30/2020
 ---
 
