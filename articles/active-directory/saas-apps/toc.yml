@@ -1058,6 +1058,8 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
+      - name: MVISION Cloud Azure AD SSO Configuration
+        href: skyhighnetworks-tutorial.md
       - name: MyAryaka
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
@@ -1462,8 +1464,6 @@
         href: skills-workflow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
-      - name: Skyhigh Networks
-        href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
       - name: Single Sign-on for Skytap
