@@ -282,6 +282,33 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 </LocalizedResources>
 ```
 
+## Azure AD SSPR
+
+The following are the IDs for an [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+
+| ID | Default value |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | The code has expired.|
+|UserMessageIfInternalError | The email service has encountered an internal error, please try again later.|
+|UserMessageIfThrottled | You have sent too many requests, please try again later.|
+|UserMessageIfVerificationFailedNoRetry | You have exceeded maximum number of verification attempts.|
+|UserMessageIfVerificationFailedRetryAllowed | The verification has failed, please try again.|
+
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
 ## One time password error messages
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
