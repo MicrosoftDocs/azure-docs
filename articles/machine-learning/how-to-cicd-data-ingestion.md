@@ -121,7 +121,7 @@ There's no continuous integration. A deployable artifact for Azure Data Factory 
 1. Someone with the granted permissions clicks the ***publish*** button to generate Azure Resource Manager templates from the source code in the collaboration branch. 
 1. The workspace validates the pipelines (think of it as of linting and unit testing), generates Azure Resource Manager templates (think of it as of building) and saves the generated templates to a technical branch ***adf_publish*** in the same code repository (think of it as of publishing artifacts). This branch is created automatically by the Azure Data Factory workspace. 
 
-For more information on this process, see [Continous integration and delivery in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+For more information on this process, see [Continuous integration and delivery in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
 
 It's important to make sure that the generated Azure Resource Manager templates are environment agnostic. This means that all values that may differ between environments are parametrized. Azure Data Factory is smart enough to expose the majority of such values as parameters. For example, in the following template the connection properties to an Azure Machine Learning workspace are exposed as parameters:
 
