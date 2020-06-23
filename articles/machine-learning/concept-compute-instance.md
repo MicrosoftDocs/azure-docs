@@ -115,7 +115,7 @@ You can perform the following actions:
 * Refresh the compute instances tab.
 * Start, stop and restart a compute instance.  You do pay for the instance whenever it is running. Stop the VM when you are not using it to reduce cost. Then start it again when you need it. 
 * Delete a compute instance.
-* Filter the list of compute instances based on all compute instance available to you, all that you create, or all in the workspace.
+* Filter the list of compute instances to the ones you created.  These are the compute instances you can access.
 
 For each compute instance in your workspace that you have access to, you can:
 
@@ -139,19 +139,17 @@ In your workspace in Azure Machine Learning studio, create a new compute instanc
 
 :::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Create a new compute instance":::
 
- * Use these rules to name the compute instance:
-    * Name is required and must be between 3 to 24 characters long.
-    * Valid characters are upper and lower case letters, digits, and the  **-** character.
-    * Name must start with a letter.
-    * Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique.
-    * If **-**  character is used, then it needs to be followed by at least one letter later in the name.
 
-* Select the Azure VM type including GPUs. The VM type can not be changed after creation.
-* Select whether the instance is for yourself or created for another user of the workspace.
-* Enable/disable SSH access. SSH access is disabled by default but can be enabled at compute instance creation time.
-* Optionally, configure virtual network settings. 
+|Field  |Description  |
+|---------|---------|
+|Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
+|Virtual machine type |  Choose CPU or GPU. This type cannot be changed after creation     |
+|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
+|Enable/disable SSH access     |   SSH access is disabled by default.  SSH access cannot be. changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md)   |
+|Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet .        |
 
-To create the compute instance within an Azure Virtual Network, ensure all the [network requirements](how-to-enable-virtual-network.md#compute-instance) are met. You can create also create compute instances in workspaces which has [Azure Private Link](how-to-configure-private-link.md) enabled.
+
+ To create a compute instance inside an Azure Private Link, see [Configure Azure Private Link for an Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
