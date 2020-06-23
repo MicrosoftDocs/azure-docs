@@ -114,7 +114,7 @@ For other environments, review provider or driver-specific documents for impleme
 ### Additional guidance specific to App Service:
 
 * A [load test](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) should simulate real world data in a steady feeding speed. Testing apps and functions under real world stress can identify and resolve SNAT port exhaustion issues ahead of time.
-* Ensure that the back-end services can return responses quickly. For troubleshooting performance issues with Azure SQL database, review [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
+* Ensure that the back-end services can return responses quickly. For troubleshooting performance issues with Azure SQL Database, review [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow).
 * Scale out the App Service plan to more instances. For more information on scaling, see [Scale an app in Azure App Service](https://docs.microsoft.com/azure/app-service/manage-scale-up). Each worker instance in an app service plan is allocated a number of SNAT ports. If you spread your usage across more instances, you might get the SNAT port usage per instance below the recommended limit of 100 outbound connections, per unique remote endpoint.
 * Consider moving to [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase), where you are allotted a single outbound IP address, and the limits for connections and SNAT ports are much higher.
 
@@ -158,7 +158,7 @@ TCP connections and SNAT ports are not directly related. A TCP connections usage
 
 ### WebJobs and Database connections
  
-If SNAT ports are exhausted, where WebJobs are unable to connect to the Azure SQL database, there is no metric to show how many connections are opened by each individual web application process. To find the problematic WebJob, move several WebJobs out to another App Service plan to see if the situation improves, or if an issue remains in one of the plans. Repeat the process until you find the problematic WebJob.
+If SNAT ports are exhausted, where WebJobs are unable to connect to SQL Database, there is no metric to show how many connections are opened by each individual web application process. To find the problematic WebJob, move several WebJobs out to another App Service plan to see if the situation improves, or if an issue remains in one of the plans. Repeat the process until you find the problematic WebJob.
 
 ### Using SNAT ports sooner
 
