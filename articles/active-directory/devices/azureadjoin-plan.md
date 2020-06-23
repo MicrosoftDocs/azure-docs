@@ -5,7 +5,7 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: joflore

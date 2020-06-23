@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 05/20/2020
+ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -25,15 +25,17 @@ You can give us feedback and discuss the Windows Virtual Desktop Service with th
 
 A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
-Confirm that the user reporting the issues has been assigned to application groups by using this command line:
+1. Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Confirm that the user is signing in with the correct credentials.
+2. Confirm that the user is signing in with the correct credentials.
 
-If the web client is being used, confirm that there are no cached credentials issues.
+3. If the web client is being used, confirm that there are no cached credentials issues.
+
+4. If the user is part of an Azure Active Directory (AD) user group, make sure the user group is a security group instead of a distribution group. Windows Virtual Desktop doesn't support Azure AD distribution groups.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
@@ -222,7 +222,7 @@ Activities are sorted by timestamp, with the latest activity first. If the resul
 
 Connection activities might have more than one error. You can expand the activity type to see any other errors the user has come across. Select the name of the error code to open up a dialog to see more information about it.
 
-### Investigate the session host 
+### Investigate the session host
 
 In the search results, find and select the session host you want information about.
 

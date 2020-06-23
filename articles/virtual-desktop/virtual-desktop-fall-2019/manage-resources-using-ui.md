@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
@@ -47,7 +47,7 @@ Follow these instructions to deploy the Azure Resource Management template:
 
 1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Deploy the template to Azure.
-    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**. 
+    - If you're deploying in an Enterprise subscription, scroll down and select **Deploy to Azure**.
     - If you're deploying in a Cloud Solution Provider subscription, follow these instructions to deploy to Azure:
         1. Scroll down and right-click **Deploy to Azure**, then select **Copy Link Location**.
         2. Open a text editor like Notepad and paste the link there.
@@ -81,7 +81,7 @@ Once you decide which user you'll use to provide consent, follow these instructi
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Sign in using the appropriate Azure Active Directory user account.
 3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
-   
+
    ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
 
 This will now take you to the management tool.
@@ -96,7 +96,7 @@ Follow these instructions to launch the tool:
 2. Sign in using your Windows Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select **Default Tenant Group**, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
-  
+
   > [!NOTE]
   > If you have a custom tenant group, enter the name manually instead of choosing from the drop-down list.
 

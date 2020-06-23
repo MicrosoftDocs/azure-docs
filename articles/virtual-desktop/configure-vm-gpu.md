@@ -5,7 +5,7 @@ services: virtual-desktop
 author: gundarev
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ---
