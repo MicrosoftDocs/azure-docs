@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: trbye
 ---
 
@@ -38,7 +38,7 @@ To override the "umbrella" chart, add the prefix `speechToText.` on any paramete
 
 #### Sentiment analysis (sub-chart: charts/speechToText)
 
-Starting with v2.2.0 of the speech-to-text container, the following parameters are used for sentiment analysis using the Text Analytics API.
+Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Text Analytics API.
 
 |Parameter|Description|Values|Default|
 | --- | --- | --- | --- |

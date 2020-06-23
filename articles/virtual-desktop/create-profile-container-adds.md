@@ -5,13 +5,13 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ---
 
-# Create an FSLogix profile container with Azure Files
+# Create a profile container with Azure Files and Azure AD DS
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
@@ -37,7 +37,7 @@ To add an admin:
 
 ## Set up an Azure Storage account
 
-Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). 
+Now it's time to enable Azure AD DS authentication over Server Message Block (SMB).
 
 To enable authentication:
 
@@ -104,8 +104,8 @@ To get the Storage Account access key:
     - Replace `<share-name>` with the name of the share you created earlier.
     - Replace `<storage-account-key>` with the storage account key from Azure.
 
-    For example:  
-  
+    For example:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -120,7 +120,7 @@ To get the Storage Account access key:
     - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
 
     For example:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -199,13 +199,13 @@ To assign users:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 

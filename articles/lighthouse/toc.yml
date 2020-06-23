@@ -95,6 +95,8 @@
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
 - name: Resources
   items:
+  - name: Microsoft Q&A for Azure Lighthouse
+    href: https://docs.microsoft.com/en-us/answers/topics/azure-lighthouse.html
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

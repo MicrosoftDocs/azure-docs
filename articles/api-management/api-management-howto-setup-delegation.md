@@ -70,7 +70,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
    * [request a single-sign-on (SSO) token] via the API Management REST API
    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
      
-     > for example, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > for example, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * redirect the user to the above produced URL

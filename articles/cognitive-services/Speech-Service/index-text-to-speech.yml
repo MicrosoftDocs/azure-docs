@@ -22,6 +22,8 @@ landingContent:
         url: text-to-speech.md
       - text: Speech synthesis basics
         url: text-to-speech-basics.md
+      - text: Use the Speech CLI for text-to-speech with no code
+        url: spx-overview.md
     - linkListType: quickstart
       links:
         - text: Synthesize speech to a speaker

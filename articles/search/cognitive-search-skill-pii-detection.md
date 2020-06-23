@@ -8,7 +8,7 @@ author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 06/17/2020
 ---
 
 #    PII Detection cognitive skill
@@ -21,7 +21,7 @@ The **PII Detection** skill extracts personally identifiable information from an
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## @odata.type  
@@ -36,25 +36,25 @@ Parameters are case-sensitive and all are optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| defaultLanguageCode |    Language code of the input text. For now, only `en` is supported. |
-| minimumPrecision | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
-| maskingMode | A parameter that provides various ways to mask the detected PII in the input text. The following options are supported: <ul><li>`none` (default): This means that no masking will be performed and the `maskedText` output will not be returned. </li><li> `redact`: This option will remove the detected entities from the input text and not replace them with anything. Note that in this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: This option will replace the detected entities with the character given in the `maskingCharacter` parameter.  The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
-| maskingCharacter | The character that will be used to masked the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
+| `defaultLanguageCode` |    Language code of the input text. For now, only `en` is supported. |
+| `minimumPrecision` | A value between 0.0 and 1.0. If the confidence score (in the `piiEntities` output) is lower than the set `minimumPrecision` value, the entity is not returned or masked. The default is 0.0. |
+| `maskingMode` | A parameter that provides various ways to mask the detected PII in the input text. The following options are supported: <ul><li>`none` (default): This means that no masking will be performed and the `maskedText` output will not be returned. </li><li> `redact`: This option will remove the detected entities from the input text and not replace them with anything. Note that in this case, the offset in the `piiEntities` output will be in relation to the original text, and not the masked text. </li><li> `replace`: This option will replace the detected entities with the character given in the `maskingCharacter` parameter.  The character will be repeated to the length of the detected entity so that the offsets will correctly correspond to both the input text as well as the output `maskedText`.</li></ul> |
+| `maskingCharacter` | The character that will be used to masked the text if the `maskingMode` parameter is set to `replace`. The following options are supported: `*` (default), `#`, `X`. This parameter can only be `null` if `maskingMode` is not set to `replace`. |
 
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| languageCode    | Optional. Default is `en`.  |
-| text          | The text to analyze.          |
+| `languageCode`    | Optional. Default is `en`.  |
+| `text`          | The text to analyze.          |
 
 ## Skill outputs
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| piiEntities | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
+| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> [Possible types and subTypes can be found here.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| `maskedText` | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
 
 ##    Sample definition
 

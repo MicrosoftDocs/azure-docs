@@ -19,7 +19,7 @@ Both LSR modes improve hologram stability, although they have their distinct lim
 
 ## Choose LSR mode in Unity
 
-In the Unity editor, go to *File > Build Settings*. Select *Player Settings* in the lower left, then check under *Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality* whether **Enable Depth Buffer Sharing** is checked:
+In the Unity editor, go to *:::no-loc text="File > Build Settings":::*. Select *:::no-loc text="Player Settings":::* in the lower left, then check under *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* whether **:::no-loc text="Enable Depth Buffer Sharing":::** is checked:
 
 ![Depth Buffer Sharing Enabled flag](./media/unity-depth-buffer-sharing-enabled.png)
 

@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -43,6 +43,18 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.30.0
+
+### Release status
+05/07/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue where unselected domains were getting incorrectly selected from the wizard UI if only grandchild containers were selected.
+
+
+>[!NOTE]
+>This version includes the new Azure AD Connect sync V2 endpoint API.  This new V2 endpoint is currently in public preview.  This version or later is required to use the new V2 endpoint API.  However, simply installing this version does not enable the V2 endpoint. You will continue to use the V1 endpoint unless you enable the V2 endpoint.  You need to follow the steps under [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md) in order to enable it and opt-in to the public preview.  
+
 ## 1.5.29.0
 
 ### Release status
@@ -65,7 +77,10 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 04/09/2020: Released for download
 
 ### Fixed issues
-This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+- This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+- Fixed an issue in the ADSyncConfig PowerShell module, where invoking DSACLS command used in all the Set-ADSync* Permissions cmdlets would cause one of the following errors:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
@@ -1036,7 +1051,7 @@ Azure AD Connect sync
 
 Desktop SSO
 
-* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required. 
+* Azure AD Connect wizard no longer requires port 9090 to be opened on the network when configuring Pass-through Authentication and Desktop SSO. Only port 443 is required.
 
 ## 1.1.443.0
 Released: March 2017
@@ -1320,7 +1335,6 @@ Changed name from Azure AD Sync to Azure AD Connect.
 **New preview features:**
 
 * [User writeback](how-to-connect-preview.md#user-writeback)
-* [Group writeback](how-to-connect-preview.md#group-writeback)
 * [Device writeback](how-to-connect-device-writeback.md)
 * [Directory extensions](how-to-connect-preview.md)
 

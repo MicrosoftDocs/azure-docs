@@ -31,7 +31,20 @@ Our recommendation is to use a vault per application per environment (Developmen
 
 ## Backup
 
-Make sure you take regular back ups of your [vault](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) on update/delete/create of objects within a Vault.
+Make sure you take regular back ups of your vault on update/delete/create of objects within a Vault.
+
+### Azure PowerShell Backup Commands
+
+* [Backup Certificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate?view=azurermps-6.13.0)
+* [Backup Key](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey?view=azurermps-6.13.0)
+* [Backup Secret](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret?view=azurermps-6.13.0)
+
+### Azure CLI Backup Commands
+
+* [Backup Certificate](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-backup)
+* [Backup Key](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-backup)
+* [Backup Secret](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-backup)
+
 
 ## Turn on Logging
 

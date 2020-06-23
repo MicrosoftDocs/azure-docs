@@ -36,7 +36,6 @@ In this article, you'll learn how to:
 
 ## Prerequisites
 
-
 * The data that you want to label, either in local files or in Azure blob storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
@@ -51,8 +50,7 @@ If your data is already in Azure Blob storage, you should make it available as a
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
-![Labeling project creation wizard](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Labeling project creation wizard":::
 
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
@@ -64,6 +62,8 @@ Select **Next** when you're ready to continue.
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
+> [!NOTE]
+> A project cannot contain more than 500,000 images.  If your dataset has more, only the first 500,000 images will be loaded.  
 
 ### Create a dataset from an Azure datastore
 
@@ -82,8 +82,6 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-> [!NOTE]
-> The data you choose is loaded into your project.  Adding more data to the datastore will not appear in this project once the project is created.  
 
 ### Create a dataset from uploaded data
 
@@ -99,6 +97,19 @@ To directly upload your data:
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
+
+## <a name="incremental-refresh"> </a> Configure incremental refresh
+
+If you plan to add new images to your dataset, use incremental refresh to add these new images your project.   When **incremental refresh** is enabled,  the dataset is checked periodically for new images to be added to a project, based on the labeling completion rate.   The check for new data stops when the project contains the maximum 500,000 images.
+
+To add more images to your project, use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to upload to the appropriate folder in the blob storage. 
+
+Check the box for **Enable incremental refresh** when you want your project to continually monitor for new data in the datastore.
+
+Uncheck this box if you do not want new images that appear in the datastore to be added to your project.
+
+You can find the timestamp for the latest refresh in the **Incremental refresh** section of **Details** tab for your project.
+
 
 ## Specify label classes
 
@@ -134,8 +145,6 @@ For bounding boxes, important questions include:
 
 The **ML assisted labeling** page lets you trigger automatic machine learning models to accelerate the labeling task. At the beginning of your labeling project, the images are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your images are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
-This feature is available for image classification (multi-class or multi-label) tasks.  
-
 Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
 * Clustering
 * Prelabeling
@@ -146,13 +155,15 @@ Since the final labels still rely on input from the labeler, this technology is 
 
 ### Clustering
 
-After a certain number of labels are submitted, the machine learning model starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
+After a certain number of labels are submitted, the machine learning model for image classification starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
 
 Once a machine learning model has been trained on your manually labeled data, the model is truncated to its last fully-connected layer. Unlabeled images are then passed through the truncated model in a process commonly known as "embedding" or "featurization." This embeds each image in a high-dimensional space defined by this model layer. Images which are nearest neighbors in the space are used for clustering tasks. 
 
+The clustering phase does not appear for object detection models.
+
 ### Prelabeling
 
-After more image labels are submitted, a classification model is used to predict image tags.  The labeler now sees pages that contain predicted labels already present on each image.  The task is then to review these labels and correct any mis-labeled images before submitting the page.  
+After enough image labels are submitted, a classification model is used to predict image tags. Or an object detection model is used to predict bounding boxes. The labeler now sees pages that contain predicted labels already present on each image. For object detection, predicted boxes are also shown. The task is then to review these predictions and correct any mis-labeled images before submitting the page.  
 
 Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled images to determine its accuracy at a variety of different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Images with predictions more confident than this threshold are used for pre-labeling.
 
@@ -161,7 +172,10 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 ## Initialize the labeling project
 
-After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
+After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Data Labeling** homepage, which will show the project as **Initializing**.
+
+> [!NOTE]
+> This page may not automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
 ## Run and monitor the project
 

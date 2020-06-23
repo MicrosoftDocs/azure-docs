@@ -3,9 +3,8 @@ title: Plan an Azure Active Directory Application Proxy Deployment
 description: An end-to-end guide for planning the deployment of Application proxy within your organization
 services: active-directory
 documentationcenter: 'azure'
-author: barbaraselden
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,9 +13,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
+ms.author: kenwith
 ---
+
 # Plan an Azure AD Application Proxy deployment
 
 Azure Active Directory (Azure AD) Application Proxy is a secure and cost-effective remote access solution for on-premises applications. It provides an immediate transition path for “Cloud First” organizations to manage access to legacy on-premises applications that aren’t yet capable of using modern protocols. For additional introductory information, see [What is Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
@@ -250,7 +249,7 @@ Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to 
 
 ###  Working with other types of applications
 
-Azure AD Application Proxy can also support applications that have been developed to use our Azure AD Authentication Library ([ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)) or Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
+Azure AD Application Proxy can also support applications that have been developed to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
 
 Read [publishing native and mobile client apps](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) and [claims-based applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) to learn about available configurations of Application Proxy.
 

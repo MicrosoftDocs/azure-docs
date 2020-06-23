@@ -359,7 +359,7 @@ The easiest way to connect to Azurite from your application is to configure a co
 </appSettings>
 ```
 
-#### HTTP Connection Strings
+#### HTTP connection strings
 
 You can pass the following connection strings to the [Azure SDKs](https://aka.ms/azsdk) or tools, like Azure CLI 2.0 or Storage Explorer.
 
@@ -375,7 +375,7 @@ To connect to the queue service only, the connection string is:
 
 `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
 
-#### HTTPS Connection Strings
+#### HTTPS connection strings
 
 The full HTTPS connection string is:
 
@@ -457,9 +457,11 @@ You can use Storage Explorer to view the data stored in Azurite.
 
 In Storage Explorer, connect to Azurite by following these steps:
 
- 1. Select **Add an account** icon
+ 1. Select the **Manage Accounts** icon
+ 1. Select **Add an account**
  1. Select **Attach to a local emulator**
  1. Select **Next**
+ 1. Edit the **Display name** field to a name of your choice
  1. Select **Next** again
  1. Select **Connect**
 
@@ -476,7 +478,7 @@ If you don't import a certificate, you'll get an error:
 
 `unable to verify the first certificate` or `self signed certificate in chain`
 
-##### Add Azurite via HTTPS Connection String
+##### Add Azurite via HTTPS connection string
 
 Follow these steps to add Azurite HTTPS to Storage Explorer:
 
@@ -490,7 +492,7 @@ Follow these steps to add Azurite HTTPS to Storage Explorer:
 1. Select **Next**
 1. Select **Connect**
 
-## Workspace Structure
+## Workspace structure
 
 The following files and folders may be created in the workspace location when initializing Azurite.
 

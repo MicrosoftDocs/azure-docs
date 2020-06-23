@@ -8,8 +8,9 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: normesta
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: monitoring
 ---
 
 # End-to-end troubleshooting using Azure Storage metrics and logging, AzCopy, and Message Analyzer
@@ -81,7 +82,7 @@ In this tutorial, we'll use Message Analyzer to work with three different types 
 
 ### Configure server-side logging and metrics
 
-First, we'll need to configure Azure Storage logging and metrics, so that we have data from the service side to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enable metrics](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) and [Enable logging](storage-analytics-logging.md#enable-storage-logging) for details about configuring logging and metrics.
+First, we'll need to configure Azure Storage logging and metrics, so that we have data from the service side to analyze. You can configure logging and metrics in a variety of ways - via the [Azure portal](https://portal.azure.com), by using PowerShell, or programmatically. See [Enable metrics](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) and [Enable logging](storage-analytics-logging.md#enable-storage-logging) for details about configuring logging and metrics.
 
 ### Configure .NET client-side logging
 

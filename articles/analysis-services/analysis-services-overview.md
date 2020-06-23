@@ -8,7 +8,7 @@ ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
-
+ms.custom: references_regions
 ---
 # What is Azure Analysis Services?
 
@@ -43,7 +43,7 @@ This tier is recommended for evaluation, development, and test scenarios. A sing
 
 ### Basic tier
 
-The tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
+This tier is recommended for production solutions with smaller tabular models, limited user concurrency, and simple data refresh requirements. Query replica scale-out *is not available* for this tier. Perspectives, multiple partitions, and DirectQuery tabular model features *are not supported* in this tier.  
 
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|

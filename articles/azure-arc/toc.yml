@@ -4,15 +4,12 @@
   items:
   - name: What is Azure Arc for servers?
     href: ./servers/overview.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./servers/policy-samples.md
 - name: How-to guides
   items:
   - name: Connect to Azure Arc
     items:
+    - name: Connected Machine agent overview
+      href: ./servers/agent-overview.md
     - name: Connect machines to Azure Arc from the Azure portal
       href: ./servers/onboard-portal.md
     - name: Connect machines at scale using a service principal
@@ -21,5 +18,12 @@
       href: ./servers/onboard-dsc.md
   - name: Manage
     items:
+    - name: Manage and use Azure VM extensions
+      href: ./servers/manage-vm-extensions.md
     - name: Manage agent
       href: ./servers/manage-agent.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./servers/policy-samples.md

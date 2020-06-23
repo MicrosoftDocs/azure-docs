@@ -70,14 +70,19 @@ Azure Functions requires a general storage account. In addition to the Blob stor
     ```azurecli-interactive
     resourceGroupName="myResourceGroup"
     ```
-2. Set a variable for the name of the new storage account that Azure Functions requires.
+2. Set a variable to hold the location for resources to be created. 
+
+    ```azurecli-interactive
+    location="eastus"
+    ```    
+3. Set a variable for the name of the new storage account that Azure Functions requires.
     ```azurecli-interactive
     functionstorage="<name of the storage account to be used by the function>"
     ```
-3. Create the storage account for the Azure function.
+4. Create the storage account for the Azure function.
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location southeastasia \
+    az storage account create --name $functionstorage --location $location \
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -96,7 +101,7 @@ In the following command, provide your own unique function app name. The functio
 
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
-      --resource-group $resourceGroupName --consumption-plan-location southeastasia \
+      --resource-group $resourceGroupName --consumption-plan-location $location \
       --functions-version 2
     ```
 
@@ -109,7 +114,6 @@ The function needs credentials for the Blob storage account, which are added to 
 # [\.NET v12 SDK](#tab/dotnet)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -121,8 +125,6 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 # [Node.js V10 SDK](#tab/nodejsv10)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
-
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -187,15 +189,15 @@ The function project code is deployed directly from the public sample repository
 
 An event subscription indicates which provider-generated events you want sent to a specific endpoint. In this case, the endpoint is exposed by your function. Use the following steps to create an event subscription that sends notifications to your function in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com), select **All Services** on the left menu, and then select **Function Apps**.
+1. In the [Azure portal](https://portal.azure.com), at the top of the page search for and select `Function App` and choose the function app that you just created. Select **Functions** and choose the **Thumbnail** function.
 
-    ![Navigate to Function Apps in the Azure portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Choose the Thumbnail function in the portal":::
 
-2. Expand your function app, choose the **Thumbnail** function, and then select **Add Event Grid subscription**.
+1.  Select select **Integration** then choose the **Event Grid Trigger** and select **Create Event Grid subscription**.
 
-    ![Navigate to Add Event Grid subscription in the Azure portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navigate to Add Event Grid subscription in the Azure portal" :::
 
-3. Use the event subscription settings as specified in the table.
+1. Use the event subscription settings as specified in the table.
     
     ![Create event subscription from the function in the Azure portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -206,17 +208,18 @@ An event subscription indicates which provider-generated events you want sent to
     | **Subscription** | Your Azure subscription | By default, your current Azure subscription is selected. |
     | **Resource group** | myResourceGroup | Select **Use existing** and choose the resource group you have been using in this tutorial. |
     | **Resource** | Your Blob storage account | Choose the Blob storage account you created. |
+    | **System Topic Name** | imagestoragesystopic | Specify a name for the system topic. To learn about system topics, see [System topics overview](system-topics.md). |    
     | **Event types** | Blob created | Uncheck all types other than **Blob created**. Only event types of `Microsoft.Storage.BlobCreated` are passed to the function. |
     | **Endpoint type** | autogenerated | Pre-defined as **Azure Function**. |
     | **Endpoint** | autogenerated | Name of the function. In this case, it's **Thumbnail**. |
 
-4. Switch to the **Filters** tab, and do the following actions:
+1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
     2. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Select **Create** to add the event subscription. This creates an event subscription that triggers the `Thumbnail` function when a blob is added to the `images` container. The function resizes the images and adds them to the `thumbnails` container.
+1. Select **Create** to add the event subscription. This creates an event subscription that triggers the `Thumbnail` function when a blob is added to the `images` container. The function resizes the images and adds them to the `thumbnails` container.
 
 Now that the backend services are configured, you test the image resize functionality in the sample web app.
 

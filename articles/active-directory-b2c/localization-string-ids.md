@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -52,7 +52,7 @@ The following example shows the use of some of the user interface elements in th
 
 The ID of the identity providers is configured in the user journey  **ClaimsExchange** element. To localize the title of the identity provider, the **ElementType** is set to `ClaimsProvider`, while the **StringId** is set to the ID of the `ClaimsExchange`.
 
-```XML
+```xml
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   <Preconditions>
     <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
@@ -71,7 +71,7 @@ The ID of the identity providers is configured in the user journey  **ClaimsExch
 
 The following example localizes the Facebook identity provider to Arabic:
 
-```XML
+```xml
 <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">فيس بوك</LocalizedString>
 ```
 
@@ -215,7 +215,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
@@ -225,6 +225,31 @@ The following are the IDs for a [Verification display control](display-control-v
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_send_new_code">Send New Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_verify_code">Verify Code</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_code_sent">Verification code has been sent. Please copy it to the input box below.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## Restful service error messages
+
+The following are the IDs for [Restful service technical profile](restful-technical-profile.md) error messages:
+
+| ID | Default value |
+| -- | ------------- |
+|DefaultUserMessageIfRequestFailed | Failed to establish connection to restful service end point. Restful service URL: {0} |
+|UserMessageIfCircuitOpen | {0} Restful Service URL: {1} |
+|UserMessageIfDnsResolutionFailed | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
+|UserMessageIfRequestTimeout | Failed to establish connection to restful service end point within timeout limit {0} seconds. Restful service URL: {1} |
+
+
+### Example
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="DefaultUserMessageIfRequestFailed">Failed to establish connection to restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCircuitOpen">Unable to connect to the restful service end point.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfDnsResolutionFailed">Failed to resolve the hostname of the restful service endpoint.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfRequestTimeout">Failed to establish connection to restful service end point within timeout limit.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
@@ -244,7 +269,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfCouldntSendSms">Cannot Send SMS to the phone, please try another phone number.</LocalizedString>
@@ -267,20 +292,21 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 |UserMessageIfSessionDoesNotExist |One time password verification session has expired |
 |UserMessageIfSessionConflict |One time password verification session has conflict |
 |UserMessageIfInvalidCode |One time password provided for verification is incorrect |
+|UserMessageIfVerificationFailedRetryAllowed |That code is incorrect. Please try again. | 
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
+   <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
-
 
 ## Claims transformations error messages
 
@@ -294,7 +320,7 @@ The following are the IDs for claims transformations error messages:
 
 ### Example
 
-```XML
+```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your email address hasn't been verified.</LocalizedString>

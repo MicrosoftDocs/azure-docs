@@ -12,6 +12,7 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.author: aahi
+ms.custom: tracking-python
 ---
 # Quickstart: Use the Bing Entity Search client library
 
