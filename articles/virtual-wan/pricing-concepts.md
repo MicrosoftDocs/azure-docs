@@ -50,7 +50,7 @@ A **connection unit** applies to any on-premises/non-Microsoft endpoint connecti
 The tables below use the following abbreviations:
 {NAM: North America}, {EU: Europe}, {MEA: Middle East Africa}, {OC: Oceania (Australia Central and Australia Central 2)}, {LATAM: Latin America} 
 
-**Intra-Continent pricing**
+**Intra-Continent pricing(*)**
 
 | Intra-Continent| Price ($/GB)|
 |---|---|
@@ -61,7 +61,7 @@ The tables below use the following abbreviations:
 | LATAM-LATAM |$0.16 |
 | OC-OC|$0.12 |
 
-**Inter-Continental pricing**
+**Inter-Continental pricing(*)**
 
 | Inter-Continental| Price ($/GB)|
 |---|---|
@@ -70,6 +70,8 @@ The tables below use the following abbreviations:
 | FROM MEA to anywhere |$0.17 |
 | FROM OCEANIA to anywhere |$0.12 |
 | FROM ASIA (except CHINA) to anywhere |$0.12 |
+
+(*) Some charges may apply starting August 1, 2020.
 
 ### <a name="fee"></a>What is the difference between a Standard hub fee and a Standard hub processing fee?
 
