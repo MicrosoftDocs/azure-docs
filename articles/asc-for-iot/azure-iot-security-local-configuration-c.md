@@ -51,7 +51,7 @@ Changes to the configuration file take place when the agent is restarted.
 
 ## Security agent configurations code example
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",
