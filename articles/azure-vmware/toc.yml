@@ -28,7 +28,7 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
-  - name: Hub and Spoke integration
+  - name: Hub and spoke integration
     href: concepts-avs-hub-and-spoke-integration.md
 - name: How-to guides
   items:

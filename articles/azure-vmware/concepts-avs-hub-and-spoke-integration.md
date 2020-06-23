@@ -1,11 +1,11 @@
 ---
-title: Concept - Integrate an Azure VMware Solution (AVS) deployment in a Hub and Spoke architecture
-description: Learn about the recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new Hub and Spoke architecture on Azure.
+title: Concept - Integrate an Azure VMware Solution (AVS) deployment in a hub and spoke architecture
+description: Learn about the recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new hub and spoke architecture on Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ---
 
-# Integrate Azure VMware Solution (AVS) in a Hub and Spoke architecture
+# Integrate Azure VMware Solution (AVS) in a hub and spoke architecture
 
 In this article, we provide recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new [Hub and Spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
 
@@ -139,8 +139,6 @@ Additionally, deploy another domain controller on the AVS side to act as identit
 For vCenter and SSO, set an identity source in the Azure portal, on **Manage \> Identity \> Identity Sources**.
 
 As a recommended best practice, integrate [AD domain with Azure Active Directory](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad).
-
-
 
 <!-- LINKS - external -->
 [Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
