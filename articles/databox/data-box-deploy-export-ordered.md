@@ -254,8 +254,9 @@ The following table shows examples of valid blob paths:
 ## Sample log files
 
 This section provides sample log files that are are generated during export. The error logs are generated automatically. To generate the verbose log file, you need to select **Include verbose log** in Azure portal when configuring the export order.
+For more information regarding copy and verbose logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
-### Verbose log
+<!-- ### Verbose log
 
 The following log files show examples of verbose logging when you select **Include verbose log**:
 
@@ -290,7 +291,9 @@ The following log files show examples of verbose logging when you select **Inclu
 
 ### Copy logs
 
-The following xml shows an example of the copy log when the export is successful:
+For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box). -->
+
+<!-- The following xml shows an example of the copy log when the export is successful:
 
 ```xml
 <CopyLog Summary="Summary">
@@ -325,7 +328,7 @@ The following xml shows an example of the copy log when the export has errors:
   <TotalFiles_Blobs>4</TotalFiles_Blobs>
   <FilesErrored>3</FilesErrored>
 </CopyLog>
-```
+``` -->
 
 ## Next steps
 
