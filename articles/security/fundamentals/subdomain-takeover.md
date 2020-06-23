@@ -98,7 +98,7 @@ These records don't prevent someone from creating the Azure App Service with the
 
 
 
-### Built and automate processes to mitigate the threat
+### Build and automate processes to mitigate the threat
 
 It's often up to developers and operations teams to run cleanup processes to avoid dangling DNS threats. The practices below will help ensure your organization avoids suffering from this threat. 
 
