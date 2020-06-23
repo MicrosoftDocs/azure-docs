@@ -3,7 +3,7 @@ title: Frequently asked questions about Azure Dev Tools for Teaching
 description: Find answers to some common questions about Azure Dev Tools for Teaching.
 author: v-dihans
 ms.author: rymend
-ms.prod: education
+ms.prod: azure
 ms.topic: overview
 ms.date:  06/30/2020
 ---
