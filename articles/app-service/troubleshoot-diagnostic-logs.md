@@ -188,6 +188,8 @@ The following table shows the supported log types and descriptions:
 | AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | Yes | TBD | File changes via FTP and Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Container logs |
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
