@@ -126,20 +126,12 @@ landingContent:
         url: manage/view-all-accounts.md
       - text: Create an additional subscription
         url: manage/create-subscription.md
-      - text: Cancel subscription
-        url: manage/cancel-azure-subscription.md
       - text: Change credit card
         url: manage/change-credit-card.md
       - text: Change administrator
         url: manage/add-change-subscription-administrator.md
       - text: Pay by invoice
         url: manage/pay-by-invoice.md
-      - text: Transfer ownership of an individual subscription
-        url: manage/billing-subscription-transfer.md
-      - text: Transfer ownership for a Microsoft Customer Agreement
-        url: manage/mca-request-billing-ownership.md
-      - text: Set up and configure AWS integration
-        url: costs/aws-integration-set-up-configure.md
 
   # Card (optional)
   - title: Review individual accounts
@@ -162,20 +154,6 @@ landingContent:
           url: understand/download-azure-daily-usage.md
         - text: View external service charges
           url: understand/understand-azure-marketplace-charges.md
-
-  # Card (optional)
-  - title: Manage free account
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-      - text: Create free services
-        url: manage/create-free-services.md
-      - text: Avoid charges
-        url: manage/avoid-charges-free-account.md
-      - text: Check usage
-        url: manage/check-free-service-usage.md
-      - text: Upgrade account
-        url: manage/upgrade-azure-subscription.md
 
   # Card (optional)
   - title: Review Microsoft Customer Agreement accounts
@@ -204,6 +182,20 @@ landingContent:
         url: understand/understand-azure-marketplace-charges.md
       - text: Pay your Microsoft Customer Agreement bill
         url: understand/pay-bill.md
+
+  # Card (optional)
+  - title: Manage free account
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create free services
+        url: manage/create-free-services.md
+      - text: Avoid charges
+        url: manage/avoid-charges-free-account.md
+      - text: Check usage
+        url: manage/check-free-service-usage.md
+      - text: Upgrade account
+        url: manage/upgrade-azure-subscription.md
 
   # Card (optional)
   - title: Buy reservations
