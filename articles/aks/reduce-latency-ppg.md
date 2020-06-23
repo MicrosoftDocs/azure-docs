@@ -36,14 +36,14 @@ You must have the following resources installed:
 
 ```azurecli-interactive
 # register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "proximityPlacementGPreview"
+az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
 ```
 
 It may take several minutes for the registration. Use the below command to verify the feature is registered:
 
 ```azurecli-interactive
 # Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/proximityPlacementGPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
 ```
 
 During preview, you need the *aks-preview* CLI extension to use proximity placement groups. Use the [az extension add][az-extension-add] command, and then check for any available updates using the [az extension update][az-extension-update] command:
