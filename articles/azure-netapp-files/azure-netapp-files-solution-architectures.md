@@ -89,7 +89,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 * [Azure NetApp Files: Getting the most out of your cloud storage](https://cloud.netapp.com/hubfs/Resources/ANF%20PERFORMANCE%20TESTING%20IN%20TEMPLATE.pdf)
 * [Run MPI workloads with Azure Batch and Azure NetApp Files](https://azure.microsoft.com/resources/run-mpi-workloads-with-azure-batch-and-azure-netapp-files/)
-* [Azure Cycle Cloud: CycleCloud HPC environments on Azure NetApp Files](https://docs.microsoft.com/azure/cyclecloud/overview?view=cyclecloud-7)
+* [Azure Cycle Cloud: CycleCloud HPC environments on Azure NetApp Files](https://docs.microsoft.com/azure/cyclecloud/overview)
 
 ### Oil and gas
 
