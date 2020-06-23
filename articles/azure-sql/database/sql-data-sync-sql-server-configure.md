@@ -30,18 +30,18 @@ For PowerShell examples on how to configure SQL Data Sync, see [How to sync betw
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your database in SQL Database. Search for and select **SQL databases**.
 
-    ![Search for SQL databases, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
+    ![Search for databases, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
 1. Select the database you want to use as the hub database for Data Sync.
 
-    ![Select from SQL database list, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
+    ![Select from the database list, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/select-sql-database.png)
 
     > [!NOTE]
     > The hub database is a sync topology's central endpoint, in which a sync group has multiple database endpoints. All other member databases with endpoints in the sync group, sync with the hub database.
 
 1. On the **SQL database** menu for the selected database, select **Sync to other databases**.
 
-    ![Sync to other databases, SQL database, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
+    ![Sync to other databases, Microsoft Azure portal](./media/sql-data-sync-sql-server-configure/sync-to-other-databases.png)
 
 1. On the **Sync to other databases** page, select **New Sync Group**. The **New sync group** page opens with **Create sync group (step 1)** highlighted.
 

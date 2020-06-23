@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 # Upgrade to Azure Cognitive Search .NET SDK version 10
 
-If you're using version 9.0 or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 10.
+If you're using version 9.0 or older of the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade your application to use version 10.
 
 Azure Search is renamed to Azure Cognitive Search in version 10, but namespaces and package names are unchanged. Previous versions of the SDK (9.0 and earlier) continue to use the former name. For more information about using the SDK, including examples, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
 

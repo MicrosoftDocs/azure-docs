@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers in Azur
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
 ---

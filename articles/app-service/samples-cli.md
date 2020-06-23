@@ -31,7 +31,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Protect app**||
 | [Integrate with Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and integrates it with Application Gateway using service endpoint and access restrictions. |
 |**Connect app to resources**||
-| [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a SQL database, then adds the database connection string to the app settings. |
+| [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a database in Azure SQL Database, then adds the database connection string to the app settings. |
 | [Connect an app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |
 | [Connect an app to an Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and an Azure Cache for Redis, then adds the redis connection details to the app settings.) |
 | [Connect an app to Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |

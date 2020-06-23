@@ -94,12 +94,14 @@ All the register methods are on the [`Datastore`](https://docs.microsoft.com/pyt
 
 You can find the information that you need to populate the `register_azure_*()` method on the [Azure portal](https://portal.azure.com).
 
+* Datastore name should only consist of lowercase letters, digits and underscores. 
+
 * If you plan to use an account key or SAS token for authentication, select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
   * The **Overview** page provides information such as the account name, container, and file share name. 
       1. For account keys, go to **Access keys** on the **Settings** pane. 
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
-* If you plan to use a service principle for authentication, go to your **App registrations** and select which app you want to use. 
+* If you plan to use a service principal for authentication, go to your **App registrations** and select which app you want to use. 
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]

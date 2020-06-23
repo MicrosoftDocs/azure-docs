@@ -4,7 +4,7 @@ description: This article provides information about the various components in a
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
 ---
