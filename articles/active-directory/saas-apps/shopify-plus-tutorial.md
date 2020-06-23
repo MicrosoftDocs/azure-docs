@@ -138,11 +138,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Shopify Plus SSO
 
-To configure single sign-on on **Shopify Plus** side, you need to send the **App Federation Metadata Url** to [Shopify Plus support team](mailto:plus-user-management@shopify.com). They set this setting to have the SAML SSO connection set properly on both sides.
+For full steps, view [Shopify's documentation on setting up SAML integrations](https://help.shopify.com/en/manual/shopify-plus/saml).
+
+To configure single sign-on on **Shopify Plus** side, you need to copy the **App Federation Metadata Url** from Azure Active Directory. Then log into the [organization admin](https://shopify.plus) and go to the Users page, then Security section. Select Set up configuration from the page, then paste your App Federation Metadata URL in the **Identity provider metadata URL** section. Click Add to complete.
 
 ### Create Shopify Plus test user
 
-In this section, you create a user called B.Simon in Shopify Plus. Work with [Shopify Plus support team](mailto:plus-user-management@shopify.com) to add the users in the Shopify Plus platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Shopify Plus. Return to the Users section and add a user by entering their email and permissions. Users must be created and activated before you use single sign-on.
+
+### Enforce SAML authentication
+
+Note: We recommend testing the integration with individual users before applying broadly.
+
+Individual users:
+- Go to an individual user’s page in Shopify Plus with an email domain that’s managed by Azure AD and verified in Shopify Plus.
+- In the SAML authentication section, click Edit, select Required, then click Save.
+- Test that this user is able to log in properly via idP-initiated and SP-initiated flows.
+
+For all users under an email domain:
+- Go back to the Security page.
+- Select Required for your SAML authentication setting. This enforces SAML for all users with that email domain across Shopify Plus.
+
+Click Save.
+
+Important: Enabling of SAML for all users under email domain will affect all users who use this application, which means that users will not be able to sign in through their regular log in page. They will only be able to access the app through the Okta service. Shopify does not provide backup log-in URL where users can sign-in using their normal username and password. You can contact Shopify Support to turn off SAML, if necessary.
 
 ## Test SSO 
 
