@@ -1,10 +1,8 @@
 ---
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
-
 ms.topic: article
 ms.date: 06/23/2020
-
 ---
 
 # Configure IP firewall rules for an Azure Event Hubs namespace

@@ -1,10 +1,8 @@
 ---
 title: Connect with your Apache Spark app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
-
 ms.topic: how-to
 ms.date: 06/23/2020
-
 ---
 
 # Connect your Apache Spark application with Azure Event Hubs

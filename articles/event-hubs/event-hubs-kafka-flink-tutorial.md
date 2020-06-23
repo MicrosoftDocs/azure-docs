@@ -1,10 +1,8 @@
 ---
 title: Use Apache Flink for Apache Kafka - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to connect Apache Flink to an Azure event hub
-
 ms.topic: how-to
 ms.date: 06/23/2020
-
 ---
 
 # Use Apache Flink with Azure Event Hubs for Apache Kafka

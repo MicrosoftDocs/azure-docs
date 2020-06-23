@@ -1,10 +1,8 @@
 ---
 title: Management libraries - Azure Event Hubs| Microsoft Docs
 description: This article provides information on the library that you can use to manage Azure Event Hubs namespaces and entities from .NET.
-
 ms.topic: article
 ms.date: 06/23/2020
-
 ---
 
 # Event Hubs management libraries

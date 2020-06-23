@@ -1,10 +1,8 @@
 ---
 title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
-
 ms.topic: article
 ms.date: 06/23/2020
-
 ---
 
 # Get an Event Hubs connection string

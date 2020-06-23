@@ -1,10 +1,8 @@
 ---
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
-
 ms.topic: article
 ms.date: 06/23/2020
-
 ---
 
 # Event Hubs frequently asked questions

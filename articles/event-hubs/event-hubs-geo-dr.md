@@ -1,10 +1,8 @@
 ---
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
-
 ms.topic: article
 ms.date: 06/23/2020
-
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
