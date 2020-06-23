@@ -72,9 +72,6 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 > If the server is a member of a Failover Cluster, the Azure File Sync agent needs to be installed on every node in the cluster.
 
 #### Register the server using the server registration UI
-> [!Important]  
-> Cloud Solution Provider (CSP) subscriptions cannot use the server registration UI. Instead, use PowerShell (below this section).
-
 1. If the server registration UI did not start immediately after completing the installation of the Azure File Sync agent, it can be started manually by executing `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Click *Sign-in* to access your Azure subscription. 
 
@@ -92,7 +89,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 > If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the registered servers in the Azure Portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
 
 #### Register the server with PowerShell
-You can also perform server registration via PowerShell. This is the only supported way of server registration for Cloud Solution Provider (CSP) subscriptions:
+You can also perform server registration via PowerShell. 
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
