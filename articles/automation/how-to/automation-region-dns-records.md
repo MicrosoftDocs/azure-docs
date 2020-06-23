@@ -79,7 +79,12 @@ To support [Private Link](../../private-link/private-link-overview.md) in Azure 
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center. An updated IP address file is posted weekly.
+We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the JSON file from the Microsoft Download Center for the following cloud environments:
+
+* [Azure Public Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=56519)
+* [Azure US Gov Datacenter IP address](http://www.microsoft.com/download/details.aspx?id=57063)
+* [Azure Germany Datacenter IP address](http://www.microsoft.com/download/details.aspx?id=57064)
+* [Azure China Vianet 21 Datacenter IP address](http://www.microsoft.com/download/details.aspx?id=57062)
 
 The IP address file lists the IP address ranges that are used in the Microsoft Azure datacenters. It includes compute, SQL, and storage ranges, and reflects currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 
