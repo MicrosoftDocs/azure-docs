@@ -57,7 +57,7 @@ az extension update --name aks-preview
 ```
 ## Node pools and proximity placement groups
 
-The first resource you deploy with a proximity placement group pins to a specific data center. Additional resources deployed with the same proximity placement group are colocated in the same data center. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it is no longer pinned.
+The first resource you deploy with a proximity placement group pins to a specific data center. Additional resources deployed with the same proximity placement group are colocated in the same data center. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it's no longer pinned.
 
 * Many node pools can be associated with a single proximity placement group.
 * A node pool may only be associated with a single proximity placement group.
