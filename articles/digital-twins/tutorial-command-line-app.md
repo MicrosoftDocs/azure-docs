@@ -130,7 +130,7 @@ CreateModels Room
 ```
 
 As models cannot be overwritten, this will now return a service error.
-For the details on how to delete existing models, see [How-to: Manage a model](how-to-manage-model.md)
+For the details on how to delete existing models, see *[How-to: Manage a twin model](how-to-manage-model.md)*.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
