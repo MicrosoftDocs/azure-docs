@@ -29,11 +29,15 @@ This article shows how you can setup your VM image to satisfy the Azure platform
 
 In order to have your Linux VM communicating with Azure components, you will require a DHCP client to retrieve a host IP from the virtual network, as well as DNS resolution and route management. Most distros ship with these utilities out-of-the-box. Tools that have been tested on Azure by Linux distro vendors include `dhclient`, `network-manager`, `systemd-networkd` and others.
 
-*Note: Currently creating generalized images without a provisioning agent only supports DHCP-enabled VMs.*
+> [!NOTE]
+>
+> Currently creating generalized images without a provisioning agent only supports DHCP-enabled VMs.
 
 After networking has been setup and configured, you must "report ready". This will tell Azure that the VM has been successfully provisioning.
 
-*Note: Failing to report ready to Azure will result in your VM being rebooted!*
+> [!IMPORTANT]
+>
+> Failing to report ready to Azure will result in your VM being rebooted!
 
 ## Demo/sample
 
@@ -41,13 +45,13 @@ This demo will show how you can take an existing Marketplace image (in this case
 
 ### Create the resource group and base VM:
 
-```
+```bash
 $ az group create --location eastus --name demo1
 ```
 
 Create the base VM:
 
-```
+```bash
 $ az vm create \
     --resource-group demo1 \
     --name demo1 \
@@ -61,7 +65,7 @@ $ az vm create \
 
 Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
 
-```
+```bash
 $ sudo apt remove -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
@@ -235,7 +239,9 @@ $ az vm create \
     --enable-agent false
 ```
 
-*Note: It is important to set `--enable-agent` to `false` because walinuxagent doesn't exist on this VM that is going to be created from the image.*
+> [!NOTE]
+>
+> It is important to set `--enable-agent` to `false` because walinuxagent doesn't exist on this VM that is going to be created from the image.
 
 This VM should provisioning successfully. Logging into the newly-provisioning VM, you should be able to see the output of the report ready systemd service:
 

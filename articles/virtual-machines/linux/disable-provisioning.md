@@ -167,7 +167,7 @@ az sig image-version create \
 ### Creating a VM from an image that does not contain a Linux Agent
 When you create the VM from the image with no Linux Agent, you need to ensure the VM deployment configuration indicates extensions are not supported on this VM.
 
-> [Note] 
+> [!NOTE] 
 > 
 > If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 

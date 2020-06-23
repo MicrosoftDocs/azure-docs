@@ -22,7 +22,7 @@ Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedoc
 
 cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. cloud-init automatically uses the native package management tool for the distro you select.
 
-We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. 
+We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure Marketplace. 
 These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publicly available in the distro package repositories. 
 
 There are two stages to making cloud-init available to the endorsed Linux distro OS's on Azure, package support, and then image support:
