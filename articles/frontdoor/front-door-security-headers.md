@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door 
+description: This article teaches you how to configure a security header via Rules Engine on Azure Front Door 
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -15,7 +15,7 @@ ms.author: mebeatty
 # customer intent: As an IT admin, I want to learn about Front Door and how to configure a security header via Rules Engine. 
 ---
 
-# Add a Security Header with Rules Engine
+# Add Security headers with Rules Engine
 
 Implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 
@@ -35,7 +35,8 @@ The following example shows you how to add a Content-Security-Policy header to a
 
 ![portal sample](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
-*Note: In this scenario, we did not add match conditions to the rule. All incoming requests that match the path defined in the Route Rule will have this rule applied. If you would like it to only apply to a subset of those requests, be sure to add your specific match conditions to this rule.*
+> [!NOTE]
+> In this scenario, we did not add [match conditions](front-door-rules-engine-match-conditions.md) to the rule. All incoming requests that match the path defined in the Route Rule will have this rule applied. If you would like it to only apply to a subset of those requests, be sure to add your specific match conditions to this rule.
 
 
 ## Next steps
@@ -43,5 +44,6 @@ The following example shows you how to add a Content-Security-Policy header to a
 - Learn more about [AFD Rules Engine](front-door-rules-engine.md). 
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 - Learn [how Front Door works](front-door-routing-architecture.md).
+- Learn more about Rules Engine [match conditions](front-door-rules-engine-match-conditions.md)
 - Check out more in AFD Rules Engine [CLI reference](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest). 
 - Check out more in AFD Rules Engine [PowerShell reference](https://docs.microsoft.com/powershell/module/az.frontdoor/?view=azps-3.8.0). 

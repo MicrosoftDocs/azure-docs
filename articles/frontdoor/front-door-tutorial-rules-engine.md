@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door 
+description: This article provides aa tutorial on how to configure Rules Engine in both Azure Portal and CLI.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -17,21 +17,23 @@ ms.author: mebeatty
 
 # Configure your Rules Engine
 
+This article provides steps to create a Rules Engine configuration and your first rule in both Azure portal and CLI. 
+
 ## Configure Rules Engine in Azure portal
 1. Before creating a Rules engine configuration, [create a Front door](quickstart-create-front-door.md).
 
 2. Within your Front door resource, go to **Settings** and select **Rule Engine configuration**. Click **Add**, give your configuration a name, and start creating your first Rules Engine configuration.
 
-![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
+    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-1.png)
 
 3. Click **Add Rule** to create your first rule. Then, by clicking **Add condition** or **Add action** you can define your rule.
     
-    *Notes:*
-    - To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
-    - To create a rule that applies to all incoming traffic, do not specify any conditions.
-    - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.  
+    > [!NOTE]
+    >- To delete a condition or action from rule, use the trash can on the right-hand side of the specific condition or action.
+    > - To create a rule that applies to all incoming traffic, do not specify any conditions.
+    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.  
 
-![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-4.png)
+    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 4. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
@@ -39,7 +41,7 @@ ms.author: mebeatty
 
 6. Once you have created one or more configurations, associate a Rules Engine configuration with a Route Rule. While a single configuration can be applied to many route rules, a Route rule may only contain one Rules Engine configuration. To make the association, go to your **Front Door designer** > **Route rules**. Select the Route rule you'd like to add the Rules engine configuration to, go to **Route details** > **Rules engine configuration**, and select the configuration you'd like to associate.
 
-![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
+    ![find rules engine](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
 
 ## Configure Rules Engine in Azure CLI

@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door 
+description: This article provides a list of the various actions you can do with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
