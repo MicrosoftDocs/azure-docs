@@ -149,7 +149,7 @@ After creating a user account in a database, either based on a login or as a con
 
 Efficient access management uses permissions assigned to Active Directory security groups and fixed or custom roles instead of to individual users.
 
-- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Add one or more of database users as member to custom or builtin database roles with the specific permissions appropriate to that group of users.
+- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Add one or more database users as a member to custom or builtin database roles with the specific permissions appropriate to that group of users.
 
 - When using SQL authentication, create contained database users in the database. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 
