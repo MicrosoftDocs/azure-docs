@@ -65,8 +65,6 @@
         href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
-      - name: Akamai
-        href: akamai-tutorial.md
       - name: Alcumus Info Exchange
         href: alcumus-info-tutorial.md
       - name: AlertMedia
@@ -435,6 +433,8 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
+      - name: Directions on Microsoft
+        href: directions-microsoft-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -523,6 +523,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: EasySSO for Jira
+        href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
       - name: Euromonitor Passport
@@ -806,6 +808,8 @@
         href: insuite-tutorial.md
       - name: Intacct
         href: intacct-tutorial.md
+      - name: IntelligenceBank
+        href: intelligencebank-tutorial.md
       - name: InTime
         href: intime-tutorial.md
       - name: Intralinks
@@ -1088,8 +1092,6 @@
         href: netsuite-tutorial.md
       - name: Netvision Compas
         href: netvision-compas-tutorial.md
-      - name: New Relic
-        href: new-relic-tutorial.md
       - name: New Relic by Account
         href: new-relic-tutorial.md
       - name: New Relic (By Organization)
