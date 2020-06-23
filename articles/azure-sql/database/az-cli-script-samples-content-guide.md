@@ -34,15 +34,15 @@ The following table includes links to Azure CLI script examples to manage single
 |---|---|
 |**Create databases in Azure SQL Database**||
 | [Create a single database and configure a firewall rule](scripts/create-and-configure-database-cli.md) | Creates an SQL Database and configures a server-level firewall rule. |
-| [Create elastic pools and move pooled databases](scripts/move-database-between-elastic-pools-cli.md) | Creates elastic pools, moves pooled SQL databases, and changes compute sizes. |
+| [Create elastic pools and move pooled databases](scripts/move-database-between-elastic-pools-cli.md) | Creates elastic pools, moves pooled databases, and changes compute sizes. |
 |**Scale databases in Azure SQL Database**||
 | [Scale a single database](scripts/monitor-and-scale-database-cli.md) | Scales a database in SQL Database to a different compute size after querying the size information for the database. |
 | [Scale an elastic pool](scripts/scale-pool-cli.md) | Scales a SQL elastic pool to a different compute size. |
 |**Configure geo-replication and failover**||
 | [Add a single database to a failover group](scripts/add-database-to-failover-group-cli.md)| Creates a database and a failover group, adds the database to the failover group, then tests failover to the secondary server. |
 | [Configure a failover group for an elastic pool](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Creates a database, adds it to an elastic pool, adds the elastic pool to the failover group, then tests failover to the secondary server. |
-| [Configure and fail over a single database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for an Azure SQL database and fails it over to the secondary replica. |
-| [Configure and fail over a pooled database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configures active geo-replication for an Azure SQL database in a SQL elastic pool, then fails it over to the secondary replica. |
+| [Configure and fail over a single database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for a database in Azure SQL Database and fails it over to the secondary replica. |
+| [Configure and fail over a pooled database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configures active geo-replication for a database in an elastic pool, then fails it over to the secondary replica. |
 | **Auditing and threat detection** |
 | [Configure auditing and threat-detection](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Configures auditing and threat detection policies for a database in Azure SQL Database. |
 | **Back up, restore, copy, and import a database**||
