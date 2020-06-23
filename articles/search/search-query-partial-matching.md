@@ -31,7 +31,7 @@ Azure Cognitive Search scans for whole tokenized terms in the index and won't fi
 
 + [Wildcard with infix and suffix matching](query-lucene-syntax.md#bkmk_wildcard) places the `*` and `?` operators inside or at the beginning of a term, and requires regular expression syntax (where the expression is enclosed with forward slashes). For example, the query string (`search=/.*numeric*./`) returns results on "alphanumeric" and "alphanumerical" as suffix and infix matches.
 
-For partial term or pattern search, and a few other query forms like fuzzy search, analyzers are not used at query time. For these query forms, which the parser detects by the presence of operators and delimiters, the query string is passed to the engine without lexical analysis.
+For partial term or pattern search, and a few other query forms like fuzzy search, analyzers are not used at query time. For these query forms, which the parser detects by the presence of operators and delimiters, the query string is passed to the engine without lexical analysis. For these query forms, the analyzer specified on the field is ignored.
 
 > [!NOTE]
 > When a partial query string includes characters, such as slashes in a URL fragment, you might need to add escape characters. In JSON, a forward slash `/` is escaped with a backward slash `\`. As such, `search=/.*microsoft.com\/azure\/.*/` is the syntax for the URL fragment "microsoft.com/azure/".
