@@ -61,21 +61,11 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-To permanently delete your workspace, use the [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST request with a force tag:
+Add '-force' tag to permanently delete your workspace:
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Alternatively, you can execute the operation from Azure REST documentation site:
-1.	Navigate to [Workspaces – Delete](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) REST API and click **Try it**. 
-2.	Enter details of the workspace you want to permanently delete
-3.	Ender a new parameter *force* with value *true*
-4.	Click the ‘+’ icon on the right to the value. This will add *force=true* to the URI in the request
-5.	Click the *Run* button
-
-The response should be 200 OK
 
 ## Recover workspace
 When you delete a Log Analytics workspace accidentally or intentionally, the service places the workspace in a soft-delete state making it inaccessible to any operation. The name of the deleted workspace is preserved during the soft-delete period and can't be used for creating a new workspace. After the soft-delete period, the workspace is non-recoverable, it is scheduled for permanent deletion and its name it released and can be used for creating a new workspace.
@@ -111,7 +101,7 @@ The workspace and all its data are brought back after the recovery operation. So
 > [!NOTE]
 > * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
  
-### Troubleshooting
+## Troubleshooting
 You must have at least *Log Analytics Contributor* permissions to delete a workspace.<br>
 If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
 * The workspace name isn't available and being used by someone in your organization, or by other customer.
