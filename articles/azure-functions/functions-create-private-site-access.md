@@ -181,7 +181,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. Select **Connect** and then choose **Bastion**.
 1. Provide the required username and password to log into the virtual machine.
 1. Select **Connect**. A new browser window will pop up to allow you to interact with the virtual machine.
-5. It is possible to access the site from the web browser on the VM because the VM is accessing the site through the virtual network.  It is important to note that while the site is only accessible from within the designated virtual network, a public DNS entry remains.
+It's possible to access the site from the web browser on the VM because the VM is accessing the site through the virtual network.  While the site is only accessible from within the designated virtual network, a public DNS entry remains.
 
 ## Create a function
 
