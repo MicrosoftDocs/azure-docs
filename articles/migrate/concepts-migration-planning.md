@@ -1,5 +1,5 @@
 ---
-title: Building your migration plan with Azure Migrate | Microsoft Docs
+title: Build migration plan with Azure Migrate | Microsoft Docs
 description: Provides guidance on building you migration plan with Azure Migrate.
 author: rashi-ms
 ms.service: azure-migrate
@@ -8,9 +8,9 @@ ms.date: 06/21/2020
 ms.author: rajosh
 ---
 
-# Building your migration plan with Azure Migrate
+# Build migration plan with Azure Migrate
 
-This article provides a quick guide to help build your cloud migration plan with [Azure Migrate](migrate-services-overview.md). If you have other questions, check these resources:
+This article provides a quick guide to help build your migration plan to Azure with [Azure Migrate](migrate-services-overview.md). If you have other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
