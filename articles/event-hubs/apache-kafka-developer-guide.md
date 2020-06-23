@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 manager: 
 ms.author: spelluru
-ms.date: 03/31/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: event-hubs
 ---
