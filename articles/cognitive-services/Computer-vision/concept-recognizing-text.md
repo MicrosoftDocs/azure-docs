@@ -3,18 +3,18 @@ title: Read text from images and documents - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to optical character recognition (OCR) and text from images and documents for print and handwritten text using the Computer Vision API.
 services: cognitive-services
-author: PatrickFarley
-manager: nitinme
- 
+author: Bema K. Bonsu III 
+manager: Sanjeev Jagtap
+
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: pafarley
+ms.date: 06/23/2020
+ms.author: msbbonsu
 ms.custom: seodec18
 ---
 
-# OCR for printed and handwritten text
+# Read text from images and documents
 
 Computer Vision includes new deep learning based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. This is useful in a variety of scenarios such as note taking, medical records, security, and banking. The OCR APIs do not store and use your data for improving the models. In addition, Microsoft offers more options such as virtual networks and containers to help meet your compliance and privacy needs.
 
@@ -31,12 +31,12 @@ The second step is to call the Get Results operation to get the extracted text c
 ### Input requirements
 
 The Read API takes the following inputs:
-* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF.
+* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The image file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
-### Text from images 
+### Text from images
 
 The following Read API output shows the extracted text lines and words from an image with text at different angles, colors, and fonts
 
@@ -48,27 +48,27 @@ In addition to images, the Read API takes a PDF document as input. The following
 
 ![An image being rotated and its text being read and delineated](./Images/text-from-documents-example.png)
 
-### Handwritten text
+### Handwritten text in English
 
-The Read operation supports handwritten text in English language. It detects and extracts both print and handwritten text in any document.
+The Read operation supports extracting handwritten text in English only.
 
 ![An image being rotated and its text being read and delineated](./Images/handwritten-example.png)
 
-### Supported languages
+### Printed text and supported languages
 
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview. The following image shows extracted Spanish text from the Read API. 
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. The following image shows extracted Spanish text from the Read API. 
 
 ![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
-### Mixed languages
+### Mixed languages in an image or document
 
-The Read OCR technology supports documents with mixed languages. It does so by automatically classifying each text line in the document with the dominant language. Therefore, it does not need a language identifier as an input parameter.
+The Read OCR technology supports extracting text from images and documents with mixed languages. It does so by classifying each text line in the document before extracting the text contents.
 
 ![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
 
 ### Use the cloud API
 
-If you are using a free-tier subscription, the Read API will only process the first two pages of a PDF or TIFF document. With a paid subscription, it will process up to 2000 pages. Also note that the API will detect a maximum of 300 lines per page.
+If you are using a free-tier subscription, the Read API will only process the first two pages of a PDF or TIFF document. With a paid subscription, it will process up to 2000 pages.
 
 ### Deploy on-premises
 
@@ -81,4 +81,4 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 ## Next steps
 
-Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) QuickStart to implement OCR using C# and the REST API.
+Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
