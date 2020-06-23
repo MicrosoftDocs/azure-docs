@@ -1,7 +1,7 @@
 ---
 title: DevOps for a data ingestion pipeline
 titleSuffix: Azure Machine Learning
-description: Learn how to apply DevOps practices to build a data ingestion pipeline used to prepare data for use with Azure Machine Learning. The ingestion pipeline uses Azure Data Factory and Azure Databricks. Azure Pipeline is used to create a continuous integration and delivery process for the ingestion pipeline.
+description: Learn how to apply DevOps practices to build a data ingestion pipeline used to prepare data for use with Azure Machine Learning. The ingestion pipeline uses Azure Data Factory and Azure Databricks. An Azure Pipeline is used to create a continuous integration and delivery process for the ingestion pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -25,7 +25,7 @@ In most scenarios, a data ingestion solution is a composition of scripts, servic
 * __Azure Databricks__: Runs a Python notebook that transforms the data.
 * __Azure Pipelines__: Automates a continuous integration and development process.
 
-## How it works
+## Data ingestion pipeline workflow
 
 The data ingestion pipeline implements the following workflow:
 
@@ -35,7 +35,7 @@ The data ingestion pipeline implements the following workflow:
 
 ![data ingestion pipeline workflow](media/how-to-cicd-data-ingestion/data-ingestion-pipeline.png)
 
-### Continuous integration and delivery
+## Continuous integration and delivery overview
 
 As with many software solutions, there is a team (for example, Data Engineers) working on it. They collaborate and share the same Azure resources such as Azure Data Factory, Azure Databricks, and Azure Storage accounts. The collection of these resources is a Development environment. The data engineers contribute to the same source code base.
 
@@ -115,7 +115,7 @@ If the linting and unit testing is successful, the pipeline will copy the source
 ### Azure Data Factory CI
 
 CI process for an Azure Data Factory pipeline is a bottleneck for a data ingestion pipeline. 
-There's no ***Continuous*** Integration. A deployable artifact for Azure Data Factory is a collection of Azure Resource Manager templates. The only way to produce those templates is to click the ***publish*** button in the Azure Data Factory workspace.
+There's no continuous integration. A deployable artifact for Azure Data Factory is a collection of Azure Resource Manager templates. The only way to produce those templates is to click the ***publish*** button in the Azure Data Factory workspace.
 
 1. The data engineers merge the source code from their feature branches into the collaboration branch, for example, ***master*** or ***develop***. 
 1. Someone with the granted permissions clicks the ***publish*** button to generate Azure Resource Manager templates from the source code in the collaboration branch. 
