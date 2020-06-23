@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: First query (portal)
+          - text: First query (Azure portal)
             url: ./first-query-portal.md
           - text: First query (Azure CLI)
             url: ./first-query-azurecli.md
@@ -41,6 +41,8 @@ landingContent:
             url: ./first-query-powershell.md
           - text: First query (Go)
             url: ./first-query-go.md
+          - text: First query (JavaScript)
+            url: ./first-query-javascript.md
           - text: First query (Python)
             url: ./first-query-python.md
           - text: Share queries (portal)
@@ -82,30 +84,30 @@ landingContent:
         links:
           - text: OpenAPI - 2019-04-01
             url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
-          - text: SDK for .NET - NuGet
+          - text: Azure SDK for .NET - NuGet
             url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-          - text: SDK for Java - Maven
+          - text: Azure SDK for Java - Maven
             url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-          - text: SDK for Ruby - Gem
+          - text: Azure SDK for Ruby - Gem
             url: https://rubygems.org/gems/azure_mgmt_resourcegraph
 
   - title: Reference - SDKs
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure PowerShell
-            url: /powershell/module/az.resourcegraph/
           - text: Azure CLI
             url: /cli/azure/ext/resource-graph/graph
-          - text: .NET
+          - text: Azure PowerShell
+            url: /powershell/module/az.resourcegraph/
+          - text: Azure SDK for .NET
             url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-          - text: Go
+          - text: Azure SDK for Go
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-          - text: Java
+          - text: Azure SDK for Java
             url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
-          - text: Node
+          - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-resourcegraph
-          - text: Python
+          - text: Azure SDK for Python
             url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
           - text: REST
             url: /rest/api/azure-resourcegraph/

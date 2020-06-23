@@ -41,16 +41,17 @@ You can also enable HTTP routing on an existing AKS cluster using the [az aks en
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
+After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Result
+This name is needed to deploy applications to the AKS cluster and is shown in the following example output:
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## Deploy HTTP routing: Portal
 
@@ -72,7 +73,6 @@ annotations:
 ```
 
 Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the previous step of this article.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -131,6 +131,12 @@ spec:
 ```
 
 Use the [kubectl apply][kubectl-apply] command to create the resources.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+The following example shows the created resources:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -257,7 +263,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## Clean up
 
-Remove the associated Kubernetes objects created in this article.
+Remove the associated Kubernetes objects created in this article using `kubectl delete`.
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+The example output shows Kubernetes objects have been removed.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml

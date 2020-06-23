@@ -921,7 +921,7 @@ Debugging consists of a few basic techniques.
    >
 1. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
 
-    There is an easier workaround, but it's not a best practice. You can create a SQL database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
+    There is an easier workaround, but it's not a best practice. You can create a SQL Database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
 
 #### Extend the sample
 You can extend this sample to learn more about Data Factory and Batch features. For example, to process slices in a different time range, take the following steps:

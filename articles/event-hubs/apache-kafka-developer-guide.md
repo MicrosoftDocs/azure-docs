@@ -1,13 +1,8 @@
 ---
 title: Apache Kafka developer guide for Event Hubs
 description: This article provides links to articles that describe how to integrate your Kafka applications with Azure Event Hubs.
-services: event-hubs
-author: spelluru
-manager: 
-ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.service: event-hubs
 ---
 
 # Apache Kafka developer guide for Azure Event Hubs
