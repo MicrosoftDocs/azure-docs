@@ -140,7 +140,7 @@ Define marketplace details (such as offer name, description, and images) for eac
 > [!NOTE]
 > Offer details are not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the offer listing.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 

@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
@@ -42,7 +42,7 @@ This section will show you how to create a Conditional Access policy that requir
    - Select **Done**.
 6. Under **Cloud apps or actions** > **Include**, select **Select apps**.
    - Choose **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07), then **Select**, and then then **Done**.
-   
+
      ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
 
      >[!NOTE]

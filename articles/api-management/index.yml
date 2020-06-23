@@ -65,10 +65,12 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: Policy
-            url: policy-samples.md
+          - text: Policies
+            url: ./policies/index.md
           - text: Azure PowerShell
             url: powershell-samples.md
+          - text: Azure Policy built-ins
+            url: ./policy-samples.md
 
   # Card
   - title: Architecture
