@@ -3,7 +3,7 @@ title: Azure PowerShell samples for Azure Cosmos DB - Gremlin API
 description:  Get the Azure PowerShell samples to perform various common tasks in Azure Cosmos DB Gremlin API accounts
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
 ---
