@@ -13,7 +13,7 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
 

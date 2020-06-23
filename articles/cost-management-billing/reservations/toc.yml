@@ -6,7 +6,6 @@
   - name: What are Azure Reservations?
     href: save-compute-costs-reservations.md
 - name: How-to guides
-  expanded: true
   items:
   - name: Determine what to purchase
     items:
@@ -18,7 +17,7 @@
       href: prepare-buy-reservation.md
     - name: App Service
       href: prepay-app-service-isolated-stamp.md
-    - name: Azure Cache for Redis reservation
+    - name: Azure Cache for Redis
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -56,12 +55,17 @@
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
     - name: Exchange and refund reservations
       href: exchange-and-refund-azure-reservations.md
+  - name: Report costs
+    items:
+    - name: View reservation transactions
+      href: view-purchase-refunds.md
+    - name: Charge back reservation costs
+      href: charge-back-usage.md
   - name: Renew reservations
     items:
     - name: Renew a reservation
       href: reservation-renew.md
 - name: Concepts
-  expanded: true
   items:
   - name: How reservation recommendations are created
     href: reserved-instance-purchase-recommendations.md
@@ -119,4 +123,3 @@
     href: /rest/api/consumption/usagedetails
   - name: Cost Management - Consumption Reservations Details REST API
     href: /rest/api/consumption/reservationsdetails
-    

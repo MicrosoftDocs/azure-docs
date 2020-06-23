@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
@@ -19,12 +19,16 @@ You can reduce your total Windows Virtual Desktop deployment cost by scaling you
 
 In this article, you'll learn about the scaling tool built with Azure Automation and Azure Logic Apps that will automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
+## Report issues
+
+Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issues with the scaling tool, you can report them bu opening a GitHub issue labeled "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+
 ## How the scaling tool works
 
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
 
 You can use the scaling tool to:
- 
+
 - Schedule VMs to start and stop based on Peak and Off-Peak business hours.
 - Scale out VMs based on number of sessions per CPU core.
 - Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
@@ -58,7 +62,7 @@ Before you start setting up the scaling tool, make sure you have the following t
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service
 - A user with [Contributor access](../../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
-The machine you use to deploy the tool must have: 
+The machine you use to deploy the tool must have:
 
 - Windows PowerShell 5.1 or later
 - The Microsoft Az PowerShell module
@@ -105,7 +109,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
 Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account to access your Azure resources.
 
-An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limiting Run As account permissions](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As authentication, see [Limit Run As account permissions](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
 Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account by following the next section's instructions.
 
@@ -156,7 +160,9 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 3. Run the following cmdlet to download the createazurelogicapp.ps1 script file on your local machine.
 
      ```powershell
-     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     Set-Location -Path "c:\temp"
+     $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1"
+     Invoke-WebRequest -Uri $uri -OutFile ".\createazurelogicapp.ps1"
      ```
 
 4. Run the following cmdlet to sign into Windows Virtual Desktop with an account that has RDS Owner or RDS Contributor permissions.
@@ -168,42 +174,38 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 5. Run the following PowerShell script to create the Azure Logic app and execution schedule.
 
      ```powershell
-     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
-     
-     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
+     $aadTenantId = (Get-AzContext).Tenant.Id
 
-     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
+     $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
+     Select-AzSubscription -Subscription $azureSubscription.Id
+     $subscriptionId = $azureSubscription.Id
 
-     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
+     $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
+     $resourceGroupName = $resourceGroup.ResourceGroupName
+     $location = $resourceGroup.Location
 
-     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you'd like to scale"
+     $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
+     $tenantName = $wvdTenant.TenantName
+
+     $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
+     $hostPoolName = $wvdHostpool.HostPoolName
 
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
-
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
-
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
-
      $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
-
      $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
-
      $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
-
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
-
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
-
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
 
-     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
-
-     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
+     $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
+     $automationAccountName = $automationAccount.AutomationAccountName
+     $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
+     $connectionAssetName = $automationAccountConnection.Name
 
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
-
-     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
-
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
      .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
@@ -255,6 +257,3 @@ Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resour
 
 ![An image of the output window for the scaling tool.](../media/tool-output.png)
 
-## Report issues
-
-If you encounter any issues with the scaling tool, you can report them at the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

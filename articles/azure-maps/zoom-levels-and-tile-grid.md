@@ -1,8 +1,8 @@
 ---
 title: Zoom levels and tile grid | Microsoft Azure Maps
 description: In this article, you will learn about zoom levels and tile grid in Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps

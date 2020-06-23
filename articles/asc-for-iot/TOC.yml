@@ -1,4 +1,4 @@
-- name: Azure Security Center for IoT Documentation
+- name: Azure Security Center for IoT documentation
   href: index.yml
 - name: Overview
   href: overview.md

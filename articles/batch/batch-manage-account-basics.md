@@ -1,7 +1,7 @@
 ---
 title: Manage your account
 description: Learn what comprises an Azure Batch account 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
 

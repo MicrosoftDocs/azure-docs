@@ -9,7 +9,7 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
@@ -28,7 +28,9 @@ ms.reviewer: bagovind
 
 The easiest way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
 
-1. In the Azure portal, click **All services** and then select **Users** or **Groups**.
+1. In the Azure portal, select **All services** from the Azure portal menu.
+
+1. Select **Azure Active Directory** and then select **Users** or **Groups**.
 
 1. Click the user or group you want list the role assignments for.
 
@@ -124,7 +126,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## List number of role assignments
 
-You can have up to **2000** role assignments in each subscription. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+You can have up to **2000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
 ![Access control - Number of role assignments chart](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

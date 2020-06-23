@@ -224,7 +224,7 @@ If you're doing the move action, you need:
 
 - Management group write and Role Assignment write permissions on the child subscription or
   management group.
-  - Built-on role example **Owner**
+  - Built-in role example **Owner**
 - Management group write access on the target parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 - Management group write access on the existing parent management group.
@@ -383,7 +383,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Co
 The same scope path is used when retrieving a policy definition at a management group.
 
 ```http
-GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
 ## Next steps

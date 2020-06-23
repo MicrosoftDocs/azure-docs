@@ -26,26 +26,15 @@ With Custom Keyword's customization, performance, and integration features, you 
 | Keyword verification | When there's high confidence in the keyword being detected locally, audio is sent to the cloud for further verification that a user said the keyword. Keyword verification provides an additional layer of security by reducing the impact of an incorrect local detection and protecting user privacy.
 | Voice assistant & Speech SDK integration | Keywords generated from the Custom Keyword on Speech Studio can be easily integrated within your device or application via the Speech SDK. Simply point the SDK to the keyword model provided by Speech Studio and your product will be voice activated, backed by keyword verification. You can complete your product's voice experiences by building your own [voice assistant](voice-assistants.md).
 
-## Sample code
+## Get started with custom keywords
 
-Sample code for integrating a keyword model is available on GitHub. These samples cover the client application for integrating your keyword in several popular programming languages.
-
-* [Tutorial: Voice-activate your product with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
-
-## Tutorial
-
-* How to [create a custom keyword using Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
-* How to [voice-activate your product using the Speech SDK](tutorial-voice-enable-your-bot-speech-sdk.md).
-
-## Reference docs
-
-* [Custom Keyword naming guidelines](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-kws-guidelines)
-* [Speech SDK](speech-sdk-reference.md)
+* Tutorial: How to [create a custom keyword using Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
+* Tutorial: How to [voice-activate your product with the Speech SDK, using C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* Quickstart: [Recognize keywords with the Speech SDK, on Universal Windows Platform using C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* Quickstart: [Recognize keywords with the Speech SDK, on Android using Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## Next steps
 
 * [Get a Speech service subscription key for free](get-started.md)
-* [Create a custom keyword](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
 * [Get the Speech SDK](speech-sdk.md)
 * [Learn more about Voice Assistants](voice-assistants.md)
