@@ -84,7 +84,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 1. Create a `pnp_app` folder in your local drive. You use this folder for the device model files and device code stub.
 
-1. Download the [device capability model and interface sample files](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save the files into the `pnp_app` folder.
+1. Download the [device capability model and interface sample files](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/SampleDevice.model.json) and [interface sample](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/EnvironmentalSensor.interface.json) and save the files into the `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
