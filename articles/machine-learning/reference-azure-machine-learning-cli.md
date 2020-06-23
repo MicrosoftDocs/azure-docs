@@ -154,7 +154,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
     For more information, see [az ml computetarget create amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
-+ <a id="computeinstance"></a>Manage compute instances:
++ <a id="computeinstance"></a>Manage compute instances.  In all the examples below, the name of the compute instance is **cpu**
 
     + Create a new computeinstance.
 
@@ -162,7 +162,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
         az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
         ```
     
-        For more information, see [az ml computetarget create computeinstance]().
+        For more information, see [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
     + Stop a computeinstance.
     
@@ -170,7 +170,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
         az ml computetarget stop computeinstance -n cpu -v
         ```
     
-        For more information, see [az ml computetarget stop computeinstance]().
+        For more information, see [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
     
     + Start a computeinstance.
     
@@ -178,7 +178,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
         az ml computetarget start computeinstance -n cpu -v
        ```
     
-        For more information, see [az ml computetarget start computeinstance]().
+        For more information, see [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
     
     + Restart a computeinstance.
     
@@ -186,15 +186,15 @@ The following commands demonstrate how to use the CLI to manage resources used b
         az ml computetarget restart computeinstance -n cpu -v
        ```
     
-        For more information, see [az ml computetarget restart computeinstance]().
+        For more information, see [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
     
     + Delete a computeinstance.
     
         ```azurecli-interactive
-        az ml computetarget delete computeinstance -n cpu -v
+        az ml computetarget delete -n cpu -v
        ```
     
-        For more information, see [az ml computetarget delete computeinstance]().
+        For more information, see [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 
 ## <a id="experiments"></a>Run experiments

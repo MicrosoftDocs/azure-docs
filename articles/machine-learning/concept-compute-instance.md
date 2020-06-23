@@ -22,7 +22,7 @@ Use a compute instance as your fully configured and managed development environm
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  
 
-For production level training use an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities. For production level deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
+For production grade model training use an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
 ## Why use a compute instance?
 
@@ -93,13 +93,15 @@ Or you can access a terminal window in any of these ways:
 
 Notebooks and R scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
-The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio.
+The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio. This means that the notebooks and other files you create in Jupyter, JupyterLab, or RStudio are automatically stored on the file share and available to use in other compute instances as well.
 
 The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share.
 
 You can also clone the latest Azure Machine Learning samples to your folder under the user files directory in the workspace file share.
 
-Writing small files can be slower on network drives than writing to the VM itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Please note these files will not be accessible from other compute instances in the workspace.
+Writing small files can be slower on network drives than writing to the VM itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Please note these files will not be accessible from other compute instances. 
+
+You can use the `\tmp` directory on the compute instance for your temporary data.  However, do not write large files of data on the OS disk of the compute instance.  Use [datastores](concept-azure-machine-learning-architecture.md#datasets-and-datastores) instead.
 
 ## Managing a compute instance
 
@@ -149,16 +151,16 @@ In your workspace in Azure Machine Learning studio, create a new compute instanc
 * Enable/disable SSH access. SSH access is disabled by default but can be enabled at compute instance creation time.
 * Optionally, configure virtual network settings. 
 
-To create the compute instance within an Azure Virtual Network, see [Secure your machine learning lifecycles with private virtual networks](how-to-enable-virtual-network.md#compute-instance). You can create compute instance in workspaces which has [Azure Private Link](how-to-configure-private-link.md) enabled.
+To create the compute instance within an Azure Virtual Network, ensure all the [network requirements](how-to-enable-virtual-network.md#compute-instance) are met. You can create also create compute instances in workspaces which has [Azure Private Link](how-to-configure-private-link.md) enabled.
 
 You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
 * In Azure portal
 * From Azure Resource Manager template
-* With Azure Machine Learning SDK
+* With [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
 * From the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
-The dedicated cores per region quota, which applies to compute instance creation is unified and shared with Azure Machine Learning training cluster quota. 
+The dedicated cores per region quota, which applies to compute instance creation is unified and shared with Azure Machine Learning training cluster quota.
 
 ## Compute Target
 

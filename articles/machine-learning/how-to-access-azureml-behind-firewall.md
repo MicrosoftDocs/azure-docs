@@ -36,7 +36,6 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
-| ***.instances.azureml.ms** | Azure Machine Learning compute instances |
 | **default.exp-tas.com** | Used by the Azure Machine Learning studio |
 | **\*.azureml.ms** | Used by Azure Machine Learning APIs |
 | **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning |
