@@ -424,7 +424,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
   * You can configure your logic app to acknowledge it's received the IDoc by [adding an HTTP Request Response action](../connectors/connectors-native-reqres#add-a-response-action) with a `200 OK` status code. The IDoc is transported through tRFC, which doesn't allow for a response payload.
 
-  * If you need to reject the IDoc instead, respond with any other HTTP status code than `200 OK` to make the SAP Adapter issue an exception back to SAP on your behalf. 
+  * If you need to reject the IDoc instead, respond with any HTTP status code other than `200 OK` so that the SAP Adapter returns an exception back to SAP on your behalf. 
 
 * `The segment or group definition E2EDK36001 was not found in the IDoc meta`: Expected failures happen with other errors, such as the failure to generate an IDoc XML payload because its segments are not released by SAP, so the segment type metadata required for conversion is missing. 
 
@@ -436,7 +436,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 For full error messages, check your SAP adapter's extended logs. 
 
-For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](https://docs.microsoft.com/en-us/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
 For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default. To retrieve extended logs, follow these steps:
 
