@@ -2,7 +2,7 @@
 title: Configure Azure Active Directory access - Azure Blockchain Service
 description: How to configure Azure Blockchain Service with Azure Active Directory access
 ms.date: 11/22/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
 #Customer intent: As a node operator, I want to configure Azure Blockchain Service with Azure Active Directory access.
 ---
