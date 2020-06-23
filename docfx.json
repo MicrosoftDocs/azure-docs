@@ -135,6 +135,7 @@
         "articles/advisor/*.md": "saket-ms",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
+        "articles/event-hubs/**/*.md": "spelluru",
         "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
@@ -203,7 +204,8 @@
         "articles/service-fabric-mesh/*.md": "athinanthny",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/**/*.md": "Juliako",
-        "articles/media-services/**/**/*.md": "Juliako"        
+        "articles/media-services/**/**/*.md": "Juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -402,6 +404,7 @@
         "articles/azure-vmware/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
         "articles/cognitive-services/**/*.md": "nitinme",
+        "articles/event-hubs/**/*.md": "femila",        
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
         "articles/batch/**/*.md": "evansma",
@@ -433,6 +436,7 @@
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
+        "articles/event-hubs/*.md": "spelluru",        
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
         "articles/governance/blueprints/**/*.md": "dacoulte",
@@ -488,7 +492,9 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/managed-applications/**/*.md": "tomfitz",
         "articles/azure-resource-manager/custom-providers/**/*.md": "tomfitz",
-        "articles/dev-spaces/**/*.md": "zarhoads",
+	"articles/machine-learning/*.md": "jmartens",
+	"articles/machine-learning/studio/*.md": "jmartens",
+	"articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -502,11 +508,13 @@
         "articles/service-health/*.md": "stbaron",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/*.md": "juliako",
-        "articles/media-services/**/*.md": "juliako"	      
+        "articles/media-services/**/*.md": "juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
         "articles/batch/**/*.md": "batch",
         "articles/connectors/*.md": "logic-apps",
+        "articles/event-hubs/*.md": "event-hubs",
         "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
         "articles/governance/blueprints/**/*.md": "blueprints",
@@ -546,7 +554,8 @@
         "articles/aks/**/*.md": "container-service",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/media-services/*.md": "media-services",
-        "articles/media-services/**/*.md": "media-services"
+        "articles/media-services/**/*.md": "media-services",
+        "articles/azure-government/**/*.md": "azure-government"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -642,6 +651,7 @@
         "articles/azure-monitor/**/*.md" : "Azure Monitor",
         "articles/azure-vmware/**/*.md" : "Azure VMWare Solution",
         "articles/connectors/*.md": "Azure Logic Apps",
+        "articles/event-hubs/*.md": "Azure Event Hubs",        
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/scheduler/*.md": "Azure Scheduler",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
@@ -717,7 +727,8 @@
         "articles/media-services/latest/*.md": "Azure Media Services v3",
         "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
         "articles/media-services/azure-media-player/*.md": "Azure Media Player",
-        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge"
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
+        "articles/azure-government/**/*.md": "Azure Government"
       },
       "featureFlags": {
         "articles/**/*.md": [

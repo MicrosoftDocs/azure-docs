@@ -4,7 +4,6 @@ description: "This tutorial shows how to configure the prerequisites for creatin
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 

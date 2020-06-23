@@ -4,7 +4,6 @@ description: Learn about how to run full SQL Server editions on Azure Virtual Ma
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 

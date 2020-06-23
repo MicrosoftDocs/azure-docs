@@ -4,7 +4,6 @@ description: Register your Azure SQL Server virtual machine with the SQL VM reso
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na

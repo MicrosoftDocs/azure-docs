@@ -40,7 +40,7 @@ In addition to collecting an endpoint's output data and response, you can monito
 ## Web service metadata and response data
 
 > [!IMPORTANT]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
 
 To log information for a request to the web service, add `print` statements to your score.py file. Each `print` statement results in one entry in the trace table in Application Insights, under the message `STDOUT`. The contents of the `print` statement will be contained under `customDimensions` and then `Contents` in the trace table. If you print a JSON string, it produces a hierarchical data structure in the trace output under `Contents`.
 
@@ -71,7 +71,7 @@ If you want to log custom traces, follow the standard deployment process for AKS
 1. To send data to Application Insights during inference, update the scoring file by adding print statements. To log more complex information, such as the request data and the response, us a JSON structure. The following example score.py file logs the time the model is initialized, the input and output during inference, and the time any errors occur:
 
     > [!IMPORTANT]
-    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. If your input is > 64kb, you should instead store it to blob storage.
+    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
     
     ```python
     import pickle

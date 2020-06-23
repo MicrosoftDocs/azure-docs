@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Understand event data
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -233,46 +236,6 @@ Here is an example of a create or delete relationship notification:
     "ownershipDepartment": "Operations"
 }
 ```
-
-### Digital twin model change notifications
-
-**Model change notifications** are triggered when a Digital Twins Definition Language (DTDL) [model](concepts-models.md) is uploaded, reloaded, patched, decommissioned, or deleted.
-
-#### Properties
-
-Here are the fields in the body of a model change notification.
-
-| Name    | Value |
-| --- | --- |
-| `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
-| `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Patch` (Hub-specific)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
-| `datacontenttype` | application/json |
-| `subject` | ID of the model, in the form `dtmi:<domain>:<unique model identifier>;<model version number>` |
-| `time` | Timestamp for when the operation occurred on the model |
-| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
-| `modelstatus` | The resolution status for resolving a model. Possible values: Successful/NotFound/Failed (IoT Hub only) | 
-| `updatereason` | Update model reason in the schema. Possible values: Create/Reset/Override (IoT Hub only) | 
-
-#### Body details
-
-There is no message body for the actions of uploading, reloading, and patching models. The user must make a `GET` call to get the model content. 
-
-For and `Model.Decom`, the body of the patch will be in JSON patch format, like all other patch APIs in the Azure Digital Twins API surface. So, to decommission a model, you would use:
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/decommissionedState",
-    "value": true
-  }
-]
-```
-
-For `Model.Delete`, the request body is the same as a `GET` request, and it gets the latest state before deletion.
 
 ### Digital twin change notifications
 

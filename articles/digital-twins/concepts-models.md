@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.service: digital-twins
 ---
 
 # Understand twin models in Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-defined **models**. You can think of models as the nouns in a description of your world. 
 
@@ -198,7 +201,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Validating models
 
-There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator).
+There is a sample available for validating model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. Find it here: [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Or, for more information about the parser library, including an example of how to use it directly, see [How-to: Parse and validate models](how-to-use-parser.md).
 
