@@ -956,25 +956,47 @@ You can also use lifecycle management feature to backup data to the Archive tier
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
-**Guidance**: None.
+**Guidance**: Use Azure Resource Manager to deploy Cognitive Services and related resources. Azure Resource Manager provides the ability to export templates, which allows you to redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Backup pre-shared keys within Azure Key Vault.
 
-**Azure Security Center monitoring**: N/A
+* [Overview of Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+
+* [How to create a Cognitive Services resource using an Azure Resource Manager template](https://docs.microsoft.com/azure/cognitive-services/resource-manager-template?tabs=portal)
+
+* [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+
+* [Resource Groups - Export Template](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)
+
+* [Introduction to Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+
+* [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ### 9.3: Validate all backups including customer-managed keys
 
-**Guidance**: None.
+**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required. Test restoration of backed up pre-shared keys.
 
-**Azure Security Center monitoring**: N/A
+* [Deploy resources with ARM templates and Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
+
+* [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: None.
+**Guidance**: Use Azure DevOps to securely store and manage your Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  Use role-based access control to protect customer managed keys. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
 
-**Azure Security Center monitoring**: N/A
+* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+
+* [About permissions and groups in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+
+* [How to enable Soft-Delete and Purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
