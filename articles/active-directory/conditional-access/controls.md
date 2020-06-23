@@ -5,7 +5,7 @@ description: Learn how custom controls in Azure Active Directory Conditional Acc
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/18/2020
 
 ms.author: joflore
