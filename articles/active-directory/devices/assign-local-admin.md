@@ -5,7 +5,7 @@ description: Learn how to assign Azure roles to the local administrators group o
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
