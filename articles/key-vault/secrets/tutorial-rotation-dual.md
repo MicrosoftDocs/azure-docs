@@ -15,16 +15,17 @@ ms.author: jalichwa
 ---
 # Automate the rotation of a secret for resources that use dual credential authentication
 
-The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. You should periodically rotate access keys or passwords.
+The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. Access keys and passwords should be rotated frequently.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys  in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys in Azure Key Vault  a function triggered by Azure Event Grid notification:
 
 ![Diagram of rotation solution](../media/secrets/rotation-dual/rotationdiagram.png)
-In above solution, Azure Key Vault stores Storage Account individual access key as version of the secret alternating between primary and secondary key in subsequent versions in each rotation cycle. As one access key is stored in latest version of the secret, alternate key gets regenerated and added to Key Vault as new and latest version of the secret. That provides applications time to refresh to new regenerated key by being able to continue use older alternate key till another rotation cycle, which potentially eliminates any downtime.
 
-1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
+In above solution, Azure Key Vault stores Storage Account individual access keys as versions of the same secret alternating between primary and secondary key in subsequent versions. As one access key is stored in latest version of the secret, alternate key gets regenerated and added to Key Vault as new and latest version of the secret. That solution provides applications entire rotation cycle to refresh to newest regenerated key. 
+
+1. 30 days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
 1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
-1. The function app receives near expiry event, identifies alternate key to the latest secret version access key, and calls Storage Account to regenerate an alternate access key
+1. The function app identifies alternate key (other than latest) and calls Storage Account to regenerate it
 1. The function app adds new regenerated key to Azure Key Vault as new version of the secret.
 
 ## Prerequisites
@@ -67,7 +68,7 @@ The function app rotation functions require these components and configuration:
 - An Azure App Service plan
 - A storage account required for function app trigger management
 - An access policy to access secrets in Key Vault
-- An role assignment to access Storage Account access keys
+- A role assignment to access Storage Account access keys
 - Storage Account key rotation functions with event trigger and http trigger (on-demand rotation)
 - EventGrid event subscription for **SecretNearExpiry** event
 
@@ -103,7 +104,7 @@ First, set your access policy to grant *manage secrets* permissions to users:
 az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
 ```
 
-Then, you can create a new secret with a Storage Account access key as value. You will also need the Storage Account resource id, secret validity period and the key ID to add to secret, so rotation function can regenerate key in Storage Account.
+You can now create a new secret with a Storage Account access key as value. You will also need the Storage Account resource id, secret validity period, and the key ID to add to secret, so rotation function can regenerate key in Storage Account.
 
 Retrieve Storage Account resource id. Value can be found under `id` property
 ```azurecli
@@ -145,7 +146,7 @@ az storage account keys list -n akvrotationstorage
 Same function app can be reused to rotate multiple Storage Accounts. 
 
 Adding additional storage account keys for rotation to existing function requires:
-- An role assignment to access Storage Account access keys
+- A role assignment to access Storage Account access keys
 - EventGrid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link: 
@@ -165,7 +166,7 @@ Adding additional storage account keys for rotation to existing function require
 
 ### Add Another Storage Account access key to Key Vault
 
-Retrieve Storage Account resource id. Value can be found under `id` property
+Retrieve Storage Account resource ID. Value can be found under `id` property
 ```azurecli
 az storage account show -n akvrotationstorage2
 ```
