@@ -36,6 +36,75 @@ To support a smooth experience for in place querying of data that's located in A
 - [filepath function](#filepath-function)
 - [Work with complex types and nested or repeated data structures](#work-with-complex-types-and-nested-or-repeated-data-structures)
 
+## Query PARQUET files
+
+To query Parquet source data, use FORMAT = 'PARQUET'
+
+```syntaxsql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+```
+
+Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
+
+## Query CSV files
+
+To query Parquet source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
+
+```sql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.csv', TYPE = 'CSV', PARSER_VERSION='2.0') 
+WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
+```
+
+There are some additional options that can be used to adjust parsing rules to custom CSv format:
+- ESCAPE_CHAR = 'char'
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
+The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
+- FIELDTERMINATOR ='field_terminator'
+Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
+- ROWTERMINATOR ='row_terminator'
+Specifies the row terminator to be used. The default row terminator is a newline character: **\r\n**.
+
+## File schema
+
+SQL language in Synapse SQL enables you to define schema of the file as part of `OPENROWSET` function and read all or subset of columns, or it tries to automatically determine column types from the file using schema inference.
+
+### Read a chosen subset of columns
+
+To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
+
+- If there are CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation.
+- If there are Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name.
+
+```sql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+WITH (
+      C1 int, 
+      C2 varchar(20),
+      C3 as varchar(max)
+) as rows
+```
+
+For every column you need to specify column name and type in `WITH` clause.
+For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
+
+## Schema inference
+
+By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
+
+> [!NOTE]
+> This currently works only for PARQUET file format.
+
+```sql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/mycontainer/mysubfolder/data.parquet', TYPE = 'PARQUET') 
+```
+
+Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
+
 ## Query multiple files or folders
 
 To run a T-SQL query over a set of files within a folder or set of folders while treating them as a single entity or rowset, provide a path to a folder or a pattern (using wildcards) over a set of files or folders.
@@ -52,74 +121,6 @@ OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/
 ```
 
 Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
-
-## Query PARQUET files
-
-To query Parquet source data, use FORMAT = 'PARQUET'
-
-```syntaxsql
-OPENROWSET
-(
-    { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
-)
-AS table_alias(column_alias,...n)
-<bulk_options> ::=
-...
-[ , FORMAT = {'CSV' | 'PARQUET'} ]
-```
-
-Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
-
-## Query CSV files
-
-You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
-
-```sql
-SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv', TYPE = 'CSV') 
-WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
-```
-
-There are some additional options that can be used to adjust parsing rules to custom CSv format:
-- ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
-The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
-- FIELDTERMINATOR ='field_terminator'
-Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
-- ROWTERMINATOR ='row_terminator'
-Specifies the row terminator to be used. The default row terminator is a newline character: **\r\n**.
-
-### Read a chosen subset of columns
-
-To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
-
-- If there are CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation.
-- If there are Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name.
-
-```syntaxsql
-OPENROWSET
-...
-| BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
-) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
-```
-
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
-
-## Schema inference
-
-By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
-
-> [!NOTE]
-> This currently works only for PARQUET file format.
-
-```sql
-SELECT * FROM
-OPENROWSET(BULK N'path_to_file(s)', FORMAT='PARQUET') AS rows;
-```
-
-Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
 
 ## File metadata functions
 
