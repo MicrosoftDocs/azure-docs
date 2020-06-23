@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 06/23/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -250,6 +250,9 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 To enable the HELM chart, do the following:
 
+>[!NOTE]
+>If your Kubernetes cluster communicates through a proxy server, configure the parameter `omsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
+
 1. Add the Azure charts repository to your local list by running the following command:
 
     ```
@@ -307,6 +310,27 @@ After you have successfully deployed the chart, you can review the data for your
 
 >[!NOTE]
 >Ingestion latency is around five to ten minutes from agent to commit in the Azure Log Analytics workspace. Status of the cluster show the value **No data** or **Unknown** until all the required monitoring data is available in Azure Monitor.
+
+## Configure proxy endpoint
+
+Starting with chart version 2.7.1, chart will support specifying the proxy endpoint with the `omsagent.proxy` chart parameter. This allows it to communicate through your proxy server. Communication between the Azure Monitor for containers agent and Azure Monitor can be an HTTP or HTTPS proxy server, and both anonymous and basic authentication (username/password) are supported.
+
+The proxy configuration value has the following syntax: `[protocol://][user:password@]proxyhost[:port]`
+
+> [!NOTE]
+>If your proxy server does not require authentication, you still need to specify a psuedo username/password. This can be any username or password.
+
+|Property| Description |
+|--------|-------------|
+|Protocol | http or https |
+|user | Optional username for proxy authentication |
+|password | Optional password for proxy authentication |
+|proxyhost | Address or FQDN of the proxy server |
+|port | Optional port number for the proxy server |
+
+For example: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+
+If you specify the protocol as **http**, the HTTP requests are created using SSL/TLS secure connection. Your proxy server must support SSL/TLS protocols.
 
 ## Troubleshooting
 

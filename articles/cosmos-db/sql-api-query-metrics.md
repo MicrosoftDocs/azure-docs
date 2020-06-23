@@ -4,7 +4,7 @@ description: Learn about how to instrument and debug the SQL query performance o
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 
