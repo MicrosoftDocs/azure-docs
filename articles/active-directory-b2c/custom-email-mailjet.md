@@ -51,7 +51,7 @@ Next, store the Mailjet API key in an Azure AD B2C policy key for your policies 
 1. For **Key usage**, select **Signature**.
 1. Select **Create**.
 
-## Create Mailjet template
+## Create a Mailjet template
 
 With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C policy key, create a Mailjet [dynamic transactional template](https://Mailjet.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
@@ -194,7 +194,7 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
 
 Add the following claims transformation to the `<ClaimsTransformations>` element within `<BuildingBlocks>`. Make the following updates to the claims transformation XML:
 
-* Update the `Messages.0.TemplateID` InputParameter value with the ID of the Mailjet transactional template you created earlier in [Create Mailjet template](#create-Mailjet-template).
+* Update the `Messages.0.TemplateID` InputParameter value with the ID of the Mailjet transactional template you created earlier in [Create a Mailjet template](#create-a-mailjet-template).
 * Update the `Messages.0.From.Email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
 * Update the value of the `Messages.0.Subject` subject line input parameter with a subject line appropriate for your organization.
 
