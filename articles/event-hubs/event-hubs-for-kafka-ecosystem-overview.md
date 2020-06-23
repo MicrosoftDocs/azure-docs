@@ -1,14 +1,9 @@
 ---
 title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
-services: event-hubs
-author: spelluru
 
-ms.service: event-hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
 
 ---
 # Use Azure Event Hubs from Apache Kafka applications

@@ -1,14 +1,9 @@
 ---
 title: 'Quickstart: Send and receive events using Go - Azure Event Hubs'
 description: 'Quickstart: This article provides a walkthrough for creating a Go application that sends events from Azure Event Hubs.' 
-services: event-hubs
-author: spelluru
 
-ms.service: event-hubs
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
 
 ---
 

@@ -1,19 +1,9 @@
 ---
 title: Azure Event Hubs - exceptions
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
 
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/16/2020
-ms.author: shvija
+ms.date: 06/23/2020
 
 ---
 
