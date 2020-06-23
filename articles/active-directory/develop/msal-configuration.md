@@ -146,7 +146,7 @@ The following global settings are for logging:
 | Property | Data Type  | Required | Notes |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Whether to emit personal data |
-| `log_level`   | string | No | Which log messages to output |
+| `log_level`   | string | No | Which log messages to output. Supported log levels include `ERROR`,`WARNING`,`INFO`, and `VERBOSE`. |
 | `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 
 ### account_mode
