@@ -159,7 +159,7 @@ The next step is to configure [access restrictions](../app-service/app-service-i
 1. Within the function app, select the **Networking** link under the _Settings_ section header.
 1. The _Networking_ page is the starting point to configure Azure Front Door, the Azure CDN, and also Access Restrictions.
 1. Select **Configure Access Restrictions** to configure private site access.
-3. On the **Access Restrictions** page, you see only the default restriction in place. The default doesn't place any restrictions on access to the function app.  Select **Add rule** to create a private site access restriction configuration.
+1. On the _Access Restrictions_ page, you see only the default restriction in place. The default doesn't place any restrictions on access to the function app.  Select **Add rule** to create a private site access restriction configuration.
 4. In the **Add Access Restriction** pane, provide a **Name**, **Priority**, and **Description** for the new rule. Select **Virtual Network** from the **Type** drop-down box, then select the previously created virtual network, and then select the **Tutorial** subnet. 
     > [!NOTE]
     > It may take several minutes to enable the service endpoint.
