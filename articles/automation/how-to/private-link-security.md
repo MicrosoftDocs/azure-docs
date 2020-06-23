@@ -26,14 +26,14 @@ With Private Link you can:
 - Connect privately to Azure Monitor Log Analytics workspace without opening any public network access.
 
     >[!NOTE]
-    >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../azure-monitor/platform/private-link-security.md).
+    >This is required if your Automation account is linked to a Log Analytics workspace to forward job data, and when you have enabled features such as Update Management, Change Tracking and Inventory, State Configuration, or Start/Stop VMs during off-hours. For more information about Private Link for Azure Monitor, see [Use Azure Private Link to securely connect networks to Azure Monitor](../../azure-monitor/platform/private-link-security.md).
 
 - Ensure your Automation data is only accessed through authorized private networks.
 - Prevent data exfiltration from your private networks by defining your Azure Automation resource that connects through your private endpoint.
 - Securely connect your private on-premises network to Azure Automation using ExpressRoute and Private Link.
 - Keep all traffic inside the Microsoft Azure backbone network.
 
-For more information, see  [Key Benefits of Private Link](../private-link/private-link-overview.md#key-benefits).
+For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits).
 
 ## How it works
 
@@ -49,7 +49,7 @@ You can start runbooks by doing a POST on the webhook URL. For example, the URL 
 
 State Configuration provides you with Azure configuration management service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter.
 
-The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like this: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`. 
+The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like this: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`.
 
 The URL for public & private endpoint would be the same, however, it would be mapped to a private IP address when Private link is enabled.
 
@@ -144,12 +144,12 @@ You can use the following options to configure your DNS settings for private end
 
 * Use the host file (only recommended for testing). You can use the host file on a virtual machine to override using DNS for name resolution first.
 
-* Use a [private DNS zone](../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on your virtual machine to communicate over the private endpoint, create a Private DNS record as `privatelink.azure-automation.net`. Add a new DNS *A* record mapping to the IP of the private endpoint.
+* Use a [private DNS zone](../../dns/private-dns-privatednszone.md). You can use private DNS zones to override the DNS resolution for a particular private endpoint. A private DNS zone can be linked to your virtual network to resolve specific domains. To enable the agent on your virtual machine to communicate over the private endpoint, create a Private DNS record as `privatelink.azure-automation.net`. Add a new DNS *A* record mapping to the IP of the private endpoint.
 
-* Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
+* Use your DNS forwarder (optional). You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
 
-For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+For more information, see [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
 
 ## Next steps
 
-To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../private-link/private-endpoint-overview.md).
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?](../../private-link/private-endpoint-overview.md).
