@@ -26,7 +26,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `None`. Se
 
 The following example shows a technical profile for `Saml2AssertionIssuer`:
 
-```XML
+```xml
 <TechnicalProfile Id="Saml2AssertionIssuer">
   <DisplayName>Token Issuer</DisplayName>
   <Protocol Name="SAML2"/>
