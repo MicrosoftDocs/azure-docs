@@ -4,7 +4,7 @@ description: Learn how to handle complex data migration for one-to-few relations
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
 
