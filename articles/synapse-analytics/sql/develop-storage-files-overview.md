@@ -14,14 +14,14 @@ ms.reviewer: jrasnick, carlrab
 
 This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
 
-- OPENROWSET function that enables ad-hoc queries over the files in Azure Storage.
-- External table that is a predefined data structure built on top of set of external files.
+- [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
+- [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
 
-User can use different authentication methods such as Azure AD passthrough authentication (default for Azure AD principals) and SAS authentication (default for SQL principals)
+User can use [different authentication methods](develop-storage-files-storage-access-control.md) such as Azure AD passthrough authentication (default for Azure AD principals) and SAS authentication (default for SQL principals).
 
 ## OPENROWSET
 
-OPENROWSET function enables user to read the files from Azure storage.
+[OPENROWSET](develop-openrowset.md) function enables user to read the files from Azure storage.
 
 ### Query files using OPENROWSET
 
@@ -157,16 +157,18 @@ The following table lists required permissions for the operations listed above.
 
 You're now ready to continue on with the following How To articles:
 
-- [Query single CSV file](query-single-csv-file.md)
+- [Query data on storage](query-data-storage.md)
 
-- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+- [Query CSV file](query-single-csv-file.md)
+
+- [Query folders and multiple files](query-folders-multiple-csv-files.md)
 
 - [Query specific files](query-specific-files.md)
 
 - [Query Parquet files](query-parquet-files.md)
 
-- [Query Parquet nested types](query-parquet-nested-types.md)
+- [Query nested types](query-parquet-nested-types.md)
 
 - [Query JSON files](query-json-files.md)
 
-- [Create and using views](create-use-views.md)
+- [Creating and using views](create-use-views.md)
