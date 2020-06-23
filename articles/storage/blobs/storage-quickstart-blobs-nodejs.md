@@ -162,7 +162,7 @@ Add this code to the end of the `main` function:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
+const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -171,7 +171,7 @@ console.log('\nCreating container...');
 console.log('\t', containerName);
 
 // Get a reference to a container
-const containerClient = await blobServiceClient.getContainerClient(containerName);
+const containerClient = blobServiceClient.getContainerClient(containerName);
 
 // Create the container
 const createContainerResponse = await containerClient.create();

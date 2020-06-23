@@ -63,7 +63,7 @@ The All transactions page displays the following information:
 |Date     | The date of transaction  |
 |Invoice ID     | The identifier for the invoice on which the transaction got billed. If you submit a support request, share the ID with Azure support to expedite your support request |
 |Transaction type     |  The type of transaction like purchase, cancel, and usage charges  |
-|Product family     | The category of product like compute for Virtual machines or database for Azure SQL database|
+|Product family     | The category of product like compute for Virtual machines or database for Azure SQL Database|
 |Product SDKU     | A unique code identifying the instance of your product |
 |Amount     |  The amount of transaction      |
 |Billing profile     | The transaction shows up on this billing profile's invoice |
