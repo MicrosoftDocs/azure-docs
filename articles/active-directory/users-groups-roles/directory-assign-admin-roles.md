@@ -168,7 +168,7 @@ Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/m
 
 Users in this role can manage the Desktop Analytics and Office Customization & Policy services. For Desktop Analytics, this includes the ability to view asset inventory, create deployment plans, view deployment and health status. For Office Customization & Policy service, this role enables users to manage Office policies.
 
-### [Device Administrator](#device-administrators-permissions)
+### [Device Administrators](#device-administrators-permissions)
 
 This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory.
 

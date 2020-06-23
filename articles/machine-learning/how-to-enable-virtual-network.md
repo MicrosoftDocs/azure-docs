@@ -10,32 +10,19 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 06/16/2020
+ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
 
 ---
 
-# Secure your machine learning lifecycles with private virtual networks
+# Network isolation during training & inference with private virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
-
-> [!WARNING]
-> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience, including:
-> - drag-n-drop designer
-> - UI for automated machine learning
-> - UI for data labeling
-> - UI for data sets
-> - Notebooks
-> 
-> If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## What is a VNET?
+In this article, you'll learn how to secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure Virtual Network (vnet). Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
 
 A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
-
+If your **underlying storage is in a virtual network, users won't be able to use Azure Machine Learning's studio web experience**, including drag-n-drop designer or the UI for automated machine learning, data labeling, and data sets, or integrated notebooks.  If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## Prerequisites
 

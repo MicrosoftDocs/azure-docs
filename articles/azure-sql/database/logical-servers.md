@@ -49,7 +49,7 @@ You can create the resource group for a server ahead of time or while creating t
 
 To create a server (without a database, elastic pool, or data warehouse database) using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical SQL server) form.
 
-### Create a blank or sample SQL database in Azure SQL Database
+### Create a blank or sample database in Azure SQL Database
 
 To create a database in SQL Database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the resource group and server ahead of time or while creating the database itself. You can create a blank database or create a sample database based on Adventure Works LT.
 
