@@ -17,10 +17,9 @@ you will land on the Overview page by default.
 
 <!-- IMAGE>
 
-## THIS IS A HEADING
+## NEED A HEADING AND CONTENT FOR THE HEADING
 
 
 ## Next steps
 
-[CONTENT NEEDED]
-> (education hub Overview page?)
+> NEED CONTENT (education hub Overview page?)

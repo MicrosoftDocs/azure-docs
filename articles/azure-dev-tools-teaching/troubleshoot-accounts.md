@@ -11,8 +11,8 @@ ms.date: 06/30/2020
 ---
 
 # We couldn't find an account with that username
+CONTENT NEEDED
 
-<!---Required--->
 
 Summary paragraph.
 <!---Required:
@@ -39,21 +39,19 @@ Next most common cause.
 --->
 
 ## Solution
-Connect an existing Microsoft account (eg XBOX) to an Azure Dev Tools account.
+Connect an existing Microsoft account (for example, XBOX) to an Azure Dev Tools account.
 
-1. Go to account.microsoft.com
-1. Log in with your Microsoft Account credentials
-1. Select ‘Your info’ from the top ribbon menu
+1. Go to account.microsoft.com.
+1. Log in with your Microsoft account credentials.
+1. Select **Your info** from the top ribbon menu.
 <!-- IMAGE>
-1. Click ‘Manage how you sign into Microsoft’ – you will be asked to verify your identity with an emailed code. Check your personal email inbox for a code from Microsoft Account Team.
+1. Click **Manage how you sign into Microsoft** – you will be asked to verify your identity with an emailed code. Check your personal email inbox for a code from Microsoft Account Team.
 <!-- IMAGE>
 1. Enter the emailed code
 <!-- IMAGE>
-1. Click ‘Add email’ to your account and enter your university email address.
+1. Click **Add email** to your account and enter your university email address.
 
 The next time you sign in, you can use your university email address to access your Azure Dev Tools for Teaching.
 
 ## Next steps
 > NEED CONTENT
-<!--- Optional:
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important. --->
