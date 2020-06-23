@@ -44297,6 +44297,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-signalr/signalr-tutorial-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-diagnostic-logs",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
       "redirect_document_id": false
