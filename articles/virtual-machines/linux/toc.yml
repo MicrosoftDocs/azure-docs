@@ -947,6 +947,8 @@
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
         href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Convert to server-side encryption
+        href: disks-ade-sse-conversion.md
       - name: Convert to Managed Disks
         href: convert-unmanaged-to-managed-disks.md
       - name: Convert disk between Standard and Premium

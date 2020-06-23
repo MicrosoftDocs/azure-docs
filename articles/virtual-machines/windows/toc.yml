@@ -855,6 +855,8 @@
       href: incremental-snapshots.md
     - name: Migration and conversion
       items:
+        - name: Convert to server-side encryption
+          href: disks-ade-sse-conversion.md
         - name: Convert disk between Standard and Premium
           href: convert-disk-storage.md
         - name: Migrate to Premium storage with Azure Site Recovery
