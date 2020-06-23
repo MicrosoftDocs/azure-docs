@@ -30,7 +30,7 @@ In **Action to take when request is not authenticated**, select **Allow Anonymou
 
 In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -42,7 +42,7 @@ When the user clicks on one of the links, the respective sign-in page opens to s
 
 To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -98,7 +98,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 Here's a simple sign-out link in a webpage:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -185,7 +185,7 @@ Once your provider is configured, you can [find the refresh token and the expira
 
 To refresh your access token at any time, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {

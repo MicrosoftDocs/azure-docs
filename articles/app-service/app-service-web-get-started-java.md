@@ -34,7 +34,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Then change your working directory to the project folder:
@@ -55,7 +55,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 A sample process looks like:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
