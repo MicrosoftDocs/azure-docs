@@ -529,7 +529,7 @@
       items: 
       - name: Migrate to SQL Database
         href: database/migrate-to-database-from-sql-server.md
-      - name: Manage SQL database after migration
+      - name: Manage SQL Database after migration
         href: database/manage-data-after-migrating-to-database.md
       - name: Import/export (allow Azure services disabled)
         href: database/database-import-export-azure-services-off.md
