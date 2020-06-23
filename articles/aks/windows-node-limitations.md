@@ -85,7 +85,7 @@ Group managed service accounts (gMSA) support is not currently available in AKS.
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
-Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
+Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) and metrics from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
 
 ## What if I need a feature which is not supported?
 
