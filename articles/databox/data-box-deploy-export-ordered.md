@@ -103,7 +103,7 @@ Perform the following steps in the Azure portal to order a device.
 
     > [!NOTE]
     >
-    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order will terminate with no data exported.
+    > If you select **Use XML file** for the **Export type** setting, you need to make sure that the xml contains valid paths and/or prefixes. You must construct and supply the XML file.  If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
     To see how to add an XML file to a container, see [Export order using XML file](data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
@@ -209,7 +209,7 @@ To delete a canceled order, go to **Overview** and select **Delete** from the co
 
 ## Sample XML file
 
-The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order use when you use the **use XML file** option:
+The following xml shows an example of blob names, blob prefixes, and Azure files contained in the xml format that the export order uses when you select the **use XML file** option:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -299,6 +299,8 @@ The following xml shows an example of the copy log when the export is successful
     <FilesErrored>0</FilesErrored>
 </CopyLog>
 ```
+
+For more information regarding copy logs, see [Copy logs](data-box-deploy-export-copy-data.md#copy-data-from-data-box).
 
 The following xml shows an example of the copy log when the export has errors:
 
