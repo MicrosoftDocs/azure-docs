@@ -1,5 +1,5 @@
 ---
-title: OS start up – Computer restarted unexpectedly or encountered an unexpected error
+title: OS start-up – Computer restarted unexpectedly or encountered an unexpected error
 description: This article provides steps to resolve issues where the VM experiences an unexpected restart or error while installing Windows.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.date: 06/22/2020
 ms.author: v-mibufo
 ---
 
-# OS start up – Computer restarted unexpectedly or encountered an unexpected error
+# OS start-up – Computer restarted unexpectedly or encountered an unexpected error
 
 This article provides steps to resolve issues where the virtual machine (VM) experiences an unexpected restart or error while installing Windows.
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you will see that the screenshot displays Windows installation failing with the following error:
+When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you'll see that the screenshot displays Windows installation failing with the following error:
 
 **The computer restarted unexpectedly or encountered an unexpected error. Windows installation cannot proceed. To install Windows, click "OK" to restart the computer, and then restart the installation.**
 
@@ -47,7 +47,7 @@ This issue is most often created while you are using **Sysprep.exe** with an on-
 
 ### Replace Unattended Answer File Option
 
-This situation occurs when an image was prepared for use in Azure, but it used a custom answer file which is not supported in Azure, and you have used **SYSPREP** with a flag similar to the following:
+This situation occurs when an image was prepared for use in Azure, but it used a custom answer file, which is not supported in Azure, and you have used **SYSPREP** with a flag similar to the following command:
 
 `sysprep /oobe /generalize /unattend:<NameOfYourAnswerFile.XML> /shutdown`
 
