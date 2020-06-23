@@ -511,7 +511,7 @@ The following publish options are only supported in version 2.x:
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
 | **`--csx`** | Publish a C# script (.csx) project. |
-| **`--no-build`** | Don't build .NET class library functions. |
+| **`--no-build`** | Don't build the project before publishing. |
 | **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
 
 ### Deploy custom container

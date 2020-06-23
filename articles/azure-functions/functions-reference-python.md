@@ -426,17 +426,13 @@ When you're ready to publish, make sure that all your publicly available depende
 
 Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-There are three build actions supported for publishing your Python project to Azure:
+There are three build actions supported for publishing your Python project to Azure: remote build, local build, and builds using custom dependencies.
 
-+ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling.
-+ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file.
-+ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
-
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
+You can also use Azure Pipelines to build your dependencies and publish using continuous delivery (CD). To learn more, see [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md).
 
 ### Remote build
 
-By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
+Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -446,9 +442,11 @@ Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default.
 
+Use remote build when developing Python apps on Windows. 
+
 ### Local build
 
-You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
+Dependencies are obtained locally based on the contents of the requirements.txt file. You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -456,9 +454,20 @@ func azure functionapp publish <APP_NAME> --build local
 
 Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing.
+Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing. We don't recommend using local builds when developing locally on Windows.
 
 ### Custom dependencies
+
+When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The build method depends on the accessibility of the custom packages.
+
+#### Publicly accessible packages
+
+When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create and app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` using the `--extra-index-url` option.  
+
+#### Packages not publicly accessible
+
+> [!NOTE]  
+> This method requires you to have Docker running locally.
 
 If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
