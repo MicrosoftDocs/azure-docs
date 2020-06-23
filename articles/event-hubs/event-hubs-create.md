@@ -8,8 +8,9 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/04/2020
+ms.date: 06/23/2020
 ms.author: spelluru
+ms.reviewer: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
 ---
