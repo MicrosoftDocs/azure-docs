@@ -123,6 +123,23 @@ A completed sample web application that acquires a token and uses it to create a
 
 From Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
 
+# [.NET v12 SDK](#tab/dotnet)
+
+```console
+Install-Package Azure.Storage.Blobs
+Install-Package Azure.Storage.Common
+```
+
+Next, add the following using statements to the HomeController.cs file:
+
+```csharp
+using Microsoft.Identity.Client; //MSAL library for getting the access token
+using Azure.Storage.Blobs;
+using Azure.Storage.Common;
+```
+
+# [.NET v11 SDK](#tab/dotnet11)
+
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Azure.Storage.Common
@@ -136,9 +153,16 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
+---
+
 #### Create a block blob
 
 Add the following code snippet to create a block blob:
+
+# [.NET v12 SDK](#tab/dotnet)
+
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 private static async Task<string> CreateBlob(string accessToken)
@@ -156,6 +180,8 @@ private static async Task<string> CreateBlob(string accessToken)
     return "Blob successfully created";
 }
 ```
+
+---
 
 > [!NOTE]
 > To authorize blob and queue operations with an OAuth 2.0 token, you must use HTTPS.
