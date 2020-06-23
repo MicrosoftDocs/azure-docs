@@ -23,6 +23,16 @@ The following diagram summarizes the categories of solution architectures that A
 
 ![Solution architecture categories](../media/azure-netapp-files/solution-architecture-categories.png)
 
+## Linux OSS Apps and Database solutions
+
+This section provides references for solutions for Linux OSS applications and databases. 
+
+### Oracle
+
+* [Oracle on Azure deployment best practice guide using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
+* [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
+
 ## Windows Apps and SQL Server solutions
 
 This section provides references for Windows applications and SQL Server solutions.
@@ -35,16 +45,6 @@ This section provides references for Windows applications and SQL Server solutio
 
 * [Deploy SQL Server Over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
 * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
-
-## Linux OSS Apps and Database solutions
-
-This section provides references for solutions for Linux OSS applications and databases. 
-
-### Oracle
-
-* [Oracle on Azure deployment best practice guide using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
-* [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
-* [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
 
 ## SAP on Azure solutions
 
@@ -111,7 +111,6 @@ This section provides solutions for Azure platform services.
 
 ### Azure Kubernetes Services and Kubernetes
 
-* [Azure NetApp Files integration with Azure Kubernetes Services](https://github.com/Azure/kubernetes-volume-drivers/tree/master/nfs)
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/azure-netapp-files)
 * [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Trident - Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
