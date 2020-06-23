@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/16/2020
+ms.date: 06/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -111,6 +111,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 06/22/2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
 - 06/16/2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) to add a link to SUSE Public Cloud Infrastructure 101 documentation 
 - 06/10/2020: Adding new HLI SKUs into [Available SKUs for HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) and [SAP HANA (Large Instances) storage architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture)
 - 05/21/2020: Change in [Setting up Pacemaker on SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) and [Setting up Pacemaker on RHEL in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to add a link to [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  

@@ -2,11 +2,11 @@
 title: GitHub Actions workflows for Azure Static Web Apps
 description: Learn how to use GitHub repositories to set up continuous deployment to Azure Static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: cshoe
 ---
 
 # GitHub Actions workflows for Azure Static Web Apps Preview

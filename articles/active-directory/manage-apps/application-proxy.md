@@ -66,3 +66,4 @@ The following diagram shows how Azure AD and Application Proxy work together to 
 
 ## Next steps
 To start using Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md).
+

@@ -37,6 +37,8 @@
     href: ../../api-management/security-baseline.md
   - name: Application Gateway security baseline
     href: ../../application-gateway/security-baseline.md
+  - name: Automation security baseline
+    href: ../../automation/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
   - name: Backup security baseline
@@ -51,24 +53,32 @@
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
     href: ../fundamentals/customer-lockbox-security-baseline.md  
+  - name: Databox security baseline
+    href: ../../databox/security-baseline.md
   - name: Data Explorer security baseline
     href: /azure/data-explorer/security-baseline
   - name: Data Factory security baseline
-    href: /azure/data-factory/security-baseline
+    href: ../../data-factory/security-baseline.md
   - name: Databricks security baseline
     href: ../../azure-databricks/security-baseline.md
   - name: Event Hubs security baseline
     href: ../../event-hubs/security-baseline.md
+  - name: ExpressRoute security baseline
+    href: ../../expressroute/security-baseline.md
   - name: Functions security baseline
     href: ../../azure-functions/security-baseline.md
   - name: HDInsight security baseline
     href: ../../hdinsight/security-baseline.md
   - name: Key Vault security baseline
     href: ../../key-vault/security-baseline.md
+  - name: Logic Apps security baseline
+    href: ../../logic-apps/security-baseline.md
   - name: MariaDB security baseline
     href: ../../mariadb/security-baseline.md
   - name: MySQL security baseline
     href: ../../mysql/security-baseline.md
+  - name: Network Watcher security baseline
+    href: ../../network-watcher/security-baseline.md
   - name: PostgreSQL security baseline
     href: ../../postgresql/security-baseline.md
   - name: SQL Database security baseline

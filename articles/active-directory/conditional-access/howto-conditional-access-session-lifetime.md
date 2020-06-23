@@ -5,7 +5,7 @@ description: Customize Azure AD authentication session configuration including u
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 
 ms.author: joflore

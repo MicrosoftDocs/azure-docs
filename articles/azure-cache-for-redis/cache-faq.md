@@ -283,7 +283,7 @@ Redis server does not natively support TLS, but Azure Cache for Redis does. If y
 >
 >
 
-Redis tools such as `redis-cli` do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+Redis tools such as `redis-cli` do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) blog post.
 
 For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 

@@ -32,7 +32,7 @@ Performs an And operation of two boolean inputClaims and sets the outputClaim wi
 
 The following claims transformation demonstrates how to And two boolean ClaimTypes: `isEmailNotExist`, and `isSocialAccount`. The output claim `presentEmailSelfAsserted` is set to `true` if the value of both input claims are `true`. In an orchestration step, you can use a precondition to preset a self-asserted page, only if a social account email is empty.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -68,7 +68,7 @@ The **AssertBooleanClaimIsEqualToValue** claims transformation is always execute
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `accountEnabled` ClaimType is false, an error message is thrown.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -82,7 +82,7 @@ The following claims transformation demonstrates how to check the value of a boo
 
 The `login-NonInteractive` validation technical profile calls the `AssertAccountEnabledIsTrue` claims transformation.
 
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -93,7 +93,7 @@ The `login-NonInteractive` validation technical profile calls the `AssertAccount
 
 The self-asserted technical profile calls the validation **login-NonInteractive** technical profile.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -123,7 +123,7 @@ Checks that boolean value of a claim is equal to `true` or `false`, and return t
 
 The following claims transformation demonstrates how to check the value of a boolean ClaimType with a `true` value. If the value of the `IsAgeOver21Years` ClaimType is equal to `true`, the claims transformation returns `true`, otherwise `false`.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -157,7 +157,7 @@ Performs a Not operation of the boolean inputClaim and sets the outputClaim with
 
 Use this claim transformation to perform logical negation on a claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -187,7 +187,7 @@ Computes an Or of two boolean inputClaims and sets the outputClaim with result o
 
 The following claims transformation demonstrates how to `Or` two boolean ClaimTypes. In the orchestration step, you can use a precondition to preset a self-asserted page, if the value of one of the claims is `true`.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
