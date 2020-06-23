@@ -18,7 +18,7 @@ This article will outline the proper procedures for backing up and restoring Act
 
 - Make sure at least one domain controller is backed up. If you back up more than one domain controller, make sure all the ones holding the [FSMO (Flexible Single Master Operation) roles](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) are backed up.
 
-- Back up Active Directory frequently. In no case should the backup be more than 60 days old, because objects older than 60 days will be "tombstoned" and no longer considered valid.
+- Back up Active Directory frequently. The backup should never be more than 60 days old, because objects older than 60 days will be "tombstoned" and no longer considered valid.
 
 - Have a clear disaster recovery plan that includes instructions on how to restore your domain controllers. To prepare for restoring an Active Directory forest, read the [Active Directory Forest Recovery Guide](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 
@@ -39,6 +39,9 @@ To back up an on-premises domain controller, you need to back up the server's Sy
 
 - If you're using MARS, follow [these instructions](backup-azure-system-state.md).
 - If you're using MABS (Azure Backup Server), follow [these instructions](backup-mabs-system-state-and-bmr.md).
+
+>[!NOTE]
+> Restoring on-premises domain controllers (either from system state or from VMs) to the Azure cloud is not supported. If you would like the option of failover from an on-premises Active Directory environment to Azure, consider using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
 ## Restoring Azure VM domain controllers
 
