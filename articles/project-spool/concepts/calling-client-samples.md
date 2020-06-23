@@ -53,7 +53,7 @@ CallClientFactory.create(userToken, completionHandler: { (callClient, error) -> 
 }));
 
 ```
-For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return a Task<AdHocCallClient>.
+For .NET, you must pass a raw token string to the CallClientFactory.Create method which will asynchronously return an AdHocCallClient Task.
     
 #### [.NET](#tab/dotnet)
 ```.NET
@@ -92,7 +92,7 @@ let oneToOneCall = self.CallingApp.adHocCallClient.callWithParticipants(particip
 ```
 #### [.NET](#tab/dotnet)
 ```.NET
-var options = new PlaceCallOptions();
+var options = new CallOptions();
 call = callClient.Call(new[] { callee }, options);
 ```
 ---
