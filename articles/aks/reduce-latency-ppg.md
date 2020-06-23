@@ -121,6 +121,7 @@ az aks nodepool add \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
+    --node-count 1 \
     --ppg myPPGResourceID
 ```
 
