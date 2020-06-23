@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 03/12/2020
+ms.date: 06/08/2020
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage
@@ -139,7 +139,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    ![Let's get started page](./media/doc-common-process/get-started-page.png)
 
-1. On the **General** tab at the bottom of the **Properties** window, for **Name**, enter **SQLServerToBlobPipeline**.
+1. In the General panel under **Properties**, specify **SQLServerToBlobPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand **Move & Transform**. Drag and drop the **Copy** activity to the pipeline design surface. Set the name of the activity to **CopySqlServerToAzureBlobActivity**.
 

@@ -59,8 +59,6 @@
       href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
-    - name: Request increase for CPU core quota
-      href: ./quota-increase-request.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
     - name: Availability and reliability
@@ -221,10 +219,6 @@
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VSCode
         href: ./hdinsight-for-vscode.md
-      - name: HDInsight Tools for IntelliJ with Hortonworks Sandbox
-        href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-      - name: Data Lake Tools with Hortonworks Sandbox
-        href: ./hdinsight-hadoop-emulator-visual-studio.md
     - name: Monitoring
       items:
       - name: Use Azure Monitor logs
@@ -239,6 +233,8 @@
         href: ./cluster-availability-monitor-logs.md
     - name: Troubleshoot
       items:
+      - name: Request increase for CPU core quota
+        href: ./quota-increase-request.md
       - name: Troubleshoot script actions
         href: ./troubleshoot-script-action.md
       - name: Resource creation failures
@@ -414,7 +410,7 @@
         items: 
         - name: Use with Data Lake Storage
           href: ./spark/apache-spark-use-with-data-lake-store.md
-        - name: Connect to Azure SQL database
+        - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../cosmos-db/lambda-architecture.md

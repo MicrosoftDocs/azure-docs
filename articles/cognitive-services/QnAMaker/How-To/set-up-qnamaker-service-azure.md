@@ -54,9 +54,9 @@ This procedure creates the Azure resources needed to manage the knowledge base c
     The resource with the _Cognitive Services_ type has your _subscription_ keys.
 
 
-## Find subscription keys in the Azure portal
+## Find authoring keys in the Azure portal
 
-You can view and reset your subscription keys from the Azure portal, where you created the QnA Maker resource.
+You can view and reset your authoring keys from the Azure portal, where you created the QnA Maker resource. These keys may be referred to as subscription keys. 
 
 1. Go to the QnA Maker resource in the Azure portal and select the resource that has the _Cognitive Services_ type:
 
@@ -66,7 +66,7 @@ You can view and reset your subscription keys from the Azure portal, where you c
 
     ![Subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## Find endpoint keys in the QnA Maker portal
+## Find query endpoint keys in the QnA Maker portal
 
 The endpoint is in the same region as the resource because the endpoint keys are used to make a call to the knowledge base.
 
@@ -204,6 +204,11 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 1. You are asked if you want to restart the app to use the new setting. Select **Continue**.
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
+## Configure App Service Environment to host Qna Maker App Service
+The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
+1. Create an app service and an azure search service.
+2. Expose the app service on a public DNS and whitelist QnA Maker service tag: CognitiveServicesManagement, or keep it internet facing.
+3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment. 
 
 ## Business continuity with traffic manager
 

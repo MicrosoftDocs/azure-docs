@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019,fasttrack-edit"
 ms.topic: article
 ms.date: 02/20/2020
 ---
@@ -116,7 +116,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for an Azure SQL Database managed instance server named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
+The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
@@ -185,7 +185,7 @@ $backupFileShare = New-AzDmsFileShare -Path $backupFileSharePath -Credential $ba
 
 The next step is to select the source and target databases by using the `New-AzDmsSelectedDB` cmdlet.
 
-The following example is for migrating a single database from SQL Server to an Azure SQL Database managed instance:
+The following example is for migrating a single database from SQL Server to a Azure SQL Managed Instance:
 
 ```powershell
 $selectedDbs = @()
@@ -195,7 +195,7 @@ $selectedDbs += New-AzDmsSelectedDB -MigrateSqlServerSqlDbMi `
   -BackupFileShare $backupFileShare `
 ```
 
-If an entire SQL Server instance needs a lift-and-shift into an Azure SQL Database managed instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
+If an entire SQL Server instance needs a lift-and-shift into a Azure SQL Managed Instance, then a loop to take all databases from the source is provided below. In the following example, for $Server, $SourceUserName, and $SourcePassword, provide your source SQL Server details.
 
 ```powershell
 $Query = "(select name as Database_Name from master.sys.databases where Database_id>4)";
@@ -221,6 +221,9 @@ Create variable containing the SAS URI that provides the Azure Database Migratio
 ```powershell
 $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
 ```
+
+> [!NOTE]
+> Azure Database Migration Service does not support using an account level SAS token. You must use a SAS URI for the storage account container. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
 
 ### Additional configuration requirements
 
@@ -277,13 +280,13 @@ Use the `New-AzDataMigrationTask` cmdlet to create and start a migration task.
 
 Regardless of whether you're performing an offline or online migration, the `New-AzDataMigrationTask` cmdlet expects the following parameters:
 
-* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Database Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
+* *TaskType*. Type of migration task to create for SQL Server to Azure SQL Managed Instance migration type *MigrateSqlServerSqlDbMi* is expected. 
 * *Resource Group Name*. Name of Azure resource group in which to create the task.
 * *ServiceName*. Azure Database Migration Service instance in which to create the task.
 * *ProjectName*. Name of Azure Database Migration Service project in which to create the task. 
 * *TaskName*. Name of task to be created. 
 * *SourceConnection*. AzDmsConnInfo object representing source SQL Server connection.
-* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Database Managed Instance connection.
+* *TargetConnection*. AzDmsConnInfo object representing target Azure SQL Managed Instance connection.
 * *SourceCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to source server.
 * *TargetCred*. [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) object for connecting to target server.
 * *SelectedDatabase*. AzDataMigrationSelectedDB object representing the source and target database mapping.
@@ -389,7 +392,7 @@ To monitor the migration, perform the following tasks.
 
 With an online migration, a full backup and restore of databases is performed, and then work proceeds on restoring the Transaction Logs stored in the BackupFileShare.
 
-When the database in an Azure SQL Database managed instance is updated with latest data and is in sync with the source database, you can perform a cutover.
+When the database in a Azure SQL Managed Instance is updated with latest data and is in sync with the source database, you can perform a cutover.
 
 The following example will complete the cutover\migration. Users invoke this command at their discretion.
 

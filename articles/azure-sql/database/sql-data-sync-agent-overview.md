@@ -38,7 +38,7 @@ To install the Data Sync Agent silently from the command prompt, enter a command
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
-## Sync data with SQL Server on-premises
+## Sync data with a SQL Server database
 
 To configure the Data Sync Agent so you can sync data with one or more SQL Server databases, see [Add a SQL Server database](sql-data-sync-sql-server-configure.md#add-on-prem).
 
@@ -315,7 +315,7 @@ For more info about SQL Data Sync, see the following articles:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

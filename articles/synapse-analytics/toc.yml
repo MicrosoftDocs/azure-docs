@@ -36,6 +36,8 @@
     items:
     - name: COPY statement
       href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: COPY statement examples
+      href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Studio
       href: quickstart-load-studio-sql-pool.md
   - name: Use SQL on-demand
@@ -104,6 +106,8 @@
         href: ./spark/apache-spark-history-server.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Network Security
       items: 
       - name: Synapse workspace IP firewall rules
@@ -140,20 +144,20 @@
         href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: TDE with bring your own key
         href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Advanced Data Security
-      items:
-      - name: SQL pool
-        items:
-        - name: Overview
-          href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Data discovery & classification
-          href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Vulnerability assessment
-          href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Advanced Threat Protection
-          href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Auditing
-          href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    # - name: Advanced Data Security
+    #   items:
+    #   - name: SQL pool
+    #     items:
+    #     - name: Overview
+    #       href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    #     - name: Data discovery & classification
+    #       href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    #     - name: Vulnerability assessment
+    #       href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    #     - name: Advanced Threat Protection
+    #       href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    #     - name: Auditing
+    #       href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Integration and orchestration
     items:
     - name: Pipeline and activity
@@ -237,7 +241,7 @@
     - name: Data loading
       items:
       - name: Overview
-        href: sql/data-loading-overview.md
+        href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Best practices
         href: sql/data-loading-best-practices.md
       - name: Columnstore compression
@@ -430,6 +434,8 @@
          href: data-integration/data-integration-data-lake.md
   - name: Transform & analyze data
     items:
+    - name: Analyze arrays and nested structures
+      href: how-to-analyze-complex-schema.md
     - name: Synapse Link
       items:
       - name: Configure Synapse Link
@@ -548,7 +554,7 @@
         href: ../data-factory/connector-azure-search.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Database
         href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Azure SQL Database Managed Instance
+      - name: Azure SQL Managed Instance
         href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Azure SQL Data Warehouse
         href: ../data-factory/connector-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -558,6 +564,8 @@
         href: ../data-factory/format-binary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Cassandra
         href: ../data-factory/connector-cassandra.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Common Data Model format
+        href: ../data-factory/format-common-data-model.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Common Data Service for Apps
         href: ../data-factory/connector-dynamics-crm-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Concur
@@ -580,6 +588,8 @@
         href: ../data-factory/connector-file-system.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: FTP
         href: ../data-factory/connector-ftp.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: GitHub
+        href: ../data-factory/connector-github.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google AdWords
         href: ../data-factory/connector-google-adwords.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Google BigQuery
@@ -612,6 +622,8 @@
         href: ../data-factory/connector-mariadb.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Marketo
         href: ../data-factory/connector-marketo.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Microsoft 365
+        href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Microsoft Access
         href: ../data-factory/connector-microsoft-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: MongoDB
@@ -627,8 +639,6 @@
         href: ../data-factory/connector-odata.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: ODBC
         href: ../data-factory/connector-odbc.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Office 365
-        href: ../data-factory/connector-office-365.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Oracle
         href: ../data-factory/connector-oracle.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Oracle Eloqua

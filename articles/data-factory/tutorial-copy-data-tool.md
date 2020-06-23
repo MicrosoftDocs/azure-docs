@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
+ms.date: 06/08/2020
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -151,11 +151,13 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
     ![Column mapping page](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. On the **Settings** page, select **Next**.
-1. On the **Summary** page, review the settings, and then select **Next**.
-1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
- 
-    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. On the **Summary** page, review the settings, and then select **Next**.
+
+1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
+
+    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
     ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -163,9 +165,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Verify that the data is inserted into the **dbo.emp** table in your SQL Database.
-
 
 1. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 

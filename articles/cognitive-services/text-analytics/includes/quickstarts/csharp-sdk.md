@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -39,7 +39,8 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 #### [Version 3.0](#tab/version-3)
 
-Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.TextAnalytics`. Select version `1.0.0-preview.5`, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `1.0.0`, and then **Install**. You can also use the [Package Manager Console](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
+
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it [on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/TextAnalytics/program.cs), which contains the code examples in this quickstart. 
@@ -161,7 +162,6 @@ static void SentimentAnalysisExample(TextAnalyticsClient client)
     DocumentSentiment documentSentiment = client.AnalyzeSentiment(inputText);
     Console.WriteLine($"Document sentiment: {documentSentiment.Sentiment}\n");
 
-    var si = new StringInfo(inputText);
     foreach (var sentence in documentSentiment.Sentences)
     {
         Console.WriteLine($"\tText: \"{sentence.Text}\"");

@@ -5,7 +5,7 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
@@ -39,7 +39,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -67,7 +67,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -95,7 +95,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
     )
@@ -123,7 +123,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-quoted/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -156,7 +156,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-escape/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -169,11 +169,42 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
+
+### Escaping Quoting characters
+
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
+
+File preview:
+
+![The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 ## Tab-delimited files
 
@@ -188,7 +219,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-tsv/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -219,7 +250,7 @@ SELECT
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )

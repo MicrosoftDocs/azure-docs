@@ -205,7 +205,7 @@ tools analyze source code or compiled versions of code when the code is
 not executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional
-(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
+(a [penetration tester](../fundamentals/pen-testing.md) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don't introduce obvious security issues into your code. See the [OWASP](https://owasp.org/www-community/Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 

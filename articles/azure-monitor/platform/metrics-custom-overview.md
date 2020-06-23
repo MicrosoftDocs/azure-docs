@@ -5,8 +5,7 @@ author: ancav
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/23/2020
-
+ms.date: 06/01/2020
 ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor (Preview)
@@ -25,9 +24,9 @@ Custom metrics can be sent to Azure Monitor via several methods:
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
 - Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## Pricing model and rentention
+## Pricing model and retention
 
-Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incurr costs when they enter general availability. Metric API queries do incurr costs.
+Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details on when billing will be enabled for custom metrics and metrics queries. Specific price details for all metrics, including custom metrics and metric queries are available on this page. In summary, there is no cost to ingest standard metrics (platform metrics) into Azure Monitor metrics store, but custom metrics will incur costs when they enter general availability. Metric API queries do incur costs.
 
 Custom metrics are retained for the [same amount of time as platform metrics](data-platform-metrics.md#retention-of-metrics). 
 
@@ -73,7 +72,7 @@ Namespaces are a way to categorize or group similar metrics together. By using n
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.
 
 ### Dimension keys
-A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory specific processes use or to identify the top five processes by memory usage.
+A dimension is a key or value pair that helps describe additional characteristics about the metric being collected. By using the additional characteristics, you can collect more information about the metric, which allows for deeper insights. For example, the **Memory Bytes In Use** metric might have a dimension key called **Process** that captures how many bytes of memory each process on a VM consumes. By using this key, you can filter the metric to see how much memory-specific processes use or to identify the top five processes by memory usage.
 Dimensions are optional, not all metrics may have dimensions. A custom metric can have up to 10 dimensions.
 
 ### Dimension values
@@ -191,6 +190,7 @@ During the public preview, the ability to publish custom metrics is available on
 |Central US      | https:\//centralus.monitoring.azure.com |
 |Canada Central | https:\//canadacentral.monitoring.azure.comc
 |East US| https:\//eastus.monitoring.azure.com/ |
+|East US 2 | https:\//eastus2.monitoring.azure.com/
 | **Europe** | |
 |North Europe    | https:\//northeurope.monitoring.azure.com/ |
 |West Europe     | https:\//westeurope.monitoring.azure.com/ |

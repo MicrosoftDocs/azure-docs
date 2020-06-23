@@ -30,7 +30,7 @@ To move data to/from a data store that Data Factory does not support, or to tran
 
 See following articles if you are new to Azure Batch service:
 
-* [Azure Batch basics](../azure-sql/database/sql-database-paas-overview.md) for an overview of the Azure Batch service.
+* [Azure Batch basics](../batch/batch-technical-overview.md) for an overview of the Azure Batch service.
 * [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet to create an Azure Batch account (or) [Azure portal](../batch/batch-account-create-portal.md) to create the Azure Batch account using Azure portal. See [Using PowerShell to manage Azure Batch Account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) article for detailed instructions on using the cmdlet.
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 

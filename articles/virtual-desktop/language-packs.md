@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
@@ -84,13 +84,13 @@ To sysprep your machine:
 
 1. Open PowerShell as an Administrator.
 2. Run the following cmdlet to go to the correct directory:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Next, run the following cmdlet:
-    
+
     ```powershell
     .\sysprep.exe
     ```

@@ -46,8 +46,12 @@
           href: data-box-system-requirements-rest.md
       - name: Understand limits
         href: data-box-limits.md
-      - name: Review security 
-        href: data-box-security.md 
+      - name: Security
+        items:
+        - name: Security baseline
+          href: security-baseline.md
+        - name: Review security 
+          href: data-box-security.md 
       - name: FAQ
         href: data-box-faq.md 
     - name: How to
@@ -197,14 +201,18 @@
           href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
         - name: From HDFS store
           href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+  - name: Reference
+    items:
+    - name: Azure CLI
+      href: /cli/azure/ext/databox/databox
   - name: Resources
     items:
     - name: Data Box product
       href: https://azure.microsoft.com/services/storage/databox/data/
     - name: Data Box pricing
-      href: https://azure.microsoft.com/pricing/details/storage/databox/
+      href: https://azure.microsoft.com/pricing/details/databox/
     - name: Data Box Disk pricing
-      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
+      href: https://azure.microsoft.com/pricing/details/databox/disk/
 
 
 

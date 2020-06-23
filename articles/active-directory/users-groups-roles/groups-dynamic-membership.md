@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
@@ -31,7 +31,7 @@ When any attributes of a user or device change, the system evaluates all dynamic
 
 ## Rule builder in the Azure portal
 
-Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction of up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
 Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 

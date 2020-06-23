@@ -138,7 +138,7 @@ To create a failover group, you need RBAC write access to both the primary and s
 
 ### Update a failover group
 
-To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed Instance.  
+To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
 
 ### Fail over a failover group
 
@@ -224,9 +224,9 @@ If your application uses SQL Managed Instance as the data tier, follow these gen
 To ensure non-interrupted connectivity to the primary SQL Managed Instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary SQL Managed Instance in a different region and make sure it shares the DNS zone with the primary SQL Managed Instance. You can do it by specifying the optional `DNS Zone Partner` parameter using the Azure portal, PowerShell, or the REST API.
 
 > [!IMPORTANT]
-> The first SQL Managed Instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
+> The first managed instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
-For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-sql-managed-instance).
+For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
 
 ### Enabling replication traffic between two instances
 
@@ -300,6 +300,15 @@ Let's assume instance A is the primary instance, instance B is the existing seco
 
 > [!IMPORTANT]
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or server alias with the same name, which will prevent you from using it again. To minimize the risk, don't use generic failover group names.
+
+### Enable scenarios dependent on objects from the system databases
+System databases are not replicated to the secondary instance in a failover group. To enable scenarios that depend on objects from the system databases, on the secondary instance, make sure to create the same objects on the secondary. 
+For example, if you plan to use the same logins on the secondary instance, make sure to create them with the identical SID. 
+```SQL
+-- Code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
+``` 
+
 
 ## Failover groups and network security
 
@@ -381,6 +390,7 @@ Be aware of the following limitations:
 - Failover groups cannot be created between two servers or instances in the same Azure regions.
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for instances in failover group. You will need to temporarily delete failover group to be able to rename a database.
+- System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases will be impossible on the secondary instance unless the objects are manually created on the secondary.
 
 ## Programmatically managing failover groups
 

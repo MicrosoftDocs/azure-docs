@@ -34,24 +34,24 @@ This article explains how to add an R package to Azure SQL Database Machine Lear
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your Azure SQL database.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in Azure SQL Database.
 You can see a list of installed R packages by running the following command in Azure Data Studio or SSMS.
 
 1. Open Azure Data Studio or SSMS and connect to your Azure SQL Database.
 
 1. Run the following command:
 
-```sql
-EXECUTE sp_execute_external_script @language = N'R'
+    ```sql
+    EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License")]);'
-WITH RESULT SETS((
-            Package NVARCHAR(255)
-            , Version NVARCHAR(100)
-            , Depends NVARCHAR(4000)
-            , License NVARCHAR(1000)
-            ));
-```
+    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License")]);'
+    WITH RESULT SETS((
+                Package NVARCHAR(255)
+                , Version NVARCHAR(100)
+                , Depends NVARCHAR(4000)
+                , License NVARCHAR(1000)
+                ));
+    ```
 
 The output should look similar to the following.
 
@@ -161,7 +161,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Another way to install an R package to your Azure SQL database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
+> Another way to install an R package to Azure SQL Database is to upload the R package from a byte stream using the **CREATE EXTERNAL LIBRARY** T-SQL statement. See [Create a library from a byte stream](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) in the [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) reference documentation.
 
 ## Next steps
 

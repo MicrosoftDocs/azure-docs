@@ -1,10 +1,9 @@
 ---
-title: Configure an availability group (Azure CLI)
+title: Configure an availability group by using the Azure CLI
 description: "Use the Azure CLI to create the Windows failover cluster, the availability group listener, and the internal load balancer on a SQL Server VM in Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 
@@ -17,7 +16,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Use the Azure CLI to configure an Always On availability group for SQL Server on an Azure VM
+# Use the Azure CLI to configure an Always On availability group for SQL Server on Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. Deployment of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
@@ -34,7 +33,7 @@ To automate the setup of an Always On availability group by using the Azure CLI,
 You need the following account permissions to configure the Always On availability group by using the Azure CLI: 
 
 - An existing domain user account that has **Create Computer Object** permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
-- The domain user account that controls the SQL Server service. 
+- The domain user account that controls SQL Server. 
  
 ## Step 1: Create a storage account as a cloud witness
 The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 

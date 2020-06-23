@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 03/03/2020
+ms.date: 06/10/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,7 +22,7 @@ For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 
-You can set the service tier, compute size, and storage amount using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), the [Azure CLI](elastic-pool-manage.md#azure-cli), or the [REST API](elastic-pool-manage.md#rest-api).
+You can set the service tier, compute size (service objective), and storage amount using the [Azure portal](elastic-pool-manage.md#azure-portal), [PowerShell](elastic-pool-manage.md#powershell), the [Azure CLI](elastic-pool-manage.md#azure-cli), or the [REST API](elastic-pool-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](elastic-pool-scale.md).
@@ -34,7 +34,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### General purpose service tier: Generation 4 compute platform (part 1)
 
-|Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Compute size (service objective)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -66,7 +66,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### General purpose service tier: Generation 4 compute platform (part 2)
 
-|Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Compute size (service objective)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -100,7 +100,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### General purpose service tier: Generation 5 compute platform (part 1)
 
-|Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Compute size (service objective)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -132,7 +132,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### General purpose service tier: Generation 5 compute platform (part 2)
 
-|Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Compute size (service objective)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -145,7 +145,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|32,000|
+|Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
 |Max log rate per pool (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
@@ -166,7 +166,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### Fsv2-series compute generation (preview)
 
-|Compute size|GP_Fsv2_72|
+|Compute size (service objective)|GP_Fsv2_72|
 |:--- | --: |
 |Compute generation|Fsv2-series|
 |vCores|72|
@@ -203,7 +203,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### Business critical service tier: Generation 4 compute platform (part 1)
 
-|Compute size|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Compute size (service objective)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|2|3|4|5|6|
@@ -235,7 +235,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### Business critical service tier: Generation 4 compute platform (part 2)
 
-|Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Compute size (service objective)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -269,7 +269,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### Business critical service tier: Generation 5 compute platform (part 1)
 
-|Compute size|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Compute size (service objective)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|4|6|8|10|12|14|
@@ -301,7 +301,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### Business critical service tier: Generation 5 compute platform (part 2)
 
-|Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Compute size (service objective)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -335,7 +335,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### M-series compute generation (preview)
 
-|Compute size|BC_M_128|
+|Compute size (service objective)|BC_M_128|
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|
@@ -372,7 +372,7 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 The following table describes the properties for pooled databases.
 
 > [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
+> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size (service objective). For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 | Property | Description |
 |:--- |:--- |

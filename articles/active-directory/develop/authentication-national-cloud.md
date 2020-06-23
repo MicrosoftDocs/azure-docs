@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
-ms.custom: aaddev
+ms.custom: aaddev,references_regions
 ---
 
 # National clouds

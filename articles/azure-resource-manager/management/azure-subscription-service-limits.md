@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
+ms.date: 06/04/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -121,6 +121,8 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 ## Azure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
 
 ## Azure Kubernetes Service limits
 
