@@ -46,8 +46,9 @@ The following rules apply:
 - Several patterns can appear in the same directory step or file name.
 - If there are multiple wildcards, then files within all matching paths will be included in the resulting file set.
 
-```
-N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
+```sql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.parquet', TYPE = 'PARQUET' ) as rows
 ```
 
 Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
@@ -72,17 +73,15 @@ Review the [Query Parquet files](query-parquet-files.md) article for usage examp
 
 ## Query CSV files
 
-These additional parameters are introduced for working with CSV (delimited text) files:
+You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
 
-```syntaxsql
-<bulk_options> ::=
-...
-[ , FIELDTERMINATOR = 'char' ]
-[ , ROWTERMINATOR = 'char' ]
-[ , ESCAPE_CHAR = 'char' ]
-...
+```sql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv', TYPE = 'CSV') 
+WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 ```
 
+There are some additional options that can be used to adjust parsing rules to custom CSv format:
 - ESCAPE_CHAR = 'char'
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
 The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
@@ -116,13 +115,13 @@ By omitting the WITH clause from OPENROWSET statement, you can instruct the serv
 > This currently works only for PARQUET file format.
 
 ```sql
-OPENROWSET(
-BULK N'path_to_file(s)', FORMAT='PARQUET');
+SELECT * FROM
+OPENROWSET(BULK N'path_to_file(s)', FORMAT='PARQUET') AS rows;
 ```
 
 Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
 
-## file metadata functions
+## File metadata functions
 
 ### Filename function
 
