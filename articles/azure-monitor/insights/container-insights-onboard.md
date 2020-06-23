@@ -16,10 +16,10 @@ This article provides an overview of the options that are available for setting 
 - An [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
 
 You can also monitor the performance of workloads that are deployed to self-managed Kubernetes clusters hosted on:
-- Azure by using the [AKS engine](https://github.com/Azure/aks-engine)
-- [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises by using the AKS engine.
+- Azure, by using the [AKS engine](https://github.com/Azure/aks-engine)
+- [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises, by using the AKS engine.
 
-You can enable Azure Monitor for containers for a new deployment or for one or more existing deployments of Kubernetes by using the following supported methods:
+You can enable Azure Monitor for containers for a new deployment or for one or more existing deployments of Kubernetes by using any of the following supported methods:
 
 - The Azure portal
 - Azure PowerShell
@@ -34,9 +34,9 @@ Before you start, make sure that you've met the following requirements:
 
 - You have a Log Analytics workspace.
 
-   Azure Monitor for containers supports a Log Analytics workspace in the regions that are listed in Azure [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Azure Monitor for containers supports a Log Analytics workspace in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
-   You can create a workspace when you enable monitoring for your new AKS cluster or you let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
+   You can create a workspace when you enable monitoring for your new AKS cluster, or you can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
    
    If you choose to create the workspace yourself, you can create it through: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
@@ -51,14 +51,14 @@ Before you start, make sure that you've met the following requirements:
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- Prometheus metrics are not collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it is important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
+- Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
 ## Supported configurations
 
 Azure Monitor for containers officially supports the following configurations:
 
 - Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and the AKS engine on Azure and Azure Stack. For more information, see [the AKS engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
+- The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## Network firewall requirements
 
@@ -72,7 +72,7 @@ The following table lists the proxy and firewall configuration information that'
 | `*.monitoring.azure.com` | 443 |
 | `login.microsoftonline.com` | 443 |
 
-The following table lists the proxy and firewall configuration information for Azure China 21Vianet.
+The following table lists the proxy and firewall configuration information for Azure China 21Vianet:
 
 |Agent resource|Port |Description | 
 |--------------|------|-------------|
@@ -80,7 +80,7 @@ The following table lists the proxy and firewall configuration information for A
 | `*.oms.opinsights.azure.cn` | 443 | OMS onboarding |
 | `dc.services.visualstudio.com` | 443 | For agent telemetry that uses Azure Public Cloud Application Insights |
 
-The following table lists the proxy and firewall configuration information for Azure US Government.
+The following table lists the proxy and firewall configuration information for Azure US Government:
 
 |Agent resource|Port |Description | 
 |--------------|------|-------------|
@@ -95,10 +95,10 @@ Your ability to monitor performance relies on a containerized Log Analytics agen
 The  agent version is microsoft/oms:ciprod04202018 or later, and it's represented by a date in the following format: *mmddyyyy*.
 
 >[!NOTE]
->With the preview release of Windows Server support for AKS, an AKS cluster with Windows Server nodes don't have an installed agent for collecting data and forwarding it to Azure Monitor. Instead, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf of all Windows nodes in the cluster.  
+>With the preview release of Windows Server support for AKS, an AKS cluster with Windows Server nodes doesn't have an installed agent for collecting data and forwarding it to Azure Monitor. Instead, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf of all Windows nodes in the cluster.  
 >
 
-When a new version of the agent is released, it is automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
+When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 
 > [!NOTE]
 > If you've already deployed an AKS cluster, you've enabled monitoring by using either the Azure CLI or a provided Azure Resource Manager template, as demonstrated later in this article. You can't use `kubectl` to upgrade, delete, redeploy, or deploy the agent.
@@ -115,10 +115,10 @@ To enable Azure Monitor for containers, use one of the methods that's described 
 | | [Create an OpenShift cluster by using the Azure CLI](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | You can enable monitoring when you deploy a new OpenShift cluster by using the Azure CLI. |
 | Existing Kubernetes cluster | [Enable monitoring of an AKS cluster by using the Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring for an AKS cluster that's already deployed by using the Azure CLI. |
 | |[Enable for AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring for an AKS cluster that's already deployed by using the open-source tool Terraform. |
-| | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring for one or more AKS clusters already deployed from the multi-cluster page in Azure Monitor. |
+| | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring for one or more AKS clusters that are already deployed from the multi-cluster page in Azure Monitor. |
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |
 | | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring for an AKS cluster by using a preconfigured Azure Resource Manager template. |
-| | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring for the AKS engine that's hosted in Azure Stack or for a Kubernetes cluster that's hosted on-premises. |
+| | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring for the AKS engine that's hosted on Azure Stack or for a Kubernetes cluster that's hosted on-premises. |
 | | [Enable for Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md). | You can enable monitoring for your Kubernetes clusters that are hosted outside of Azure and enabled with Azure Arc. |
 | | [Enable for OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | You can enable monitoring for an existing OpenShift cluster by using a preconfigured Azure Resource Manager template. |
 | | [Enable for OpenShift cluster from Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | You can enable monitoring for one or more OpenShift clusters that are already deployed from the multicluster page in Azure Monitor. |
