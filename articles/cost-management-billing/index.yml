@@ -202,8 +202,6 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What are Azure reservations?
-        url: reservations/save-compute-costs-reservations.md
       - text: Choose a reservation to purchase
         url: reservations/determine-reservation-purchase.md
       - text: Reservation exchanges and refunds

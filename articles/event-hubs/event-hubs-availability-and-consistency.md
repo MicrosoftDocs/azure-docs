@@ -3,7 +3,7 @@ title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 editor: ''
 
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2020
-ms.author: shvija
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
 
 ---
 
