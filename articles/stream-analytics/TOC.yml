@@ -228,6 +228,8 @@
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
       href: visual-studio-code-local-run-live-input.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram-vs-code.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs
