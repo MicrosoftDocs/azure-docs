@@ -58,6 +58,14 @@ Please ensure all unsafe and reserved characters are encoded in a URL. For examp
 
 Unsafe characters are ``" ` < > # % { } | \ ^ ~ [ ]``. Reserved characters are `; / ? : @ = + &`.
 
+### Querying for special characters
+
+In some circumstances, you may want to search for a special character, like the '❤' emoji or the '€' sign. In those case, make sure that the analyzer you use does not filter those characters out.  The standard analyzer ignores many of the special characters so they would not become tokens in your index.
+
+So the first step is to make sure you use an analyzer that will consider those elements tokens. For instance, the "whitespace" analyzer takes into consideration any character sequences separated by whitespaces as tokens, so the "❤" string would be considered a token. Also, an analyzer like the Microsoft English analyzer ("en.microsoft"), would take into consideration the "€" string as a token. You can [test an analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see what tokens it generates for a given query.
+
+When using Unicode characters, make sure symbols are properly escaped in the query url (for instance for "❤" would use the escape sequence `%E2%9D%A4+`). Postman does this translation automatically.
+
 ###  <a name="bkmk_querysizelimits"></a> Query size limits
 
  There is a limit to the size of queries that you can send to Azure Cognitive Search. Specifically, you can have at most 1024 clauses (expressions separated by AND, OR, and so on). There is also a limit of approximately 32 KB on the size of any individual term in a query. If your application generates search queries programmatically, we recommend designing it in such a way that it does not generate queries of unbounded size.  

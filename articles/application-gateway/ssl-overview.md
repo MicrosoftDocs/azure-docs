@@ -4,7 +4,7 @@ description: This article is an overview of the Application Gateway end to end T
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2020
 ms.author: victorh
 
