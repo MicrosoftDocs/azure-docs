@@ -228,8 +228,7 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 
 ### Browser DNS settings
 
-To connect to your Azure Monitor resources over a Private Link, traffic to these resource must go through the private endpoint configured on your network. To enable that, DNS settings are updated as explained in the 'Connect to a private endpoint' section. Some browsers use their own DNS settings instead, and may attempt to connect to Azure Monitor public endpoints, bypassing the Private Link entirely. You should verify your browsers settings don't override or cache old DNS settings. 
-
+If you're connecting to your Azure Monitor resources over a Private Link, traffic to these resource must go through the private endpoint that is configured on your network. To enable the private endpoint, update your DNS settings as explained in [Connect to a private endpoint](#connect-to-a-private-endpoint). Some browsers use their own DNS settings instead of the ones you set. The browser might attempt to connect to Azure Monitor public endpoints and bypass the Private Link entirely. Verify that your browsers settings don't override or cache old DNS settings. 
 
 ## Next steps
 
