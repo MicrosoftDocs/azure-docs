@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics (formerly SQL DW).
+Create a database in SQL Database with Adventure Works LT sample data following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to an Azure Synapse Analytics (formerly SQL DW).
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
@@ -101,7 +101,7 @@ You create linked services to link your data stores and computes to a data facto
 In this tutorial, you link your Azure SQL Database, Azure Synapse Analytics (formerly SQL DW), and Azure Blob Storage data stores to your data factory. The Azure SQL Database is the source data store. The Azure Synapse Analytics (formerly SQL DW) is the sink/destination data store. The Azure Blob Storage is to stage the data before the data is loaded into Azure Synapse Analytics (formerly SQL DW) by using PolyBase. 
 
 ### Create the source Azure SQL Database linked service
-In this step, you create a linked service to link your Azure SQL database to the data factory. 
+In this step, you create a linked service to link your database in Azure SQL Database to the data factory. 
 
 1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
 
@@ -115,13 +115,13 @@ In this step, you create a linked service to link your Azure SQL database to the
 
     b. Select your server for **Server name**
     
-    c. Select your Azure SQL database for **Database name**. 
+    c. Select your database for **Database name**. 
     
-    d. Enter **name of the user** to connect to Azure SQL database. 
+    d. Enter **name of the user** to connect to your database. 
     
     e. Enter **password** for the user. 
 
-    f. To test the connection to Azure SQL database using the specified information, click **Test connection**.
+    f. To test the connection to your database using the specified information, click **Test connection**.
   
     g. Click **Create** to save the linked service.
 
@@ -136,13 +136,13 @@ In this step, you create a linked service to link your Azure SQL database to the
      
     b. Select your server for **Server name**
      
-    c. Select your Azure SQL database for **Database name**. 
+    c. Select your database for **Database name**. 
      
-    d. Enter **User name** to connect to Azure SQL database. 
+    d. Enter **User name** to connect to your database. 
      
     e. Enter **Password** for the user. 
      
-    f. To test the connection to Azure SQL database using the specified information, click **Test connection**.
+    f. To test the connection to your database using the specified information, click **Test connection**.
      
     g. Click **Create**.
 
@@ -176,7 +176,7 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
     
 1. In the **Set properties** window, under **Name**, enter **AzureSqlDatabaseDataset**. Under **Linked service**, select **AzureSqlDatabaseLinkedService**. Then click **OK**.
 
-1. Switch to the **Connection** tab, select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from the Azure SQL database. Alternatively, you can click **Edit** check box, and enter **dbo.dummyName** as the table name. 
+1. Switch to the **Connection** tab, select any table for **Table**. This table is a dummy table. You specify a query on the source dataset when creating a pipeline. The query is used to extract data from your database. Alternatively, you can click **Edit** check box, and enter **dbo.dummyName** as the table name. 
  
 
 ### Create a dataset for sink Azure Synapse Analytics (formerly SQL DW)
@@ -282,7 +282,7 @@ This pipeline does two actions:
 1. In the **Activities** toolbox, expand **General**, and drag-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
     1. Enter **LookupTableList** for **Name**. 
-    1. Enter **Retrieve the table list from Azure SQL database** for **Description**.
+    1. Enter **Retrieve the table list from my database** for **Description**.
 
 1. Switch to the **Settings** tab, and do the following steps:
 
