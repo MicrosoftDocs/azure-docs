@@ -113,6 +113,8 @@ az aks create \
 
 You can add a proximity placement group to an existing cluster by creating a new node pool. You can then optionally migrate existing workloads to the new node pool, and then delete the original node pool.
 
+Use the same proximity placement group that you created earlier, and this will ensure agent nodes in both node pools in your AKS cluster are physically located in the same data center.
+
 Use the resource ID from the proximity placement group you created earlier, and add a new node pool with the [`az aks nodepool add`][az-aks-nodepool-add] command:
 
 ```azurecli-interactive
