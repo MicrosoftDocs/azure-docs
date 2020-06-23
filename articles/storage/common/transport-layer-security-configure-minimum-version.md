@@ -79,7 +79,21 @@ StorageBlobLogs
 
 ## Configure the minimum TLS version for an account
 
-To configure the minimum TLS version for a storage account using Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **minimumTlsVersion** property for the storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1` and `TLS1_2`.
+To configure the minimum TLS version for a storage account, use the Azure portal or Azure CLI.
+
+# [Portal](#tab/portal)
+
+To configure the minimum TLS version for a storage account with the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. Select the **Configuration** setting.
+1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account, as shown in the following image.
+
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal":::
+
+# [Azure CLI](#tab/azure-cli)
+
+To configure the minimum TLS version for a storage account with Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **minimumTlsVersion** property for the storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1` and `TLS1_2`.
 
 The following example sets the minimum TLS version to 1.2. Remember to replace the placeholder values in brackets with your own values:
 
@@ -95,6 +109,8 @@ az resource update \
   --ids $storage_account_id \
   --set properties.minimumTlsVersion="TLS1_2"
 ```
+
+---
 
 > [!NOTE]
 > After you update the minimum TLS version for the storage account, it may take up to 30 seconds before the change is fully propagated.
