@@ -61,6 +61,8 @@
           href: automation-use-azure-ad.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
+        - name: Connect privately to Automation account
+          href: how-to/private-link-security.md
         - name: Manage role permissions and security
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription

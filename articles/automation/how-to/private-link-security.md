@@ -59,7 +59,7 @@ Before setting up your Automation account resource, consider your network isolat
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect. 
+Create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect.
 
 In this section, you'll create a private endpoint for your Automation account.
 
