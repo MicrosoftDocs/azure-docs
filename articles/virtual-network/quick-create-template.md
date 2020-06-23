@@ -6,14 +6,14 @@ services: virtual-network
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: 
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to create an Azure virtual network with a single subnet that includes two virtual machines.  
+In this quickstart, you learn how to create a virtual network using the Azure Resource Manager template. You deploy two virtual machines (VMs). Next, you securely communicate between VMs and connect to VMs from the internet. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like VMs, to securely communicate with each other and with the internet.
 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
@@ -57,47 +57,33 @@ Deploy Resource Manager template to Azure:
 
    The deployment can take 20 minutes or longer to complete.
 
-## Validate the deployment
-
-Although IIS isn't required to create the application gateway, it's installed to verify if Azure successfully created the application gateway. Use IIS to test the application gateway:
-
-1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) Or, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
-2. Copy the public IP address, and then paste it into the address bar of your browser to browse that IP address.
-3. Check the response. A valid response verifies that the application gateway was successfully created and can successfully connect with the backend.
-
-   ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
-
-   Refresh the browser multiple times and you should see connections to both myVM1 and myVM2.
 
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. This example returns the public IP address of the *myVm1* VM:
+After you've created *myVm1*, connect to the internet.
 
-```azurepowershell-interactive
-Get-AzPublicIpAddress `
-  -Name myVm1 `
-  -ResourceGroupName myResourceGroup `
-  | Select IpAddress
-```
+1. In the Azure portal, search for and select *myVm1*.
 
-Open a command prompt on your local computer. Run the `mstsc` command. Replace `<publicIpAddress>` with the public IP address returned from the last step:
+1. Select **Connect**, then **RDP**.
 
-> [!NOTE]
-> If you've been running these commands from a PowerShell prompt on your local computer, and you're using the Az PowerShell module version 1.0 or later, you can continue in that interface.
+    ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-```cmd
-mstsc /v:<publicIpAddress>
-```
-1. If prompted, select **Connect**.
+    The **Connect** page opens.
 
-1. Enter the user name and password you specified when creating the VM.
+1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
+
+1. Open the RDP file. If prompted, select **Connect**.
+
+1. Enter the username and password you specified when creating the VM.
 
     > [!NOTE]
     > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 
 1. Select **OK**.
 
-1. You may receive a certificate warning. If you do, select **Yes** or **Continue**.
+1. You may receive a certificate warning when you sign in. If you receive a certificate warning, select **Yes** or **Continue**.
+
+1. Once the VM desktop appears, minimize it to go back to your local desktop.
 
 ## Communicate between VMs
 
@@ -105,22 +91,20 @@ mstsc /v:<publicIpAddress>
 
 1. Enter `ping myVm2`.
 
-    You'll get something like this back:
+    You'll receive a message similar to this output:
 
-    ```powershell
-    PS C:\Users\myVm1> ping myVm2
-
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
+    ```output
+    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
     Request timed out.
     Request timed out.
     Request timed out.
     Request timed out.
 
-    Ping statistics for 10.0.0.5:
-        Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+    Ping statistics for 10.1.0.5:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
     ```
 
-    The ping fails, because it uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through your Windows firewall.
+    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through the Windows firewall.
 
 1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
 
@@ -128,32 +112,30 @@ mstsc /v:<publicIpAddress>
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
-    That command lets ICMP inbound through the Windows firewall.
+    This command allows ICMP inbound through the Windows firewall:
 
 1. Close the remote desktop connection to *myVm1*.
 
-1. Repeat the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet). This time, connect to *myVm2*.
+1. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*.
 
-1. From a command prompt on the *myVm2* VM, enter `ping myvm1`.
+1. From a command prompt, enter `ping myvm1`.
 
-    You'll get something like this back:
+    You'll get back something like this message:
 
-    ```cmd
-    C:\windows\system32>ping myVm1
+    ```output
+    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
 
-    Pinging myVm1.e5p2dibbrqtejhq04lqrusvd4g.bx.internal.cloudapp.net [10.0.0.4] with 32 bytes of data:
-    Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
-
-    Ping statistics for 10.0.0.4:
+    Ping statistics for 10.1.0.4:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
     Approximate round trip times in milli-seconds:
-        Minimum = 0ms, Maximum = 2ms, Average = 0ms
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
     ```
 
-    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in a previous step.
+    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in step 3.
 
 1. Close the remote desktop connection to *myVm2*.
 
