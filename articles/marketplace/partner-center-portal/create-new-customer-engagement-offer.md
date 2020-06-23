@@ -134,7 +134,7 @@ Define marketplace details for each language/market here, such as offer name, de
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-azure-marketplace-d365-customer-engagement.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
@@ -146,8 +146,8 @@ Here's an example of how offer information appears in Microsoft AppSource:
 4. Support address (link)
 5. Terms of use address (link)
 6. Offer name
-7. Screenshots/videos
-8. Description
+7. Description
+8. Screenshots/videos
 
 ### Name
 
