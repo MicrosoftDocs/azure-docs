@@ -35,7 +35,7 @@ You must have the following resources installed:
 ### Set up the preview feature for proximity placement groups
 
 > [!IMPORTANT]
-> Proximity placement groups with AKS impact only the node to node, and thus pod to pod communication latency. There is no improvement for latency between the AKS control plane and the underlying nodes.
+> When you use proximity placement groups with AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
 
 ```azurecli-interactive
 # register the preview feature
