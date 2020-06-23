@@ -83,7 +83,7 @@ Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enab
 
 ### Check if the EventGrid topic/domain can be accessed using only a private endpoint
 
-If the Event Grid topic/domain is configured to be accessible only via private endpoint, confirm that the client application is accessing the namespace over the private endpoint.
+If the Event Grid topic/domain is configured to be accessible only via private endpoint, confirm that the client application is accessing the topic/domain over the private endpoint. To confirm this, check if the client application is running inside a subnet and there is a private endpoint for Event Grid topic/domain in that subnet.
 
 [Azure Private Link service](../private-link/private-link-overview.md) enables you to access Azure Event Grid over a **private endpoint** in your virtual network. A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
