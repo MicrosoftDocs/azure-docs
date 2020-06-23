@@ -5,38 +5,23 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 06/22/2020
 
 ---
 
 # Enable Azure Monitor for VMs by using Azure Policy
-
-This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
-
-To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the method we recommend because you can manage policy definitions to effectively govern your subscriptions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
-
-* Deploy the Log Analytics agent and the Dependency agent.
-* Report on compliance results.
-* Remediate for noncompliant VMs.
-
-If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
-
-## Prerequisites
-Prior to using Policy to onboard your Azure VMs and virtual machine scale sets to Azure Monitoring for VMs, you must enable the VMInsights solution on the workspace you will use to store your monitoring data. This task can be completed from the **Get Started** page in Azure Monitor on the **Other onboarding options** tab.  Select **Configure a workspace**, which will prompt you to select the workspace to be configured.
-
-![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)
-
-You can also configure your workspace by choosing **Enable using policy** and then select the **Configure workspace** toolbar button.  This will install the VMInsights solution on the selected workspace which will enable the workspace to store the monitoring data sent by the VMs and virtual machine scale sets you enable using Policy. 
-
-![Enable using policy](media/vminsights-enable-at-scale-policy/enable-using-policy.png)
+This article explains how to use Azure Policy to enable Azure Monitor for VMs at scale. This allows you to onboard large sets of existing virtual machines (VM) and virtual machine scale sets (VMSS) with minimal effort and to automatically onboard new resources as they're created.
 
 ## Manage Policy Coverage feature overview
+The Policy Coverage feature simplifies managing the policy definitions that install and configure the agents required for Azure Monitor for VMs. Rather than working with Azure Policy directly, you can use this feature to discover, manage, and enable VMS and VMSS in your environment.
 
-Azure Monitor for VMs Policy Coverage simplifies discovering, managing, and enabling at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. To access this feature,  select **Other onboarding options** from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
+
+## Open Policy Coverage feature overview
+To access this feature,  select **Other onboarding options** from the **Get Started** tab in Azure Monitor for VMs. Select **Enable** under **Enable using policy** to open the **Azure Monitor for VMs Policy Coverage** page.
 
 ![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
-From here, you can check and manage coverage for the initiative across your management groups and subscriptions. You can understand how many VMs exist in each of the management groups and subscriptions and their compliance status.
+From this view, you can check and manage coverage for the initiative across your management groups and subscriptions. You can understand how many VMs exist in each of the management groups and subscriptions and their compliance status.
 
 ![Azure Monitor for VMs Manage Policy page](media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
 
@@ -58,11 +43,11 @@ The following table provides a breakdown of the information that's presented on 
 | Function | Description | 
 |----------|-------------| 
 | **Scope** | Management group and subscriptions that you have or inherited access to with ability to drill down through the management group hierarchy.|
-| **Role** | Your role to the scope, which might be reader, owner, or contributor. In some cases, it might appear blank to indicate that you might have access to the subscription but not to the management group it belongs to. Information in other columns varies depending on your role. The role is key in determining what data you can see and actions you can perform in terms of assigning policies or initiatives (owner), editing them, or viewing compliance. |
-| **Total VMs** | Number of VMs under that scope. For a management group, it's a sum of VMs nested under the subscriptions or child management group. |
+| **Role** | Your role to the scope, which might be reader, owner, or contributor. This will be blank if you have access to the subscription but not to the management group it belongs to. This role determines what data you can see and actions you can perform in terms of assigning policies or initiatives (owner), editing them, or viewing compliance. |
+| **Total VMs** | Total number of VMs in that scope regardless of whether they're onboarded or not. For a management group, this is a sum total of VMs nested under the subscriptions or child management groups. |
 | **Assignment Coverage** | Percent of VMs that are covered by the policy or initiative. |
 | **Assignment Status** | Information on the status of your policy or  initiative assignment. |
-| **Compliant VMs** | Number of VMs that are compliant under the policy or initiative. For the initiative **Enable Azure Monitor for VMs**, this is the number of VMs that have both Log Analytics agent and Dependency agent. In some cases, it might appear blank because of no assignment, no VMs, or not enough permissions. Information is provided under **Compliance State**. |
+| **Compliant VMs** | Number of VMs that are compliant, which is the number of VMs that have both Log Analytics agent and Dependency agent installed. This will be blank if there are no assignments, no VMs in the scope, or not proper permissions. |
 | **Compliance** | The overall compliance number is the sum of distinct resources that are compliant divided by the sum of all distinct resources. |
 | **Compliance State** | Information on the compliance state for your policy or initiative assignment.|
 
