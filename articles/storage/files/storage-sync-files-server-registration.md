@@ -154,7 +154,7 @@ Since Azure File Sync will rarely be the only service running in your datacenter
 You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
 
 > [!Note]  
-> Network limits do not apply when a tiered file is accessed or the Invoke-StorageSyncFileRecall cmdlet is used.
+> Network limits do not apply when a tiered file is accessed.
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 
