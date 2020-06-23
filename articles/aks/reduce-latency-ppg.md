@@ -10,7 +10,7 @@ ms.date: 06/22/2020
 # Reduce latency with proximity placement groups (Preview)
 
 > [!Note]
-> When you use proximity placement groups with AKS, you only improve the node to node and, therefore, pod to pod latency. There is no impact on the AKS control plane network traffic to the underlying nodes.
+> When you use proximity placement groups with AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
 
 When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups) for your cluster’s node pools.
 
