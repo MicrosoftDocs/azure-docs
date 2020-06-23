@@ -42,7 +42,7 @@ New-AzSnapshot
 -ResourceGroupName $resourceGroupName
 ```
 
-## Disable Azure Disk Encrypton
+## Disable Azure Disk Encryption
 
 Since ADE and SSE are incompatible, you must disable ADE to start the migration process.
 

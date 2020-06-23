@@ -34,7 +34,7 @@ In all cases, you should [take a snapshot](snapshot-copy-managed-disk.md) and/or
 
 ## Install tools and connect to Azure
 
-Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/powershell/azure/new-azureps-module-az). To do so you must install the tools locally and connect to your Azure subscription.
+Azure Disk Encryption can be enabled and managed through the [Azure CLI](/cli/azure) and [Azure PowerShell](/powershell/azure/new-azureps-module-az). To do so, you must install the tools locally and connect to your Azure subscription.
 
 ### Azure CLI
 
