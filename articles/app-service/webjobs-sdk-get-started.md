@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Get started with event-driven background processing using the WebJobs SDK"
+title: Get started with event-driven background processing using the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
 ms.author: glenga
@@ -11,19 +11,21 @@ ms.date: 06/18/2019
 #Customer intent: As an App Services developer, I want use the Azure portal to add scheduled tasks to my web app in Azure.
 ---
 
-# Get started with the Azure WebJobs SDK for event-driven background processing
+# Tutorial: Get started with the Azure WebJobs SDK for event-driven background processing
 
 Get started with the Azure WebJobs SDK for Azure App Service to enable your web apps to run background tasks, scheduled tasks, and respond to events. 
 
 Use Visual Studio 2019 to create a .NET core console app that uses the WebJobs SDK to respond to Azure Storage Queue messages, run the project locally, and finally deploy it to Azure.
 
 In this tutorial, you will learn how to:
-* Create a console app
-* Add a function
-* Test locally
-* Deploy to Azure
-* Add Application Insights logging
-* Add input/output bindings
+
+> [!div class="checklist"]
+> * Create a console app
+> * Add a function
+> * Test locally
+> * Deploy to Azure
+> * Add Application Insights logging
+> * Add input/output bindings
 
 ## Prerequisites
 
