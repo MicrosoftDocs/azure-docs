@@ -18,7 +18,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ### June 2020
 
-+ [Azure Machine Learning (AML) (preview)](cognitive-search-aml-skill.md) is a cognitive skill used during indexing that wraps an Azure Machine Learning model. Through the skill, you can integrate a previously trained and deployed custom machine learning into an AI enrichment pipeline. To sign up for the AML skill preview, [please fill out the form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). After you sign up, you can work with a template for the skill in the Skillset editor in Azure portal. For hands on guidance, get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
++ [Azure Machine Learning (AML) (preview)](cognitive-search-aml-skill.md) is a cognitive skill used during indexing that wraps an Azure Machine Learning model. Through the skill, you can integrate a previously trained and deployed custom machine learning into an AI enrichment pipeline. [Sign up to request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). When you're ready to add an AML skill, use the AML template in the Skillset editor in Azure portal. For hands on guidance, get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### May 2020 (Microsoft Build)
 
