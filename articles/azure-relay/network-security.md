@@ -1,13 +1,8 @@
 ---
 title: Network security for Azure Relay
 description: This article describes how to configure access from private endpoints
-services: service-bus-relay
-author: spelluru
-
-ms.service: service-bus-relay
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: spelluru
+ms.date: 06/23/2020
 ---
 
 # Network security for Azure Relay 

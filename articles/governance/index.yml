@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/22/2020
+  ms.date: 06/16/2020
 
 highlightedContent:
   items:
@@ -113,7 +113,7 @@ additionalContent:
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET
               url: /dotnet/api/overview/azure/managementgroups
-            - text: Azure SDK for Node
+            - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-managementgroups/managementgroups
             - text: REST
               url: /rest/api/resources/managementgroups
@@ -157,10 +157,10 @@ additionalContent:
             - text: Azure SDK for .NET
               url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
               note: (Policy Definitions)
-            - text: Azure SDK for Node
+            - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-policy
               note: (Policy)
-            - text: Azure SDK for Node
+            - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-policyinsights
               note: (Policy Insights)
             - text: Azure SDK for Python
@@ -198,7 +198,7 @@ additionalContent:
             - text: Azure SDK for Java
               url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
               note: (Maven)
-            - text: Azure SDK for Node
+            - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-resourcegraph
             - text: Azure SDK for Python
               url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph

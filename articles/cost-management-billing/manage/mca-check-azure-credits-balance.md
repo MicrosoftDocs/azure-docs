@@ -16,6 +16,9 @@ You can check the Azure credit balance for your billing account for a Microsoft 
 
 In the billing account for a Microsoft Customer Agreement, credits are assigned to a billing profile. Each billing profile has its own credits that are automatically applied to the charges on its invoice. You must have an owner, contributor, reader, or invoice manager role on the billing profile or owner, contributor, or reader role on the billing account to view Azure credit balance for a billing profile. To learn more about the roles, see [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md).
 
+ > [!IMPORTANT]
+    > Credit can take up to 24 hours to show up in the Azure portal. If you get new credit and can't see it in the portal, please wait for 24 hours.
+
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Check your credit balance
