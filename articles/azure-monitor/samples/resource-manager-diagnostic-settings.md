@@ -30,19 +30,19 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 	"contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
-            "type": "String"
+          "type": "String"
         },
         "workspaceId": {
-            "type": "String"
+          "type": "String"
         },
         "storageAccountId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubAuthorizationRuleId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubName": {
-            "type": "String"
+          "type": "String"
         }
     },
 	"resources": [
@@ -103,7 +103,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
-          "value": "Send to all locations"
+        "value": "Send to all locations"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
