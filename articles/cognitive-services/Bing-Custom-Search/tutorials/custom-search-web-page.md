@@ -30,7 +30,7 @@ The tasks covered are:
 
 ## Prerequisites
 
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal. you can also use a [trial key](https://azure.microsoft.com/try/cognitive-services).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
 - If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
@@ -112,7 +112,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
    ![Screenshot of the Hosted UI advanced configurations step](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually. For information about getting keys, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually.
   
    ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 

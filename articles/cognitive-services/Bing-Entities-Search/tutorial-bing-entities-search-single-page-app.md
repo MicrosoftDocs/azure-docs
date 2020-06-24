@@ -53,7 +53,12 @@ In this tutorial, we discuss only selected portions of the source code. The full
 
 ## Prerequisites
 
-To follow along with the tutorial, you need subscription keys for the Bing Search API, and Bing Maps API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+To follow along with the tutorial, you need subscription keys for the Bing Search API, and Bing Maps API. 
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription:
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">Create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Create a Computer Vision resource"  target="_blank">Create a Bing Maps resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 
@@ -81,7 +86,7 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 ## Managing subscription keys
 
 > [!NOTE]
-> This app requires subscription keys for both the Bing Search API and the Bing Maps API. You can use a [trial Bing Search key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> This app requires subscription keys for both the Bing Search API and the Bing Maps API.
 
 To avoid having to include the Bing Search and Bing Maps API subscription keys in the code, we use the browser's persistent storage to store them. If either key has not been stored, we prompt for it and store it for later use. If the key is later rejected by the API, we invalidate the stored key so the user is asked for it upon their next search.
 

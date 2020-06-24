@@ -37,7 +37,7 @@ Bing Web Search doesn't only give you access to instant answers. It also provide
 
 The Bing Web Search API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the [REST API](quickstarts/python.md) or the [Bing Web Search client libraries](./quickstarts/client-libraries.md).
 
-1. [Create an Azure resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
+1. [Create an Azure resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for the Bing Search APIs. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/cognitive-services/).  
 2. Send a [request to the Bing Web Search API](quickstarts/python.md).
 3. Parse the JSON response.
 
