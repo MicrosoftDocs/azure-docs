@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -82,7 +82,7 @@ By default Image Builder will use a "Standard_D1_v2" build VM, you can override 
 
 ## osDiskSizeGB
 
-By default, Image Builder will not change the size of the image, it will use the size from the source image. You can increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. 
+By default, Image Builder will not change the size of the image, it will use the size from the source image. You can **only** increase the size of the OS Disk (Win and Linux), this is optional, and a value of 0 means leave the same size as the source image. You cannot reduce the OS Disk size to smaller than the size from the source image.
 
 ```json
  {
