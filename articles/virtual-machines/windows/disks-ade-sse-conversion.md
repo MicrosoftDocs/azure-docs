@@ -19,7 +19,7 @@ Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subs
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## Create a backup of the encrypted VMs or take a snapshot of the disks 
+## Take a snapshot of your disks
 
 Before you start the migration process, take a snapshot of your disks. So that you can revert to them just in case.
 
@@ -58,7 +58,7 @@ Verify encryption status is 'NotEncrypted' with. (Note: do not remove the extens
 Get-AzVmDiskEncryptionStatus -ResourceGroupName "MyResourceGroup001" -VMName "VM001"
 ```
 
-## Remove the Azure Disk Encryption extension 
+## Remove Azure Disk Encryption extension 
 
 Once you've confirmed the encryption status has changed and the encryption has been disabled, you can remove the ADE extension.
 

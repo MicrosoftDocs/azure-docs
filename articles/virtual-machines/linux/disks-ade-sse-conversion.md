@@ -20,7 +20,7 @@ In order to convert to SSE with customer-managed keys, you must create a Key Vau
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 
-## Create a backup of the encrypted VMs or take a snapshot of the disks 
+## Take a snapshot of your disks
 
 Before you start the migration process, take a snapshot of your disks. So that you can revert to them just in case.
 
@@ -61,7 +61,7 @@ az vm encryption show --name MyVirtualMachine --resource-group MyResourceGroup
 ```
 
 
-## Remove the Azure Disk Encryption extension 
+## Remove Azure Disk Encryption extension 
 
 Once you've confirmed the encryption status has changed and the encryption has been disabled, you can remove the ADE extension.
 
