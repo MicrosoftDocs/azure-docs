@@ -104,36 +104,6 @@ Available options include:
 
 For information about YAML configuration for this task, check our [Credential Scanner YAML options](yaml-configuration.md#credential-scanner-task)
 
-## Microsoft Security Risk Detection task
-
-> [!NOTE]
-> You must create and configure an account with the Microsoft Security Risk Detection (MSRD) service before using the MSRD task. This service requires a separate onboarding process. Unlike most other tasks in this extension, this task requires a separate subscription with MSRD.
->
-> Please refer to [Microsoft Security Risk Detection](https://aka.ms/msrddocs) and [Microsoft Security Risk Detection: How To](https://docs.microsoft.com/security-risk-detection/how-to/) for instructions.
-
-Details for configuring this task are shown in the following list. For any UI element, you can hover over that element to get help.
-
-   - **Azure DevOps Service Endpoint Name for MSRD**: A generic type of Azure DevOps service endpoint stores your onboarded MSRD instance URL and your REST API access token. If you've created such an endpoint, you can specify it here. Otherwise, select the **Manage** link to create and configure a new service endpoint for this MSRD task.
-   - **Account ID**: A GUID that can be retrieved from the MSRD account URL.
-   - **URLs to Binaries**: A semicolon-delimited list of publicly available URLs. The fuzzing machine uses these URLs to download the binaries.
-   - **URLs of the Seed Files**: A semicolon-delimited list of publicly available URLs. The fuzzing machine uses these URLs to download the seeds. Specifying this value is optional if the seed files are downloaded together with the binaries.
-   - **OS Platform Type**: The operating system (OS) platform of machines that run the fuzzing job. Available values are **Windows** and **Linux**.
-   - **Windows Edition / Linux Edition**: The OS edition of machines that run the fuzzing job. You can overwrite the default value if your machines have a different OS edition.
-   - **Package Installation Script**: Your script to be run on a test machine. This script installs the test target program and its dependencies before the fuzzing job is submitted.
-   - **Job Submission Parameters**:
-       - **Seed Directory**: The path to the directory on the fuzzing machine that contains the seeds.
-       - **Seed Extension**: The filename extension of the seeds.
-       - **Test Driver Executable**: The path to the target executable file on the fuzzing machine.
-       - **Test Driver Executable Architecture**: The target executable file's architecture. Available values are **x86** and **amd64**.
-       - **Test Driver Arguments**: The command-line arguments passed to the test executable file. The argument "%testfile%", including the quotation marks, is automatically replaced with the full path to the target file. This file is parsed by the test driver and is required.
-       - **Test Driver Process Exits Upon Test Completion**: Select this checkbox if the test driver is to be terminated upon completion. Clear it if the test driver needs to be forcibly closed.
-       - **Maximum Duration (in seconds)**: An estimation of the longest reasonably expected time that the target program requires to parse an input file. The more accurate the estimation, the more efficiently the fuzzing app runs.
-       - **Test Driver Can Be Run Repeatedly**: Select this checkbox if the test driver can run repeatedly without depending on a persistent or shared global state.
-       - **Test Driver Can Be Renamed**: Select this checkbox if the test driver executable file can be renamed and still work correctly.
-       - **The Fuzzing Application Runs as a Single OS Process**: Select this checkbox if the test driver runs under a single OS process. Clear it if the test driver spawns additional processes.
-
-For information about YAML configuration for this task, check our [Microsoft Security Risk Detection YAML options](yaml-configuration.md#microsoft-security-risk-detection-task)
-
 ## Roslyn Analyzers task
 
 > [!NOTE]

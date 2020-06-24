@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: sql-dw 
+ms.subservice: machine-learning 
 ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
