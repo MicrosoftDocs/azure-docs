@@ -16,7 +16,7 @@ ms.date: 09/26/2019
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). The following options are available for database recovery by using [automated database backups](automated-backups-overview.md). You can:
+By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). Besides geo-replicated (RA-GRS) storage type, SQL Database and SQL Managed Instance support locally-redundant (LRS) and zone-redundant (ZRS) backup storage types. The following options are available for database recovery by using [automated database backups](automated-backups-overview.md). You can:
 
 - Create a new database on the same server, recovered to a specified point in time within the retention period.
 - Create a database on the same server, recovered to the deletion time for a deleted database.
@@ -29,6 +29,13 @@ If you configured [backup long-term retention](long-term-retention-overview.md),
 > You can't overwrite an existing database during restore.
 
 When you're using the Standard or Premium service tier, your database restore might incur an extra storage cost. The extra cost is incurred when the maximum size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid this extra cost by setting the maximum database size to the included amount.
+
+> [!NOTE]
+> Zone-redundant storage is available only in regions where [zone-redundant storage is supported](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> Configuring storage redundancy for backups is only allowed during create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
+
 
 ## Recovery time
 
@@ -130,6 +137,9 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 > To programmatically restore a deleted database, see [Programmatically performing recovery using automated backups](recovery-using-backups.md).
 
 ## Geo-restore
+
+> [!IMPORTANT]
+> Geo-restore is available only for managed instances and single databases with configured Geo-redundant (RA-GRS) backup storage type. Managed instances and single databases with locally-redundant and zone-redundant backup storage types cannot perform Geo-restore.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
