@@ -97,4 +97,6 @@ Time Series Insights Preview events are mapped to Parquet file contents as follo
 
 * Read about [data modeling](./time-series-insights-update-tsm.md).
 
+* Learn about [data querying](time-series-insights-update-tsq.md)
+
 * Plan your [Azure Time Series Insights Preview environment](./time-series-insights-update-plan.md).

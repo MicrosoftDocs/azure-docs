@@ -387,8 +387,6 @@ Variables are stored in the type definition of a time series model and can be pr
 
 ## Next steps
 
-- Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+* Learn about [data querying](time-series-insights-update-tsq.md)
 
-- Learn about common Time Series Model operations in [Data modeling in Azure Time Series Insights Preview](./time-series-insights-update-how-to-tsm.md)
-
-- Read the new [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) reference documentation.
+* Read the [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) reference documentation.

@@ -64,4 +64,5 @@ These APIs are available on all both stores in our multilayered storage solution
 ## Next steps
 
 - Read more about different variables that can be defined in the [Time Series Model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
+
 - Read more about how to query data from the [Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
