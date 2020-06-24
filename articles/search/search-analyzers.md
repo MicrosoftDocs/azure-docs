@@ -84,7 +84,7 @@ Setting an analyzer is optional. As a general rule, try using the default standa
     },
    ```
 
-1. For custom analyzers only, create a named **analyzer section** in the index definition, and then assign your custom analyzer to the field definition per either of the previous two steps. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
+1. For custom analyzers only, create an entry in the **[analyzers]** section of the index, and then assign your custom analyzer to the field definition per either of the previous two steps. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
 
 ## When to add analyzers
 
@@ -308,7 +308,7 @@ If you are using the .NET SDK code samples, you can append these examples to use
 
 ### Assign a language analyzer
 
-Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an analyzer construct. 
+Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an entry in the **[analyzers]** section of the index. 
 
 This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
 

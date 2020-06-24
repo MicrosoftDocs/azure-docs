@@ -11,7 +11,7 @@ ms.author: aahi
 ms.custom: subject-armqs
 ---
 
-# Quickstart: Create a Cognitive Services resource using an Azure Resource Manager template
+# Quickstart: Create a Cognitive Services resource using an ARM template
 
 Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. This multi-service resource lets you:
 * Access multiple Azure Cognitive Services with a single key and endpoint.

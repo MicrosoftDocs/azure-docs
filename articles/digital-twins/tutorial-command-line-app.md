@@ -44,7 +44,7 @@ The first step in creating an Azure Digital Twins solution is defining twin [**m
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
-> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
+> DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
 In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
@@ -82,7 +82,7 @@ Make sure to save the file before moving on.
 > If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
 
 ### Get started with the command-line app
 
@@ -132,7 +132,8 @@ Re-run the `CreateModels` command to try re-uploading one of the same models you
 CreateModels Room
 ```
 
-As models cannot be overwritten, this will now return a service error:
+As models cannot be overwritten, this will now return a service error.
+For the details on how to delete existing models, see [How-to: Manage custom models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
