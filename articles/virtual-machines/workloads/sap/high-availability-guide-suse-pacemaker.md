@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/21/2020
+ms.date: 06/24/2020
 ms.author: radeltch
 
 ---
@@ -630,8 +630,9 @@ After you edited the permissions for the virtual machines, you can configure the
 crm configure property concurrent-fencing=true
 # replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="subscription ID" resourceGroup="resource group" tenantId="tenant ID" login="login ID" passwd="password" \
-  pcmk_monitor_retries=4 pcmk_action_limit=3 op monitor interval=3600 timeout=120
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 \ 
+  op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
 
