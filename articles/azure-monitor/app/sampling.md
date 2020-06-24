@@ -305,7 +305,7 @@ By default no sampling is enabled in the Java agent and SDK. Currently it only s
 
 #### Configuring Java Agent
 
-1. Download [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+1. Download [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 1. To enable sampling add the following to your `ApplicationInsights.json` file:
 

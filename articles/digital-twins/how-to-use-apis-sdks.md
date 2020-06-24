@@ -112,29 +112,27 @@ Create and query twins:
 
 ```csharp
 // Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+
+twinData.Id = $"firstTwin";
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync($"firstTwin", JsonSerializer.Serialize(initData));
+    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
-
+ 
 // Run a query    
 AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
 await foreach (string twin in result)
 {
+    // Use JSON deserialization to pretty-print
     object jsonObj = JsonSerializer.Deserialize<object>(twin);
     string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
     Console.WriteLine(prettyTwin);
+    // Or use BasicDigitalTwin for convenient property access
+    BasicDigitalTwin btwin = JsonSerializer.Deserialize<BasicDigitalTwin>(twin);
 }
 ```
 
