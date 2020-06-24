@@ -16,24 +16,13 @@ receive developer tools from Microsoft at no cost—everything needed to create 
 and websites—so they can chase their dreams, create the next big breakthrough in technology,
 or get a head start on their career.
 
-Formerly known as Microsoft Imagine, this subscription program has changed to Azure Dev
-Tools for Teaching. All current Imagine subscriptions have automatically transitioned to Azure
-Dev Tools for Teaching and provide access to the same software tools students have enjoyed with
-Imagine.
-
-Plus, students are now able to:
+Plus, they'll be able to:
 
 - Manage and access software through a centralized online location that eliminates the
 need to maintain a WebStore or an internal site.
 
 - Give academic users access to software, free training/learning materials, and the
 Azure cloud platform through the same online portal.
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
-
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
 
 ## Common questions
 
@@ -58,11 +47,11 @@ You renew your subscription on the same renewal date as your previous Imagine su
 
 Your internal WebStore will no longer allow students to successfully download software after the
 launch of Azure Dev Tools for Teaching. If you want to retain your internal WebStore, you
-can provide redirects to the new WebStore by using the Azure Dev Tools for Teaching [Sign In page](aka.ms/devtoolsforteaching).
+can provide redirects to the new WebStore by using the Azure Dev Tools for Teaching [short link](aka.ms/devtoolsforteaching).
 
 ### How do students access software?
 
-All software is accessible through an Education Hub built into the Azure portal that houses all products and services available to academic users. Students access the software by simply logging
+All software is accessible through an Education Hub built into the Azure portal that houses all products and services available to academic users. Students access software by simply logging
 in to the Azure portal with the same credentials they use to access their Imagine subscription.
 
 ### Do students need to sign up for Azure?

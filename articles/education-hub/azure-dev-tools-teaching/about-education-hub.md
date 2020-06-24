@@ -14,12 +14,6 @@ The Microsoft Azure [Education Hub](https://portal.azure.com/#blade/Microsoft_Az
 cloud credit across many different Azure subscriptions. This is useful when faculty
 members need to manage many cloud-based student projects. The Education Hub is also useful for research purposes when your Azure credit needs are not yet known. Users can easily adjust the amount of allocated credit within each subscription or in bulk. Subscriptions can also be suspended—for example, when a semester or quarter project is complete—to maximize available credits.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
-
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
-
 ## Prerequisites
 
 To access the Education Hub, you should already have received an email notification that you've been approved for an Academic Grant. The email contains your approved credit
