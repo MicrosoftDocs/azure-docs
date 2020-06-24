@@ -22,7 +22,7 @@ They don't apply configurations. The exception is one built-in policy
 ## Enable Guest Configuration
 
 To audit the state of machines in your environment, including machines in Azure and Arc Connected Machines,
-please review the following details.
+review the following details.
 
 ## Resource provider
 
@@ -38,7 +38,7 @@ or
 
 To audit settings inside a machine, a
 [virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled and the machine
-must have a system managed identity. The extension downloads applicable policy assignment and the corresponding
+must have a system-managed identity. The extension downloads applicable policy assignment and the corresponding
 configuration definition. The identity is used to authenticate the machine as it reads and writes to the
 Guest Configuration service. The extension is not required for Arc Connected Machines because it is included
 in the Arc Connected Machine agent by default.
@@ -107,14 +107,14 @@ used to reference the Guest Configuration service.
 
 ## Managed identity requirements
 
-Policies in the initiative [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) enable a system assigned managed identity, if one doesn't exist. There are two policy definitions
-in the initiative that manage identity creation. The IF condition in the policy definitions ensure the correct
+Policies in the initiative [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) enable a system-assigned managed identity, if one doesn't exist. There are two policy definitions
+in the initiative that manage identity creation. The IF conditions in the policy definitions ensure the correct
 behavior based on the current state of the machine resource in Azure.
 
-If the machine does not currently have any managed identities the effective policy will be:
+If the machine does not currently have any managed identities, the effective policy will be:
 [[Preview]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-If the machine currently has a user-assigned system identity the effective policy will be:
+If the machine currently has a user-assigned system identity, the effective policy will be:
 [[Preview]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## Guest Configuration definition requirements
