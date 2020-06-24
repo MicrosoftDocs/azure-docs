@@ -47,84 +47,52 @@ You can create virtual machines (VMs) in a different Azure AD as long as the Act
 
 ## What are location restrictions?
 
-All service resources have a location associated with them. A host pool’s location determines the geography where the service metadata for the host pool is stored. An appgroup cannot existing without a host pool. If you add apps in a remoteapp app group, a session host is needed to determine the start menu apps. This means that for an appgroup action, some kind of related data access is needed on the host pool. So the service imposes that the app group’s location needs to be the same as the host pool to ensure that data is not transferred between multiple geos.
+All service resources have a location associated with them. A host pool’s location determines which geography the service metadata for the host pool is stored in. An app group can't exist without a host pool. If you add apps to a RemoteApp app group, you'll also need a session host to determine the start menu apps. This also means that for any app group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the app group's location should be the same as the host pool's.
 
-Workspace has the same restriction. It is a collection of appgroups. Anytime a workspace is updated, the related appgroup will be updated. Similar to the above case, to ensure that all data is maintained with a geography, the service imposes the restriction that a workspace can only be associated with appgroups created in the same location.
+Workspaces also need to be in the same location as their app groups. Whenever the workspace updates, the related app group updates along with it. Like with app groups, the service requires that all workspaces are associated with app groups created in the same location.
 
 ## Can RDP traffic be routed through ExpressRoute?
 
-The upcoming RDP Shortpath Private feature is designed to route all RDP traffic over the private addresses routable via expressroute. The goal of this feature is to improve performance of the remote connection by using managed networks instead of public Internet and therefor improve user experience.
-But it is important to understand that small amounts of signaling and telemetry data will still flow over the public IPs.
+Windows Virtual Desktop doesn't currently include total separation of RDP traffic from public IPs. 
 
-So if the goal is to “keep RDP traffic on ExpressRoute”, then we have a solution coming soon
-However, if the sole purpose of the request is to have a total separation from public IP space for security reasons, then we have a long path to go there
+However, Windows Virtual does have the RDP ShortPath feature, which routes all RDP traffic over private addresses using ExpressRoute. This improves remote connection performance by using managed networks instead of public networks. However, signaling and telemetry data will still flow over public IPs.
 
 ## How do you expand an object's properties in PowerShell?
 
-When you execute a PS cmdlet just the name of the resource and location is displayed.
+When you run a PowerShell cmdlet, you only see the resource name and location.
+
+For example:
+
+```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
 
 Location Name   Type
 -------- ----   ----
 westus   0224hp Microsoft.DesktopVirtualization/hostpools
+```
 
-If you want to see all the properties of the resource, use either “format-list” or “fl”
+To see all of a resource's properties, add either `format-list` or `fl` to the end of the cmdlet.
 
+For example:
+
+```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
+```
 
-ApplicationGroupReference                  : {/subscriptions/subId/resourcegroups/0224RG
-                                             /providers/Microsoft.DesktopVirtualization/applicationgroups/Workapps, /su
-                                             bscriptions/subId/resourcegroups/0224RG/pro
-                                             viders/Microsoft.DesktopVirtualization/applicationgroups/0224HP-DAG, /subs
-                                             criptions/subId/resourcegroups/0224RG/provi
-                                             ders/Microsoft.DesktopVirtualization/applicationgroups/Accounting Apps, /s
-                                             ubscriptions/subId/resourcegroups/0224RG/pr
-                                             oviders/Microsoft.DesktopVirtualization/applicationgroups/0224Apps}
-CustomRdpProperty                          : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i
-                                             :1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen
-                                              mode id:i:2;
-Description		: Created through the WVD extension
-FriendlyName		:
-HostPoolType		: Pooled
-Id			: /subscriptions/subId/resourcegroups/0224rg/
-                                             providers/Microsoft.DesktopVirtualization/hostpools/0224hp
-LoadBalancerType	: BreadthFirst
-Location		: westus
-MaxSessionLimit	: 2
-Name			: 0224hp
-PersonalDesktopAssignmentType	:
-RegistrationInfoExpirationTime	: 6/6/2020 7:00:00 AM
-RegistrationInfoRegistrationTokenOperation : None
-RegistrationInfoToken	: <token key>
-Ring			:
-SsoContext		:
-Tag	: Microsoft.Azure.PowerShell.Cmdlets.DesktopVirtualization.Models.Api20191210Preview.TrackedResourceTags
-Type			: Microsoft.DesktopVirtualization/hostpools
-VMTemplate		: {"domain":"domain_name","galleryImageOffer":"Windows-10",
-"galleryImagePublisher":"MicrosoftWindowsDesktop","galleryImageSKU":"19h2-
-                                             evd","imageType":"Gallery","imageUri":null,"customImageId":null,"namePrefi
-x":"0224win10ms","osDiskType":"StandardSSD_LRS","useManagedDisks":true,"vm
-                                             Size":{"id":"Standard_D2s_v3","cores":2,"ram":8}}
-ValidationEnvironment  :
+To see specific properties, add the specific property names after `format-list` or `fl`.
 
-If you want to see specific properties, call out the properties along with “format-list”:
+For example:
+
+```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
 
 CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redirectclipboard:i:1;redirectcomports:i:0;redirectprinters:i:1;redirectsmartcards:i:1;screen modeid:i:2;
+```
 
 ## Does Windows Virtual Desktop support guest users?
 
-Scenario: Company A wants to manage external users from company B who:
-
--	Are licensed with ME3, WE3 or WIN VDA in their own company B tenant 
--	But are included in the active directory of the company A as external/guest users 
-
-Can these users access Windows Virtual Desktop within company A? 
-
-Answer: Company A would need to manage Company B’s user objects in BOTH Active Directory and Azure AD, as if they were local accounts to Company A. The service does not support Azure AD guest user accounts.
-
-Licensing will also prevent this - “Not compliant to use your own license(s) (Company A) for the benefit of a 3rd party (Company B).”
+Windows Virtual Desktop doesn't support Azure AD guest user accounts. If guest users are licensed with ME3, WE3, or WIN VDA in their own company, but are in a different company's Azure AD as guest users, then the other company would have to manage the guest users' user objects in both Azure AD and Active Directory as if they were local accounts to their company.
 
 ## Why don't I see the client IP address in the WVDConnections table?
 
-There is no reliable way in which we can collect the IP address for the web client. Hence we do not populate the client IP in the WVDConnections table.
+We don't currently have a way to collect the web client's IP address for the table, so that value isn't included.
