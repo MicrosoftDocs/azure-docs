@@ -5,15 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
+ms.date: 6/24/2020
 ---
 
 # Audit Logs in Azure Database for MariaDB
 
 In Azure Database for MariaDB, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
-
-> [!IMPORTANT]
-> Audit log functionality is currently in preview.
 
 ## Configure audit logging
 
