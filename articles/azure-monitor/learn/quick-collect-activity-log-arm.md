@@ -12,11 +12,11 @@ ms.date: 05/26/2020
 # Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template 
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using log queries.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
 
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
@@ -127,7 +127,7 @@ The following template creates an empty Log Analytics workspace. Save the this t
 ### Deploy the template
 Deploy the template using any standard method for deploying an ARM template. 
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/CLI1)
 
 ```azurecli
 az login
@@ -139,7 +139,7 @@ az deployment group create \
 
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell1)
 
 ```powershell
 Connect-AzAccount
@@ -150,14 +150,14 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ### Verify the deployment
 Verify that the workspace has been created using one of the following commands.
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/CLI2)
 
 ```azurecli
 az login
 az monitor log-analytics workspace show --resource-group bw-ama  --workspace-name  bw-ama
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell2)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -Name bw-ama -ResourceGroupName bw-ama

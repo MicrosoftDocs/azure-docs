@@ -13,7 +13,7 @@ ms.date: 05/26/2020
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using log queries.
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
 
 ## Sign in to Azure portal
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
