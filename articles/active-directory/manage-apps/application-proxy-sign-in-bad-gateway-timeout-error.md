@@ -78,7 +78,7 @@ After using these steps to ensure the application is assigned to a group with wo
 
 ## Check all required ports are open
 
-Verify that all required ports are open. For required ports, see the open ports section of [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application). If all the required ports are open, move to the next section.
+Verify that all required ports are open. For required ports, see the open ports section of [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md). If all the required ports are open, move to the next section.
 
 ## Check for other Connector Errors
 
