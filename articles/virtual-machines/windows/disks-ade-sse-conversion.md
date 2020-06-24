@@ -1,6 +1,6 @@
 ---
 title: Migrate to server-side encryption - PowerShell
-description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption using PowerShell.
+description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption with customer-managed keys using PowerShell.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -11,11 +11,11 @@ ms.subservice: disks
 
 # Migrate managed disks from ADE to SSE - PowerShell
 
-This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE). To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
+This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE) with customer-managed keys using PowerShell. To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
 
 ## Prerequisites
 
-In order to convert to SSE with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
+To convert to SSE with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 

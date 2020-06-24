@@ -1,6 +1,6 @@
 ---
 title: Migrate to server-side encryption - Azure CLI
-description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption using the Azure CLI.
+description: How to migrate your managed disks using Azure Disk Encryption to server-side encryption with customer-managed keys using the Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Migrate managed disks from ADE to SSE - Azure CLI
 
-This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE). To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
+This article covers how to migrate managed disks from Azure Disk Encryption (ADE) to server-side encryption (SSE) with customer-managed keys using the Azure CLI. To learn more about ADE or SSE, see our articles: [server-side encryption](disk-encryption.md) or [Azure Disk Encryption](disk-encryption-overview.md).
 
 >[!IMPORTANT]
 >This migration requires disabling ADE encryption on your disk. Disabling encryption with Azure Disk Encryption on Linux VMs is only supported for data volumes. It is not supported on data or OS volumes if the OS volume has been encrypted.
