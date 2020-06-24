@@ -117,9 +117,8 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 |**Key capabilities**| | |  |
 | SSO to cloud resources| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
 | SSO to on-premises resources| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
-| Conditional access| ![check](./media/plan-device-deployment/check.png) 
-Compliant devices| ![check](./media/plan-device-deployment/check.png)
-Compliant device| ![check](./media/plan-device-deployment/check.png) |
+| Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM)| ![check](./media/plan-device-deployment/check.png) | ![check](./media/plan-device-deployment/check.png)|![check](./media/plan-device-deployment/check.png) |
+Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![check](./media/plan-device-deployment/check.png)
 | Self-service password reset from windows login screen| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
 | Windows hello PIN reset| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
 | Enterprise state roaming across devices| | ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |
