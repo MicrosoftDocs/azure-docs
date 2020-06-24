@@ -19,14 +19,17 @@ Azure Communication Services is a user oriented platform. Users are entities tha
 
 ## Creating Users
 
-Users are implicitly created when you request a [user access token](./user-access-tokens.md) without providing a user ID. 
+Users are implicitly created when you request a [user access token](./user-access-tokens.md) without providing a user ID. You also have to provide list of scopes to the function below. Scopes are list of strings that determine if a user can use the Azure Communication offerings, such as `"chat"`, `"call"`, `"sms"` etc.
 
 ```csharp
-var configurationClient = new ConfigurationClient(CONNECTION_STRING);
-var tokenResult = await configurationClient.CreateUserAccessTokenAsync();
+var userTokenClient = new UserTokenClient(CONNECTION_STRING);
+var tokenResponse = await userTokenClient.IssueAsync(scopes: new List<string>{"chat"});
 
 // unique User ID
-String userID = tokenResult.id;
+string userID = tokenResponse.Value.AcsIdentity;
+
+// user token 
+string token = tokenResponse.Value.Token
 ```
 
 It is possible for the same user to have simultaneous sessions across multiple devices and SDKs, so you may store a mapping between Azure Communication Users and the users of your application and re-issue additional access tokens for the same user over time.
@@ -34,22 +37,22 @@ It is possible for the same user to have simultaneous sessions across multiple d
 ```csharp
 public async Task<string> IssueAccessToken(string userId)
 {    
-    // initialize the configuration client with a connection string
+    // initialize the user token client with a connection string
     // retrieved from the Azure Portal
-    var configurationClient = new ConfigurationClient(CONNECTION_STRING);
+    var userTokenClient = new UserTokenClient(CONNECTION_STRING);
     
     // create a user access token for the provided identity
-    var tokenResult = await configurationClient.CreateUserAccessTokenAsync(userId);
+    var tokenResponse = await userTokenClient.IssueAsync(userId);
     
     // return a the freshly minted token for the user
-    return tokenResult.token;
+    return tokenResponse.Token;
 }
 ```
 It is also possible to treat users as ephemeral entities that are created for a single call or chat conversation.
 
 ## Connecting Users
 
-The User IDs in Azure Communication Services are analagous to phone numbers. Any user can initiate a chat or call with any other user provided they are able to discover that user's ID.
+The User IDs in Azure Communication Services are analagous to phone numbers. Any user can initiate a chat or call with any other user provided they are able to discover that user's ID and the token that they are holding have proper scopes.
 
 ### Chat
 
@@ -91,7 +94,7 @@ You as a customer have to maintain map of ACS identities to entities in your sys
 ## Deleting Users
 
 It is possible to delete users via the configuration SDK. When you delete a user, all of the customer content associated with that user, including chat messages and call history, is deleted.
-
+<!--TODO: This part is not ready in SDK yet-->
 ```charpt
 await configurationClient.users().delete(userId);
 ```
