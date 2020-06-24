@@ -27,6 +27,35 @@ In this tutorial, you learn how to:
 > * Route traffic to your hub
 > * Test the firewall
 
+## Create a firewall policy
+
+A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. 
+
+1. From Firewall Manager, select **View Azure Firewall policies**.
+2. Select **Create Azure Firewall Policy**.
+3. Select your subscription and select **FW-Manager** for the resource group.
+4. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **West Central US**.
+5. Select **Next:Rules**.
+6. On the **Rules** tab, select **Add a rule collection**.
+7. On the **Add a rule collection** page, type **RC-01** for the **Name**.
+8. For **Rule collection type**, select **Application**.
+9. For **Priority**, type **100**.
+10. Ensure **Rule collection action** is **Allow**.
+11. For the rule **Name** type **Allow-msft**.
+12. For **Source type**, select **IP address**.
+13. For **Source**, type **\***.
+14. For **Protocol**, type **http,https**.
+15. Ensure **Destination type** is **FQDN**.
+16. For **Destination**, type **\*.microsoft.com**.
+17. Select **Add**.
+18. Select **Next: Threat intelligence**.
+19. Ensure that **Threat intelligence mode** is **Alert Only**.
+20. Select **Next: Hubs**. You'll associated the policy with the hub later.
+23. Select **Review + create**.
+24. Select **Create**.
+
+This can take about five minutes or more to complete.
+
 ## Create a hub and spoke architecture
 
 First, create a spoke virtual network where you can place your servers.
@@ -94,36 +123,57 @@ Now you can peer the hub and spoke VNets.
 7. For **Virtual network**, select **Spoke-01**.
 8. Select **Create**.
 
-## Create a firewall policy and secure your hub
+## Add the firewall policy
 
-A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. You'll create your firewall policy and then secure your hub.
+1. From **Firewall Manager**, select **Secured virtual hubs**.
+2. Select **Hub-01**.
+3. Select **Security providers**.
+4. Under **Azure Firewall**, select **Add policy**.
+5. Select **Policy-01** and then select **Save**.
 
-1. From Firewall Manager, select **View Azure Firewall policies**.
-2. Select **Create Azure Firewall Policy**.
-3. Select your subscription and select **FW-Manager** for the resource group.
-4. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **West Central US**.
-5. Select **Next:Rules**.
-6. On the **Rules** tab, select **Add a rule collection**.
-7. On the **Add a rule collection** page, type **RC-01** for the **Name**.
-8. For **Rule collection type**, select **Application**.
-9. For **Priority**, type **100**.
-10. Ensure **Rule collection action** is **Allow**.
-11. For the rule **Name** type **Allow-msft**.
-12. For **Source type**, select **IP address**.
-13. For **Source**, type **\***.
-14. For **Protocol**, type **http,https**.
-15. Ensure **Destination type** is **FQDN**.
-16. For **Destination**, type **\*.microsoft.com**.
-17. Select **Add**.
-18. Select **Next: Threat intelligence**.
-19. Ensure that **Threat intelligence mode** is **Alert Only**.
-20. Select **Next: Hubs**.
-21. On the **Hubs** tab, select **Associate virtual hubs**.
-22. Select **Hub-01** and then select **Add**.
-23. Select **Review + create**.
-24. Select **Create**.
+## Configure third-party security providers to connect to a secured hub
 
-This can take about five minutes or more to complete.
+To set up tunnels to your virtual hub’s VPN Gateway, Zscaler needs access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to Zscaler using their portal.
+
+### Create and authorize a service principal
+
+#### Create Azure Active Directory (AD) service principal
+
+1. Sign in to your Azure Account through the Azure portal.
+2. Select **All services**
+3. Search for and then select **Azure Active Directory**.
+4. Select **App registrations**.
+5. Select **New registration**.
+6. Type **3P-Firewall** for the **Name**.
+7. Select **Accounts in this organizational directory only (Microsoft only - Single tenant**)
+8. Select **Web** for the type of application you want to create. You can skip the redirect URL.
+9. Select **Register**.
+
+#### Add access rights and scope for the service principal
+
+1. Select the **FW-Manager** resource group, and then select **Access control (IAM)**.
+1. Under **Add a role assignment**, select **Add**.
+2. For **Role**, select **Contributor**.
+3. For **Assign access to** select **Assign AD user, group, or service principal**.
+4. Under **Select**, type **3P-Firewall**.
+5. Select **3P-Firewall**.
+6. Select **Save**.
+
+### Visit the Zscaler portal
+
+1. Follow the  [Zscaler instructions](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) to complete the setup. This includes submitting AAD information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
+
+   - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
+
+   
+2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+
+
+
+
+
+
+
 
 ## Route traffic to your hub
 
