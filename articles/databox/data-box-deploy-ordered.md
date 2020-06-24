@@ -55,6 +55,11 @@ Open up a Windows PowerShell command window and sign in to Azure with the [az lo
 
 ```azurecli
 PS C:\Windows> az login
+```
+
+Here is the output from a successful sign-in:
+
+```output
 You have logged in. Now let us find all the subscriptions to which you have access.
 [
    {
@@ -83,6 +88,11 @@ To install the extension for Azure Data Box, run the following command: `az
 ```azurecli
 
     PS C:\Windows> az extension add --name databox
+```
+
+If the extension is installed successfully, you'll see the following output:
+
+```output
     The installed extension 'databox' is experimental and not covered by customer support. Please use with discretion.
     PS C:\Windows>
 
@@ -103,7 +113,7 @@ To install the extension for Azure Data Box, run the following command: `az
 
 ### Use Azure Cloud Shell
 
-You can use [Azure Cloud Shell](https://shell.azure.com/), a free, Azure hosted interactive shell environment through your browser. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
+You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted interactive shell environment, through your browser to run CLI commands. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
@@ -281,8 +291,22 @@ Do the following steps using Azure CLI to order a device:
 
    Here's an example of command usage:
 
-   ```azurecli
-   az databox job create --resource-group "myresourcegroup" --name "mydataboxtest3" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount
+   ```output
+   az databox job create --resource-group "myresourcegroup" \
+                         --name "mydataboxtest3" \
+                         --location "westus" \
+                         --sku "DataBox" \
+                         --contact-name "Gus Poland" \
+                         --phone "14255551234" \
+                         --email-list "gusp@contoso.com" \
+                         --street-address1 "15700 NE 39th St" \
+                         --street-address2 "Bld 25" \
+                         --city "Redmond" \
+                         --state-or-province "WA" \
+                         --country "US" \
+                         --postal-code "98052" \
+                         --company-name "Contoso" \
+                         --storage-account mystorageaccount
 
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    {
@@ -381,211 +405,24 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
    Here's an example of the command with output format set to "table":
 
-   ```azurecli
-    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest4" --output "table"
+   ```output
+    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" \
+                                                --name "mydataboxtest4" \
+                                                --output "table"
     Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
     DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
     --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
-   
    ```
-   <!-- Here's an example of the command with default output format:
-
-   ```azurecli
-    PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" --name "mydataboxtest3"
- {
-      "cancellationReason": null,
-      "deliveryInfo": {
-        "scheduledDateTime": "0001-01-01T00:00:00+00:00"
-      },
-      "deliveryType": "NonScheduled",
-      "details": {
-        "chainOfCustodySasKey": null,
-        "contactDetails": {
-          "contactName": "Gus Poland",
-          "emailList": [
-            "gusp@contoso.com"
-          ],
-          "mobile": null,
-          "notificationPreference": [
-            {
-              "sendNotification": true,
-              "stageName": "DevicePrepared"
-            },
-            {
-              "sendNotification": true,
-              "stageName": "Dispatched"
-            },
-            {
-              "sendNotification": true,
-              "stageName": "Delivered"
-            },
-            {
-              "sendNotification": true,
-              "stageName": "PickedUp"
-            },
-            {
-              "sendNotification": true,
-              "stageName": "AtAzureDC"
-            },
-            {
-              "sendNotification": true,
-              "stageName": "DataCopy"
-            }
-          ],
-          "phone": "14255551234",
-          "phoneExtension": null
-        },
-        "copyLogDetails": [],
-        "copyProgress": [],
-        "dataImportDetails": [
-          {
-            "accountDetails": {
-              "dataAccountType": "StorageAccount",
-              "storageAccountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
-            }
-          }
-        ],
-        "deliveryPackage": {
-          "carrierName": "",
-          "trackingId": "",
-          "trackingUrl": ""
-        },
-        "destinationAccountDetails": [
-          {
-            "accountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-            "dataDestinationType": "StorageAccount",
-            "sharePassword": null,
-            "storageAccountId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
-          }
-        ],
-        "devicePassword": null,
-        "errorDetails": null,
-        "expectedDataSizeInTerabytes": null,
-        "jobDetailsType": "DataBox",
-        "jobStages": [
-          {
-            "displayName": "Ordered",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "DeviceOrdered",
-            "stageStatus": "Succeeded",
-            "stageTime": "2020-06-11T22:05:53.134066+00:00"
-          },
-          {
-            "displayName": "Processed",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "DevicePrepared",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Dispatched",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "Dispatched",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Delivered",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "Delivered",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Picked up",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "PickedUp",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Received",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "AtAzureDC",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Data copy in progress",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "DataCopy",
-            "stageStatus": "None",
-            "stageTime": null
-          },
-          {
-            "displayName": "Completed",
-            "errorDetails": null,
-            "jobStageDetails": null,
-            "stageName": "Completed",
-            "stageStatus": "None",
-            "stageTime": null
-          }
-        ],
-        "keyEncryptionKey": {
-          "kekType": "MicrosoftManaged"
-        },
-        "preferences": null,
-        "returnPackage": {
-          "carrierName": "",
-          "trackingId": "",
-          "trackingUrl": ""
-        },
-        "reverseShipmentLabelSasKey": null,
-        "shippingAddress": {
-          "addressType": "None",
-          "city": "Redmond",
-          "companyName": "Contoso",
-          "country": "US",
-          "postalCode": "98052",
-          "stateOrProvince": "WA",
-          "streetAddress1": "15700 NE 39th St",
-          "streetAddress2": "Bld 25",
-          "streetAddress3": null,
-          "zipExtendedCode": null
-        }
-      },
-      "error": null,
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
-      "identity": {
-        "type": "None"
-      },
-      "isCancellable": true,
-      "isCancellableWithoutFee": true,
-      "isDeletable": false,
-      "isShippingAddressEditable": true,
-      "location": "westus",
-      "name": "mydataboxtest3",
-      "resourceGroup": "myresourcegroup",
-      "sku": {
-        "displayName": null,
-        "family": null,
-        "name": "DataBox"
-      },
-      "startTime": "2020-06-11T22:05:49.436622+00:00",
-      "status": "DeviceOrdered",
-      "tags": {},
-      "type": "Microsoft.DataBox/jobs"
-    }
-    PS C:\WINDOWS\system32>
-
-   ``` -->
 
 ### List all orders
 
 If you have ordered multiple devices, you can run [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
 The command also displays time stamps of each order.
-<!-- Put this in table form for output -->
-   ```azurecli
-   az databox job list --resource-group <resource-group>
-   ```
+
+```azurecli
+az databox job list --resource-group <resource-group>
+```
 
 The following table shows the parameter information for `az databox job list`:
 
@@ -601,142 +438,19 @@ The following table shows the parameter information for `az databox job list`:
 
    Here's an example of the command with output format set to "table":
 
-    ```azurecli
+   ```azurecli
     PS C:\WINDOWS\system32> az databox job list --resource-group "GDPTest" --output "table"
-    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
-    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
-    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
-    OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
-    NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
-    IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
-                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
-                                                                     NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
-    PS C:\WINDOWS\system32>
-    ```
 
-   <!-- ```azurecli
-   PS C:\Windows> az databox job list --resource-group "myresourcegroup" --output "table"
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
-   [
-      {
-         "cancellationReason": "OtherReason This was a test order for documentation purposes.",
-         "deliveryInfo": {
-               "scheduledDateTime": "0001-01-01T00:00:00+00:00"
-         },
-         "deliveryType": "NonScheduled",
-         "details": null,
-         "error": null,
-         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxImportTest2",
-         "identity": {
-               "type": "None"
-           },
-         "isCancellable": false,
-         "isCancellableWithoutFee": false,
-         "isDeletable": true,
-         "isShippingAddressEditable": false,
-         "location": "westus",
-         "name": "mydataboxImportTest2",
-         "resourceGroup": "myresourcegroup",
-         "sku": {
-            "displayName": null,
-            "family": null,
-            "name": "DataBox"
-         },
-         "startTime": "2020-05-26T23:20:57.464075+00:00",
-         "status": "Cancelled",
-         "tags": {},
-         "type": "Microsoft.DataBox/jobs"
-      },
-      {
-         "cancellationReason": "I entered erroneous data for the order and needed to cancel.",
-         "deliveryInfo": {
-            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
-         },
-         "deliveryType": "NonScheduled",
-         "details": null,
-         "error": null,
-         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxImportTest",
-         "identity": {
-            "type": "None"
-         },
-         "isCancellable": false,
-         "isCancellableWithoutFee": false,
-         "isDeletable": true,
-         "isShippingAddressEditable": false,
-         "location": "westus",
-         "name": "mydataboxImportTest2",
-         "resourceGroup": "myresourcegroup",
-         "sku": {
-            "displayName": null,
-            "family": null,
-            "name": "DataBox"
-         },
-         "startTime": "2020-05-27T00:04:16.640397+00:00",
-         "status": "Cancelled",
-         "tags": {},
-         "type": "Microsoft.DataBox/jobs"
-      },
-      {
-         "cancellationReason": "IncorrectOrder null",
-         "deliveryInfo": {
-            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
-         },
-         "deliveryType": "NonScheduled",
-         "details": null,
-         "error": null,
-         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest2",
-         "identity": {
-            "type": "None"
-         },
-         "isCancellable": false,
-         "isCancellableWithoutFee": false,
-         "isDeletable": true,
-         "isShippingAddressEditable": false,
-         "location": "westus",
-         "name": "mydataboxtest2",
-         "resourceGroup": "myresourcegroup",
-         "sku": {
-            "displayName": null,
-            "family": null,
-            "name": "DataBox"
-         },
-         "startTime": "2020-06-10T16:54:23.509181+00:00",
-         "status": "Cancelled",
-         "tags": {},
-         "type": "Microsoft.DataBox/jobs"
-      },
-      {
-         "cancellationReason": "CancelTest",
-         "deliveryInfo": {
-            "scheduledDateTime": "0001-01-01T00:00:00+00:00"
-         },
-         "deliveryType": "NonScheduled",
-         "details": null,
-         "error": null,
-         "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.DataBox/jobs/mydataboxtest3",
-         "identity": {
-            "type": "None"
-         },
-         "isCancellable": false,
-         "isCancellableWithoutFee": false,
-         "isDeletable": true,
-         "isShippingAddressEditable": false,
-         "location": "westus",
-         "name": "mydataboxtest3",
-         "resourceGroup": "myresourcegroup",
-         "sku": {
-            "displayName": null,
-            "family": null,
-            "name": "DataBox"
-         },
-         "startTime": "2020-06-10T23:28:27.354241+00:00",
-         "status": "Cancelled",
-         "tags": {},
-         "type": "Microsoft.DataBox/jobs"
-      }
-   ]
-
-``` -->
+   CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
+   ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
+   OtherReason This was a test order for documentation purposes.    NonScheduled    False            False                      True           False                        westus      gdpImportTest        GDPTest          2020-05-26T23:20:57.464075+00:00  Cancelled
+   NoLongerNeeded This order was created for documentation purposes.NonScheduled    False            False                      True           False                        westus      mydataboxExportTest  GDPTest          2020-05-27T00:04:16.640397+00:00  Cancelled
+   IncorrectOrder                                                   NonScheduled    False            False                      True           False                        westus      mydataboxtest2       GDPTest          2020-06-10T16:54:23.509181+00:00  Cancelled
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest3       GDPTest          2020-06-11T22:05:49.436622+00:00  DeviceOrdered
+                                                                    NonScheduled    True             True                       False          True                         westus      mydataboxtest4       GDPTest          2020-06-18T03:48:00.905893+00:00  DeviceOrdered
+   PS C:\WINDOWS\system32>
+   ```
 
 ---
 
