@@ -291,7 +291,7 @@ Do the following steps using Azure CLI to order a device:
 
    Here's an example of command usage:
 
-   ```output
+   ```azurecli
    az databox job create --resource-group "myresourcegroup" \
                          --name "mydataboxtest3" \
                          --location "westus" \
@@ -307,7 +307,11 @@ Do the following steps using Azure CLI to order a device:
                          --postal-code "98052" \
                          --company-name "Contoso" \
                          --storage-account mystorageaccount
+   ```
 
+   Here is the output from running the command:
+
+   ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    {
      "cancellationReason": null,
@@ -349,6 +353,11 @@ Do the following steps using Azure CLI to order a device:
 
     ```azurecli
     az databox job create --resource-group "myresourcegroup" --name "mydataboxtest4" --location "westus" --sku "DataBox" --contact-name "Gus Poland" --phone "14255551234" --email-list "gusp@contoso.com" --street-address1 "15700 NE 39th St" --street-address2 "Bld 25" --city "Redmond" --state-or-province "WA" --country "US" --postal-code "98052" --company-name "Contoso" --storage-account mystorageaccount --output "table"
+   ```
+
+   Here is the output from running the command:
+
+   ```output
 
     Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
     DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
@@ -405,10 +414,15 @@ To get tracking information about a single, existing Azure Data Box order, run [
 
    Here's an example of the command with output format set to "table":
 
-   ```output
+   ```azurecli
     PS C:\WINDOWS\system32> az databox job show --resource-group "myresourcegroup" \
                                                 --name "mydataboxtest4" \
                                                 --output "table"
+   ```
+
+   Here is the output from running the command:
+
+   ```output
     Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
     DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name            ResourceGroup    StartTime                         Status
     --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  --------------  ---------------  --------------------------------  -------------
@@ -440,7 +454,11 @@ The following table shows the parameter information for `az databox job list`:
 
    ```azurecli
     PS C:\WINDOWS\system32> az databox job list --resource-group "GDPTest" --output "table"
+   ```
 
+   Here is the output from running the command:
+
+   ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    CancellationReason                                               DeliveryType    IsCancellable    IsCancellableWithoutFee    IsDeletable    IsShippingAddressEditable    Location    Name                 ResourceGroup    StartTime                         Status
    ---------------------- ----------------------------------------  --------------  ---------------  -------------------------  -------------  ---------------------------  ----------  -------------------  ---------------  --------------------------------  -------------
@@ -493,6 +511,11 @@ To cancel an Azure Data Box order, run [az databox job cancel](https://docs.micr
 
    ```azurecli
    PS C:\Windows> az databox job cancel --resource-group "myresourcegroup" --name "mydataboxtest3" --reason "Our budget was slashed due to **redacted** and we can no longer afford this device."
+   ```
+
+   Here is the output from running the command:
+
+   ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    Are you sure you want to perform this operation? (y/n): y
    PS C:\Windows>
@@ -525,6 +548,11 @@ Here's an example of the command with output:
 
    ```azurecli
    PS C:\Windows> az databox job delete --resource-group "myresourcegroup" --name "mydataboxtest3" --yes --verbose
+   ```
+
+   Here is the output from running the command:
+
+   ```output
    Command group 'databox job' is experimental and not covered by customer support. Please use with discretion.
    command ran in 1.142 seconds.
    PS C:\Windows>
