@@ -27,11 +27,23 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 1. Use the following powershell script to add the custom DNS servers. Please replace the values for your environment.
 ```
+// Define variables
+$rgName = "testRG1"
+$virtualHubName = "virtualHub1"
+$P2SvpnGatewayName = "testP2SVpnGateway1"
+$vpnClientAddressSpaces = 
+$vpnServerConfiguration1Name = "vpnServerConfig1"
+$vpnClientAddressSpaces = New-Object string[] 2
+$vpnClientAddressSpaces[0] = "192.168.2.0/24"
+$vpnClientAddressSpaces[1] = "192.168.3.0/24"
 $customDnsServers = New-Object string[] 2
-$customDnsServers[0] = "x.x.x.x"
-$customDnsServers[1] = "y.y.y.y"
+$customDnsServers[0] = "7.7.7.7"
+$customDnsServers[1] = "8.8.8.8"
+$virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
+$vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
+
 // Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
-createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
+createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
 
 // Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
 $P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
