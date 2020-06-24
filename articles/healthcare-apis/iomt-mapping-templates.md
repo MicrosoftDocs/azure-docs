@@ -1,5 +1,5 @@
 ---
-title: IoMT connector (preview) mapping templates
+title: 'Concepts: Mapping templates in IoMT connector (preview) feature of Azure API for FHIR'
 description: Learn to create two types of mapping templates in IoMT connector. Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
 services: healthcare-apis
 author: ms-puneet-nagpal
@@ -10,7 +10,7 @@ ms.date: 05/14/2020
 ms.author: punagpal
 ---
 
-# IoMT connector (preview) Mapping Templates
+# IoMT connector (preview) mapping templates
 This article details how to configure IoMT connector using mapping templates.
 
 The IoMT connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
@@ -54,7 +54,7 @@ The content payload itself is an Azure Event Hub message, which is composed of t
 }
 ```
 
-### Mapping with JSON Path
+### Mapping with JSON path
 The two device content template types supported today rely on JSON Path to both match the required template and extracted values. More information on JSON Path can be found [here](https://goessner.net/articles/JsonPath/). Both template types use the [JSON .NET implementation](https://www.newtonsoft.com/json/help/html/QueryJsonSelectTokenJsonPath.htm) for resolving JSON Path expressions.
 
 #### JsonPathContentTemplate
@@ -74,7 +74,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 
 ##### Examples
 ---
-**Heart Rate**
+**Heart rate**
 
 *Message*
 ```json
@@ -108,7 +108,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 }
 ```
 ---
-**Blood Pressure**
+**Blood pressure**
 
 *Message*
 ```json
@@ -146,7 +146,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 ```
 ---
 
-**Project Multiple Measurements from Single Message**
+**Project multiple measurements from single message**
 
 *Message*
 ```json
@@ -201,7 +201,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 ```
 ---
 
-**Project Multiple Measurements from Array in Message**
+**Project multiple measurements from array in message**
 
 *Message*
 ```json
@@ -254,7 +254,7 @@ The assumption when using this template is the messages being evaluated were sen
 *Note: When using the IotJsonPathContentTemplate, the TypeMatchExpression should resolve to the entire message as a JToken. See the examples below.* 
 ##### Examples
 ---
-**Heart Rate**
+**Heart rate**
 
 *Message*
 ```json
@@ -290,7 +290,7 @@ The assumption when using this template is the messages being evaluated were sen
 }
 ```
 ---
-**Blood Pressure**
+**Blood pressure**
 
 *Message*
 ```json
@@ -347,7 +347,7 @@ The CodeValueFhirTemplate is currently the only template supported in FHIR mappi
 |**Components[].Codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.
 |**Components[].Value**|The value to extract and represent in the component. For more information, see [Value Type Templates](#valuetypes).
 
-### Value Type Templates <a name="valuetypes"></a>
+### Value type templates <a name="valuetypes"></a>
 Below are the currently supported value type templates. In the future, further templates may be added.
 #### SampledData
 Represents the [SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR data type.Observation measurements are written to a value stream starting at a point in time and incrementing forward using the period defined. If no value is present, an `E` will be written into the data stream. If the period is such that two more values occupy the same position in the data stream, the latest value is used. The same logic is applied when an observation using the SampledData is updated.
@@ -378,7 +378,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 |**Codes[].Display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
 
 ### Examples
-**Heart Rate - Sampled Data**
+**Heart rate - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -402,7 +402,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 }
 ```
 ---
-**Steps - Sampled Data**
+**Steps - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -426,7 +426,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 }
 ```
 ---
-**Blood Pressure - Sampled Data**
+**Blood pressure - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -453,7 +453,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
                     "defaultPeriod": 5000,
                     "unit": "mmHg",
                     "valueName": "diastolic",
-                    "valueType": "sampledData"
+                    "valueType": "SampledData"
                 }
             },
             {
@@ -468,7 +468,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
                     "defaultPeriod": 5000,
                     "unit": "mmHg",
                     "valueName": "systolic",
-                    "valueType": "sampledData"
+                    "valueType": "SampledData"
                 }
             }
         ]
@@ -476,7 +476,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 }
 ```
 ---
-**Blood Pressure - Quantity**
+**Blood pressure - Quantity**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -502,7 +502,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
                 "value": {
                     "unit": "mmHg",
                     "valueName": "diastolic",
-                    "valueType": "quantity"
+                    "valueType": "Quantity"
                 }
             },
             {
@@ -516,7 +516,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
                 "value": {
                     "unit": "mmHg",
                     "valueName": "systolic",
-                    "valueType": "quantity"
+                    "valueType": "Quantity"
                 }
             }
         ]
@@ -524,7 +524,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 }
 ```
 ---
-**Device Removed - Codeable Concept**
+**Device removed - CodeableConcept**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -548,7 +548,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
                 }
             ],
             "valueName": "deviceRemoved",
-            "valueType": "codeableConcept"
+            "valueType": "CodeableConcept"
         }
     }
 }
