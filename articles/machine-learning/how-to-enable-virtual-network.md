@@ -82,9 +82,9 @@ Add your workspace and storage account to same virtual network so that they can 
 
 1. [Enable Azure Private Link](how-to-configure-private-link.md) to connect your workspace to the virtual network.
 
-1. [Connect your storage account](#use-a-storage-account-for-your-workspace) to the virtual network. Ensure that **Allow trusted Microsoft services to access this storage account** is enabled in the **Firewalls and virtual networks** page.
+1. [Connect your storage account](#use-a-storage-account-for-your-workspace) to the virtual network.
 
-### Configure datastores to use managed identity
+### Configure datastore to use managed identity
 
 Now that the workspace and storage service are joined to the virtual network, configure your datastore to use managed identity to access your data.
 
@@ -102,7 +102,7 @@ For __Azure Blob storage__, the workspace managed identity is also added as a [B
 
 You can use both Azure role-based access control (RBAC) and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information on RBAC security in Data Lake Store Gen2, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)
+To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
 
 To use ACLs, the workspace managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -302,7 +302,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 ### Access data in a Compute Instance notebook
 
-Make sure your notebook is running on compute behind the same virtual network and subnet as your data. If you're using notebook on Compute Instance, you can must configure your Compute Instance to be in the same virtual network during creation. You cannot add an existing Compute Cnstance to a virtual network. You can set these configurations under **Advanced settings** > **Configure virtual network**
+Make sure your notebook is running on a compute resource behind the same virtual network and subnet as your data. If you're using notebook on Compute Instance, you can must configure your Compute Instance to be in the same virtual network during creation. You cannot add an existing Compute Cnstance to a virtual network. You can set these configurations under **Advanced settings** > **Configure virtual network**
 
 [Screenshot showing compute instance virtual network configuration]()  
 
@@ -360,6 +360,52 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 When accessing the studio from a resource inside a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
 
 For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
+### Access datasets and datastores behind a virtual network
+
+By default, Azure Machine Learning performs data existence and credential checks when you attempt to access data. When your data is behind a virtual network, Azure Machine Learning can't access the data, and fails its checks. To avoid this when using the SDK, you need to create datastores and datasets that skip validation. Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default. 
+
+The syntax to skip datastore validation is similar for the following services:
+- Azure Blob storage
+- Azure fileshare
+- PostgreSQL
+- Azure SQL Database
+
+The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+The following services skip datastore validation by default and don't require additional configuration:
+- Azure Data Lake Store Gen2
+- Azure Data Lake Store Gen1  
+
+
+The syntax to skip dataset validation is similar for the following dataset types:
+- Delimited file
+- JSON 
+- Parquet
+- SQL
+- File
+
+The following code sample creates a new JSON dataset and sets `validate=False`.
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
 
 <a id="aksvnet"></a>
 
