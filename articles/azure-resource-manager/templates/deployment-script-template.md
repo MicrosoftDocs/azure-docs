@@ -138,9 +138,15 @@ Property value details:
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
-    Inline arguments support double escaping quotes. The arguments are split by invoking [CommandLineToArgvW function](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For example, in the previous sample template, The argument is **-name \\"John Dole&\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
+    Inline arguments support double escaping quotes. The arguments are split by invoking [CommandLineToArgvW function](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For example, in the previous sample template, The argument is **-name \\"John Dole\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
 
-    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the string() function, and then use the replace() function to replace any **\\"** into **\\\\\\"**. To see an example, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any **\\"** into **\\\\\\"**. For example:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    To see a sample template, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
