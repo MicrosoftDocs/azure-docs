@@ -1,5 +1,5 @@
 ---
-title: Get started with event-driven background processing using the WebJobs SDK
+title: Tutorial for event-driven background processing with the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
 ms.author: glenga
