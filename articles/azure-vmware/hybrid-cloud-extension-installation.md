@@ -67,7 +67,7 @@ Infrastructure components must be running the required minimum version.
 
     ![Get System Updates](./media/hybrid-cloud-extension-installation/administration-updates.png)
 
-1. Select an OVF template to deploy to on-premises vCenter.  
+1. Next, go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter.  
 
     ![Select OVF template](./media/hybrid-cloud-extension-installation/select-template.png)
 
@@ -88,16 +88,17 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with your username
- and your password. 
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with your username and your password. 
+
+   > [!IMPORTANT]
+   > Make sure to include the `9443` port number with the HCX Manager IP address.
 
 1. In **Licensing**, enter your **HCX Advanced Key**.  
 
     ![Enter HCX key](./media/hybrid-cloud-extension-installation/hcx-key.png)  
     
     > [!NOTE]
-    > HCX Manager must have open internet access or a proxy
-    > configured.
+    > HCX Manager must have open internet access or a proxy configured.
 
 1. In **vCenter**, if needed, edit the vCenter information.
 
