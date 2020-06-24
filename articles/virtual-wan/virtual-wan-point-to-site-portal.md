@@ -104,7 +104,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 ## <a name="dns"></a>Specify DNS server
 
-The Virtual WAN User VPN gateway allows up to 5 DNS Server IPs to be specified. You can configure this setting during the hub creation steps You can also add it at a later time. To do so, locate the virtual hub. Under **User VPN (point to site)**, you will see the option to specify **Custom DNS Servers**.
+The Virtual WAN User VPN gateways allow you to specify up to 5 DNS Servers. You can configure this during the hub creation process or modify it at a later time. To do so, locate the virtual hub. Under **User VPN (point to site)** , click on configure and enter the DNS server IP address(es) in the **Custom DNS Servers** text box(es).
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="custom DNS" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 
