@@ -58,7 +58,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 
 There are some additional options that can be used to adjust parsing rules to custom CSv format:
 - ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
+Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value.
 The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 - FIELDTERMINATOR ='field_terminator'
 Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
@@ -71,7 +71,7 @@ SQL language in Synapse SQL enables you to define schema of the file as part of 
 
 ### Read a chosen subset of columns
 
-To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
+To specify columns that you want to read, you can provide an optional WITH clause within your `OPENROWSET` statement.
 
 - If there are CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation.
 - If there are Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name.
@@ -86,12 +86,12 @@ WITH (
 ) as rows
 ```
 
-For every column you need to specify column name and type in `WITH` clause.
+For every column, you need to specify column name and type in `WITH` clause.
 For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
 
 ## Schema inference
 
-By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
+By omitting the WITH clause from the `OPENROWSET` statement, you can instruct the service to auto detect (infer) the schema from underlying files.
 
 > [!NOTE]
 > This currently works only for PARQUET file format.
@@ -143,7 +143,7 @@ Return data type is nvarchar(1024). For optimal performance, always cast result 
 
 ## Work with complex types and nested or repeated data structures
 
-To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
+To enable a smooth experience with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions that follow.
 
 #### Project nested or repeated data
 
@@ -161,7 +161,7 @@ For more detailed information, refer to the Project nested or repeated data sect
 
 #### Access elements from nested columns
 
-To access nested elements from a nested column, such as Struct, use "dot notation" to concatenate field names into the path. Provide the path as column_name in the WITH clause of the OPENROWSET function.
+To access nested elements from a nested column, such as Struct, use "dot notation" to concatenate field names into the path. Provide the path as column_name in the WITH clause of the `OPENROWSET` function.
 
 The syntax fragment example is as follows:
 
@@ -174,11 +174,11 @@ The syntax fragment example is as follows:
     'column_name' ::= '[field_name.] field_name'
 ```
 
-By default, the OPENROWSET function matches the source field name and path with the column names provided in the WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed via the WITH clause.
+By default, the `OPENROWSET` function matches the source field name and path with the column names provided in the WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed via the WITH clause.
 
 **Return values**
 
-- Function returns a scalar value, such as int, decimal, and varchar, from the specified element, and on the specified path, for all Parquet types that are not in the Nested Type group.
+- Function returns a scalar value, such as int, decimal, and varchar, from the specified element, and on the specified path, for all Parquet types that aren't in the Nested Type group.
 - If the path points to an element that is of a Nested Type, the function returns a JSON fragment starting from the top element on the specified path. The JSON fragment is of type varchar(8000).
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
@@ -225,7 +225,9 @@ The tools you need to issue queries:
 
 ### Demo setup
 
-Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
+Your first step is to **create a database** where you will execute the queries. Then you'll initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. 
+
+This setup script will create the data sources, database scoped credentials, and external file formats that are used to read data in these samples.
 
 > [!NOTE]
 > Databases are only used for viewing metadata, not for actual data.  Write down the database name that you use, you will need it later on.
@@ -257,7 +259,7 @@ Demo data contains the following data sets:
 
 ## Next steps
 
-For more information on how to query different file types and creating and using views, see the following articles:
+For more information on how to query different file types, and to create and use views, see the following articles:
 
 - [Query CSV files](query-single-csv-file.md)
 - [Query Parquet files](query-parquet-files.md)
