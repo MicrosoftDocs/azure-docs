@@ -88,6 +88,7 @@ The following template creates an empty Log Analytics workspace. Save the this t
         },
         "resourcePermissions": {
           "type": "bool",
+          "defaultValue": true,
           "metadata": {
             "description": "true to use resource or workspace permissions. false to require workspace permissions."
           }
@@ -146,7 +147,7 @@ Verify that the workspace has been created using one of the following commands. 
 # [CLI](#tab/CLI2)
 
 ```azurecli
-az monitor log-analytics workspace show --resource-group my-workspace-01  --workspace-name  my-resource-group
+az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
 ```
 
 # [PowerShell](#tab/PowerShell2)
@@ -174,9 +175,9 @@ The following template creates a diagnostic setting that sends the Activity log 
     },
     "resources": [
         {
-          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
+          "type": "Microsoft.Insights/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[(parameters('settingName')]",
+          "name": "[parameters('settingName')]",
           "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
@@ -226,18 +227,13 @@ Deploy the template using any standard method for [deploying an ARM template](/a
 # [CLI](#tab/CLI3)
 
 ```azurecli
-az deployment sub create \
-    --name CreateDiagnosticSetting \
-    --location eastus \
-    --template-file CreateDiagnosticSetting.json \
-    --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
+az deployment sub create --name CreateDiagnosticSetting --location eastus --template-file CreateDiagnosticSetting.json --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
 
 ```
 
 # [PowerShell](#tab/PowerShell3)
 
 ```powershell
-Select-AzSubscription -SubscriptionName my-subscription
 New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
@@ -248,14 +244,9 @@ Verify that the diagnostic setting has been created using one of the following c
 > [!NOTE]
 > You cannot currently retrieve subscription level diagnostic settings using PowerShell.
 
-# [CLI](#tab/CLI2)
-
 ```azurecli
-az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send to all locations with ARM'
+az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send Activity log to workspace'
 ```
-
----
-
 
 
 
