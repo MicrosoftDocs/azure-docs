@@ -140,13 +140,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SendSafely SSO
 
-To configure single sign-on on **SendSafely** side, follow the steps as provided [here](https://sendsafely.zendesk.com/hc/en-us/articles/360004152492-Setup-Single-Sign-On-SSO-with-SAML).
+To configure single sign-on on **SendSafely** side, follow the steps as provided [here](https://sendsafely.zendesk.com/hc/articles/360004152492-Setup-Single-Sign-On-SSO-with-SAML).
 
 ### Create SendSafely test user
 
 In this section, a user called B.Simon is created in SendSafely. SendSafely supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SendSafely, a new one is created when you attempt to access SendSafely.
 
-SendSafely also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/en-gb/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
+SendSafely also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
