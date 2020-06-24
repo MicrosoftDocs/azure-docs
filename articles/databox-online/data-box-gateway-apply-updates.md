@@ -30,71 +30,76 @@ We recommend that you install updates through the Azure portal. The device autom
 
 1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-1.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-01.png)
 
 2. In the **Device updates** blade, check that you have reviewed the license terms associated with new features in the release notes.
 
     You can choose to **Download and install** the updates or just **Download** the updates. You can then choose to install these updates later.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-03.png)
 
     If you want to download and install the updates, check the option that updates install automatically after the download completes.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-02.png)
 
 3. The download of updates starts. You see a notification that the download is in progress.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-3.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-06.png)
 
-    A notification banner is also displayed in the Azure portal. This indicates the download progress. 
+    A notification banner is also displayed in the Azure portal. This indicates the download progress.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-4.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-05.png)
 
     You can select this notification or select **Update device** to see the detailed status of the update.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)    -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-08.png)
 
 4. After the download is complete, the notification banner updates to indicate the completion. If you chose to download and install the updates, the installation will begin automatically.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-6.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-10.png)
 
     If you chose to download updates only, then select the notification to open the **Device updates** blade. Select **Install**.
   
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-7.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-11.png)
 
 5. You see a notification that the install is in progress.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-8.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-12.png)
 
     The portal also displays an informational alert to indicate that the install is in progress. The device goes offline and is in maintenance mode.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-9.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-13.png)
 
 6. As this is a 1-node device, the device will restart after the updates are installed. The critical alert during the restart will indicate that the device heartbeat is lost.
-
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-10.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-19.png)
 
     Select the alert to see the corresponding device event.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-11.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-22.png)
 
 7. After the restart, the device is again put in the maintenance mode and an informational alert is displayed to indicate that.
-
-    <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-12.png)-->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-21.png)
 
     If you select the **Update device** from the top command bar, you can see the progress of the updates.
 
-    <!--![Software version after update](./media/azure-stack-edge-j-series-install-update/portal-update-13.png)-->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-17.png)
 
 8. The device status updates to **Online** after the updates are installed.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-14.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-18.png)
 
     From the top command bar, select **Device updates**. Verify that update has successfully installed and the device software version reflects that.
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-15.png) -->
+    ![Software version after update](./media/data-box-gateway-apply-updates/update-23.png)
 
-    <!-- ![Software version after update](./media/azure-stack-edge-gpu-install-update/portal-update-20.png) -->
+## Unsorted images
+
+These images are left over and need homes.
+
+![Software version after update](./media/data-box-gateway-apply-updates/update-16.png)
+![Software version after update](./media/data-box-gateway-apply-updates/update-20.png)
+![Software version after update](./media/data-box-gateway-apply-updates/update-14.png)
+![Software version after update](./media/data-box-gateway-apply-updates/update-15.png)
 
 ## Use the local web UI
 
