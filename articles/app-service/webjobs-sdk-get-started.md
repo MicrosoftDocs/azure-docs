@@ -1,6 +1,6 @@
 ---
-title: Get started with the WebJobs SDK
-description: Learn how to enable your web apps to run background tasks with this tutorial that gets you started with the WebJobs SDK.
+title: "Tutorial: Get started with event-driven background processing using the WebJobs SDK"
+description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
 ms.author: glenga
 ms.devlang: dotnet
