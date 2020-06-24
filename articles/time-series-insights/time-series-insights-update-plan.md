@@ -96,5 +96,5 @@ For more information, read [Shape events](./time-series-insights-send-events.md#
 
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
 - Read more about [data ingestion](./concepts-ingestion-overview.md).
-- Review the article on [data storage](./concets-storage.md)
+- Review the article on [data storage](./concepts-storage.md)
 - Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.
