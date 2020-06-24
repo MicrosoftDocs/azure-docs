@@ -81,20 +81,20 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
     ```
 
-5. Set up the Docker repository.
+6. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Add Azul JDK Key to your APT keyring and setup its repository.
+7. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-7. Refresh your package lists based on the newly added repositories.
+8. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
