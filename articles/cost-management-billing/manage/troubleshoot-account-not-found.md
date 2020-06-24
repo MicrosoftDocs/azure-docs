@@ -29,7 +29,7 @@ Your billing account is associated with a single Azure Active Directory tenant. 
 1. Select **Switch directory**.  
     ![Screenshot that shows selecting switch directory in the portal](./media/troubleshoot-account-not-found/select-switch-directory.png)
 1. Select a directory under the **All directories** section.  
-  ![Screenshot that shows selecting a directory in the portal](./media/troubleshoot-account-not-found/select-directory.png)
+    ![Screenshot that shows selecting a directory in the portal](./media/troubleshoot-account-not-found/select-directory.png)
 
 ## Sign in with a different email address
 
