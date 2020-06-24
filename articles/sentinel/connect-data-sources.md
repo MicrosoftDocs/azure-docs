@@ -69,10 +69,13 @@ The following data connection methods are supported by Azure Sentinel:
     - [Zimperium](connect-zimperium-mtd.md)
 
 
-- **External solutions via agent**: Azure Sentinel can be connected via an agent to any other data source that can perform real-time log streaming using the Syslog protocol.<br>
-Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support CEF-based formatting for log data. <br>The Azure Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux-based log forwarder. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+- **External solutions via agent**: Azure Sentinel can be connected via an agent to any other data source that can perform real-time log streaming using the Syslog protocol.
 
-    - Firewalls, proxies, and endpoints:
+    Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support CEF-based formatting for log data. 
+
+    The Azure Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux-based log forwarder. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
+
+    - **Firewalls, proxies, and endpoints:**
         - [AI Vectra Detect](connect-aivectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
