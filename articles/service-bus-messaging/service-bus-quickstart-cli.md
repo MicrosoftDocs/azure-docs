@@ -1,17 +1,12 @@
 ---
 title: Quickstart - Use the Azure CLI to create a Service Bus queue | Microsoft Docs
 description: In this quickstart, you learn how to use the Azure CLI to create a Service Bus queue. Then, you use a sample Java application to send messages to and receive messages from the queue.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
-
 ---
 
 # Quickstart: Use the Azure CLI to create a Service Bus queue

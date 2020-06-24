@@ -1,22 +1,10 @@
 ---
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: e211774d-821c-4d79-8563-57472d746c58
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Service Bus Premium and Standard messaging tiers
 
 Service Bus Messaging, which includes entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus Messaging is used as the communication backbone for many sophisticated cloud solutions.
