@@ -44,31 +44,23 @@ The Read API takes the following inputs:
 
 The following Read API output shows the extracted text lines and words from an image with text at different angles, colors, and fonts
 
-![An image being rotated and its text being read and delineated](./Images/text-from-images-example.png)
-
 ### Text from documents
 
-In addition to images, the Read API takes a PDF document as input. The following example shows text extracted from a document. 
-
-![An image being rotated and its text being read and delineated](./Images/text-from-documents-example.png)
+In addition to images, the Read API takes a PDF document as input.
 
 ### Handwritten text in English
 
 The Read operation supports extracting handwritten text in English only.
 
-![An image being rotated and its text being read and delineated](./Images/handwritten-example.png)
-
 ### Printed text and supported languages
 
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition). The following image shows extracted Spanish text from the Read API. 
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
-![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
+
 
 ### Mixed languages in an image or document
 
 The Read OCR technology supports extracting text from images and documents with mixed languages. It does so by classifying each text line in the document before extracting the text contents.
-
-![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
 
 ### Data privacy and security
 
