@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Read text from images and documents
 
-Computer Vision includes new deep learning based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. Computer Vision extract text from analog (images, scanned documents) and digitized document. Computer Vision API enables you to extract text from images in the wild such as photos of cars with license plates, containers with serial numbers and also from document - invoices, bills, financial reports, articles and lots more. Computer Vision is available as a managed service in the cloud or on premise (containers) and supports also virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs. Computer vision also supports the ability to analyze images for insight to learn more check [here.](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home#analyze-images-for-insight)
+Computer Vision includes new deep learning based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. Computer Vision extract text from analog (images, scanned documents) and digitized document. Computer Vision API enables you to extract text from images in the wild such as photos of cars with license plates, containers with serial numbers and also from document - invoices, bills, financial reports, articles and lots more. Computer Vision is available as a managed service in the cloud or on premise (containers) and supports also virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs.
 
 ## Read API 
 
@@ -92,4 +92,3 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 - Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
 - Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C#, Java, Javascript, or Python along with REST API.
-- Follow the [Computer Vision client library QuickStart](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp) to see how to integrate the Read API along with other Microsoft computer vision services into an application.
