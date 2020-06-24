@@ -138,9 +138,9 @@ Property value details:
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
 
-    Inline arguments support double escaping quotes. The arguments are split by invoking [CommandLineToArgvW function](windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For example, in the previous sample template, The argument is **-name &#92"John Dole&#92"**.  The escaped string is **-name &#92&#92&#92"John dole&#92&#92&#92"**.
+    Inline arguments support double escaping quotes. The arguments are split by invoking [CommandLineToArgvW function](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). [JsonEscaper](https://www.jsonescaper.com) is a convenient tool for escaping a string.  For example, in the previous sample template, The argument is **-name \\"John Dole&\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
 
-    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the string() function, and then use the replace() function to replace any **&#92"** into **&#92&#92"**. To see an example, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the string() function, and then use the replace() function to replace any **\\"** into **\\\\\\"**. To see an example, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -472,7 +472,7 @@ The life cycle of these resources is controlled by the following properties in t
 
   - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
-  - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
+  - **OnExpiration**: Delete the automatically created resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
 
