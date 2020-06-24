@@ -25,7 +25,7 @@ To step through this how-to guide, you need:
 
 ## Configure audit logging
 
->[!NOTE]
+>[!IMPORTANT]
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure audit logging using the following steps: 
