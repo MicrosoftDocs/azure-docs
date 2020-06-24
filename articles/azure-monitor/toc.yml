@@ -12,6 +12,12 @@
   items:
   - name: Monitor Azure resource
     href: learn/quick-monitor-azure-resource.md
+  - name: Send Activity log to a workspace
+    items: 
+    - name: Azure portal
+      href: learn/quick-collect-activity-log-portal.md
+    - name: ARM template
+      href: learn/quick-collect-activity-log-arm.md
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
