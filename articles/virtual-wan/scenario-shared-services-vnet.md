@@ -20,16 +20,16 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 In order to configure this scenario, take the following steps into consideration:
 
 1. Identify the **Shared Services** VNet.
-2. Create a custom route table. In the example, we refer to this route table as **RT_SHARED**. For steps to create a route table, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md). For this scenario, you need to propagate all branch routes and Shared Services VNet routes to this route table. Use the following values as a guideline:
+2. Create a custom route table. In the example, we refer to this route table as **RT_SHARED**. For steps to create a route table, see [How to configure virtual hub routing](how-to-virtual-hub-routing.md). Use the following values as a guideline:
 
    * **Association**
      * For **VNets *except* the Shared Services VNet**, select the VNets to isolate. This will imply that all these VNets (except the shared services VNet) will be able to reach destination based on the routes of RT_SHARED route table.
 
    * **Propagation**
       * For **Branches**, propagate routes to this route table, in addition to any other route tables you may have already selected. Due to this step, RT_SHARED route table will learn routes from all branch connections (VPN/ER/User VPN).
-      * For **VNets**, select the **Shared Services VNet**,  in addition to any other route tables you may have already selected. Due to this step, RT_SHARED route table will learn routes from the Shared Services VNet connection.
+      * For **VNets**, select the **Shared Services VNet**. Due to this step, RT_SHARED route table will learn routes from the Shared Services VNet connection.
 
-   All VPN/ExpressRoute/User VPN Connections are associated to Default Route table. All VPN/ExpressRoute/User VPN Connections propagate routes to the same set of route tables.
+     This will result in the routing configuration changes as seen the figure below
 
    :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="Shared services VNet":::
 
