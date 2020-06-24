@@ -92,7 +92,7 @@ Currently, users who are in domains federated in Azure AD, but who are not synce
 **Service category:** Sovereign Clouds  
 **Product capability:** User Authentication
  
-Starting in June, the OIDC discovery document [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) on the [Azure Government cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) endpoint (login.microsoftonline.us), will begin to return the correct [National cloud graph](https://docs.microsoft.com/graph/deployments) endpoint (https://graph.microsoft.us or https://dod-graph.microsoft.us0), based on the tenant provided.  It currently provides the incorrect Graph endpoint (graph.microsoft.com) "msgraph_host" field.  
+Starting in June, the OIDC discovery document [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) on the [Azure Government cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) endpoint (login.microsoftonline.us), will begin to return the correct [National cloud graph](https://docs.microsoft.com/graph/deployments) endpoint (https://graph.microsoft.us or https://dod-graph.microsoft.us), based on the tenant provided.  It currently provides the incorrect Graph endpoint (graph.microsoft.com) "msgraph_host" field.  
 
 This bug fix will be rolled out gradually over approximately 2 months.  
 

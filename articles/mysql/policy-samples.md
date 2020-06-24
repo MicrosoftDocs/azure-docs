@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Database for MySQL
 description: Lists Azure Policy built-in policy definitions for Azure Database for MySQL. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
