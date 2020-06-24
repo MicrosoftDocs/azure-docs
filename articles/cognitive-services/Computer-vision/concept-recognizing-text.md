@@ -92,4 +92,4 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 - Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
 - Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C#, Java, Javascript, or Python along with REST API.
-- Follow the Use the [Computer Vision client library QuickStart](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp) to see how to integrate the Read API along with other Microsoft computer vision services into an application.
+- Follow the [Computer Vision client library QuickStart](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp) to see how to integrate the Read API along with other Microsoft computer vision services into an application.
