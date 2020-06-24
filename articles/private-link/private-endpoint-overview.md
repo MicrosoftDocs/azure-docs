@@ -133,3 +133,4 @@ The following table includes a list of known limitations when using private endp
 - [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
 - [Create your own Private Link for Azure Database for MariaDB using Portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Key Vault using Portal and CLI](../key-vault/general/private-link-service.md)
