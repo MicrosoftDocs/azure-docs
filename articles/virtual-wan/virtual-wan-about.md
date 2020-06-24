@@ -100,6 +100,10 @@ Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connect
 
 Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled. This flag can be located in the Azure Virtual WAN settings in the Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
+### <a name="routing"></a>Custom Routing
+
+Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliance or shared services routing scenarios.
+
 ### <a name="global"></a>Global VNet peering
 
 Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
