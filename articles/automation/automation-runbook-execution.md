@@ -75,7 +75,7 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of the [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Azure Automation makes use of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
 
 ### Log Analytics agent for Windows
 

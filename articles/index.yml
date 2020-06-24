@@ -1400,7 +1400,7 @@ productDirectory:
     # Card
     - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
-      imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
+      imageSrc: https://static.docs.com/ui/media/product/azure/storage-azure-files.svg
       azureCategories:
         - storage
       url: storage/files/index.yml
