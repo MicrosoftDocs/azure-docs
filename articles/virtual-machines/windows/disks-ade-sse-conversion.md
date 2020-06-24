@@ -19,7 +19,7 @@ Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subs
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
-## Take a snapshot of your disks
+## Take a disk snapshot
 
 Before you start the migration process, take a snapshot of your disks. So that you can revert to them just in case.
 

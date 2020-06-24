@@ -20,7 +20,7 @@ In order to convert to SSE with customer-managed keys, you must create a Key Vau
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
 
-## Take a snapshot of your disks
+## Take a disk snapshot
 
 Before you start the migration process, take a snapshot of your disks. So that you can revert to them just in case.
 
