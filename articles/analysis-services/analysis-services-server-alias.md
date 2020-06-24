@@ -49,5 +49,5 @@ protected void Page_Load(object sender, EventArgs e)
 
 ## See also
 
-[Client libraries](analysis-services-data-providers.md)   
+[Client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
 [Connect from Power BI Desktop](analysis-services-connect-pbi.md)
