@@ -27,7 +27,7 @@ Uptime SLA is available in public regions where [AKS is supported](https://azure
 
 ## Limitations
 
-* Currently, there is no way to remove Uptime SLA from an AKS cluster after creation with it enabled.  
+* Currently, if you enable Uptime SLA there is no way to remove it from a cluster 
 * Private clusters aren't currently supported.
 
 ## SLA terms and conditions
@@ -42,13 +42,13 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This operation takes several minutes to complete.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This operation takes several minutes to complete:
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
@@ -82,7 +82,7 @@ Create a new resource group:
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a new cluster, and don't use Uptime SLA.
+Create a new cluster, and don't use Uptime SLA:
 
 ```azurecli-interactive
 # Create a new cluster without uptime SLA
