@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
@@ -82,7 +82,7 @@ To get started, you need to set up an Azure NetApp Files account.
 
 ## Create a capacity pool
 
-Next, create a new capacity pool: 
+Next, create a new capacity pool:
 
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.

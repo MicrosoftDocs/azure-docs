@@ -19,6 +19,7 @@ The recommended actions are shut down or resize, specific to the resource being 
 The advanced evaluation model in Advisor considers shutting down virtual machines when both of these statements are true: 
 - P95th of the maximum of maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
+- Memory pressure is lower than the threshold values
 
 Advisor considers resizing virtual machines when it's possible to fit the current load in a smaller SKU (within the same SKU family) or a smaller number of instances such that:
 - The current load doesn’t go above 80% utilization for workloads that aren't user facing. 

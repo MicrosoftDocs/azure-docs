@@ -5,7 +5,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ---
