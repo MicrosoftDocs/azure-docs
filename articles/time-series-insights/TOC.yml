@@ -49,14 +49,22 @@
         href: time-series-insights-parameterized-urls.md
   - name: Azure Time Series Insights Preview
     items:
-    - name: Plan your environment
-      href: time-series-insights-update-plan.md
-    - name: Data storage and ingress
-      href: time-series-insights-update-storage-ingress.md
     - name: Use cases
       href: time-series-insights-update-use-cases.md
-    - name: Time Series Model
-      href: time-series-insights-update-tsm.md
+    - name: Plan your environment
+      href: time-series-insights-update-plan.md
+    - name: Ingestion Overview
+      href: concepts-ingestion-overview.md
+    - name: Supported Data Types
+      href: concepts-supported-data-types.md
+    - name: Streaming Ingestion Event Sources
+      href: concepts-streaming-ingestion-event-sources.md
+    - name: JSON flattening and escaping rules
+      href: concepts-JSON-flattening-and-escaping-rules.md
+    - name: Streaming Ingress Throughput Limits
+      href: concepts-streaming-throughput-limitations.md
+    - name: Storage
+      href: concepts-storage.md
     - name: Time Series Query
       href: time-series-insights-update-tsq.md
     - name: Visualize data in the explorer Preview
