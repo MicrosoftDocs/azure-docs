@@ -1,15 +1,10 @@
 ---
 title: Security controls for Azure Service Bus Messaging
 description: A checklist of security controls for evaluating Azure Service Bus Messaging
-services: service-bus-messaging
-ms.service: service-bus-messaging
-author: spelluru
-
 ms.topic: conceptual
-ms.date: 09/23/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
+
 # Security controls for Azure Service Bus Messaging
 
 This article documents the security controls built into Azure Service Bus Messaging.
