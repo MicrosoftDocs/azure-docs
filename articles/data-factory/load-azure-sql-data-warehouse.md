@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
+ms.date: 06/08/2020
 ---
 
 # Load data into Azure Synapse Analytics by using Azure Data Factory
@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Azure Synapse Analytics: The data warehouse holds the data that's copied over from the SQL database. If you don't have an Azure Synapse Analytics, see the instructions in [Create an Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: This tutorial copies data from an Azure SQL database with Adventure Works LT sample data. You can create a SQL database by following the instructions in [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md).
+* Azure SQL Database: This tutorial copies data from the Adventure Works LT sample dataset in Azure SQL Database . You can create this sample database in SQL Database by following the instructions in [Create a sample database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Azure storage account: Azure Storage is used as the _staging_ blob in the bulk copy operation. If you don't have an Azure storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Create a data factory
@@ -131,11 +131,13 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 1. In the **Summary** page, review the settings, and select **Next**.
 
     ![Summary page](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. In the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
-1. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details and to rerun the pipeline.
+1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
+ 
+1. Notice that the **Monitor** tab on the left is automatically selected. When the pipeline run completes successfully, select the **CopyFromSQLToSQLDW** link under the **PIPELINE NAME** column to view activity run details or to rerun the pipeline.
 
     [![Monitor pipeline runs](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. To switch back to the pipeline runs view, select the **All pipeline runs** link at the top. Select **Refresh** to refresh the list.
 
     ![Monitor activity runs](./media/load-azure-sql-data-warehouse/activity-monitoring.png)

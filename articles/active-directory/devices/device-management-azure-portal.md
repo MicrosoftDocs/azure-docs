@@ -5,8 +5,8 @@ description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
-ms.date: 06/21/2020
+ms.topic: how-to
+ms.date: 06/23/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

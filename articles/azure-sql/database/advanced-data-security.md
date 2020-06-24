@@ -8,8 +8,8 @@ ms.devlang:
 ms.custom: sqldbrb=2
 ms.topic: conceptual
 ms.author: memildin
-author: memildin
 manager: rkarlin
+author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
@@ -56,7 +56,7 @@ To view and manage ADS settings, navigate to **Advanced Data Security** under th
 
 ![Server settings](./media/advanced-data-security/server_settings.png)
 
-## 4. Manage ADS settings for a SQL database
+## 4. Manage ADS settings for a database
 
 To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the server or managed instance.
 

@@ -62,6 +62,14 @@ productDirectory:
         - web
       url: search/index.yml
     # Card
+    - title: Azure Cognitive Services
+      summary: Add smart API capabilities to enable contextual interactions
+      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
+      azureCategories:
+        - featured
+        - ai-machine-learning
+      url: cognitive-services/index.yml
+    # Card
     - title: Azure Databricks
       summary: Fast, easy, and collaborative Apache Spark-based analytics platform
       imageSrc: https://static.docs.com/ui/media/product/azure/databricks.svg
@@ -154,14 +162,6 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
       url: cognitive-services/bing-web-search/overview.md
-    # Card
-    - title: Cognitive Services
-      summary: Add smart API capabilities to enable contextual interactions
-      imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
-      azureCategories:
-        - featured
-        - ai-machine-learning
-      url: cognitive-services/index.yml
     # Card
     - title: Computer Vision
       summary: Distill actionable information from images
@@ -1314,7 +1314,7 @@ productDirectory:
       url: virtual-network/index.yml
     # Card
     - title: Virtual WAN
-      summary: Optimize and automate branch to branch connectivity through Azure
+      summary: Microsoft-managed hub and spoke service for connectivity and security
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
       azureCategories:
         - networking
@@ -1398,7 +1398,7 @@ productDirectory:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
     # Card
-    - title: File Storage
+    - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:
