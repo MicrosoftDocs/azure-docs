@@ -12,6 +12,34 @@ ms.date:  06/30/2020
 
 This article addresses frequent questions about Azure Dev Tools for Teaching. 
 
+## Azure for students
+
+### What happens after I use my $100 credit or I’m at the end of 12 months?
+
+After you exhaust your available credit or reach the end of 12 months, your Azure subscription will be disabled. To continue using [Azure](https://account.azure.com/), you may upgrade to a Pay-As-You-Go subscription in the Azure Account Portal. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
+
+### Can I get Azure for Students again next year?
+
+Thank you for your interest in Azure for Students! We’re glad that you’ve enjoyed using it. At this time, we are not announcing renewals. Check back here for updates.
+
+### What are subscriptions, and how do they relate to Azure for Students?
+
+Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months and access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure at the end of 12 months or after you’ve exhausted your $100 credit, whichever occurs first, you must upgrade to a Pay-As-You-Go subscription.
+
+### What happens with my Azure services if I don’t upgrade?
+
+If you decide not to upgrade at the end of 12 months or after you’ve exhausted your $100 credit, whichever occurs first, any products you’ve deployed will be decommissioned and you won’t be able to access them. You can always come back within the next 90 days to upgrade your subscription.
+
+### How do I know how much of the $100 credit I have left?
+
+You can see your remaining credit on the Microsoft [Azure Sponsorships Portal](http://www.microsoftazuresponsorships.com/).
+
+### How do I download the Software Developer Tools
+
+Your Azure for Students subscription will provide you with access to certain Software Developer Tools, available to download for free. You must have a current, active Azure for Students subscription in order to access the Software Developer Tools. You can download this software in the Education Hub.e
+
+
+
 ## What products are included in Microsoft Azure Dev Tools for Teaching subscription?
 
 The following product families are included in the Microsoft Azure Dev Tools for Teaching subscriptions:  
