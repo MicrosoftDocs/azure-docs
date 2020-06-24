@@ -247,13 +247,15 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
    * In the **Integrations** section, click **+ Add new**. A pop-up screen displays the **Integrations** panel.
 
    * Click the **3rd party** tab. A list of supported third-party applications is displayed. Click the **Add** button associated with **Azure AD Single Sign On**,  and click **Done**.
-   ![image](./media/mitel-connect-tutorial/Mitel_CL_Integrations.png)
+
+       ![image](./media/mitel-connect-tutorial/Mitel_CL_Integrations.png)
+
     The **Azure AD Single Sign On** is enabled for the customer account and is added to the **Integrations** section of the **Account Information** page.   
 
    * Click **Complete Setup**
-   ![image](./media/mitel-connect-tutorial/Mitel_CL_CompleteSetup.png)
+       ![image](./media/mitel-connect-tutorial/Mitel_CL_CompleteSetup.png)
       The **Azure AD Single Sign On** configuration panel opens.
-   ![image](./media/mitel-connect-tutorial/Mitel_CL_SSOSetup.png)
+       ![image](./media/mitel-connect-tutorial/Mitel_CL_SSOSetup.png)
       Mitel recommends that the **Enable Mitel Credentials (Optional)** check box in the **Optional Mitel credentials** section is not selected. Select this checkbox only if you want the user to log in to the CloudLink application using the Mitel credentials in addition to the single sign-on option.
 
 3. In the Azure portal, from the **SAML-based Sign-on** page, click the Edit icon  in the **Basic SAML Configuration** section. The **Basic SAML Configuration** panel opens.
@@ -266,7 +268,7 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 [httpS://accounts.mitel.io](https://accounts.mitel.io) — to use the CloudLink Accounts portal as your default Mitel application.
 ![image](./media/mitel-connect-tutorial/Mitel_CL_SignOnUrl.png)
   
-   NOTE: The default Mitel application is the application that opens when a user clicks the Mitel Connect tile in the Access Panel. This is also the application accessed when the user configures a test setup from Azure AD.
+       NOTE: The default Mitel application is the application that opens when a user clicks the Mitel Connect tile in the Access Panel. This is also the application accessed when the user configures a test setup from Azure AD.
 
 7. Click ![image](./media/mitel-connect-tutorial/Mitel_CL_Save.png) in the **Basic SAML Configuration** 
 
@@ -282,6 +284,7 @@ Note: If you have more than one certificate, it is recommended that you paste th
     * Copy the URL from the **Login URL** field and paste it into the **Sign-in URL** field in the CloudLink Accounts portal.
 
     * Copy the URL from the **Azure AD Identifier** field and paste it into the **IDP Identifier (Entity ID)** field in the CloudLink Accounts portal.
+
     ![image](./media/mitel-connect-tutorial/Mitel_CL_CopySettings.png)
 
 11. Click **Save** on the **Azure AD Single Sign On** panel in the CloudLink Accounts portal.
