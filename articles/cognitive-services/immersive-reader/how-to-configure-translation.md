@@ -16,9 +16,9 @@ ms.author: metan
 
 This article demonstrates how to configure the various options for translation in the Immersive Reader.
 
-## Configure tranlsation language
+## Configure translation language
 
-The `options` parameter contains all of the flags which can be used to configure translation. Set the `language` parameter to the language you wish to translate to. See the [Language Support](./language-support.md) for the full list of supported languages.
+The `options` parameter contains all of the flags that can be used to configure translation. Set the `language` parameter to the language you wish to translate to. See the [Language Support](./language-support.md) for the full list of supported languages.
 
 ```typescript
 const options = {

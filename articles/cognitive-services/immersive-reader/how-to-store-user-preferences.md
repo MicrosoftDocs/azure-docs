@@ -18,7 +18,7 @@ This article demonstrates how to store the user's preferences. This functionalit
 
 ## How to enable storing user preferences
 
-The `options` parameter contains the `onPreferencesChanged` callback. This function will be called any time the user changes their preferences (e.g. they change the text size, font, theme color, parts of speech highlighting, etc.). The `value` parameter contains a string which represents the user's current preferences. This string can be stored using whatever mechanism you prefer.
+The `options` parameter contains the `onPreferencesChanged` callback. This function will be called anytime the user changes their preferences (for example, they change the text size, theme color, font, and so on). The `value` parameter contains a string, which represents the user's current preferences. This string can be stored using whatever mechanism you prefer.
 
 ```typescript
 const options = {

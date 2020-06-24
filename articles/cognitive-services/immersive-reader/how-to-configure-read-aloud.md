@@ -18,7 +18,7 @@ This article demonstrates how to configure the various options for Read Aloud in
 
 ## Automatically start Read Aloud
 
-The `options` parameter contains all of the flags which can be used to configure Read Aloud. Set `autoplay` to `true` to enable automatically starting Read Aloud after launching the Immersive Reader.
+The `options` parameter contains all of the flags that can be used to configure Read Aloud. Set `autoplay` to `true` to enable automatically starting Read Aloud after launching the Immersive Reader.
 
 ```typescript
 const options = {
@@ -35,7 +35,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 
 ## Configure the voice
 
-Set `voice` to either `male` or `female`. Not all languages support both voices. See the [Language Support](./language-support.md) page for more details.
+Set `voice` to either `male` or `female`. Not all languages support both voices. For more information, see the [Language Support](./language-support.md) page.
 
 ```typescript
 const options = {
