@@ -118,7 +118,7 @@ After installation, perform the following steps.
 
     ![Add site pairing](./media/hybrid-cloud-extension-installation/site-pairing.png)
 
-1. Enter the Remote HCX URL or IP address, AVS Cloudadmin **Username** and **Password**, and then select **Connect**.
+1. Enter the Remote HCX URL or IP address, AVS cloudadmin username and password, and then select **Connect**.
 
    The system shows the connected site.
    
