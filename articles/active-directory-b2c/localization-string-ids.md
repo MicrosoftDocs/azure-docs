@@ -284,7 +284,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 
 ## Azure AD SSPR
 
-The following are the IDs for an [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
 | -- | ------------- |

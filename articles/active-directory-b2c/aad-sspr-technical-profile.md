@@ -18,13 +18,13 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address. Use this technical profile to generate and send a code to an email address, and then verify the code. The Azure AD SSPR technical profile may also return an error message.  The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
+Azure Active Directory B2C (Azure AD B2C) provides support for verifying an email address for self-service password reset (SSPR). Use the Azure AD SSPR technical profile to generate and send a code to an email address, and then verify the code. The Azure AD SSPR technical profile may also return an error message. The validation technical profile validates the user-provided data before the user journey continues. With the validation technical profile, an error message displays on a self-asserted page.
 
 This technical profile:
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
 - Uses the Azure AD SSPR service to generate and send a code to an email address, and then verifies the code.  
-- Validates a email address via a verification code.
+- Validates an email address via a verification code.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -55,7 +55,7 @@ The **InputClaims** element contains a list of claims to send to Azure AD SSPR. 
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
-| emailAddress | Yes | The identifier for the user who owns the email address. The `PartnerClaimType` property of the input claim must set to `emailAddress`. |
+| emailAddress | Yes | The identifier for the user who owns the email address. The `PartnerClaimType` property of the input claim must be set to `emailAddress`. |
 
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure AD SSPR service.
@@ -109,10 +109,10 @@ The **InputClaims** element contains a list of claims to send to Azure AD SSPR. 
 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- | ----------- |
-| emailAddress| Yes | Same email address as previously used to send a code. It is also used to locate an email verification session. The `PartnerClaimType` property of the input claim must set to `emailAddress`.|
-| verificationCode  | Yes | The verification code provided by the user to be verified. The `PartnerClaimType` property of the input claim must set to `verificationCode`. |
+| emailAddress| Yes | Same email address as previously used to send a code. It is also used to locate an email verification session. The `PartnerClaimType` property of the input claim must be set to `emailAddress`.|
+| verificationCode  | Yes | The verification code provided by the user to be verified. The `PartnerClaimType` property of the input claim must be set to `verificationCode`. |
 
-The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Azure AD SSPR  service.
+The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Azure AD SSPR service.
 
 ### Output claims
 
@@ -132,11 +132,11 @@ The following metadata can be used to configure the error messages displayed upo
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-|UserMessageIfChallengeExpired | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier.|
+|UserMessageIfChallengeExpired | The message to display to the user if the code verification session has expired. Either the code has expired or the code has never been generated for a given identifier.|
 |UserMessageIfInternalError | User error message if the server has encountered an internal error.|
 |UserMessageIfThrottled | User error message if a request has been throttled.|
-|UserMessageIfVerificationFailedNoRetry | The message to display to the user if they've provided an invalid code, and user is not allowed to provide the correct code.|
-|UserMessageIfVerificationFailedRetryAllowed | The message to display to the user if they've provided an invalid code, and user is allowed to provide the correct code.|
+|UserMessageIfVerificationFailedNoRetry | The message to display to the user if they've provided an invalid code, and the user is not allowed to provide the correct code.|
+|UserMessageIfVerificationFailedRetryAllowed | The message to display to the user if they've provided an invalid code, and the user is allowed to provide the correct code.|
 
 ### Example: verify a code
 
