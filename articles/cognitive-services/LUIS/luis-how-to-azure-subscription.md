@@ -3,7 +3,7 @@ title: How to use authoring and runtime keys - LUIS
 description: When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intend to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 04/06/2020
+ms.date: 06/24/2020
 ---
 
 # Create LUIS resources
