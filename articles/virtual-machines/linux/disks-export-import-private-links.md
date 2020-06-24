@@ -136,4 +136,4 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-[Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks](faq-for-disks.md)
+[FAQ on private links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
