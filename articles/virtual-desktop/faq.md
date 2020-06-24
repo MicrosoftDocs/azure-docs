@@ -47,15 +47,13 @@ You can create virtual machines (VMs) in a different Azure AD as long as you syn
 
 ## What are location restrictions?
 
-All service resources have a location associated with them. A host pool’s location determines which geography the service metadata for the host pool is stored in. An app group can't exist without a host pool. If you add apps to a RemoteApp app group, you'll also need a session host to determine the start menu apps. This also means that for any app group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the app group's location should be the same as the host pool's.
+All service resources have a location associated with them. A host pool’s location determines which geography the service metadata for the host pool is stored in. An app group can't exist without a host pool. If you add apps to a RemoteApp app group, you'll also need a session host to determine the start menu apps. For any app group action, you'll also need a related data access on the host pool. To make sure data isn't being transferred between multiple locations, the app group's location should be the same as the host pool's.
 
 Workspaces also must be in the same location as their app groups. Whenever the workspace updates, the related app group updates along with it. Like with app groups, the service requires that all workspaces are associated with app groups created in the same location.
 
 ## Can RDP traffic be routed through ExpressRoute?
 
-Windows Virtual Desktop doesn't completely separate RDP traffic from public IPs. 
-
-Windows Virtual does have the RDP ShortPath feature, which routes all RDP traffic over private addresses using ExpressRoute. This improves remote connection performance by using managed networks instead of public networks. However, signaling and telemetry data will still flow over public IPs.
+Windows Virtual Desktop doesn't fully separate RDP traffic from public IPs. Windows Virtual does have the RDP ShortPath feature, which routes all RDP traffic over private addresses using ExpressRoute. This rerouting improves remote connection performance by using managed networks instead of public networks. However, signaling and telemetry data will still flow over public IPs.
 
 ## How do you expand an object's properties in PowerShell?
 
@@ -91,7 +89,7 @@ CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redir
 
 ## Does Windows Virtual Desktop support guest users?
 
-Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users are licensed with ME3, WE3, or WIN VDA in their own company, but are in a different company's Azure AD as guest users. The other company would have to manage the guest users' user objects in both Azure AD and Active Directory as if they were local accounts within their company.
+Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have ME3, WE3, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would have to manage the guest users' user objects in both Azure AD and Active Directory as if they were local accounts within their own company.
 
 ## Why don't I see the client IP address in the WVDConnections table?
 
