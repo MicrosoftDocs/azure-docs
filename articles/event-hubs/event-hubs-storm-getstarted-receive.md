@@ -1,21 +1,8 @@
 ---
 title: 'Quickstart: Receive events using Apache Storm - Azure Event Hubs'
 description: 'Quickstart: This article provides information on how to receive events from Azure Event Hubs using Apache Storm.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
+ms.date: 06/23/2020
 ---
 
 # Quickstart: Receive events from Event Hubs using Apache Storm

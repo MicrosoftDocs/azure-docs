@@ -166,7 +166,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 The Business Critical service tier will not correctly apply [max memory limits for memory-optimized objects](../managed-instance/resource-limits.md#in-memory-oltp-available-space) in some cases. SQL Managed Instance may enable workload to use more memory for in-memory OLTP operations, which may affect availability and stability of the instance. In-memory OLTP queries that are reaching the limits might not fail immediately. This issue will be fixed soon. The queries that use more in-memory OLTP memory will fail sooner if they reach the [limits](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Workaround**: [Monitor in-memory OLTP storage usage](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitor-space) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than the available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
+**Workaround**: [Monitor in-memory OLTP storage usage](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-monitor-space) using [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) to ensure that the workload is not using more than the available memory. Increase the memory limits that depend on the number of vCores, or optimize your workload to use less memory.
  
 ### Wrong error returned while trying to remove a file that is not empty
 
