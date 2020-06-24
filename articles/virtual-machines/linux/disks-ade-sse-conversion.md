@@ -100,7 +100,7 @@ Now that you've swapped the encryption type, you can start your VM again. The fo
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-## [Optional] Check the status of your encryption
+## (Optional) Check encryption status
 
 If you like, you can confirm that the encryption has completed with the following command:
 

@@ -98,8 +98,7 @@ Now that you've swapped the encryption type, you can start your VM again. The fo
 Start-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
 ```
 
-## [Optional] Check the status of your encryption
-
+## (Optional) Check encryption status
 If you like, you can confirm that the encryption has completed with the following command:
 
 [!INCLUDE [virtual-machines-disks-encryption-status-powershell](../../../includes/virtual-machines-disks-encryption-status-powershell.md)]
