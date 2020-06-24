@@ -4,7 +4,7 @@ description: This doc provides an overview of the prerequisites for a data migra
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: lbosq
 ---

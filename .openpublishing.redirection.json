@@ -3098,6 +3098,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-arc/kubernetes/deploy-azure-monitor-for-containers.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-example-adventureworks-multilevel-faceting.md",
       "redirect_url": "/azure/search/search-filters-facets",
       "redirect_document_id": true
@@ -35952,6 +35957,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-push-notifications-swift-apps-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-swift-rest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-obc-204",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
       "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
@@ -38958,6 +38973,46 @@
     {
       "source_path": "articles/power-bi-embedded/get-started.md",
       "redirect_url": "https://docs.microsoft.com/power-bi/developer/embedding",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-create-new.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-create-parameters.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-select-custom-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-speech-sdk.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-fulfill-sdk.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-validations.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-confirmations.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-one-step-correction.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
       "redirect_document_id": false
     },
     {
@@ -44282,6 +44337,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure-signalr/signalr-tutorial-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-diagnostic-logs",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
       "redirect_document_id": false
@@ -44639,6 +44699,11 @@
     {
       "source_path": "articles/analysis-services/analysis-services-compat-level.md",
       "redirect_url": "https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/analysis-services-data-providers.md",
+      "redirect_url": "https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current",
       "redirect_document_id": false
     },
     {
@@ -48364,6 +48429,16 @@
       "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-emulator-visual-studio.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
@@ -55396,7 +55471,7 @@
     },
     {
       "source_path": "articles/aks/azure-ad-integration.md",
-      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_url": "/azure/aks/azure-ad-integration-cli",
       "redirect_document_id": false
     },
     {

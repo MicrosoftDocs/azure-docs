@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
@@ -28,7 +28,7 @@ Issue reports for the scaling tool are currently being handled on GitHub instead
 The scaling tool provides a low-cost automation option for customers who want to optimize their session host VM costs.
 
 You can use the scaling tool to:
- 
+
 - Schedule VMs to start and stop based on Peak and Off-Peak business hours.
 - Scale out VMs based on number of sessions per CPU core.
 - Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
@@ -62,7 +62,7 @@ Before you start setting up the scaling tool, make sure you have the following t
 - Session host pool VMs configured and registered with the Windows Virtual Desktop service
 - A user with [Contributor access](../../role-based-access-control/role-assignments-portal.md) on Azure subscription
 
-The machine you use to deploy the tool must have: 
+The machine you use to deploy the tool must have:
 
 - Windows PowerShell 5.1 or later
 - The Microsoft Az PowerShell module
@@ -101,7 +101,8 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
 6. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
-![An image of the Azure overview page showing the newly created automation account and runbook.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the Azure overview page showing the newly created automation account and runbook.](../media/automation-account.png)
 
   To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
@@ -175,21 +176,21 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      ```powershell
      $aadTenantId = (Get-AzContext).Tenant.Id
-     
+
      $azureSubscription = Get-AzSubscription | Out-GridView -PassThru -Title "Select your Azure Subscription"
      Select-AzSubscription -Subscription $azureSubscription.Id
      $subscriptionId = $azureSubscription.Id
-     
+
      $resourceGroup = Get-AzResourceGroup | Out-GridView -PassThru -Title "Select the resource group for the new Azure Logic App"
      $resourceGroupName = $resourceGroup.ResourceGroupName
      $location = $resourceGroup.Location
-     
+
      $wvdTenant = Get-RdsTenant | Out-GridView -PassThru -Title "Select your WVD tenant"
      $tenantName = $wvdTenant.TenantName
-     
+
      $wvdHostpool = Get-RdsHostPool -TenantName $wvdTenant.TenantName | Out-GridView -PassThru -Title "Select the host pool you'd like to scale"
      $hostPoolName = $wvdHostpool.HostPoolName
-     
+
      $recurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
      $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
      $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
@@ -199,12 +200,12 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
      $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
      $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
      $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-     
+
      $automationAccount = Get-AzAutomationAccount -ResourceGroupName $resourceGroup.ResourceGroupName | Out-GridView -PassThru
      $automationAccountName = $automationAccount.AutomationAccountName
      $automationAccountConnection = Get-AzAutomationConnection -ResourceGroupName $resourceGroup.ResourceGroupName -AutomationAccountName $automationAccount.AutomationAccountName | Out-GridView -PassThru -Title "Select the Azure RunAs connection asset"
      $connectionAssetName = $automationAccountConnection.Name
-     
+
      $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
      $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don't want to be managed by this scaling tool"
 
@@ -231,11 +232,13 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      After you run the script, the Logic App should appear in a resource group, as shown in the following image.
 
-     ![An image of the overview page for an example Azure Logic App.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![An image of the overview page for an example Azure Logic App.](../media/logic-app.png)
 
 To make changes to the execution schedule, such as changing the recurrence interval or time zone, go to the Autoscale scheduler and select **Edit** to go to the Logic Apps Designer.
 
-![An image of the Logic Apps Designer. The Recurrence and Webhook menus that let the user edit recurrence times and the webhook file are open.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the Logic Apps Designer. The Recurrence and Webhook menus that let the user edit recurrence times and the webhook file are open.](../media/logic-apps-designer.png)
 
 ## Manage your scaling tool
 
@@ -247,7 +250,8 @@ You can view a summarized status of all runbook jobs or view a more in-depth sta
 
 On the right of your selected Automation account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
 
-![A screenshot of the job status page.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the job status page.](../media/jobs-status.png)
 
 ### View logs and scaling tool output
 
@@ -255,5 +259,6 @@ You can view the logs of scale-out and scale-in operations by opening your runbo
 
 Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resource group hosting the Azure Automation account and select **Overview**. On the overview page, select a job under Recent Jobs to view its scaling tool output, as shown in the following image.
 
-![An image of the output window for the scaling tool.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the output window for the scaling tool.](../media/tool-output.png)
 

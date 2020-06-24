@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
@@ -32,14 +32,18 @@ To retrieve a list of published RemoteApps for an app group, run the following P
 ```powershell
 Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremoteapp.png)
 
 To assign a friendly name to a RemoteApp, run the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -Name <existingappname> -FriendlyName <newfriendlyname>
 ```
-![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremoteapp.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremoteapp.png)
 
 ## Customize the display name for a Remote Desktop
 
@@ -50,18 +54,22 @@ To retrieve the remote desktop resource, run the following PowerShell cmdlet:
 ```powershell
 Get-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremotedesktop.png)
 
 To assign a friendly name to the remote desktop resource, run the following PowerShell cmdlet:
 
 ```powershell
 Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -FriendlyName <newfriendlyname>
 ```
-![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremotedesktop.png)
+
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremotedesktop.png)
 
 ## Next steps
 
 Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
-    
+
  * [Connect from Windows 10 or Windows 7](../connect-windows-7-and-10.md)
- * [Connect from a web browser](connect-web-2019.md) 
+ * [Connect from a web browser](connect-web-2019.md)

@@ -75,7 +75,7 @@
       href: pay-by-invoice.md
     - name: Create additional subscriptions
       href: create-subscription.md
-    - name: Transfer CSP subscriptions
+    - name: Transfer subscriptions between CSPs and subscribers
       href: transfer-subscriptions-subscribers-csp.md
     - name: Export subscription information
       href: export-subscriptions.md
@@ -121,6 +121,8 @@
     href: troubleshoot-sign-in-issue.md
   - name: Enterprise cost view disabled
     href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+  - name: Billing account not found
+    href: troubleshoot-account-not-found.md
   - name: Contact support
     href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Samples
