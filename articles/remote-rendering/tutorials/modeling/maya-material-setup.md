@@ -38,7 +38,7 @@ As you'll see in the sample scene, we've created a number of box objects. Each o
 Before you start to create assets, note that Azure Remote Rendering uses meters for measurement and the up direction is the value (y) axis. We recommend that you set your scene units in Maya to meters. For exporting, set units to meters in the FBX export settings.
 
 > [!TIP]
-Give your model assets appropriate names based on the relevant part or material type. Meaningful names make it easier to navigate object-heavy scenes.
+> Give your model assets appropriate names based on the relevant part or material type. Meaningful names make it easier to navigate object-heavy scenes.
 
 ![Object names](media/object-names.jpg)
 
@@ -59,7 +59,6 @@ With your material assigned to your asset and named appropriately, you can now a
 
 ![Material setup](media/material-setup.jpg)
 
-> [!TIP]
 Name your materials appropriately by taking into account their use or type. A material that's used on a unique part might be named for that part. A material that's used on a wider range of areas can be named for its properties or type.
 
 Assign your textures as shown in the image.
