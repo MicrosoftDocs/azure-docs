@@ -1,6 +1,6 @@
 ---
-title: Hide an application from user's experience in Azure AD
-description: How to hide an application from user's experience in Azure Active Directory access panels or Office 365 launchers.
+title: Hide an Enterprise application from user's experience in Azure AD
+description: How to hide an Enterpise application from user's experience in Azure Active Directory access panels or Office 365 launchers.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -14,7 +14,7 @@ ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ---
 
-# Hide applications from end-users in Azure Active Directory
+# Hide Enterprise applications from end-users in Azure Active Directory
 
 Instructions for how to hide applications from end-users' MyApps panel or Office 365 launcher. When an application is hidden, users still have permissions to the application. 
 
@@ -36,6 +36,9 @@ Use the following steps to hide an application from MyApps panel and Office 365 
 6.	Click **Properties**. 
 7.	For the **Visible to users?** question, click **No**.
 8.	Click **Save**.
+
+> [!NOTE]
+> These instructions apply only to Enterprise applications.
 
 ## Use Azure AD PowerShell to hide an application
 
