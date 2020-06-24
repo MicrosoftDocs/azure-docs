@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 Your Azure Time Series Insights environment contains an *ingestion engine* to collect, process, and store streaming time series data. As data arrives into your event source(s), Azure Time Series Insights will consume and store your data in near real-time.
 
-[![Ingestion overview](media/concepts-ingress-overview/tsi-ingress-overview.png)](media/concepts-ingress-overview/tsi-ingress-overview.png#lightbox)
+[![Ingestion overview](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
 
 ## Ingestion topics
 
