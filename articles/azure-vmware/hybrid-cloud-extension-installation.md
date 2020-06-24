@@ -88,7 +88,7 @@ Infrastructure components must be running the required minimum version.
 
 After installation, perform the following steps.
 
-1. Open HCX Manager at `https://HCXManagerIP:9443` and sign in with your username
+1. Log on to the on-premises HCX manager at `https://HCXManagerIP:9443` and sign in with your username
  and your password. 
 
 1. In **Licensing**, enter your **HCX Advanced Key**.  
