@@ -35,7 +35,7 @@ Your Time Series Insights environment will dynamically create the columns of you
 
 ## Understanding the dual behavior for arrays
 
-Arrays of objects will either be stored whole or split into multiple events depending on how you've modeled your data. This allows you to  use an array to batch events, and avoid repeating telemetry properties that are defined at the root object level. Batching may be advantagous as it results in fewer Event Hubs or IoT Hub messages sent. 
+Arrays of objects will either be stored whole or split into multiple events depending on how you've modeled your data. This allows you to  use an array to batch events, and avoid repeating telemetry properties that are defined at the root object level. Batching may be advantageous as it results in fewer Event Hubs or IoT Hub messages sent. 
 
 However, in some cases, arrays containing objects are only meaningful in the context of other values. Creating multiple events would render the data meaningless. To ensure that an array of objects is stored as-is as a dynamic type, follow the data modeling guidance below and take a look at [Example C](concepts-JSON-flattening-and-escaping-rules.md#example-c)
 
