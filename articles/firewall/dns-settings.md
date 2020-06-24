@@ -47,6 +47,8 @@ To configure DNS proxy, you must enable DNS Proxy in Azure Firewall **DNS settin
 4. Review the **DNS servers** configuration to make sure that the settings are appropriate for your environment.
 5. Select **Save**.
 
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="DNS proxy":::
+
 #### Configure virtual network DNS servers
 
 1. Select the virtual network where the DNS traffic will be routed through the Azure Firewall.
@@ -54,9 +56,6 @@ To configure DNS proxy, you must enable DNS Proxy in Azure Firewall **DNS settin
 3. Select **Custom** under **DNS servers**.
 4. Enter the firewall’s private IP address.
 5. Select **Save**.
-
-
-
 
 ## Next steps
 
