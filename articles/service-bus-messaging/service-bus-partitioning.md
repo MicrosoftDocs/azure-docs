@@ -1,17 +1,10 @@
 ---
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/17/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Partitioned queues and topics
 
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
