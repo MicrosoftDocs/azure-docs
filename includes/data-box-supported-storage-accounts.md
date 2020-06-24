@@ -38,9 +38,9 @@ For export orders, following table shows the supported storage accounts.
 > [!IMPORTANT]
 > - For General-purpose accounts, Data Box does not support Queue, Table, Disk, and Azure Data Lake Gen 2 storage types.
 > - Data Box does not support append blobs for Blob Storage and Block Blob Storage accounts.
-> - Data Box does not support File Storage accounts.
+> - Data Box does not support Premium File Storage accounts.
 > - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.
 > - A maximum of 80 TB can be exported.
-> - File history and incremental snapshots are not exported.
+> - File history and blob snapshots are not exported.
 
 
