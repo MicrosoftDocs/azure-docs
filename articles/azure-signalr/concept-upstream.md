@@ -32,7 +32,7 @@ You can parameterize the URL to support various patterns. There are three predef
 |Predefined parameter|Description|
 |---------|---------|
 |{hub}| A hub is a concept of Azure SignalR Service. A hub is a unit of isolation. The scope of users and message delivery is constrained to a hub.|
-|{category}| A category can be one of the following values: <ul><li>**connections**: Connection lifetime events. It's fired when a client connection is connected or disconnected. It includes connected and disconnected events.</li><li>**messages**: Fired when clients invoke a hub method. It includes all other events, except those in the *connections* category.</li></ul>|
+|{category}| A category can be one of the following values: <ul><li>**connections**: Connection lifetime events. It's fired when a client connection is connected or disconnected. It includes connected and disconnected events.</li><li>**messages**: Fired when clients invoke a hub method. It includes all other events, except those in the **connections** category.</li></ul>|
 |{event}| For the **messages** category, an event is the target in an [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For the **connections** category, only *connected* and *disconnected* are used.|
 
 These predefined parameters can be used in the URL pattern. Parameters will be replaced with a specified value when you're evaluating the upstream URL. For example: 
@@ -61,7 +61,7 @@ You can configure authentication for each upstream setting item separately. When
 - `None`
 - `ManagedIdentity`
 
-When you select `ManagedIdentity`, you must enable a managed identity in Azure SignalR Service in advance and optionally specify a resource. See [How to use managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
+When you select `ManagedIdentity`, you must enable a managed identity in Azure SignalR Service in advance and optionally specify a resource. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 
 ## Create upstream settings via the Azure portal
 
@@ -71,11 +71,11 @@ When you select `ManagedIdentity`, you must enable a managed identity in Azure S
     :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Upstream settings":::
 
 3. Add URLs under **Upstream URL Pattern**. Then settings such as **Hub Rules** will show the default value.
-4. To set settings for **Hub Rules**, **Event Rules**, **Category Rules**, and **Upstream Authentication**, select the value of **Hub Rules**. A page that allows you edit settings appears:
+4. To set settings for **Hub Rules**, **Event Rules**, **Category Rules**, and **Upstream Authentication**, select the value of **Hub Rules**. A page that allows you to edit settings appears:
 
     :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream settings":::
 
-5. To set **Upstream Authentication**, make sure you've enabled a managed identity first. Then select **Use Managed Identity** under **Upstream Authentication**. According to your needs, you can choose any options under **Auth Resource ID**. See [How to enable managed identity](howto-use-managed-identity.md) for details.
+5. To set **Upstream Authentication**, make sure you've enabled a managed identity first. Then select **Use Managed Identity**. According to your needs, you can choose any options under **Auth Resource ID**. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 
 ## Create upstream settings via Resource Manager template
 
@@ -159,5 +159,5 @@ Hex_encoded(HMAC_SHA256(accessKey, connection-id))
 
 ## Next steps
 
-- [How to use managed identities for Azure SignalR Service](howto-use-managed-identity.md)
+- [Managed identities for Azure SignalR Service](howto-use-managed-identity.md)
 - [Azure Functions development and configuration with Azure SignalR Service](signalr-concept-serverless-development-config.md)

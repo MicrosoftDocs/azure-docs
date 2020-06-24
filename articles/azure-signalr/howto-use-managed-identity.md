@@ -51,7 +51,7 @@ Azure SignalR Service is a fully managed service, so you can't use a managed ide
 
 1. Add a system-assigned identity or user-assigned identity.
 
-2. Configure upstream settings and use **ManagedIdentity** as the **Auth** settings. To learn how to create upstream settings with authentication, see [Upstream settings](concept-upstream.md#create-upstream-settings).
+2. Configure upstream settings and use **ManagedIdentity** as the **Auth** settings. To learn how to create upstream settings with authentication, see [Upstream settings](concept-upstream.md).
 
 3. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be one of the following:
     - Empty
