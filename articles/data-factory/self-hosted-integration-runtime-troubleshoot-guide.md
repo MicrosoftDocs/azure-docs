@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/23/2020
+ms.date: 06/24/2020
 ms.author: abnarain
 ---
 
@@ -154,6 +154,14 @@ Take the netmon trace and analyze further.
 - Firstly, you can set the filter to see any reset there from the server to the client side. From below example, you can see the server side is fe server.
 
     ![FE server](media/self-hosted-integration-runtime-troubleshoot-guide/fe-server.png)
+
+- When you get the reset package, you can find the conversation by following TCP.
+
+    ![Find conversation](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
+
+- Then you can get the conversion between client and FE server below by removing the filter.
+
+    ![Get conversation](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
 - Based on the netmon trace collected, we can tell that the TTL (TimeToLive) total is 64. According to the **Default TTL and Hop Limit Values** mentioned in [this article](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (as extracted below), we can see that it is the Linux System that resets the package and causes the disconnection.
 
     Default TTL and Hop Limit values vary between different operating systems, here are the defaults for a few:
