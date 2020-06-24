@@ -103,17 +103,17 @@ Now that the workspace and storage service are joined to the virtual network, co
 
 1. In the datastore settings, enable __Use workspace managed identity for data access in the ML studio__.
 
-![Datastore creation with managed identity](TBD)
+TODO ADD IMAGE
 
 These steps add the workspace managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
-For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) so that it can read the data.
+For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) so that it can read the data.
 
 ### Azure Data Lake Storage Gen2 access control
 
 You can use both Azure role-based access control (RBAC) and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) role. For more information on RBAC security in Data Lake Store Gen2, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)
+To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information on RBAC security in Data Lake Store Gen2, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)
 
 To use ACLs, the workspace managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
