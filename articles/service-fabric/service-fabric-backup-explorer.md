@@ -1,6 +1,6 @@
 ---
 title: Read and Update Reliable Collections Backup Locally 
-description: This article discusses how to read and update Reliable collectios backup locally
+description: This article describes how to read and update Reliable collectios backup locally
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
