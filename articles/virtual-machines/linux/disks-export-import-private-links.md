@@ -15,7 +15,24 @@ You can generate a time bound Shared Access Signature (SAS) URI for unattached m
 
 You can create an instance of the new resource called DiskAccess and link it to your VNET in the same subscription by creating a private endpoint. You must associate a disk or a snapshot with an instance of DiskAccess for exporting and importing the data via Private Links. Also, you must set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. 
 
-You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from generating the SAS URI for a disk or a snapshot. The default value for the NetworkAccessPolicy property is AllowAll. 
+You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from generating the SAS URI for a disk or a snapshot. The default value for the NetworkAccessPolicy property is AllowAll.
+
+## Limitations
+
+1. Only one VNET can be linked to a DiskAccess object.
+1. Your VNET must be in the same subscription as your DiskAccess object to link them.
+1. Up to 10 disks or snapshots can be imported or exported at the same time with the same DiskAccess object.
+1. You cannot request manual approval to link a VNET to a DiskAccess object.
+
+## Regional availability
+
+Currently only available in:
+
+- US East
+- US West 2
+- South Central US
+- US Gov Virginia
+- US Gov Arizona
 
 ## Log in into your subscription and set your variables
 
@@ -116,3 +133,7 @@ az network private-endpoint dns-zone-group create \
       "region=$region" \
       "networkAccessPolicy=AllowPrivate" 
 ```
+
+## Next steps
+
+[Frequently asked questions about Azure IaaS VM disks and managed and unmanaged premium disks](faq-for-disks.md)

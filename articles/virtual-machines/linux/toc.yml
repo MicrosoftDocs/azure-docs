@@ -929,7 +929,7 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
-    - name: Export a disk with a private link
+    - name: Securely import or export a disk
       href: disks-export-import-private-links.md
     - name: Resize a disk
       href: expand-disks.md

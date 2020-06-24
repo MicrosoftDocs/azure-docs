@@ -410,7 +410,7 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 |Azure tools      | Supported versions                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
+|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
 |Azure CLI v2     | Version number 2.0.12: July 2017 release or later|
 |AzCopy              | Version number 6.1.0: June 2017 release or later|
 
@@ -449,6 +449,36 @@ The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under globa
 **Do we support enabling Host Caching on all disk sizes?**
 
 Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+
+## Private Links for securely exporting and importing Managed Disks
+
+**What is the benefit of using Private Links for exporting and importing Managed Disks?**
+
+You can leverage Private Links for restricting the export and import to Managed Disks only from your Azure VNET. 
+
+**What can I ensure that a disk can be exported or imported only via Private Links?**
+
+You must set the DiskAccessId property to an instance of a DiskAccess object and also set the NetworkAccessPolicy property to AllowPrivate.
+
+**Can I link multiple VNETs to the same DiskAccess object?**
+
+No. In the current version, you can link a DiskAccess object to only one VNET. In a future version, we will support associating multiple VNETs to a same DiskAccess object. 
+
+**Can I link a VNET to a DiskAccess object in another subscription?**
+
+No. In the current version, you can link a DiskAccess object to a VNET in the same subscription. In a future version, you can link a DiskAccess object to a VNET in another subscription. 
+
+**Can I link a VNET to a DiskAccess object in another subscription?**
+
+No. In the current version, you can link a DiskAccess object to a VNET in the same subscription. In a future version, you can link a DiskAccess object to a VNET in another subscription. 
+
+**If I dont have access to a DiskAccess object, can I request for manual approval from the owner for linking a VNET to the DiskAccess object?**
+
+No. In the current version, you cannot request manual approval. In a future version, you can request a manual approval. 
+
+**How many exports or imports using the same DiskAccess object can happen at the same time?**
+
+10
 
 ## What if my question isn't answered here?
 
