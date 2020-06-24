@@ -35,6 +35,7 @@ Key best practices to follow include:
 * The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
 * The character limit for the Time Series ID's property name string is 128. For the Time Series ID's property value, the character limit is 1,024.
 * If a unique property value for the Time Series ID is missing, it's treated as a null value and follows the same rule of the uniqueness constraint.
+* If your Time Series ID is nested within a complex JSON object be sure to follow the ingress [flattening rules](./concepts-JSON-flattening-and-escaping-rules.md) when providing your property name. Check out example [B](concepts-JSON-flattening-and-escaping-rules.md#example-b). 
 * You can also select up to *three* key properties as your Time Series ID. Their combination will be a composite key that represents the Time Series ID.  
   > [!NOTE]
   > Your three key properties must be strings.
@@ -74,6 +75,6 @@ In the Azure portal, you can then enter the composite key as follows:
 
 ## Next steps
 
-* Read more about [data modeling](./time-series-insights-update-tsm.md).
+* Read the [JSON flattening and escaping rules](./concepts-JSON-flattening-and-escaping-rules.md) to understand how events will be stored.
 
 * Plan your [Azure Time Series Insights Preview environment](./time-series-insights-update-plan.md).
