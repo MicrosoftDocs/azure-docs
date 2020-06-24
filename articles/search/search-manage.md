@@ -9,10 +9,12 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/24/2020
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
+
 > [!div class="op_single_selector"]
+>
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
@@ -21,38 +23,61 @@ ms.date: 11/04/2019
 
 Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
-> [!div class="checklist"]
-> * Manage access to the *api-keys* used for read or write access to your service.
-> * Adjust service capacity by changing the allocation of partitions and replicas.
-> * Monitor resource usage, relative to maximum limits of your service tier.
+* Obtain information about your service and contents in the **Overview** home page.
+* Check storage using the mid-page **Usage** link.
+* Check query volumes and latency using the mid-page **Monitoring** link, and whether requests were throttled.
+* Manage access using the **Keys** page to the left.
+* Adjust capacity using the **Scale** page to the left.
 
-Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Cognitive Search service](search-create-service-portal.md).
+The same tasks performed in the portal can also be handled programmatically through the [Management APIs](https://docs.microsoft.com/rest/api/searchmanagement/) and [Az.Search PowerShell module](search-manage-powershell.md). Administrative tasks are fully represented across portal and programmatic interfaces. There is no specific administrative task that is available in only one modality.
 
-You can monitor query volume and other metrics, and use those insights to adjust your service for faster response times. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
+Azure Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only data stored with a search service is content (indexes, indexer and data source definitions, and other objects). Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
 
-<a id="admin-rights"></a>
+## Fixed service properties
+
+Several aspects of a search service are determined when the service is provisioned and cannot be changed later:
+
+* Service name (you cannot rename a service)
+* Service location (you cannot currently move an intact service to another region)
+* Maximum replica and partition counts (determined by the tier, Basic or Standard)
+
+If you started with Basic with its maximum of one partition, and you now need more partitions, you will need to [create a new service](search-create-service-portal.md) at a higher tier and recreate your content on the new service. 
 
 ## Administrator rights
+
 Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator.
 
-Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service. Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](search-security-rbac.md).
+Regarding access to the endpoint, anyone with access to the service URL and an api-key has access to content. For more information about keys, see [Manage the api-keys](search-security-api-keys.md).
 
-All user interaction with Azure Cognitive Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](search-security-api-keys.md).
+* Read-only access to the service is query rights, typically granted to a client application by giving it the URL and a query api-key.
+* Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, and schedules.Read-write access is granted by giving the URL, an admin API key.
 
-<a id="sys-info"></a>
+Rights to the service provisioning apparatus is granted through role assignments. [Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
+
+In the context of Azure Cognitive Search, [RBAC role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+
+* Create or delete a service
+* Scale the service
+* Delete or regenerate API keys
+* Enable diagnostic logging (create services)
+* Enable traffic analytics (create services)
+
+> [!TIP]
+> Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
 ## Logging and system information
-Azure Cognitive Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Cognitive Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
-In terms of general information about your service, you can obtain information in the following ways:
+At the Basic tier and above, Microsoft monitors all Azure Cognitive Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
-* In the portal, on the service dashboard, through notifications, properties, and status messages.
-* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services), or status on index resource usage.
+Azure Cognitive Search leverages [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) to collect and store indexing and query activity. A search service by itself stores just its content (indexes, indexer definitions, data source definitions, skillset definitions, synonym maps). Caching and logged information is stored off-service, often in an Azure Storage account. For more information about logging indexing and query workloads, see [Collect and analyze log data](search-monitor-logs.md).
 
+In terms of general information about your service, using just the facilities built into Azure Cognitive Search itself, you can obtain information in the following ways:
 
-<a id="sub-5"></a>
+* Using the service **Overview** page, through notifications, properties, and status messages.
+* Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to [get service properties](https://docs.microsoft.com/rest/api/searchmanagement/services). There is no new information or operations provided at the programmatic layer. The interfaces exist so that you can write scripts.
 
 ## Monitor resource usage
+
 In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application. You can provision external resources, such as Azure monitoring, if you want to capture and persist logged events. For more information, see [Monitoring Azure Cognitive Search](search-monitor-usage.md).
 
 Using the search service REST API, you can get a count on documents and indexes programmatically: 
@@ -76,46 +101,44 @@ Because Azure Cognitive Search is not a primary data storage solution, we do not
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 
-<a id="scale"></a>
-
 ## Scale up or down
-Every search service starts with a minimum of one replica and one partition. If you signed up for a [tier that provides dedicated resources](search-limits-quotas-capacity.md), click the **SCALE** tile in the service dashboard to adjust resource usage.
+
+Every search service starts with a minimum of one replica and one partition. If you signed up for a [tier that supports more capacity](search-limits-quotas-capacity.md), click **Scale** on the left navigation pane to adjust resource usage.
 
 When you add capacity through either resource, the service uses them automatically. No further action is required on your part, but there is a slight delay before the impact of the new resource is realized. It can take 15 minutes or more to provision additional resources.
 
- ![][10]
-
 ### Add replicas
-Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index available for handling service query requests. A minimum of 3 replicas are required for high availability (see [Capacity Planning](search-capacity-planning.md) for details).
+
+Increasing queries per second (QPS) or achieving high availability is done by adding replicas. Each replica has one copy of an index, so adding one more replica translates to one more index available for handling service query requests. A minimum of 3 replicas are required for high availability (see [Adjust capacity](search-capacity-planning.md) for details).
 
 A search service having more replicas can load balance query requests over a larger number of indexes. Given a level of query volume, query throughput is going to be faster when there are more copies of the index available to service the request. If you are experiencing query latency, you can expect a positive impact on performance once the additional replicas are online.
 
 Although query throughput goes up as you add replicas, it does not precisely double or triple as you add replicas to your service. All search applications are subject to external factors that can impinge on query performance. Complex queries and network latency are two factors that contribute to variations in query response times.
 
 ### Add partitions
+
 It's more common to add replicas, but when storage is constrained, you can add partitions to get more capacity. The tier at which you provisioned the service determines whether partitions can be added. The Basic tier is locked at one partition. Standard tiers and above support additional partitions.
 
 Partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
+
 After periods of high query volumes, you can use the slider to reduce replicas after search query loads have normalized (for example, after holiday sales are over). There are no further steps required on your part. Lowering the replica count relinquishes virtual machines in the data center. Your query and data ingestion operations will now run on fewer VMs than before. The minimum requirement is one replica.
 
 ### Remove partitions
+
 In contrast with removing replicas, which requires no extra effort on your part, you might have some work to do if you are using more storage than can be reduced. For example, if your solution is using three partitions, downsizing to one or two partitions will generate an error if the new storage space is less than required for hosting your index. As you might expect, your choices are to delete indexes or documents within an associated index to free up space, or keep the current configuration.
 
 There is no detection method that tells you which index shards are stored on specific partitions. Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have. If you want to revert to one partition, all 12 shards will need to fit.
 
 To help with future planning, you might want to check storage (using [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) to see how much you actually used. 
 
-<a id="next-steps"></a>
-
 ## Next steps
-Once you understand the concepts behind service administration, consider using [PowerShell](search-manage-powershell.md) to automate tasks.
 
-We also recommend reviewing the [performance and optimization article](search-performance-optimization.md).
+* Automate with [PowerShell](search-manage-powershell.md)
 
-<!--Image references-->
-[10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
+* Review [performance and optimization](search-performance-optimization.md) techniques
 
+* Review [security features](search-security-overview.md) to protect content and operations
 
-
+* Enable [diagnostic logging](search-monitor-logs.md) to monitor query and indexing workloads
