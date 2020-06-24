@@ -164,9 +164,8 @@ Restricting access in this manner only applies to data in the Application Insigh
 
 > [!NOTE]
 > To fully secure workspace-based Application Insights, you need to lock down both access to Application Insights resource as well as the underlying Log Analytics workspace.
-
-> [!NOTE]
-> Code-level diagnostics (profiler/debugger) currently do not support Private Link.
+>
+> Code-level diagnostics (profiler/debugger) need you to provide your own storage account to support private link. Here's [documentation](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) for how to do this.
 
 ## Use APIs and command line
 
