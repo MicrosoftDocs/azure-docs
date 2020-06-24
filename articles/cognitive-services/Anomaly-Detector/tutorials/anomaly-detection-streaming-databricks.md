@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 
 > [!Note]
 > * This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
-> * This tutorial cannot be completed with a free trial for the Anomaly Detector API, or Azure Databricks. 
+> * This tutorial cannot be completed with a free tier (`F0`) subscription for the Anomaly Detector API or Azure Databricks. 
 
 Create an [Azure subscription](https://azure.microsoft.com/free/) if you don't have one.
 
