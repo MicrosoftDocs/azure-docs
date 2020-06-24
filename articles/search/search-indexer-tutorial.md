@@ -1,7 +1,7 @@
 ---
 title: C# tutorial indexing Azure SQL data
 titleSuffix: Azure Cognitive Search
-description: In this C# tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Cognitive Search index.
+description: In this C# tutorial, connect to Azure SQL Database, extract searchable data, and load it into an Azure Cognitive Search index.
 
 manager: nitinme
 author: HeidiSteen
@@ -14,7 +14,7 @@ ms.date: 06/23/2020
 
 # Tutorial: Index Azure SQL data using the .NET SDK
 
-Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL database, sending it to a search index in Azure Cognitive Search. 
+Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure Cognitive Search. 
 
 This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
 
@@ -141,7 +141,7 @@ A schema can also include other elements, including scoring profiles for boostin
 
 The main program includes logic for creating a client, an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -250,4 +250,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Configure an Azure SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configure a SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

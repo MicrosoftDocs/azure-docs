@@ -581,6 +581,9 @@
     - name: Introductory notebooks
       href: /azure/databricks/delta/intro-notebooks
       maintainContext: true
+    - name: Ingest data into Delta Lake
+      href: /azure/databricks/delta/delta-ingest
+      maintainContext: true
     - name: Table batch reads and writes
       href: /azure/databricks/delta/delta-batch
       maintainContext: true
@@ -593,68 +596,65 @@
     - name: Table utility commands
       href: /azure/databricks/delta/delta-utility
       maintainContext: true
-    - name: Delta Lake API reference
+    - name: API reference
       href: /azure/databricks/delta/delta-apidoc
       maintainContext: true
     - name: Concurrency control
       href: /azure/databricks/delta/concurrency-control
       maintainContext: true
-    - name: Optimizations
-      items:
-      - name: Optimizations overview
-        href: /azure/databricks/delta/optimizations/index
-        maintainContext: true
-      - name: Optimize performance with file management
-        href: /azure/databricks/delta/optimizations/file-mgmt
-        maintainContext: true
-      - name: Auto optimize
-        href: /azure/databricks/delta/optimizations/auto-optimize
-        maintainContext: true
-      - name: Optimize performance with caching
-        href: /azure/databricks/delta/optimizations/delta-cache
-        maintainContext: true
-      - name: Isolation levels
-        href: /azure/databricks/delta/optimizations/isolation-level
-        maintainContext: true
-      - name: Replicate MySQL tables to Delta Lake tables
-        href: /azure/databricks/delta/optimizations/mysql-delta
-        maintainContext: true
-      - name: Optimize join performance
-        items:
-        - name: Optimize join performance overview
-          href: /azure/databricks/delta/join-performance/index
-          maintainContext: true
-        - name: Range Join optimization
-          href: /azure/databricks/delta/join-performance/range-join
-          maintainContext: true
-        - name: Skew Join optimization
-          href: /azure/databricks/delta/join-performance/skew-join
-          maintainContext: true
-      - name: Optimized data transformation
-        items:
-        - name: Optimized data transformation overview
-          href: /azure/databricks/delta/data-transformation/index
-          maintainContext: true
-        - name: Higher-order functions
-          href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
-          maintainContext: true
-        - name: Transform complex data types
-          href: /azure/databricks/delta/data-transformation/complex-types
-          maintainContext: true
-      - name: Best practices
-        href: /azure/databricks/delta/best-practices
-        maintainContext: true
-      - name: Table versioning
-        href: /azure/databricks/delta/optimizations/versioning
-        maintainContext: true
-      - name: Optimization examples
-        href: /azure/databricks/delta/optimizations/optimization-examples
-        maintainContext: true
+    - name: Best practices
+      href: /azure/databricks/delta/best-practices
+      maintainContext: true
     - name: Frequently asked questions
       href: /azure/databricks/delta/delta-faq
       maintainContext: true
-    - name: Additional Delta resources
+    - name: Resources
       href: /azure/databricks/delta/delta-resources
+      maintainContext: true
+  - name: Delta Engine
+    items:
+    - name: Delta Engine overview
+      href: /azure/databricks/delta/optimizations/index
+      maintainContext: true
+    - name: Optimize performance with file management
+      href: /azure/databricks/delta/optimizations/file-mgmt
+      maintainContext: true
+    - name: Auto optimize
+      href: /azure/databricks/delta/optimizations/auto-optimize
+      maintainContext: true
+    - name: Optimize performance with caching
+      href: /azure/databricks/delta/optimizations/delta-cache
+      maintainContext: true
+    - name: Isolation levels
+      href: /azure/databricks/delta/optimizations/isolation-level
+      maintainContext: true
+    - name: Optimize join performance
+      items:
+      - name: Optimize join performance overview
+        href: /azure/databricks/delta/join-performance/index
+        maintainContext: true
+      - name: Range Join optimization
+        href: /azure/databricks/delta/join-performance/range-join
+        maintainContext: true
+      - name: Skew Join optimization
+        href: /azure/databricks/delta/join-performance/skew-join
+        maintainContext: true
+    - name: Optimized data transformation
+      items:
+      - name: Optimized data transformation overview
+        href: /azure/databricks/delta/data-transformation/index
+        maintainContext: true
+      - name: Higher-order functions
+        href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
+        maintainContext: true
+      - name: Transform complex data types
+        href: /azure/databricks/delta/data-transformation/complex-types
+        maintainContext: true
+    - name: Table versioning
+      href: /azure/databricks/delta/optimizations/versioning
+      maintainContext: true
+    - name: Optimization examples
+      href: /azure/databricks/delta/optimizations/optimization-examples
       maintainContext: true
   - name: DataFrames and Datasets
     items:
@@ -1899,7 +1899,7 @@
         - name: Databricks Runtime 7.0 
           href: /azure/databricks/release-notes/runtime/7.0
           maintainContext: true
-        - name: Databricks Runtime 7.0 ML (Beta)
+        - name: Databricks Runtime 7.0 ML
           href: /azure/databricks/release-notes/runtime/7.0ml
           maintainContext: true
         - name: Databricks Runtime 7.0 Genomics 
