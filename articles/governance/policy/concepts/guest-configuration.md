@@ -40,8 +40,8 @@ To audit settings inside a machine, a
 [virtual machine extension](../../../virtual-machines/extensions/overview.md) is enabled and the machine
 must have a system-managed identity. The extension downloads applicable policy assignment and the corresponding
 configuration definition. The identity is used to authenticate the machine as it reads and writes to the
-Guest Configuration service. The extension is not required for Arc Connected Machines because it is included
-in the Arc Connected Machine agent by default.
+Guest Configuration service. The extension isn't required for Arc Connected Machines because it's included
+in the Arc Connected Machine agent.
 
 > [!IMPORTANT]
 > The Guest Configuration extension and a managed identity is required to audit Azure virtual machines. To
@@ -111,7 +111,7 @@ Policies in the initiative [Deploy prerequisites to enable Guest Configuration p
 in the initiative that manage identity creation. The IF conditions in the policy definitions ensure the correct
 behavior based on the current state of the machine resource in Azure.
 
-If the machine does not currently have any managed identities, the effective policy will be:
+If the machine doesn't currently have any managed identities, the effective policy will be:
 [\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
 If the machine currently has a user-assigned system identity, the effective policy will be:
