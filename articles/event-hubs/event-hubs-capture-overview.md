@@ -1,22 +1,8 @@
 ---
 title: Capture streaming events - Azure Event Hubs | Microsoft Docs
 description: This article provides an overview of the Capture feature that allows you to capture events streaming through Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-
-ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
-ms.service: event-hubs
-ms.workload: na
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-
 ---
 
 # Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage
