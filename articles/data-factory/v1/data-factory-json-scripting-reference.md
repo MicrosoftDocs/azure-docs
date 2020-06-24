@@ -109,7 +109,7 @@ The typeProperties section is different for each activity. Transformation activi
 **Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.
 
 ### Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to Azure SQL Database.
 
 ```json
 {
@@ -332,7 +332,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows |Validates that the data in **Azure SQL Database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 **Example:**
 
@@ -4839,7 +4839,7 @@ The following table provides descriptions for the properties used in the Azure J
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
 | additionalLinkedServiceNames |Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. |No |
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
-| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. |No |
+| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using Azure SQL Database as the metastore. |No |
 
 ### JSON example
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice.
@@ -5543,7 +5543,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 | Property | Description | Required |
 | --- | --- | --- |
-| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureName |Specify the name of the stored procedure in Azure SQL Database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.

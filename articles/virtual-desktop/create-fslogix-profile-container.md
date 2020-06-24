@@ -48,7 +48,8 @@ To get started, you need to set up an Azure NetApp Files account.
 
 4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
 
-   ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
@@ -62,7 +63,8 @@ To get started, you need to set up an Azure NetApp Files account.
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
-   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
 
 
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
@@ -103,7 +105,8 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
@@ -143,7 +146,8 @@ After you create the volume, configure the volume access parameters.
 
 6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-    ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -213,7 +217,8 @@ This section is based on [Create a profile container for a host pool using a fil
 
 4. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
 
-   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
@@ -222,7 +227,8 @@ This section is based on [Create a profile container for a host pool using a fil
 
    Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
 
-   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
 
 ## Next steps
 

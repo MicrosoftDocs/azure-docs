@@ -1,16 +1,8 @@
 ---
 title: Troubleshoot connectivity issues - Azure Event Hubs | Microsoft Docs
 description: This article provides information on troubleshooting connectivity issues with Azure Event Hubs. 
-services: event-hubs
-documentationcenter: na
-author: spelluru
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Troubleshoot connectivity issues - Azure Event Hubs

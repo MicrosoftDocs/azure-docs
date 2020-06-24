@@ -71,5 +71,5 @@ When verification is complete, SSMS connects normally presuming valid credential
 
 - For an overview of multi-factor authentication, see [Universal Authentication with SQL Database, SQL Managed Instance, and Azure Synapse (SSMS support for MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Grant others access to your database: [SQL Database Authentication and Authorization: Granting Access](logins-create-manage.md)  
-- Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](/database/firewall-configure.md)  
+- Make sure others can connect through the firewall: [Configure a server-level firewall rule using the Azure portal](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
 - When using **Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.
