@@ -15,6 +15,10 @@ If you happened to accidentally delete your app in Azure App Service, you can re
 > Deleted apps are purged from the system 30 days after the initial deletion. Once an app has been purged, it can't be recovered.
 >
 
+> [!NOTE]
+> Undelete functionality is not supported for consumption plan.
+>
+
 ## Re-register App Service resource provider
 Some customers might come across an issue where retrieving the list of deleted apps fails. To resolve the issue, run the following command:
 
