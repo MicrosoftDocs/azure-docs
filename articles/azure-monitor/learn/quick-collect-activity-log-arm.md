@@ -127,7 +127,7 @@ The following template creates an empty Log Analytics workspace. Save the this t
 ### Deploy the template
 Deploy the template using any standard method for deploying an ARM template. 
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/CLI1)
 
 ```azurecli
 az login
@@ -139,7 +139,7 @@ az deployment group create \
 
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell1)
 
 ```powershell
 Connect-AzAccount
@@ -152,14 +152,14 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ### Verify the deployment
 Verify that the workspace has been created using one of the following commands.
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/CLI2)
 
 ```azurecli
 az login
 az monitor log-analytics workspace show --resource-group bw-ama  --workspace-name  bw-ama
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell2)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -Name bw-ama -ResourceGroupName bw-ama
@@ -233,7 +233,7 @@ The following template creates a diagnostic setting that sends the Activity log 
 ### Deploy the template
 Deploy the template using any standard method for deploying an ARM template.
 
-# [CLI](#tab/CLI)
+# [CLI](#tab/CLI3)
 
 ```azurecli
 az login
@@ -244,7 +244,7 @@ az deployment sub create \
 
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [PowerShell](#tab/PowerShell3)
 
 ```powershell
 Connect-AzAccount
