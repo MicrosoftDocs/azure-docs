@@ -5,9 +5,9 @@ services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 06/08/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---

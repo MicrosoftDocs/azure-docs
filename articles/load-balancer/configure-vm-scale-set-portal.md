@@ -4,7 +4,7 @@ description: Learn how to configure a virtual machine scale set with an existing
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ---
 
