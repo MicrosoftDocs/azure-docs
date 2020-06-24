@@ -5,7 +5,7 @@ services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: sql dw
+ms.subservice: sql-dw
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick

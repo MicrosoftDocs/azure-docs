@@ -30,7 +30,7 @@ The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
 1. Add the following claims provider to the `ClaimsProviders` element:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
