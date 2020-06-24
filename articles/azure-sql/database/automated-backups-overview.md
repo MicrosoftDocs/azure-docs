@@ -245,9 +245,9 @@ Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup
 Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourcegroup -InstanceName testinstance -DatabaseName testDatabase -RetentionDays 28
 ```
 
-### Change the PITR backup retention period by using the REST API
+---
 
-#### [SQL Database](#tab/single-database)
+### Change the PITR backup retention period by using the REST API
 
 #### Sample request
 
