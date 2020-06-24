@@ -20,9 +20,10 @@ ms.custom: contperfq4, tracking-python
 
 In this article, you'll learn how to secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure Virtual Network (vnet). Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
 
-A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-If your **underlying storage is in a virtual network, users won't be able to use Azure Machine Learning's studio web experience**, including drag-n-drop designer or the UI for automated machine learning, data labeling, and data sets, or integrated notebooks.  If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+A __virtual network__ acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
+
+If your __underlying storage is in a virtual network, users won't be able to use Azure Machine Learning's studio web experience__, including drag-n-drop designer or the UI for automated machine learning, data labeling, and data sets, or integrated notebooks.  If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## Prerequisites
 
@@ -63,19 +64,19 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 ## Machine Learning studio
 
-If your data is stored in a virtual network, you must use the steps in this section to grant studio access to your data. This lets you to perform the following operations in the studio:
+If your data is stored in a virtual network, you must use your workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant studio access to your data. This lets you perform the following operations in the studio:
 
-* Preview the data
+* Preview data
 * Visualize data in the designer
 * Start labeling projects
 
-The following datastore types are supported by studio when they are in a virtual network:
+Studio supports the following datastore types in a virtual network:
 
 * Azure Blob
 * Azure Data Lake Storage Gen1 and Gen2
 * Azure SQL Database
 
-To enable studio access to these datastore types, use the following steps:
+To grant studio access to these datastore types, use the following steps:
 
 Add your workspace and storage service to the virtual network.
 
@@ -83,49 +84,54 @@ Add your workspace and storage service to the virtual network.
 
 1. Navigate to the storage service in the [Azure portal](https://portal.azure.com/).
 
-1. In the **Settings** section, select **Firewalls and virtual networks**.
+1. In the __Settings__ section, select __Firewalls and virtual networks__.
 
-1. Enable **Allow access from Selected networks**.
+1. Enable __Allow access from Selected networks__.
 
-1. Select **Add existing virtual network**. Find your virtual network and select **Add**.
+1. Select __Add existing virtual network__.
 
-1. Make sure to enable **Allow trusted Microsoft services to access this storage account**.
+1. Find the same virtual network you chose for your Private Link and select __Add__.
+
+1. Enable __Allow trusted Microsoft services to access this storage account__.
 
 
 Now that the workspace and storage service are joined to the virtual network, configure your datastores to use managed identity to access your data.
 
-1. In the studio, select **Datastores**.
+1. In the studio, select __Datastores__.
 
-1. To create a new datastore, select **+ New datastore**. To update an existing one, select the datastore and select **Update credentials**.
+1. To create a new datastore, select __+ New datastore__. To update an existing one, select the datastore and select __Update credentials__.
 
-1. In the datastore settings, enable **Use workspace managed identity for data access in the ML studio**.
+1. In the datastore settings, enable __Use workspace managed identity for data access in the ML studio__.
 
 ![Datastore creation with managed identity](TBD)
 
-These steps add the workspace managed identity as a **Reader** to the storage service using Azure resource-based access control (RBAC). **Reader** access lets the workspace retrieve firewall settings, and ensure that data does not leave the virtual network.
+These steps add the workspace managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
 For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) so that it can read the data.
 
-__Azure Data Lake Storage Gen2__   
+### Azure Data Lake Storage Gen2 access control
 
-When using a datastore of type Azure Data Lake Storage Gen2 inside a virtual network, you can use both Azure role-based access control (RBAC) and POSIX-like access control lists to control access to the data. 
+You can use both Azure role-based access control (RBAC) and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) role.
+To use RBAC, add the workspace managed identity to the [Blob Data Reader](../role-based-access-control.md/built-in-roles#storage-blob-data-reader) role. For more information on RBAC security in Data Lake Store Gen2, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control)
 
-To use ACLs to grant the managed identity access to a subset of files or directories TBD. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+To use ACLs, the workspace managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    __Azure Data Lake Storage Gen1__
-    
-    * Azure Data Lake Storage Gen1 supports POSIX-like access control lists. You can grant the managed identity access to a subset of files or directories. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
 
-    __Azure SQL Database__
-    
-    * To use the managed identity to access data stored in the database, you must first create a mapping in the database. 
+### Azure Data Lake Storage Gen1 access control
 
+Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You can assign the workspace managed identity access just like any other security principle. For more information, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+
+### Azure SQL Database contained user
+
+To access data stored in an Azure SQL Database using managed identity, you must first create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+
+Finally, you need to grant permissions to the contained user by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ## <a name="compute-instance"></a>Compute clusters & instances 
 
-To use either a [managed Azure Machine Learning **compute target**](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute **instance**](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
+To use either a [managed Azure Machine Learning __compute target__](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute __instance__](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
@@ -317,7 +323,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
    [![The storage that's attached to the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. On the **Azure Storage** page, select __Firewalls and virtual networks__.
+1. On the __Azure Storage__ page, select __Firewalls and virtual networks__.
 
    ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
@@ -421,7 +427,7 @@ A private IP address is enabled by configuring AKS to use an _internal load bala
 > [!IMPORTANT]
 > You cannot enable private IP when creating the Azure Kubernetes Service cluster. It must be enabled as an update to an existing cluster.
 
-The following code snippet demonstrates how to **create a new AKS cluster**, and then update it to use a private IP/internal load balancer:
+The following code snippet demonstrates how to __create a new AKS cluster__, and then update it to use a private IP/internal load balancer:
 
 ```python
 import azureml.core
@@ -505,15 +511,6 @@ To use ACI in a virtual network to your workspace, use the following steps:
     > When enabling delegation, use `Microsoft.ContainerInstance/containerGroups` as the __Delegate subnet to service__ value.
 
 2. Deploy the model using [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-), use the `vnet_name` and `subnet_name` parameters. Set these parameters to the virtual network name and subnet where you enabled delegation.
-
-## Use the designer
-
-Configure Azure Machine Learning designer to work inside of a virtual network. To enable full functionality, enable a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable subnet delegation for the subnet used by the deployment.
-
-### Microsoft Service Identity perimssion
-
-### Set module storage
-
 
 ## Azure Firewall
 
@@ -647,7 +644,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
    [![The key vault that's associated with the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
-1. On the **Key Vault** page, in the left pane, select __Firewalls and virtual networks__.
+1. On the __Key Vault__ page, in the left pane, select __Firewalls and virtual networks__.
 
    ![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
 
