@@ -38976,6 +38976,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-create-new.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-create-parameters.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-select-custom-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-custom-speech-commands-speech-sdk.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/quickstart-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-fulfill-sdk.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-create-application-with-simple-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-validations.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-confirmations.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/how-to-custom-speech-commands-one-step-correction.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-commands-add-parameter-configuration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/power-bi-embedded/pause-start.md",
       "redirect_url": "https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start",
       "redirect_document_id": false
