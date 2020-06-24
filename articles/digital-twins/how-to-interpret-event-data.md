@@ -42,7 +42,7 @@ Some notifications conform to the CloudEvents standard. CloudEvents conformance 
 
 Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. 
 
-Notifications emitted by Azure Digital Twins to Event Grid will be automatically formatted to either the CloudEvents schema or EventGridEvent schema depending on the schema type defined in the event grid topic. 
+Notifications emitted by Azure Digital Twins to Event Grid will be automatically formatted to either the CloudEvents schema or EventGridEvent schema, depending on the schema type defined in the event grid topic. 
 
 Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
 
