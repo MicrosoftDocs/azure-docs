@@ -19,7 +19,7 @@ Your Azure Time Series Insights environment will dynamically create the columns 
 
 > [!IMPORTANT]
 >
-> * Review the rules below before selecting a [Time Series ID property](time-series-insights-update-how-to-id.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-JSON-flattening-and-escaping-rules.md#example-b) below.
+> * Review the rules below before selecting a [Time Series ID property](time-series-insights-update-how-to-id.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-json-flattening-escaping-rules.md#example-b) below.
 
 | Rule | Example JSON |Column name in storage |
 |---|---|---|
@@ -29,7 +29,7 @@ Your Azure Time Series Insights environment will dynamically create the columns 
 | Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \’ and a backslash will be written as \\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo\'s Law Value']_double |
 | Nested JSON objects are flattened with a period as the separator. Nesting up to 10 levels is supported. |  ```"series": {"value" : 316 }``` | series.value_long |
 | Arrays of primitive types are stored as the Dynamic type |  ```"values": [154, 149, 147]``` | values_dynamic |
-| Arrays containing objects have two behaviors depending on the object content: If either the TS ID(s) or timestamp property(ies) are within the objects in an array, the array will be unrolled such that the initial JSON payload produces multiple events. This enables you to batch multiple events into one JSON structure. Any top-level properties that are peers to the array will be saved with each unrolled object. If your TS ID(s) and timestamp are *not* within the array, it will be saved whole as the Dynamic type. | See examples [A](concepts-JSON-flattening-and-escaping-rules.md#example-a), [B](concepts-JSON-flattening-and-escaping-rules.md#example-b) and [C](concepts-JSON-flattening-and-escaping-rules.md#example-c) below
+| Arrays containing objects have two behaviors depending on the object content: If either the TS ID(s) or timestamp property(ies) are within the objects in an array, the array will be unrolled such that the initial JSON payload produces multiple events. This enables you to batch multiple events into one JSON structure. Any top-level properties that are peers to the array will be saved with each unrolled object. If your TS ID(s) and timestamp are *not* within the array, it will be saved whole as the Dynamic type. | See examples [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) and [C](concepts-json-flattening-escaping-rules.md#example-c) below
 | Arrays containing mixed elements aren't flattened. |  ```"values": ["foo", {"bar" : 149}, 147]``` | values_dynamic |
 | 512 characters is the JSON property name limit. If the name exceeds 512 characters, it will be truncated to 512 and '_<'hashCode'>' is appended. **Note** that this also applies to property names that have been concatenated from object flattened, denoting a nested object path. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` | data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double |
 
@@ -37,7 +37,7 @@ Your Azure Time Series Insights environment will dynamically create the columns 
 
 Arrays of objects will either be stored whole or split into multiple events depending on how you've modeled your data. This allows you to  use an array to batch events, and avoid repeating telemetry properties that are defined at the root object level. Batching may be advantageous as it results in fewer Event Hubs or IoT Hub messages sent. 
 
-However, in some cases, arrays containing objects are only meaningful in the context of other values. Creating multiple events would render the data meaningless. To ensure that an array of objects is stored as-is as a dynamic type, follow the data modeling guidance below and take a look at [Example C](concepts-JSON-flattening-and-escaping-rules.md#example-c)
+However, in some cases, arrays containing objects are only meaningful in the context of other values. Creating multiple events would render the data meaningless. To ensure that an array of objects is stored as-is as a dynamic type, follow the data modeling guidance below and take a look at [Example C](concepts-json-flattening-escaping-rules.md#example-c)
 
 ### How do I know if my array of objects will produce multiple events?
 

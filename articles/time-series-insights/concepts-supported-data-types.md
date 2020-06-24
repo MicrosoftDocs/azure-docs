@@ -24,7 +24,7 @@ The following table lists the data types supported by Time Series Insights
 | **double** | A double-precision 64-bit number  | "value": 31.0482941 | value_double
 | **long** | A signed 64-bit integer  | "value" : 31 | value_long
 | **string** | Text values, must consist of valid UTF-8. |  "site": "DIM_MLGGG" | site_string
-| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (aka dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp propert(ies) will be stored as dynamic. Read this [article](./concepts-JSON-flattening-and-escaping-rules.md) to understand how objects will be flattened and arrays may be un-rolled |  "values": "[197, 194, 189, 188]" | values_dynamic
+| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp propert(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be un-rolled |  "values": "[197, 194, 189, 188]" | values_dynamic
 
 > [!IMPORTANT]
 >
@@ -32,11 +32,11 @@ The following table lists the data types supported by Time Series Insights
 
 #### Objects and arrays
 
-You may send complex types such as objects and arrays as part of your event payload. Nested objects will be flattened and arrays will either be stored as `dynamic` or flattened to produce multiple events depending on your environment configuration and JSON shape. To learn more read about the [JSON Flattening and Escaping Rules](./concepts-JSON-flattening-and-escaping-rules.md)
+You may send complex types such as objects and arrays as part of your event payload. Nested objects will be flattened and arrays will either be stored as `dynamic` or flattened to produce multiple events depending on your environment configuration and JSON shape. To learn more read about the [JSON Flattening and Escaping Rules](./concepts-json-flattening-escaping-rules.md)
 
 ## Next steps
 
-* Read the [JSON flattening and escaping rules](./concepts-JSON-flattening-and-escaping-rules.md) to understand how events will be stored. 
+* Read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored. 
 
 * Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
 

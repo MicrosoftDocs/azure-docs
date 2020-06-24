@@ -45,7 +45,7 @@ When you connect an event source, your TSI environment will read all of the even
 
 * Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
-* Understand how properties will be escaped and JSON [data flattened and stored.](./concepts-JSON-flattening-and-escaping-rules.md)
+* Understand how properties will be escaped and JSON [data flattened and stored.](./concepts-json-flattening-escaping-rules.md)
 
 * Follow the principle of least privilege when providing event source connection strings. For Event Hubs, configure a shared access policy with the *send* claim only, and for IoT Hub use the *service connect* permission only.
 
@@ -62,9 +62,9 @@ Using the streaming pipeline to import historical data is not currently supporte
 
 When configuring an event source you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Time Series Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute) and for plotting series in the TSI explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
 
-In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivty loss and a batch of delayed messages are forwarded to TSI.
+In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to TSI.
 
-If your custom timestamp is within a nested JSON object or an array you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-JSON-flattening-and-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-JSON-flattening-and-escaping-rules.md#example-a) should be entered as `"values.time"`.
+If your custom timestamp is within a nested JSON object or an array you'll need to provide the correct property name following our [flattening and escaping naming conventions](concepts-json-flattening-escaping-rules.md). For example, the event source timestamp for the JSON payload shown [here](concepts-json-flattening-escaping-rules.md#example-a) should be entered as `"values.time"`.
 
 ### Time zone offsets
 
@@ -78,7 +78,7 @@ The time zone offset should be formatted as one of the following:
 
 ## Next steps
 
-* Read the [JSON Flattening and Escaping Rules](./concepts-JSON-flattening-and-escaping-rules.md) to understand how events will be stored. 
+* Read the [JSON Flattening and Escaping Rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored. 
 
 * Understand your environment's [throughput limitations](concepts-streaming-throughput-limitations.md)
 

@@ -60,7 +60,7 @@
     - name: Streaming Ingestion Event Sources
       href: concepts-streaming-ingestion-event-sources.md
     - name: JSON flattening and escaping rules
-      href: concepts-JSON-flattening-and-escaping-rules.md
+      href: concepts-json-flattening-escaping-rules.md
     - name: Streaming Ingress Throughput Limits
       href: concepts-streaming-throughput-limitations.md
     - name: Storage

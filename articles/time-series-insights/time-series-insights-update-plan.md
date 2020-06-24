@@ -62,7 +62,7 @@ To create a new Time Series Insights environment, select a Time Series ID. Doing
 > [!IMPORTANT]
 > Time Series IDs *can't be changed later*. Verify each one before final selection and first use.
 
-You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Ingestion rules](concepts-JSON-flattening-and-escaping-rules.md).
+You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Ingestion rules](concepts-json-flattening-escaping-rules.md).
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
