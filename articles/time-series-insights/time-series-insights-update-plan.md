@@ -62,7 +62,7 @@ To create a new Time Series Insights environment, select a Time Series ID. Doing
 > [!IMPORTANT]
 > Time Series IDs *can't be changed later*. Verify each one before final selection and first use.
 
-You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
+You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Ingestion rules](concepts-JSON-flattening-and-escaping-rules.md).
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
@@ -95,5 +95,6 @@ For more information, read [Shape events](./time-series-insights-send-events.md#
 ## Next steps
 
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Read more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Time Series Insights Preview.
+- Read more about [data ingestion](./concepts-ingestion-overview.md).
+- Review the article on [data storage](./concets-storage.md)
 - Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.

@@ -235,7 +235,9 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 ## Next steps
 
-- Learn about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
+- Learn about [ingesting data](./concepts-ingestion-overview.md) into your environment.
+
+- Check out the article on [storage](concepts-storage.md)
 
 - Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
 

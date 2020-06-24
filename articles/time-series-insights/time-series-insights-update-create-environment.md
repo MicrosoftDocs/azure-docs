@@ -345,10 +345,10 @@ In this tutorial, you learned how to:
 
 Now that you know how to create your own Azure Time Series Insights Preview environment, learn more about the key concepts in Azure Time Series Insights.
 
-Read about the Azure Time Series Insights storage configuration:
+Read about the Azure Time Series Insights ingestion::
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md)
+> [Azure Time Series Insights data ingestion overview](./concepts-ingestion-overview.md)
 
 Learn more about Time Series Models:
 
