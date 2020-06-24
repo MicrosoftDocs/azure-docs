@@ -89,7 +89,8 @@ To get the Storage Account access key:
 
     This will download an RDP file that will let you sign in to the VM with its own credentials.
 
-    ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
 
 6. When you've signed in to the VM, run a command prompt as an administrator.
 
@@ -152,11 +153,13 @@ To configure a FSLogix profile container:
 
 9.  Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
-    ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
 10. Right-click on **Profiles**, select **New**, and then select **Multi-String Value**. Name the value **VHDLocations** and set enter the URI for the Azure Files share `\\fsprofile.file.core.windows.net\share` as the Data value.
 
-    ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to a session host
 
