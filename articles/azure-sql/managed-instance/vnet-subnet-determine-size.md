@@ -55,7 +55,7 @@ VC = virtual cluster
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-\* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with VC usage column are shared across instances placed in that virtual cluster.
+  \* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with VC usage column are shared across instances placed in that virtual cluster.
 
 Update operation typically requires virtual cluster resize. In some circumstances, update operation will require virtual cluster creation (for more details check [management operations article](sql-managed-instance-paas-overview.md#management-operations)). In case of virtual cluster creation, number of additional addresses required is equal to number of addresses represented by VC usage column summed with addresses required for instances placed in that virtual cluster (instance usage column).
 
@@ -77,7 +77,6 @@ During scaling operation instances temporarily require additional IP capacity th
 | Gen4 | GP or BC | Switching from GP to BC or BC to GP | 5 |
 | Gen4 | GP | Switching to Gen5* | 9 |
 | Gen4 | BC | Switching to Gen5* | 11 |
-|  |  |  |  |
 | Gen5 | GP | Scaling vCores | 3 |
 | Gen5 | GP | Scaling storage | 0 |
 | Gen5 | GP | Switching to BC | 5 |
@@ -85,7 +84,7 @@ During scaling operation instances temporarily require additional IP capacity th
 | Gen5 | BC | Scaling storage | 5 |
 | Gen5 | BC | Switching to GP | 3 |
 
-\* Gen4 hardware is being phased out and is no longer available for new deployments. Update hardware generation from Gen4 to Gen5 to take advantage of the capabilities specific to Gen5 hardware generation.
+  \* Gen4 hardware is being phased out and is no longer available for new deployments. Update hardware generation from Gen4 to Gen5 to take advantage of the capabilities specific to Gen5 hardware generation.
 
 ## Next steps
 
