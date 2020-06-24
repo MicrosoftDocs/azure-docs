@@ -102,3 +102,5 @@ landingContent:
         links:
           - text: Set up a Rules Engine configuration
             url: front-door-tutorial-rules-engine.md
+          - text: Add Security headers with Rules Engine
+            url: front-door-security-headers.md

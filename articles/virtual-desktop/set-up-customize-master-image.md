@@ -32,11 +32,13 @@ To create a VM with the copied VHD:
 
 2. On the Specify Generation page, select **Generation 1**.
 
-    ![A screenshot of the Specify Generation page. The "Generation 1" option is selected.](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Specify Generation page. The "Generation 1" option is selected.](media/a41174fd41302a181e46385e1e701975.png)
 
 3. Under Checkpoint Type, disable checkpoints by unchecking the check box.
 
-    ![A screenshot of the Checkpoint Type section of the Checkpoints page.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Checkpoint Type section of the Checkpoints page.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 You can also run the following cmdlet in PowerShell to disable checkpoints.
 
@@ -48,7 +50,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 If you create a VM from an existing VHD, it creates a dynamic disk by default. It can be changed to a fixed disk by selecting **Edit Disk...** as shown in the following image. For more detailed instructions, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the Edit Disk option.](media/35772414b5a0f81f06f54065561d1414.png)
 
 You can also run the following PowerShell cmdlet to change the disk to a fixed disk.
 
@@ -121,7 +124,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 For Windows Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
-![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)
 
 You can also change the setting with the registry by running the following command:
 
@@ -184,15 +188,18 @@ The following instructions will tell you how to upload your master image into an
 
 2. Upload the VHD to a blob container in your storage account. You can upload quickly with the [Storage Explorer tool](https://azure.microsoft.com/features/storage-explorer/). To learn more about the Storage Explorer tool, see [this article](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Microsoft Azure Storage Explorer Tool's search window. The "Upload .vhd or vhdx files as page blobs (recommended)" check box is selected.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Next, go to the Azure portal in your browser and search for "Images." Your search should lead you to the **Create image** page, as shown in the following screenshot:
 
-    ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Create image page of the Azure portal, filled with example values for the image.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Once you've created the image, you should see a notification like the one in the following screenshot:
 
-    ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the "successfully created image" notification.](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## Next steps
 

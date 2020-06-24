@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 03/24/2020
+ ms.date: 06/23/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -23,9 +23,34 @@ Each gateway has two instances, the split happens so that each gateway instance 
 
 ### How do I add DNS servers for P2S clients?
 
-There are two options to add DNS servers for the P2S clients.
+There are two options to add DNS servers for the P2S clients. The first method is preferred as it adds the custom DNS servers to the gateway instead of the client.
 
-1. Open a support ticket with Microsoft and have them add your DNS servers to the hub
+1. Use the following powershell script to add the custom DNS servers. Please replace the values for your environment.
+```
+// Define variables
+$rgName = "testRG1"
+$virtualHubName = "virtualHub1"
+$P2SvpnGatewayName = "testP2SVpnGateway1"
+$vpnClientAddressSpaces = 
+$vpnServerConfiguration1Name = "vpnServerConfig1"
+$vpnClientAddressSpaces = New-Object string[] 2
+$vpnClientAddressSpaces[0] = "192.168.2.0/24"
+$vpnClientAddressSpaces[1] = "192.168.3.0/24"
+$customDnsServers = New-Object string[] 2
+$customDnsServers[0] = "7.7.7.7"
+$customDnsServers[1] = "8.8.8.8"
+$virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
+$vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
+createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
+$P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
+$updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName  -CustomDnsServer $customDnsServers 
+
+// Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+```
 2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
 
 ```
@@ -66,12 +91,19 @@ For partner automation steps, see [Virtual WAN partner automation](../articles/v
 
 ### Am I required to use a preferred partner device?
 
-No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
+No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support. Virtual WAN also has CPE partner solutions that automate connectivity to Azure Virtual WAN making it easier to set up IPsec VPN connections at scale.
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
+### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
+
+Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
+
+### How do new partners that are not listed in your launch partner list get onboarded?
+
+All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provides above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, please have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -126,14 +158,6 @@ Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/)
 * If you had ExpressRoute gateway due to ExpressRoute circuits connecting to a virtual hub, then you would pay for the scale unit price. Each scale unit in ER is 2 Gbps and each connection unit is charged at the same rate as the VPN Connection unit.
 
 * If you had Spoke VNETs connected to the hub, peering charges at the Spoke VNETs still apply. 
-
-### How do new partners that are not listed in your launch partner list get onboarded?
-
-All virtual WAN APIs are open API. You can go over the documentation to assess technical feasibility. If you have any question, send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
-
-### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
-
-Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
 
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 

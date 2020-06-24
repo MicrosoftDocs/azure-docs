@@ -350,7 +350,7 @@ https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemem
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 **Azure Security Center monitoring**: Yes
 
@@ -446,7 +446,7 @@ How to configure Named Locations in Azure: https://docs.microsoft.com/azure/acti
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 How to create and configure an AAD instance:
 
@@ -474,7 +474,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 How to configure and manage Azure Active Directory authentication with Azure SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-authentication-aad-configure
+https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
 How to integrate Azure Activity Logs into Azure Monitor:
 
