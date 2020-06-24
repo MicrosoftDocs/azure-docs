@@ -41,7 +41,8 @@ Select the "Run" button to execute your SQL script. The results are displayed by
 
 You can export the results to your local storage in different formats (including CSV, Excel, JSON, XML) by selecting "Export results" and choosing the extension.
 
-You can also visualize the SQL script results in a chart by selecting the "Chart" button. Select the "Chart type" and "Category column". You can export the chart into a picture by selecting "Save as image". ![newsqlscriptresultschart](media/author-sql-script/newsqlscriptresultschart.png)
+You can also visualize the SQL script results in a chart by selecting the "Chart" button. Select the "Chart type" and "Category column". You can export the chart into a picture by selecting "Save as image". 
+![newsqlscriptresultschart](media/author-sql-script/newsqlscriptresultschart.png)
 
 ## Explore data from a Parquet file.
 
@@ -49,8 +50,15 @@ You can explore Parquet files in a storage account using SQL script to preview t
 
 ## SQL Tables, external tables, views
 
-By selecting the "Actions" menu under data, you can select several actions like: "New SQL script", "Select TOP 1000 rows", "CREATE", "DROP and CREATE". Explore the available gesture by right-clicking the nodes of SQL pool and SQL on-demand. 
-[newscriptdatabase](media/author-sql-script/newscriptdatabase.png)
+By selecting the "Actions" menu under data, you can select several actions such as:
+
+- New SQL script
+- Select TOP 1000 rows
+- CREATE
+- DROP and CREATE 
+ 
+Explore the available gesture by right-clicking the nodes of SQL pool and SQL on-demand. 
+![newscriptdatabase](media/author-sql-script/newscriptdatabase.png)
 
 ## Next steps
 
