@@ -1,6 +1,6 @@
 ---
-title: Hide an application from user's experience in Azure AD
-description: How to hide an application from user's experience in Azure Active Directory access panels or Office 365 launchers.
+title: Hide an Enterprise application from user's experience in Azure AD
+description: How to hide an Enterpise application from user's experience in Azure Active Directory access panels or Office 365 launchers.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -14,7 +14,7 @@ ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ---
 
-# Hide applications from end-users in Azure Active Directory
+# Hide Enterprise applications from end-users in Azure Active Directory
 
 Instructions for how to hide applications from end-users' MyApps panel or Office 365 launcher. When an application is hidden, users still have permissions to the application. 
 
@@ -37,6 +37,9 @@ Use the following steps to hide an application from MyApps panel and Office 365 
 7.	For the **Visible to users?** question, click **No**.
 8.	Click **Save**.
 
+> [!NOTE]
+> These instructions apply only to Enterprise applications.
+
 ## Use Azure AD PowerShell to hide an application
 
 To hide an application from the MyApps panel, you can manually add the HideApp tag to the service principal for the application. Run the following [AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) commands to set the application's **Visible to Users?** property to **No**. 
@@ -57,10 +60,11 @@ Use the following steps to hide all Office 365 applications from the MyApps pane
 
 1.	Sign in to the [Azure portal](https://portal.azure.com) as a global administrator for your directory.
 2.	Select **Azure Active Directory**.
-3.	Select **User settings**.
-4.	Under **Enterprise applications**, click **Manage how end users launch and view their applications.**
-5.	For **Users can only see Office 365 apps in the Office 365 portal**, click **Yes**.
-6.	Click **Save**.
+3.	Select **Users**.
+4.  Select **User settings**.
+5.	Under **Enterprise applications**, click **Manage how end users launch and view their applications.**
+6.	For **Users can only see Office 365 apps in the Office 365 portal**, click **Yes**.
+7.	Click **Save**.
 
 ## Next steps
 * [See all my groups](../fundamentals/active-directory-groups-view-azure-portal.md)
