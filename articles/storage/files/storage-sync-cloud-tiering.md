@@ -77,7 +77,11 @@ Keeping more data local means lower egress costs as fewer files will be recalled
 
 <a id="how-long-until-my-files-tier"></a>
 ### I've added a new server endpoint. How long until my files on this server tier?
-In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happen once an hour. On older agents, tiering can take up to 24 hours to happen.
+
+Whether or not files need to be tiered per set policies is evaluated once an hour. You can encounter two situations when a new server endpoint is created:
+
+1. When you add a new server endpoint, then often files exist in that server location. They need to be uploaded first, before cloud tiering can begin. The volume free space policy will not begin it's work until initial upload of all files has finished. However, the optional date policy will begin to work on an individual file basis, as soon as a file has been uploaded. The one-hour interval applies here as well. 
+2. When you add a new server endpoint, it is possible that you connect an empty server location to an Azure file share with your data in it. Whether that is for a second server or during a disaster recovery situation. If you choose to download the namespace and recall content during initial download to your server, then after the namespace comes down, files will be recalled based on the last modified timestamp. Only as many files will be recalled as fit within the volume free space policy and the optional date policy.
 
 <a id="is-my-file-tiered"></a>
 ### How can I tell whether a file has been tiered?

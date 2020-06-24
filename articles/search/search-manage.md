@@ -38,7 +38,8 @@ Azure Cognitive Search leverages other Azure services for deeper monitoring and 
 Several aspects of a search service are determined when the service is provisioned and cannot be changed later:
 
 * Service name (you cannot rename a service)
-* Maximum replica and partition counts (determined by the tier)
+* Service location (you cannot currently move an intact service to another region)
+* Maximum replica and partition counts (determined by the tier, Basic or Standard)
 
 If you started with Basic with its maximum of one partition, and you now need more partitions, you will need to [create a new service](search-create-service-portal.md) at a higher tier and recreate your content on the new service. 
 
