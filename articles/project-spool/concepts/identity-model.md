@@ -23,12 +23,10 @@ Users are implicitly created when you request a [user access token](./user-acces
 
 ```csharp
 var userTokenClient = new UserTokenClient(CONNECTION_STRING);
-var tokenResponse = await userTokenClient.IssueAsync(scopes: new List<string>{"chat"});
+var tokenResponse = await userTokenClient.IssueAsync(scopes: new List<string>{ "chat" });
 
-// unique User ID
-string userID = tokenResponse.Value.AcsIdentity;
+string userId = tokenResponse.Value.AcsIdentity;
 
-// user token 
 string token = tokenResponse.Value.Token
 ```
 
@@ -52,7 +50,7 @@ It is also possible to treat users as ephemeral entities that are created for a 
 
 ## Connecting Users
 
-The User IDs in Azure Communication Services are analagous to phone numbers. Any user can initiate a chat or call with any other user provided they are able to discover that user's ID and the token that they are holding have proper scopes.
+The User IDs in Azure Communication Services are analagous to phone numbers. Any user can initiate a chat or call with any other user provided they are able to discover that user's ID.
 
 ### Chat
 
