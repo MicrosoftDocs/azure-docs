@@ -9,20 +9,27 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: quickstart-create-mysql-server-database-using-azure-portal.md
-  - name: Create DB - Azure CLI
-    href: quickstart-create-mysql-server-database-using-azure-cli.md
-  - name: Create DB - Azure CLI up command
-    href: quickstart-create-server-up-azure-cli.md
+  - name: Create DB
+    items:
+    - name: Create DB - Portal
+      href: quickstart-create-mysql-server-database-using-azure-portal.md
+    - name: Create DB - Azure CLI
+      href: quickstart-create-mysql-server-database-using-azure-cli.md
+    - name: Create DB - Azure CLI up command
+      href: quickstart-create-server-up-azure-cli.md
+    - name: Create DB - Azure PowerShell
+      href: quickstart-create-mysql-server-database-using-azure-powershell.md
+    - name: Create DB - ARM template
+      href: quickstart-create-mysql-server-database-using-arm-template.md
+      displayName: deploy azure resource manager template 
   - name: Connect & query
     items:
     - name: PHP
       href: connect-php.md
     - name: Java
       href: connect-java.md
-    - name: .Net
-      href: connect-csharp.md    
+    - name: .NET
+      href: connect-csharp.md
     - name: Python
       href: connect-python.md
     - name: Node.js
@@ -43,6 +50,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure PowerShell
+      href: tutorial-design-database-using-powershell.md
     - name: Azure Resource Manager template
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
@@ -59,6 +68,9 @@
     href: sample-scripts-azure-cli.md
   - name: Java connection pooling
     href: sample-scripts-java-connection-pooling.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -73,20 +85,32 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
-    - name: Limits
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
+    - name: Connectivity architecture
+      href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
     - name: Virtual Network
       href: concepts-data-access-and-security-vnet.md
-    - name: Connectivity architecture
-      href: concepts-connectivity-architecture.md      
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Data Encryption
+      href: concepts-data-encryption-mysql.md
+    - name: Azure AD authentication
+      href: concepts-azure-ad-authentication.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -108,6 +132,8 @@
       href: concepts-query-performance-insight.md
     - name: Performance Recommendations
       href: concepts-performance-recommendations.md
+    - name: Server parameters
+      href: concepts-server-parameters.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -129,7 +155,7 @@
     - name: Data-in replication
       href: concepts-data-in-replication.md
     - name: Read replicas
-      href: concepts-read-replicas.md  
+      href: concepts-read-replicas.md
 - name: How-to guides
   items:
   - name: Manage a server
@@ -148,6 +174,8 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restore-server-powershell.md
   - name: Migrate a database
     items:
     - name: Dump & restore
@@ -164,32 +192,42 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Configure TLS
+      href: howto-tls-configurations.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
+    - name: Azure PowerShell
+      href: howto-configure-server-parameters-using-powershell.md
   - name: Auto grow storage
     items:
     - name: Azure portal
       href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
       href: howto-auto-grow-storage-cli.md
+    - name: Azure PowerShell
+      href: howto-auto-grow-storage-powershell.md
   - name: Access server logs
     items:
     - name: Slow query logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-server-logs-in-portal.md
       - name: Azure CLI
         href: howto-configure-server-logs-in-cli.md
     - name: Audit logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-audit-logs-portal.md
+      - name: Azure CLI
+        href: howto-configure-audit-logs-cli.md
   - name: Monitor
     items:
     - name: Create alerts on metrics
@@ -202,6 +240,8 @@
       href: howto-read-replicas-portal.md
     - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
+    - name: Create read replicas Azure PowerShell
+      href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors
@@ -210,6 +250,8 @@
       href: howto-troubleshoot-query-performance.md
     - name: How to use views in sys schema
       href: howto-troubleshoot-sys-schema.md
+    - name: Troubleshoot data encryption
+      href: howto-data-encryption-troubleshoot.md
   - name: Advanced Threat Protection
     items:
     - name: Azure portal
@@ -220,12 +262,38 @@
       href: howto-manage-vnet-using-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-using-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
+  - name: Data Encryption
+    items:
+    - name: Azure portal
+      href: howto-data-encryption-portal.md
+    - name: Azure CLI
+      href: howto-data-encryption-cli.md
+    - name: Data encryption validation
+      href: howto-data-encryption-validation.md
+  - name: Azure AD Integration
+    items:
+    - name: Configure Azure AD integration
+      href: howto-configure-sign-in-azure-ad-authentication.md
+    - name: Connect with Managed Identity
+      href: howto-connect-with-managed-identity.md
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
   - name: Restart server
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
     - name: Azure CLI
       href: howto-restart-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restart-server-powershell.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -244,8 +312,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mysql/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-database-mysql.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mysql
   - name: Videos

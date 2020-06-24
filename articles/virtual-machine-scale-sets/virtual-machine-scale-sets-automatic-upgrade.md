@@ -1,21 +1,14 @@
 ---
-title: Automatic OS image upgrades with Azure virtual machine scale sets | Microsoft Docs
+title: Automatic OS image upgrades with Azure virtual machine scale sets
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: shandilvarun
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+author: avirishuv
+ms.author: avverma
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/16/2019
-ms.author: vashan
+ms.subservice: management
+ms.date: 04/14/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -25,9 +18,9 @@ Enabling automatic OS image upgrades on your scale set helps ease update managem
 Automatic OS upgrade has the following characteristics:
 
 - Once configured, the latest OS image published by image publishers is automatically applied to the scale set without user intervention.
-- Upgrades batches of instances in a rolling manner each time a new platform image is published by the publisher.
+- Upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
 - Integrates with application health probes and [Application Health extension](virtual-machine-scale-sets-health-extension.md).
-- Works for all VM sizes, and for both Windows and Linux platform images.
+- Works for all VM sizes, and for both Windows and Linux images.
 - You can opt out of automatic upgrades at any time (OS Upgrades can be initiated manually as well).
 - The OS Disk of a VM is replaced with the new OS Disk created with latest image version. Configured extensions and custom data scripts are run, while persisted data disks are retained.
 - [Extension sequencing](virtual-machine-scale-sets-extension-sequencing.md) is supported.
@@ -39,7 +32,7 @@ An upgrade works by replacing the OS disk of a VM with a new disk created using 
 
 The upgrade process works as follows:
 1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
-2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count. For smaller scale sets with 5 or fewer instances, the batch size for an upgrade is one virtual machine instance.
+2. The upgrade orchestrator identifies the batch of VM instances to upgrade, with any one batch having a maximum of 20% of the total instance count, subject to a minimum batch size of one virtual machine.
 3. The OS disk of the selected batch of VM instances is replaced with a new OS disk created from the latest image. All specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch. If an instance does not recover its health in 5 minutes after an upgrade, then by default the previous OS disk for the instance is restored.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
@@ -48,9 +41,9 @@ The upgrade process works as follows:
 The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images aren't currently supported.
+Only certain OS platform images are currently supported. Custom image support is available [in preview](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images-preview) for custom images through [Shared Image Gallery](shared-image-galleries.md).
 
-The following SKUs are currently supported (and more are added periodically):
+The following platform SKUs are currently supported (and more are added periodically):
 
 | Publisher               | OS Offer      |  Sku               |
 |-------------------------|---------------|--------------------|
@@ -70,7 +63,7 @@ The following SKUs are currently supported (and more are added periodically):
 
 ## Requirements for configuring automatic OS image upgrade
 
-- The *version* property of the platform image must be set to *latest*.
+- The *version* property of the image must be set to *latest*.
 - Use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets.
 - Use Compute API version 2018-10-01 or higher.
 - Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
@@ -85,6 +78,86 @@ If you are using Service Fabric, ensure the following conditions are met:
 
 Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
+
+## Automatic OS image upgrade for custom images (preview)
+
+> [!IMPORTANT]
+> Automatic OS image upgrade for custom images is currently in Public Preview. An opt-in procedure is needed to use the public preview functionality described below.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Automatic OS image upgrade is available in preview for custom images deployed through [Shared Image Gallery](shared-image-galleries.md). Other custom images are not supported for automatic OS image upgrades.
+
+Enabling the preview functionality requires a one-time opt-in for the feature *AutomaticOSUpgradeWithGalleryImage* per subscription, as detailed below.
+
+### REST API
+The following example describes how to enable the preview for your subscription:
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage/register?api-version=2015-12-01`
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```
+GET on `/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Compute/features/AutomaticOSUpgradeWithGalleryImage?api-version=2015-12-01`
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```
+POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?api-version=2019-12-01`
+```
+
+### Azure PowerShell
+Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription.
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName AutomaticOSUpgradeWithGalleryImage -ProviderNamespace Microsoft.Compute
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
+### Azure CLI 2.0
+Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Feature registration can take up to 15 minutes. To check the registration status:
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name AutomaticOSUpgradeWithGalleryImage
+```
+
+Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
+
+### Additional requirements for custom images
+- The opt-in process described above needs to be completed only once per subscription. Post opt-in completion, automatic OS upgrades can be enabled for any scale set in that subscription.
+- The Shared Image Gallery can be in any subscription and does not require to be opted-in separately. Only the scale set subscription requires the feature opt-in.
+- The configuration process for automatic OS image upgrade is the same for all scale sets as detailed in the [configuration section](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) of this page.
+- Scale sets instances configured for automatic OS image upgrades will be upgraded to the latest version of the Shared Image Gallery image when a new version of the image is published and [replicated](shared-image-galleries.md#replication) to the region of that scale set. If the new image is not replicated to the region where the scale is deployed, the scale set instances will not be upgraded to the latest version. Regional image replication allows you to control the rollout of the new image for your scale sets.
+- The new image version should not be excluded from the latest version for that gallery image. Image versions excluded from the gallery image's latest version are not rolled out to the scale set through automatic OS image upgrade.
+
+> [!NOTE]
+>It can take up to 3 hours for a scale set to trigger the first image upgrade rollout after the scale set is configured for automatic OS upgrades. This is a one-time delay per scale set. Subsequent image rollouts are triggered on the scale set within 30 minutes.
+
+
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
 
@@ -92,7 +165,7 @@ To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePoli
 The following example describes how to set automatic OS upgrades on a scale set model:
 
 ```
-PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2019-12-01`
 ```
 
 ```json
@@ -147,13 +220,13 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > [!NOTE]
 > When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-### Keep credentials up-to-date
+### Keep credentials up to date
 If your scale set uses any credentials to access external resources, such as a VM extension configured to use a SAS token for storage account, then ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail and the first batch of VMs will be left in a failed state.
 
 The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
 
 * Regenerate the token (or any other credentials) passed into your extension(s).
-* Ensure that any credential used from inside the VM to talk to external entities is up-to-date.
+* Ensure that any credential used from inside the VM to talk to external entities is up to date.
 * Update extension(s) in the scale set model with any new tokens.
 * Deploy the updated scale set, which will update all VM instances including the failed ones.
 
@@ -171,7 +244,7 @@ You can check the history of the most recent OS upgrade performed on your scale 
 The following example uses [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) to check the status for the scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
 ```
 
 The GET call returns properties similar to the following example output:
@@ -231,7 +304,7 @@ You can get the available image versions for automatic OS upgrade supported SKUs
 
 ### REST API
 ```
-GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2019-12-01`
 ```
 
 ### Azure PowerShell
@@ -253,10 +326,10 @@ For specific cases where you do not want to wait for the orchestrator to apply t
 > Manual trigger of OS image upgrades does not provide automatic rollback capabilities. If an instance does not recover its health after an upgrade operation, its previous OS disk can't be restored.
 
 ### REST API
-Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available platform image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
+Use the [Start OS Upgrade](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API call to start a rolling upgrade to move all virtual machine scale set instances to the latest available image OS version. Instances that are already running the latest available OS version are not affected. The following example details how you can start a rolling OS upgrade on a scale set named *myScaleSet* in the resource group named *myResourceGroup*:
 
 ```
-POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### Azure PowerShell

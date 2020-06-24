@@ -1,11 +1,11 @@
 ---
 title: Configure load balancing and outbound rules by using Azure PowerShell
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This article shows how to configure load balancing and outbound rules in Standard Load Balancer by using Azure PowerShell.
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 

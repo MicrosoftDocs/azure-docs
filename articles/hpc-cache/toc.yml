@@ -16,7 +16,7 @@
   - name: Prerequisites
     href: hpc-cache-prereqs.md
   - name: Create the cache
-    href: hpc-cache-create.md  
+    href: hpc-cache-create.md
   - name: Add storage
     items: 
     - name: Add storage targets
@@ -25,24 +25,41 @@
       items:
       - name: Preload new Blob storage
         href: hpc-cache-ingest.md
-      - name: Alternate data ingest methods 
+      - name: Alternate data ingest methods
         items:
         - name: Populate the cache with parallel copy
           href: hpc-cache-ingest-parallelcp.md
         - name: Populate the cache with msrsync
           href: hpc-cache-ingest-msrsync.md
-        - name: Populate the cache by manual file copy 
+        - name: Populate the cache by manual file copy
           href: hpc-cache-ingest-manual.md
+    - name: Edit storage targets
+      href: hpc-cache-edit-storage.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
   - name: Manage the cache 
     href: hpc-cache-manage.md
+  - name: Configure optional settings
+    href: configuration.md
+
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/hpc-cache/hpc-cache
 
 - name: Resources
   items: 
   - name: Open a support ticket
     href: hpc-cache-support-ticket.md
+  - name: Work around Blob storage account firewall settings
+    href: hpc-cache-blob-firewall-fix.md
+  - name: Troubleshoot NFS storage target creation
+    href: troubleshoot-nas.md
   - name: Recover from a regional outage
     href: hpc-region-recovery.md
+  - name: Use customer-managed encryption keys
+    href: customer-keys.md
   - name: Use Azure NetApp Files with Azure HPC Cache
     href: hpc-cache-netapp.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache

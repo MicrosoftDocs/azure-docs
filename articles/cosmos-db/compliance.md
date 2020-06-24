@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB compliance 
 description: This article describes certification coverage for Azure Cosmos DB compliance offerings.
-author: dharmas-cosmos
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.author: dharmas
+ms.date: 03/18/2020
+ms.author: sngun
 ms.reviewer: sngun
 
 ---
@@ -16,7 +16,7 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 * **Azure public** cloud, which is available globally.
 
-* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
+* **Azure China 21Vianet** is available through a unique partnership between Microsoft and 21Vianet, one of the country/region's largest internet providers.
 
 * **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 
@@ -40,6 +40,7 @@ Azure Cosmos DB is continually expanding its certification coverage. Currently, 
 | ISO 27017:2015 | | | |
 | ISO 27018:2014 | | | |
 | ISO 9001:2015 | | | |
+| ISO 27701:2019| | | |
 | SOC 1, 2, 3 | | | |
 
 To learn more about each of these compliance offerings and how they benefit you, see [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) page.

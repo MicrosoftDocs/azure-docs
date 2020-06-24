@@ -1,7 +1,7 @@
 ---
 title: Language support - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Computer Vision features.
+description: This article provides a list of natural languages supported by Computer Vision features; OCR, Recognize Text and Read.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -18,38 +18,36 @@ Some features of Computer Vision support multiple languages; any features not me
 
 ## Text recognition
 
-Computer Vision can recognize text in many languages. Specifically, the [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API supports a variety of languages, whereas the [Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API and [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API only support English. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
+Computer Vision can recognize text in many languages. The OCR and Read APIs do not require you to specify a language code. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
 
-OCR automatically detects the language of the input material, so there is no need to specify a language code in the API call. However, language codes are always returned as the value of the `"language"` node in the JSON response.
-
-|Language| Language code | OCR API |
-|:-----|:----:|:-----:|
-|Arabic | `ar`|✔ |
-|Chinese (Simplified) | `zh-Hans`|✔ |
-|Chinese (Traditional) | `zh-Hant`|✔ |
-|Czech | `cs` |✔ |
-|Danish | `da` |✔ |
-|Dutch | `nl` |✔ |
-|English | `en` |✔ |
-|Finnish | `fi` |✔ |
-|French | `fr` |✔ |
-|German | `de` |✔ |
-|Greek | `el` |✔ |
-|Hungarian | `hu` |✔ |
-|Italian | `it` |✔ |
-|Japanese | `ja` |✔ |
-|Korean | `ko` |✔ |
-|Norwegian | `nb` |✔ |
-|Polish | `pl` |✔ |
-|Portuguese | `pt` |✔ |
-|Romanian | `ro` |✔ |
-|Russian | `ru` |✔ |
-|Serbian (Cyrillic) | `sr-Cyrl` |✔ |
-|Serbian (Latin) | `sr-Latn` |✔ |
-|Slovak | `sk` |✔ |
-|Spanish | `es` |✔ |
-|Swedish | `sw` |✔ |
-|Turkish | `tr` |✔ |
+|Language| Language code | OCR API | Read API |
+|:-----|:----:|:-----:|:---:|
+|Arabic | `ar`|✔ | |
+|Chinese (Simplified) | `zh-Hans`|✔ | |
+|Chinese (Traditional) | `zh-Hant`|✔ | |
+|Czech | `cs` |✔ | |
+|Danish | `da` |✔ | |
+|Dutch | `nl` |✔ |✔ |
+|English | `en` |✔ |✔ |
+|Finnish | `fi` |✔ | |
+|French | `fr` |✔ |✔ |
+|German | `de` |✔ |✔ |
+|Greek | `el` |✔ | |
+|Hungarian | `hu` |✔ | |
+|Italian | `it` |✔ |✔ |
+|Japanese | `ja` |✔ | |
+|Korean | `ko` |✔ | |
+|Norwegian | `nb` |✔ | |
+|Polish | `pl` |✔ | |
+|Portuguese | `pt` |✔ |✔ |
+|Romanian | `ro` |✔ | |
+|Russian | `ru` |✔ | |
+|Serbian (Cyrillic) | `sr-Cyrl` |✔ | |
+|Serbian (Latin) | `sr-Latn` |✔ | |
+|Slovak | `sk` |✔ | |
+|Spanish | `es` |✔ |✔ |
+|Swedish | `sw` |✔ | |
+|Turkish | `tr` |✔ | |
 
 ## Image analysis
 

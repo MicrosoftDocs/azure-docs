@@ -152,6 +152,8 @@ landingContent:
             url: how-to-provision-container-throughput.md
           - text: Get the request unit charges 
             url: find-request-unit-charge.md
+          - text: Scale using Azure Functions timer
+            url: scale-on-schedule.md
 
   # Card
   - title: Build an app with SQL API 
@@ -174,6 +176,8 @@ landingContent:
             url: sql-api-dotnet-application.md
           - text: Java app with Async SDK
             url: sql-api-async-java-get-started.md
+          - text: Java app sample with Change Feed
+            url: create-sql-api-java-changefeed.md
           - text: Query data with SQL queries
             url: tutorial-query-sql-api.md
       - linkListType: how-to-guide
@@ -262,8 +266,12 @@ landingContent:
         links:
           - text: .NET
             url: create-cassandra-dotnet.md
-          - text: Java
+          - text: .NET Core
+            url: create-cassandra-dotnet-core.md            
+          - text: Java v3
             url: create-cassandra-java.md
+          - text: Java v4
+            url: create-cassandra-java-v4.md            
           - text: Node.js
             url: create-cassandra-nodejs.md
           - text: Python
@@ -326,8 +334,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Spark and Jupyter notebooks support 
-            url: spark-api-introduction.md
+          - text: Analytics use cases
+            url: analytics-usecases.md
           - text: Lambda architecture
             url: lambda-architecture.md
       - linkListType: how-to-guide

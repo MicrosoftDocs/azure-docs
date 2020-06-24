@@ -8,15 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: "Active"
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
 
 ---
 
 # Tutorial: Stream data into Azure Databricks using Event Hubs
-
-> [!IMPORTANT]
-> This tutorial works with the version of Azure Databricks runtime 5.2.
 
 In this tutorial, you connect a data ingestion system with Azure Databricks to stream data into an Apache Spark cluster in near real-time. You set up data ingestion system using Azure Event Hubs and then connect it to Azure Databricks to process the messages coming through. To access a stream of data, you use Twitter APIs to ingest tweets into Event Hubs. Once you have the data in Azure Databricks, you can run analytical jobs to further analyze the data.
 
@@ -41,7 +38,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
 
 ## Prerequisites
 
@@ -75,7 +72,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -100,10 +97,10 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other default values other than the following:
 
    * Enter a name for the cluster.
-   * For this article, create a cluster with **5.2** runtime.
+   * For this article, create a cluster with **6.0** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-   Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/).
+   Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/pricing/details/databricks/).
 
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
@@ -137,14 +134,10 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
    ![Add library dialog box](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Add library install new")
 
-2. In the New Library page, for **Source** select **Maven**. For **Coordinate**, click **Search Packages** for the package you want to add. Here is the Maven coordinates for the libraries used in this tutorial:
+2. In the New Library page, for **Source** select **Maven**. Individually enter the following coordinates for the Spark Event Hubs connector and the Twitter API into **Coordinates**.
 
-   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Spark Event Hubs connector - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Provide Maven coordinates")
-
-     ![Provide Maven coordinates](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Search Maven coordinates")
 
 3. Select **Install**.
 
@@ -286,7 +279,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output like the snippet
 
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
 
-    Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
+    Sent event: Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
 
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
 
@@ -391,7 +384,7 @@ The output now resembles the following snippet:
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
     https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
-    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
+    |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
     |176   |2018-03-09 05:49:20.801|1520574560|4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |
     +------+-----------------+----------+-------+

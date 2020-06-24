@@ -1,19 +1,19 @@
 ---
 title:  "Normalize Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Normalize Data module in Azure Machine Learning service to transform a dataset through *normalization*..
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Normalize Data module in Azure Machine Learning to transform a dataset through *normalization*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 05/02/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/22/2020
 ---
 # Normalize Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to transform a dataset through *normalization*.
 
@@ -87,21 +87,21 @@ You can apply only one normalization method at a time using this module. Therefo
     
       ![normalization using the tanh function](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Run the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
+6. Submit the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
 
 ## Results
 
 The **Normalize Data** module generates two outputs:
 
-- To view the transformed values, right-click the module, select **Transformed dataset**, and click **Visualize**.
+- To view the transformed values, right-click the module, and select **Visualize**.
 
     By default, values are transformed in place. If you want to compare the transformed values to the original values, use the [Add Columns](./add-columns.md) module to recombine the datasets and view the columns side by side.
 
-- To save the transformation so that you can apply the same normalization method to another similar dataset, right-click the module, select **Transformation function**, and click **Save as Transform**.
+- To save the transformation so that you can apply the same normalization method to another dataset, select the module, and select **Register dataset** under the **Outputs** tab in the right panel.
 
-    You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [./Apply Transformation](apply-transformation.md).  
+    You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [Apply Transformation](apply-transformation.md).  
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

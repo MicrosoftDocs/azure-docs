@@ -1,14 +1,13 @@
 ---
-title: 'Create an ExpressRoute circuit - Resource Manager template: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
 description: Create, provision, delete, and deprovision an ExpressRoute circuit.
-services: expressroute;azure-resource-manager
-author: cherylmc
+services: expressroute
+author: charwen
 
 ms.service: expressroute
-ms.topic: article
-ms.date: 07/05/2019
-ms.author: cherylmc
-ms.reviewer: ganesr
+ms.topic: how-to
+ms.date: 11/13/2019
+ms.author: charwen
 
 ---
 
@@ -61,8 +60,8 @@ To create an ExpressRoute Circuit by deploying a template:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **Tier** determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify **Standard** to get the standard SKU or **Premium** for the premium add-on.
-
+   * **SKU tier** determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard, or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard, or *Premium*.
+   * **SKU family** determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
    * **Peering Location** is the physical location where you are peering with Microsoft.
 
      > [!IMPORTANT]
@@ -77,9 +76,9 @@ It takes a few moments to create an event hub.
 
 Azure PowerShell is used to deploy the template in this tutorial. For other template deployment methods, see:
 
-* [By using the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [By using Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [By using REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [By using the Azure portal](../azure-resource-manager/templates/deploy-portal.md).
+* [By using Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [By using REST API](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 

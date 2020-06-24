@@ -1,13 +1,10 @@
 ---
-title: Schema for Workflow Definition Language - Azure Logic Apps
-description: Schema reference for the Workflow Definition Language in Azure Logic Apps
+title: Workflow Definition Language schema reference
+description: Reference guide to the JSON schema and syntax for the Workflow Definition Language that describes workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.topic: reference
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
 ms.date: 05/13/2019
 ---
 
@@ -92,7 +89,7 @@ Here is the general structure for a parameter definition:
 | <*parameter-description*> | No | JSON object | Any other parameter details, such as a description for the parameter |
 ||||
 
-Next, create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that is sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
+Next, create an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) for your workflow definition, define template parameters that accept the values you want at deployment, replace hardcoded values with references to template or workflow definition parameters as appropriate, and store the values to use at deployment in a separate [parameter file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values more easily through the parameter file without having to update and redeploy your logic app. For information that is sensitive or must be secured, such as usernames, passwords, and secrets, you can store those values in Azure Key Vault and have your parameter file retrieve those values from your key vault. For more information and examples about defining parameters at the template and workflow definition levels, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
 <a name="static-results"></a>
 
@@ -201,7 +198,7 @@ You can also have values that don't exist until run time.
 To represent these values, you can use *expressions*, 
 which are evaluated at run time. An expression is a sequence 
 that can contain one or more [functions](#functions), 
-[operators](#operators), variables, explicit values, 
+[operators](#operators), [variables](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (\@). 

@@ -1,13 +1,13 @@
 ---
 
-title: One-time passcode authentication for B2B guest users - Azure Active Directory | Microsoft Docs
+title: One-time passcode authentication for B2B guest users - Azure AD
 description: How to use Email one-time passcode to authenticate B2B guest users without the need for a Microsoft account.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -54,7 +54,7 @@ When a guest user redeems an invitation or uses a link to a resource that has be
 
 At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used. 
 
-You can view guest users who authenticate with one-time passcodes in the Azure portal by going to **Azure Active Directory** > **Organizational relationships** > **Users from other organizations**.
+You can view guest users who authenticate with one-time passcodes in the Azure portal by going to **Azure Active Directory** > **Users**.
 
 ![Screenshot showing a one-time passcode user with Source value of OTP](media/one-time-passcode/otp-users.png)
 
@@ -70,8 +70,7 @@ It might take a few minutes for the opt-in action to take effect. After that, on
 ### To opt in using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
-3.	Under **Manage**, select **Organizational Relationships**.
-4.	Select **Settings**.
+3.	Select **External Identities** > **External collaboration settings**.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **Yes**.
  
 ### To opt in using PowerShell
@@ -137,8 +136,7 @@ It may take a few minutes for the opt-out action to take effect. If you turn off
 ### To turn off the preview using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
-3.	Under **Manage**, select **Organizational Relationships**.
-4.	Select **Settings**.
+3.	Select **External Identities** > **External collaboration settings**.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **No**.
 
 ### To turn off the preview using PowerShell

@@ -1,6 +1,6 @@
 ---
 title: LOG in Azure Cosmos DB query language
-description: Learn about SQL system function LOG in Azure Cosmos DB.
+description: Learn about the LOG SQL system function in Azure Cosmos DB to return the natural logarithm of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -62,6 +62,10 @@ SELECT EXP(LOG(10)) AS expLog
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

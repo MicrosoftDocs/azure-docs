@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Perform extract, transform, load (ETL) operations by using Apache Hive on Azure HDInsight'
+title: 'Tutorial: Extract, transform, and load data by using Azure HDInsight'
 description: In this tutorial, you learn how to extract data from a raw CSV dataset, transform it by using Apache Hive on Azure HDInsight, and then load the transformed data into Azure SQL Database by using Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 
-# Tutorial: Extract, transform, and load data by using Apache Hive on Azure HDInsight
+# Tutorial: Extract, transform, and load data by using Azure HDInsight
 
 In this tutorial, you perform an ETL operation: extract, transform, and load data. You take a raw CSV data file, import it into an Azure HDInsight cluster, transform it with Apache Hive, and load it into an Azure SQL database with Apache Sqoop.
 
@@ -240,12 +240,12 @@ You need the server name from your SQL database for this operation. Complete the
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. After the installation completes, use the following command to connect to the SQL Database server.
+6. After the installation completes, use the following command to connect to SQL Database.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Replace the `<server-name>` placeholder with the SQL Database server name.
+   * Replace the `<server-name>` placeholder with the logical SQL server name.
 
    * Replace the `<admin-login>` placeholder with the admin login for SQL Database.
 

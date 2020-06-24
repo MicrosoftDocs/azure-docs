@@ -1,14 +1,14 @@
 ---
-title: Use Azure HPC Cache (preview) and Azure NetApp Files
+title: Use Azure HPC Cache and Azure NetApp Files
 description: How to use Azure HPC Cache to improve access to data stored with Azure NetApp Files
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Use Azure HPC Cache (preview) with Azure NetApp Files
+# Use Azure HPC Cache with Azure NetApp Files
 
 You can use [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) as a storage target for your Azure HPC Cache. This article explains how the two services can work together, and gives tips for setting them up.
 
@@ -45,7 +45,7 @@ Use the minimum size for the delegated subnet when creating an Azure NetApp File
 
 The minimum size, which is specified with the netmask /28, provides 16 IP addresses. In practice, Azure NetApp Files uses only three of those available IP addresses for volume access. This means that you only need to create three storage targets in your Azure HPC Cache to cover all of the volumes.
 
-If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache can have at most ten storage targets.
+If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache can have at most 10 storage targets.
 
 The quickstart example in Azure NetApp Files documentation uses 10.7.0.0/16 for the delegated subnet, which gives a subnet that's too large.
 
@@ -71,7 +71,7 @@ Follow the [mount instructions in the Azure NetApp Files documentation](../azure
 
 You also can find IP addresses with the Azure CLI:
 
-```bash
+```azurecli
 az netappfiles volume list -g ${RESOURCE_GROUP} --account-name ${ANF_ACCOUNT} --pool-name ${POOL} --query "[].mountTargets[].ipAddress" | grep -Ee '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+' | tr -d '"' | tr -d , | sort | uniq
 ```
 

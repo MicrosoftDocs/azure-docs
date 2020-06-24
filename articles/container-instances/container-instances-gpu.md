@@ -1,14 +1,8 @@
 ---
-title: Deploy GPU-enabled Azure container instances 
-description: Learn how to deploy Azure container instances to run on GPU resources.
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Deploy GPU-enabled container instance 
+description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 02/19/2020
 ---
 
 # Deploy container instances that use GPU resources
@@ -34,6 +28,9 @@ Support will be added for additional regions over time.
 
 ## About GPU resources
 
+> [!IMPORTANT]
+> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
+
 ### Count and SKU
 
 To use GPUs in a container instance, specify a *GPU resource* with the following information:
@@ -43,9 +40,9 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
 
   | SKU | VM family |
   | --- | --- |
-  | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
-  | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
-  | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
+  | K80 | [NC](../virtual-machines/nc-series.md) |
+  | P100 | [NCv2](../virtual-machines/ncv2-series.md) |
+  | V100 | [NCv3](../virtual-machines/ncv3-series.md) |
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
@@ -231,6 +228,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

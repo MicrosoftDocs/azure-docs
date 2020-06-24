@@ -1,28 +1,21 @@
 ---
-title: Configure a web application firewall (WAF) for App Service Environment - Azure
-description: Learn how to configure a web application firewall in front of your App Service Environment.
-services: app-service\web
-documentationcenter: ''
-author: naziml
-manager: erikre
-editor: jimbe
+title: Configure a WAF
+description: Learn how to configure a web application firewall (WAF) in front of your App Service Environment, either with Azure Application Gateway or a third-party WAF.
+author: ccompy
 
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2018
-ms.author: naziml
-ms.custom: mvc
-ms.custom: seodec18
+ms.author: stefsch
+ms.custom: mvc, seodec18
 ---
+
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 ## Overview
 
 Web application firewalls (WAF) help secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. They also inspect the responses from the back-end web servers for Data Loss Prevention (DLP). Combined with the isolation and additional scaling provided by App Service Environments, this provides an ideal environment to host business critical web applications that need to withstand malicious requests and high volume traffic. Azure provides a WAF capability with the [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  To see how to integrate your App Service Environment with an Application Gateway read the [Integrate your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) document.
 
-In addition to the Azure Application Gateway, there are multiple marketplace options like the [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) that are available on the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/). The rest of this document focuses on how to integrate your App Service Environment with a Barracuda WAF device.
+In addition to the Azure Application Gateway, there are multiple marketplace options like the [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) that are available on the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=PlansAndPrice). The rest of this document focuses on how to integrate your App Service Environment with a Barracuda WAF device.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -74,7 +67,7 @@ Clicking on the **Services** tab lets you configure your WAF for services it is 
 ![Management Add Services][ManagementAddServices]
 
 > [!NOTE]
-> Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP SSL setup for an App Service app. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
+> Depending on how your applications are configured and what features are being used in your App Service Environment, you need to forward traffic for TCP ports other than 80 and 443, for example, if you have IP TLS setup for an App Service app. For a list of network ports used in App Service Environments, see [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
 > 
 > 
 

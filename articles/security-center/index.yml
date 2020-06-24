@@ -8,12 +8,11 @@ metadata:
   description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: subservice
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/26/2019 #Required; mm/dd/yyyy format.
+  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,34 +30,48 @@ landingContent:
             url: security-center-os-coverage.md
  
   # Card
+  - title: Stay current
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Release notes for Security Center
+            url: release-notes.md
+          - text: Advanced data security for SQL machines
+            url: security-center-iaas-advanced-data.md
+          - text: Alert suppression rules
+            url: alerts-suppression-rules.md
+          - text: Full descriptions of the new security controls
+            url: secure-score-security-controls.md#security-controls-and-their-recommendations
+          - text: New secure score API
+            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
+ 
+  # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
           - text: Configure your security policies
             url: tutorial-security-policy.md
-          - text: Adjust Security Center's settings
-            url: security-center-policies-overview.md
           - text: Evaluate your security posture
-            url: security-center-secure-score.md
+            url: secure-score-security-controls.md
           - text: Upgrade to advanced security
             url: security-center-onboarding.md
-          - text: Integrate with other Azure security products
-            url: security-center-alerts-integration.md
 
   # Card
-  - title: Improve your secure score
+  - title: Improve your Secure Score
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a secure score?
-            url: security-center-secure-score.md
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
           - text: Customize your security recommendations
             url: tutorial-security-policy.md
           - text: Use recommendations to enhance security
             url: security-center-using-recommendations.md
+          - text: Track with the secure score API
+            url: secure-score-security-controls.md#getting-your-secure-score-from-the-rest-api
 
   # Card
   - title: Mitigate threats

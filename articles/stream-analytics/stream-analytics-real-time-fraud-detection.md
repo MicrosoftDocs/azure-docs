@@ -1,13 +1,12 @@
 ---
 title: Real-time fraud detection using Azure Stream Analytics
 description: Learn how to create a real-time fraud detection solution with Stream Analytics. Use an event hub for real-time event processing. 
-services: stream-analytics 
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics 
 ms.topic: conceptual 
-ms.date: 12/07/2018
+ms.date: 03/24/2020
 ms.custom: seodec18 
 ---
 # Get started using Azure Stream Analytics: Real-time fraud detection
@@ -42,7 +41,7 @@ If you want to examine the results of the Streaming Analytics job, you also need
 
 ## Create an Azure Event Hubs to ingest events
 
-To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you will create an event hub and then have the call-event generator app send call data to that event hub. For more about event hubs, see the [Azure Service Bus documentation](https://docs.microsoft.com/azure/service-bus/).
+To analyze a data stream, you *ingest* it into Azure. A typical way to ingest data is to use [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), which lets you ingest millions of events per second and then process and store the event information. For this tutorial, you will create an event hub and then have the call-event generator app send call data to that event hub.
 
 >[!NOTE]
 >For a more detailed version of this procedure, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). 
@@ -50,57 +49,65 @@ To analyze a data stream, you *ingest* it into Azure. A typical way to ingest da
 ### Create a namespace and event hub
 In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
-1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
+1. Log in to the Azure portal, and click **Create a resource** at the top left of the screen.
 
-2. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
+2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
+
+   ![Search for Event Hubs](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
+
+3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+
+   ![Add button](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
+
+4. In the **Create namespace** pane, enter a namespace name such as `<yourname>-eh-ns-demo`. You can use any name for the namespace, but the name must be valid for a URL and it must be unique across Azure. 
     
-3. Select a subscription and create or choose a resource group, then click **Create**.
+5. Select a subscription and create or choose a resource group, then click **Create**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
-4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
+6. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
-5. Click the new namespace, and in the namespace pane, click **Event Hub**.
+7. Click the new namespace, and in the namespace pane, click **Event Hub**.
 
    ![The Add Event Hub button for creating a new event hub](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
+8. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
- 
-7. Click **Create**.
+9. Click **Create**.
 
 ### Grant access to the event hub and get a connection string
 
 Before a process can send data to an event hub, the event hub must have a policy that allows appropriate access. The access policy produces a connection string that includes authorization information.
 
-1.	In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
+1. In the event namespace pane, click **Event Hubs** and then click the name of your new event hub.
 
-2.	In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
+2. In the event hub pane, click **Shared access policies** and then click **+&nbsp;Add**.
 
-    >[!NOTE]
-    >Make sure you're working with the event hub, not the event hub namespace.
+    > [!NOTE]
+    > Make sure you're working with the event hub, not the event hub namespace.
 
-3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
+3. Add a policy named `asa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4.	Click **Create**.
+4. Click **Create**.
 
-5.	After the policy has been deployed, click it in the list of shared access policies.
+5. After the policy has been deployed, click it in the list of shared access policies.
 
-6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
+6. Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
-7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
+7. Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
     The connection string looks like this:
 
-        Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
+    `Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo`
 
     Notice that the connection string contains multiple key-value pairs, separated with semicolons: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, and `EntityPath`.  
+
 
 ## Configure and start the event generator application
 
@@ -117,20 +124,27 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
    * Set the value of the `EventHubName` key to the event hub name (that is, to the value of the entity path).
    * Set the value of the `Microsoft.ServiceBus.ConnectionString` key to the connection string. 
 
-   The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
+   The `<appSettings>` section will look like the following example:
 
-   ![TelcoGenerator config file shows event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+    ```xml
+    <appSettings>
+     <!-- Service Bus specific app setings for messaging connections -->
+     <add key="EventHubName" value="asa-eh-ns-demo"/>
+     <add key="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://asa-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=GEcnTKf2//1MRn6SN1A2u0O76MP9pj3v0Ccyf1su4Zo="/>
+   </appSettings>
+    ```
  
 4. Save the file. 
 
 ### Start the app
-1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 
-2.	Enter the following command:
+1. Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 
-   ```cmd
-   telcodatagen.exe 1000 0.2 2
-   ```
+2. Enter the following command:
+
+    ```console
+    telcodatagen.exe 1000 0.2 2
+    ```
 
    The parameters are: 
 
@@ -164,7 +178,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. Click **Create**.
 
@@ -181,7 +195,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Input alias  |  CallStream   |  Enter a name to identify the job’s input.   |
+   |Input alias  |  CallStream   |  Enter a name to identify the job's input.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the Event Hub you created.   |
    |Event Hub namespace  |  asa-eh-ns-demo |  Enter the name of the Event Hub namespace.   |
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
@@ -257,11 +271,11 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 
 1. Change the query in the code editor to the following:
 
-   ```SQL
-   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-   FROM 
-       CallStream
-   ```
+    ```SQL
+    SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+    FROM 
+        CallStream
+    ```
 
 2. Click **Test** again. 
 
@@ -275,13 +289,13 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 1. Change the query in the code editor to the following:
 
-        ```SQL
-        SELECT 
-            System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
-        FROM
-            CallStream TIMESTAMP BY CallRecTime 
-        GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
-        ```
+    ```SQL
+    SELECT 
+        System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
+    FROM
+        CallStream TIMESTAMP BY CallRecTime 
+    GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+    ```
 
     This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
@@ -303,19 +317,19 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 1. Change the query in the code editor to the following: 
 
-        ```SQL
-        SELECT  System.Timestamp as Time, 
-            CS1.CallingIMSI, 
-            CS1.CallingNum as CallingNum1, 
-            CS2.CallingNum as CallingNum2, 
-            CS1.SwitchNum as Switch1, 
-            CS2.SwitchNum as Switch2 
-        FROM CallStream CS1 TIMESTAMP BY CallRecTime 
-            JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
-            ON CS1.CallingIMSI = CS2.CallingIMSI 
-            AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        ```
+	```SQL
+	SELECT  System.Timestamp as Time, 
+		CS1.CallingIMSI, 
+		CS1.CallingNum as CallingNum1, 
+		CS2.CallingNum as CallingNum2, 
+		CS1.SwitchNum as Switch1, 
+		CS2.SwitchNum as Switch2 
+	FROM CallStream CS1 TIMESTAMP BY CallRecTime 
+		JOIN CallStream CS2 TIMESTAMP BY CallRecTime 
+		ON CS1.CallingIMSI = CS2.CallingIMSI 
+		AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
+	WHERE CS1.SwitchNum != CS2.SwitchNum
+	```
 
     This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This is different from the standard SQL `DATEDIFF` function.
 
@@ -327,7 +341,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
+    <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## Create an output sink to store transformed data
 
@@ -351,7 +365,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
 
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
-   |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job’s output.   |
+   |Output alias  |  CallStream-FraudulentCalls   |  Enter a name to identify the job's output.   |
    |Subscription   |  \<Your subscription\> |  Select the Azure subscription that has the storage account you created. The storage account can be in the same or in a different subscription. This example assumes that you have created storage account in the same subscription. |
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
@@ -400,7 +414,7 @@ However, if you're done and you don't need the resources you've created, you can
 
 ## Get support
 
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 

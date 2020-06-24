@@ -1,21 +1,12 @@
 ---
-title: Troubleshoot performance degradation - Azure App Service | Microsoft Docs
-description: This article helps you troubleshoot slow app performance issues in Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: Troubleshoot performance degradation
+description: Find out how to troubleshoot slow app performance issues in Azure App Service, including monitoring app behavior, collecting data, and mitigating the issue.
 tags: top-support-issue
 keywords: web app performance, slow app, app slow
 
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -44,7 +35,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service](overview.md) gives you various options at each step.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
@@ -89,7 +80,7 @@ Each App Service app provides an extensible management end point that allows you
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Monitor performance in web applications](../azure-monitor/app/web-monitor-performance.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### 2. Collect data
 App Service provides diagnostic functionality for logging information from both the web server and the web application. The information is separated into web server diagnostics and application diagnostics.
@@ -145,7 +136,7 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure DevOps tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### 3. Mitigate the issue
 #### Scale the app

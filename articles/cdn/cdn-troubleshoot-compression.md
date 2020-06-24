@@ -3,8 +3,8 @@ title: Troubleshooting file compression in Azure CDN | Microsoft Docs
 description: Troubleshoot issues with Azure CDN file compression.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -38,6 +38,7 @@ There are several possible causes, including:
 * The requested content is not eligible for compression.
 * Compression is not enabled for the requested file type.
 * The HTTP request did not include a header requesting a valid compression type.
+* Origin is sending chunked content.
 
 ## Troubleshooting steps
 > [!TIP]

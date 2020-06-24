@@ -1,12 +1,8 @@
 ---
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/19/2019
+ms.date: 03/25/2019
 
 ---
 
@@ -121,7 +117,7 @@ For this technique, you attach distinct property values to all the telemetry tha
 
 In the Application Insights portal, filter and split your data on the property values, so as to compare the different versions.
 
-To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
 **ASP.NET apps**
 
@@ -129,10 +125,14 @@ To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filteri
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 
@@ -171,5 +171,5 @@ All new TelemetryClients automatically add the property value you specify. Indiv
    - [Funnels](usage-funnels.md)
    - [Retention](usage-retention.md)
    - [User Flows](usage-flows.md)
-   - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+   - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
    - [Add user context](usage-send-user-context.md)

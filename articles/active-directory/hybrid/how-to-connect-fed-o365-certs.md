@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -115,7 +115,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 where `(your_FS_name)` is replaced with the federation service host name your organization uses, such as fs.contoso.com.  If you are able to verify both of these settings successfully, you do not have to do anything else.  
 
-Example: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Example: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## Renew the token signing certificate manually <a name="manualrenew"></a>
 You may choose to renew the token signing certificates manually. For example, the following scenarios might work better for manual renewal:
 

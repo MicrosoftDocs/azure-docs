@@ -183,7 +183,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Overdrive. Overdrive supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Overdrive, a new one is created after authentication.
 
 >[!NOTE]
->You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision AAD user accounts.
+>You can use any other OverDrive user account creation tools or APIs provided by OverDrive to provision Azure AD user accounts.
 >
 
 ### Test single sign-on 

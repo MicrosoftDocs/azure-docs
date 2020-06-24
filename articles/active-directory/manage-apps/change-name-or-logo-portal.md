@@ -1,19 +1,18 @@
 ---
-title: Change the name or logo of an enterprise application in Azure Active Directory | Microsoft Docs
+title: Change the name or logo of an enterprise application in Azure AD
 description: How to change the name or logo for a custom enterprise application in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -37,7 +36,7 @@ It's easy to change the name or logo for a custom enterprise application in Azur
 7. In the file picker, select the file you want as the new logo. The name of the file appears in the box below the current logo image.
 
    > [!NOTE]
-   > Azure requires the logo image to be a PNG file, and it applies limits on width, height, and file size.
+   > Azure requires the logo image to be a PNG file, and it applies limits on width, height, and file size. Custom logos must be exactly 215 &times; 215 pixels in size and be in PNG format. We recommend that you use a solid color background with no transparency in your application logo to appear best to users.
 8. Select **Save**. If you chose a new logo, the **Logo** field's image changes to reflect the new logo file.
 
 ## Next steps

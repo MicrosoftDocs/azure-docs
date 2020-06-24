@@ -1,20 +1,17 @@
 ---
-title: Introduction to resource troubleshooting in Azure Network Watcher | Microsoft Docs
+title: Introduction to resource troubleshooting
+titleSuffix: Azure Network Watcher
 description: This page provides an overview of the Network Watcher resource troubleshooting capabilities
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
-
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher

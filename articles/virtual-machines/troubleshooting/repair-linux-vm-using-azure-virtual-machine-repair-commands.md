@@ -6,8 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
-
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -63,7 +62,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
    az extension update -n vm-repair
    ```
 
-3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
+3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM in a new Resource Group, and attach the OS disk copy.  The repair VM will be the same size and region as the non-functional VM specified. The Resource Group and VM name used in all steps will be for the non-functional VM.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -71,7 +70,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 
 4. Perform any needed mitigation steps on the created repair VM, then proceed to step 5.
 
-5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM.
+5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

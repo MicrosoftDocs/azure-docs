@@ -1,16 +1,9 @@
 ---
-title: Run a parallel workload - Azure Batch .NET
+title: Run a parallel workload
 description: Tutorial - Transcode media files in parallel with ffmpeg in Azure Batch using the Batch .NET client library
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
 ms.custom: mvc
 ---
 
@@ -194,6 +187,9 @@ Next, the sample creates a pool of compute nodes in the Batch account with a cal
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 low-priority nodes in size *Standard_A1_v2*.
 
+>[!Note]
+>Be sure you check your node quotas. See [Batch service quotas and limits](batch-quota-limit.md#increase-a-quota) for instructions on how to create a quota request."
+
 The ffmpeg application is deployed to the compute nodes by adding an [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) to the pool configuration.
 
 The [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) method submits the pool to the Batch service.
@@ -331,3 +327,6 @@ For more examples of using the .NET API to schedule and process Batch workloads,
 
 > [!div class="nextstepaction"]
 > [Batch C# samples](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)
+
+
+Setting the instance variable LowPriorityNodeCount=0 and the DedicatedNodeCount=5 fixed the issue and allowed the job to complete.

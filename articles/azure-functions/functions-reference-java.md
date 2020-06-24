@@ -1,19 +1,9 @@
 ---
-title: Java developer reference for Azure Functions | Microsoft Docs
+title: Java developer reference for Azure Functions 
 description: Understand how to develop functions with Java.
-services: functions
-documentationcenter: na
-author: rloutlaw
-manager: justhe
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
-ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: routlaw
 ---
-
-
 
 # Azure Functions Java developer guide
 
@@ -21,39 +11,53 @@ The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win
 
 As it happens to other languages, a Function App may have one or more functions. A Java function is a `public` method, decorated with the annotation `@FunctionName`. This method defines the entry for a Java function, and must be unique in a particular package. One Function App written in Java may have multiple classes with multiple public methods annotated with `@FunctionName`.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, by using [Visual Studio Code](functions-create-first-function-vs-code.md) or [Maven](functions-create-first-java-maven.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete one of the following Functions quickstarts: [Create your first Java function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java) or [Create your first Java function from the command line using Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).
 
 ## Programming model 
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
-## Project Scaffolding
+## Create Java functions
 
-The simplest way to scaffold a Java-based Azure Function project is to use `Apache Maven` archetypes. You can also find project generation wizards on Visual Studio Code, and the Azure Toolkits for Eclipse and IntelliJ.
+To make it easier to create Java functions, there are Maven-based tooling and archetypes that use predefined Java templates to help you create projects with a specific function trigger.    
 
-There are currently two Azure Functions archetypes for Maven:
+### Maven-based tooling
 
-### Java Archetype
+The following developer environments have Azure Functions tooling that lets you create Java function projects: 
 
-This archetype is published under the following groupId and artifactId [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Eclipse](functions-create-maven-eclipse.md)
++ [IntelliJ](functions-create-maven-intellij.md)
+
+The article links above show you how to create your first functions using your IDE of choice. 
+
+### Project Scaffolding
+
+If you prefer command line development from the Terminal, the simplest way to scaffold Java-based function projects is to use `Apache Maven` archetypes. The Java Maven archetype for Azure Functions is published under the following _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+
+The following command generates a new Java function project using this archetype:
 
 ```
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-archetype 
+    -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### Kotlin Archetype (Preview)
+To get started using this archetype, see the [Java quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-This archetype is published under the following groupId and artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+## Create Kotlin functions (preview)
+
+There is also a Maven archetype to generate Kotlin functions. This archetype, currently in preview, is published under the following _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
+
+The following command generates a new Java function project using this archetype:
 
 ```
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
-	-DarchetypeArtifactId=azure-functions-kotlin-archetype
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
 ```
 
-The source code of these archetypes can be found on the [Azure Maven Archetypes GitHub repository](https://github.com/microsoft/azure-maven-archetypes).
+To get started using this archetype, see the [Kotlin quickstart](functions-create-first-kotlin-maven.md).
 
 ## Folder structure
 
@@ -150,6 +154,9 @@ Functions lets you customize the Java virtual machine (JVM) used to run your Jav
 
 You can provide additional arguments in an app setting named `JAVA_OPTS`. You can add app settings to your function app deployed to Azure in the Azure portal or the Azure CLI.
 
+> [!IMPORTANT]  
+> In the Consumption plan, you must also add the WEBSITE_USE_PLACEHOLDER setting with a value of 0 for the customization to work. This setting does increase the cold start times for Java functions.
+
 ### Azure portal
 
 In the [Azure portal](https://portal.azure.com), use the [Application Settings tab](functions-how-to-use-azure-function-app-settings.md#settings) to add the `JAVA_OPTS` setting.
@@ -158,16 +165,22 @@ In the [Azure portal](https://portal.azure.com), use the [Application Settings t
 
 You can use the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command to set `JAVA_OPTS`, as in the following example:
 
+#### [Consumption plan](#tab/consumption)
 ```azurecli-interactive
-az functionapp config appsettings set --name <APP_NAME> \
---resource-group <RESOURCE_GROUP> \
---settings "JAVA_OPTS=-Djava.awt.headless=true"
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+"WEBSITE_USE_PLACEHOLDER=0" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
 ```
-This example enables headless mode. Replace `<APP_NAME>` with the name of your function app, and `<RESOURCE_GROUP>` with the resource group.
+#### [Dedicated plan / Premium plan](#tab/dedicated+premium)
+```azurecli-interactive
+az functionapp config appsettings set \
+--settings "JAVA_OPTS=-Djava.awt.headless=true" \
+--name <APP_NAME> --resource-group <RESOURCE_GROUP>
+```
+---
 
-> [!WARNING]  
-> In the [Consumption plan](functions-scale.md#consumption-plan), you must add the  `WEBSITE_USE_PLACEHOLDER` setting with a value of `0`.  
-This setting does increase the cold start times for Java functions.
+This example enables headless mode. Replace `<APP_NAME>` with the name of your function app, and `<RESOURCE_GROUP>` with the resource group. 
 
 ## Third-party libraries 
 
@@ -217,9 +230,9 @@ public class Function {
     public static String echo(
         @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
         @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
-		@TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
-		testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
         return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
@@ -227,7 +240,7 @@ public class Function {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
-	public static class Person {
+    public static class Person {
         public String PartitionKey;
         public String RowKey;
         public String Name;
@@ -352,7 +365,7 @@ public class Function {
     }
 }
 ```
-In the preceding example, the `queryValue` is bound to the query string parameter `name` in the http request URL, `http://{example.host}/api/metadata?name=test`. Here's another example, showing how to bind to `Id` from queue trigger metadata.
+In the preceding example, the `queryValue` is bound to the query string parameter `name` in the HTTP request URL, `http://{example.host}/api/metadata?name=test`. Here's another example, showing how to bind to `Id` from queue trigger metadata.
 
 ```java
  @FunctionName("QueueTriggerMetadata")
@@ -373,7 +386,7 @@ In the preceding example, the `queryValue` is bound to the query string paramete
 
 ## Execution context
 
-`ExecutionContext`, defined in the `azure-functions-java-library`, contains helper methods to communicate with the functions runtime.
+`ExecutionContext`, defined in the `azure-functions-java-library`, contains helper methods to communicate with the functions runtime. For more information, see the [ExecutionContext reference article](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### Logger
 
@@ -438,6 +451,9 @@ public class Function {
 
 ```
 
+> [!NOTE]
+> The value of AppSetting FUNCTIONS_EXTENSION_VERSION should be ~2 or ~3 for an optimized cold start experience.
+
 ## Next steps
 
 For more information about Azure Functions Java development, see the following resources:
@@ -446,6 +462,6 @@ For more information about Azure Functions Java development, see the following r
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * Local development and debug with [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), and [Eclipse](functions-create-maven-eclipse.md)
-* [Remote Debug Java Azure Functions with Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Remote Debug Java functions using Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Maven plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) 
 * Streamline function creation through the `azure-functions:add` goal, and prepare a staging directory for [ZIP file deployment](deployment-zip-push.md).

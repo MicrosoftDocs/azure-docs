@@ -1,18 +1,17 @@
 ---
-title: How to change license assignments for users and groups - Azure Active Directory | Microsoft Docs
-description: Describes the recommended process to migrate users within a group to different service licenses (Office 365 Enterprise E1 and E3) using group licensing
+title: Change license plans for users and groups - Azure AD | Microsoft Docs
+description: How to migrate users within a group to different service plans using group licensing in Azure Active Directory
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
-
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"

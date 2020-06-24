@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using C#"
+title: "Quickstart: Send a search request to the REST API using C# - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
@@ -17,7 +17,7 @@ ms.author: aahi
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple C# application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
-While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
 
 ## Prerequisites
@@ -26,18 +26,18 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 - The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install the NuGet package in Visual Studio:
 
-   1. Right click your project in **Solution Explorer**.
+   1. Right-click your project in **Solution Explorer**.
    2. Select **Manage NuGet Packages**.
-   3. Search for *Newtonsoft.Json* and install the package.
+   3. Search for and select *Newtonsoft.Json*, and then install the package.
 
-- If you're using Linux/MacOS, this application can be run by  using [Mono](https://www.mono-project.com/).
+- If you're using Linux/MacOS, this application can be run by using [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. create a new C# console solution in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new C# console solution in Visual Studio. Then, add the following namespaces into the main code file:
     
     ```csharp
     using Newtonsoft.Json;
@@ -46,7 +46,7 @@ While this application is written in C#, the API is a RESTful Web service compat
     using System.Text;
     ```
 
-2. Create a new class, and add variables for the API endpoint, your subscription key, and query you want to search.
+2. Create a new class, and add variables for the API endpoint, your subscription key, and the query you want to search. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     namespace EntitySearchSample
@@ -69,11 +69,13 @@ While this application is written in C#, the API is a RESTful Web service compat
 
 ## Send a request and get the API response
 
-1. Within the class, create a function called `Search()`. Create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+1. Within the class, create a function called `Search()`. Within this function, create a new `HttpClient` object, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-   1. Construct the URI for your request by combining the host and path. Then add your market, and URL-encode your query.
-   2. Await `client.GetAsync()` to get a HTTP response, and then store the json response by awaiting `ReadAsStringAsync()`.
-   3. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
+2. Construct the URI for your request by combining the host and path. Then, add your market and URL-encode your query.
+
+3. Await `client.GetAsync()` to get an HTTP response, and then store the JSON response by awaiting `ReadAsStringAsync()`.
+
+4. Format the JSON string with `JsonConvert.DeserializeObject()` and print it to the console.
 
       ```csharp
       async static void Search()
@@ -92,7 +94,7 @@ While this application is written in C#, the API is a RESTful Web service compat
       }
       ```
 
-2. In the main method of your application, call the `Search()` function.
+5. In the `Main()` method of your application, call the `Search()` function.
     
     ```csharp
     static void Main(string[] args)
@@ -174,4 +176,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API?](../overview.md )
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Bing Entity Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

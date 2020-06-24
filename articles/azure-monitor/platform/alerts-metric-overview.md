@@ -1,12 +1,8 @@
 ---
-
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-author: snehithm
-ms.author: snmuvva 
-ms.date: 9/18/2018
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.service: azure-monitor
 ms.subservice: alerts
 
 ---
@@ -26,7 +22,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Static
-- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -34,7 +30,7 @@ Let's say you have created a simple static threshold metric alert rule as follow
 
 From the time the alert rule is created, the monitor runs every 1 min and looks at metric values for the last 5 minutes and checks if the average of those values exceeds 70. If the condition is met that is, the average Percentage CPU for the last 5 minutes exceeds 70, the alert rule fires an activated notification. If you have configured an email or a web hook action in the action group associated with the alert rule, you will receive an activated notification on both.
 
-When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
+When you are using multiple conditions in one rule, the rule "ands" the conditions together. That is, an alert fires when all the conditions in the alert rule evaluate as true and resolve when one of the conditions is no longer true. An example for this type of alert rule would be to monitor an Azure virtual machine and alert when both "Percentage CPU is higher than 90%" and "Queue length is over 300 items".
 
 ### Alert rule with dynamic condition type
 
@@ -43,7 +39,7 @@ Let's say you have created a simple Dynamic Thresholds metric alert rule as foll
 - Target Resource (the Azure resource you want to monitor): myVM
 - Metric: Percentage CPU
 - Condition Type: Dynamic
-- Time Aggregation (Statistic that is run over raw metric values. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Time Aggregation (Statistic that is run over raw metric values. [Supported time aggregations](metrics-charts.md#changing-aggregation) are Min, Max, Avg, Total, Count): Average
 - Period (The look back window over which metric values are checked): Over the last 5 mins
 - Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
 - Operator: Greater Than
@@ -122,15 +118,28 @@ Increasing look-back periods and number of violations can also allow filtering a
 
 ## Monitoring at scale using metric alerts in Azure Monitor
 
-So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources with one metric alert rule. This feature is currently supported only on virtual machines. Also, a single metric alert can monitor resources in one Azure region.
+So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. 
 
-You can specify the scope of monitoring by a single metric alert in one of three ways:
+This feature is currently supported for platform metrics (not custom metrics) for the following services in the following Azure clouds:
 
-- as a list of virtual machines in one Azure region within a subscription
+| Service | Public Azure | Government | China |
+|:--------|:--------|:--------|:--------|
+| Virtual machines  | **Yes** | No | No |
+| SQL server databases | **Yes** | **Yes** | No |
+| SQL server elastic pools | **Yes** | **Yes** | No |
+| Data box edge devices | **Yes** | **Yes** | No |
+
+You can specify the scope of monitoring by a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
+
+- a list of virtual machines in one Azure region within a subscription
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
 - all virtual machines (in one Azure region) in one subscription
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each virtual machine.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, only one condition is allowed.
 
 ## Typical latency
 
@@ -140,41 +149,6 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
-
-|Resource type supported by classic metric alerts | Supported by metric alerts |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | Yes |
-| Microsoft.Batch/batchAccounts| Yes|
-|Microsoft.Cache/redis| Yes |
-|Microsoft.ClassicCompute/virtualMachines | No |
-|Microsoft.ClassicCompute/domainNames/slots/roles | No|
-|Microsoft.CognitiveServices/accounts | No |
-|Microsoft.Compute/virtualMachines | Yes|
-|Microsoft.Compute/virtualMachineScaleSets| Yes|
-|Microsoft.ClassicStorage/storageAccounts| No |
-|Microsoft.DataFactory/datafactories | Yes|
-|Microsoft.DBforMySQL/servers| Yes|
-|Microsoft.DBforPostgreSQL/servers| Yes|
-|Microsoft.Devices/IotHubs | No|
-|Microsoft.DocumentDB/databaseAccounts| Yes|
-|Microsoft.EventHub/namespaces | Yes|
-|Microsoft.Logic/workflows | Yes|
-|Microsoft.Network/loadBalancers |Yes|
-|Microsoft.Network/publicIPAddresses| Yes|
-|Microsoft.Network/applicationGateways| Yes|
-|Microsoft.Network/expressRouteCircuits| Yes|
-|Microsoft.Network/trafficManagerProfiles | Yes|
-|Microsoft.Search/searchServices | Yes|
-|Microsoft.ServiceBus/namespaces| Yes |
-|Microsoft.Storage/storageAccounts | Yes|
-|Microsoft.StreamAnalytics/streamingjobs| Yes|
-|Microsoft.TimeSeriesInsights/environments | Yes|
-|Microsoft. Web/serverfarms | Yes |
-|Microsoft. Web/sites (excluding functions) | Yes|
-|Microsoft. Web/hostingEnvironments/multiRolePools | No|
-|Microsoft. Web/hostingEnvironments/workerPools| No |
-|Microsoft.SQL/Servers | No |
 
 ## Next steps
 

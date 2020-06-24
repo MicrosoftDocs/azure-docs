@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric reverse proxy | Microsoft Docs
+title: Azure Service Fabric reverse proxy 
 description: Use Service Fabric's reverse proxy for communication to microservices from inside and outside the cluster.
-services: service-fabric
-documentationcenter: .net
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
 
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-
 ---
 # Reverse proxy in Azure Service Fabric
 Reverse proxy built into Azure Service Fabric helps microservices running in a Service Fabric cluster discover and communicate with other services that have http endpoints.
@@ -83,7 +73,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector** This specifies how the target replica or instance should be selected.
   * When the target service is stateful, the TargetReplicaSelector can be one of the following:  'PrimaryReplica', 'RandomSecondaryReplica', or 'RandomReplica'. When this parameter is not specified, the default is 'PrimaryReplica'.
   * When the target service is stateless, reverse proxy picks a random instance of the service partition to forward the request to.
-* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 60 seconds. This is an optional parameter.
+* **Timeout:**  This specifies the timeout for the HTTP request created by the reverse proxy to the service on behalf of the client request. The default value is 120 seconds. This is an optional parameter.
 
 ### Example usage
 As an example, let's take the *fabric:/MyApp/MyService* service that opens an HTTP listener on the following URL:

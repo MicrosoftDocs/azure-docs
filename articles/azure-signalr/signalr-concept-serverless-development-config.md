@@ -1,5 +1,5 @@
 ---
-title: Develop and configure Azure Functions SignalR Service applications
+title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
 author: anthonychu
 ms.service: signalr
@@ -27,7 +27,7 @@ In the Azure portal, locate the *Settings* page of your SignalR Service resource
 A serverless real-time application built with Azure Functions and Azure SignalR Service typically requires two Azure Functions:
 
 * A "negotiate" function that the client calls to obtain a valid SignalR Service access token and service endpoint URL
-* One or more functions that send messages or manage group membership
+* One or more functions that handle messages from SignalR Service and send messages or manage group membership
 
 ### negotiate function
 
@@ -35,9 +35,17 @@ A client application requires a valid access token to connect to Azure SignalR S
 
 Use an HTTP triggered Azure Function and the *SignalRConnectionInfo* input binding to generate the connection information object. The function must have an HTTP route that ends in `/negotiate`.
 
-For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding).
+With [class based model](#class-based-model) in C#, you don't need *SignalRConnectionInfo* input binding and can add custom claims much easier. See [Negotiate experience in class based model](#negotiate-experience-in-class-based-model)
+
+For more information on how to create the negotiate function, see the [*SignalRConnectionInfo* input binding reference](../azure-functions/functions-bindings-signalr-service-input.md).
 
 To learn about how to create an authenticated token, refer to [Using App Service Authentication](#using-app-service-authentication).
+
+### Handle messages sent from SignalR Service
+
+Use the *SignalR Trigger* binding to handle messages sent from SignalR Service. You can be triggered when clients send messages or clients get connected or disconnected.
+
+For more information, see the [*SignalR trigger* binding reference](../azure-functions/functions-bindings-signalr-service-trigger.md)
 
 ### Sending messages and managing group membership
 
@@ -45,11 +53,116 @@ Use the *SignalR* output binding to send messages to clients connected to Azure 
 
 Users can be added to one or more groups. You can also use the *SignalR* output binding to add or remove users to/from groups.
 
-For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding).
+For more information, see the [*SignalR* output binding reference](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### SignalR Hubs
 
 SignalR has a concept of "hubs". Each client connection and each message sent from Azure Functions is scoped to a specific hub. You can use hubs as a way to separate your connections and messages into logical namespaces.
+
+## Class based model
+
+The class based model is dedicated for C#. With class based model can have a consistent SignalR server-side programming experience. It has the following features.
+
+* Less configuration works: The class name is used as `HubName`, the method name is used as `Event` and the `Category` is decided automatically according to method name.
+* Auto parameter binding: Neither `ParameterNames` nor attribute `[SignalRParameter]` is needed. Parameters are auto bound to arguments of Azure Function method in order.
+* Convenient output and negotiate experience.
+
+The following codes demonstrate these features:
+
+```cs
+public class SignalRTestHub : ServerlessHub
+{
+    [FunctionName("negotiate")]
+    public SignalRConnectionInfo Negotiate([HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req)
+    {
+        return Negotiate(req.Headers["x-ms-signalr-user-id"], GetClaims(req.Headers["Authorization"]));
+    }
+
+    [FunctionName(nameof(OnConnected))]
+    public async Task OnConnected([SignalRTrigger]InvocationContext invocationContext, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewConnectionTarget, new NewConnection(invocationContext.ConnectionId));
+        logger.LogInformation($"{invocationContext.ConnectionId} has connected");
+    }
+
+    [FunctionName(nameof(Broadcast))]
+    public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+    {
+        await Clients.All.SendAsync(NewMessageTarget, new NewMessage(invocationContext, message));
+        logger.LogInformation($"{invocationContext.ConnectionId} broadcast {message}");
+    }
+
+    [FunctionName(nameof(OnDisconnected))]
+    public void OnDisconnected([SignalRTrigger]InvocationContext invocationContext)
+    {
+    }
+}
+```
+
+All the functions that want to leverage class based model need to be the method of class that inherits from **ServerlessHub**. The class name `SignalRTestHub` in the sample is the hub name.
+
+### Define hub method
+
+All the hub methods **must**  have a `[SignalRTrigger]` attribute and **must** use parameterless constructor. Then the **method name** is treated as parameter **event**.
+
+By default, `category=messages` except the method name is one of the following names:
+
+* **OnConnected**: Treated as `category=connections, event=connected`
+* **OnDisconnected**: Treated as `category=connections, event=disconnected`
+
+### Parameter binding experience
+
+In class based model, `[SignalRParameter]` is unnecessary because all the arguments are marked as `[SignalRParameter]` by default except it is one of the following situations:
+
+* The argument is decorated by a binding attribute.
+* The argument's type is `ILogger` or `CancellationToken`
+* The argument is decorated by attribute `[SignalRIgnore]`
+
+### Negotiate experience in class based model
+
+Instead of using SignalR input binding `[SignalR]`, negotiation in class based model can be more flexible. Base class `ServerlessHub` has a method
+
+```cs
+SignalRConnectionInfo Negotiate(string userId = null, IList<Claim> claims = null, TimeSpan? lifeTime = null)
+```
+
+This features user customizes `userId` or `claims` during the function execution.
+
+## Use `SignalRFilterAttribute`
+
+User can inherit and implement the abstract class `SignalRFilterAttribute`. If exceptions are thrown in `FilterAsync`, `403 Forbidden` will be sent back to clients.
+
+The following sample demonstrates how to implement a customer filter that only allows the `admin` to invoke `broadcast`.
+
+```cs
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+internal class FunctionAuthorizeAttribute: SignalRFilterAttribute
+{
+    private const string AdminKey = "admin";
+
+    public override Task FilterAsync(InvocationContext invocationContext, CancellationToken cancellationToken)
+    {
+        if (invocationContext.Claims.TryGetValue(AdminKey, out var value) &&
+            bool.TryParse(value, out var isAdmin) &&
+            isAdmin)
+        {
+            return Task.CompletedTask;
+        }
+
+        throw new Exception($"{invocationContext.ConnectionId} doesn't have admin role");
+    }
+}
+```
+
+Leverage the attribute to authorize the function.
+
+```cs
+[FunctionAuthorize]
+[FunctionName(nameof(Broadcast))]
+public async Task Broadcast([SignalRTrigger]InvocationContext invocationContext, string message, ILogger logger)
+{
+}
+```
 
 ## Client development
 

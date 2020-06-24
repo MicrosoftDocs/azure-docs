@@ -42,7 +42,7 @@ Azure provides customers with strong data security, both by default and as custo
 - The customer and the cloud.
 - Internally between Azure systems and datacenters.
 
-**Encryption**: Encryption of data in storage and in transit can be deployed by customers as a best practice for ensuring confidentiality and integrity of data. It is straightforward for customers to configure their Azure cloud services to use SSL to protect communications from the internet and even between their Azure-hosted VMs.
+**Encryption**: Encryption of data in storage and in transit can be deployed by customers as a best practice for ensuring confidentiality and integrity of data. It is straightforward for customers to configure their Azure cloud services to use TLS to protect communications from the internet and even between their Azure-hosted VMs.
 
 **Data redundancy**: Microsoft helps ensure that data is protected if there is a cyberattack or physical damage to a datacenter. Customers may opt for:
 

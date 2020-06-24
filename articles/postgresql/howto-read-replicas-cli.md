@@ -1,16 +1,27 @@
 ---
-title: Manage read replicas for Azure Database for PostgreSQL - Single Server from the Azure CLI, REST API
+title: Manage read replicas - Azure CLI, REST API - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure CLI and REST API
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 06/09/2020
 ---
 
 # Create and manage read replicas from the Azure CLI, REST API
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL by using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
+
+## Azure replication support
+[Read replicas](concepts-read-replicas.md) and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
+
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
 ## Azure CLI
 You can create and manage read replicas using the Azure CLI.
@@ -22,17 +33,20 @@ You can create and manage read replicas using the Azure CLI.
 
 
 ### Prepare the master server
-These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers.
 
-The `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this static parameter is changed, a server restart is required for the change to take effect.
+1. Check the master server's `azure.replication_support` value. It should be at least REPLICA for read replicas to work.
 
-1. Set `azure.replication_support` to REPLICA.
+   ```azurecli-interactive
+   az postgres server configuration show --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support
+   ```
+
+2. If `azure.replication_support` is not at least REPLICA, set it. 
 
    ```azurecli-interactive
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
-2. Restart the server to apply the change.
+3. Restart the server to apply the change.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
@@ -46,7 +60,7 @@ The [az postgres server replica create](/cli/azure/postgres/server/replica?view=
 | --- | --- | --- |
 | resource-group | myresourcegroup |  The resource group where the replica server will be created.  |
 | name | mydemoserver-replica | The name of the new replica server that is created. |
-| source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. |
+| source-server | mydemoserver | The name or resource ID of the existing master server to replicate from. Use the resource ID if you want the replica and master's resource groups to be different. |
 
 In the CLI example below, the replica is created in the same region as the master.
 
@@ -99,11 +113,14 @@ az postgres server delete --name myserver --resource-group myresourcegroup
 You can create and manage read replicas using the [Azure REST API](/rest/api/azure/).
 
 ### Prepare the master server
-These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers.
 
-The `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this static parameter is changed, a server restart is required for the change to take effect.
+1. Check the master server's `azure.replication_support` value. It should be at least REPLICA for read replicas to work.
 
-1. Set `azure.replication_support` to REPLICA.
+   ```http
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01
+   ```
+
+2. If `azure.replication_support` is not at least REPLICA, set it.
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/configurations/azure.replication_support?api-version=2017-12-01

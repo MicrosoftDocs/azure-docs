@@ -1,18 +1,21 @@
 ---
-title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
-description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
+title: Transform data using Hive in Azure Virtual Network using Azure portal
+description: This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: tutorial
-ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: anandsub
+ms.topic: tutorial
+ms.custom: seo-dt-2019
+ms.date: 01/04/2018
 ---
-# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+
+# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use Azure portal to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
 
 > [!div class="checklist"]
@@ -82,7 +85,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    - Select **Use existing**, and select an existing resource group from the drop-down list. 
    - Select **Create new**, and enter the name of a resource group.   
          
-     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+     To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
 4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported for creation of data factories are shown in the list.
 6. Select **Pin to dashboard**.     

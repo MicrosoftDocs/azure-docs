@@ -1,13 +1,12 @@
-﻿---
+---
 title: Hosted Test Drive | Azure Marketplace
 description: How to setup an maintain a Marketplace Hosted Test Drive
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: pbutlerm
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Hosted Test Drive
@@ -46,8 +45,8 @@ Provide the following fields in the \'Technical Configuration\' section:
 - **Azure AD App ID**: ID of the Azure AD App you created in step 7.\ Example Value: 53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD App Key**: Secret for the Azure AD App created in step 7.\ Example Value: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Azure AD Tenant Name**: Provide the name of the Azure Tenant for your Dynamics 365 Instance. Use the format of \<tenantname.\>onmicrosoft.com. Example Value: testdrive.onmicrosoft.com
-- **Instance Web API URL**: Provide the Web API URL for your Dynamics 365 Instance. You can retrieve this value by logging into your Microsoft Dynamics 365 instance and navigating to Setting -\> Customization -\> Developer Resources -\> Instance Web API (Copy this URL). Example value:  https:\//testdrive.crm.dynamics.com/api/data/v9.0 
-- **Role name**: Provide the name of the custom Dynamics 365 Security Role you have created for Test Drive. This is the role that will be assigned to users during their Test Drive. Example Value: testdriverole
+- **Instance Web API URL**: Provide the Web API URL for your Dynamics 365 Instance. You can retrieve this value by logging into your Microsoft Dynamics 365 instance and navigating to Setting -\> Customization -\> Developer Resources -\> Instance Web API (Copy this URL). Example value:  https:\//testdrive.crm.dynamics.com/api/data/v9.0
+- **Role name**: Provide the name of the custom Dynamics 365 Security Role you have created for Test Drive. This is the role that will be assigned to users during their Test Drive. Example Value: testdriverole
 
 ## Next steps
 

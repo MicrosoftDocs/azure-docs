@@ -4,8 +4,8 @@ description: Describes logs in Azure Monitor which are used for advanced analysi
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
-ms.service: azure-monitor
+
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -21,7 +21,7 @@ ms.author: bwren
 Logs in Azure Monitor are especially useful for performing complex analysis across data from a variety of sources. This article describes how Logs are structured in Azure Monitor, what you can do with the data, and identifies different data sources that store data in Logs.
 
 > [!NOTE]
-> It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](activity-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [diagnostic log](resource-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and diagnostic logs along with other monitoring data to provide deep analysis across your entire set of resources.
+> It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 ## What are Azure Monitor Logs?
 
@@ -39,7 +39,7 @@ The following table lists the different ways that you can use Logs in Azure Moni
 |  |  |
 |:---|:---|
 | Analyze | Use [Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using the powerful Data Explorer analysis engine.<br>Use the [Application Insights analytics console](../app/analytics.md) in the Azure portal to write log queries and interactively analyze log data from Application Insights. |
-| Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
+| Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../platform/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | Alert | Configure a [log alert rule](alerts-log.md) that sends a notification or takes [automated action](action-groups.md) when the results of the query match a particular result.<br>Configure a [metric alert rule](alerts-metric-logs.md) on certain log data logs extracted as metrics. |
 | Retrieve | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
 | Export | Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](~/articles/logic-apps/index.yml). |
@@ -80,10 +80,10 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 
 | Data | Description |
 |:---|:---|
-| Resource diagnostics | Configure Diagnostic settings to write to diagnostic data, including metrics to a Log Analytics workspace. See [Stream Azure Diagnostic Logs to Log Analytics](resource-logs-collect-storage.md). |
+| Resource diagnostics | Configure Diagnostic settings to write to diagnostic data, including metrics to a Log Analytics workspace. See [Stream Azure resource logs to Log Analytics](resource-logs-collect-workspace.md). |
 | Monitoring solutions | Monitoring solutions write data they collect to their Log Analytics workspace. See [Data collection details for management solutions in Azure](../insights/solutions-inventory.md) for a list of solutions. See [Monitoring solutions in Azure Monitor](../insights/solutions.md) for details on installing and using solutions. |
-| Metrics | Send platform metrics for Azure Monitor resources to a Log Analytics workspace to retain log data for longer periods and to perform complex analysis with other data types using the [Kusto query language](/azure/kusto/query/). See [Stream Azure Diagnostic Logs to Log Analytics](resource-logs-collect-storage.md). |
-| Azure table storage | Collect data from Azure storage where some Azure resources write monitoring data. See  [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](azure-storage-iis-table.md). |
+| Metrics | Send platform metrics for Azure Monitor resources to a Log Analytics workspace to retain log data for longer periods and to perform complex analysis with other data types using the [Kusto query language](/azure/kusto/query/). See [Stream Azure resource logs to Log Analytics](resource-logs-collect-storage.md). |
+| Azure table storage | Collect data from Azure storage where some Azure resources write monitoring data. See  [Use Azure blob storage for IIS and Azure table storage for events with Log Analytics](diagnostics-extension-logs.md). |
 
 ### Virtual Machines
 

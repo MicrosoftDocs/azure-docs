@@ -23,26 +23,36 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Create an advanced managed domain
       href: tutorial-create-instance-advanced.md
+    - name: Create a forest trust (preview)
+      href: tutorial-create-forest-trust.md
 - name: Samples
   items:
     - name: Create a managed domain using Azure PowerShell
       href: powershell-create-instance.md
+    - name: Create a managed domain using a template
+      href: template-create-instance.md
 - name: Concepts
   items:
     - name: Administration basics
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Forests and trusts
+      items:
+        - name: Resource forests
+          href: concepts-resource-forest.md
+        - name: Forest trusts
+          href: concepts-forest-trust.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Classic deployment migration benefits
+      href: concepts-migration-benefits.md
     - name: What is Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Azure Active Directory architecture
       href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-    - name: Implement least-privilege administrative models
-      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: How to
   items:
     - name: Configure common settings
@@ -69,8 +79,10 @@
           href: notifications.md
         - name: Delete a managed domain
           href: delete-aadds.md
-        - name: Migrate from a Classic deployment (preview)
+        - name: Migrate from a Classic deployment
           href: migrate-from-classic-vnet.md
+        - name: Change SKU
+          href: change-sku.md
     - name: Secure Azure AD DS
       items:
         - name: Secure your managed domain
@@ -79,8 +91,12 @@
           href: deploy-kcd.md
         - name: Configure password and account lockout policies
           href: password-policy.md
-        - name: Enable security audit events (preview)
+        - name: Enable security audit events
           href: security-audit-events.md
+        - name: Analyze audit events with Azure Monitor Workbooks
+          href: use-azure-monitor-workbooks.md
+        - name: Secure remote access to VMs
+          href: secure-remote-vm-access.md
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template
@@ -131,13 +147,9 @@
       href: faqs.md
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory-ds
-    - name: Compatible third-party software
-      href: compatible-software.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory-ds/
     - name: Azure AD feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
-    - name: Contact us
-      href: contact-us.md
     - name: Use Azure AD Domain Services in Azure CSP subscriptions
       href: csp.md

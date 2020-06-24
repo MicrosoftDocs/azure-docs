@@ -1,21 +1,10 @@
 ---
-title: Planning the Service Fabric cluster capacity | Microsoft Docs
+title: Planning the Service Fabric cluster capacity 
 description: Service Fabric cluster capacity planning considerations. Nodetypes, Operations, Durability and Reliability tiers
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
 
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-
 ---
 # Service Fabric cluster capacity planning considerations
 For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
@@ -110,7 +99,7 @@ Use Silver or Gold durability for all node types that host stateful services you
 
 - Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
 - Each virtual machine scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple virtual machine scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
-- Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
+- Do not delete random VM instances, always use virtual machine scale set scale in feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 - If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
 - If deleting or deallocating VMs on the primary node type, you should never reduce the count of allocated VMs below what the reliability tier requires. These operations will be blocked indefinitely in a scale set with a durability level of Silver or Gold.
 

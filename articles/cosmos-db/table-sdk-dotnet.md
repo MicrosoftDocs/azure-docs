@@ -1,8 +1,8 @@
 ---
 title: Azure Cosmos DB Table API .NET SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
@@ -21,7 +21,7 @@ ms.date: 08/17/2018
 
 |   |   |
 |---|---|
-|**SDK download**|[NuGet](https://aka.ms/acdbtablenuget)|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Quickstart**|[Azure Cosmos DB: Build an app with .NET and the Table API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
@@ -34,40 +34,40 @@ ms.date: 08/17/2018
 
 ## Release notes
 
-### <a name="2.1.2"/>2.1.2
+### <a name="2.1.2"></a>2.1.2
 
 * Bug fixes
 
-### <a name="2.1.0"/>2.1.0
+### <a name="2.1.0"></a>2.1.0
 
 * Bug fixes
 
-### <a name="2.0.0"/>2.0.0
+### <a name="2.0.0"></a>2.0.0
 
 * Added Multi-region write support
 * Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
-### <a name="1.1.3"/>1.1.3
+### <a name="1.1.3"></a>1.1.3
 
 * Fixed NuGet package dependencies on Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB.
 * Bug fixes on table serialization when JsonConvert.DefaultSettings are configured.
 
-### <a name="1.1.1"/>1.1.1
+### <a name="1.1.1"></a>1.1.1
 
 * Added validation for malformed ETAGs in Direct Mode.
 * Fixed LINQ query bug in Gateway Mode.
 * Synchronous APIs now run on the thread pool with SynchronizationContext.
 
-### <a name="1.1.0"/>1.1.0
+### <a name="1.1.0"></a>1.1.0
 
 * Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism, and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Bug Fixes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 
 * General availability release
 
-### <a name="0.1.0-preview"/>0.9.0-preview
+### <a name="0.1.0-preview"></a>0.9.0-preview
 
 * Initial preview release
 

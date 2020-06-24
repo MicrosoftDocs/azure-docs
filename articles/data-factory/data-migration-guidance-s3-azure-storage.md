@@ -1,19 +1,21 @@
 ---
-title: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage | Microsoft Docs
+title: Migrate data from Amazon S3 to Azure Storage
 description: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
+author: dearandyxu
+ms.reviewer: ""
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ---
+
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from Amazon S3 to Azure Blob Storage or Azure Data Lake Storage Gen2.  This article provides the following information for data engineers and developers: 
 
@@ -42,7 +44,7 @@ The picture above illustrates how you can achieve great data movement speeds thr
 
 Within a single copy activity run, ADF has built-in retry mechanism so it can handle a certain level of transient failures in the data stores or in the underlying network. 
 
-When doing binary copying from S3 to Blob and from S3 to ADLS Gen2, ADF automatically performs checkpointing.  If a copy activity run has failed or timed out, on a subsequent retry (make sure to retry count > 1), the copy resumes from the last failure point instead of starting from the beginning. 
+When doing binary copying from S3 to Blob and from S3 to ADLS Gen2, ADF automatically performs checkpointing.  If a copy activity run has failed or timed out, on a subsequent retry, the copy resumes from the last failure point instead of starting from the beginning. 
 
 ## Network security 
 
@@ -81,7 +83,7 @@ Migrate data over private link:
 
 ### Initial snapshot data migration 
 
-Data partition is recommended especially when migrating more than 10 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
+Data partition is recommended especially when migrating more than 100 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
 
 If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from AWS S3.  All other copy jobs loading other partitions will not be impacted. 
 

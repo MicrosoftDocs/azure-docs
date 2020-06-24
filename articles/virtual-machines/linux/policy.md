@@ -1,21 +1,13 @@
 ---
-title: Enforce security with policies on Linux VMs in Azure | Microsoft Docs
+title: Enforce security with policies on Linux VMs in Azure 
 description: How to apply a policy to an Azure Resource Manager Linux Virtual Machine
-services: virtual-machines-linux
-documentationcenter: ''
-author: singhkays
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 06778ab4-f8ff-4eed-ae10-26a276fc3faa
+author: mimckitt
 ms.service: virtual-machines-linux
+ms.subservice: security
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: kasing
+ms.author: mimckitt
 
 ---
 # Apply policies to Linux VMs with Azure Resource Manager

@@ -4,7 +4,7 @@ title: 'Troubleshooting: Missing data in the downloaded activity logs | Microsof
 description: Provides you with a resolution to missing data in downloaded Azure Active Directory activity logs.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

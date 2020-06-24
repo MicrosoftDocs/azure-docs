@@ -7,7 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
@@ -100,6 +100,18 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
 
+## Unable to open serial console after failover of a UEFI based machine into Azure
+
+If you are able to connect to the machine using RDP but cannot open serial console, follow the below steps:
+
+* If the machine OS is Red Hat or Oracle Linux 7.*/8.0, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## Unexpected shutdown message (Event ID 6008)
 
 When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
@@ -110,7 +122,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
-For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
 To resolve the issue:
 
@@ -120,7 +132,7 @@ Manually create the Master target in the vCenter that manages your source machin
 > 
 > The discovery and refresh fabric operations can take up to 30 minutes to complete. 
 
-## Linux Master Target registration with CS fails with an SSL error 35 
+## Linux Master Target registration with CS fails with a TLS error 35 
 
 The Azure Site Recovery Master Target registration with the configuration server fails due to the Authenticated Proxy being enabled on the Master Target. 
  
@@ -157,4 +169,4 @@ To resolve the issue:
 - Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

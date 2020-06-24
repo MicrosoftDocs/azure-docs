@@ -1,6 +1,6 @@
 ---
 title: What is Azure Security Center?| Microsoft Docs
-description: Learn about Azure Security Center, its key capabilities, and how it works.
+description: This page describes Security Center's key benefits - discovering your security state, and improving it with coverage of cloud and on-prem resources.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -24,29 +24,30 @@ Keeping your resources safe is a joint effort between your cloud provider, Azure
 
 Azure Security Center addresses the three most urgent security challenges:
 
--   **Rapidly changing workloads** – It’s both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
+-   **Rapidly changing workloads** – It's both a strength and a challenge of the cloud. On the one hand, end users are empowered to do more. On the other, how do you make sure that the ever-changing services people are using and creating are up to your security standards and follow security best
     practices?
 
 -   **Increasingly sophisticated attacks** - Wherever you run your workloads, the attacks keep getting more sophisticated. You have to secure your public cloud workloads, which are, in effect, an Internet facing workload that can leave you even more vulnerable if you don't follow security best practices.
 
 -   **Security skills are in short supply** - The number of security alerts and alerting systems far outnumbers the number of administrators with the necessary background and experience to make sure your environments are protected. Staying up-to-date with the latest attacks is a constant challenge, making it impossible to stay in place while the world of security is an ever-changing front.
 
-To help you protect yourself against these challenges, Security Center provides
-you with the tools to:
+To help you protect yourself against these challenges, Security Center provides you with the tools to:
 
 -   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, and whether they are secure.
 
--   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and threat detection alerts.
+-   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and security alerts.
 
--   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with autoprovisioning and protection with Azure services.
+-   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## Architecture
 
 Because Security Center is natively part of Azure, PaaS services in Azure - including Service Fabric, SQL databases, and storage accounts - are monitored and protected by Security Center without necessitating any deployment.
 
-In addition, Security Center protects non-Azure servers and virtual machines in the cloud or on premises, for both Windows and Linux servers, by installing the Microsoft Monitoring Agent on them. Azure virtual machines are auto-provisioned in Security Center.
+In addition, Security Center protects non-Azure servers and virtual machines in the cloud or on premises, for both Windows and Linux servers, by installing the Log Analytics agent on them. Azure virtual machines are auto-provisioned in Security Center.
 
-The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and threat detection alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
+The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and security alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
 
 When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built in initiative under Security Center category. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. For more information about Security Center policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
 
@@ -57,7 +58,7 @@ network security estate.
 
 ### Manage organization security policy and compliance
 
-It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
+It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Security Center are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Security
 Center, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
 
 ![Security Center dashboard](media/security-center-intro/sc-dashboard.png)
@@ -79,10 +80,10 @@ you block unwanted connections that could potentially make it easier for an atta
 
 ![Security Center network map](media/security-center-intro/sc-net-map.png)
 
-Security Center makes mitigating your security alerts one step easier, by adding a **Secure score**. The secure scores are now associated with each recommendation you receive to help you understand how important each
+Security Center makes mitigating your security alerts one step easier, by adding a **Secure Score**. The Secure Scores are now associated with each recommendation you receive to help you understand how important each
 recommendation is to your overall security posture. This is crucial in enabling you to **prioritize your security work**.
 
-![Security Center secure score](media/security-center-intro/sc-secure-score.png)
+![Security Center Secure Score](media/security-center-intro/sc-secure-score.png)
 
 ### Optimize and improve security by configuring recommended controls
 
@@ -107,10 +108,9 @@ Security Center's threat protection includes fusion kill-chain analysis, which a
 
 ![Security Center attack recommendation](media/security-center-intro/sc-attack-recommendation.png)
 
-### Advanced threat protection
+### Integration with Microsoft Defender Advanced threat protection
 
-With Security Center, you get native integration with Windows Defender Advanced Threat Protection out of the box. This means that without any configuration, your Windows virtual machines and servers are fully integrated with Security Center's recommendations and assessments. Advanced threat detection is also
-offered out of the box for Linux virtual machines and servers.
+Security Center includes automatic, native integration with Microsoft Defender Advanced Threat Protection. This means that without any configuration, your Windows and Linux machines are fully integrated with Security Center's recommendations and assessments.
 
 In addition, Security Center lets you automate application control policies on server environments. The adaptive application controls in Security Center enable end-to-end app whitelisting across your Windows servers. You don't need to create the rules and check violations, it's all done automatically for you.
 
@@ -133,7 +133,7 @@ recommendations for how to mitigate them.
 
 ### Protect IoT and hybrid cloud workloads
 
-Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat protection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## Get secure faster
 
@@ -152,6 +152,7 @@ Extensive log collection - logs from Windows and Linux are all leveraged in the 
 ## Next steps
 
 - To get started with Security Center, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Security Center’s Free pricing tier is enabled with your Azure subscription. To take advantage of advanced security management and threat detection capabilities, you must upgrade to the Standard pricing tier. The Standard tier can be tried for free. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
-- If you’re ready to enable Security Center Standard now, the [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through the steps.
 
+- Security Center's free pricing tier is enabled on all your current Azure subscriptions once you visit the Azure Security Center dashboard in the Azure Portal for the first time, or if enabled programmatically via API. To take advantage of advanced security management and threat detection capabilities, you must upgrade to the standard pricing tier. The standard tier can be tried for free for 30 days. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+
+- If you're ready to enable Security Center standard now, the [Quickstart: Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through the steps.

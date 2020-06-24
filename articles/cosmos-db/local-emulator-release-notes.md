@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos Emulator download and release notes
-description: Read the Azure Cosmos Emulator release notes and download it.
+description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
 ---
 
@@ -20,6 +20,31 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.11.1
+
+- This release fixes couple bugs related to emulator Data Explorer. In certain cases when using the emulator Data Explorer through a web browser, it fails to connect to the Cosmos emulator endpoint and all the related actions such as creating a database or a container will error. The second issue fixed is related to creating an item from a JSON file using Data Explorer upload action.
+
+### 2.11.0
+
+- This release introduces support for autoscale provisioned throughput. These new features include the ability to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and programmatic support through Azure Cosmos DB SDKs.
+- Fix an issue while querying through large amount of documents (over 1GB) were the emulator will fail with internal error status code 500.
+
+### 2.9.2
+
+- This release fixes a bug while enabling support for MongoDb endpoint version 3.2. It also adds support for generating ETL traces for troubleshooting purposes using WPR instead of LOGMAN.
+
+### 2.9.1
+
+- This release fixes couple issues in the query API support and restores compatibility with older OSs such as Windows Server 2012.
+
+### 2.9.0
+
+- This release adds the option to set the consistency to consistent prefix and increase the maximum limits for users and permissions.
+
+### 2.7.2
+
+- This release adds MongoDB version 3.6 server support to the Cosmos Emulator. To start a MongoDB endpoint that target version 3.6 of the service, start the emulator from an Administrator command line with "/EnableMongoDBEndpoint=3.6" option.
 
 ### 2.7.0
 

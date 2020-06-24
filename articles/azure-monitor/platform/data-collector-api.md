@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor HTTP Data Collector API | Microsoft Docs
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to a Log Analytics workspace from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -222,7 +221,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = "DateValue"
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create

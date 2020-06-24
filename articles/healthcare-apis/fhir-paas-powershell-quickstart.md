@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure API for FHIR using PowerShell
-description: Deploy Azure API for FHIR using PowerShell.
+title: 'Quickstart: Deploy Azure API for FHIR using PowerShell'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -28,16 +28,6 @@ If the `Microsoft.HealthcareApis` resource provider is not already registered fo
 Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
 ```
 
-## Locate your identity object ID
-
-Object ID values are guids that correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
-
-```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
-```
-
-Read the how-to guide on [finding identity object IDs](find-identity-object-ids.md) for more details.
-
 ## Create Azure resource group
 
 ```azurepowershell-interactive
@@ -47,10 +37,12 @@ New-AzResourceGroup -Name "myResourceGroupName" -Location westus2
 ## Deploy Azure API for FHIR
 
 ```azurepowershell-interactive
-New-AzHealthcareApisService -Name nameoffhirservice -ResourceGroupName myResourceGroupName -Location westus2 -Kind fhir-R4 -AccessPolicyObjectId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+New-AzHealthcareApisService -Name nameoffhirservice -ResourceGroupName myResourceGroupName -Location westus2 -Kind fhir-R4
 ```
 
-where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the identity object ID for a user or service principal that you would like to have access to the FHIR API.
+> [!NOTE]
+> Depending on the version of the `Az` PowerShell module you have installed, the provisioned FHIR server may be configured to use [local RBAC](configure-local-rbac.md) and have the currently signed in PowerShell user set in the list of allowed identity object IDs for the deployed FHIR service. Going forward, we recommend that you [use Azure RBAC](configure-azure-rbac.md) for assigning data plane roles and you may need to delete this users object ID after deployment to enable Azure RBAC mode.
+
 
 ## Fetch capability statement
 
@@ -71,7 +63,7 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

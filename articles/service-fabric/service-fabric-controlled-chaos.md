@@ -1,21 +1,11 @@
 ---
-title: Induce Chaos in Service Fabric clusters | Microsoft Docs
+title: Induce Chaos in Service Fabric clusters 
 description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: anmola
-editor: motanv
 
-ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-
 ---
 # Induce controlled Chaos in Service Fabric clusters
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable distributed services on top of an unreliable infrastructure. To write robust distributed services on top of an unreliable infrastructure, developers need to be able to test the stability of their services while the underlying unreliable infrastructure is going through complicated state transitions due to faults.

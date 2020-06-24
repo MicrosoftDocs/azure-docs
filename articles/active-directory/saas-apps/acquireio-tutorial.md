@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	 ![AcquireIO configuration](./media/acquireio-tutorial/config01.png)
 
-1. Scroll down upto **Active Directory** and click on **Install**.
+1. Scroll down up to **Active Directory** and click on **Install**.
 
     ![AcquireIO configuration](./media/acquireio-tutorial/config02.png)
 

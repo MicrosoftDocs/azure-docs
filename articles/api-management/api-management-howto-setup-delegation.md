@@ -18,13 +18,13 @@ ms.author: apimpm
 ---
 # How to delegate user registration and product subscription
 
-Delegation allows you to use your existing website for handling developer sign in/sign up and subscription to products, as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
+Delegation allows you to use your existing website for handling developer sign in/sign up and subscription to products, as opposed to using the built-in functionality in the developer portal. It enables your website to own the user data and perform the validation of these steps in a custom way.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Delegating developer sign in and sign up
+## <a name="delegate-signin-up"> </a>Delegating developer sign-in and sign-up
 
-To delegate developer sign in and sign up to your existing website, you'll need to create a special delegation endpoint on your site. It needs to act as the entry-point for any such request initiated from the API Management developer portal.
+To delegate developer, sign in and sign up to your existing website, you'll need to create a special delegation endpoint on your site. It needs to act as the entry-point for any such request initiated from the API Management developer portal.
 
 The final workflow will be as follows:
 
@@ -70,7 +70,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
    * [request a single-sign-on (SSO) token] via the API Management REST API
    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
      
-     > for example, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > for example, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * redirect the user to the above produced URL
@@ -170,6 +170,9 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
+> [!IMPORTANT]
+> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) for the delegation changes to take effect.
+
 ## Next steps
 For more information on delegation, see the following video:
 
@@ -179,9 +182,9 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
-[create a user]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/User/GenerateSsoUrl
+[create a user]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user/createorupdate
+[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

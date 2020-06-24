@@ -136,7 +136,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
-A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
+A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, see [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md).
 
 ### Q. How do I know that my data is secure during transit? 
 A. There are multiple security features implemented to ensure that your Data Box is secure during transit. Some of these include tamper-evident seals, hardware and software tampering detection, device unlock password. For more information, go to [Azure Data Box security and data protection](data-box-security.md).
@@ -161,7 +161,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.-->
+- Copy files to the VM's disk.-->
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
@@ -189,8 +189,8 @@ Once the data copy is complete, take the following steps to return your device:
 3. Spool and securely place the power cord that was provided with device in the back of the device.
 4. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code that you saved earlier. They would provide you information on where and when to drop off the device.
 
-### Q. Will my Data Box devices cross country borders during shipping?
-A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.
+### Q. Will my Data Box devices cross country/region borders during shipping?
+A. All Data Box devices are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country/region. This applies to both the Data Box and the Data Box Heavy devices.
 
 ### Q. I ordered a Data Box in US East but I received a device that was shipped from a location in US West. Where should I return the device to?
 A. We try to get a Data Box device as fast as possible to you. We prioritize the shipment from a datacenter closest to your storage account location but will ship a device from any Azure datacenter that has available inventory. Your Data Box should be returned to the same location where it was shipped from as displayed in the shipping label.
@@ -216,7 +216,7 @@ A. If your device is not booting, go to your order in the Azure portal. Download
 
 ## Verify and upload
 
-### Q. How soon can I access my data in Azure once I’ve shipped the Data Box back? 
+### Q. How soon can I access my data in Azure once I've shipped the Data Box back? 
 A.  Once the order status for **Data Copy** shows as **Complete**, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?
@@ -253,7 +253,7 @@ A.  Following reporting is available to support chain of custody:
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
 ### Are the carrier tracking logs (from UPS) available? 
-A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
+A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier's website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
 A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.

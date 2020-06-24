@@ -1,47 +1,26 @@
 - name: Custom Vision Service Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Custom Vision?
     href: home.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Using the web portal
+  - name: Build a classifier
     items:
-    - name: Build a classifier
+    - name: Using the web portal
       href: getting-started-build-a-classifier.md
-    - name: Build an object detector
+    - name: Using the Custom Vision SDK
+      href: quickstarts/image-classification.md
+  - name: Build an object detector
+    items:
+    - name: Using the web portal
       href: get-started-build-detector.md
-  - name: Using the .NET SDK
-    items:
-    - name: Image classification
-      href: csharp-tutorial.md
-    - name: Object detection
-      href: csharp-tutorial-od.md
-  - name: Using the Python SDK
-    items:
-    - name: Image classification
-      href: python-tutorial.md
-    - name: Object detection
-      href: python-tutorial-od.md
-  - name: Using the Java SDK
-    items:
-    - name: Image classification
-      href: java-tutorial.md
-    - name: Object detection
-      href: java-tutorial-od.md
-  - name: Using the Node.js SDK
-    items:
-    - name: Image classification
-      href: node-tutorial.md
-    - name: Object detection
-      href: node-tutorial-object-detection.md
-  - name: Using the Go SDK
-    items:
-    - name: Image classification
-      href: go-tutorial.md
-    - name: Object detection
-      href: go-tutorial-object-detection.md
+    - name: Using the Custom Vision SDK
+      href: quickstarts/object-detection.md
 - name: Tutorials
   items:
   - name: Report visual states on IoT device
@@ -54,9 +33,11 @@
     href: test-your-model.md
   - name: Improve your classifier
     href: getting-started-improving-your-classifier.md
+  - name: Select a domain
+    href: select-domain.md
   - name: Use the prediction API
     href: use-prediction-api.md
-  - name: Use suggested tags
+  - name: Use Smart Labeler
     href: suggested-tags.md
   - name: Export models
     items:
@@ -68,8 +49,6 @@
       href: export-model-python.md
   - name: Export or delete account data
     href: ./export-delete-data.md
-  - name: Move your Limited Trial project to Azure
-    href: ./move-your-project-to-azure.md
   - name: Update your app to the 3.0 API
     href: ./update-application-to-3.0-sdk.md
 - name: Reference
@@ -85,9 +64,9 @@
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable
     - name: Node.js - Training
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customvisiontraining?view=azure-node-latest
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest
     - name: Node.js - Prediction
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customvisionprediction?view=azure-node-latest
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
     - name: Go - Training
@@ -110,5 +89,7 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: custom-vision-encryption-of-data-at-rest.md
   - name: Release Notes
     href: release-notes.md

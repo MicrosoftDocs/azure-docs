@@ -1,22 +1,15 @@
 ---
-title: Tutorial - Manage Azure disks with Azure PowerShell | Microsoft Docs
+title: Tutorial - Manage Azure disks with Azure PowerShell 
 description: In this tutorial, you learn how to use Azure PowerShell to create and manage Azure disks for virtual machines
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: disks
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.subservice: disks
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Windows VMs in Azure.
 ---
@@ -42,13 +35,13 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine. 
 
-**Operating system disk** - Operating system disks can be sized up to 4 terabytes, and hosts the VMs operating system.  The OS disk is assigned a drive letter of *C:* by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
+**Operating system disk** - Operating system disks can be sized up to 4 terabytes, and hosts the VMs operating system. If you create a new virtual machine (VM) from an [Azure Marketplace](https://azure.microsoft.com/marketplace/) image, the typically 127 GB (but some images have smaller OS disk sizes). The OS disk is assigned a drive letter of *C:* by default. The disk caching configuration of the OS disk is optimized for OS performance. The OS disk **should not** host applications or data. For applications and data, use a data disk, which is detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. However, if the VM is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the [VM size](sizes.md). Temporary disks are assigned a drive letter of *D:* by default.
 
 ## Azure data disks
 
-Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is needed. The size of the virtual machine determines how many data disks can be attached to a VM. For each VM vCPU, four data disks can be attached.
+Additional data disks can be added for installing applications and storing data. Data disks should be used in any situation where durable and responsive data storage is needed. The size of the virtual machine determines how many data disks can be attached to a VM.
 
 ## VM disk types
 

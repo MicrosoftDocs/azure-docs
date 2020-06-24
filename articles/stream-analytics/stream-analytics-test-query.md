@@ -1,23 +1,22 @@
 ---
 title: Test an Azure Stream Analytics job with sample data
 description: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
 ---
 
-# Test an Azure Stream Analytics job with sample data
+# Test an Azure Stream Analytics job in the portal
 
-In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your input sink or uploaded sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) and [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run). 
+In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## Sample incoming data from input
+## Automatically sample incoming data from input
 
-Azure Stream Analytics automatically fetches events from your streaming input. You can run queries on the default sample or set a specific time frame for the sample.
+Azure Stream Analytics automatically fetches events from your streaming inputs. You can run queries on the default sample or set a specific time frame for the sample.
 
 1. Sign in to the Azure portal.
 
@@ -25,7 +24,7 @@ Azure Stream Analytics automatically fetches events from your streaming input. Y
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
 
-4. To see a sample list of incoming events, select the input with file icon and the sample events will automatically appear in the **Input preview**. 
+4. To see a sample list of incoming events, select the input with file icon and the sample events will automatically appear in the **Input preview**.
 
    a. The serialization type for your data is automatically detected if its JSON or CSV. You can manually change it as well to JSON, CSV, AVRO by changing the option in the dropdown menu.
     
@@ -94,6 +93,7 @@ Instead of using live data, you can use sample data from a local file to test yo
 10. After you verify the results shown in the browser, you can **Start** the job.
 
 ## Next steps
+* [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
 
 * [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

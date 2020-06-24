@@ -1,18 +1,17 @@
 ---
-title: Azure Monitor for VMs integration with System Center Operations Manager | Microsoft Docs
+title: Integrate Azure Monitor for VMs Map with Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
 
 ---
 
-# System Center Operations Manager integration with Azure Monitor for VMs Map feature
+# Integrate System Center Operations Manager with Azure Monitor for VMs Map feature
 
-In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. 
+In Azure Monitor for VMs, you can view discovered application components on Windows and Linux virtual machines (VMs) that run in Azure or your environment. With this integration between the Map feature and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Azure Monitor for VMs. This article describes how to configure your System Center Operations Manager management group to support this feature.
 
 >[!NOTE]
 >If you have already deployed Service Map, you can view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. The Map feature of Azure Monitor for VMs is intended to replace the standalone Service Map solution. To learn more, see [Azure Monitor for VMs overview](vminsights-overview.md).
@@ -105,8 +104,10 @@ The Service Map folder has four nodes:
 
 You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**).
 
->[!NOTE]
->[Operations Management Suite was a collection of services](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+> [!NOTE]
+> [Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)
+> that included Log Analytics, which is now part of
+> [Azure Monitor](../overview.md).
 
 You can configure only one Log Analytics workspace in this current release.
 

@@ -1,10 +1,10 @@
 ---
 title: Azure IoT Central show/hide chat | Microsoft Docs
-description: As a user, learn how to show and hide chat.
+description: This article describes how to show and hide chat in your IoT Central application. You can use live chat to access technical support.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
@@ -15,7 +15,7 @@ manager: philmea
 This how-to article shows you how to toggle the live chat in your IoT Central application. You can use live chat to access technical support.
 
 > [!NOTE]
-> The chat option is available only for trial subscriptions.
+> The chat option is available only for applications created using the free pricing plan.
 
 ## Chat with us
 
@@ -27,13 +27,13 @@ You can type a question as shown in the following screenshot:
 
 !["Configure Device Details" form with details for settings and properties](media/howto-show-hide-chat/sample-chat.png)
 
-## Hide Chat
+## Hide chat
 
 To hide the chat, choose **Hide Chat** in the **Help** panel:
 
  ![Hide Chat](media/howto-show-hide-chat/hide-chat.png)
 
-## Enable Chat
+## Enable chat
 
 To show the chat, choose **Show Chat** in the **Help** panel:
 

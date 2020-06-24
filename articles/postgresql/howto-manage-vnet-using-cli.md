@@ -1,8 +1,8 @@
 ---
-title: Create and manage VNet service endpoints and rules for Azure Database for PostgreSQL - Single Server using Azure CLI
+title: Use virtual network rules - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how to create and manage VNet service endpoints and rules for Azure Database for PostgreSQL using Azure CLI command line.
-author: bolzmj
-ms.author: mbolz
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
@@ -60,4 +60,4 @@ After the script sample has been run, the following command can be used to remov
 [!code-azurecli-interactive[main](../../cli_scripts/postgresql/create-postgresql-server-vnet/delete-postgresql.sh "Delete the resource group.")]
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

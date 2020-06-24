@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop host pool load-balancing methods - Azure
+title: Windows Virtual Desktop host pool load-balancing - Azure
 description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
@@ -8,10 +8,17 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
+manager: lizross
 ---
 # Host pool load-balancing methods
 
-Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user’s session when they connect to a resource in a host pool.
+>[!IMPORTANT]
+>This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
+>
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
 
 The following load-balancing methods are available in Windows Virtual Desktop:
 
@@ -20,7 +27,7 @@ The following load-balancing methods are available in Windows Virtual Desktop:
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing methods share the following behaviors no matter which host pool they're in:
 
-- If a user already has a session in the host pool and is reconnecting to that session, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host’s AllowNewConnections property is set to False.
+- If a user already has a session in the host pool and is reconnecting to that session, the load balancer will successfully redirect them to the session host with their existing session. This behavior applies even if that session host's AllowNewConnections property is set to False.
 - If a user doesn't already have a session in the host pool, then the load balancer won't consider session hosts whose AllowNewConnections property is set to False during load balancing.
 
 ## Breadth-first load-balancing method

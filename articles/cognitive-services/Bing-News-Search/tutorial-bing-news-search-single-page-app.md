@@ -5,11 +5,10 @@ description: Use this tutorial to build a single-page web application that can s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -35,6 +34,12 @@ The tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
+
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
 
@@ -56,7 +61,7 @@ The HTML also contains the divisions (HTML `<div>` tags) where the search result
 
 To avoid having to include the Bing Search API subscription key in the code, we use the browser's persistent storage to store the key. Before the key is stored, we prompt for the user's key. If the key is later rejected by the API, we invalidate the stored key so the user will be prompted again.
 
-We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key.
+We define `storeValue` and `retrieveValue` functions that use either the `localStorage` object (not all browsers support it) or a cookie. The `getSubscriptionKey()` function uses these functions to store and retrieve the user's key. You can use the global endpoint below, or the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
 ``` javascript
 // Cookie names for data we store
@@ -325,8 +330,8 @@ In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* 
 
 ```javascript
 searchItemRenderers = {
-	news: function(item) { ... },
-	webPages: function (item) { ... }, 
+    news: function(item) { ... },
+    webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
@@ -341,7 +346,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `news` renderer is shown in the following javascript excerpt:
+The `news` renderer is shown in the following JavaScript excerpt:
 ```javascript
     // render news story
     news: function (item) {

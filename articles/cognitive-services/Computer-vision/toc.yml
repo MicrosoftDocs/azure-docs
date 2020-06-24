@@ -5,20 +5,12 @@
   items:
   - name: What is Computer Vision?
     href: Home.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   items:
-  - name: Using the client SDK
-    items:
-    - name: .NET SDK
-      href: quickstarts-sdk/csharp-sdk.md
-    - name: Python SDK
-      href: quickstarts-sdk/python-sdk.md
-    - name: Java SDK
-      href: quickstarts-sdk/java-sdk.md
-    - name: Node.js SDK
-      href: quickstarts-sdk/node-sdk.md
-    - name: Go SDK
-      href: quickstarts-sdk/go-sdk.md
+  - name: Using the client library
+    href: quickstarts-sdk/client-library.md
   - name: Using the REST API
     items:
     - name: Analyze a remote image
@@ -57,7 +49,7 @@
         href: QuickStarts/node-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-    - name: Extract text (Read API)
+    - name: Extract text (Computer Vision - Read API)
       items:
       - name: C#
         href: QuickStarts/CSharp-hand-text.md
@@ -135,8 +127,6 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
-  - name: Use the Computer Vision Connected Service
-    href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
@@ -145,8 +135,10 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v3.0
+    href: https://aka.ms/computer-vision-v3-ref
   - name: Computer Vision API v2.1
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
   - name: Computer Vision API v2.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
   - name: Computer Vision API v1.0
@@ -156,7 +148,7 @@
     - name: .NET
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go

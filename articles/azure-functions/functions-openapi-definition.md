@@ -1,15 +1,10 @@
 ---
-title: Create an OpenAPI definition for a serverless API using Azure API Management
+title: Expose your functions with OpenAPI using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
-keywords: OpenAPI, Swagger, cloud apps, cloud services,
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 05/08/2019
-ms.author: glenga
+ms.date: 04/21/2020
 ms.reviewer: sunayv
-ms.custom: mvc, cc996988-fb4f-47
+ms.custom: mvc, cc996988-fb4f-47, references_regions
 ---
 
 # Create an OpenAPI definition for a serverless API using Azure API Management
@@ -39,17 +34,19 @@ This tutorial uses an HTTP triggered function that takes two parameters:
 * The estimated time to make a turbine repair, in hours.
 * The capacity of the turbine, in kilowatts. 
 
-The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24 hour period. TO create the HTTP triggered function in the [Azure portal](https://portal.azure.com).
+The function then calculates how much a repair will cost, and how much revenue the turbine could make in a 24-hour period. To create the HTTP triggered function in the [Azure portal](https://portal.azure.com):
 
-1. Expand your function app and select the **+** button next to **Functions**. Select **In-portal** > **Continue**.
+1. From the left menu of your functions app, select **Functions**, and then select **Add** from the top menu.
 
-1. Select **More templates...**, then select **Finish and view templates**
+1. In the **New Function** window, select **Http trigger**.
 
-1. Select HTTP trigger, type `TurbineRepair` for the function **Name**, choose `Function` for **[Authentication level](functions-bindings-http-webhook.md#http-auth)**, and then select **Create**.  
+1. For **New Function**, enter `TurbineRepair`. 
 
-    ![Create HTTP function for OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
+1. Choose **Function** from the **[Authorization level](functions-bindings-http-webhook-trigger.md#http-auth)** drop-down list, and then select **Create Function**.
 
-1. Replace the contents of the run.csx C# script file with the following code, then choose **Save**:
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Create HTTP function for OpenAPI":::
+
+1. Select **Code + Test**, and then select **run.csx** from the drop-down list. Replace the contents of the run.csx C# script file with the following code, then choose **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -102,9 +99,9 @@ The function then calculates how much a repair will cost, and how much revenue t
     }
     ```
 
-    This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective, as well as the revenue opportunity that the turbine represents, and the cost to fix the turbine.
+    This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
 
-1. To test the function, click **Test** at the far right to expand the test tab. Enter the following value for the **Request body**, and then click **Run**.
+1. To test the function, select **Test**, select the **Input** tab, enter the following input for the **Body**, and then select **Run**:
 
     ```json
     {
@@ -113,9 +110,9 @@ The function then calculates how much a repair will cost, and how much revenue t
     }
     ```
 
-    ![Test the function in the Azure portal](media/functions-openapi-definition/test-function.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Test the function in the Azure portal":::
 
-    The following value is returned in the body of the response.
+    The following output is returned in the **Output** tab:
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -125,47 +122,48 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 ## Generate the OpenAPI definition
 
-Now you're ready to generate the OpenAPI definition.
+To generate the OpenAPI definition:
 
-1. Select the function app, then in **Platform features**, choose **API Management** and select **Create new** under **API Management**.
+1. Select the function app, choose **API Management** from the left menu, and then select **Create new** under **API Management**.
 
-    ![Choose API Management in Platform Features](media/functions-openapi-definition/select-all-settings-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Choose API Management":::
 
-1. Use the API Management settings as specified in the table below the image.
 
-    ![Create new API Management service](media/functions-openapi-definition/new-apim-service-openapi.png)
+1. Use the API Management settings as specified in the following table:
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
     | **Location** | West US | Choose the West US location. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |
-    | **Pricing tier** | Consumption (preview) | Consumption tier is in preview and isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Pricing tier** | Consumption | Consumption tier isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
+
+    ![Create new API Management service](media/functions-openapi-definition/new-apim-service-openapi.png)
 
 1. Choose **Create** to create the API Management instance, which may take several minutes.
 
-1. Select **Enable Application Insights** to send logs to the same place as the function application, then accept the remaining defaults and select **Link API**.
+1. After Azure creates the instance, it enables the **Enable Application Insights** option on the page. Select it to send logs to the same place as the function application, and then select **Link API**.
 
 1. The **Import Azure Functions** opens with the **TurbineRepair** function highlighted. Choose **Select** to continue.
 
     ![Import Azure Functions into API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-1. In the **Create from Function App** page, accept the defaults and select **Create**
+1. In the **Create from Function App** page, accept the defaults, and then select **Create**.
 
-    ![Create from Function App](media/functions-openapi-definition/create-function-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Create from Function App":::
 
-The API is now created for the function.
+    Azure creates the API for the function.
 
 ## Test the API
 
 Before you use the OpenAPI definition, you should verify that the API works.
 
-1. On the **Test** tab of your function, select **POST** operation.
+1. On your function app page, select **API Management**, select the **Test** tab, and then select **POST TurbineRepair**. 
 
-1. Enter values for **hours** and **capacity**
+1. Enter the following code in the **Request body**:
 
     ```json
     {
@@ -174,9 +172,9 @@ Before you use the OpenAPI definition, you should verify that the API works.
     }
     ```
 
-1. Click **Send**, then view the HTTP response.
+1. Select **Send**, and then view the **HTTP response**.
 
-    ![Test function API](media/functions-openapi-definition/test-function-api-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="Test function API":::
 
 ## Download the OpenAPI definition
 
@@ -186,7 +184,7 @@ If your API works as expected, you can download the OpenAPI definition.
    
    ![Download OpenAPI definition](media/functions-openapi-definition/download-definition.png)
 
-2. Open the downloaded JSON file and review the definition.
+2. Save the downloaded JSON file, and then open it. Review the definition.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 

@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
     | Requires approval        | Check **Require approval** if you want an administrator to review and accept or reject subscription attempts to this product. If the box is unchecked, subscription attempts are auto-approved.                                                                                                                         |
     | Subscription count limit | To limit the count of multiple simultaneous subscriptions, enter the subscription limit.                                                                                                                                                                                                                                |
     | Legal terms              | You can include the terms of use for the product which subscribers must accept in order to use the product.                                                                                                                                                                                                             |
-    | APIs                     | Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/> You can add an existing API during the product creation. You can add an API to the product later, either from the Products **Settings** page or while creating an API. |
+    | APIs                     | Products are associations of one or more APIs. You can include a number of APIs and offer them to developers through the developer portal. <br/> You can add an existing API during the product creation. You can add an API to the product later, either from the Product's **Settings** page or while creating an API. |
 
 3. Click **Create** to create the new product.
 
@@ -63,7 +63,7 @@ You can continue configuring the product after saving it by choosing the **Setti
 
 View/add subscribers to the product from the **Subscriptions** tab.
 
-Set visibility of a product for developers or guest from the **Access control** tab.
+Set visibility of a product for developers or guests from the **Access control** tab.
 
 ## <a name="add-apis"> </a>Add APIs to a product
 
@@ -81,7 +81,7 @@ Developers must first subscribe to a product to get access to the API. When they
 4. Choose an API and click **Select**.
 
 > [!TIP]
-> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) or PowerShell command.
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription/createorupdate) or PowerShell command.
 
 ## Next steps
 

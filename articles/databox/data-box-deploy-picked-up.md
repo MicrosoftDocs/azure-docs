@@ -10,8 +10,10 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-#Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
+
+# Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
+
 ::: zone target="docs"
 
 # Tutorial: Return Azure Data Box and verify data upload to Azure
@@ -20,7 +22,7 @@ ms.localizationpriority: high
 
 ::: zone target="chromeless"
 
-# Return Data Box and verify data upload to Azure
+## Return Data Box and verify data upload to Azure
 
 ::: zone-end
 
@@ -119,28 +121,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Email Quantium Solutions to request a pickup. Refer to the service reference number specified on the Azure portal. Use the following email template: - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions Australia will email you a return shipping label.
-7. Print the return label and affix it on the shipping box.
-8. Hand over the package to the courier.
-
-If needed, you can email Quantium Solution Support at Azure@quantiumsolutions.com or phone.
-
-For inquiry regarding your order via the phone:
-
-- Send an email for pickup first.
-- Provide your order name on the phone.
+5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 
@@ -208,5 +189,120 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
+## [In Singapore](#tab/in-singapore) 
 
+1. Retain the original box used to ship the device for return shipment.
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+3. Power off the device and remove the cables.
+4. Spool and securely place the power cord that was provided with the device in the back of the device. 
+5. Email SingPost Customer Service using the following email template with the tracking number.
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - OrderName 
+    Body: 
+        1. Requestor name  
+        2. Requestor contact number
+        3. Requestor collection address
+        4. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.  
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+
+
+<!--## [In Korea](#tab/in-korea) 
+
+1. Retain the original box used to ship the device for return shipment.
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+3. Power off the device and remove the cables.
+4. Spool and securely place the power cord that was provided with the device in the back of the device. 
+
+Request pickup  
+If consignment note is present:  
+
+1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number to arrange for a collection.
+2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.  
+3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.  
+4. You will receive an email confirmation for the pickup schedule.  
+
+Exception process
+If the consignment note is not present:
+1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote Microsoft Azure pickup and the service request number. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number).
+2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject Microsoft Azure Pickup and the service request number as reference.
+3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements.
+4. You get a verbal confirmation if request is made via telephone.  
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
+-->
+
+## [Self-Managed](#tab/in-selfmanaged) 
+
+If you are using Data Box in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+
+1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
+2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
+3. Send an email to the Azure Data Box Operations team using the below template when you are ready to return the device.
+    
+    ```
+    To: adbops@microsoft.com 
+    Subject: Request for Azure Data Box drop-off for order: ‘orderName’ 
+    Body: 
+        1. Order name  
+        2. Authorization code available after Prepare to Ship has completed [Yes/No]  
+        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
 

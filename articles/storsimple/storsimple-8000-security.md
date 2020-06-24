@@ -230,7 +230,7 @@ The following are some questions and answers about security and Microsoft Azure 
 
 **A:** This key was created when you first created the StorSimple Device Manager service. When you use the StorSimple Device Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key. Generating a new service registration key will not affect the existing registered devices. For instructions, go to:
 
-* [View or regenerate the service registration key](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [View or regenerate the service registration key](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
 **Q:** I lost my service data encryption key. What do I do?
 

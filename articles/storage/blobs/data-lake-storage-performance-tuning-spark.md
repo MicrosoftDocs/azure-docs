@@ -1,18 +1,18 @@
 ---
-title: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines | Microsoft Docs
+title: 'Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
 services: storage
 author: normesta
 
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Performance tuning guidance for Spark on HDInsight and Azure Data Lake Storage Gen2
+# Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2
 
 When tuning performance on Spark, you need to consider the number of apps that will be running on your cluster.  By default, you can run 4 apps concurrently on your HDI cluster (Note: the default setting is subject to change).  You may decide to use fewer apps so you can override the default settings and use more of the cluster for those apps.  
 

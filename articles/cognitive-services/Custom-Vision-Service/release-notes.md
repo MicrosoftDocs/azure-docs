@@ -1,6 +1,7 @@
 ---
 title: Release Notes - Custom Vision Service
 titleSuffix: Azure Cognitive Services
+description: Get the latest information on new releases from the Custom Vision team.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme

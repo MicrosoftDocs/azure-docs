@@ -2,16 +2,15 @@
 title: Log alerts in Azure Monitor
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the analytic query conditions you specify are met for Azure Alerts.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: yalavi
 ms.subservice: alerts
 ---
+
 # Log alerts in Azure Monitor
 
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
+Log alerts are one of the alert types that are supported in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). Log alerts allow users to use the Azure analytics platform as a basis for alerting.
 
 Log Alert consists of Log Search rules created for [Azure Monitor Logs](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md)
 
@@ -148,7 +147,7 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
 - Log Alerts on Log Analytics shown with exact alert name along with resource group and alert properties; when created using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/resource-group-overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
+The [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) has alert actions and schedules as part of Log Analytics Saved Search and not proper [Azure Resources](../../azure-resource-manager/management/overview.md). Hence to enable billing for such legacy log alerts created for Log Analytics using of Azure portal **without** [switching to new API](../../azure-monitor/platform/alerts-log-api-switch.md) or via [legacy Log Analytics API](../../azure-monitor/platform/api-alerts.md) - hidden pseudo alert rules are created on `microsoft.insights/scheduledqueryrules` for billing on Azure. The hidden pseudo alert rules created for billing on `microsoft.insights/scheduledqueryrules` as shown as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties.
 
 > [!NOTE]
 > If invalid characters such as `<, >, %, &, \, ?, /` are present, they will be replaced with `_` in the hidden pseudo  alert rule name and hence also in the Azure bill.

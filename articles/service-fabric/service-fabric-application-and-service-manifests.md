@@ -1,21 +1,9 @@
 ---
-title: Describing Azure Service Fabric apps and services | Microsoft Docs
+title: Describing Azure Service Fabric apps and services 
 description: Describes how manifests are used to describe Service Fabric applications and services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
 
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/12/2019
-ms.author: atsenthi
-
 ---
 # Service Fabric application and service manifests
 This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).

@@ -1,5 +1,5 @@
 ---
-title: Migrate data into Azure File Sync by using Azure Data Box and other methods  
+title: Migrate data into Azure File Sync with Azure Data Box
 description: Migrate bulk data in a way that's compatible with Azure File Sync.
 author: roygara
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Migrate bulk data to Azure File Sync
+# Migrate bulk data to Azure File Sync with Azure DataBox
 You can migrate bulk data to Azure File Sync in two ways:
 
 * **Upload your files by using Azure File Sync.** This is the simplest method. Move your files locally to Windows Server 2012 R2 or later, and install the Azure File Sync agent. After you set up the sync, your files will be uploaded from the server. (Our customers currently experience an average upload speed of 1 TiB about every two days.) To ensure that your server doesn't use too much of the bandwidth for your datacenter, you might want to set up a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
@@ -20,7 +20,7 @@ This article explains how to migrate files offline in a way that's compatible wi
 ## Migration tools
 The process we describe in this article works not only for Data Box but also for other offline migration tools. It also works for tools such as AzCopy, Robocopy, or partner tools and services that work straight over the internet. However to overcome the initial upload challenge, follow the steps in this article to use these tools in a way that's compatible with Azure File Sync.
 
-In some cases you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](https://aka.ms/storagemigrationservice) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
+In some cases, you need to move from one Windows Server to another Windows Server before adopting Azure File Sync. [Storage Migration Service](https://aka.ms/storagemigrationservice) (SMS) can help with that. Whether you need to migrate to a Server OS version that is supported by Azure File Sync (Windows Server 2012R2 and up) or you simply need to migrate because you are buying a new system for Azure File Sync, SMS has numerous features and advantages that will help get your migration done smoothly.
 
 ## Benefits of using a tool to transfer data offline
 Here are the main benefits of using a transfer tool like Data Box for offline migration:
@@ -48,14 +48,17 @@ Here's how to set up Azure File Sync in a way that's compatible with bulk migrat
 |---|---------------------------------------------------------------------------------------|
 | ![Step 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Order your Data Box](../../databox/data-box-deploy-ordered.md). The Data Box family offers [several products](https://azure.microsoft.com/services/storage/databox/data) to meet your needs. When you receive your Data Box, follow its [documentation to copy your data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) to this UNC path on the Data Box: *\\<DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>*. Here, *ShareName* is the name of the staging share. Send the Data Box back to Azure. |
 | ![Step 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Wait until your files show up in the Azure file shares that you chose as temporary staging shares. *Do not enable syncing to these shares.* |
-| ![Step 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Create a new empty share for each file share that Data Box created for you. This new share should be in the same storage account as the Data Box share. [How to create a new Azure file share](storage-how-to-create-file-share.md). |
-| ![Step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in a storage sync service. Reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. [Set up Azure File Sync](storage-sync-files-deployment-guide.md). |
-| ![Step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint). In the process, specify that you moved the files to Azure, and reference the staging shares. You can enable or disable cloud tiering as needed. While creating a server endpoint on your live server, reference the staging share. On the **Add server endpoint** blade, under **Offline Data Transfer**, select **Enabled**, and then select the staging share that must be in the same storage account as the cloud endpoint. Here, the list of available shares is filtered by storage account and shares that aren't already syncing. |
+| ![Step 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | <ul><li>Create a new empty share for each file share that Data Box created for you. This new share should be in the same storage account as the Data Box share. [How to create a new Azure file share](storage-how-to-create-file-share.md).</li><li>[Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in a Storage Sync Service. Reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. [Set up Azure File Sync](storage-sync-files-deployment-guide.md).</li></ul> |
+| ![Step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint). In the process, specify that you moved the files to Azure, and reference the staging shares. You can enable or disable cloud tiering as needed. While creating a server endpoint on your live server, reference the staging share. On the **Add server endpoint** blade, under **Offline Data Transfer**, select **Enabled**, and then select the staging share that must be in the same storage account as the cloud endpoint. Here, the list of available shares is filtered by storage account and shares that aren't already syncing. The screenshot following this table shows how to reference the DataBox share during server endpoint creation in the Azure portal. |
+| ![Step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | Once you have added the server endpoint in the previous step, data starts automatically flowing from the right source. The [Syncing the share](#syncing-the-share) section explains when data flows either from the DataBox share or from the Windows Server |
+| |
 
 ![Screenshot of the Azure portal user interface, showing how to enable offline data transfer while creating a new server endpoint](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## Syncing the share
-After you create your server endpoint, the sync will start. The sync process determines whether each file on the server also exists in the staging share where Data Box deposited the files. If the file exists there, the sync process copies the file from the staging share rather than uploading it from the server. If the file doesn't exist in the staging share, or if a newer version is available on the local server, the sync process uploads the file from the local server.
+After you create your server endpoint, sync will start. The sync process determines whether each file on the server also exists in the staging share where Data Box deposited the files. If the file exists there, the sync process copies the file from the staging share rather than uploading it from the server. If the file doesn't exist in the staging share, or if a newer version is available on the local server, the sync process uploads the file from the local server.
+
+When syncing the share, sync will merge any missing file attributes, permissions, or timestamps from the file variants on the local server, combining them with their file counterparts from the DataBox share. This ensures each file and folder arrives with all possible file fidelity in the Azure file share.
 
 > [!IMPORTANT]
 > You can enable the bulk migration mode only while you're creating a server endpoint. After you establish a server endpoint, you can't integrate bulk-migrated data from an already syncing server into the namespace.
@@ -74,7 +77,7 @@ As the server completes its initial sync of the namespace, the Data Box bulk-mig
 Now you can clean up the staging share to save costs:
 
 1. On the **Server Endpoint Properties** blade, when the status is **Completed**, select **Disable offline data transfer**.
-2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's not very useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-azure-files.md) on a schedule.
+2. Consider deleting the staging share to save costs. The staging share probably doesn't contain file and folder ACLs, so it's unlikely to be useful. For backup point-in-time purposes, create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [set up Azure Backup to take snapshots]( ../../backup/backup-afs.md) on a schedule.
 
 Disable the offline data transfer mode only when the state is **Completed** or when you want to cancel because of a misconfiguration. If you disable the mode during a deployment, files will start to upload from the server even if your staging share is still available.
 

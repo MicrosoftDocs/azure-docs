@@ -2,14 +2,14 @@
 title: Debug Application Proxy applications - Azure Active Directory | Microsoft Docs
 description: Debug issues with Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ---
 
@@ -43,7 +43,7 @@ This flowchart walks you through the steps for debugging some of the more common
 |5 | If issues persist, go to connector debugging | There could be a connectivity issue between the proxy and the connector or between the connector and the back end. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article. |
 |6 | Publish all resources, check browser developer tools, and fix links | Make sure the publishing path includes all the necessary images, scripts, and style sheets for your application. For details, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Use the browser's developer tools (F12 tools in Internet Explorer or Microsoft Edge) and check for publishing issues as described in [Application page does not display correctly](application-proxy-page-appearance-broken-problem.md). <br></br>Review options for resolving broken links in [Links on the page don't work](application-proxy-page-links-broken-problem.md). |
 |7 | Check for network latency | If the page loads slowly, learn about ways to minimize network latency in [Considerations for reducing latency](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
-|8 | See additional troubleshooting help | If issues persist, find additional troubleshooting articles in the [Application Proxy troubleshooting documentation](application-proxy-page-appearance-broken-problem.md). |
+|8 | See additional troubleshooting help | If issues persist, find additional troubleshooting articles in the [Application Proxy troubleshooting documentation](application-proxy-troubleshoot.md). |
 
 ## Next steps
 

@@ -1,21 +1,11 @@
 ---
-title: On-demand backup in Azure Service Fabric | Microsoft Docs
+title: On-demand backup in Azure Service Fabric 
 description: Use the backup and restore feature in Service Fabric to back up your application data on a need basis.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
 
-ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-
 ---
 # On-demand backup in Azure Service Fabric
 
@@ -107,6 +97,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can use the [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API to set up tracking for the [on-demand backup progress](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
+### Using Service Fabric Explorer
+Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
+1. Select the desired partitions and click on Actions. 
+2. Select Trigger Partition Backup, and fill in information for Azure:
+
+    ![Trigger Partition Backup][0]
+
+    or FileShare:
+
+    ![Trigger Partition Backup FileShare][1]
+
 ## Tracking on-demand backup progress
 
 A partition of a Reliable Stateful service or Reliable Actor accepts only one on-demand backup request at a time. Another request can be accepted only after the current on-demand backup request has completed.
@@ -179,3 +180,6 @@ On-demand backup requests can be in the following states:
 
 - [Understand periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [BackupRestore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png

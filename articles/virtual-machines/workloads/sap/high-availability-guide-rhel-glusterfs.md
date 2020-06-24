@@ -1,10 +1,10 @@
 ---
-title: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver | Microsoft Docs
+title: GlusterFS on Azure VMs on RHEL for SAP NetWeaver | Microsoft Docs
 description: GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
-ms.author: sedusch
+ms.author: radeltch
 
 ---
 
@@ -102,7 +102,7 @@ Follow these steps to deploy the template:
 
 ### Deploy Linux manually via Azure portal
 
-You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
+You first need to create the virtual machines for this cluster. Afterwards, you create a load balancer and use the virtual machines in the backend pools. We recommend [standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
 
 1. Create a Resource Group
 1. Create a Virtual Network

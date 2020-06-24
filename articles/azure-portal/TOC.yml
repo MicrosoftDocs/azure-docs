@@ -15,7 +15,11 @@
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
 - name: How-to guides
-  items:  
+  items:
+  - name: Set your Azure portal preferences
+    href: set-preferences.md
+  - name: Set inactive timeout settings for all users
+    href: admin-timeout.md
   - name: Turn on high contrast or change theme
     href: azure-portal-change-theme-high-contrast.md
   - name: Add, remove, and sort favorites
@@ -28,6 +32,37 @@
     href: azure-portal-export-delete-settings.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
+  - name: Create and manage support requests
+    items:
+    - name: Create an Azure support request
+      href: supportability/how-to-create-azure-support-request.md
+    - name: Upload files for a support request
+      href: supportability/how-to-use-file-uploader.md
+    - name: Request quota increases
+      items: 
+      - name: Increase compute vCPU limits
+        items:
+        - name: Resource Manager deployment model 
+          items: 
+          - name: Increase VM series vCPU limit
+            href: supportability/per-vm-quota-requests.md
+          - name: Increase total regional vCPU limit
+            href: supportability/regional-quota-requests.md
+          - name: Increase spot quota limit
+            href: supportability/low-priority-quota.md
+        - name: Classic deployment model
+          href: supportability/classic-deployment-model-quota-increase-requests.md 
+      - name: Increase networking limits
+        href: supportability/networking-quota-requests.md
+  - name: Troubleshoot Azure portal issues
+    items:
+    - name: Recover a deleted dashboard
+      href: recover-shared-deleted-dashboard.md
+    - name: Troubleshoot region or SKU subscription issues
+      href: supportability/sku-series-unavailable.md
+    - name: Capture a browser trace for troubleshooting
+      href: capture-browser-trace.md
+
 - name: Reference
   items:
   - name: Keyboard shortcuts
@@ -36,6 +71,8 @@
     href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
+  - name: Azure CLI
+    href: /cli/azure/ext/portal/portal
 - name: Resources
   items:
   - name: Azure roadmap

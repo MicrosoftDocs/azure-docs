@@ -1,12 +1,8 @@
 ---
-title: PCI-DSS v3.2.1 blueprint sample - Overview
-description: Overview of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample. This blueprint sample helps customers asses specific controls.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 06/24/2019
-ms.topic: conceptual
-ms.service: blueprints
+title: PCI-DSS v3.2.1 blueprint sample overview
+description: Overview of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample. This blueprint sample helps customers assess specific controls.
+ms.date: 01/29/2020
+ms.topic: sample
 ---
 # Overview of the PCI-DSS v3.2.1 blueprint sample
 
@@ -33,7 +29,7 @@ articles to learn about the control mapping and how to deploy this sample:
 > [PCI-DSS v3.2.1 blueprint - Control mapping](./control-mapping.md)
 > [PCI-DSS v3.2.1 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

@@ -3,7 +3,7 @@ title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: BorisB2015
 manager: gwallace
 editor: 
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
+ms.author: borisb
 ---
 
 # Set up Oracle ASM on an Azure Linux virtual machine  
@@ -29,8 +29,6 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 > * Initialize an Oracle ASM installation
 > * Create an Oracle DB managed by ASM
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
@@ -61,7 +59,7 @@ The following example creates a VM named myVM that is a Standard_DS2_v2 size wit
 
 After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
 
-   ```azurecli
+   ```output
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -78,7 +76,7 @@ After you create the VM, Azure CLI displays information similar to the following
 
 To create an SSH session with the VM and configure additional settings, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -160,7 +158,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
    The output of this command should look similar to the following, stopping with prompts to be answered.
 
-    ```bash
+    ```output
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -177,13 +175,14 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    ```
 
 2. View the disk configuration:
+
    ```bash
    cat /proc/partitions
    ```
 
    The output of this command should look similar to the following listing of available disks
 
-   ```bash
+   ```output
    8       16   14680064 sdb
    8       17   14678976 sdb1
    8        0   52428800 sda
@@ -208,9 +207,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    fdisk /dev/sdc
    ```
    
-   Using the answers provided above, the output for the fdisk command should look like the following:
+   Using the answers provided above, the output for the `fdisk` command should look like the following:
 
-   ```bash
+   ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -244,7 +243,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    Syncing disks.
    ```
 
-4. Repeat the preceding fdisk command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
+4. Repeat the preceding `fdisk` command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
 
 5. Check the disk configuration:
 
@@ -254,7 +253,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
    The output of the command should look like the following:
 
-   ```bash
+   ```output
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -281,8 +280,8 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    ```
 
    The output of the command should look like the following:
-   
-   ```bash
+
+   ```output
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
    Initializing the Oracle ASMLib driver:                     [  OK  ]
@@ -296,11 +295,11 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    service oracleasm createdisk DATA /dev/sdd1 
    service oracleasm createdisk DATA1 /dev/sde1 
    service oracleasm createdisk FRA /dev/sdf1
-   ```    
+   ```
 
    The output of the command should look like the following:
 
-   ```bash
+   ```output
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
@@ -311,11 +310,11 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
    ```bash
    service oracleasm listdisks
-   ```   
+   ```
 
    The output of the command should list off the following Oracle ASM disks:
 
-   ```bash
+   ```output
     ASMSP
     DATA
     DATA1
@@ -370,7 +369,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    ```
 
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
-   
+
    ```bash
    sudo yum install unzip
    sudo unzip linuxamd64_12102_grid_1of2.zip
@@ -378,7 +377,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    ```
 
 5. Change permission:
-   
+
    ```bash
    sudo chown -R grid:oinstall /opt/grid
    ```
@@ -389,7 +388,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
-   
+
    Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`.
    
    > [!NOTE]
@@ -549,6 +548,7 @@ The Oracle database software is already installed on the Azure Marketplace image
    cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
    ./dbca
    ```
+
    Database Configuration Assistant opens.
 
 2. On the **Database Operation** page, click `Create Database`.

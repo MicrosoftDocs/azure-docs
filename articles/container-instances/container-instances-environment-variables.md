@@ -1,14 +1,8 @@
 ---
-title: Set environment variables in Azure Container Instances
+title: Set environment variables in container instance
 description: Learn how to set environment variables in the containers you run in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: danlep
 ---
 # Set environment variables in container instances
 
@@ -58,8 +52,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 The output of the containers show how you've modified the second container's script behavior by setting environment variables.
 
-```console
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
+**mycontainer1**
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -70,8 +64,10 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
+```
 
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
+**mycontainer2**
+```output
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),

@@ -1,13 +1,10 @@
 ---
 title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
-ms.service:  azure-monitor
-ms.subservice: ""
+ms.subservice: metrics
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/19/2018
-
+ms.custom: has-adal-ref
 ---
 
 # Azure Monitoring REST API walkthrough
@@ -53,7 +50,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -115,7 +112,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example: (Note that the second metric has dimensions)
 
-```JSON
+```json
 {
     "value": [
         {
@@ -253,7 +250,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "timespan": "2018-03-01T00:00:00Z/2018-03-02T00:00:00Z",
   "value": [
@@ -310,7 +307,7 @@ Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filte
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Request URI**: https:\//management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 For example, to retrieve the top 3 APIs, in descending value, by the number of 'Transactions' during a 5 min range, where the GeotType was 'Primary', the request would be as follows:
 
@@ -326,7 +323,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "cost": 0,
   "timespan": "2018-03-01T02:00:00Z/2018-03-01T02:05:00Z",
@@ -410,7 +407,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
   "value": [
@@ -462,7 +459,7 @@ Once the available metric definitions are known, it is then possible to retrieve
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*
+**Request URI**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
 
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 
@@ -478,7 +475,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -526,7 +523,7 @@ Invoke-RestMethod -Uri $request `
 
 The resulting JSON response body would be similar to the following example:
 
-```JSON
+```json
 {
   "value": [
     {
@@ -586,7 +583,7 @@ An additional approach is to use [ARMClient](https://github.com/projectkudu/armc
 
 For example, in order to retrieve the metric definitions for a specific Logic App, issue the following command:
 
-```
+```console
 armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
 ```
 
@@ -632,7 +629,7 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 
 The result should be similar to the following example:
 
-```
+```output
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
@@ -654,13 +651,13 @@ Version        : 08586982649483762729
 
 To retrieve the resource ID for an Azure Storage account using the Azure CLI, execute the `az storage account show` command, as shown in the following example:
 
-```
+```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
 ```
 
 The result should be similar to the following example:
 
-```JSON
+```json
 {
   "accessTier": null,
   "creationTime": "2017-08-18T19:58:41.840552+00:00",
@@ -703,16 +700,30 @@ The result should be similar to the following example:
 
 ## Retrieve activity log data
 
-In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription:
+In addition to metric definitions and related values, it is also possible to use the Azure Monitor REST API to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample requests use the Azure Monitor REST API to query the activity log.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+Get Activity Logs with filter:
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+Get Activity Logs with filter and select:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Get Activity Logs with select:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Get Activity Logs without filter or select:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## Next steps

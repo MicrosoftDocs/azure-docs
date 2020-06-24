@@ -1,9 +1,9 @@
 ---
-title: Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
+title: Collect Windows scale set metrics in Azure Monitor with template
 description: Send guest OS metrics to the Azure Monitor metric store by using a Resource Manager template for a Windows virtual machine scale set
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
@@ -17,7 +17,7 @@ By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](diagnosti
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Windows Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Windows Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
 
-If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/resource-group-overview.md) and their structure and syntax.  
+If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.  
 
 ## Prerequisites
 
@@ -247,7 +247,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
+   > Remember to use an Azure region that's enabled for custom metrics. Remember to use an [Azure region that's enabled for custom metrics](./metrics-custom-overview.md#supported-regions).
  
 1. Run the following commands to deploy the VM:  
 

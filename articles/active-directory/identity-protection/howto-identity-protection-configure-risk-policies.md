@@ -1,12 +1,12 @@
 ---
-title: How to configure and enable risk policies in Azure Active Directory Identity Protection
+title: Risk policies - Azure Active Directory Identity Protection
 description: Enable and configure risk policies in Azure Active Directory Identity Protection
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,6 +43,8 @@ Choosing a **High** threshold reduces the number of times a policy is triggered 
 ## Exclusions
 
 All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
+
+Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
 ## Enable policies
 

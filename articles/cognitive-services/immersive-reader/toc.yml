@@ -7,33 +7,37 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Using C#
-    href: Quickstart.md
-  - name: Using Swift (iOS)
-    href: ios-quickstart.md
+  - name: Using the client library
+    href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
-  - name: Launch the Immersive Reader (Node.js)
-    href: tutorial-nodejs.md
   - name: Launch the Immersive Reader (Python)
     href: tutorial-python.md
-  - name: Picture to Immersive Reader (Swift)
-    href: tutorial-ios-picture-immersive-reader.md
+  - name: Use multiple Immersive Reader resources
+    href: tutorial-multiple-resources.md
 - name: How-To
   items:
-  - name: Azure Active Directory authentication
-    href: azure-active-directory-authentication.md
+  - name: Create Immersive Reader resource
+    href: how-to-create-immersive-reader.md
+  - name: Set the cookie policy
+    href: how-to/set-cookie-policy.md
+  - name: Display math
+    href: how-to/display-math.md
+  - name: Launch the Immersive Reader with HTML content
+    href: how-to-launch-with-html.md
+  - name: Customize Immersive Reader button
+    href: how-to-customize-launch-button.md
+  - name: Cache the authentication token
+    href: how-to-cache-token.md
 - name: Reference
   items:
   - name: SDK Reference
     href: reference.md
-  - name: iOS SDK Reference
-    href: ios-reference.md
 - name: Resources
   items:
   - name: Azure roadmap
-    href: https://azure.microsoft.com/en-us/updates/?product=cognitive-services
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Language support
-    href: https://aka.ms/ltlangsupport
+    href: language-support.md
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services

@@ -3,7 +3,7 @@
 title: Users flagged for risk in the Azure Active Directory portal | Microsoft Docs
 description: Learn about the users flagged for risk security report in the Azure Active Directory portal
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -84,7 +84,6 @@ Additionally, you should:
 
 - Read and implement this [guidance on addressing unusual activities](https://aka.ms/fixaccount). 
 - [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
-- Use this [script to enable mailbox auditing](https://aka.ms/mailboxaudit1) for all your accounts. 
 - Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 ## Next steps

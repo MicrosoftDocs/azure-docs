@@ -15,52 +15,52 @@ ms.author: iainfou
 #Customer intent: As a directory administrator, I want to troubleshoot why VMs can't join an Azure Active Directory Domain Services managed domain.
 ---
 
-# Troubleshoot domain-join problems with an Azure AD Domain Services managed domain
+# Troubleshoot domain-join problems with an Azure Active Directory Domain Services managed domain
 
-When you try to join a virtual machine (VM) or connect an application to an Azure Active Directory Domain Services (AD DS) managed domain, you may get an error that you're unable to do so. To troubleshoot domain-join problems, review at which of the following points you have an issue:
+When you try to join a virtual machine (VM) or connect an application to an Azure Active Directory Domain Services (Azure AD DS) managed domain, you may get an error that you're unable to do so. To troubleshoot domain-join problems, review at which of the following points you have an issue:
 
 * If you don't receive an authentication prompt, the VM or application can't connect to the Azure AD DS managed domain.
     * Start to troubleshoot [connectivity issues for domain-join](#connectivity-issues-for-domain-join).
-* If you receive an error during authentication, the connection to the Azure AD DS managed domain is successful.
+* If you receive an error during authentication, the connection to the managed domain is successful.
     * Start to troubleshoot [credentials-related issues during domain-join](#credentials-related-issues-during-domain-join).
 
 ## Connectivity issues for domain-join
 
-If the VM can't find the Azure AD DS managed domain, there's usually a network connection or configuration issue. Review the following troubleshooting steps to locate and resolve the issue:
+If the VM can't find the managed domain, there's usually a network connection or configuration issue. Review the following troubleshooting steps to locate and resolve the issue:
 
 1. Ensure the VM is connected to the same, or a peered, virtual network that's enabled for Azure AD DS. If not, the VM can't find and connect to the domain in order to join.
     * If the VM isn't connected to the same virtual network, confirm that the virtual networking peering or VPN connection is *Active* or *Connected* to allow the traffic to flow correctly.
-1. Try to ping the domain using the domain name of the Azure AD DS managed domain, such as `ping contoso.com`.
-    * If the ping response fails, try to ping the IP addresses for the domain displayed on the overview page in the portal for your Azure AD DS managed domain, such as `ping 10.0.0.4`.
-    * If you can successfully ping the IP address but not the domain, DNS may be incorrectly configured. Make sure that you've configured the Azure AD DS managed domain DNS servers for the virtual network.
+1. Try to ping the domain using the domain name of the managed domain, such as `ping aaddscontoso.com`.
+    * If the ping response fails, try to ping the IP addresses for the domain displayed on the overview page in the portal for your managed domain, such as `ping 10.0.0.4`.
+    * If you can successfully ping the IP address but not the domain, DNS may be incorrectly configured. Make sure that you've configured the managed domain DNS servers for the virtual network.
 1. Try flushing the DNS resolver cache on the virtual machine, such as `ipconfig /flushdns`.
 
 ### Network Security Group (NSG) configuration
 
-When you create an Azure AD DS managed domain, a network security group is also created with the appropriate rules for successful domain operation. If you edit or create additional network security group rules, you may unintentionally blocks ports required for Azure AD DS to provide connection and authentication services. These network security group rules can cause issues such as password sync not completing, users not being able to sign in, or domain-join issues.
+When you create a managed domain, a network security group is also created with the appropriate rules for successful domain operation. If you edit or create additional network security group rules, you may unintentionally blocks ports required for Azure AD DS to provide connection and authentication services. These network security group rules can cause issues such as password sync not completing, users not being able to sign in, or domain-join issues.
 
 If you continue to have connection issues, review the following troubleshooting steps:
 
-1. Check the health status of your Azure AD DS managed domain in the Azure portal. If you have an alert for *AADDS001*, a network security group rule is blocking access.
+1. Check the health status of your managed domain in the Azure portal. If you have an alert for *AADDS001*, a network security group rule is blocking access.
 1. Review the [required ports and network security group rules][network-ports]. Make sure that no network security group rules applied to the VM or virtual network you're connecting from block these network ports.
 1. Once any network security group configuration issues are resolved, the *AADDS001* alert disappears from the health page in about 2 hours. With network connectivity now available, try to domain-join the VM again.
 
 ## Credentials-related issues during domain-join
 
-If you get a dialog box that asks for credentials to join the Azure AD DS managed domain, the VM is able to connect to the domain using the Azure virtual network. The domain-join process fails on authenticating to the domain or authorization to complete the domain-join process using the credentials provides.
+If you get a dialog box that asks for credentials to join the managed domain, the VM is able to connect to the domain using the Azure virtual network. The domain-join process fails on authenticating to the domain or authorization to complete the domain-join process using the credentials provides.
 
 To troubleshoot credentials-related issues, review the following troubleshooting steps:
 
-1. Try using the UPN format to specify credentials, such as `dee@contoso.onmicrosoft.com`. Make sure that this UPN is configured correctly in Azure AD.
+1. Try using the UPN format to specify credentials, such as `dee@aaddscontoso.onmicrosoft.com`. Make sure that this UPN is configured correctly in Azure AD.
     * The *SAMAccountName* for your account may be autogenerated if there are multiple users with the same UPN prefix in your tenant or if your UPN prefix is overly long. Therefore, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
-1. Try to use the credentials for a user account that belongs to the *AAD DC Administrators* group to join VMs to the Azure AD DS managed domain.
+1. Try to use the credentials for a user account that's a part of the managed domain to join VMs to the managed domain.
 1. Make sure that you've [enabled password synchronization][enable-password-sync] and waited long enough for the initial password sync to complete.
 
 ## Next steps
 
 For a deeper understanding of the Active Directory processes as part of the domain-join operation, see [Join and authentication issues][join-authentication-issues].
 
-If you still have problems joining your VM to the Azure AD DS managed domain, [find help and open a support ticket for Azure Active Directory][azure-ad-support].
+If you still have problems joining your VM to the managed domain, [find help and open a support ticket for Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [enable-password-sync]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

@@ -1,35 +1,35 @@
 ---
-title: Provision a simulated TPM device to Azure IoT Hub using Python | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service.This quickstart uses individual enrollments.
+title: Quickstart - Provision simulated TPM device to Azure IoT Hub using Python
+description: Quickstart - Create and provision a simulated TPM device using Java device SDK for IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 05/21/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
-# Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-These steps show how to create a simulated device on your development machine running Windows OS, run the Windows TPM simulator as the [Hardware Security Module (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) of the device, and use the Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you create a simulated IoT device on a Windows computer. The simulated device includes a TPM simulator as a Hardware Security Module (HSM). You use device sample Python code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
 
-The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
+- [CMake build system](https://cmake.org/download/).
+- [Git](https://git-scm.com/download/).
 
-This article will demonstrate individual enrollments.
+> [!IMPORTANT]
+> This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
-
-> [!NOTE]
-> This guide only applies to the now-deprecated V1 Python SDK. Simulated TPM devices are not yet been supported in V2. The team is currently hard at work bringing V2 to feature parity.
 
 ## Prepare the environment 
 
@@ -59,7 +59,7 @@ This article will demonstrate individual enrollments.
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-1. In a separate command prompt, navigate to the TPM simulator folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this Quickstart guide. 
+1. In a separate command prompt, navigate to the TPM simulator folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
@@ -70,23 +70,31 @@ This article will demonstrate individual enrollments.
 
 ## Create a device enrollment entry
 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article demonstrates individual enrollments.
+
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
-1. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement Key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
+1. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. Run the solution. The output window displays the **_Endorsement key_** and the **_Registration ID_** needed for device enrollment. Note down these values. 
 
     ![TPM setup](./media/python-quick-create-simulated-device/tpm-setup.png)
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-1. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+1. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
 
-1. Under the **Add Enrollment**, enter the following information:
+1. In the **Add Enrollment** panel, enter the following information:
    - Select **TPM** as the identity attestation *Mechanism*.
-   - Enter the *Registration ID* and *Endorsement key* for your TPM device. 
+   - Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
    - Select an IoT hub linked with your provisioning service.
-   - Enter a unique device ID. Make sure to avoid sensitive data while naming your device.
-   - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, click the **Save** button. 
+   - Optionally, you may provide the following information:
+       - Enter a unique *Device ID*. Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
+       - Update the **Initial device twin state** with the desired initial configuration for the device.
+   - Once complete, press the **Save** button. 
 
      ![Enter device enrollment information in the portal blade](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
@@ -96,9 +104,9 @@ This article will demonstrate individual enrollments.
 ## Simulate the device
 
 1. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables.
-    - If you are using Windows OS, then [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) to allow the use of native DLLs from Python.
+    - If you are using Windows OS, then [Visual C++ redistributable package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) to allow the use of native DLLs from Python.
 
-1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
+1. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) to build the Python packages.
 
    > [!NOTE]
    > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
@@ -133,7 +141,7 @@ This article will demonstrate individual enrollments.
 
     ![Successful registration](./media/python-quick-create-simulated-device/registration-success.png)
 
-1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **Device Explorer** blade.
+1. On successful provisioning of your simulated device to the IoT hub linked with your provisioning service, the device ID appears on the hub's **IoT devices** blade.
 
     ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device/hubregistration.png) 
 
@@ -142,16 +150,16 @@ This article will demonstrate individual enrollments.
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
 1. Close the TPM simulator window on your machine.
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## Next steps
 
-In this Quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the Quickstart for programmatic enrollment of a TPM device. 
+In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-python.md)
+> [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-python.md)

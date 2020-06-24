@@ -3,7 +3,7 @@ title: Analyze activity logs using Azure Monitor logs | Microsoft Docs
 description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
-ms.reviewer: markvi
+ms.author: markvi
+ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ To follow along, you need:
 
 * A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * First, complete the steps to [route the Azure AD activity logs to your Log Analytics workspace](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Access](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) to the log analytics workspace
+*  [Access](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) to the log analytics workspace
 * The following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security Admin
     - Security Reader
@@ -57,7 +57,7 @@ The logs are pushed to the **AuditLogs** and **SigninLogs** tables in the worksp
 
 1. From the default query view in the previous section, select **Schema** and expand the workspace. 
 
-2. Expand the **Log Management** section and then expand either **AuditLogs** or **SignInLogs** to view the log schema.
+2. Expand the **Log Management** section and then expand either **AuditLogs** or **SigninLogs** to view the log schema.
     ![Audit logs](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png)
     ![Signin logs](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 

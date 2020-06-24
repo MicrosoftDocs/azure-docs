@@ -2,16 +2,15 @@
 title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.author: mimart
+ms.date: 12/03/2019
+ms.author: kenwith
 ms.reviewer: arvindh, japere
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -42,7 +41,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | [SAML](#saml-sso) | cloud and on-premises | Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. SAML works for applications that authenticate using one of the SAML protocols.|
 | [Password-based](#password-based-sso) | cloud and on-premises | Choose password-based when the application authenticates with username and password. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. |
 | [Linked](#linked-sign-on) | cloud and on-premises | Choose linked sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
-| [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. Users need to enter their username and password every time they launch this application.|
+| [Disabled](#disabled-sso) | cloud and on-premises | Choose disabled single sign-on when the app isn't ready to be configured for single sign-on. This mode is the default when you create the app.|
 | [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa-sso) | on-premises only | Choose IWA single sign-on for applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the application. |
 | [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  |
 
@@ -93,6 +92,8 @@ Password-based single sign-on is supported for any cloud-based application that 
    > Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
 
 - Microsoft Edge on Windows 10 Anniversary Edition or later
+- Microsoft Edge for iOS and Android
+- Intune Managed Browser
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
@@ -140,6 +141,8 @@ Use disabled single sign-on mode:
 - If you're not ready to integrate this application with Azure AD single sign-on, or
 - If you're testing other aspects of the application, or
 - As a layer of security to an on-premises application that doesn't require users to authenticate. With disabled, the user needs to authenticate.
+
+Note that if you have configured the application for SP-initiated SAML based single sign-on and you change the SSO mode to disable, it won't stop users from signing to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign-in](disable-user-sign-in-portal.md)
 
 ## Integrated Windows Authentication (IWA) SSO
 

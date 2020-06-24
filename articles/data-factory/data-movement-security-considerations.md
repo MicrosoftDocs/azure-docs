@@ -1,20 +1,16 @@
 ---
-title: Security considerations in Azure Data Factory | Microsoft Docs
+title: Security considerations
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
 services: data-factory
-documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: abnarain
-
+ms.custom: seo-lt-2019
+ms.date: 05/26/2020
 ---
 
 #  Security considerations for data movement in Azure Data Factory
@@ -22,6 +18,8 @@ ms.author: abnarain
 >
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Current version](data-movement-security-considerations.md)
+
+ [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
 
@@ -61,7 +59,7 @@ In this article, we review security considerations in the following two data mov
 - **Store credentials in Azure Key Vault**. You can also store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory retrieves the credential during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### Data encryption in transit
-If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS .
+If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
 
 > [!NOTE]
 > All connections to Azure SQL Database and Azure SQL Data Warehouse require encryption (SSL/TLS) while data is in transit to and from the database. When you're authoring a pipeline by using JSON, add the encryption property and set it to **true** in the connection string. For Azure Storage, you can use **HTTPS** in the connection string.
@@ -78,7 +76,7 @@ If the cloud data store supports HTTPS or TLS, all data transfers between data m
 Some data stores support encryption of data at rest. We recommend that you enable the data encryption mechanism for those data stores. 
 
 #### Azure SQL Data Warehouse
-Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+Transparent Data Encryption (TDE) in Azure SQL Data Warehouse helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest. This behavior is transparent to the client. For more information, see [Secure a database in SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### Azure SQL Database
 Azure SQL Database also supports transparent data encryption (TDE), which helps protect against the threat of malicious activity by performing real-time encryption and decryption of the data, without requiring changes to the application. This behavior is transparent to the client. For more information, see [Transparent data encryption for SQL Database and Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -108,7 +106,7 @@ The command channel allows communication between data movement services in Data 
 ### On-premises data store credentials
 The credentials can be stored within data factory or be [referenced by data factory](store-credentials-in-key-vault.md) during the runtime from Azure Key Vault. If storing credentials within data factory, it is always stored encrypted on the self-hosted integration runtime. 
  
-- **Store credentials locally**. If you directly use the **Set-AzDataFactoryV2LinkedService** cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored on self-hosted integration runtime.  In this case the credentials flow through azure backend service, which is extremely secure, to the self-hosted integration machine where it is finally encrypted and stored. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data and credential information.
+- **Store credentials locally**. If you directly use the **Set-AzDataFactoryV2LinkedService** cmdlet with the connection strings and credentials inline in the JSON, the linked service is encrypted and stored on self-hosted integration runtime.  In this case the credentials flow through Azure backend service, which is extremely secure, to the self-hosted integration machine where it is finally encrypted and stored. The self-hosted integration runtime uses Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) to encrypt the sensitive data and credential information.
 
 - **Store credentials in Azure Key Vault**. You can also store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory retrieves the credential during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
@@ -130,7 +128,7 @@ All data transfers are via secure channel HTTPS and TLS over TCP to prevent man-
 
 You can also use [IPSec VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md) or [Azure ExpressRoute](../expressroute/expressroute-introduction.md) to further secure the communication channel between your on-premises network and Azure.
 
-Azure Virtual Network is a logical representation of your network in the cloud. You can connect an on-premises network to your virtual network by setting up IPSec VPN (site-to-site) or ExpressRoute (private peering).	
+Azure Virtual Network is a logical representation of your network in the cloud. You can connect an on-premises network to your virtual network by setting up IPSec VPN (site-to-site) or ExpressRoute (private peering).    
 
 The following table summarizes the network and self-hosted integration runtime configuration recommendations based on different combinations of source and destination locations for hybrid data movement.
 
@@ -152,7 +150,13 @@ The following images show the use of self-hosted integration runtime for moving 
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Firewall configurations and allow list setting up for IP addresses
 
-#### Firewall requirements for on-premises/private network	
+> [!NOTE] 
+> You might have to manage ports or set up allow list for domains at the corporate firewall level as required by the respective data sources. This table only uses Azure SQL Database, Azure SQL Data Warehouse, and Azure Data Lake Store as examples.
+
+> [!NOTE] 
+> For details about data access strategies through Azure Data Factory, see [this article](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+
+#### Firewall requirements for on-premises/private network    
 In an enterprise, a corporate firewall runs on the central router of the organization. Windows Firewall runs as a daemon on the local machine in which the self-hosted integration runtime is installed. 
 
 The following table provides outbound port and domain requirements for corporate firewalls:
@@ -175,7 +179,7 @@ Some data stores in the cloud also require that you allow the IP address of the 
 
 The following cloud data stores require that you allow the IP address of the self-hosted integration runtime machine. Some of these data stores, by default, might not require allow list. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

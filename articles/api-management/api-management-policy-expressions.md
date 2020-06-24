@@ -16,7 +16,7 @@ ms.date: 03/22/2019
 ms.author: apimpm
 ---
 # API Management policy expressions
-This article discusses policy expressions syntax is C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
+This article discusses policy expressions syntax in C# 7. Each expression has access to the implicitly provided [context](api-management-policy-expressions.md#ContextVariables) variable and an allowed [subset](api-management-policy-expressions.md#CLRTypes) of .NET Framework types.
 
 For more information:
 
@@ -230,7 +230,7 @@ A variable named `context` is implicitly available in every policy [expression](
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|
 |Jwt AsJwt(input: this string)|input: string<br /><br /> If the input parameter contains a valid JWT token value, the method returns an object of type `Jwt`; otherwise the method returns `null`.|
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> If the input parameter contains a valid JWT token value, the method returns `true` and the result parameter contains a value of type `Jwt`; otherwise the method returns `false`.|
-|Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
+|Jwt|Algorithm: string<br /><br /> Audiences: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Returns comma-separated claim values or `defaultValue` if the header is not found.|
 |byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - plaintext to be encrypted<br /><br />alg - name of a symmetric encryption algorithm<br /><br />key - encryption key<br /><br />iv - initialization vector<br /><br />Returns encrypted plaintext.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - plaintext to be encrypted<br /><br />alg - encryption algorithm<br /><br />Returns encrypted plaintext.|

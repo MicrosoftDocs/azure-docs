@@ -1,14 +1,11 @@
 ---
-title: Add and call Azure functions from Azure Logic Apps
-description: Add and run Azure functions from logic apps
+title: Add and call Azure Functions from Azure Logic Apps
+description: Call and run custom code in your Azure Functions from automated tasks and workflows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.reviewer: klam, LADocs
 ---
 
 # Call Azure functions from Azure Logic Apps
@@ -99,7 +96,9 @@ Now that you've created your Azure function, follow the steps for how to [add fu
 
 ## Create functions inside logic apps
 
-Before you can create an Azure function starting from inside your logic app by using the Logic App Designer, you must first have an Azure function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+You can create Azure functions directly from your logic app's workflow by using the built-in Azure Functions action in the Logic App Designer, but you can use this method only for Azure functions written in JavaScript. For other languages, you can create Azure functions through the Azure Functions experience in the Azure portal. For more information, see [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
+
+However, before you can create any Azure function, you must already have an Azure function app, which is a container for your functions. If you don't have a function app, create that function app first. See [Create your first function in the Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
@@ -109,7 +108,7 @@ Before you can create an Azure function starting from inside your logic app by u
 
    * Between existing steps in your logic app's workflow, move your mouse over the arrow, select the plus (+) sign, and then select **Add an action**.
 
-1. In the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
+1. In the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action, for example:
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -121,26 +120,26 @@ Before you can create an Azure function starting from inside your logic app by u
 
    1. In the **Function name** box, provide a name for your function.
 
-   1. In the **Code** box, add your code to the function template, including the response and payload that you want returned to your logic app after your function finishes running.
+   1. In the **Code** box, add your code to the function template, including the response and payload that you want returned to your logic app after your function finishes running. When you're done, select **Create**.
 
-      ![Define your function](./media/logic-apps-azure-functions/function-definition.png)
+   For example:
 
-      In the template's code, the *`context` object* refers to the message that your logic app sends through the **Request Body** field in a later step. To access the `context` object's properties from inside your function, use this syntax:
+   ![Define your function](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   In the template's code, the *`context` object* refers to the message that your logic app sends through the **Request Body** field in a later step. To access the `context` object's properties from inside your function, use this syntax:
 
-      For example, to reference the `content` property inside the `context` object, use this syntax:
+   `context.body.<property-name>`
 
-      `context.body.content`
+   For example, to reference the `content` property inside the `context` object, use this syntax:
 
-      The template code also includes an `input` variable, which stores the value from the `data` parameter so your function can perform operations on that value. Inside JavaScript functions, the `data` variable is also a shortcut for `context.body`.
+   `context.body.content`
 
-      > [!NOTE]
-      > The `body` property here applies to the `context` object and 
-      > isn't the same as the **Body** token from an action's output, 
-      > which you might also pass to your function.
+   The template code also includes an `input` variable, which stores the value from the `data` parameter so your function can perform operations on that value. Inside JavaScript functions, the `data` variable is also a shortcut for `context.body`.
 
-   1. When you're done, select **Create**.
+   > [!NOTE]
+   > The `body` property here applies to the `context` object and 
+   > isn't the same as the **Body** token from an action's output, 
+   > which you might also pass to your function.
 
 1. In the **Request Body** box, provide your function's input, which must be formatted as a JavaScript Object Notation (JSON) object.
 
@@ -164,7 +163,7 @@ To call existing Azure functions from your logic apps, you can add Azure functio
 
 1. Under the step where you want to add the function, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select this action: **Choose an Azure function**
+1. Under **Choose an action**, in the search box, enter "azure functions" as your filter. From the actions list, select the **Choose an Azure function** action.
 
    ![Find "Azure functions"](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -198,13 +197,13 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 ## Enable authentication for Azure functions
 
-To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+To easily authenticate access to other resources that are protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-If you set up your logic app to use the system-assigned managed identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+If you set up your logic app to use the system-assigned identity or a manually-created user-assigned identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-To set up and use the system-assigned identity with your function, follow these steps:
+To set up and use the managed identity with your function, follow these steps:
 
-1. Enable the system-assigned identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Enable the managed identity on your logic app, and set up that identity's access to the target resource. See [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Enable authentication in your Azure function and function app by following these steps:
 
@@ -215,7 +214,7 @@ To set up and use the system-assigned identity with your function, follow these 
 
 ### Set up anonymous authentication in your function
 
-To use your logic app's system-assigned identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
+To use your logic app's managed identity in your Azure function, you have set your function's authentication level to anonymous. Otherwise, your logic app throws a "BadRequest" error.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your function app. These steps use "FabrikamFunctionApp" as the example function app.
 

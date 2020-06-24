@@ -1,10 +1,10 @@
 ---
 title: Refresh Azure Analysis Services models with Azure Automation | Microsoft Docs
-description: Learn how to code model refreshes by using Azure Automation.
+description: This article describes how to code model refreshes for Azure Analysis Services by using Azure Automation.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 05/07/2020
 ms.author: chlound
 
 ---
@@ -55,7 +55,7 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Enter the details for the credential.  For the **User name**, enter the **SPN ClientId**, for the **Password**, enter the **SPN Secret**.
+2. Enter the details for the credential. In **User name**, enter the service principal Application Id (appid), and then in **Password**, enter the service principal Secret.
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
 
@@ -63,7 +63,7 @@ The Service Principal you create must have server administrator permissions on t
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **description**, and then click **Create**.
+4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **Description**, and then click **Create**.
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -168,7 +168,7 @@ An Azure Virtual Machine with a static public IP address can be used as an Azure
 > [!IMPORTANT]
 > Ensure the Virtual Machine public IP address is configured as static.
 >
->To learn more about configuring Azure Automation Hybrid Workers, see [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>To learn more about configuring Azure Automation Hybrid Workers, see [Hybrid Runbook Worker installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 Once a Hybrid Worker is configured, create a Webhook as described in the section [Consume with Data Factory](#consume-with-data-factory).  The only difference here is to select the **Run on** > **Hybrid Worker** option when configuring the Webhook.
 

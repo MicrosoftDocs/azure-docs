@@ -1,6 +1,6 @@
 ---
 title: Manual failover of an Azure IoT hub | Microsoft Docs
-description: Show how to perform a manual failover for an Azure IoT hub
+description: Learn how to perform a manual failover of your IoT hub to a different region and confirm it's working, and then return it to the original region and check it again.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
@@ -27,7 +27,9 @@ In this tutorial, you perform the following tasks:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

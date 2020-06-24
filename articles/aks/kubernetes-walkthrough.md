@@ -2,12 +2,9 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: quickstart
-ms.date: 09/13/2019
-ms.author: mlearned
+ms.date: 04/28/2020
+
 ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019]
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -17,7 +14,7 @@ ms.custom: [H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-j
 
 In this quickstart, you deploy an Azure Kubernetes Service (AKS) cluster using the Azure CLI. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. A multi-container application that includes a web front end and a Redis instance is run in the cluster. You then see how to monitor the health of the cluster and pods that run your application.
 
-If you want to use Windows Server containers (currently in preview in AKS), see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
+To learn more about creating a Windows Server node pool, see [Create an AKS cluster that supports Windows Server containers][windows-container-cli].
 
 ![Voting app deployed in Azure Kubernetes Service](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
@@ -29,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-> [!Note]
+> [!NOTE]
 > If running the commands in this quickstart locally (instead of Azure Cloud Shell), ensure you run the commands as administrator.
 
 ## Create a resource group
@@ -61,8 +58,8 @@ The following example output shows the resource group created successfully:
 
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This will take several minutes to complete.
 
-> [NOTE]
-> When creating an AKS cluster a second resouce group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> [!NOTE]
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. For more information see [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -193,7 +190,7 @@ spec:
 
 Deploy the application using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-vote.yaml
 ```
 
@@ -244,7 +241,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete].
+> When you delete the cluster, the Azure Active Directory service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion][sp-delete]. If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Get the code
 

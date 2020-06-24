@@ -1,27 +1,18 @@
 ---
-title: Deploy your code from a CI/CD pipeline with GitHub Actions - Azure App Service | Microsoft Docs
-description: Learn how to use GitHub Actions to deploy your code to App Service
-services: app-service
-documentationcenter: ''
-author: jasonfreeberg
-writer: 
-manager: 
-editor: 
-
-ms.assetid: 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Configure CI/CD with GitHub Actions
+description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
+ms.reviewer: ushan
+ms.custom: tracking-python
 
 ---
 
-# GitHub Actions for deploying to App Service
+# Deploy to App Service using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy [Azure Web Apps](https://azure.microsoft.com/services/app-service/web/) using GitHub Actions.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy to [Azure App Service](overview.md) using GitHub Actions.
 
 > [!IMPORTANT]
 > GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
@@ -29,7 +20,7 @@ ms.author: jafreebe
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
-For an Azure Web App workflow, the file has three sections:
+For an Azure App Service workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
@@ -39,25 +30,25 @@ For an Azure Web App workflow, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group and web app name. The output is the role assignment credentials that provides access to your Web App. Copy this JSON object, which you can use to authenticate from GitHub.
+In this example, replace the placeholders in the resource with your subscription ID, resource group name, and app name. The output is the role assignment credentials that provide access to your App Service app. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!NOTE]
 > You do not need to create a service principal if you decide to use publish profile for authentication.
 
 > [!IMPORTANT]
-> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific web app and not the entire resource group.
+> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
 ## Configure the GitHub secret
 
 You could also use app-level credentials i.e. publish profile for deployment. Follow the steps to configure the secret:
 
-1. Download the publish profile for the Web App from the portal using **Get Publish profile** option.
+1. Download the publish profile for the App Service app from the portal using **Get Publish profile** option.
 
 2. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**
 
@@ -68,16 +59,16 @@ You could also use app-level credentials i.e. publish profile for deployment. Fo
 4. Now in the workflow file in your branch: `.github/workflows/workflow.yml` replace the secret for the input `publish-profile` of the deploy Azure Web App action.
     
     ```yaml
-        - uses: azure/webapps-deploy@v1
+        - uses: azure/webapps-deploy@v2
           with:
-            creds: ${{ secrets.azureWebAppPublishProfile }}
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
-5. You will see the secret as shown below once defined.
+5. You see the secret as shown below once defined.
 
     ![secrets](media/app-service-github-actions/app-service-secrets.png)
 
-## Setup the environment
+## Set up the environment
 
 Setting up the environment can be done using one of the setup actions.
 
@@ -127,9 +118,9 @@ The following examples show the part of the workflow that sets up the environmen
         java-version: '1.8.x'
 ```
 
-## Build the Web App
+## Build the web app
 
-This depends on the language and for languages supported by Azure Web Apps, this section should be the standard build steps of each language.
+This depends on the language and for languages supported by Azure App Service, this section should be the standard build steps of each language.
 
 The following examples show the part of the workflow that builds the web app, in the various supported languages.
 
@@ -186,20 +177,20 @@ The following examples show the part of the workflow that builds the web app, in
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 ```
-## Deploy the Web App
+## Deploy to App Service
 
-To deploy your code to a web app, you will need to use the `Azure/appservice-actions/webapp@master` action. This action has 4 parameters:
+To deploy your code to an App Service app, use the `azure/webapps-deploy@v2` action. This action has four parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
-| **app-name** | (Required) Name of the Azure Web App | 
+| **app-name** | (Required) Name of the App Service app | 
 | **publish-profile** | (Optional) Publish profile file contents with Web Deploy secrets |
 | **package** | (Optional) Path to package or folder. *.zip, *.war, *.jar or a folder to deploy |
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
 
 ### Deploy using Publish Profile
 
-Below is the sample workflow to build and deploy a Node.js Web app to Azure using publish profile.
+Below is the sample workflow to build and deploy a Node.js app to Azure using publish profile.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -211,7 +202,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: Setup Node 10.x
@@ -225,7 +216,7 @@ jobs:
         npm run test --if-present
        
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v1
+          uses: azure/webapps-deploy@v2
           with: 
             app-name: node-rn
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
@@ -233,7 +224,7 @@ jobs:
 
 ### Deploy using Azure service principal
 
-Below is the sample workflow to build and deploy a Node.js Web app to Azure using Azure service principal.
+Below is the sample workflow to build and deploy a Node.js app to Azure using an Azure service principal.
 
 ```yaml
 on: [push]
@@ -245,7 +236,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
    
     - uses: azure/login@v1
@@ -264,7 +255,7 @@ jobs:
         npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 
@@ -278,7 +269,9 @@ jobs:
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
-- [Azure login](https://github.com/Azure/actions)
+- [Actions workflow to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+
+- [Azure login](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 

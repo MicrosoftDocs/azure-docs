@@ -86,7 +86,7 @@ It has the following characteristics:
 
 ## Use the services together
 
-In some cases, you use the services side by side to fulfill distinct roles. For example, an ecommerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
+In some cases, you use the services side by side to fulfill distinct roles. For example, an e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
 
 In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to a data warehouse, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
@@ -94,7 +94,7 @@ In other cases, you link them together to form an event and data pipeline. You u
 
 ## Next steps
 See the following articles: 
-
+- [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Storage queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

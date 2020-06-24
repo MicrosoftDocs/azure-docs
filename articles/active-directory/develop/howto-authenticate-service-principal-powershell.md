@@ -1,24 +1,19 @@
 ---
-title: Create identity for Azure app with PowerShell 
+title: Create an Azure app identity (PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Describes how to use Azure PowerShell to create an Azure Active Directory application and service principal, and grant it access to resources through role-based access control. It shows how to authenticate application with a certificate.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Use Azure PowerShell to create a service principal with a certificate
@@ -50,7 +45,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 ## Create service principal with self-signed certificate
 
-The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Reader](/azure/role-based-access-control/built-in-roles#reader) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Reader](/azure/role-based-access-control/built-in-roles#reader) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > The New-SelfSignedCertificate cmdlet and the PKI module are currently not supported in PowerShell Core. 

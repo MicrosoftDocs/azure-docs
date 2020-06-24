@@ -1,5 +1,5 @@
 ---
-title: "Evaluate accuracy for Custom Speech - Speech Service"
+title: "Evaluate accuracy for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "In this document you'll learn how to quantitatively measure the quality of our speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided."
 services: cognitive-services
@@ -47,7 +47,7 @@ If you'd like to test the quality of Microsoft's speech-to-text baseline model o
 To evaluate models side by side:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
-2. Navigate to **Speech-to-text > Custom Speech > Testing**.
+2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Testing**.
 3. Click **Add Test**.
 4. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
 5. Select up to two models that you'd like to test.

@@ -2,21 +2,16 @@
 title: Microsoft identity platform UWP getting started | Azure
 description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Microsoft identity platform endpoint.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
@@ -29,6 +24,9 @@ At the end of this guide, your application calls a protected API by using person
 
 >[!NOTE]
 > This guide requires Visual Studio with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
+
+>[!NOTE]
+> If you are new to the Microsoft identity platform, we recommend you start with the [Call the Microsoft Graph API from a Universal Windows Platform (UWP) application quickstart](quickstart-v2-uwp.md).
 
 ## How this guide works
 
@@ -46,7 +44,7 @@ This guide uses the following NuGet package:
 
 ## Set up your project
 
-This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then the application can query Web APIs that require a token, such as Microsoft Graph API.
+This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then the application can query web APIs that require a token, such as Microsoft Graph API.
 
 This guide creates an application that displays a button that queries Graph API and a button to sign out. It also displays text boxes that contain the results of the calls.
 
@@ -116,7 +114,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         //Set the scope for API call to user.read
         string[] scopes = new string[] { "user.read" };
 
-        // Below are the clientId (Application Id) of your app registration and the tenant information. 
+        // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
         // - the content of Tenant with the information about the accounts allowed to sign in in your application:
@@ -124,9 +122,9 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         //   - for any Work or School accounts, use organizations
         //   - for any Work or School accounts, or Microsoft personal account, use common
         //   - for Microsoft Personal account, use consumers
-        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";        
+        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
 
-        public IPublicClientApplication PublicClientApp { get; } 
+        public IPublicClientApplication PublicClientApp { get; }
 
         public MainPage()
         {
@@ -151,8 +149,8 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
          ResultText.Text = string.Empty;
          TokenInfoText.Text = string.Empty;
 
-         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.            
-         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false); 
+         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.
+         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
          IAccount firstAccount = accounts.FirstOrDefault();
 
          try
@@ -237,7 +235,7 @@ Add the following new method to *MainPage.xaml.cs*:
        {
            var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
            // Add the token in Authorization header
-           request.Headers.Authorization = 
+           request.Headers.Authorization =
              new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
            response = await httpClient.SendAsync(request);
            var content = await response.Content.ReadAsStringAsync();
@@ -349,7 +347,7 @@ Now you need to register your application:
 Configure authentication for your application:
 
 1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
-1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `urn:ietf:wg:oauth:2.0:oob` for **REDIRECT URI**.
+1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 1. Select **Save**.
 
 Configure API permissions for your application:
@@ -433,8 +431,3 @@ Cause: This issue is a known limitation of the web authentication broker in UWP 
 Workaround: Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey:
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

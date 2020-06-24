@@ -1,17 +1,16 @@
 ---
-title: Quickstart - Create a Xamarin Android app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create a Xamarin Android app'
 description: In this quickstart, you learn how to build an Android app with Xamarin using Spatial Anchors.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Xamarin Android app that can place and locate a 3D object that persists across devices and platforms.
 ---
+
 # Quickstart: Create a Xamarin Android app with Azure Spatial Anchors
 
 This quickstart covers how to create an Android app with Xamarin using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an Android app that can save and recall a spatial anchor.
@@ -31,10 +30,12 @@ To complete this quickstart, make sure you have:
 - A Windows or macOS computer:
   - If using Windows:
     - An up-to-date version of <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019 16.2+</a>.
-    - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>
+    - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If using macOS:
     - An up-to-date version of <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
-    - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>
+    - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
+    - <a href="https://git-lfs.github.com/">Git LFS</a>.
 - The latest version of Xamarin.Android installed and running on your platform of choice. For a guide to installing Xamarin.Android, refer to the [Xamarin.Android Installation](https://docs.microsoft.com/xamarin/android/get-started/installation/index) guides.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
   - Additional device drivers may be required for your computer to communicate with your Android device. For more information, see [here](https://developer.android.com/studio/run/device.html).
@@ -57,6 +58,10 @@ Open `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Open `Xamarin/SampleXamarin.Android/AzureSpatialAnchorsManager.cs`.
+
+Locate `AzureSpatialAnchorsManager(Session arCoreSession)` and add the following line, substituting in your account domain from earlier: `this.spatialAnchorsSession.Configuration.AccountDomain = "MyAccountDomain";`.
 
 ## Deploy the app to your Android device
 

@@ -44,7 +44,7 @@ Using [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-
 
 ## Is my data encrypted? Can I use my own keys?
 
-All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up SSL on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows you to manage their own keys to encrypt the data at rest. See [Bring your own key for Apache Kafka on Azure HDInsight](apache-kafka-byok.md), for more information.
+All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up TLS on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows you to manage their own keys to encrypt the data at rest. See [Customer-managed key disk encryption](../disk-encryption.md), for more information.
 
 ## How do I connect clients to my cluster?
 
@@ -59,6 +59,10 @@ For Kafka clients to communicate with Kafka brokers, they must be able to reach 
 ## Can I add more disk space on an existing cluster?
 
 To increase the amount of space available for Kafka messages, you can increase the number of nodes. Currently, adding more disks to an existing cluster isn't supported.
+
+## Can a Kafka cluster work with Databricks? 
+
+Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You will need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
 ## How can I have maximum data durability?
 
@@ -86,5 +90,5 @@ Use Azure monitor to analyze your [Kafka logs](./apache-kafka-log-analytics-oper
 
 ## Next steps
 
-* [Set up Secure Sockets Layer (SSL) encryption and authentication for Apache Kafka in Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
+* [Set up TLS encryption and authentication for Apache Kafka in Azure HDInsight](./apache-kafka-ssl-encryption-authentication.md)
 * [Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight](./apache-kafka-mirroring.md)

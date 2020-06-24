@@ -1,17 +1,8 @@
 ---
-title: Azure Service Fabric security best practices | Microsoft Docs
-description: Best practices for Azure Service Fabric security.
-services: service-fabric
-documentationcenter: .net
+title: Azure Service Fabric security best practices
+description: Best practices and design considerations for keeping Azure Service Fabric clusters and applications secure.
 author: peterpogorski
-manager: chackdan 
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ---
@@ -161,7 +152,7 @@ To give your application access to secrets, include the certificate by adding a 
 ```
 ## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)
 
-To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
 To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
@@ -212,7 +203,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [We recommend that you implement an industry-standard configuration that is broadly known and well-tested, such as Microsoft security baselines, as opposed to creating a baseline yourself](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); an option for provisioning these on your Virtual Machine Scale Sets is to use Azure Desired State Configuration (DSC) extension handler, to configure the VMs as they come online, so they are running the production software.
 
 ## Azure Firewall
-[Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.](https://docs.microsoft.com/azure/firewall/overview); this enables the ability to limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination. Its recommended that you leverage [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) for Windows Updates, and to enable network traffic to Microsoft Windows Update endpoints can flow through your firewall. [Deploy Azure Firewall using a template](https://docs.microsoft.com/azure/firewall/deploy-template) provides a sample for Microsoft.Network/azureFirewalls resource template definition. Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
+[Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.](https://docs.microsoft.com/azure/firewall/overview); this enables the ability to limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require TLS/SSL termination. Its recommended that you leverage [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) for Windows Updates, and to enable network traffic to Microsoft Windows Update endpoints can flow through your firewall. [Deploy Azure Firewall using a template](https://docs.microsoft.com/azure/firewall/deploy-template) provides a sample for Microsoft.Network/azureFirewalls resource template definition. Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
 
 - *download.microsoft.com
 - *servicefabric.azure.com
@@ -221,7 +212,12 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 These firewall rules complement your allowed outbound Network Security Groups, that would include ServiceFabric and Storage, as allowed destinations from your virtual network.
 
 ## TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+
+Microsoft [Azure recommends](https://azure.microsoft.com/updates/azuretls12/) all customers complete migration towards solutions that support transport layer security (TLS) 1.2 and to make sure that TLS 1.2 is used by default.
+
+Azure services, including [Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/microsoft-azure-service-fabric-6-3-refresh-release-cu1-notes/ba-p/791493), have completed the engineering work to remove dependency on TLS 1.0/1.1 protocols and provide full support to customers that want to have their workloads configured to accept and initiate only TLS 1.2 connections.
+
+Customers should configure their Azure-hosted workloads and on-premises applications interacting with Azure services to use TLS 1.2 by default. Here's how to [configure Service Fabric cluster nodes and applications](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md) to use a specific TLS version.
 
 ## Windows Defender 
 

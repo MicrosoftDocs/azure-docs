@@ -1,16 +1,16 @@
 ---
-title: Move data from OData sources | Microsoft Docs
+title: Move data from OData sources 
 description: Learn about how to move data from OData sources using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018

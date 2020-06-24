@@ -1,18 +1,18 @@
 ---
-title: Azure HPC Cache Preview data ingest - manual copy
+title: Azure HPC Cache data ingest - manual copy
 description: How to use cp commands to move data to a Blob storage target in Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Azure HPC Cache (preview) data ingest - manual copy method
+# Azure HPC Cache data ingest - manual copy method
 
 This article gives detailed instructions for manually copying data to a Blob storage container for use with Azure HPC Cache. It uses multi-threaded parallel operations to optimize the copy speed.
 
-To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage for Azure HPC Cache](hpc-cache-ingest.md).
+To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 ## Simple copy example
 
@@ -30,9 +30,9 @@ After issuing this command, the `jobs` command will show that two threads are ru
 
 ## Copy data with predictable file names
 
-If your file names are predictable, you can use expressions to create parallel copy threads. 
+If your file names are predictable, you can use expressions to create parallel copy threads.
 
-For example, if your directory contains 1000 files that are numbered sequentially from `0001` to `1000`, you can use the following expressions to create ten parallel threads that each copy 100 files:
+For example, if your directory contains 1000 files that are numbered sequentially from `0001` to `1000`, you can use the following expressions to create 10 parallel threads that each copy 100 files:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -49,7 +49,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 ## Copy data with unstructured file names
 
-If your file naming structure is not predictable, you can group files by directory names. 
+If your file naming structure is not predictable, you can group files by directory names.
 
 This example collects entire directories to send to ``cp`` commands run as background tasks:
 
@@ -67,16 +67,16 @@ After the files are collected, you can run parallel copy commands to recursively
 
 ```bash
 cp /mnt/source/* /mnt/destination/
-mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ & 
-cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ & 
+mkdir -p /mnt/destination/dir1 && cp /mnt/source/dir1/* mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
+cp -R /mnt/source/dir1/dir1b /mnt/destination/dir1/ &
 cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1c1 via recursion
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
 ## When to add mount points
 
-After you have enough parallel threads going against a single destination file system mount point, there will be a point where adding more threads does not give more throughput. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.  
+After you have enough parallel threads going against a single destination file system mount point, there will be a point where adding more threads does not give more throughput. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.
 
 When this happens, you can add client-side mount points to other Azure HPC Cache mount addresses, using the same remote file system mount path:
 
@@ -87,7 +87,7 @@ When this happens, you can add client-side mount points to other Azure HPC Cache
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Adding client-side mount points lets you fork off additional copy commands to the additional `/mnt/destination[1-3]` mount points, achieving further parallelism.  
+Adding client-side mount points lets you fork off additional copy commands to the additional `/mnt/destination[1-3]` mount points, achieving further parallelism.
 
 For example, if your files are very large, you might define the copy commands to use distinct destination paths, sending out more commands in parallel from the client performing the copy.
 
@@ -107,7 +107,7 @@ In the example above, all three destination mount points are being targeted by t
 
 ## When to add clients
 
-Lastly, when you have reached the client's capabilities, adding more copy threads or additional mount points will not yield any additional files/sec or bytes/sec increases. In that situation, you can deploy another client with the same set of mount points that will be running its own sets of file copy processes. 
+Lastly, when you have reached the client's capabilities, adding more copy threads or additional mount points will not yield any additional files/sec or bytes/sec increases. In that situation, you can deploy another client with the same set of mount points that will be running its own sets of file copy processes.
 
 Example:
 
@@ -153,7 +153,7 @@ Redirect this result to a file: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/f
 Then you can iterate through the manifest, using BASH commands to count files and determine the sizes of the subdirectories:
 
 ```bash
-ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l`	`du -sh ${i}`"; done
+ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l` `du -sh ${i}`"; done
 244    3.5M    ./atj5b5ab44b7f-02/support/gsi/2018-07-18T00:07:03EDT
 9      172K    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-18T05:01:00UTC
 124    5.8M    ./atj5b5ab44b7f-02/support/gsi/stats_2018-07-19T01:01:01UTC
@@ -189,7 +189,7 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Lastly, you must craft the actual file copy commands to the clients.  
+Lastly, you must craft the actual file copy commands to the clients.
 
 If you have four clients, use this command:
 
@@ -209,7 +209,7 @@ And for six.... Extrapolate as needed.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-You will get *N* resulting files, one for each of your *N* clients that has the path names to the level-four directories obtained as part of the output from the `find` command. 
+You will get *N* resulting files, one for each of your *N* clients that has the path names to the level-four directories obtained as part of the output from the `find` command.
 
 Use each file to build the copy command:
 
@@ -217,6 +217,6 @@ Use each file to build the copy command:
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-The above will give you *N* files, each with a copy command per line, that can be run as a BASH script on the client. 
+The above will give you *N* files, each with a copy command per line, that can be run as a BASH script on the client.
 
 The goal is to run multiple threads of these scripts concurrently per client in parallel on multiple clients.

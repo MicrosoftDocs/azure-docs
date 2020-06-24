@@ -1,10 +1,10 @@
 ---
-title: Quickstart - Configure a firewall for an Analysis Services server in Azure | Microsoft Docs
-description: Learn how to configure a firewall for an Analysis Services server instance in Azure.
+title: Quickstart - Configure Azure Analysis Services server firewall | Microsoft Docs
+description: This quickstart helps you configure a firewall for an Azure Analysis Services server by using the Azure portal.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.
@@ -17,7 +17,8 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 
 - An Analysis Services server in your subscription. To learn more, see [Quickstart: Create a server - Portal](analysis-services-create-server.md) or [Quickstart: Create a server - PowerShell](analysis-services-create-powershell.md)
 - One or more IP address ranges for client computers (if needed).
-- Please Note that Import scenario from Power BI Premium is currently not supported.
+- Some scenarios where Power BI Premium connects to Azure Analysis Services, including data import (refresh) and paginated reports, are currently not supported even when Allow access from Power BI is enabled. The more common scenario of using Live Connect from Power BI Premium is supported. All Power BI Pro scenarios are supported.
+
 
 ## Sign in to the Azure portal 
 

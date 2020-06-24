@@ -2,12 +2,9 @@
 title: Kubernetes on Azure tutorial  - Scale Application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to scale nodes and pods in Kubernetes, and implement horizontal pod autoscaling.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: mlearned
+ms.date: 01/14/2019
+
 ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to scale my applications in an Azure Kubernetes Service (AKS) cluster so that I can provide high availability or respond to customer demand and application load.
@@ -55,7 +52,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 Run [kubectl get pods][kubectl-get] again to verify that AKS creates the additional pods. After a minute or so, the additional pods are available in your cluster:
 
 ```console
-$ kubectl get pods
+kubectl get pods
 
                                     READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
@@ -71,15 +68,15 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes, and is automatically deployed in AKS clusters versions 1.10 and higher. To see the version of your AKS cluster, use the [az aks show][az-aks-show] command, as shown in the following example:
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]
-> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. To install, clone the `metrics-server` GitHub repo and install the example resource definitions. To view the contents of these YAML definitions, see [Metrics Server for Kuberenetes 1.8+][metrics-server-github].
+> If your AKS cluster is less than *1.10*, the Metrics Server is not automatically installed. Metrics Server installation manifests are available as a `components.yaml` asset on Metrics Server releases, which means you can install them via a url. To learn more about these YAML definitions, see the [Deployment][metrics-server-github] section of the readme.
 > 
+> Example installation:
 > ```console
-> git clone https://github.com/kubernetes-incubator/metrics-server.git
-> kubectl create -f metrics-server/deploy/1.8+/
+> kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
 > ```
 
 To use the autoscaler, all containers in your pods and your pods must have CPU requests and limits defined. In the `azure-vote-front` deployment, the front-end container already requests 0.25 CPU, with a limit of 0.5 CPU. These resource requests and limits are defined as shown in the following example snippet:
@@ -98,10 +95,47 @@ The following example uses the [kubectl autoscale][kubectl-autoscale] command to
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
+Alternatively, you can create a manifest file to define the autoscaler behavior and resource limits. The following is an example of a manifest file named `azure-vote-hpa.yaml`.
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-back-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-back
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: azure-vote-front-hpa
+spec:
+  maxReplicas: 10 # define max replica count
+  minReplicas: 3  # define min replica count
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: azure-vote-front
+  targetCPUUtilizationPercentage: 50 # target CPU utilization
+```
+
+Use `kubectl apply` to apply the autoscaler defined in the `azure-vote-hpa.yaml` manifest file.
+
+```
+kubectl apply -f azure-vote-hpa.yaml
+```
+
 To see the status of the autoscaler, use the `kubectl get hpa` command as follows:
 
 ```
-$ kubectl get hpa
+kubectl get hpa
 
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
@@ -156,8 +190,8 @@ Advance to the next tutorial to learn how to update application in Kubernetes.
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
-[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
-[metrics-server]: https://v1-12.docs.kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
+[metrics-server-github]: https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md#deployment
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#metrics-server
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

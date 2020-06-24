@@ -1,15 +1,16 @@
 ---
-title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text - Translator Text API"
+title: "Tutorial: Build a Flask app to translate, synthesize, and analyze text - Translator"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll build a Flask-based web app that uses Azure Cognitive Services to translate text, analyze sentiment, and synthesize translated text into speech. Our focus is on the Python code and Flask routes that enable our application. We won’t spend much time on the Javascript that controls the app, but provide all the files for you to inspect.
+description: In this tutorial, you'll build a Flask-based web app to translate text, analyze sentiment, and synthesize translated text into speech.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
+ms.custom: tracking-python
 ---
 
 # Tutorial: Build a Flask app with Azure Cognitive Services
@@ -22,7 +23,7 @@ Here's what this tutorial covers:
 > * Get Azure subscription keys
 > * Set up your development environment and install dependencies
 > * Create a Flask app
-> * Use the Translator Text API to translate text
+> * Use the Translator to translate text
 > * Use Text Analytics to analyze positive/negative sentiment of input text and translations
 > * Use Speech Services to convert translated text into synthesized speech
 > * Run your Flask app locally
@@ -47,14 +48,14 @@ Let's review the software and subscription keys that you'll need for this tutori
 * [Git tools](https://git-scm.com/downloads)
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
-* A **Translator Text** subscription key (Note that you aren't required to select a region.)
+* A **Translator** subscription key (Note that you aren't required to select a region.)
 * A **Text Analytics** subscription key in the **West US** region.
 * A **Speech Services** subscription key in the **West US** region.
 
 ## Create an account and subscribe to resources
 
 As previously mentioned, you're going to need three subscription keys for this tutorial. This means that you need to create a resource within your Azure account for:
-* Translator Text
+* Translator
 * Text Analytics
 * Speech Services
 
@@ -115,7 +116,7 @@ Let's create a virtual environment for our Flask app using `virtualenv`. Using a
 
 ### Install requests
 
-Requests is a popular module that is used to send HTTP 1.1 requests. There’s no need to manually add query strings to your URLs, or to form-encode your POST data.
+Requests is a popular module that is used to send HTTP 1.1 requests. There's no need to manually add query strings to your URLs, or to form-encode your POST data.
 
 1. To install requests, run:
 
@@ -124,7 +125,7 @@ Requests is a popular module that is used to send HTTP 1.1 requests. There’s n
    ```
 
 > [!NOTE]
-> If you'd like to learn more about requests, see [Requests: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> If you'd like to learn more about requests, see [Requests: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### Install and configure Flask
 
@@ -140,7 +141,7 @@ Next we need to install Flask. Flask handles the routing for our web app, and al
    ```
    The version should be printed to terminal. Anything else means something went wrong.
 
-2. To run the Flask app, you can either use the flask command or Python’s -m switch with Flask. Before you can do that you need to tell your terminal which app to work with by exporting the `FLASK_APP` environment variable:
+2. To run the Flask app, you can either use the flask command or Python's -m switch with Flask. Before you can do that you need to tell your terminal which app to work with by exporting the `FLASK_APP` environment variable:
 
    **macOS/Linux**:
    ```
@@ -235,20 +236,20 @@ While these samples illustrate how to render html pages for a user, routes can a
    flask run
    ```
 
-4. Open a browser and navigate to the URL provided. You should see your single page app. Press **Ctrl + c** to kill the app.
+4. Open a browser and navigate to the URL provided. You should see your single page app. Press **Ctrl + C** to kill the app.
 
 ## Translate text
 
 Now that you have an idea of how a simple Flask app works, let's:
 
-* Write some Python to call the Translator Text API and return a response
+* Write some Python to call the Translator and return a response
 * Create a Flask route to call your Python code
 * Update the HTML with an area for text input and translation, a language selector, and translate button
 * Write Javascript that allows users to interact with your Flask app from the HTML
 
-### Call the Translator Text API
+### Call the Translator
 
-The first thing you need to do is write a function to call the Translator Text API. This function will take two arguments: `text_input` and `language_output`. This function is called whenever a user presses the translate button in your app. The text area in the HTML is sent as the `text_input`, and the language selection value in the HTML is sent as `language_output`.
+The first thing you need to do is write a function to call the Translator. This function will take two arguments: `text_input` and `language_output`. This function is called whenever a user presses the translate button in your app. The text area in the HTML is sent as the `text_input`, and the language selection value in the HTML is sent as `language_output`.
 
 1. Let's start by creating a file called `translate.py` in the root of your working directory.
 2. Next, add this code to `translate.py`. This function takes two arguments: `text_input` and `language_output`.
@@ -284,7 +285,7 @@ The first thing you need to do is write a function to call the Translator Text A
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Add your Translator Text subscription key and save.
+3. Add your Translator subscription key and save.
 
 ### Add a route to `app.py`
 
@@ -776,7 +777,7 @@ Now that you have a function to convert text-to-speech, and a route in your Flas
        <option value="(zh-TW, Yating, Apollo)">Chinese (Taiwan)| Female | Yaiting, Apollo</option>
        <option value="(zh-TW, Zhiwei, Apollo)">Chinese (Taiwan) | Male | Zhiwei, Apollo</option>
        <option value="(hr-HR, Matej)">Croatian | Male | Matej</option>
-       <option value="(en-US, Jessa24kRUS)">English (US) | Female | Jessa24kRUS</option>
+       <option value="(en-US, AriaRUS)">English (US) | Female | AriaRUS</option>
        <option value="(en-US, Guy24kRUS)">English (US) | Male | Guy24kRUS</option>
        <option value="(en-IE, Sean)">English (IE) | Male | Sean</option>
        <option value="(fr-FR, Julie, Apollo)">French | Female | Julie, Apollo</option>
@@ -957,6 +958,6 @@ The source code for this project is available on [GitHub](https://github.com/Mic
 
 ## Next steps
 
-* [Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Translator reference](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 * [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

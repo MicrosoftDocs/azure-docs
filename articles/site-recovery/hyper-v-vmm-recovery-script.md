@@ -1,5 +1,5 @@
 ﻿---
-title: Add a script to a recovery plan for disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Add a script to a recovery plan in Azure Site Recovery 
 description: Learn how to add a VMM script to a recovery plan for disaster recovery of Hyper-V VMs in VMM clouds. 
 author: rajani-janaki-ram
 manager: rochakm
@@ -13,7 +13,7 @@ ms.author: rajanaki
 
 This article describes how to create a System Center Virtual Machine Manager (VMM) script and add it to a recovery plan in [Azure Site Recovery](site-recovery-overview.md).
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Post any comments or questions at the bottom of this article, or on the [Microsoft Q&A question page for Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## Prerequisites
 

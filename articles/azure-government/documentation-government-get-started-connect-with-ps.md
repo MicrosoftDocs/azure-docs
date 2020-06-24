@@ -4,8 +4,6 @@ description: Information on connecting your subscription in Azure Government wit
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/09/2018
-ms.author: gsacavdm
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using PowerShell so I can start developing against Azure Government's secure isolated datacenters.
 ---
@@ -39,7 +36,6 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-In Azure Government, there is no equivalent to **Azure Cloud Shell** that you can find in the Azure portal. 
 
 ## Specifying Azure Government as the *environment* to connect to
 

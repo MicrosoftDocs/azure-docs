@@ -1,40 +1,71 @@
 ---
-title: Troubleshoot SQL Server database backup by using Azure Backup | Microsoft Docs
+title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
-ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
 
 This article provides troubleshooting information for SQL Server databases running on Azure virtual machines.
 
-For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](backup-azure-sql-database.md#feature-consideration-and-limitations).
+For more information about the backup process and limitations, see [About SQL Server backup in Azure VMs](sql-support-matrix.md#feature-consideration-and-limitations).
 
 ## SQL Server permissions
 
 To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
+## Troubleshoot discover and configure issues
+
+After creating and configuring a Recovery Services vault, discovering databases and configuring backup is a two-step process.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+During the backup configuration, if the SQL VM and its instances are not visible in the **Discovery DBs in VMs** and **Configure Backup** (refer to above image) ensure that:
+
+### Step 1: Discovery DBs in VMs
+
+- If the VM is not listed in the discovered VM list and also not registered for SQL backup in another vault, then follow the [Discovery SQL Server backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases) steps.
+
+### Step 2: Configure Backup
+
+- If the vault in which the SQL VM is registered in the same vault used to protect the databases, then follow the [Configure Backup](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup) steps.
+
+If the SQL VM needs to be registered in the new vault, then it must be unregistered from the old vault.  Unregistration of a SQL VM from the vault requires all the protected data sources to be stop protected and then you can delete the backed-up data. Deleting backed up data is a destructive operation.  After you have reviewed and taken all the precautions to unregister the SQL VM, then register this same VM with a new vault and retry the backup operation.
+
+## Troubleshoot Backup and Recovery issues  
+
+At times, either random failures may happen in backup and restore operations or those operations might get stuck. This may be because of antivirus programs on your VM. As a best practice, we suggest the following steps:
+
+1. Exclude the following folders from antivirus scanning:
+
+    `C:\Program Files\Azure Workload Backup`
+    `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Replace `C:\` with the letter of your *SystemDrive*.
+
+1. Exclude the following three processes running within a VM from antivirus scanning:
+
+    - IaasWLPluginSvc.exe
+    - IaasWorkloadCoordinaorService.exe
+    - TriggerExtensionJob.exe
+
+1. SQL also offers some guidelines about to work with antivirus programs. See [this article](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) for details.
+
 ## Error messages
 
-### Backup Type Unsupported
+### Backup type unsupported
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Neither differential backup nor transaction log backup is possible. </li> <li>Any database in the simple recovery model does not allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
-
+| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Neither differential backup nor transaction log backup is possible. </li> <li>Any database in the simple recovery model does not allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
 
 ### UserErrorSQLPODoesNotSupportBackupType
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
+| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
 
@@ -46,19 +77,19 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Log chain is broken. | The database or the VM is backed up through another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an ad hoc log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed because the Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
+| Log chain is broken. | The database or the VM is backed up through another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an on-demand log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed because the Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
 
 ### UserErrorOpeningSQLConnection
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Azure Backup is not able to connect to the SQL instance. | Azure Backup can't connect to the SQL Server instance. | Use the additional details on the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings don't allow remote connections, change the settings. See the following articles for information about changing the settings:<ul><li>[MSSQLSERVER_-1](/previous-versions/sql/sql-server-2016/bb326495(v=sql.130))</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, use these links to fix them:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
+| Azure Backup is not able to connect to the SQL instance. | Azure Backup can't connect to the SQL Server instance. | Use the additional details on the Azure portal error menu to narrow down the root causes. Refer to [SQL backup troubleshooting](https://docs.microsoft.com/sql/database-engine/configure-windows/troubleshoot-connecting-to-the-sql-server-database-engine) to fix the error.<br/><ul><li>If the default SQL settings don't allow remote connections, change the settings. See the following articles for information about changing the settings:<ul><li>[MSSQLSERVER_-1](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-1-database-engine-error?view=sql-server-ver15)</li><li>[MSSQLSERVER_2](/sql/relational-databases/errors-events/mssqlserver-2-database-engine-error)</li><li>[MSSQLSERVER_53](/sql/relational-databases/errors-events/mssqlserver-53-database-engine-error)</li></ul></li></ul><ul><li>If there are login issues, use these links to fix them:<ul><li>[MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error)</li><li>[MSSQLSERVER_18452](/sql/relational-databases/errors-events/mssqlserver-18452-database-engine-error)</li></ul></li></ul> |
 
 ### UserErrorParentFullBackupMissing
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so be sure to take full backups before triggering differential or log backups. | Trigger an ad hoc full backup.   |
+| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so be sure to take full backups before triggering differential or log backups. | Trigger an on-demand full backup.   |
 
 ### UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -78,7 +109,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 |---|---|---|
 | Restore failed as the database could not be brought offline. | While you're doing a restore, the target database needs to be brought offline. Azure Backup can't bring this data offline. | Use the additional details on the Azure portal error menu to narrow down the root causes. For more information, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  UserErrorCannotFindServerCertificateWithThumbprint
+### UserErrorCannotFindServerCertificateWithThumbprint
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
@@ -88,8 +119,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time as per the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105)).
-
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -125,34 +155,39 @@ Operation is blocked as you have reached the limit on number of operations permi
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes in case of at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours. 
+Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes when there are at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours.
 
+### UserErrorVMInternetConnectivityIssue
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup to Azure Backup Service, Azure Storage or Azure Active Directory services. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there is no firewall/antivirus/proxy that is blocking calls to the above three target services.
 
 ## Re-registration failures
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
-* All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* The **Backup Status** area for the backup item is showing **Not reachable**. Rule out all the other causes that might result in the same status:
+- All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
+- If the **Backup Status** area for the backup item is showing **Not reachable**, rule out all the other causes that might result in the same status:
 
-  * Lack of permission to perform backup-related operations on the VM  
-  * Shutdown of the VM, so backups can’t take place
-  * Network issues  
+  - Lack of permission to perform backup-related operations on the VM.
+  - Shutdown of the VM, so backups cannot take place.
+  - Network issues.
 
-  !["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png)
+   ![re-registering VM](./media/backup-azure-sql-database/re-register-vm.png)
 
-* In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
+- In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
 
 These symptoms may arise for one or more of the following reasons:
 
-* An extension was deleted or uninstalled from the portal. 
-* An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
-* The VM was restored back in time through in-place disk restore.
-* The VM was shut down for an extended period, so the extension configuration on it expired.
-* The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
-* One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
+- An extension was deleted or uninstalled from the portal.
+- An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
+- The VM was restored back in time through in-place disk restore.
+- The VM was shut down for an extended period, so the extension configuration on it expired.
+- The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+- One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
-In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. For now, this option is available only through PowerShell.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup) for instructions on how to perform this task in PowerShell.
 
 ## Size limit for files
 
@@ -180,9 +215,10 @@ If the string size of the content exceeds 20,000 bytes, the database files are s
 
 ### Override the default target restore file path
 
-You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
 
 The content of the file should be in this format:
+
 ```json
 [
   {
@@ -223,9 +259,8 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 WHERE db.name = N'<Database Name>'"
   ```
 
-
 This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
-For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

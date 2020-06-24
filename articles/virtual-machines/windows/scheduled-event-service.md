@@ -1,16 +1,12 @@
 ---
-title: Monitor scheduled events for your Windows VMs in Azure | Microsoft Docs
+title: Monitor scheduled events for your Windows VMs in Azure 
 description: Learn how to monitor your Azure virtual machines for scheduled events.
-services: virtual-machines-windows
-documentationcenter: ''
 author: mysarn
-manager: gwallace
-
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Monitoring Scheduled Events

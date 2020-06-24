@@ -1,6 +1,6 @@
 ---
 title: Configure the Connected Factory topology - Azure | Microsoft Docs
-description: How to configure the topology of a Connected Factory solution accelerator.
+description: This article describes how to configure the Connected Factory solution accelerator including its topology. 
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

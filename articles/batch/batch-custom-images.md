@@ -1,31 +1,25 @@
 ---
-title: Provision a custom pool from a managed image - Azure Batch | Microsoft Docs
+title: Provision a custom pool from a managed image
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
-ms.topic: article
-ms.date: 09/16/2019
-ms.author: lahugh
+ms.topic: conceptual
+ms.date: 05/22/2020
 ---
 
 # Use a managed image to create a pool of virtual machines
 
-To create a custom image for your Batch pool's virtual machines (VMs), you can use either the [Shared Image Gallery](batch-sig-images.md), or a *managed image* resource.
+To create a custom image for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
-> [!TIP]
+> [!IMPORTANT]
 > In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
 
 ## Prerequisites
 
-- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks. For more information and steps to prepare a managed image, see the following section.
+- **A managed image resource**. To create a pool of virtual machines using a custom image, you need to have or create a managed image resource in the same Azure subscription and region as the Batch account. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
   - Use a unique custom image for each pool you create.
-  - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. To use the portal, use the **name** of the image.  
+  - To create a pool with the image using the Batch APIs, specify the **resource ID** of the image, which is of the form `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`.
   - The managed image resource should exist for the lifetime of the pool to allow scale-up and can be removed after the pool is deleted.
 
-- **Azure Active Directory (AAD) authentication**. The Batch client API must use AAD authentication. Azure Batch support for AAD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- **Azure Active Directory (Azure AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 ## Prepare a custom image
 
@@ -35,16 +29,14 @@ In Azure, you can prepare a managed image from:
 - A generalized Azure VM with managed disks
 - A generalized on-premises VHD uploaded to the cloud
 
-To scale Batch pools reliably with a custom image, we recommend creating a managed image using *only* the first method: using snapshots of the VM's disks. See the following steps to prepare a VM, take a snapshot, and create an image from the snapshot.
+To scale Batch pools reliably with a managed image, we recommend creating the managed image using *only* the first method: using snapshots of the VM's disks. The following steps show how to prepare a VM, take a snapshot, and create a managed image from the snapshot.
 
 ### Prepare a VM
 
 If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
 
 > [!NOTE]
-> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) VMs.
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VMs.
 
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
 - Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
@@ -60,29 +52,70 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
-## Create a pool from a custom image in the portal
+## Create a pool from a custom image
 
-Once you have saved your custom image and you know its resource ID or name, create a Batch pool from that image. The following steps show you how to create a pool from the Azure portal.
+Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
 
 > [!NOTE]
-> If you are creating the pool using one of the Batch APIs, make sure that the identity you use for AAD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+> Make sure that the identity you use for Azure AD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
 > The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled.
 
-1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the custom image.
-2. In the **Settings** window on the left, select the **Pools** menu item.
-3. In the **Pools** window, select the **Add** command.
-4. On the **Add Pool** window, select **Custom Image (Linux/Windows)** from the **Image Type** dropdown. From the **Custom VM image** dropdown, select the image name (short form of the resource ID).
-5. Select the correct **Publisher/Offer/Sku** for your custom image.
-6. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low-priority nodes**, as well as any desired optional settings.
+### Batch Service .NET SDK
 
-    For example, for a Microsoft Windows Server Datacenter 2016 custom image, the **Add Pool** window appears as shown below:
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-    ![Add pool from custom Windows image](media/batch-custom-images/add-pool-custom-image.png)
-  
-To check whether an existing pool is based on a custom image, see the **Operating System** property in the resource summary section of the **Pool** window. If the pool was created from a custom image, it is set to **Custom VM Image**.
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
+}
 
-All custom images associated with a pool are displayed on the pool's **Properties** window.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
+```
+
+### Batch Management REST API
+
+REST API URI
+
+```http
+ PUT https://management.azure.com/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Batch/batchAccounts/{account name}/pools/{pool name}?api-version=2020-03-01
+```
+
+Request Body
+
+```json
+ {
+   "properties": {
+     "vmSize": "{VM size}",
+     "deploymentConfiguration": {
+       "virtualMachineConfiguration": {
+         "imageReference": {
+           "id": "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image name}"
+         },
+         "nodeAgentSkuId": "{Node Agent SKU ID}"
+       }
+     }
+   }
+ }
+```
 
 ## Considerations for large pools
 
@@ -114,4 +147,5 @@ For more information on using Packer to create a VM, see [Build a Linux image wi
 
 ## Next steps
 
-For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+- Learn how to use the [Shared Image Gallery](batch-sig-images.md) to create a custom pool.
+- For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

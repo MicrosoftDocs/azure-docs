@@ -1,5 +1,5 @@
 - name: Media Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   href: media-services-overview.md
   items:
@@ -50,6 +50,7 @@
 - name: How To
   items:
   - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
     href: legacy-components.md
     items:
      - name: Migrate from Azure Media Encoder
@@ -254,30 +255,14 @@
     - name: Configure on-premises encoders for use with cloud encoder
       href: media-services-live-encoders-overview.md
       items:
-      - name: FMLE encoder
-        href: media-services-configure-fmle-live-encoder.md
       - name: Haivision KB encoder
         href: media-services-configure-kb-live-encoder.md
-      - name: NewTek TriCaster encoder
-        href: media-services-configure-tricaster-live-encoder.md
       - name: Wirecast encoder
         href: media-services-configure-wirecast-live-encoder.md
     - name: Handle long-running operations
       href: media-services-dotnet-long-operations.md
     - name: Fragmented MP4 live ingest specification
       href: ../media-services-fmp4-live-ingest-overview.md
-    - name: Getting started
-      href: media-services-azure-media-clipper-getting-started.md
-    - name: Load videos
-      href: media-services-azure-media-clipper-load-assets.md
-    - name: Configure keyboard shortcuts
-      href: media-services-azure-media-clipper-keyboard-shortcuts.md
-    - name: Configure localization
-      href: media-services-azure-media-clipper-localization.md
-    - name: Submit clipping jobs
-      href: media-services-azure-media-clipper-submit-job.md
-    - name: Azure portal 
-      href: media-services-azure-media-clipper-portal.md
   - name: Protect content
     href: media-services-content-protection-overview.md
     items:
@@ -406,12 +391,11 @@
       href: media-services-deliver-asset-download.md
     - name: Failover streaming scenario
       href: media-services-implement-failover.md
+      displayName: HA, high availability
   - name: Consume
     items:
     - name: Playback media with existing players
       href: media-services-playback-content-with-existing-players.md
-    - name: Playback media with Media Player
-      href: media-services-develop-video-players.md
     - name: Other playback options
       items:
       - name: Smooth streaming Windows Store application
@@ -474,6 +458,9 @@
       href: ../media-services-specifications-live-timed-metadata.md
     - name: Smooth Streaming HEVC
       href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+  - name: Legacy components
+    displayName: deprecated, deprecation, retired, retirement, legacy
+    href: legacy-components.md      
 - name: Resources
   items:
   - name: Azure Media Services community

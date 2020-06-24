@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement offer Contacts tab | Azure Marketplace 
 description: Deprecated this CPP article, linked to PC article; Was "Configure contact information for Dynamics 365 for Customer Engagement offer on the AppSource Marketplace."
-services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal, 
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Azure application Contacts tab

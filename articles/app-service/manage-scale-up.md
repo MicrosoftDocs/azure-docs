@@ -1,18 +1,9 @@
 ---
-title: Scale up features and capacities - Azure App Service | Microsoft Docs
-description: Learn how to scale up an app in Azure App Service to add capacity and features.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-
+title: Scale up features and capacities
+description: Learn how to scale up an app in Azure App Service. Get more CPU, memory, disk space, and extra features.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/19/2019
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -24,7 +15,7 @@ This article shows you how to scale your app in Azure App Service. There are two
   like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more. You scale up by changing the pricing tier of the
   App Service plan that your app belongs to.
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
-  You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](environment/intro.md)
+  You can scale out to as many as 30 instances, depending on your pricing tier. [App Service Environments](environment/intro.md)
   in **Isolated** tier further increases your scale-out count to 100 instances. For more information about scaling out, see
   [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
@@ -72,7 +63,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
    
     ![Navigate to resource group page to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
 
-    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](../sql-database/sql-database-single-database-scale.md). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
+    To scale up the related resource, see the documentation for the specific resource type. For example, to scale up a single SQL Database, see [Scale single database resources in Azure SQL Database](../azure-sql/database/single-database-scale.md). To scale up a Azure Database for MySQL resource, see [Scale MySQL resources](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -81,7 +72,7 @@ If your app depends on other services, such as Azure SQL Database or Azure Stora
 
 For detailed information, such as VM sizes for each pricing tier, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/app-service).
 
-For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits).
+For a table of service limits, quotas, and constraints, and supported features in each tier, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 <a name="Next Steps"></a>
 

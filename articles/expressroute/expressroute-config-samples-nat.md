@@ -1,5 +1,5 @@
 ---
-title: Router configuration samples - NAT - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Router configuration samples - NAT'
 description: This page provides router configuration samples for Cisco and Juniper routers.
 services: expressroute
 author: cherylmc
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # Router configuration samples to set up and manage NAT

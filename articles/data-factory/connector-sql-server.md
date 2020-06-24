@@ -1,25 +1,25 @@
 ---
-title: Copy data to and from SQL Server by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from SQL Server
 description: Learn about how to move data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 05/29/2020
 ---
+
 # Copy data to and from SQL Server by using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Azure Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Current version](connector-sql-server.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to a SQL Server database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
@@ -38,7 +38,7 @@ Specifically, this SQL Server connector supports:
 - SQL Server versions 2016, 2014, 2012, 2008 R2, 2008, and 2005.
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure.
-- As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
+- As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during copy. 
 
 [SQL Server Express LocalDB](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) is not supported.
 
@@ -62,7 +62,7 @@ The following properties are supported for the SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes |
-| connectionString |Specify **connectionString** information that's needed to connect to the SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Specify **connectionString** information that's needed to connect to the SQL Server database by using either SQL authentication or Windows authentication. Refer to the following samples.<br/>You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | userName |Specify a user name if you use Windows authentication. An example is **domainname\\username**. |No |
 | password |Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely in Azure Data Factory. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure integration runtime is used. |No |
@@ -78,10 +78,7 @@ The following properties are supported for the SQL Server linked service:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
-            }
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -99,10 +96,7 @@ The following properties are supported for the SQL Server linked service:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
-            },
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -128,10 +122,7 @@ The following properties are supported for the SQL Server linked service:
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
-            },
+            "connectionString": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;",
             "userName": "<domain\\username>",
             "password": {
                 "type": "SecureString",
@@ -194,6 +185,7 @@ To copy data from SQL Server, set the source type in the copy activity to **SqlS
 | sqlReaderQuery |Use the custom SQL query to read data. An example is `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Points to note:**
 
@@ -297,14 +289,14 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. |No |
-| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00” for 30 minutes. If no value is specified, the timeout defaults to "02:00:00". |No |
 | preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into SQL Server. It's invoked only once per copy run. You can use this property to clean up the preloaded data. |No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
+| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property.<br>See example from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. |No |
+| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00” for 30 minutes. If no value is specified, the timeout defaults to "02:00:00". |No |
 
 **Example 1: Append data**
 
@@ -331,8 +323,8 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
             },
             "sink": {
                 "type": "SqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -396,12 +388,11 @@ Appending data is the default behavior of this SQL Server sink connector. Azure 
 
 ### Upsert data
 
-**Option 1:** When you have a large amount of data to copy, use the following approach to do an upsert: 
+**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) or INSERT/UPDATE statement in one shot. 
 
-- First, use a [temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) to bulk load all records by using the copy activity. Because operations against temporary tables aren't logged, you can load millions of records in seconds.
-- Run a stored procedure activity in Azure Data Factory to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) or INSERT/UPDATE statement. Use the temp table as a source to perform all updates or inserts as a single transaction. In this way, the number of round trips and log operations is reduced. At the end of the stored procedure activity, the temp table can be truncated to be ready for the next upsert cycle.
+Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
 
-As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into a database temporary table, for example, **##UpsertTempTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the temp table into the target table and clean up the temp table.
+As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into a SQL Server staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -412,7 +403,7 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
 	MERGE TargetTable AS target
-	USING ##UpsertTempTable AS source
+	USING UpsertStagingTable AS source
 	ON (target.[ProfileID] = source.[ProfileID])
 	WHEN MATCHED THEN
 		UPDATE SET State = source.State
@@ -420,11 +411,11 @@ BEGIN
     	INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
     
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Option 2:** You also can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each row in the source table instead of using bulk insert as the default approach in the copy activity, which isn't appropriate for large-scale upsert.
+**Option 2:** You can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each batch (as governed by the `writeBatchSize` property) in the source table instead of using bulk insert as the default approach in the copy activity.
 
 ### Overwrite the entire table
 
@@ -432,19 +423,13 @@ You can configure the **preCopyScript** property in a copy activity sink. In thi
 
 ### Write data with custom logic
 
-The steps to write data with custom logic are similar to those described in the [Upsert data](#upsert-data) section. When you need to apply extra processing before the final insertion of source data into the destination table, for large scale, you can do one of two things: 
-
-- Load to a temporary table and then invoke a stored procedure. 
-- Invoke a stored procedure during copy.
+The steps to write data with custom logic are similar to those described in the [Upsert data](#upsert-data) section. When you need to apply extra processing before the final insertion of source data into the destination table, you can load to a staging table then invoke stored procedure activity, or invoke a stored procedure in copy activity sink to apply data.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into a SQL Server database, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+When you copy data into SQL Server database, you also can configure and invoke a user-specified stored procedure with additional parameters on each batch of the source table. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
-> [!TIP]
-> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into SQL Server](#best-practice-for-loading-data-into-sql-server).
-
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert into more than one table.
 
 The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category called "ProductA".
 
@@ -453,12 +438,12 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     ```sql
     CREATE TYPE [dbo].[MarketingType] AS TABLE(
         [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL，
+        [State] [varchar](256) NOT NULL,
         [Category] [varchar](256) NOT NULL
     )
     ```
 
-2. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
+2. In your database, define the stored procedure with the same name as **sqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
 
     ```sql
     CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -480,9 +465,9 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     ```json
     "sink": {
         "type": "SqlSink",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "sqlWriterStoredProcedureName": "spOverwriteMarketing",
         "storedProcedureTableTypeParameterName": "Marketing",
-        "SqlWriterTableType": "MarketingType",
+        "sqlWriterTableType": "MarketingType",
         "storedProcedureParameters": {
             "category": {
                 "value": "ProductA"
@@ -531,7 +516,7 @@ When you copy data from and to SQL Server, the following mappings are used from 
 | xml |Xml |
 
 >[!NOTE]
-> For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
+> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
 
 ## Lookup activity properties
 
@@ -540,6 +525,24 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ## GetMetadata activity properties
 
 To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Using Always Encrypted
+
+When you copy data from/to SQL Server with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15), use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. This SQL Server connector does not support Always Encrypted now. 
+
+More specifically:
+
+1. Set up a Self-hosted Integration Runtime if you don't have one. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+
+2. Download the 64-bit ODBC driver for SQL Server from [here](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15), and install on the Integration Runtime machine. Learn more about how this driver works from [Using Always Encrypted with the ODBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-ver15#using-the-azure-key-vault-provider).
+
+3. Create linked service with ODBC type to connect to your SQL database. To use SQL authentication, specify the ODBC connection string as below, and select **Basic** authentication to set the user name and password.
+
+    ```
+    Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+    ```
+
+4. Create dataset and copy activity with ODBC type accordingly. Learn more from [ODBC connector](connector-odbc.md) article.
 
 ## Troubleshoot connection issues
 
@@ -561,4 +564,4 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 6. **Verify connection**: To connect to SQL Server by using a fully qualified name, use SQL Server Management Studio from a different machine. An example is `"<machine>.<domain>.corp.<company>.com,1433"`.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

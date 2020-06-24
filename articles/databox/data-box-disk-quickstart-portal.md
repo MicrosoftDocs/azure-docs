@@ -10,21 +10,13 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high 
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
+
+# Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
+
 ::: zone target="docs"
 
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
-
-::: zone-end
-
-::: zone target="chromeless"
-
-## Get started with Azure Data Box Disk 
-
-::: zone-end
-
-::: zone target="docs"
 
 This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
 

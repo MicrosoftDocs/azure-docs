@@ -1,12 +1,11 @@
 ---
 title: Visualizing data from Azure Monitor | Microsoft Docs
 description: Provides a summary of the available methods to visualize metric and log data stored in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
+ms.date: 03/17/2020
 
 ---
 
@@ -15,7 +14,23 @@ This article provides a summary of the available methods to visualize log and me
 
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## Workbooks
+[Workbooks](../azure-monitor/platform/workbooks-overview.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+
+![Workbook](media/visualizations/workbook.png)
+
+### Advantages
+- Supports both metrics and logs.
+- Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
+- Document-like flow.
+- Option for personal or shared workbooks.
+- Easy, collaborative-friendly authoring experience.
+- Templates support public GitHub-based template gallery.
+
+### Limitations
+- No automatic refresh.
+- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
+
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
@@ -40,44 +55,6 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Log charts can only be pinned to shared dashboards.
 - No interactivity with dashboard data.
 - Limited contextual drill-down.
-
-## Azure Monitor Views
-[Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
-
-![View](media/visualizations/view.png)
-
-### Advantages
-- Rich visualizations for log data.
-- Export and import views to transfer them to other resource groups and subscriptions.
-- Integrates into Azure Monitor management model with workspaces and monitoring solutions.
-- [Filters](platform/view-designer-filters.md) for custom parameters.
-- Interactive, supports multi-level drill-in (view that drills into another view)
-
-### Limitations
-- Supports logs but not metrics.
-- No personal views. Available to all users with access to the workspace.
-- No automatic refresh.
-- Limited layout options.
-- No support for querying across multiple workspaces or Application Insights applications.
-- Queries are limited in response size to 8MB and query execution time of 110 seconds.
-
-
-## Workbooks
-[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
-
-![Workbook](media/visualizations/workbook.png)
-
-### Advantages
-- Supports both metrics and logs.
-- Supports parameters  enabling interactive reports where selecting an element in a table will dynamically update associated charts and visualizations.
-- Document-like flow.
-- Option for personal or shared workbooks.
-- Easy, collaborative-friendly authoring experience.
-- Templates support public GitHub-based template gallery.
-
-### Limitations
-- No automatic refresh.
-- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
 
 
 ## Power BI
@@ -127,11 +104,36 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Significant engineering effort required.
 
 
+## Azure Monitor Views
+
+> [!IMPORTANT]
+> Views are in the process of being deprecated. See [Azure Monitor view designer to workbooks transition guide](platform/view-designer-conversion-overview.md) for guidance on converting views to workbooks.
+
+[Views in Azure Monitor](platform/view-designer.md)  allow you to create custom visualizations with log data. They are used by [monitoring solutions](insights/solutions.md) to present the data they collect.
+
+
+![View](media/visualizations/view.png)
+
+### Advantages
+- Rich visualizations for log data.
+- Export and import views to transfer them to other resource groups and subscriptions.
+- Integrates into Azure Monitor management model with workspaces and monitoring solutions.
+- [Filters](platform/view-designer-filters.md) for custom parameters.
+- Interactive, supports multi-level drill-in (view that drills into another view)
+
+### Limitations
+- Supports logs but not metrics.
+- No personal views. Available to all users with access to the workspace.
+- No automatic refresh.
+- Limited layout options.
+- No support for querying across multiple workspaces or Application Insights applications.
+- Queries are limited in response size to 8MB and query execution time of 110 seconds.
+
 ## Next steps
 - Learn about the [data collected by Azure Monitor](platform/data-platform.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
-- Learn about [Workbooks](../azure-monitor/app/usage-workbooks.md).
+- Learn about [Workbooks](../azure-monitor/platform/workbooks-overview.md).
 - Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
 - Learn about the [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md).
 

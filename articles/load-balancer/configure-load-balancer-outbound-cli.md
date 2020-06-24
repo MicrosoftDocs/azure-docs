@@ -1,13 +1,13 @@
 ---
 title: Configure load balancing and outbound rules using Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: This article shows how to configure load balancing and outbound rules in a Standard Load Balancer using the Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -44,7 +44,7 @@ Create a virtual network named *myvnetoutbound* with a subnet named *mysubnetout
     --resource-group myresourcegroupoutbound \
     --name myvnetoutbound \
     --address-prefix 192.168.0.0/16 \
-    --subnet-name mysubnetoutbound
+    --subnet-name mysubnetoutbound \
     --subnet-prefix 192.168.0.0/24
 ```
 

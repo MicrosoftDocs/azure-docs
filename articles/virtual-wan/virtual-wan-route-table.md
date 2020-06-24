@@ -1,12 +1,12 @@
 ---
-title: 'Create an Azure Virtual WAN virtual hub route table to steer to NVA | Microsoft Docs'
+title: 'Virtual WAN: Create virtual hub route table to NVA: Azure PowerShell'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 01/09/2019
+ms.topic: how-to
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
@@ -112,7 +112,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Commit the changes into the virtual hub.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
+Update-AzVirtualHub -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## Next steps

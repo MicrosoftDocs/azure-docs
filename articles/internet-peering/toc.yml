@@ -1,0 +1,90 @@
+- name: Internet peering documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Internet peering
+    href: overview.md
+  - name: Internet peering vs. Peering Service
+    href: overview-peering-service.md
+- name: Concepts
+  items:
+  - name: Peering policy
+    href: policy.md
+- name: How-to guides
+  items:
+  - name: Prerequisites to set up peering with Microsoft
+    href: prerequisites.md
+  - name: Direct peering walkthrough
+    href: walkthrough-direct-all.md
+  - name: Exchange peering walkthrough
+    href: walkthrough-exchange-all.md
+  - name: Peering Service partner walkthrough
+    href: walkthrough-peering-service-all.md
+  - name: Associate peer ASN to Azure subscription
+    items:
+    - name: Portal
+      href: howto-subscription-association-portal.md
+    - name: Azure PowerShell
+      href: howto-subscription-association-powershell.md
+  - name: Enable Peering Service on a Direct peering
+    items:
+    - name: Portal
+      href: howto-peering-service-portal.md
+    - name: Azure PowerShell
+      href: howto-peering-service-powershell.md
+  - name: Create or modify a Direct peering
+    items:
+    - name: Portal
+      href: howto-direct-portal.md
+    - name: Azure PowerShell
+      href: howto-direct-powershell.md
+  - name: Convert a legacy Direct peering to Azure resource
+    items:
+    - name: Portal
+      href: howto-legacy-direct-portal.md
+    - name: Azure PowerShell
+      href: howto-legacy-direct-powershell.md
+  - name: Create or modify an Exchange peering
+    items:
+    - name: Portal
+      href: howto-exchange-portal.md
+    - name: Azure PowerShell
+      href: howto-exchange-powershell.md
+  - name: Convert a legacy Exchange peering to Azure resource
+    items:
+    - name: Portal
+      href: howto-legacy-exchange-portal.md
+    - name: Azure PowerShell
+      href: howto-legacy-exchange-powershell.md
+  - name: Create or modify an Exchange peering with route server
+    items:
+    - name: Portal
+      href: how-to-exchange-route-server-portal.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/network
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.network
+  - name: Java
+    href: https://docs.microsoft.com/java/api/
+  - name: Node.js
+    href: https://docs.microsoft.com/javascript/azure#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: Resource Manager template
+    href: https://docs.microsoft.com/azure/templates/microsoft.network/allversions
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: https://docs.microsoft.com/learn/browse/
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Networking feedback
+    href: https://feedback.azure.com/forums/217313-networking?category_id=77469
+  - name: Internet peering FAQs
+    href: faqs.md
+  - name: Peering Service FAQs
+    href: service-faqs.md

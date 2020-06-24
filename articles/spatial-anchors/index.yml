@@ -1,87 +1,79 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Spatial Anchors Documentation
+### YamlMime:Landing
+
+title: Azure Spatial Anchors documentation
+summary: Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
+
 metadata:
-  document_id: 8ba93ac8-1984-48d5-8944-329e6653e39d
-  title: Azure Spatial Anchors Documentation - Tutorials, API Reference
-  meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
+  title: Azure Spatial Anchors documentation
+  description: Use Azure Spatial Anchors for apps with durable spatial anchors. Learn about authentication, way-finding, experience, logging, and coarse relocalization.
   services: azure-spatial-anchors
-  author: craigktreasure
-  manager: aliemami
   ms.service: azure-spatial-anchors
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 02/24/2019
+  author: craigktreasure
   ms.author: crtreasu
-abstract:
-  description: Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
-sections:
-- title: Concepts
-  items:
-  - type: paragraph
-    text: 'Learn key concepts to help get you started with Azure Spatial Anchors:'
-  - type: list
-    style: unordered
-    items:
-      - html: <a href="/azure/spatial-anchors/concepts/authentication">Authentication.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Anchor relationships and way-finding.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Experience guidelines.</a>
-      - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Logging and diagnostics.</a>
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to create your first application using Azure Spatial Anchors:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /media/logos/logo_Windows.svg
-        alt:
-      text: Unity HoloLens
-      href: quickstarts/get-started-unity-hololens.md
-    - image:
-        src: /media/logos/logo_android.svg
-        alt:
-      text: Unity Android
-      href: quickstarts/get-started-unity-android.md
-    - image:
-        src: /media/logos/logo_ios.svg
-        alt:
-      text: Unity iOS
-      href: quickstarts/get-started-unity-ios.md
-    - image:
-        src: /media/logos/logo_Windows.svg
-        alt:
-      text: HoloLens
-      href: quickstarts/get-started-hololens.md
-    - image:
-        src: /media/logos/logo_android.svg
-        alt:
-      text: Android
-      href: quickstarts/get-started-android.md
-    - image:
-        src: /media/logos/logo_ios.svg
-        alt:
-      text: iOS
-      href: quickstarts/get-started-ios.md
-    - image:
-        src: /media/logos/logo_xamarin.svg
-        alt:
-      text: Xamarin Android
-      href: quickstarts/get-started-xamarin-android.md
-    - image:
-        src: /media/logos/logo_xamarin.svg
-        alt:
-      text: Xamarin iOS
-      href: quickstarts/get-started-xamarin-ios.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to setup, manage, build, and deploy an app using Azure Spatial Anchors:'
-  - type: list
-    style: unordered
-    items:
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing across sessions and devices.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Persistent sharing with Azure Cosmos DB.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Starting a new Unity HoloLens app.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Starting a new Android app.</a>
+  ms.date: 03/11/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Spatial Anchors
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Spatial Anchors?
+            url: overview.md
+          - text: View release notes on GitHub
+            url: https://github.com/Azure/azure-spatial-anchors-samples/releases
+
+  # Card
+  - title: Learn key concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Authentication
+            url: ./concepts/authentication.md
+          - text: Anchor relationships and way-finding
+            url: ./concepts/anchor-relationships-way-finding.md
+          - text: Experience guidelines
+            url: ./concepts/guidelines-effective-anchor-experiences.md
+          - text: Logging and diagnostics
+            url: ./concepts/logging-diagnostics.md
+          - text: Coarse relocalization
+            url: ./concepts/coarse-reloc.md
+
+  # Card
+  - title: Create your first app
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Unity HoloLens
+            url: ./quickstarts/get-started-unity-hololens.md
+          - text: Unity Android
+            url: ./quickstarts/get-started-unity-android.md
+          - text: Unity iOS
+            url: ./quickstarts/get-started-unity-ios.md
+          - text: HoloLens
+            url: ./quickstarts/get-started-hololens.md
+          - text: Android
+            url: ./quickstarts/get-started-android.md
+          - text: iOS
+            url: ./quickstarts/get-started-ios.md
+          - text: Xamarin Android
+            url: ./quickstarts/get-started-xamarin-android.md
+          - text: Xamarin iOS
+            url: ./quickstarts/get-started-xamarin-ios.md
+
+  # Card
+  - title: Setup, manage, build, and deploy an app
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Sharing across sessions and devices
+            url: ./tutorials/tutorial-share-anchors-across-devices.md
+          - text: Persistent sharing with Azure Cosmos DB
+            url: ./tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+          - text: Starting a new Unity HoloLens app
+            url: ./tutorials/tutorial-new-unity-hololens-app.md
+          - text: Starting a new Android app
+            url: ./tutorials/tutorial-new-android-app.md

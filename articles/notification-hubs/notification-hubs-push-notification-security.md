@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs Security
-description: This topic explains security for Azure Notification Hubs.
+title: Notification Hubs security model
+description: Learn about the security model for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim

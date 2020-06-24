@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Design an Azure Database for MariaDB by using the Azure portal'
+title: 'Tutorial: Design an Azure Database for MariaDB - Azure portal'
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 3/18/2020
 ms.custom: mvc
 ---
 
@@ -37,14 +37,14 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
 2. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
-   
+
    ![Go to MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Select the **Azure Database for MariaDB** tile, and then select **Create**. Enter or select the required information.
-   
+3. Select the **Azure Database for MariaDB** tile. Enter or select the required information.
+
    ![Create form](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    Setting | Suggested value | Field description 
+    Setting | Suggested value | Field description
     ---|---|---
     Server name | *a unique server name* | Choose a unique name that identifies your Azure Database for MariaDB server. For example, **mydemoserver**. The domain name *.mariadb.database.azure.com* is appended to the server name you enter. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain between 3 and 63 characters.
     Subscription | *your subscription* | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you are billed for the resource.
@@ -62,14 +62,14 @@ You create an Azure Database for MariaDB server with a defined set of [compute a
    > [!TIP]
    > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
-4. Select **Create**. In a minute or two, a new Azure Database for MariaDB server is running in the cloud. To monitor the deployment process, select **Notifications** on the toolbar.
+4. Click **Review + create**. You can click on the **Notifications** button on the toolbar to monitor the deployment process. Deployment can take up to 20 minutes.
 
 ## Configure the firewall
 
 An Azure Database for MariaDB is protected by a firewall. By default, all connections to the server and to databases inside the server are rejected. Before you connect to Azure Database for MariaDB for the first time, configure the firewall to add the client computer's public network IP address (or the IP address range).
 
 1. Select your newly created server, and then select **Connection security**.
-   
+
    ![Connection security](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. You can select **Add My IP** or configure firewall rules here. Remember to select **Save** after you create the rules.
 
@@ -80,7 +80,7 @@ You can now connect to the server by using the mysql command-line tool or MySQL 
 
 ## Get connection information
 
-Get values for **Server name** (fully qualified) and **Server admin login name** for your Azure Database for MariaDB server from the Azure portal. You use the fully qualified server name to connect to your server by using the mysql command-line tool. 
+Get values for **Server name** (fully qualified) and **Server admin login name** for your Azure Database for MariaDB server from the Azure portal. You use the fully qualified server name to connect to your server by using the mysql command-line tool.
 
 1. In the [Azure portal](https://portal.azure.com/), in the left menu, select **All resources**. Enter the server name and search for your Azure Database for MariaDB server. Select the server name to view the server details.
 
@@ -92,17 +92,17 @@ In our example, the server name is **mydemoserver.mariadb.database.azure.com** a
 
 ## Connect to the server by using mysql
 
-Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or go to the Azure portal and click the **>_** icon in the top right toolbar. 
+Use the [mysql command-line tool](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) to establish a connection to your Azure Database for MariaDB server. You can run the mysql command-line tool from Azure Cloud Shell in the browser or from your computer by using the mysql tools installed locally. To open Azure Cloud Shell, select the **Try It** button on a code block in this article or go to the Azure portal and click the **>_** icon in the top right toolbar.
 
 Enter the command to connect:
 
-```azurecli-interactive
+```bash
 mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## Create a blank database
 
-When you’re connected to the server, create a blank database to work with:
+When you're connected to the server, create a blank database to work with:
 
 ```sql
 CREATE DATABASE mysampledb;
@@ -122,9 +122,9 @@ First, create a table and load it with some data. Let's create a table that stor
 
 ```sql
 CREATE TABLE inventory (
-	id serial PRIMARY KEY, 
-	name VARCHAR(50), 
-	quantity INTEGER
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
 );
 ```
 
@@ -166,7 +166,7 @@ Imagine that you accidentally deleted an important database table and can't reco
    ![Restore a database](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 
 2. On the **Restore** page, enter or select the following information:
-   
+
    ![Restore form](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Restore point**: Select a point in time that you want to restore to, in the timeframe listed. Make sure you convert your local time zone to UTC.

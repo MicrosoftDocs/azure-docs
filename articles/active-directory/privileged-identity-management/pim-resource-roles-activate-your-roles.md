@@ -1,17 +1,17 @@
 ---
-title: Activate my Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
+title: Activate Azure resource roles in PIM - Azure AD | Microsoft Docs
 description: Learn how to activate your Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management

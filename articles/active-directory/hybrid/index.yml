@@ -54,7 +54,7 @@ landingContent:
             url: whatis-phs.md
           - text: What is passthrough authentication?
             url: how-to-connect-pta.md
-          - text: What is federtation?
+          - text: What is federation?
             url: whatis-fed.md
           - text: What is single sign-on?
             url: how-to-connect-sso.md

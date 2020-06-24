@@ -1,11 +1,8 @@
 ---
 title: Azure Blueprints functions
-description: Describes the functions for use with Azure Blueprints definitions and assignments.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 04/15/2019
+description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
+ms.date: 05/22/2020
 ms.topic: reference
-ms.service: blueprints
 ---
 # Functions for use with Azure Blueprints
 
@@ -28,6 +25,12 @@ The following functions are supported:
 `artifacts(artifactName)`
 
 Returns an object of properties populated with that blueprint artifacts outputs.
+
+> [!NOTE]
+> The `artifacts()` function can't be used from inside a Resource Manager Template. The function can
+> only be used in the blueprint definition JSON or in the artifact JSON when managing the blueprint
+> with Azure PowerShell or REST API as part of
+> [Blueprints-as-code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### Parameters
 

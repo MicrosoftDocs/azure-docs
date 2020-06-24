@@ -9,12 +9,12 @@ ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
-ms.date: 09/09/2019
+ms.topic: how-to
+ms.date: 03/31/2020
 ms.author: iainfou
 
 ---
-# Disable weak ciphers and password hash synchronization to secure an Azure AD Domain Services managed domain
+# Disable weak ciphers and password hash synchronization to secure an Azure Active Directory Domain Services managed domain
 
 By default, Azure Active Directory Domain Services (Azure AD DS) enables the use of ciphers such as NTLM v1 and TLS v1. These ciphers may be required for some legacy applications, but are considered weak and can be disabled if you don't need them. If you have on-premises hybrid connectivity using Azure AD Connect, you can also disable the synchronization of NTLM password hashes.
 
@@ -25,11 +25,11 @@ This article shows you how to disable NTLM v1 and TLS v1 ciphers and disable NTL
 To complete this article, you need the following resources:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * Install and configure Azure PowerShell.
     * If needed, follow the instructions to [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
     * Make sure that you sign in to your Azure subscription using the [Connect-AzAccount][Connect-AzAccount] cmdlet.
@@ -63,17 +63,17 @@ Next, define *DomainSecuritySettings* to configure the following security option
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Finally, apply the defined security settings to the Azure AD DS managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
+Finally, apply the defined security settings to the managed domain using the [Set-AzResource][Set-AzResource] cmdlet. Specify the Azure AD DS resource from the first step, and the security settings from the previous step.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-It takes a few moments for the security settings to be applied to the Azure AD DS managed domain.
+It takes a few moments for the security settings to be applied to the managed domain.
 
 ## Next steps
 
-To learn more about the synchronization process, see [How objects and credentials are synchronized in an Azure AD DS managed domain][synchronization].
+To learn more about the synchronization process, see [How objects and credentials are synchronized in a managed domain][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

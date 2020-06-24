@@ -1,17 +1,10 @@
 ---
-title: Tutorial - Back up Windows virtual machines in the Azure portal | Microsoft Docs
+title: Tutorial - Back up Windows virtual machines in the Azure portal 
 description: In this tutorial, you learn how to use the Azure portal to protect your Windows virtual machines with Azure Backup.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
+ms.subservice: recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
@@ -31,7 +24,7 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 
 ## Backup overview
 
-When the Azure Backup service initiates a backup job, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the _VMSnapshot_ extension. The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
+When the Azure Backup service initiates a backup job, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the [VMSnapshot extension](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
 When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks. Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
@@ -51,8 +44,8 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 1. In the **Backup** blade for your VM, you'll see the number of restore points that are complete.
 
 
-	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
-	
+    ![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
+    
 The first backup takes about 20 minutes. Proceed to the next part of this tutorial after your backup is finished.
 
 ## Recover a file
@@ -63,13 +56,13 @@ In this example, we show how to recover the image file that is used in the defau
 
 1. Open a browser and connect to the IP address of the VM to show the default IIS page.
 
-	![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
+    ![Default IIS web page](./media/tutorial-backup-vms/iis-working.png)
 
 1. Connect to the VM.
 1. On the VM, open **File Explorer** and navigate to \inetpub\wwwroot and delete the file **iisstart.png**.
 1. On your local computer, refresh the browser to see that the image on the default IIS page is gone.
 
-	![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
+    ![Default IIS web page](./media/tutorial-backup-vms/iis-broken.png)
 
 1. On your local computer, open a new tab and go the [Azure portal](https://portal.azure.com).
 1. In the menu on the left, select **Virtual machines** and select the VM from the list.

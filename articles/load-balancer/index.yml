@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 08/20/2019 #Required; mm/dd/yyyy format.
+  ms.date: 05/07/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -26,24 +26,25 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: What is Standard Load Balancer?
-            url: load-balancer-standard-overview.md
-      
+          - text: Load Balancer concepts
+            url: concepts.md
+          - text: Load Balancer components
+            url: components.md
+          - text: Load Balancer SKUs
+            url: skus.md     
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Basic Load Balancer
-            url: quickstart-create-basic-load-balancer-portal.md
-          - text: Create a Standard Load Balancer to load balance VMs
+          - text: Create a Load Balancer to load balance VMs
             url: quickstart-load-balancer-standard-public-portal.md
       - linkListType: tutorial
         links:
           - text: Load balance internet traffic to VMs
             url: tutorial-load-balancer-standard-manage-portal.md
-          - text: Balance internal traffic load with a Basic load balancer
-            url: tutorial-load-balancer-basic-internal-portal.md
+          - text: Load balance VMs across availability zones with a Standard Load Balancer
+            url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
           - text: Configure port forwarding in Azure Load Balancer
             url: tutorial-load-balancer-port-forwarding-portal.md
 
@@ -60,13 +61,14 @@ landingContent:
             url: load-balancer-multivip-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI
+          - text: Configure load balancing and outbound rules in Load Balancer (Azure CLI)
             url: configure-load-balancer-outbound-cli.md
-          - text: Create an Internet facing load balancer with IPv6 using PowerShell
+          - text: Create an Internet facing load balancer with IPv6 (PowerShell)
             url: load-balancer-ipv6-internet-ps.md
           - text: Configure the distribution mode
             url: load-balancer-distribution-mode.md
-
+          - text: Upgrade from Basic to Standard
+            url: upgrade-basic-standard.md
   # Card
   - title: Deploy
     linkLists:
@@ -74,13 +76,13 @@ landingContent:
         links:
           - text: Standard Load Balancer and Availability Zones
             url: load-balancer-standard-availability-zones.md
-          - text: Load Balancer with TCP Reset on Idle (Public Preview)
+          - text: Load Balancer with TCP Reset on Idle
             url: load-balancer-tcp-reset.md
       - linkListType: how-to-guide
         links:
-          - text: Create a Standard Load Balancer with zone-redundant frontend
+          - text: Create a Load Balancer with zone-redundant frontend
             url: load-balancer-get-started-internet-az-portal.md
-          - text: Create a Standard Load Balancer with zonal frontend
+          - text: Create a Load Balancer with zonal frontend
             url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
           - text: Load balancing on multiple IP configurations
             url: load-balancer-multiple-ip.md
@@ -94,6 +96,10 @@ landingContent:
             url: load-balancer-standard-diagnostics.md
           - text: Troubleshoot Azure Load Balancer
             url: load-balancer-troubleshoot.md
+          - text: Common Azure Load Balancer errors
+            url: load-balancer-common-deployment-errors.md
+          - text: Resolve common outbound connection issues
+            url: troubleshoot-outbound-connection.md
       
      # Card
   - title: Reference
@@ -104,3 +110,7 @@ landingContent:
             url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+          - text: ARM templates
+            url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+          - text: Frequently asked Load Balancer questions
+            url: load-balancer-faqs.md

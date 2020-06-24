@@ -1,18 +1,17 @@
 ---
 
-title: Resolve license assignment problems for a group - Azure Active Directory | Microsoft Docs
+title: Resolve group license assignment problems - Azure Active Directory | Microsoft Docs
 description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -98,7 +97,7 @@ To solve this problem, remove users from unsupported locations from the licensed
 
 ## Duplicate proxy addresses
 
-If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows  “Proxy address is already being used”.
+If you use Exchange Online, some users in your organization might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows  “Proxy address is already being used”.
 
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
@@ -115,6 +114,11 @@ After you resolve any proxy address problems for the affected users, make sure t
 **Problem:** While updating license assignment on a user or a group, you might see that the Azure AD Mail and ProxyAddresses attribute of some users are changed.
 
 Updating license assignment on a user causes the proxy address calculation to be triggered, which can change user attributes. To understand the exact reason of the change and solve the problem, see this article on [how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+## LicenseAssignmentAttributeConcurrencyException in audit logs
+
+**Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. AZure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
 
 ## More than one product license assigned to a group
 

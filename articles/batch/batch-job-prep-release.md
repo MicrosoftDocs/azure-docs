@@ -1,19 +1,8 @@
 ---
-title: Create tasks to prepare jobs and complete jobs on compute nodes - Azure Batch | Microsoft Docs
+title: Create tasks to prepare & complete jobs on compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
-services: batch
-documentationcenter: .net
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
-ms.date: 02/27/2017
-ms.author: lahugh
+ms.topic: how-to
+ms.date: 02/17/2020
 ms.custom: seodec18
 
 ---
@@ -50,20 +39,23 @@ You might want to keep a copy of log files that your tasks generate, or perhaps 
 
 > [!TIP]
 > Another way to persist logs and other job and task output data is to use the [Azure Batch File Conventions](batch-task-output.md) library.
-> 
-> 
+>
+>
 
 ## Job preparation task
-Before execution of a job's tasks, Batch executes the job preparation task on each compute node that is scheduled to run a task. By default, the Batch service waits for the job preparation task to be completed before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again, but you can also disable this behavior.
+
+
+Before execution of a job's tasks, Batch executes the job preparation task on each compute node scheduled to run a task. By default, Batch waits for the job preparation task to complete before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again. You can also disable this behavior. If you have a job with a job preparation task and a job manager task configured, the job preparation task runs before the job manager task, just as it does for all other tasks. The job preparation task always runs first.
 
 The job preparation task is executed only on nodes that are scheduled to run a task. This prevents the unnecessary execution of a preparation task in case a node is not assigned a task. This can occur when the number of tasks for a job is less than the number of nodes in a pool. It also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks. By not running the job preparation task on idle nodes, you can spend less money on data transfer charges.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] differs from [CloudPool.StartTask][pool_starttask] in that JobPreparationTask executes at the start of each job, whereas StartTask executes only when a compute node first joins a pool or restarts.
-> 
-> 
+>
 
-## Job release task
+
+>## Job release task
+
 Once a job is marked as completed, the job release task is executed on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. The Batch service then sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
 > [!NOTE]

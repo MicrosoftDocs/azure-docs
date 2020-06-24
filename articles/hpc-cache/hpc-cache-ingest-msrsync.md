@@ -1,20 +1,20 @@
 ---
-title: Azure HPC Cache Preview data ingest - msrsync
+title: Azure HPC Cache data ingest - msrsync
 description: How to use msrsync to move data to a Blob storage target in Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
 ---
 
-# Azure HPC Cache (preview) data ingest - msrsync method
+# Azure HPC Cache data ingest - msrsync method
 
 This article gives detailed instructions for using the ``msrsync`` utility to copy data to an Azure Blob storage container for use with Azure HPC Cache.
 
-To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage for Azure HPC Cache](hpc-cache-ingest.md).
+To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
-The ``msrsync`` tool can be used to move data to a backend storage target for the Azure HPC Cache. This tool is designed to optimize bandwidth usage by running multiple parallel ``rsync`` processes. It is available from GitHub at https://github.com/jbd/msrsync.
+The ``msrsync`` tool can be used to move data to a back-end storage target for the Azure HPC Cache. This tool is designed to optimize bandwidth usage by running multiple parallel ``rsync`` processes. It is available from GitHub at https://github.com/jbd/msrsync.
 
 ``msrsync`` breaks up the source directory into separate “buckets” and then runs individual ``rsync`` processes on each bucket.
 

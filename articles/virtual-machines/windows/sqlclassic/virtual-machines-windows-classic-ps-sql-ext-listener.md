@@ -1,5 +1,5 @@
 ---
-title: Configure an external Listener for Always On Availability Groups | Microsoft Docs
+title: Configure an external listener for availability groups
 description: This tutorial walks you through steps of creating an Always On Availability Group Listener in Azure that is externally accessible by using the public Virtual IP address of the associated cloud service.
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
+ms.custom: "seo-lt-2019"
 
 ---
-# Configure an external listener for Always On Availability Groups in Azure
+# Configure an external listener for availability Groups on Azure SQL Server VMs
 > [!div class="op_single_selector"]
 > * [Internal Listener](../classic/ps-sql-int-listener.md)
 > * [External Listener](../classic/ps-sql-ext-listener.md)
@@ -28,7 +29,7 @@ ms.author: mikeray
 This topic shows you how to configure a listener for an Always On Availability Group that is externally accessible on the internet. This is made possible by associating the cloud service's **public Virtual IP (VIP)** address with the listener.
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 Your Availability Group can contain replicas that are on-premises only, Azure only, or span both on-premises and Azure for hybrid configurations. Azure replicas can reside within the same region or across multiple regions using multiple virtual networks (VNets). The steps below assume you have already [configured an availability group](../classic/portal-sql-alwayson-availability-groups.md) but have not configured a listener.
 

@@ -1,11 +1,11 @@
 ---
-title: Read replicas in Azure Database for PostgreSQL - Single Server
+title: Read replicas - Azure Database for PostgreSQL - Single Server
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 06/11/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -28,6 +28,9 @@ The read replica feature uses PostgreSQL asynchronous replication. The feature i
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
+>[!NOTE]
+> Basic tier servers only support same-region replication.
+
 You can have a master server in any [Azure Database for PostgreSQL region](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
 [ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
@@ -35,7 +38,9 @@ You can have a master server in any [Azure Database for PostgreSQL region](https
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
+
+*West US 2 is temporarily unavailable as a cross region replica location.
 
 
 ### Paired regions
@@ -52,8 +57,6 @@ There are limitations to consider:
 
 
 ## Create a replica
-The master server must have the `azure.replication_support` parameter set to **REPLICA**. When this parameter is changed, a server restart is required for the change to take effect. (The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only).
-
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.
 
 Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent a break in replication caused by out of storage errors.
@@ -93,14 +96,14 @@ For additional insight, query the master server directly to get the replication 
 In PostgreSQL version 10:
 
 ```SQL
-select pg_wal_lsn_diff(pg_current_wal_lsn(), stat.replay_lsn) 
+select pg_wal_lsn_diff(pg_current_wal_lsn(), replay_lsn) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 In PostgreSQL version 9.6 and earlier:
 
 ```SQL
-select pg_xlog_location_diff(pg_current_xlog_location(), stat.replay_location) 
+select pg_xlog_location_diff(pg_current_xlog_location(), replay_location) 
 AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
@@ -142,7 +145,15 @@ Once your application is successfully processing reads and writes, you have comp
 This section summarizes considerations about the read replica feature.
 
 ### Prerequisites
-Before you create a read replica, the `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect. The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only.
+Read replicas and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
+
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
 ### New replicas
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
@@ -155,7 +166,12 @@ A replica is created by using the same compute and storage settings as the maste
 
 PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
-If you try to update the server values, but don't adhere to the limits, you receive an error.
+If you try to update the server values described above, but don't adhere to the limits, you receive an error.
+
+Firewall rules, virtual network rules, and parameter settings are not inherited from the master server to the replica when the replica is created or afterwards.
+
+### Basic tier
+Basic tier servers only support same-region replication.
 
 ### max_prepared_transactions
 [PostgreSQL requires](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the master, first change it on the replicas.

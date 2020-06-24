@@ -1,13 +1,14 @@
 ---
 title: Azure IoT Hub and Event Grid | Microsoft Docs
 description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
+ms.author: robinsh
+ms.custom: [amqp, mqtt]
 ---
 
 # React to IoT Hub events by using Event Grid to trigger actions
@@ -20,7 +21,7 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ## Event types
 
@@ -171,13 +172,19 @@ devices/{deviceId}
 
 Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to view examples. For filtering on the telemetry message body, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties). Both of these properties are case insensitive.
 
-For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. We create a default [route](iot-hub-devguide-messages-d2c.md) in IoT Hub, based on your Event Grid subscription to device telemetry. This single route can handle all of your Event Grid subscriptions. To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
+For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated and DeviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body through the message routing query. 
+
+When you subscribe to telemetry events via Event Grid, IoT Hub creates a default message route to send data source type device messages to Event Grid. For more information about message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md). This route will be visible in the portal under IoT Hub > Message Routing. Only one route to Event Grid is created regardless of the number of EG subscriptions created for telemetry events. So, if you need several subscriptions with different filters, you can use the OR operator in these queries on the same route. The creation and deletion of the route is controlled through subscription of telemetry events via Event Grid. You cannot create or delete a route to Event Grid using IoT Hub Message Routing.
+
+To filter messages before telemetry data is sent, you can update your [routing query](iot-hub-devguide-routing-query-syntax.md). Note that routing query can be applied to the message body only if the body is JSON. You must also set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties).
 
 ## Limitations for device connected and device disconnected events
 
-To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+To receive device connection state events, a device must do either a 'D2C Send Telemetry' OR a 'C2D Receive Message' operation with Iot Hub. However, note that if a device is using AMQP protocol to connect with Iot Hub, it is recommended that they do a 'C2D Receive Message' operation otherwise their connection state notifications may be delayed by few minutes. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), for IoT Hub C# SDK, or [device client for AMQP](iot-hub-amqp-support.md#device-client).
 
-The D2C link is open if you are sending telemetry. If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state of which a snapshot is taken every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
+The D2C link is open if you are sending telemetry. 
+
+If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the current connection state taken at a periodic snapshot, till the flickering continues. Receiving either the same connection state event with different sequence numbers or different connection state events both mean that there was a change in the device connection state.
 
 ## Tips for consuming events
 
@@ -199,4 +206,4 @@ Applications that handle IoT Hub events should follow these suggested practices:
 
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
 
-* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps (and IoT Hub message routing)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

@@ -1,19 +1,15 @@
 ---
-title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: "Debug and iterate on Kubernetes: Visual Studio & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This quickstart shows you how to use Azure Dev Spaces and Visual Studio to debug and rapidly iterate a .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
 ---
-# Quickstart: Debug and iterate with Visual Studio and .NET Core on Kubernetes with Azure Dev Spaces
+# Quickstart: Debug and iterate on Kubernetes: Visual Studio & .NET Core - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
@@ -29,36 +25,54 @@ Azure Dev Spaces also allows you debug and iterate using:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- Visual Studio 2019 on Windows with the Azure Development workload installed. You can also use Visual Studio 2017 on Windows with the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) installed. If you don't have Visual Studio installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 on Windows with the Azure Development workload installed. If you don't have Visual Studio installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create an Azure Kubernetes Service cluster
 
-You must create an AKS cluster in a [supported region][supported-regions]. To create a cluster:
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Select *+ Create a resource > Kubernetes Service*. 
-1. Enter the _Subscription_, _Resource Group_, _Kubernetes cluster name_, _Region_, _Kubernetes version_, and _DNS name prefix_.
-
-    ![Create AKS in the Azure portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
-
-1. Click *Review + create*.
-1. Click *Create*.
+```azurecli
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
+```
 
 ## Enable Azure Dev Spaces on your AKS cluster
 
-Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change *Enable Dev Spaces* to *Yes* and click *Save*.
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
-![Enable Dev Spaces in the Azure portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
+
+```output
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
 ## Create a new ASP.NET web app
 
 1. Open Visual Studio.
 1. Create a new project.
-1. Choose *ASP.NET Core Web Application* and name your project *webfrontend*.
-1. Click *OK*.
+1. Choose *ASP.NET Core Web Application* and click *Next*.
+1. Name your project *webfrontend* and click *Create*.
 1. When prompted, choose *Web Application (Model-View-Controller)* for the template.
-1. Select *.NET Core* and *ASP.NET Core 2.0* at the top.
-1. Click *OK*.
+1. Select *.NET Core* and *ASP.NET Core 2.1* at the top.
+1. Click *Create*.
 
 ## Connect your project to your dev space
 
@@ -87,12 +101,14 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-In the above example, the public URL is http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navigate to your service's public URL and interact with the service running in your dev space.
+In the above example, the public URL is `http://default.webfrontend.1234567890abcdef1234.eus.azds.io/`. 
+
+Select **Debug** then **Start Debugging**. After a few seconds, your service will start and Visual Studio will open a browser with the public URL of the service. If a browser does not automatically open, navigate to your service's public URL in a browser and interact with the service running in your dev space.
 
 This process may have disabled public access to your service. To enable public access, you can update the [ingress value in the *values.yaml*][ingress-update].
 
@@ -104,7 +120,7 @@ If Visual Studio is still connected to your dev space, click the stop button. Ch
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Save your changes and start your service using **Azure Dev Spaces** from the launch settings dropdown. Open the public URL of your service in a browser and click *About*. Observe that your updated message appears.
+Save your changes and select **Debug** then **Start Debugging**. After a few seconds, your service will start and Visual Studio will open a browser with the public URL of the service. If a browser does not automatically open, navigate the public URL of your service in a browser and click *About*. Observe that your updated message appears.
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, Azure Dev Spaces incrementally recompiles code within the existing container to provide a faster edit/debug loop.
 
@@ -122,7 +138,7 @@ Remove the breakpoint by putting your cursor on line 20 in `Controllers/HomeCont
 
 Navigate to your resource group in the Azure portal and click *Delete resource group*. Alternatively, you can use the [az aks delete](/cli/azure/aks#az-aks-delete) command:
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
@@ -131,5 +147,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
 
-[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
-[supported-regions]: about.md#supported-regions-and-configurations
+[ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

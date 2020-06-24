@@ -1,164 +1,62 @@
 ---
-title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions for multiple VMs in Azure Automation
-description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
+title: Enable Azure Automation Update Management from the Azure portal
+description: This article tells how to enable Update Management from the Azure portal.
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
-manager: carmonm
 ms.custom: mvc
 ---
-# Enable Update Management, Change Tracking, and Inventory solutions on multiple VMs
+# Enable Update Management from the Azure portal
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), from your [Automation account](automation-onboard-solutions-from-automation-account.md), when browsing virtual machines, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions when browsing virtual machines in Azure.
+This article describes how you can enable the [Update Management](automation-update-management.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
+
+The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../azure-resource-manager/templates/cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Update Management. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
+
+> [!NOTE]
+> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
+
+## Prerequisites
+
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Automation account](automation-offering-get-started.md) to manage machines.
+* A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com.
 
-## Enable solutions
+## Enable Update Management
 
-In the Azure portal, navigate to **Virtual machines**.
+1. In the Azure portal, navigate to **Virtual machines**.
 
-Using the checkboxes, select the virtual machines you wish to onboard with Change Tracking and Inventory or Update Management. Onboarding is available for up to three different resource groups at a time. Azure VMs can exist in any region no matter the location of your Automation Account.
+2. Use the checkboxes to choose the VMs to add to Update Management. You can add machines for up to three different resource groups at a time. Azure VMs can exist in any region, no matter the location of your Automation account.
 
-![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
-> [!TIP]
-> Use the filter controls to modify the list of virtual machines and then click the top checkbox to select all virtual machines in the list.
+    ![List of VMs](media/automation-onboard-solutions-from-browse/vmlist.png)
 
-From the command bar, click **Services** and select either **Change tracking**, **Inventory**, or **Update Management**.
+    > [!TIP]
+    > Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
 
-> [!NOTE]
-> **Change tracking** and **Inventory** use the same solution, when one is enabled the other is enabled as well.
+    ![Enable Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-The following image is for Update Management. Change tracking and Inventory have the same layout and behavior.
+3. Click **Services** and select **Update Management** for the Update Management feature. 
 
-The list of virtual machines is filtered to show only the virtual machines that are in the same subscription and location. If your virtual machines are in more than three resource groups, the first three resource groups are selected.
+4. The list of virtual machines is filtered to show only the virtual machines that are in the same subscription and location. If your virtual machines are in more than three resource groups, the first three resource groups are selected.
 
-### <a name="resource-group-limit"></a> Onboarding limitations
+5. An existing Log Analytics workspace and Automation account are selected by default. If you want to use a different Log Analytics workspace and Automation account, click **CUSTOM** to select them from the Custom Configuration page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation account. If a linked Automation account is found, you see the following screen. When done, click **OK**.
 
-The number of resource groups you can use for onboarding is limited by the [Resource Manager deployment limits](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to 5 resource groups per deployment. To ensure the integrity of onboarding, 2 of those resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with 3 resource groups to select for deployment. This limit only applies to simultaneous onboarding, not the number of resource groups that can be managed by an Automation solution.
+    ![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
-You can also use a runbook for onboarding, for more information, see [Onboard update and change tracking solutions to Azure Automation](automation-onboard-solutions.md).
+6. If the workspace selected is not linked to an Automation account, you see the following screen. Select an Automation account and click **OK** when finished.
 
-Use the filter controls to select virtual machines from different subscriptions, locations, and resource groups.
+    ![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-![Onboard Update management solution](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
+7. Deselect the checkbox next to any virtual machine that you don't want to enable. VMs that can't be enabled are already deselected.
 
-Review the choices for the Log Analytics workspace and Automation account. An existing workspace and Automation Account are selected by default. If you want to use a different Log Analytics workspace and Automation Account, click **CUSTOM** to select them from the **Custom Configuration** page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation Account. If a linked Automation Account is found, you will see the following screen. When done, click **OK**.
-
-![Select workspace and account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
-
-If the workspace selected is not linked to an Automation Account, you'll see the following screen. Select an Automation Account and click **OK** when complete.
-
-![No workspace](media/automation-onboard-solutions-from-browse/no-workspace.png)
-
-> [!NOTE]
-> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
->
-> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
-
-Deselect the checkbox next to any virtual machine that you don't want to enable. Virtual machines that can't be enabled are already deselected.
-
-Click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
-
-## Unlink workspace
-
-The following solutions are dependent on a Log Analytics workspace:
-
-* [Update Management](automation-update-management.md)
-* [Change Tracking](automation-change-tracking.md)
-* [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
-
-If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Before you proceed, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you have imported to understand the steps required to remove it.
-
-After you remove these solutions, you can perform the following steps to unlink your Automation account.
-
-> [!NOTE]
-> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
-
-1. From the Azure portal, open your Automation account, and on the Automation account page  select **Linked workspace** under the section **Related Resources** on the left.
-
-2. On the Unlink workspace page, click **Unlink workspace**.
-
-   ![Unlink workspace page](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
-
-   You will receive a prompt verifying you wish to proceed.
-
-3. While Azure Automation attempts to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
-
-If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Update schedules - Each will have names that match the update deployments you created)
-
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
-
-If you used the Start/Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Start and stop VM runbook schedules
-* Start and stop VM runbooks
-* Variables
-
-Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
-
-## Troubleshooting
-
-When onboarding multiple machines, there may be machines that show as **Cannot enable**. There are different reasons why some machines may not be enabled. The following sections show possible reasons for the **Cannot enable** state on a VM when attempting to onboard.
-
-### VM reports to a different workspace: '\<workspaceName\>'.  Change configuration to use it for enabling
-
-**Cause**: This error shows that the VM that you are trying to onboard reports to another workspace.
-
-**Solution**: Click **Use as configuration** to change the targeted Automation Account and Log Analytics workspace.
-
-### VM reports to a workspace that is not available in this subscription
-
-**Cause**: The workspace that the virtual machine reports to:
-
-* Is in a different subscription, or
-* No longer exists, or
-* Is in a resource group you don't have access permissions to
-
-**Solution**: Find the automation account associated with the workspace that the VM reports to and onboard the virtual machine by changing the scope configuration.
-
-### VM operating system version or distribution is not supported
-
-**Cause:** The solution is not supported for all Linux distributions or all versions of Windows.
-
-**Solution:** Refer to the [list of supported clients](automation-update-management.md#clients) for the solution.
-
-### Classic VMs cannot be enabled
-
-**Cause**: Virtual machines that use the classic deployment model are not supported.
-
-**Solution**: Migrate the virtual machine to the Resource Manager deployment model. To learn how to do this, see [Migrate classic deployment model resources](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-### VM is stopped. (deallocated)
-
-**Cause**: The virtual machine in not in a **Running** state.
-
-**Solution**: In order to onboard a VM to a solution the VM must be running. Click the **Start VM** inline link to start the VM without navigating away from the page.
-
-## Clean up resources
-
-To remove a VM from Update Management:
-
-* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
-* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+8. Click **Enable** to enable the feature you've selected. The setup takes up to 15 minutes to complete.
 
 ## Next steps
 
-Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to create an **Update Deployment** for your machines.
-
-> [!div class="nextstepaction"]
-> [Update Management - Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
-
-Addition tutorials on the solutions and how to use them:
-
-* [Tutorial - Manage Updates for your VM](automation-tutorial-update-management.md)
-
-* [Tutorial - Identify software on a VM](automation-tutorial-installed-software.md)
-
-* [Tutorial - Troubleshoot changes on a VM](automation-tutorial-troubleshoot-changes.md)
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

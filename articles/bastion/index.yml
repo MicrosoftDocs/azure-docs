@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Bastion documentation (Preview)
+title: Azure Bastion documentation
 summary: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address.
 
 metadata:
-  title: Azure Bastion documentation (Preview)
+  title: Azure Bastion documentation
   description: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL.
   services: bastion
   ms.service: bastion
@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Bastion (Preview)
+  - title: About Azure Bastion
     linkLists:
       - linkListType: overview
         links:

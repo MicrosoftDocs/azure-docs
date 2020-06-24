@@ -1,7 +1,6 @@
 ---
 title: Work with strings in Azure Monitor log queries | Microsoft Docs
 description: Describes how to edit, compare, search in and perform a variety of other operations on strings in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren

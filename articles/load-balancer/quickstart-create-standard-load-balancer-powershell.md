@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Create a Standard Load Balancer - Azure PowerShell'
-titlesuffix: Azure Load Balancer
-description: This quickstart shows how to create a Standard Load Balancer using PowerShell
+title: 'Quickstart: Create a Load Balancer - Azure PowerShell'
+titleSuffix: Azure Load Balancer
+description: This quickstart shows how to create a Load Balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
 
-# Quickstart: Create a Standard Load Balancer using Azure PowerShell
+# Quickstart: Create a Load Balancer using Azure PowerShell
 
 This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy three virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [What is Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -40,7 +40,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## Create a public IP address
 
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a zone redundant public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -51,11 +51,28 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## Create Standard Load Balancer
+To create a zonal Public IP address in zone 1, use the following:
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard `
+ -zone 1
+```
+
+Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+
+## Create Load Balancer
 
 In this section, you configure the front-end IP and the back-end address pool for the load balancer and then create the Standard Load Balancer.
 
-### Create front-end IP
+### Create frontend IP
 
 Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). The following example creates a front-end IP configuration named *myFrontEnd* and attaches the *myPublicIP* address:
 
@@ -100,7 +117,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### Create the NAT rules
 
-Create NAT rules with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
+Create NAT rules with [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -140,6 +157,11 @@ $lb = New-AzLoadBalancer `
   -LoadBalancingRule $rule `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
+
+Use ```-SKU Basic``` to create a Basic Load Balancer. Microsoft recommends using Standard for production workloads.
+
+> [!IMPORTANT]
+> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create network resources
 Before you deploy some VMs and can test your balancer, you must create supporting network resources - virtual network and virtual NICs. 
@@ -190,6 +212,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+Use ```-SKU Basic``` to create a Basic Public IPs. Microsoft recommends using Standard for production workloads.
+
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
 
@@ -351,7 +376,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## Next steps
 
-In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

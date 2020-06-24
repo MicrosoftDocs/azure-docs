@@ -1,19 +1,8 @@
 ---
-title: Install application packages on compute nodes - Azure Batch | Microsoft Docs
+title: Deploy application packages to compute nodes
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
-services: batch
-documentationcenter: .net
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 04/26/2019
-ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -74,7 +63,7 @@ With application packages, your pool's start task doesn't have to specify a long
 You can use the [Azure portal][portal] or the Batch Management APIs to manage the application packages in your Batch account. In the next few sections, we first show how to link a Storage account, then discuss adding applications and packages and managing them with the portal.
 
 ### Link a Storage account
-To use application packages, you must first link an [Azure Storage account](batch-api-basics.md#azure-storage-account) to your Batch account. If you have not yet configured a Storage account, the Azure portal displays a warning the first time you click **Applications** in your Batch account.
+To use application packages, you must first link an [Azure Storage account](accounts.md#azure-storage-accounts) to your Batch account. If you have not yet configured a Storage account, the Azure portal displays a warning the first time you click **Applications** in your Batch account.
 
 
 
@@ -86,13 +75,11 @@ The Batch service uses the associated Storage account to store your application 
 
 We recommend that you create a Storage account *specifically* for use with your Batch account, and select it here. After you've created a Storage account, you can then link it to your Batch account by using the **Storage Account** window.
 
-> [!NOTE] 
-> Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
-> 
+> [!IMPORTANT] 
+> - Currently you can't use application packages with an Azure Storage account that is configured with [firewall rules](../storage/common/storage-network-security.md).
+> - An Azure Storage account with **Hierarchical namespace** set to **Enabled** can't be used for application packages.
 
-The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the [maximum block blob size](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
-> 
-> 
+The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal][storage_pricing] for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Azure Storage scalability and performance targets for storage accounts](../storage/blobs/scalability-targets.md). Be sure to consider the size and number of your application packages, and periodically remove deprecated packages to minimize costs.
 
 ### View current applications
 To view the applications in your Batch account, click the **Applications** menu item in the left menu while viewing your **Batch account**.
@@ -293,9 +280,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> See [Environment settings for tasks](batch-api-basics.md#environment-settings-for-tasks) in the [Batch feature overview](batch-api-basics.md) for more information about compute node environment settings.
-> 
-> 
+> For more information about compute node environment settings, see [Environment settings for tasks](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## Update a pool's application packages
 If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new package reference for a pool, the following apply:

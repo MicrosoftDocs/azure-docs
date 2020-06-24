@@ -26,6 +26,10 @@ landingContent:
         links:
           - text: What is Computer Vision?
             url: Home.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: whats-new.md
       - linkListType: video
         links:
           - text: Infuse intelligence in your apps with Vision APIs
@@ -40,15 +44,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
           - text: Using the Node SDK
-            url: quickstarts-sdk/node-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
-            url: quickstarts-sdk/go-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
             
 
   - title: Detect objects in images
@@ -60,15 +64,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
           - text: Using the Node SDK
-            url: quickstarts-sdk/node-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
-            url: quickstarts-sdk/go-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 
   # Card 
   - title: Apply content tags to images
@@ -80,15 +84,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
           - text: Using the Node SDK
-            url: quickstarts-sdk/node-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
-            url: quickstarts-sdk/go-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 
   - title: Use containers
     linkLists:
@@ -116,15 +120,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts-sdk/csharp-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts-sdk/python-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: quickstarts-sdk/java-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
           - text: Using the Node SDK
-            url: quickstarts-sdk/node-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
           - text: Using the Go SDK
-            url: quickstarts-sdk/go-sdk.md
+            url: quickstarts-sdk/client-library.md?pivots=programming-language-go
   
 #  - title: Get image descriptions
 #    linkLists:
@@ -135,9 +139,9 @@ landingContent:
 #      - linkListType: quickstart
 #        links:
 #          - text: Using the Python SDK
-#            url: quickstarts-sdk/python-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
 #          - text: Using the Java SDK
-#            url: quickstarts-sdk/java-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
 #      - linkListType: tutorial
 #        links:
 #          - text: Generate metadata for images
@@ -153,9 +157,9 @@ landingContent:
 #      - linkListType: quickstart
 #        links:
 #          - text: Using the Python SDK
-#            url: quickstarts-sdk/python-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
 #          - text: Using the Java SDK
-#            url: quickstarts-sdk/java-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
 #
 #  - title: Categorize images
 #    linkLists:
@@ -166,9 +170,9 @@ landingContent:
 #      - linkListType: quickstart
 #        links:
 #          - text: Using the Python SDK
-#            url: quickstarts-sdk/python-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
 #          - text: Using the Java SDK
-#            url: quickstarts-sdk/java-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
 #  - title: Detect adult content
 #    linkLists:
 #      - linkListType: concept
@@ -178,19 +182,19 @@ landingContent:
 #      - linkListType: quickstart
 #        links:
 #          - text: Using the Python SDK
-#            url: quickstarts-sdk/python-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-python
 #          - text: Using the Java SDK
-#            url: quickstarts-sdk/java-sdk.md
+#            url: quickstarts-sdk/client-library.md?pivots=programming-language-java
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
+          - text: Computer Vision API v3.0
+            url: https://aka.ms/computer-vision-v3-ref
           - text: Computer Vision API v2.1
             url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
           - text: Computer Vision API v2.0
             url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
-          - text: Computer Vision API v1.0
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
           - text: .NET SDK
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
           - text: Python SDK
@@ -198,7 +202,7 @@ landingContent:
           - text: Java SDK
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
+            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
           - text: Azure PowerShell

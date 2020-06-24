@@ -1,6 +1,6 @@
 ---
 
-title: Getting support for B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Getting support for B2B collaboration - Azure Active Directory
 description: What is the support experience for Azure Active Directory B2B collaboration?
 
 services: active-directory

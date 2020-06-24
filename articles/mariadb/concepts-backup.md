@@ -1,11 +1,11 @@
 ---
-title: Backup and restore in Azure Database for MariaDB
+title: Backup and restore - Azure Database for MariaDB
 description: Learn about automatic backups and restoring your Azure Database for MariaDB server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 3/27/2020
 ---
 
 # Backup and restore in Azure Database for MariaDB
@@ -15,6 +15,8 @@ Azure Database for MariaDB automatically creates server backups and stores them 
 ## Backups
 
 Azure Database for MariaDB takes full, differential, and transaction log backups. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure it up to 35 days. All backups are encrypted using AES 256-bit encryption.
+
+These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MariaDB. You can use [mysqldump](howto-migrate-dump-restore.md) to copy a database.
 
 ### Backup frequency
 
@@ -37,12 +39,12 @@ For more information on backup storage cost, visit the [MariaDB pricing page](ht
 
 ## Restore
 
-In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups.
+In Azure Database for MariaDB, performing a restore creates a new server from the original server's backups and restores all databases contained in the server.
 
 There are two types of restore available:
 
-- **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server.
-- **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region.
+- **Point-in-time restore** is available with either backup redundancy option and creates a new server in the same region as your original server utilizing the combination of full and transaction log backups.
+- **Geo-restore** is available only if you configured your server for geo-redundant storage and it allows you to restore your server to a different region utilizing the most recent backup taken.
 
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
@@ -59,7 +61,7 @@ You may need to wait for the next transaction log backup to be taken before you 
 
 ### Geo-restore
 
-You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
+You can restore a server to another Azure region where the service is available if you have configured your server for geo-redundant backups. Geo-restore is the default recovery option when your server is unavailable because of an incident in the region where the server is hosted. If a large-scale incident in a region results in unavailability of your database application, you can restore a server from the geo-redundant backups to a server in any other region. Geo-restore utilizes the most recent backup of the server. There is a delay between when a backup is taken and when it is replicated to different region. This delay can be up to an hour, so, if a disaster occurs, there can be up to one hour data loss.
 
 During geo-restore, the server configurations that can be changed include compute generation, vCore, backup retention period, and backup redundancy options. Changing pricing tier (Basic, General Purpose, or Memory Optimized) or storage size during geo-restore is not supported.
 
@@ -68,14 +70,12 @@ During geo-restore, the server configurations that can be changed include comput
 After a restore from either recovery mechanism, you should perform the following tasks to get your users and applications back up and running:
 
 - If the new server is meant to replace the original server, redirect clients and client applications to the new server
-- Ensure appropriate server-level firewall rules are in place for users to connect
+- Ensure appropriate VNet rules are in place for users to connect. These rules are not copied over from the original server.
 - Ensure appropriate logins and database level permissions are in place
 - Configure alerts, as appropriate
 
 ## Next steps
 
 - To learn more about business continuity, see the [business continuity overview](concepts-business-continuity.md).
-- To restore to a point in time using the Azure portal, see [restore database to a point in time using the Azure portal](howto-restore-server-portal.md).
- 
-<!--
-- To restore to a point in time using Azure CLI, see [restore database to a point in time using CLI](howto-restore-server-cli.md).-->
+- To restore to a point-in-time using the Azure portal, see [restore server to a point-in-time using the Azure portal](howto-restore-server-portal.md).
+- To restore to a point-in-time using Azure CLI, see [restore server to a point-in-time using CLI](howto-restore-server-cli.md).

@@ -1,5 +1,5 @@
 - name: Bing Autosuggest Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   items:
   - name: What is Bing Autosuggest?
@@ -7,21 +7,27 @@
   - name: Compare the Bing Search APIs
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: REST API
+      items:
+      - name: C#
+        href: quickstarts/csharp.md
+      - name: Java
+        href: quickstarts/java.md
+      - name: Node.js
+        href: quickstarts/nodejs.md
+      - name: PHP
+        href: quickstarts/php.md
+      - name: Python
+        href: quickstarts/python.md
+      - name: Ruby
+        href: quickstarts/ruby.md
+    - name: Client library
+      items:
+      - name: Bing Autosuggest client libraries
+        href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Single-page web app
@@ -50,6 +56,8 @@
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
@@ -71,7 +79,7 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing Autosuggest API
     maintainContext: true

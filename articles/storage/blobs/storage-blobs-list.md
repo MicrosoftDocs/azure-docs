@@ -1,23 +1,34 @@
 ---
 title: List blobs with .NET - Azure Storage 
-description: Learn how to list blobs in a container in your Azure Storage account using the .NET client library.
+description: Learn how to list blobs in a container in your Azure Storage account using the .NET client library. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 09/04/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # List blobs with .NET
 
-When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders. 
+
+This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## Understand blob listing options
 
 To list the blobs in a storage account, call one of these methods:
+
+# [.NET v12 SDK](#tab/dotnet)
+
+- [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet)
+- [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet)
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 - [CloudBlobClient.ListBlobs](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobs)
 - [CloudBlobClient.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listblobssegmented)
@@ -31,11 +42,13 @@ To list the blobs in a container, call one of these methods:
 
 The overloads for these methods provide additional options for managing how blobs are returned by the listing operation. These options are described in the following sections.
 
+---
+
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter when calling one of the **ListBlobs** methods.
+By default, a listing operation returns up to 5000 results at a time, but you can specify the number of results that you want each listing operation to return. The examples presented in this article show you how to do this.
 
-If a listing operation returns more than 5000 blobs, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of blobs. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
+If a listing operation returns more than 5000 blobs, or if the number of blobs that are available exceed the number that you specified, then Azure Storage returns a *continuation token* with the list of blobs. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
 
 In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call listing operation again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
 
@@ -45,11 +58,15 @@ To filter the list of containers, specify a string for the `prefix` parameter. T
 
 ### Return metadata
 
-To return blob metadata with the results, specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) enumeration. Azure Storage includes metadata with each blob returned, so you do not need to call one of the **FetchAttributes** methods in this context to retrieve the blob metadata.
+You can return blob metadata with the results. 
+
+- If you're using the .NET v12 SDK, specify the **Metadata** value for the [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits?view=azure-dotnet) enumeration.
+
+- If you're using the .NET v11 SDK, specify the **Metadata** value for the [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) enumeration. Azure Storage includes metadata with each blob returned, so you do not need to call one of the **FetchAttributes** methods in this context to retrieve the blob metadata.
 
 ### Flat listing versus hierarchical listing
 
-Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a hierarchical paradigm. A virtual directory is part of the name of the blob that is demarcated by the delimiter character.
+Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
 
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
@@ -60,6 +77,12 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
 
 The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
+
+# [.NET v12 SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)
@@ -79,7 +102,6 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 
             foreach (var blobItem in resultSegment.Results)
             {
-                // A flat listing operation returns only blobs, not virtual directories.
                 blob = (CloudBlob)blobItem;
 
                 // Write out some blob properties.
@@ -102,6 +124,8 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+---
+
 The sample output is similar to:
 
 ```
@@ -120,6 +144,16 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy. The [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) property of each virtual directory is set so that you can pass the prefix in a recursive call to retrieve the next directory.
 
+# [.NET v12 SDK](#tab/dotnet)
+
+To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy?view=azure-dotnet), or the [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync?view=azure-dotnet) method.
+
+The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
+
+# [.NET v11 SDK](#tab/dotnet11)
+
 To list blobs hierarchically, set the `useFlatBlobListing` parameter of the listing method to **false**.
 
 The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to the console window.
@@ -129,17 +163,17 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 {
     CloudBlobDirectory dir;
     CloudBlob blob;
-    BlobContinuationToken continuationToken;
+    BlobContinuationToken continuationToken = null;
 
     try
     {
         // Call the listing operation and enumerate the result segment.
-        // When the continuation token is null, the last segment has been returned and 
+        // When the continuation token is null, the last segment has been returned and
         // execution can exit the loop.
         do
         {
             BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(prefix,
-                false, BlobListingDetails.Metadata, null, null, null, null);
+                false, BlobListingDetails.Metadata, null, continuationToken, null, null);
             foreach (var blobItem in resultSegment.Results)
             {
                 // A hierarchical listing may return both virtual directories and blobs.
@@ -176,6 +210,8 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
     }
 }
 ```
+
+---
 
 The sample output is similar to:
 

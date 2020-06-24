@@ -1,35 +1,35 @@
 ---
-title: Provision a simulated X.509  device to Azure IoT Hub using Python | Microsoft Docs
-description: Azure Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
+title: Provision simulated X.509 device to Azure IoT Hub using Python
+description: Quickstart - Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service (DPS). This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
-# Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-These steps show how to simulate an X.509 device on your development machine running Windows OS, and use a Python code sample to connect this simulated device with the Device Provisioning Service and your IoT hub. 
+In this quickstart, you create a simulated X.509 device on a Windows computer. You use device sample Python code to connect this simulated device with your IoT hub using an individual enrollment with the Device Provisioning Service (DPS).
 
-If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+## Prerequisites
 
-The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
+- [CMake build system](https://cmake.org/download/).
+- [Git](https://git-scm.com/download/).
 
-This article will demonstrate individual enrollments.
+> [!IMPORTANT]
+> This article only applies to the deprecated V1 Python SDK. Device and service clients for the Iot Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
-
-> [!NOTE]
-> This guide only applies to the now-deprecated V1 Python SDK. Simulated X.509 devices are not yet been supported in V2. The team is currently hard at work bringing V2 to feature parity.
 
 ## Prepare the environment 
 
@@ -69,6 +69,13 @@ In this section you, will use a self-signed X.509 certificate. It is important t
 
 You will use sample code from the Azure IoT C SDK to create the certificate to be used with the individual enrollment entry for the simulated device.
 
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article demonstrates individual enrollments.
+
 1. Open the solution generated in the *cmake* folder named `azure_iot_sdks.sln`, and build it in Visual Studio.
 
 2. Right-click the **dice\_device\_enrollment** project under the **Provision\_Tools** folder, and select **Set as Startup Project**. Run the solution. 
@@ -89,18 +96,18 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
  
 4. Create a file named **_X509testcertificate.pem_** on your Windows machine, open it in an editor of your choice, and copy the clipboard contents to this file. Save the file. 
 
-5. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your provisioning service.
+5. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your provisioning service.
 
-6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
+6. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
 
-7. Under the **Add Enrollment** panel, enter the following information:
+7. In the **Add Enrollment** panel, enter the following information:
    - Select **X.509** as the identity attestation *Mechanism*.
-   - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
+   - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **X509testcertificate.pem** created in the previous steps.
    - Optionally, you may provide the following information:
      - Select an IoT hub linked with your provisioning service.
      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
      - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, click the **Save** button. 
+   - Once complete, press the **Save** button. 
 
      [![Add individual enrollment for X.509 attestation in the portal](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
@@ -108,16 +115,16 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 ## Simulate the device
 
-1. On the Device Provisioning Service summary blade, select **Overview**. Note your _ID Scope_ and _Global Service Endpoint_.
+1. From the Device Provisioning Service menu, select **Overview**. Note your _ID Scope_ and _Global Service Endpoint_.
 
     ![Service information](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
 2. Download and install [Python 2.x or 3.x](https://www.python.org/downloads/). Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variables. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system](https://pip.pypa.io/en/stable/installing/).
     
     > [!NOTE] 
-    > If you are using Windows, also install the [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/download/confirmation.aspx?id=48145). The pip packages require the redistributable in order to load/execute the C DLLs.
+    > If you are using Windows, also install the [Visual C++ Redistributable for Visual Studio 2015](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads). The pip packages require the redistributable in order to load/execute the C DLLs.
 
-3. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) to build the Python packages.
+3. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) to build the Python packages.
 
    > [!NOTE]
    > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package.
@@ -147,7 +154,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
     ![successful enrollment](./media/python-quick-create-simulated-device-x509/enrollment-success.png)
 
-8. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+8. In the portal, navigate to the IoT hub linked to your provisioning service and open the **Device Explorer** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **Device Explorer** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/python-quick-create-simulated-device-x509/registration.png) 
 
@@ -157,15 +164,15 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-2. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-3. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open the **IoT Devices** blade for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+2. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the check box next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+3. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the check box next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## Next steps
 
-In this Quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
+In this quickstart, you’ve created a simulated X.509 device on your Windows machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your X.509 device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)
+> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-python.md)

@@ -1,18 +1,18 @@
 ---
-title: Copy data to and from Oracle by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Oracle by using Azure Data Factory 
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, by using Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 04/09/2020
 ms.author: jingwang
 
 ---
@@ -20,6 +20,8 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Current version](connector-oracle.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
 
@@ -35,6 +37,7 @@ You can copy data from an Oracle database to any supported sink data store. You 
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database:
+    - Oracle 19c R1 (19.1) and higher
     - Oracle 18c R1 (18.1) and higher
     - Oracle 12c R1 (12.1) and higher
     - Oracle 11g R1 (11.1) and higher
@@ -42,7 +45,6 @@ Specifically, this Oracle connector supports:
     - Oracle 9i R2 (9.2) and higher
     - Oracle 8i R3 (8.1.7) and higher
     - Oracle Database Cloud Exadata Service
-- Copying data by using Basic or OID authentications.
 - Parallel copying from an Oracle source. See the [Parallel copy from Oracle](#parallel-copy-from-oracle) section for details.
 
 > [!Note]
@@ -67,7 +69,7 @@ The Oracle linked service supports the following properties:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **Oracle**. | Yes |
-| connectionString | Specifies the information needed to connect to the Oracle Database instance. <br/>Mark this field as a `SecureString` to store it securely in Data Factory. You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. <br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
+| connectionString | Specifies the information needed to connect to the Oracle Database instance. <br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. <br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>For advanced Oracle native connection options, you can choose to add an entry in [TNSNAMES.ORA](http://www.orafaq.com/wiki/Tnsnames.ora) file on the Oracle server, and in ADF Oracle linked service, choose to use Oracle Service Name connection type and configure the corresponding service name. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 >[!TIP]
@@ -83,9 +85,9 @@ To enable encryption on Oracle connection, you have two options:
 
 -	To use **Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES)**, on the Oracle server side, go to Oracle Advanced Security (OAS) and configure the encryption settings. For details, see this [Oracle documentation](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). The Oracle Application Development Framework (ADF) connector automatically negotiates the encryption method to use the one you configure in OAS when establishing a connection to Oracle.
 
--	To use **SSL**:
+-	To use **TLS**:
 
-    1.	Get the SSL certificate info. Get the Distinguished Encoding Rules (DER)-encoded certificate information of your SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
+    1.	Get the TLS/SSL certificate info. Get the Distinguished Encoding Rules (DER)-encoded certificate information of your TLS/SSL cert, and save the output (----- Begin Certificate … End Certificate -----) as a text file.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
@@ -128,10 +130,7 @@ To enable encryption on Oracle connection, you have two options:
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
-            }
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -149,10 +148,7 @@ To enable encryption on Oracle connection, you have two options:
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
-            },
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -218,7 +214,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to `OracleSource`. | Yes |
 | oracleReaderQuery | Use the custom SQL query to read data. An example is `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook any corresponding built-in partition parameters in your query. For examples, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
-| partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable** ,and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. | No |
+| partitionOptions | Specifies the data partitioning options used to load data from Oracle. <br>Allowed values are: **None** (default), **PhysicalPartitionsOfTable** ,and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from an Oracle database is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | partitionNames | The list of physical partitions that needs to be copied. <br>Apply when the partition option is `PhysicalPartitionsOfTable`. If you use a query to retrieve the source data, hook `?AdfTabularPartitionName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
 | partitionColumnName | Specify the name of the source column **in integer type** that will be used by range partitioning for parallel copy. If not specified, the primary key of the table is auto-detected and used as the partition column. <br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfRangePartitionColumnName` in the WHERE clause. For an example, see the [Parallel copy from Oracle](#parallel-copy-from-oracle) section. | No |
@@ -305,7 +301,7 @@ The Data Factory Oracle connector provides built-in data partitioning to copy da
 
 ![Screenshot of partition options](./media/connector-oracle/connector-oracle-partition-options.png)
 
-When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
+When you enable partitioned copy, Data Factory runs parallel queries against your Oracle source to load data by partitions. The parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your Oracle database.
 
 You are suggested to enable parallel copy with data partitioning especially when you load large amount of data from your Oracle database. The following are suggested configurations for different scenarios. When copying data into file-based data store, it's recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
@@ -383,4 +379,4 @@ When you copy data from and to Oracle, the following mappings apply. To learn ab
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

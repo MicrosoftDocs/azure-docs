@@ -1,55 +1,59 @@
 ---
-title: Customize browsers and WebViews 
+title: Customize browsers & WebViews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to customize the browser experience used by MSAL for iOS and macOS to sign in users
+description: Learn how to customize the MSAL iOS/macOS browser experience to sign in users.
 services: active-directory
-documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
-ms.reviewer: 
+ms.author: marsma
+ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize browsers and WebViews for iOS/macOS
 
-A web browser is required for interactive authentication. On iOS, the Microsoft Authentication Library (MSAL) uses the system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the advantage of sharing the Single Sign ON (SSO) state with other applications and with web applications.
+A web browser is required for interactive authentication. On iOS and macOS 10.15+, the Microsoft Authentication Library (MSAL) uses the system web browser by default (which might appear on top of your app) to do interactive authentication to sign in users. Using the system browser has the advantage of sharing the Single Sign On (SSO) state with other applications and with web applications.
 
 You can change the experience by customizing the configuration to other options for displaying web content, such as:
 
 For iOS only:
 
-- [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession?language=objc) 
 - [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller?language=objc)
 
 For iOS and macOS:
 
+- [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession?language=objc)
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL for macOS only supports `WKWebView`.
+MSAL for macOS only supports `WKWebView` on older OS versions. `ASWebAuthenticationSession` is only supported on macOS 10.15 and above. 
 
 ## System browsers
 
-For iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, and `SFSafariViewController` are considered system browsers. In general, system browsers share cookies and other website data with the Safari browser application.
+For iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, and `SFSafariViewController` are considered system browsers. For macOS, only `ASWebAuthenticationSession` is available. In general, system browsers share cookies and other website data with the Safari browser application.
 
 By default, MSAL will dynamically detect iOS version and select the recommended system browser available on that version. On iOS 12+ it will be `ASWebAuthenticationSession`. 
+
+### Default configuration for iOS
 
 | Version | Web browser |
 |:-------------:|:-------------:|
 | iOS 12+ | ASWebAuthenticationSession |
 | iOS 11 | SFAuthenticationSession |
 | iOS 10 | SFSafariViewController |
+
+### Default configuration for macOS
+
+| Version | Web browser |
+|:-------------:|:-------------:|
+| macOS 10.15+ | ASWebAuthenticationSession |
+| other versions | WKWebView |
 
 Developers can also select a different system browser for MSAL apps:
 
@@ -66,7 +70,7 @@ The browser you use impacts the SSO experience because of how they share cookies
 
 | Technology    | Browser Type  | iOS availability | macOS availability | Shares cookies and other data  | MSAL availability | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 and up | macOS 10.15 and up | Yes | iOS only | w/ Safari instances
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 and up | macOS 10.15 and up | Yes | iOS and macOS 10.15+ | w/ Safari instances
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 and up | N/A | Yes | iOS only |  w/ Safari instances
 | [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 and up | N/A | No | iOS only | No**
 | **SFSafariViewController** | System | iOS10 | N/A | Yes | iOS only |  w/ Safari instances
@@ -94,7 +98,7 @@ Objective-C
 ```objc
 UIViewController *myParentController = ...;
 WKWebView *myCustomWebView = ...;
-MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithParentViewController:myParentController];
+MSALWebviewParameters *webViewParameters = [[MSALWebviewParameters alloc] initWithAuthPresentationViewController:myParentController];
 webViewParameters.webviewType = MSALWebviewTypeWKWebView;
 webViewParameters.customWebview = myCustomWebView;
 MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenParameters alloc] initWithScopes:@[@"myscope"] webviewParameters:webViewParameters];
@@ -105,7 +109,7 @@ Swift
 ```swift
 let myParentController: UIViewController = ...
 let myCustomWebView: WKWebView = ...
-let webViewParameters = MSALWebviewParameters(parentViewController: myParentController)
+let webViewParameters = MSALWebviewParameters(authPresentationViewController: myParentController)
 webViewParameters.webviewType = MSALWebviewType.wkWebView
 webViewParameters.customWebview = myCustomWebView
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], webviewParameters: webViewParameters)
@@ -139,21 +143,26 @@ All MSAL supported web browser types are declared in the [MSALWebviewType enum](
 ```objc
 typedef NS_ENUM(NSInteger, MSALWebviewType)
 {
-#if TARGET_OS_IPHONE
-    // For iOS 11 and up, uses AuthenticationSession (ASWebAuthenticationSession
-    // or SFAuthenticationSession).
-    // For older versions, with AuthenticationSession not being available, uses
-    // SafariViewController.
+    /**
+     For iOS 11 and up, uses AuthenticationSession (ASWebAuthenticationSession or SFAuthenticationSession).
+     For older versions, with AuthenticationSession not being available, uses SafariViewController.
+     For macOS 10.15 and above uses ASWebAuthenticationSession
+     For older macOS versions uses WKWebView
+     */
     MSALWebviewTypeDefault,
     
-    // Use SFAuthenticationSession/ASWebAuthenticationSession
+    /** Use ASWebAuthenticationSession where available.
+     On older iOS versions uses SFAuthenticationSession
+     Doesn't allow any other webview type, so if either of these are not present, fails the request*/
     MSALWebviewTypeAuthenticationSession,
     
-    // Use SFSafariViewController for all versions.
+#if TARGET_OS_IPHONE
+    
+    /** Use SFSafariViewController for all versions. */
     MSALWebviewTypeSafariViewController,
     
 #endif
-    // Use WKWebView
+    /** Use WKWebView */
     MSALWebviewTypeWKWebView,
 };
 ```

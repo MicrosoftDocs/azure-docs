@@ -1,52 +1,149 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Media Services Documentation
+### YamlMime:Hub
+
+title: Azure Media Services documentation # < 60 chars
+summary: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting.  
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
 metadata:
-  document_id: 
-  title: Azure Media Services Documentation | Microsoft Docs
-  meta.description:  Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
+  title: Azure Media Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Media Services is a cloud-based media workflow platfo/lrm that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. 
   services: media-services
-  author: juliako
-  manager: femila
-  ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
-  ms.author: juliako
-abstract:
-  description: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. Azure Media Services integrates seamlessly with the Azure CDN to scale delivery with CDN services from Akamai and Verizon, enabling customers to select the right solution for their needs—for example, for load balance across content delivery networks. Azure Media Services Video Indexer enables you to extract metadata and insights using AI with the built-in video and audio analyzer presets. You can easily improve accuracy by training the provided AI models with your own content using the Video Indexer API. 
+  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: hub-page # Required
+  ms.collection: collection
+  author: Juliako #Required; your GitHub user alias, with coacrrect capitalization.
+  ms.author: juliako #Required; microsoft alias of author; optional team alias.
+  ms.date: 07//2020 #Required; mm/dd/yyyy format.
 
-sections:
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: About Azure Media Services v3
+      itemType: overview
+      url: ./latest/media-services-overview.md
+    # Card
+    - title: Azure Media Services v3 concepts 
+      itemType: concept
+      url: ./latest/concepts-overview.md
+    - title: About Azure Media Services Video Indexer
+      itemType: overview
+      url: ./video-indexer/video-indexer-overview.md    
+    - title: Compare Media Services v3 presets and Video Indexer
+      itemType: concept
+      url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
+    - title: Live Video Analytics on IoT Edge (preview)
+      itemType: overview
+      url: ./live-video-analytics-edge/overview.md
+    - title: Azure Media Player
+      itemType: overview
+      url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview     
+    - title: About Azure Media Services v2 (legacy)
+      itemType: overview
+      url: ./previous/media-services-overview.md  
+    - title: Migrate Media Services v2 to v3
+      itemType: concept
+      url: ./latest/migrate-from-v2-to-v3.md      
 
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 2
-      items:
-        - href: /azure/media-services/latest/
-          html: <p>Encode, package, protect your content, stream videos on-demand, broadcast live, analyze with Media Services v3.</p>
-          image:
-            src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-          title: Azure Media Services v3 
-        - href: /azure/media-services/previous/
-          html: <p>Encode, package, protect and more. This is the legacy service that is in maintenance. Customers are encouraged to migrate to Media Services v3 where new features and enhancements are being made.</p>          
-          image:
-            src:
-          title: Azure Media Services v2 (legacy)
-        - href: /azure/cdn/
-          html: <p>Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks.</p>
-          image:
-            src: /azure/cdn/media/index/cdn.svg
-          title: CDN
-        - href: https://amp.azure.net/libs/amp/latest/docs/index.html
-          html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
-          image:
-            src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-          title: Azure Media Player
-        - href: /azure/media-services/video-indexer/
-          html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
-          image:
-            src: media/index/AMSIcons-media_analytics.svg
-          title: Azure Media Services Video Indexer
+conceptualContent: 
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items: 
+    - title: Develop with Media Services v3 API
+      links:
+          - url: ./latest/media-services-apis-overview.md
+            itemType: concept
+            text: Develop with Media Services v3
+          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+            itemType: sample
+            text: Code samples
+          - url: ./latest/release-notes.md
+            itemType: concept
+            text: Find out what's new in Media Services v3
+    - title: Stream live 
+      links: 
+        - url: ./latest/live-streaming-overview.md 
+          itemType: concept
+          text: Live streaming 
+        - url: ./latest/recommended-on-premises-live-encoders.md
+          itemType: concept
+          text: Recommended live streaming encoders
+        - url: ./latest/stream-live-tutorial-with-api.md
+          itemType: tutorial
+          text: Stream live
+
+    - title: Stream on demand
+      links:
+        - url: ./latest/assets-concept.md 
+          itemType: concept
+          text: Uploading
+        - url: ./latest/encoding-concept.md 
+          itemType: concept
+          text: Encoding   
+        - url: ./latest/stream-files-tutorial-with-rest.md
+          itemType: tutorial        
+          text: Encode remote file and stream
+        - url: ./latest/stream-files-tutorial-with-api.md
+          itemType: tutorial   
+          text: Encode uploaded file and stream
+
+    - title: Encrypt content
+      links:
+          - url: ./latest/content-protection-overview.md 
+            itemType: concept
+            text: Protection
+          - url: ./latest/protect-with-aes128.md
+            itemType: tutorial
+            text: Encrypt dynamically with AES-128        
+          - url: ./latest/protect-with-drm.md
+            itemType: tutorial
+            text: Encrypt dynamically with DRM
+            
+    - title: Analyze content
+      links:
+          - url: ./latest/analyzing-video-audio-files-concept.md
+            itemType: concept
+            text: Media analytics
+          - url: ./latest/analyze-videos-tutorial-with-api.md
+            itemType: tutorial
+            text: Analyze videos            
+
+    - title: Learn about Media Services specifications
+      links:
+          - url: media-services-specifications-live-timed-metadata.md
+            itemType: concept
+            text: Timed Metadata in Live Streaming (RTMP & Smooth Streaming)
+          - url: media-services-specifications-ms-sstr-amendment-hevc.md
+            itemType: concept
+            text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
+          - url: media-services-fmp4-live-ingest-overview.md
+            itemType: concept
+            text:  Smooth Streaming ingest protocol   
+            
+    - title: Live Video Analytics on IoT Edge (preview)         
+      links:
+          - url: ./live-video-analytics-edge/overview.md
+            itemType: overview
+            text: Overview
+          - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+            itemType: quickstart
+            text: Run Live Video Analytics with your own model  
+
+additionalContent:
+  sections:
+    - items:      
+      - title: Azure Storage
+        summary: Learn about block blobs and containers
+        url: https://docs.microsoft.com/azure/storage/        
+      - title: CDN
+        summary: Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks
+        url: https://docs.microsoft.com/azure/cdn         
+      - title: Event Grid
+        summary: Learn how to use Azure Event Grid to react to relevant events     
+        url: https://docs.microsoft.com/azure/event-grid/
+        
+
+  

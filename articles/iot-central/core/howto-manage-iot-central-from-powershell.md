@@ -1,12 +1,12 @@
 ---
 title: Manage IoT Central from Azure PowerShell | Microsoft Docs
-description: Manage IoT Central from Azure PowerShell.
+description: This article describes how to create and manage your IoT Central applications from Azure PowerShell.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/11/2019
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
 ---
 
@@ -23,6 +23,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you prefer to run Azure PowerShell on your local machine, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). When you run Azure PowerShell locally, use the **Connect-AzAccount** cmdlet to sign in to Azure before you try the cmdlets in this article.
+
+> [!TIP]
+> If you need to run your PowerShell commands in a different Azure subscription, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
 
 ## Install the IoT Central module
 
@@ -52,7 +55,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "S1" -Template "iotc-demo@1.0.0" `
+  -Sku "ST1" -Template "iotc-pnp-preview" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -61,23 +64,14 @@ The script first creates a resource group in the east US region for the applicat
 |Parameter         |Description |
 |------------------|------------|
 |ResourceGroupName |The resource group that contains the application. This resource group must already exist in your subscription. |
-|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **East US**, **West US**, **North Europe**, or **West Europe** regions, or in the **Australia** or **Asia Pacific** geographies.  |
+|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
 |Name              |The name of the application in the Azure portal. |
-|Subdomain         |The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
-|Sku               |Currently, the only value is **S1** (standard tier). See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
-|Template          | The application template to use. For more information, see the following table: |
+|Subdomain         |The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
+|Sku               |Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Template          | The application template to use. For more information, see the following table. |
 |DisplayName       |The name of the application as displayed in the UI. |
 
-**Application templates**
-
-|Template name  |Description |
-|---------------|------------|
-|iotc-default@1.0.0 |Creates an empty application for you to populate with your own device templates and devices. |
-|iotc-demo@1.0.0    |Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
-|iotc-devkit-sample@1.0.0 |Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
-
-> [!NOTE]
-> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## View your IoT Central applications
 

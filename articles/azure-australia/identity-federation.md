@@ -1,11 +1,11 @@
 ---
 title: Identity federation in Azure Australia
 description: Guidance on configuring identity federation within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Identity federation in Azure Australia

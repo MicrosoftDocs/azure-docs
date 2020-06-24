@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
 ---
@@ -18,7 +18,7 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for the M
 
 ![What is Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "What is Azure Databricks?")
 
-Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka, Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml) and turn it into breakthrough insights using Spark.
+Azure Databricks is a fast, easy, and collaborative Apache Spark-based analytics service. For a big data pipeline, the data (raw or structured) is ingested into Azure through Azure Data Factory in batches, or streamed near real-time using Kafka, Event Hub, or IoT Hub. This data lands in a data lake for long term persisted storage, in Azure Blob Storage or Azure Data Lake Storage. As part of your analytics workflow, use Azure Databricks to read data from multiple data sources such as [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.yml), [Azure Cosmos DB](../cosmos-db/index.yml), or [Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml) and turn it into breakthrough insights using Spark.
 
 ![Databricks pipeline](./media/what-is-azure-databricks/databricks-pipeline.png)
 
@@ -32,7 +32,7 @@ Azure Databricks comprises the complete open-source Apache Spark cluster technol
 
 * **Streaming**: Real-time data processing and analysis for analytical and interactive applications. Integrates with HDFS, Flume, and Kafka.
 
-* **MLib**: Machine Learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
+* **MLlib**: Machine Learning library consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, as well as underlying optimization primitives.
 
 * **GraphX**: Graphs and graph computation for a broad scope of use cases from cognitive analytics to data exploration.
 
@@ -81,6 +81,11 @@ Azure Databricks provides enterprise-grade Azure security, including Azure Activ
 * Azure Databricks roles-based access enables fine-grained user permissions for notebooks, clusters, jobs, and data.
 * Enterprise-grade SLAs. 
 
+> [!IMPORTANT]
+>
+> Azure Databricks is a Microsoft Azure first-party service that is deployed on the Global Azure Public Cloud infrastructure. All communications between components of the service, including between the public IPs in the control plane and the customer data plane, remain within the Microsoft Azure network backbone. See also [Microsoft global network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+
+
 ## Integration with Azure services
 
 Azure Databricks integrates deeply with Azure databases and stores: SQL Data Warehouse, Cosmos DB, Data Lake Store, and Blob Storage. 
@@ -91,9 +96,9 @@ Through rich integration with Power BI, Azure Databricks allows you to discover 
 ## Next steps
 
 * [Quickstart: Run a Spark job on Azure Databricks](quickstart-create-databricks-workspace-portal.md)
-* [Work with Spark clusters](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Work with notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Create Spark jobs](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Work with Spark clusters](/azure/databricks/clusters/index)
+* [Work with notebooks](/azure/databricks/notebooks/index)
+* [Create Spark jobs](/azure/databricks/jobs)
 
  
 

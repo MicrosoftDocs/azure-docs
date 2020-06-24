@@ -1,16 +1,9 @@
 ﻿---
-title: Create a Windows VM from a specialized VHD in Azure | Microsoft Docs
+title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
-services: virtual-machines-windows
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
@@ -66,7 +59,7 @@ You can now upload a VHD straight into a managed disk. For instructions, see [Up
 
 You can create a copy of a VM that uses managed disks by taking a snapshot of the VM, and then by using that snapshot to create a new managed disk and a new VM.
 
-If you want to copy an existing VM to another region, you might want to use azcopy to [creat a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
+If you want to copy an existing VM to another region, you might want to use azcopy to [create a copy of a disk in another region](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk). 
 
 ### Take a snapshot of the OS disk
 
@@ -195,7 +188,7 @@ $nsg = New-AzNetworkSecurityGroup `
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to *myIP*.
    

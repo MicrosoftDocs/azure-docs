@@ -3,7 +3,7 @@ title: Build an IoT Plug and Play Preview device that's ready for certification 
 description: As a device developer, learn about how you can build an IoT Plug and Play Preview device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack
 
-You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+You also need to complete the [Use a device capability model to create a device](quickstart-create-pnp-device-windows.md) quickstart for Windows. The quickstart shows you how to set up your development environment using Vcpkg and create a sample project.
 
 ## Store a capability model and interfaces
 
@@ -53,7 +53,7 @@ To pass the certification process, you must include and implement the **Device I
 ```
 
 > [!NOTE]
-> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md), you've already included the **Device Information** interface in your model.
+> If you completed the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device-windows.md), you've already included the **Device Information** interface in your model.
 
 To include the **Device Information** interface in your device model, add the interface ID to the `implements` property of the capability model:
 
@@ -66,7 +66,7 @@ To include the **Device Information** interface in your device model, add the in
     "urn:yourcompanyname:sample:Thermostat:1",
     "urn:azureiot:DeviceManagement:DeviceInformation:1"
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -86,7 +86,7 @@ To view the **Device Information** interface using the Azure CLI:
 
 1. Use the following Azure CLI command to show an interface with the Device Information interface ID:
 
-    ```cmd/sh
+    ```azurecli
     az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
     ```
 
@@ -102,30 +102,54 @@ To certify the device, it must enable provisioning through the [Azure IoT Device
 
 1. Choose the DCM file you want to use to generate the device code stub.
 
-1. Enter the project name, this is the name of your device application.
+1. Enter the project name, such as **sample_device**. This is the name of your device application.
 
 1. Choose **ANSI C** as the language.
 
-1. Choose **CMake Project** as your project type.
-
 1. Choose **Via DPS (Device Provisioning Service) symmetric key** as connection method.
+
+1. Choose **CMake Project on Windows** as your project template.
+
+1. Choose **Via Vcpkg** as the way to include the device SDK.
 
 1. VS Code opens a new window with generated device code stub files.
 
-1. Open `main.c`, fill the **dpsIdScope**, **sasKey**, and **registrationId** that you prepared. You can get this information from the certification portal. For more information, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+## Build and run the code
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+You use the Vcpkg package to build the generated device code stub. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+
+1. Create a `cmake` subdirectory in the `sample_device` folder, and navigate to that folder:
+
+    ```cmd
+    mkdir cmake
+    cd cmake
     ```
 
-1. Save the file.
+1. Run the following commands to build the generated code stub (replacing the placeholder with the directory of your Vcpkg repo):
+
+    ```cmd
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
+
+    cmake --build .
+    ```
+    
+    > [!NOTE]
+    > If you are using Visual Studio 2017 or 2015, you need to specify the CMake generator based on the build tools you are using:
+    >```cmd
+    ># Either
+    >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    ># or
+    >cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    >```
+
+    > [!NOTE]
+    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+
+1. After the build completes successfully, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device Id**) as parameters for the application. To get the credentials from certification portal, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+
+    ```cmd\sh
+    .\Debug\sample_device.exe [Device ID] [DPS ID Scope] [DPS symmetric key]
+    ```
 
 ### Implement standard interfaces
 

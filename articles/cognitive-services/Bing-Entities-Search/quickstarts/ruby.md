@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Send a search request to the Bing Entity Search REST API using Ruby"
+title: "Quickstart: Send a search request to the REST API using Ruby - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Ruby, and receive a JSON response.
 services: cognitive-services
@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ---
 
-# Quickstart for Bing Entity Search API with Ruby
+# Quickstart: Send a search request to the Bing Entity Search REST API using Ruby
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Ruby application sends a news search query to the API, and displays the response. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
 
 ## Create and initialize the application
 
-1. In your favorite IDE or code editor, create a news Ruby file and import the following packages.
+1. In your favorite IDE or code editor, create a news Ruby file and import the following packages:
 
     ```ruby
     require 'net/https'
@@ -35,7 +35,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
     require 'json'
     ```
 
-2. Create variables for your API endpoint, News search URL, your subscription key, and a search query.
+2. Create variables for your API endpoint, News search URL, your subscription key, and search query. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -61,7 +61,7 @@ While this application is written in Ruby, the API is a RESTful Web service comp
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Send the request, and print the response
+3. Send the request, and print the response.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -141,5 +141,5 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API](../search-the-web.md)
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [What is the Bing Entity Search API?](../search-the-web.md)
+* [Bing Entity Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

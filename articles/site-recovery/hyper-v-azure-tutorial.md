@@ -1,11 +1,11 @@
 ---
-title: Set up disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with Site Recovery  | Microsoft Docs
+title: Set up Hyper-V disaster recovery using Azure Site Recovery  
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure by using Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -26,8 +26,6 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
 
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Before you begin
@@ -123,7 +121,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
 2. In **Create and associate policy**, specify a policy name. We're using **ContosoReplicationPolicy**.
 3. For this tutorial, we'll leave the default settings:
     - **Copy frequency** indicates how often delta data (after initial replication) will replicate. The default frequency is every five minutes.
-    - **Recovery point retention** indicates that recovery points will be retained for two hours.
+    - **Recovery point retention** indicates that recovery points will be retained for two hours. The maximum allowed value for retention when protecting virtual machines hosted on Hyper-V hosts is 24 hours.
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time** indicates that initial replication will start immediately.
 4. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. In our tutorial, that's **ContosoHyperVSite**.

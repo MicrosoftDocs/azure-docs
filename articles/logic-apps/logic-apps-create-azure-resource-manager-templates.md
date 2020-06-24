@@ -1,19 +1,16 @@
 ---
-title: Create logic app templates for deployment - Azure Logic Apps
+title: Create logic app templates for deployment
 description: Learn how to create Azure Resource Manager templates for automating deployment in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
 ---
 
 # Create Azure Resource Manager templates to automate deployment for Azure Logic Apps
 
-To help you automate creating and deploying your logic app, this article describes the ways that you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your logic app. For an overview about the structure and syntax for a template that includes your workflow definition and other resources necessary for deployment, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md).
+To help you automate creating and deploying your logic app, this article describes the ways that you can create an [Azure Resource Manager template](../azure-resource-manager/management/overview.md) for your logic app. For an overview about the structure and syntax for a template that includes your workflow definition and other resources necessary for deployment, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md).
 
 Azure Logic Apps provides a [prebuilt logic app Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) that you can reuse, not only for creating logic apps, but also to define the resources and parameters to use for deployment. You can use this template for your own business scenarios or customize the template to meet your requirements.
 
@@ -22,9 +19,9 @@ Azure Logic Apps provides a [prebuilt logic app Azure Resource Manager template]
 
 For more about Azure Resource Manager templates, see these topics:
 
-* [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
+* [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
 
@@ -43,7 +40,7 @@ By downloading your logic app, you get a template that includes the definitions 
 
 You can create Resource Manager templates by using Azure PowerShell with the [LogicAppTemplate module](https://github.com/jeffhollan/LogicAppTemplateCreator). This open-source module first evaluates your logic app and any connections that the logic app uses. The module then generates template resources with the necessary parameters for deployment.
 
-For example, suppose you have a logic app that receives a message from an Azure Service Bus queue and uploads data to an Azure SQL database. The module preserves all the orchestration logic and parameterizes the SQL and Service Bus connection strings so that you can provide and change those values based on your deployment needs.
+For example, suppose you have a logic app that receives a message from an Azure Service Bus queue and uploads data to Azure SQL Database. The module preserves all the orchestration logic and parameterizes the SQL and Service Bus connection strings so that you can provide and change those values based on your deployment needs.
 
 These samples show how to create and deploy logic apps by using Azure Resource Manager templates, Azure Pipelines in Azure DevOps, and Azure PowerShell:
 

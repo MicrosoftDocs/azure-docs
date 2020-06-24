@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 ## General FAQ
 
-### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+### Q: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -53,14 +53,14 @@ For more information, see [Require managed devices for cloud app access with Con
 
 ---
 
-### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices ?
+### Q: Why do my users see an error message saying "Your organization has deleted the device" or "Your organization has disabled the device" on their Windows 10 devices?
 
-**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validaity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
+**A:** On Windows 10 devices joined or registered with Azure AD, users are issued a [Primary refresh token (PRT)](concept-primary-refresh-token.md) which enables single sign on. The validity of the PRT is based on the validity of the device itself. Users see this message if the device is either deleted or disabled in Azure AD without initiating the action from the device itself. A device can be deleted or disabled in Azure AD one of the following scenarios: 
 
 - User disables the device from the My Apps portal. 
 - An administrator (or user) deletes or disables the device in the Azure portal or by using PowerShell
 - Hybrid Azure AD joined only: An administrator removes the devices OU out of sync scope resulting in the devices being deleted from Azure AD
-- Upgrading AAD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Upgrading Azure AD connect to the version 1.4.xx.x. [Understanding Azure AD Connect 1.4.xx.x and device disappearance](/azure/active-directory/hybrid/reference-connect-device-disappearance).
 
 
 See below on how these actions can be rectified.
@@ -69,7 +69,7 @@ See below on how these actions can be rectified.
 
 ### Q: I disabled or deleted my device in the Azure portal or by using Windows PowerShell. But the local state on the device says it's still registered. What should I do?
 
-**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
+**A:** This operation is by design. In this case, the device doesn't have access to resources in the cloud. Administrators can perform this action for stale, lost, or stolen devices to prevent unauthorized access. If this action was performed unintentionally, you'll need to re-enable or re-register the device as described below
 
 - If the device was disabled in Azure AD, an administrator with sufficient privileges can enable it from the Azure AD portal  
   > [!NOTE]
@@ -117,7 +117,7 @@ See below on how these actions can be rectified.
 
 ### Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?
 
-**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join, and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
+**A:** Windows 10 device registration only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Contact your hardware OEM for support. 
 
 ---
 
@@ -126,7 +126,7 @@ See below on how these actions can be rectified.
 **A:** It takes up to an hour for a revoke to be applied from the time the Azure AD device is marked as disabled.
 
 >[!NOTE] 
->For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+>For enrolled devices, we recommend that you wipe the device to make sure users can't access the resources. For more information, see [What is device enrollment?](/mem/intune/user-help/use-managed-devices-to-get-work-done). 
 
 ---
 
@@ -174,21 +174,23 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **A:** Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
+
 ---
 
 ### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
 
-**A:** To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
+**A:** To deploy printers for Azure AD joined devices, see [Deploy Windows Server Hybrid Cloud Print with Pre-Authentication](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). You need an on-premises Windows Server to deploy hybrid cloud print. Currently, cloud-based print service isn't available. 
 
 ---
 
 ### Q: How do I connect to a remote Azure AD joined device?
 
-**A:** See [Connect to remote Azure Active Directory-joined PC](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc).
+**A:** See [Connect to remote Azure Active Directory-joined PC](/windows/client-management/connect-to-remote-aadj-pc).
 
 ---
 
-### Q: Why do my users see *You can’t get there from here*?
+### Q: Why do my users see *You can't get there from here*?
 
 **A:** Did you configure certain Conditional Access rules to require a specific device state? If the device doesn't meet the criteria, users are blocked, and they see that message. 
 Evaluate the Conditional Access policy rules. Make sure the device meets the criteria to avoid the message.
@@ -219,7 +221,7 @@ This behavior:
 
 ### Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?
 
-**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/windows-enroll).  
+**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](/intune/windows-enroll).  
 
 ---
 
@@ -267,6 +269,8 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and rejoin (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+UPN changes are supported with Windows 10 2004 update. Users on devices with this update will not have any issues after changing their UPNs
+
 ---
 
 ### Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?
@@ -289,13 +293,13 @@ If a password is changed outside the corporate network (for example, by using Az
 **A:** 
 - For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
-- For macOS, you can use the Microsoft Intune Company Portal application to un-enroll the device from management and remove any registration. 
+- For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
 
 ---
 ### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?
 
 **A:**
-Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
+Enable the following registry to block your users from adding additional work accounts to your corporate domain joined, Azure AD joined, or hybrid Azure AD joined Windows 10 devices. This policy can also be used to block domain joined machines from inadvertently getting Azure AD registered with the same user account. 
 
 `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
@@ -309,12 +313,12 @@ Enable the following registry to block your users from adding additional work ac
 
 **A:** Take the following steps:
 
-1.	[Create a compliance policy](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-1.	[Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
+1.    [Create a compliance policy](/intune/compliance-policy-create-mac-os)
+1.    [Define a Conditional Access policy for macOS devices](../active-directory-conditional-access-azure-portal.md) 
 
 **Remarks:**
 
-- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/technical-reference.md#client-apps-condition) to access resources. 
+- The users included in your Conditional Access policy need a [supported version of Office for macOS](../conditional-access/concept-conditional-access-conditions.md) to access resources. 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
 ---

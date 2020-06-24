@@ -1,14 +1,14 @@
 ---
 author: rothja
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 11/09/2018    
 ms.author: jroth
 ---
 >[!NOTE]
 >For resources that aren't fixed, open a support ticket to ask for an increase in the quotas. Don't create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
-| Resource | Default limit | 
+| Resource | Limit | 
 | --- | --- | 
 | Azure Media Services accounts in a single subscription | 25 (fixed) |
 | Media reserved units per Media Services account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -48,8 +48,8 @@ As of April 1, 2017, any job record in your account older than 90 days is automa
 
 The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, open a support ticket.
 
-|Media reserved unit type	|Maximum input size (GB)|
+|Media reserved unit type    |Maximum input size (GB)|
 |---|---|
-|S1 |	26|
-|S2	| 60|
-|S3	|260|
+|S1 |    26|
+|S2    | 60|
+|S3    |260|

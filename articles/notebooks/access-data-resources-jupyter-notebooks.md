@@ -1,19 +1,10 @@
 ---
-title: Access data resources from Jupyter notebooks on Azure
-description: How to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
+title: Access data in Jupyter notebooks - Azure Notebooks Preview
+description: Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.author: kraigb
+ms.custom: tracking-python
 ---
-
 # Access cloud data in a notebook
 
 Doing interesting work in a Jupyter notebook requires data. Data, indeed, is the lifeblood of notebooks.
@@ -21,6 +12,8 @@ Doing interesting work in a Jupyter notebook requires data. Data, indeed, is the
 You can certainly [import data files into a project](work-with-project-data-files.md), even using commands like `curl` from within a notebook to download a file directly. It's likely, however, that you need to work with much more extensive data that's available from non-file sources such as REST APIs, relational databases, and cloud storage such as Azure tables.
 
 This article briefly outlines these different options. Because data access is best seen in action, you can find runnable code in the [Azure Notebooks Samples - Access your data](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## REST APIs
 
@@ -43,11 +36,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## Azure SQL databases
+## Azure SQL Database and SQL Managed Instance
 
-You can access SQL Server databases with the assistance of the pyodbc or pymssql libraries.
+You can access databases in SQL Database or SQL Managed Instance with the assistance of the pyodbc or pymssql libraries.
 
-[Use Python to query an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) gives you instructions on creating a database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
+[Use Python to query an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) gives you instructions on creating a database in SQL Database containing AdventureWorks data, and shows how to query that data. The same code is shown in the sample notebook for this article.
 
 ## Azure Storage
 

@@ -1,25 +1,21 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Go - QnA Maker"
-titleSuffix: Azure Cognitive Services 
 description: This Go REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account.
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 10/01/2019
-ms.author: diberry
+ms.date: 12/16/2019
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: how-to
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Go
 
-This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
 
 This quickstart calls QnA Maker APIs:
-* [Create KB](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Create KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [GO Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -27,8 +23,6 @@ This quickstart calls QnA Maker APIs:
 
 * [Go 1.10.1](https://golang.org/dl/)
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
-
-The [sample code](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go) is available on the GitHub repo for QnA Maker with Go.
 
 ## Create a knowledge base Go file
 
@@ -41,7 +35,12 @@ At the top of `create-new-knowledge-base.go`, add the following lines to add nec
 [!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key.
+After the preceding required dependencies, add the required constants to access QnA Maker.
+
+Set the following values:
+
+* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.
+* `{your-resource-name}` - Your **resource name** is used to construct the authoring endpoint URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
 
@@ -62,17 +61,17 @@ Next, add the following supporting functions.
 
     [!code-go[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
 
-3. Add the following method to handle a GET to the QnA Maker APIs. For this quickstart, the GET is used to check the status of the creation operation. 
+3. Add the following method to handle a GET to the QnA Maker APIs. For this quickstart, the GET is used to check the status of the creation operation.
 
     [!code-go[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
 
 ## Add function to create KB
 
-Add the following functions to make an HTTP POST request to create the knowledge base. The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
+Add the following functions to make an HTTP POST request to create the knowledge base. The _create_ **Operation ID** is returned in the POST response header field **Location**, then used as part of the route in the GET request. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication.
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created. 
+This API call returns a JSON response that includes the operation ID. Use the operation ID to determine if the KB is successfully created.
 
 ```JSON
 {
@@ -86,11 +85,11 @@ This API call returns a JSON response that includes the operation ID. Use the op
 
 ## Add function to get status
 
-Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
+Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication.
 
 [!code-go[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
 
-Repeat the call until success or failure: 
+Repeat the call until success or failure:
 
 ```JSON
 {
@@ -124,9 +123,9 @@ Enter the following command at a command-line to run the program. It will send t
 go run create-new-knowledge-base
 ```
 
-Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
+Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page.
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)]
 
 ## Next steps
 

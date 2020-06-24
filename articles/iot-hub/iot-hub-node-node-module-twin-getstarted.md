@@ -1,5 +1,5 @@
 ﻿---
-title: Get started with Azure IoT Hub module identity and module twin (Node.js) | Microsoft Docs
+title: Start with Azure IoT Hub module identity & module twin (Node.js)
 description: Learn how to create module identity and update module twin using IoT SDKs for Node.js.
 author: wesmc7777
 manager: philmea
@@ -9,6 +9,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
+ms.custom: amqp
 ---
 
 # Get started with IoT Hub module identity and module twin (Node.js)
@@ -16,7 +17,7 @@ ms.date: 04/26/2018
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
 
 At the end of this tutorial, you have two Node.js apps:
 

@@ -1,10 +1,6 @@
 ---
 title: Receive activity log alerts on Azure service notifications
 description: Get notified via SMS, email, or webhook when Azure service occurs.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
 ---
@@ -14,7 +10,7 @@ ms.date: 06/27/2019
 
 This article shows you how to set up activity log alerts for service health notifications by using the Azure portal.  
 
-Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/activity-logs-overview.md) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications. 
+Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications. 
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 

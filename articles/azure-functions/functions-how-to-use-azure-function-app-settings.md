@@ -1,13 +1,9 @@
 ---
 title: Configure function app settings in Azure 
 description: Learn how to configure Azure function app settings.
-author: ggailey777
-manager: gwallace
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.author: glenga
+ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47
 ---
 
@@ -26,15 +22,17 @@ This article describes how to configure and manage your function apps.
 
 ## Get started in the Azure portal
 
-To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, type the name of your function app and select it from the list. After selecting your function app, you see the following page:
+1. To begin, go to the [Azure portal] and sign in to your Azure account. In the search bar at the top of the portal, enter the name of your function app and select it from the list. 
 
-![Function app overview in the Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+2. Under **Settings** in the left pane, select **Configuration**.
+
+    :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Function app overview in the Azure portal":::
 
 You can navigate to everything you need to manage your function app from the overview page, in particular the **[Application settings](#settings)** and **[Platform features](#platform-features)**.
 
 ## <a name="settings"></a>Application settings
 
-The **Application Settings** tab maintains settings that are used by your function app. These settings are stored encrypted, and you must select **Show values** to see the values in the portal. You can also access application settings by using the Azure CLI.
+The **Application settings** tab maintains settings that are used by your function app. These settings are stored encrypted, and you must select **Show values** to see the values in the portal. You can also access application settings by using the Azure CLI.
 
 ### Portal
 
@@ -68,9 +66,7 @@ When you develop a function app locally, you must maintain local copies of these
 
 ## Platform features
 
-![Function app platform features tab.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
-
-Function apps run in, and are maintained, by the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The **Platform features** tab is where you access the many features of the App Service platform that you can use in your function apps. 
+Function apps run in, and are maintained by, the Azure App Service platform. As such, your function apps have access to most of the features of Azure's core web hosting platform. The left pane is where you access the many features of the App Service platform that you can use in your function apps. 
 
 > [!NOTE]
 > Not all App Service features are available when a function app runs on the Consumption hosting plan.
@@ -86,7 +82,7 @@ The rest of this article focuses on the following App Service features in the Az
 
 For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
-### <a name="editor"></a>App Service Editor
+### <a name="editor"></a>App Service editor
 
 ![The App Service editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 

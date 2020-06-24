@@ -1,23 +1,28 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen2 using Data Factory | Microsoft Docs
-description: Learn how to copy data to and from Azure Data Lake Storage Gen2 by using Azure Data Factory.
+title: Copy and transform data in Azure Data Lake Storage Gen2
+description: Learn how to copy data to and from Azure Data Lake Storage Gen2, and transform data in Azure Data Lake Storage Gen2 by using Azure Data Factory.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: jingwang
-
+ms.custom: seo-lt-2019
+ms.date: 06/12/2020
 ---
-# Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory
+
+# Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 (ADLS Gen2) is a set of capabilities dedicated to big data analytics built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). You can use it to interface with your data by using both file system and object storage paradigms.
 
-This article outlines how to copy data to and from Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Data Lake Storage Gen2, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
+>[!TIP]
+>For data lake or data warehouse migration scenario, learn more from [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md).
 
 ## Supported capabilities
 
@@ -29,16 +34,16 @@ This Azure Data Lake Storage Gen2 connector is supported for the following activ
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
 
-Specifically, with this connector you can:
+For Copy activity, with this connector you can:
 
-- Copy data by using account key, service principal, or managed identities for Azure resources authentications.
-- Copy files as is or parse or generate files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- Copy data from/to Azure Data Lake Storage Gen2 by using account key, service principal, or managed identities for Azure resources authentications.
+- Copy files as-is or parse or generate files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
+- [Preserve file metadata during copy](#preserve-metadata-during-copy).
+- [Preserve ACLs](#preserve-acls) when copying from Azure Data Lake Storage Gen1/Gen2.
 
 >[!IMPORTANT]
 >If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Data Lake Storage Gen2, you must use [managed identity authentication](#managed-identity) for ADLS Gen2.
 
->[!TIP]
->If you enable the hierarchical namespace, currently there's no interoperability of operations between Blob and Data Lake Storage Gen2 APIs. If you hit the error "ErrorCode=FilesystemNotFound" with the message "The specified filesystem does not exist," it's caused by the specified sink file system that was created via the Blob API instead of Data Lake Storage Gen2 API elsewhere. To fix the issue, specify a new file system with a name that doesn't exist as the name of a Blob container. Then Data Factory automatically creates that file system during data copy.
 
 ## Get started
 
@@ -112,7 +117,7 @@ To use service principal authentication, follow these steps.
     - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->If you use Data Factory UI to author and the service principal is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a file system or path with Execute permission to continue.
+>If you use Data Factory UI to author and the service principal is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
 
 These properties are supported for the linked service:
 
@@ -155,7 +160,7 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identities for Azure resource authentication, follow these steps.
 
-1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **service identity application ID** generated along with your factory.
+1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your factory.
 
 2. Grant the managed identity proper permission. See examples on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -163,10 +168,10 @@ To use managed identities for Azure resource authentication, follow these steps.
     - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->If you use Data Factory UI to author and the managed identity is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a file system or path with Execute permission to continue.
+>If you use Data Factory UI to author and the managed identity is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a path with **Read + Execute** permission to continue.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+>If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for the linked service:
 
@@ -236,10 +241,277 @@ The following properties are supported for Data Lake Storage Gen2 under `locatio
 }
 ```
 
-### Legacy dataset model
+## Copy activity properties
+
+For a full list of sections and properties available for defining activities, see [Copy activity configurations](copy-activity-overview.md#configuration) and [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties supported by the Data Lake Storage Gen2 source and sink.
+
+### Azure Data Lake Storage Gen2 as a source type
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+You have several options to copy data from ADLS Gen2:
+
+- Copy from the given path specified in the dataset.
+- Wildcard filter against folder path or file name, see `wildcardFolderPath` and `wildcardFileName`.
+- Copy the files defined in a given text file as file set, see `fileListPath`.
+
+The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
+
+| Property                 | Description                                                  | Required                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobFSReadSettings**. | Yes                                           |
+| ***Locate the files to copy:*** |  |  |
+| OPTION 1: static path<br> | Copy from the given file system or folder/file path specified in the dataset. If you want to copy all files from a file system/folder, additionally specify `wildcardFileName` as `*`. |  |
+| OPTION 2: wildcard<br>- wildcardFolderPath | The folder path with wildcard characters under the given file system configured in dataset to filter source folders. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
+| OPTION 2: wildcard<br>- wildcardFileName | The file name with wildcard characters under the given file system + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes |
+| OPTION 3: a list of files<br>- fileListPath | Indicates to copy a given file set. Point to a text file that includes a list of files you want to copy, one file per line, which is the relative path to the path configured in the dataset.<br/>When using this option, do not specify file name in dataset. See more examples in [File list examples](#file-list-examples). |No |
+| ***Additional settings:*** |  | |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. Note that when recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are **true** (default) and **false**.<br>This property doesn't apply when you configure `fileListPath`. |No |
+| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary copy scenario, where data source stores are Blob, ADLS Gen1, ADLS Gen2, S3, Google Cloud Storage, File, Azure File, SFTP, or FTP. The default value: false. |No |
+| modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. <br>The files will be selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
+| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
+| maxConcurrentConnections | The number of connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSettings",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureBlobFSReadSettings",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+### Azure Data Lake Storage Gen2 as a sink type
+
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+
+The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
+
+| Property                 | Description                                                  | Required |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| type                     | The type property under `storeSettings` must be set to **AzureBlobFSWriteSettings**. | Yes      |
+| copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
+| blockSizeInMB | Specify the block size in MB used to write data to ADLS Gen2. Learn more [about Block Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Allowed value is **between 4 MB and 100 MB**. <br/>By default, ADF automatically determines the block size based on your source store type and data. For non-binary copy into ADLS Gen2, the default block size is 100 MB so as to fit in at most 4.95-TB data. It may be not optimal when your data is not large, especially when you use Self-hosted Integration Runtime with poor network resulting in operation timeout or performance issue. You can explicitly specify a block size, while ensure blockSizeInMB*50000 is big enough to store the data, otherwise copy activity run will fail. | No |
+| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+
+**Example:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen2",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureBlobFSWriteSettings",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+### Folder and file filter examples
+
+This section describes the resulting behavior of the folder path and file name with wildcard filters.
+
+| folderPath | fileName | recursive | Source folder structure and filter result (files in **bold** are retrieved)|
+|:--- |:--- |:--- |:--- |
+| `Folder*` | (Empty, use default) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Empty, use default) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+
+### File list examples
+
+This section describes the resulting behavior of using file list path in copy activity source.
+
+Assuming you have the following source folder structure and want to copy the files in bold:
+
+| Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
+| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- File system: `filesystem`<br>- Folder path: `FolderA`<br><br>**In copy activity source:**<br>- File list path: `filesystem/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
+
+
+### Some recursive and copyBehavior examples
+
+This section describes the resulting behavior of the copy operation for different combinations of recursive and copyBehavior values.
+
+| recursive | copyBehavior | Source folder structure | Resulting target |
+|:--- |:--- |:--- |:--- |
+| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the same structure as the source:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File5 |
+| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 contents are merged into one file with an autogenerated file name. |
+| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
+| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
+
+## Preserve metadata during copy
+
+When you copy files from Amazon S3/Azure Blob/Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2/Azure Blob, you can choose to preserve the file metadata along with data. Learn more from [Preserve metadata](copy-activity-preserve-metadata.md#preserve-metadata).
+
+## <a name="preserve-acls"></a> Preserve ACLs from Data Lake Storage Gen1/Gen2
+
+When you copy files from Azure Data Lake Storage Gen1/Gen2 to Gen2, you can choose to preserve the POSIX access control lists (ACLs) along with data. Learn more from [Preserve ACLs from Data Lake Storage Gen1/Gen2 to Gen2](copy-activity-preserve-metadata.md#preserve-acls).
+
+>[!TIP]
+>To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
+
+## Mapping data flow properties
+
+When you're transforming data in mapping data flows, you can read and write files from Azure Data Lake Storage Gen2 in the following formats:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+* [Common Data Model (preview)](format-common-data-model.md#mapping-data-flow-properties)
+
+Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
+
+### Source transformation
+
+In the source transformation, you can read from a container, folder, or individual file in Azure Data Lake Storage Gen2. The **Source options** tab lets you manage how the files get read. 
+
+![Source options](media/data-flow/sourceOptions1.png "Source options")
+
+**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
+
+From your source container, choose a series of files that match a pattern. Only container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+
+Wildcard examples:
+
+* ```*``` Represents any set of characters
+* ```**``` Represents recursive directory nesting
+* ```?``` Replaces one character
+* ```[]``` Matches one of more characters in the brackets
+
+* ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
+* ```/data/sales/20??/**/``` Gets all files in the 20th century
+* ```/data/sales/*/*/*.csv``` Gets csv files two levels under /data/sales
+* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
+
+**Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
+
+First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
+
+![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+
+Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+
+![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+
+**List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
+
+**Column to store file name:** Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.
+
+**After completion:** Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+
+To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+
+If you have a source path with wildcard, your syntax will look like this below:
+
+```/data/sales/20??/**/*.csv```
+
+You can specify "from" as
+
+```/data/sales```
+
+And "to" as
+
+```/backup/priorSales```
+
+In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
+
+> [!NOTE]
+> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+
+**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
+
+### Sink properties
+
+In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen2. the **Settings** tab lets you manage how the files get written.
+
+![sink options](media/data-flow/file-sink-settings.png "sink options")
+
+**Clear the folder:** Determines whether or not the destination folder gets cleared before the data is written.
+
+**File name option:** Determines how the destination files are named in the destination folder. The file name options are:
+   * **Default**: Allow Spark to name files based on PART defaults.
+   * **Pattern**: Enter a pattern that enumerates your output files per partition. For example, **loans[n].csv** will create loans1.csv, loans2.csv, and so on.
+   * **Per partition**: Enter one file name per partition.
+   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it will be overridden.
+   * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
+
+**Quote all:** Determines whether to enclose all values in quotes
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
+
+## Legacy models
 
 >[!NOTE]
->The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+
+### Legacy dataset model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -248,8 +520,8 @@ The following properties are supported for Data Lake Storage Gen2 under `locatio
 | fileName | Name or wildcard filter for the files under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, the wildcards allowed are `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has a wildcard or this escape char is inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*", for example, "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". If you copy from a tabular source using a table name instead of a query, the name pattern is "*[table name].[format].[compression if configured]*", for example, "MyTable.csv". |No |
 | modifiedDatetimeStart | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
 | modifiedDatetimeEnd | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
-| format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
+| format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
 >To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with a folder part and **fileName** with a file name.<br>To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
@@ -284,71 +556,7 @@ The following properties are supported for Data Lake Storage Gen2 under `locatio
 }
 ```
 
-## Copy activity properties
-
-For a full list of sections and properties available for defining activities, see [Copy activity configurations](copy-activity-overview.md#configuration) and [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties supported by the Data Lake Storage Gen2 source and sink.
-
-### Azure Data Lake Storage Gen2 as a source type
-
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
-
-The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
-
-| Property                 | Description                                                  | Required                                      |
-| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | The type property under `storeSettings` must be set to **AzureBlobFSReadSetting**. | Yes                                           |
-| recursive                | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. Allowed values are **true** (default) and **false**. | No                                            |
-| wildcardFolderPath       | The folder path with wildcard characters under the given file system configured in dataset to filter source folders. <br>Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape char inside. <br>See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | No                                            |
-| wildcardFileName         | The file name with wildcard characters under the given file system + folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are `*` (matches zero or more characters) and `?` (matches zero or single character). Use `^` to escape if your actual folder name has a wildcard or this escape char inside. See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` isn't specified in dataset |
-| modifiedDatetimeStart    | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected. | No                                            |
-| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
-| maxConcurrentConnections | The number of connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
-
-**Example:**
-
-```json
-"activities":[
-    {
-        "name": "CopyFromADLSGen2",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<Delimited text input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "DelimitedTextSource",
-                "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
-                    "skipLineCount": 10
-                },
-                "storeSettings":{
-                    "type": "AzureBlobFSReadSetting",
-                    "recursive": true,
-                    "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
-                }
-            },
-            "sink": {
-                "type": "<sink type>"
-            }
-        }
-    }
-]
-```
-
-#### Legacy source model
-
->[!NOTE]
->The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
+### Legacy copy activity source model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -388,57 +596,7 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 ]
 ```
 
-### Azure Data Lake Storage Gen2 as a sink type
-
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
-
-The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
-
-| Property                 | Description                                                  | Required |
-| ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | The type property under `storeSettings` must be set to **AzureBlobFSWriteSetting**. | Yes      |
-| copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
-| maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-**Example:**
-
-```json
-"activities":[
-    {
-        "name": "CopyToADLSGen2",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<Parquet output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "<source type>"
-            },
-            "sink": {
-                "type": "ParquetSink",
-                "storeSettings":{
-                    "type": "AzureBlobFSWriteSetting",
-                    "copyBehavior": "PreserveHierarchy"
-                }
-            }
-        }
-    }
-]
-```
-
-#### Legacy sink model
-
->[!NOTE]
->The following copy sink model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
+### Legacy copy activity sink model
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -478,105 +636,6 @@ The following properties are supported for Data Lake Storage Gen2 under `storeSe
 ]
 ```
 
-### Folder and file filter examples
-
-This section describes the resulting behavior of the folder path and file name with wildcard filters.
-
-| folderPath | fileName | recursive | Source folder structure and filter result (files in **bold** are retrieved)|
-|:--- |:--- |:--- |:--- |
-| `Folder*` | (Empty, use default) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | (Empty, use default) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-
-### Some recursive and copyBehavior examples
-
-This section describes the resulting behavior of the copy operation for different combinations of recursive and copyBehavior values.
-
-| recursive | copyBehavior | Source folder structure | Resulting target |
-|:--- |:--- |:--- |:--- |
-| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the same structure as the source:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File5 |
-| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File5 contents are merged into one file with an autogenerated file name. |
-| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
-| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;autogenerated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
-| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target Folder1 is created with the following structure: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with an autogenerated file name. autogenerated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 isn't picked up. |
-
-## Preserve ACLs from Data Lake Storage Gen1
-
->[!TIP]
->To copy data from Azure Data Lake Storage Gen1 into Gen2 in general, see [Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) for a walk-through and best practices.
-
-When you copy files from Azure Data Lake Storage Gen1 to Gen2, you can choose to preserve the POSIX access control lists (ACLs) along with data. For more information on access control, see [Access control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) and [Access control in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
-
-The following types of ACLs can be preserved by using the Azure Data Factory copy activity. You can select one or more types:
-
-- **ACL**: Copy and preserve POSIX access control lists on files and directories. It copies the full existing ACLs from source to sink. 
-- **Owner**: Copy and preserve the owning user of files and directories. Super-user access to sink Data Lake Storage Gen2 is required.
-- **Group**: Copy and preserve the owning group of files and directories. Super-user access to sink Data Lake Storage Gen2 or the owning user (if the owning user is also a member of the target group) is required.
-
-If you specify to copy from a folder, Data Factory replicates the ACLs for that given folder and the files and directories under it, if `recursive` is set to true. If you specify to copy from a single file, the ACLs on that file are copied.
-
->[!IMPORTANT]
->When you choose to preserve ACLs, make sure you grant high enough permissions for Data Factory to operate against your sink Data Lake Storage Gen2 account. For example, use account key authentication or assign the Storage Blob Data Owner role to the service principal or managed identity.
-
-When you configure source as Data Lake Storage Gen1 with the binary copy option or binary format and sink as Data Lake Storage Gen2 with the binary copy option or binary format, you can find the **Preserve** option on the **Copy Data Tool Settings** page or on the **Copy Activity** > **Settings** tab for activity authoring.
-
-![Data Lake Storage Gen1 to Gen2 Preserve ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
-
-Here's an example of JSON configuration (see `preserve`): 
-
-```json
-"activities":[
-    {
-        "name": "CopyFromGen1ToGen2",
-        "type": "Copy",
-        "typeProperties": {
-            "source": {
-                "type": "AzureDataLakeStoreSource",
-                "recursive": true
-            },
-            "sink": {
-                "type": "AzureBlobFSSink",
-                "copyBehavior": "PreserveHierarchy"
-            },
-            "preserve": [
-                "ACL",
-                "Owner",
-                "Group"
-            ]
-        },
-        "inputs": [
-            {
-                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
-                "type": "DatasetReference"
-            }
-        ]
-    }
-]
-```
-
-## Mapping data flow properties
-
-Learn more about [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in the mapping data flow feature.
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-## GetMetadata activity properties
-
-To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
-
-## Delete activity properties
-
-To learn details about the properties, check [Delete activity](delete-activity.md)
 ## Next steps
 
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

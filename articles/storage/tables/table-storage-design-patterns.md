@@ -139,7 +139,7 @@ EGTs enable atomic transactions across multiple entities that share the same par
 * Entities stored in two different partitions in the same table, in different tables, or in different storage accounts.  
 * An entity stored in the Table service and a blob stored in the Blob service.  
 * An entity stored in the Table service and a file in a file system.  
-* An entity store in the Table service yet indexed using the Azure Search service.  
+* An entity stored in the Table service yet indexed using the Azure Cognitive Search service.  
 
 ### Solution
 By using Azure queues, you can implement a solution that delivers eventual consistency across two or more partitions or storage systems.
@@ -575,7 +575,7 @@ Notice how this example expects the entity it retrieves to be of type **Employee
 ### Retrieving multiple entities using LINQ
 You can use LINQ to retrieve multiple entities from the Table service when working with Microsoft Azure Cosmos Table Standard Library. 
 
-```cli
+```azurecli
 dotnet add package Microsoft.Azure.Cosmos.Table
 ```
 

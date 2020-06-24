@@ -1,32 +1,22 @@
 ---
-title: Automate resource deployment for a function app in Azure Functions | Microsoft Docs
+title: Automate function app resource deployment to Azure
 description: Learn how to build an Azure Resource Manager template that deploys your function app.
-services: Functions
-documtationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
-ms.service: azure-functions
-ms.server: functions
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: glenga
+ms.custom: fasttrack-edit
 ---
 
 # Automate resource deployment for your function app in Azure Functions
 
 You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy additional resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 For sample templates, see:
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
-
-> [!NOTE]
-> The Premium plan for Azure Functions hosting is currently in preview. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
 
 ## Required resources
 
@@ -39,7 +29,7 @@ An Azure Functions deployment typically consists of these resources:
 | An [Application Insights](../azure-monitor/app/app-insights-overview.md) component | Optional    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
 | A [hosting plan](./functions-scale.md)                                             | Optional<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup>A hosting plan is only required when you choose to run your function app on a [Premium plan](./functions-premium-plan.md) (in preview) or on an [App Service plan](../app-service/overview-hosting-plans.md).
+<sup>1</sup>A hosting plan is only required when you choose to run your function app on a [Premium plan](./functions-premium-plan.md) or on an [App Service plan](../app-service/overview-hosting-plans.md).
 
 > [!TIP]
 > While not required, it is strongly recommended that you configure Application Insights for your app.
@@ -47,7 +37,7 @@ An Azure Functions deployment typically consists of these resources:
 <a name="storage"></a>
 ### Storage account
 
-An Azure storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
+An Azure storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](storage-considerations.md#storage-account-requirements).
 
 ```json
 {
@@ -97,7 +87,7 @@ Application Insights is recommended for monitoring your function apps. The Appli
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -117,7 +107,7 @@ In addition, the instrumentation key needs to be provided to the function app us
 
 The definition of the hosting plan varies, and can be one of the following:
 * [Consumption plan](#consumption) (default)
-* [Premium plan](#premium) (in preview)
+* [Premium plan](#premium)
 * [App Service plan](#app-service-plan)
 
 ### Function app
@@ -135,6 +125,7 @@ The function app resource is defined by using a resource of type **Microsoft.Web
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+}
 ```
 
 > [!IMPORTANT]
@@ -144,9 +135,9 @@ A function app must include these application settings：
 
 | Setting name                 | Description                                                                               | Example values                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime for internal queueing | See [Storage account](#storage)       |
+| AzureWebJobsStorage          | A connection string to a storage account that the Functions runtime uses for internal queueing | See [Storage account](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | The version of the Azure Functions runtime                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, or `python` |
+| FUNCTIONS_WORKER_RUNTIME     | The language stack to be used for functions in this app                                   | `dotnet`, `node`, `java`, `python`, or `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Only needed if using the `node` language stack, specifies the version to use              | `10.14.1`                             |
 
 These properties are specified in the `appSettings` collection in the `siteConfig` property:
@@ -180,7 +171,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ## Deploy on Consumption plan
 
-The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](functions-scale.md#consumption-plan).
+The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales in when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](functions-scale.md#consumption-plan).
 
 For a sample Azure Resource Manager template, see [Function app on Consumption plan].
 
@@ -213,7 +204,7 @@ The Consumption plan is a special type of "serverfarm" resource. For Windows, yo
 > [!NOTE]
 > The Consumption plan cannot be explicitly defined for Linux. It will be created automatically.
 
-If you do explicitly define your consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
+If you do explicitly define your Consumption plan, you will need to set the `serverFarmId` property on the app so that it points to the resource ID of the plan. You should ensure that the function app has a `dependsOn` setting for the plan as well.
 
 ### Create a function app
 
@@ -310,21 +301,29 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 ## Deploy on Premium plan
 
-The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan.md).
+The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
 
 ### Create a Premium plan
 
-A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `sku` property value.
+A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` [description object](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
+    "apiVersion": "2018-02-01",
+    "name": "[parameters('hostingPlanName')]",
     "location": "[resourceGroup().location]",
     "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "EP1"
+        "name": "[parameters('hostingPlanName')]",
+        "workerSize": "[parameters('workerSize')]",
+        "workerSizeId": "[parameters('workerSizeId')]",
+        "numberOfWorkers": "[parameters('numberOfWorkers')]",
+        "hostingEnvironment": "[parameters('hostingEnvironment')]",
+        "maximumElasticWorkerCount": "20"
+    },
+    "sku": {
+        "Tier": "ElasticPremium",
+        "Name": "EP1"
     }
 }
 ```
@@ -379,7 +378,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## Deploy on App Service plan
 
@@ -426,7 +425,7 @@ To run your app on Linux, you must also set the `kind` to `Linux`:
 }
 ```
 
-### Create a function app 
+### Create a function app
 
 A function app on an App Service plan must have the `serverFarmId` property set to the resource ID of the plan created earlier.
 
@@ -644,10 +643,10 @@ A function app has many child resources that you can use in your deployment, inc
 
 You can use any of the following ways to deploy your template:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### Deploy to Azure button
 

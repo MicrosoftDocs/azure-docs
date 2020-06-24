@@ -1,25 +1,23 @@
 ---
 title: "Quickstart: Create knowledge base - REST, Java - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Java REST-based quickstart walks you through creating a sample QnA Maker knowledge base, programmatically, that will appear in your Azure Dashboard of your Cognitive Services API account..
-services: cognitive-services
-author: diberry
-manager: nitinme
-
-ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 10/01/2019
-ms.author: diberry
+ms.date: 12/16/2019
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: how-to
 ---
 
 # Quickstart: Create a knowledge base in QnA Maker using Java
 
-This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
+This quickstart walks you through programmatically creating a sample QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/knowledge-base.md). The model for the knowledge base is defined in the JSON sent in the body of the API request.
+
+This quickstart calls QnA Maker APIs:
+* [Create KB](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Java Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 ## Prerequisites
 
@@ -39,9 +37,14 @@ At the top of `CreateKB.java`, add the following lines to add necessary dependen
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. 
+After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker.
 
-You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource.
+
+Set the following values:
+
+* `<your-qna-maker-subscription-key>` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quickstart page. This is not the same as the prediction endpoint key.
+* `<your-resource-name>` - Your **resource name** is used to construct the authoring endpoint URL for authoring, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. This is not the same URL used to query the prediction endpoint.
 
 You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
 

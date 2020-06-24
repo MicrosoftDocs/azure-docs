@@ -1,12 +1,12 @@
 ---
 title: Create Dynamics 365 for Customer Engagement technical assets | Azure Marketplace 
 description: Deprecated this CPP article and linked to PC article; was "Create the technical assets for a Dynamics 365 for Customer Engagement application offer."
-services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
-ms.topic: article
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Create technical assets for Azure application offer

@@ -1,12 +1,11 @@
 ---
 title: Diagnose performance issues using Azure Application Insights | Microsoft Docs
 description: Tutorial to find and diagnose performance issues in your application using Azure Application Insights.
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/13/2019
+ms.date: 06/15/2020
 
 ms.custom: mvc
 ---
@@ -58,7 +57,7 @@ Application Insights collects performance details for the different operations i
 	![Operation end-to-end details](media/tutorial-performance/4-end-to-end.png)
 	
 
-6.  The **Profiler** helps get further with code level diagnostics by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
+6.  The [**Profiler**](../../azure-monitor/app/profiler-overview.md) helps get further with code level diagnostics by showing the actual code that ran for the operation and the time required for each step. Some operations may not have a trace since the profiler runs periodically.  Over time, more operations should have traces.  To start the profiler for the operation, click **Profiler traces**.
 5.  The trace shows the individual events for each operation so you can diagnose the root cause for the duration of the overall operation.  Click one of the top examples, which have the longest duration.
 6.  Click **Hot Path** to highlight the specific path of events that most contribute to the total duration of the operation.  In this example, you can see that the slowest call is from *FabrikamFiberAzureStorage.GetStorageTableData* method. The part that takes most time is the *CloudTable.CreateIfNotExist* method. If this line of code is executed every time the function gets called, unnecessary network call and CPU resource will be consumed. The best way to fix your code is to put this line in some startup method that only executes once.
 
@@ -68,7 +67,7 @@ Application Insights collects performance details for the different operations i
 
 	![Performance tip](media/tutorial-performance/6-perf-tip.png)
 
-8.  For further analysis, you can click **Download Trace** to download the trace in to Visual Studio.
+8.   For further analysis, you can click **Download Trace** to download the trace. You can view this data using [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## Use logs data for server
  Logs provides a rich query language that allows you to analyze all data collected by Application Insights. You can use this to perform deep analysis on request and performance data.

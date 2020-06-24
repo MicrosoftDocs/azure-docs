@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU Driver Extension - Azure Windows VMs | Microsoft Docs
+title: NVIDIA GPU Driver Extension - Azure Windows VMs 
 description: Microsoft Azure extension for installing NVIDIA GPU Drivers on N-series compute VMs running Windows.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -57,7 +57,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -72,7 +72,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.2 | int |
+| typeHandlerVersion | 1.3 | int |
 
 
 ## Deployment
@@ -97,7 +97,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.2",
+    "typeHandlerVersion": "1.3",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -115,7 +115,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.2 `
+    -TypeHandlerVersion 1.3 `
     -SettingString '{ `
 	}'
 ```
@@ -123,13 +123,13 @@ Set-AzVMExtension
 ### Azure CLI
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name NvidiaGpuDriverWindows `
-  --publisher Microsoft.HpcCompute `
-  --version 1.2 `
-  --settings '{ `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverWindows \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
+  --settings '{ \
   }'
 ```
 

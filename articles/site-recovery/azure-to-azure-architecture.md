@@ -1,12 +1,12 @@
 ---
-title: Azure to Azure replication architecture in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of components and architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
+title: Azure to Azure disaster recovery architecture in Azure Site Recovery
+description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 3/13/2020
 ms.author: raynew
 ---
 
@@ -30,7 +30,7 @@ The components involved in disaster recovery for Azure VMs are summarized in the
 **Cache storage account** | You need a cache storage account in the source network. During replication, VM changes are stored in the cache before being sent to target storage.  Cache storage accounts must be Standard.<br/><br/> Using a cache ensures minimal impact on production applications that are running on a VM.<br/><br/> [Learn more](azure-to-azure-support-matrix.md#cache-storage) about cache storage requirements. 
 **Target resources** | Target resources are used during replication, and when a failover occurs. Site Recovery can set up target resource by default, or you can create/customize them.<br/><br/> In the target region, check that you're able to create VMs, and that your subscription has enough resources to support VM sizes that will be needed in the target region. 
 
-![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
+![Source and target replication](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## Target resources
 
@@ -51,8 +51,7 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 You can manage target resources as follows:
 
 - You can modify target settings as you enable replication.
-- You can modify target settings after replication is already working. The exception is the availability type (single instance, set or zone). To change this setting you need to disable replication, modify the setting, and then reenable.
-
+- You can modify target settings after replication is already working. Please note that the default SKU for the target region VM is the same as the SKU of the source VM (or the next best available SKU in comparison to the source VM SKU). Similar to other resources such as the target resource group, target name, and others, the target region VM SKU can also be updated after replication is in progress. A resource which cannot be updated is the availability type (single instance, set or zone). To change this setting you need to disable replication, modify the setting, and then reenable. 
 
 
 ## Replication policy 
@@ -113,7 +112,7 @@ When you enable replication for an Azure VM, the following happens:
 4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
 5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
 
-![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Replication process**
 
@@ -131,27 +130,35 @@ If outbound access for VMs is controlled with URLs, allow these URLs.
 | login.microsoftonline.com | Provides authorization and authentication to Site Recovery service URLs. |
 | *.hypervrecoverymanager.windowsazure.com | Allows the VM to communicate with the Site Recovery service. |
 | *.servicebus.windows.net | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
+| *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
 
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
-Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
+Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### Source region rules
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>.
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the target location. 
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD)  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the target region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 #### Target region rules
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.\<region-name>.
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
-Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the source location. 
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region | Storage.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD  | AzureActiveDirectory
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Events Hub in the source region. | EventsHub.\<region-name>
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Site Recovery  | AzureSiteRecovery
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Key Vault (This is required only for enabling replication of ADE-enabled virtual machines via portal) | AzureKeyVault
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Automation Controller (This is required only for enabling auto-upgrade of mobility agent for a replicated item via portal) | GuestAndHybridManagement
 
 
 #### Control access with NSG rules
@@ -164,7 +171,7 @@ If you control VM connectivity by filtering network traffic to and from Azure ne
     - Service tags represent a group of IP address prefixes gathered together to minimize complexity when creating security rules.
     - Microsoft automatically updates service tags over time. 
  
-Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
+Learn more about [outbound connectivity](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) for Site Recovery, and [controlling connectivity with NSGs](concepts-network-security-group-with-site-recovery.md).
 
 
 ### Connectivity for multi-VM consistency
@@ -180,7 +187,7 @@ If you enable multi-VM consistency, machines in the replication group communicat
 
 When you initiate a failover, the VMs are created in the target resource group, target virtual network, target subnet, and in the target availability set. During a failover, you can use any recovery point.
 
-![Failover process](./media/concepts-azure-to-azure-architecture/failover.png)
+![Failover process](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## Next steps
 

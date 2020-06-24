@@ -1,24 +1,21 @@
 ---
 title: Azure Event Grid event schema
-description: Describes the properties that are provided for events with Azure Event Grid
+description: Describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
-ms.author: babanisa
+ms.date: 01/21/2020
+ms.author: femila
 ---
 
 # Azure Event Grid event schema
 
 This article describes the properties and schema that are present for all events. Events consist of a set of five required string properties and a required data object. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
-Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB (General Availability) or 1 MB (preview). If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**.
-
-> [!NOTE]
-> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
+Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB will incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were 3 separate events.
 
 Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future.
 
@@ -79,16 +76,16 @@ For example, the schema published for an Azure Blob storage event is:
 
 All events have the same following top-level data:
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| topic | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| subject | string | Publisher-defined path to the event subject. |
-| eventType | string | One of the registered event types for this event source. |
-| eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
-| data | object | Event data specific to the resource provider. |
-| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+| topic | string | No, but if included, must match the Event Grid topic Azure Resource Manager ID exactly. If not included, Event Grid will stamp onto the event. | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| subject | string | Yes | Publisher-defined path to the event subject. |
+| eventType | string | Yes | One of the registered event types for this event source. |
+| eventTime | string | Yes | The time the event is generated based on the provider's UTC time. |
+| id | string | Yes | Unique identifier for the event. |
+| data | object | No | Event data specific to the resource provider. |
+| dataVersion | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
+| metadataVersion | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid will stamp onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 To learn about the properties in the data object, see the event source:
 
@@ -101,6 +98,7 @@ To learn about the properties in the data object, see the event source:
 * [Resource groups (management operations)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 

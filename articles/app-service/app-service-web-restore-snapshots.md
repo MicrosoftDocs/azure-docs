@@ -1,19 +1,10 @@
 ---
-title: Restore from backup - Azure App Service
-description: Learn how to restore your app from a snapshot.
-services: app-service
-documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
-editor: ''
+title: Restore app from a snapshot
+description: Learn how to restore your app from a snapshot. Recover from unexpected data loss in Premium tier with the automatic shadow copies.
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
 

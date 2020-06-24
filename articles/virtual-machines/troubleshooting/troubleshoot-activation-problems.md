@@ -22,7 +22,7 @@ If you have trouble when activating Azure Windows virtual machine (VM) that is c
 
 ## Understanding Azure KMS endpoints for Windows product activation of Azure Virtual Machines
 
-Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
+Azure uses different endpoints for KMS (Key Management Services) activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
 
 * Azure public cloud regions: kms.core.windows.net:1688
 * Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
@@ -42,9 +42,9 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 ## Solution
 
 >[!NOTE]
->If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
+>If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling). 
 >
->If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>If you are using ExpressRoute and you have a default route published, see [Can I block Internet connectivity to virtual networks connected to ExpressRoute circuits?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
 
 ### Step 1 Configure the appropriate KMS client setup key
 
@@ -73,7 +73,7 @@ For the VM that is created from a custom image, you must configure the appropria
 
 ### Step 2 Verify the connectivity between the VM and Azure KMS service
 
-1. Download and extract the [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) tool to a local folder in the VM that does not activate. 
+1. Download and extract the [PSping](https://docs.microsoft.com/sysinternals/downloads/psping) tool to a local folder in the VM that does not activate. 
 
 2. Go to Start, search on Windows PowerShell, right-click Windows PowerShell, and then select Run as administrator.
 
@@ -88,17 +88,19 @@ For the VM that is created from a custom image, you must configure the appropria
 4. Verify by using Psping that you have connectivity to the KMS server. Switch to the folder where you extracted the Pstools.zip download, and then run the following:
   
     ```
-    \psping.exe kms.core.windows.net:1688
+    .\psping.exe kms.core.windows.net:1688
     ```
    In the second-to-last line of the output, make sure that you see: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
    If Lost is greater than 0 (zero), the VM does not have connectivity to the KMS server. In this situation, if the VM is in a virtual network and has a custom DNS server specified, you must make sure that DNS server is able to resolve kms.core.windows.net. Or, change the DNS server to one that does resolve kms.core.windows.net.
 
-   Notice that if you remove all DNS servers from a virtual network, VMs use Azure’s internal DNS service. This service can resolve kms.core.windows.net.
+   Notice that if you remove all DNS servers from a virtual network, VMs use Azure's internal DNS service. This service can resolve kms.core.windows.net.
   
     Also make sure that the outbound network traffic to KMS endpoint with 1688 port is not blocked by the firewall in the VM.
 
-5. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
+5. Verify using [Network Watcher Next Hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) that the next hop type from the VM in question to the destination IP 23.102.135.246 (for kms.core.windows.net) or the IP of the appropriate KMS endpoint that applies to your region is **Internet**.  If the result is VirtualAppliance or VirtualNetworkGateway, it is likely that a default route exists.  Contact your network administrator and work with them to determine the correct course of action.  This may be a [custom route](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) if that solution is consistent with your organization's policies.
+
+6. After you verify successful connectivity to kms.core.windows.net, run the following command at that elevated Windows PowerShell prompt. This command tries activation multiple times.
 
     ```powershell
     1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }

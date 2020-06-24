@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
     `https://<subdomain>.workstars.com/saml/login_check`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](https://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](http://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -208,7 +208,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Workstars test user
 
-In this section, you create a user called Britta Simon in Workstars. Work with [Workstars support team](https://support.workstars.com) to add the users in the Workstars platform.
+In this section, you create a user called Britta Simon in Workstars. Work with [Workstars support team](http://support.workstars.com) to add the users in the Workstars platform.
 
 ### Test single sign-on 
 

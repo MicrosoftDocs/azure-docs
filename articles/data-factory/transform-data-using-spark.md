@@ -1,21 +1,23 @@
 ---
-title: Transform data using Spark activity in Azure Data Factory | Microsoft Docs
+title: Transform data using Spark activity
 description: Learn how to transform data by running Spark programs from an Azure data factory pipeline using the Spark Activity. 
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 05/08/2020
 ---
+
 # Transform data using Spark activity in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Current version](transform-data-using-spark.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Spark activity in a Data Factory [pipeline](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, Data Factory automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
@@ -58,7 +60,7 @@ The following table describes the JSON properties used in the JSON definition:
 | description           | Text describing what the activity does.  | No       |
 | type                  | For Spark Activity, the activity type is HDInsightSpark. | Yes      |
 | linkedServiceName     | Name of the HDInsight Spark Linked Service on which the Spark program runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
-| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs.  If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
+| SparkJobLinkedService | The Azure Storage linked service that holds the Spark job file, dependencies, and logs. Only **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** and **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** linked services are supported here. If you do not specify a value for this property, the storage associated with HDInsight cluster is used. The value of this property can only be an Azure Storage linked service. | No       |
 | rootPath              | The Azure Blob container and folder that contains the Spark file. The file name is case-sensitive. Refer to folder structure section (next section) for details about the structure of this folder. | Yes      |
 | entryFilePath         | Relative path to the root folder of the Spark code/package. The entry file must be either a Python file or a .jar file. | Yes      |
 | className             | Application's Java/Spark main class      | No       |

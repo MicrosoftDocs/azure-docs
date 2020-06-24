@@ -1,23 +1,16 @@
 ﻿---
-title: Azure Sentinel Quickstart - Get started with Azure Sentinel| Microsoft Docs
+title: 'Quickstart: Get started with Azure Sentinel'
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
-documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
-editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: quickstart
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 #As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.
-
 ---
 
 # Quickstart: Get started with Azure Sentinel
@@ -56,7 +49,7 @@ The main body of the overview page gives insight at a glance into the security s
 
 ## Use built-in workbooks<a name="dashboards"></a>
 
-Built-in workbooks provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in workbooks include Azure ID, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/app/usage-workbooks.md).
+Built-in workbooks provide integrated data from your connected data sources to let you deep dive into the events generated in those services. The built-in workbooks include Azure AD, Azure activity events, and on-premises, which can be data from Windows Events from servers, from first party alerts, from any third-party including firewall traffic logs, Office 365, and insecure protocols based on Windows events. The workbooks are based on Azure Monitor Workbooks to provide you with enhanced customizability and flexibility in designing your own workbook. For more information, see [Workbooks](../azure-monitor/platform/workbooks-overview.md).
 
 1. Under **Settings**, select **Workbooks**. Under **Installed**, you can see all your installed workbook. Under **All**, you can see the whole gallery of built-in workbooks that are available for installation. 
 2. Search for a specific workbook to see the whole list and description of what each offers. 
@@ -94,7 +87,7 @@ You can create a new workbook from scratch or use a built-in workbook as the bas
 
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
-     |where DeviceVendor = = "Palo Alto Networks":
+     |where DeviceVendor == "Palo Alto Networks":
       // week over week query
       SecurityEvent
       | where TimeGenerated > ago(14d)

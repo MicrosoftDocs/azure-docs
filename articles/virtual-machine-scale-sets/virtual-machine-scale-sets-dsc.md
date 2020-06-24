@@ -1,22 +1,14 @@
 ---
-title: Using Desired State Configuration With Virtual Machine Scale Sets | Microsoft Docs
-description: Using Virtual Machine Scale Sets with the Azure DSC Extension
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: zjalexander
-manager: jeconnoc
-editor: ''
-tags: azure-service-management,azure-resource-manager
-keywords: ''
-
-ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
+title: Using Desired State Configuration With Virtual Machine Scale Sets
+description: Using Virtual Machine Scale Sets with the Azure Desired State Configuration Extension to configure virtual machines.
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: na
+ms.subservice: extensions
 ms.date: 04/05/2017
-ms.author: zachal
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Using Virtual Machine Scale Sets with the Azure DSC Extension

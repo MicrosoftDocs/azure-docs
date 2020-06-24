@@ -1,5 +1,5 @@
 ---
-title: About using Azure ExpressRoute with Azure Site Recovery for disaster recovery and migration | Microsoft Docs
+title: About using ExpressRoute with Azure Site Recovery
 description: Describes how to use Azure ExpressRoute with the Azure Site Recovery service for disaster recovery and migration.
 services: site-recovery
 author: mayurigupta13
@@ -26,7 +26,7 @@ An ExpressRoute circuit has multiple routing domains associated with it. Learn m
 
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
 
-Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or an existing [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) (deprecated for new creations). Microsoft peering is the recommended routing domain for replication. Note that replication is not supported over private peering.
+Site Recovery replicates data to an Azure Storage account or replica Managed Disk on the target Azure region over a public endpoint. To use ExpressRoute for Site Recovery replication traffic, you can utilize [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new creations). Microsoft peering is the recommended routing domain for replication. Note that replication is not supported over private peering.
 
 Ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity. 
 

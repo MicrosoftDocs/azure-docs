@@ -1,11 +1,11 @@
 ---
-title: Create and manage read replicas in Azure Database for MariaDB - AZURE CLI, REST API
+title: Manage read replicas - Azure CLI, REST API - Azure Database for MariaDB
 description: This article describes how to set up and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 6/10/2020
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure CLI and REST API
@@ -25,6 +25,9 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Create a read replica
 
+> [!IMPORTANT]
+> When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+
 A read replica server can be created using the following command:
 
 ```azurecli-interactive
@@ -40,9 +43,6 @@ The `az mariadb server replica create` command requires the following parameters
 | source-server | mydemoserver | The name or ID of the existing master server to replicate from. |
 
 To create a cross region read replica, use the `--location` parameter. 
-
-> [!NOTE]
-> Cross region replication is in preview.
 
 The CLI example below creates the replica in West US.
 

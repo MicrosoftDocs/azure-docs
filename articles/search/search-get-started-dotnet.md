@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Create a search index in C# using the .NET SDK - Azure Search'
-description: Explains how to create an index, load data, and run queries using C# and the Azure Search .NET SDK.
-author: heidisteen
+title: 'Create a search index in .NET'
+titleSuffix: Azure Cognitive Search
+description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search .NET SDK.
+
 manager: nitinme
-ms.author: heidist
-tags: azure-portal
-services: search
-ms.service: search
+author: tchristiani
+ms.author: terrychr
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 06/07/2020
 
 ---
-# Quickstart: Create an Azure Search index in C# using the .NET SDK
+# Quickstart: Create a search index in .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
@@ -21,26 +21,28 @@ ms.date: 09/10/2019
 > * [Postman](search-get-started-postman.md)
 >*
 
-Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
+Create a .NET Core console application in C# that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+This article explains how to create the application step by step. You could also [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) if you want to jump ahead to the code.
 
 > [!NOTE]
-> The demo code in this article uses the synchronous methods of the Azure Search .NET SDK for simplicity. However, for production scenarios, we recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
+> The demo code in this article uses the synchronous methods of the Azure Cognitive Search .NET SDK for simplicity. However, for production scenarios, we recommend using the asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `CreateAsync` and `DeleteAsync` instead of `Create` and `Delete`.
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart.
+Before you begin, you must have the following:
+
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
-
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 <a name="get-service-info"></a>
 
 ## Get a key and URL
 
-Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -58,7 +60,7 @@ Begin by opening Visual Studio and creating a new Console App project that can r
 
 ### Install NuGet packages
 
-The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client libraries that are distributed as NuGet packages.
+The [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) consists of a few client libraries that are distributed as NuGet packages.
 
 For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
@@ -66,14 +68,14 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 
 1. Click **Browse**.
 
-1. Search for `Microsoft.Azure.Search` and select version 9.0.1 or later.
+1. Search for `Microsoft.Azure.Search` and select version 9.0.1 or later (Latest stable version is 10.1.0).
 
 1. Click **Install** on the right to add the assembly to your project and solution.
 
 1. Repeat for `Microsoft.Extensions.Configuration.Json`, selecting version 2.2.0 or later.
 
 
-### Add Azure Search service information
+### Add Azure Cognitive Search service information
 
 1. In Solution Explorer, right click on the project and select **Add** > **New Item...** . 
 
@@ -83,26 +85,27 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 
 1. Add the file to your output directory. Right-click appsettings.json and select **Properties**. In **Copy to Output Directory**, select **Copy if newer**.
 
-1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following JSON into your new JSON file. 
 
-```json
-{
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchIndexName": "hotels-quickstart"
-}
-```
+    ```json
+    {
+      "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+      "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+      "SearchIndexName": "hotels-quickstart"
+    }
+    ```
+
+1. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ### Add class ".Method" files to your project
 
-When printing results to the console window, individual fields from the Hotel object must be returned as strings. You can implement [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, copying the necessary code to two new files.
+This step is required to produce meaningful output in the console. When printing results to the console window, individual fields from the Hotel object must be returned as strings. This step implements [ToString()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, which you do by copying the necessary code to two new files.
 
 1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
 
-1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
-
+1. In Hotel.Methods.cs, copy [lines 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
 
 ## 1 - Create index
 
@@ -199,7 +202,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
 1. In Program.cs, create an instance of the [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
 
-   `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Search indexes. 
+   `SearchServiceClient` has an [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Cognitive Search indexes. 
 
     ```csharp
     using System;
@@ -211,7 +214,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
     namespace AzureSearchQuickstart
     {
-        class Program
+        class Program {
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)
@@ -267,7 +270,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
             // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
             private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
             {
-                var definition = new Index()
+                var definition = new Microsoft.Azure.Search.Models.Index()
                 {
                     Name = indexName,
                     Fields = FieldBuilder.BuildForType<Hotel>()
@@ -297,9 +300,9 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
 ## 2 - Load documents
 
-In Azure Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
 
-When uploading documents, you must use an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` contains a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+When uploading documents, you must use an [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` contains a collection of [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. In Program.cs, create an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
 
@@ -544,7 +547,7 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
 
     Output includes the same messages as before, with addition of query information and results.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 

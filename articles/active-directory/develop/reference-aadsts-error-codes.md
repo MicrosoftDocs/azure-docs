@@ -1,26 +1,21 @@
 ---
-title: Azure Active Directory authentication and authorization error codes | Microsoft Docs
+title: Azure AD authentication & authorization error codes
 description: Learn about the AADSTS error codes that are returned from the Azure AD security token service (STS).
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 08/30/2019
+ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# Authentication and authorization error codes
+# Azure AD Authentication and authorization error codes
 
 Looking for info about the AADSTS error codes that are returned from the Azure Active Directory (Azure AD) security token service (STS)? Read this document to find AADSTS error descriptions, fixes, and some suggested workarounds.
 
@@ -28,6 +23,49 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 > This information is preliminary and subject to change. Have a question or can't find what you're looking for? Create a GitHub issue or see [Support and help options for developers](active-directory-develop-help-support.md) to learn about other ways you can get help and support.
 >
 > This documentation is provided for developer and admin guidance, but should never be used by the client itself. Error codes are subject to change at any time in order to provide more granular error messages that are intended to help the developer while building their application. Apps that take a dependency on text or error code numbers will be broken over time.
+
+## Handling error codes in your application
+
+The [OAuth2.0 spec](https://tools.ietf.org/html/rfc6749#section-5.2) provides guidance on how to handle errors during authentication using the `error` portion of the error response. 
+
+Here is a sample error response:
+
+```json
+{
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://example.contoso.com/activity.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7", 
+  "error_uri":"https://login.microsoftonline.com/error?code=70011"
+}
+```
+
+| Parameter         | Description    |
+|-------------------|----------------|
+| `error`       | An error code string that can be used to classify types of errors that occur, and should be used to react to errors. |
+| `error_description` | A specific error message that can help a developer identify the root cause of an authentication error. Never use this field to react to an error in your code. |
+| `error_codes` | A list of STS-specific error codes that can help in diagnostics.  |
+| `timestamp`   | The time at which the error occurred. |
+| `trace_id`    | A unique identifier for the request that can help in diagnostics. |
+| `correlation_id` | A unique identifier for the request that can help in diagnostics across components. |
+| `error_uri` |  A link to the error lookup page with additional information about the error.  This is for developer usage only, do not present it to users.  Only present when the error lookup system has additional information about the error - not all error have additional information provided.|
+
+The `error` field has several possible values - review the protocol documentation links and OAuth 2.0 specs to learn more about specific errors (for example, `authorization_pending` in the [device code flow](v2-oauth2-device-code.md)) and how to react to them.  Some common ones are listed here:
+
+| Error Code         | Description        | Client Action    |
+|--------------------|--------------------|------------------|
+| `invalid_request`  | Protocol error, such as a missing required parameter. | Fix and resubmit the request.|
+| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unusable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
+| `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
+| `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
+| `unsupported_grant_type` | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
+| `invalid_resource` | The target resource is invalid because it does not exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  During development, this usually indicates an incorrectly setup test tenant or a typo in the name of the scope being requested. |
+| `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource, interactively, so that the user can complete any challenges required.  |
+| `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
 ## Lookup current error code information
 Error codes and messages are subject to change.  For the most current info, take a look at the [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) page to find AADSTS error descriptions, fixes, and some suggested workarounds.  
@@ -84,8 +122,8 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation on username or password has failed. |
-| AADSTS50068 | SignoutInitiatorNotParticipant - Signout has failed. The app that initiated signout is not a participant in the current session. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier - Signout has failed. The signout request specified a name identifier that didn't match the existing session(s). |
+| AADSTS50068 | SignoutInitiatorNotParticipant - Sign out has failed. The app that initiated sign out is not a participant in the current session. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier - Sign out has failed. The sign out request specified a name identifier that didn't match the existing session(s). |
 | AADSTS50071 | SignoutMessageExpired - The logout request has expired. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - User needs to enroll for second factor authentication (interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge. |
@@ -129,6 +167,9 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers - Session control is not supported for passthrough users. |
 | AADSTS50180 | WindowsIntegratedAuthMissing - Integrated Windows authentication is needed. Enable the tenant for Seamless SSO. |
 | AADSTS50187 | DeviceInformationNotProvided - The service failed to perform device authentication. |
+| AADSTS50196 | LoopDetected - A client loop has been detected. Check the app’s logic to ensure that token caching is implemented, and that error conditions are handled correctly.  The app has made too many of the same request in too short a period, indicating that it is in a faulty state or is abusively requesting tokens. |
+| AADSTS50197 | ConflictingIdentities - The user could not be found. Try signing in again. |
+| AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into. To avoid this prompt, the redirect URI should be part of the following safe list: <br />http://<br />https://<br />msauth://(iOS only)<br />msauthv2://(iOS only)<br />chrome-extension:// (desktop Chrome browser only) |
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
@@ -144,10 +185,11 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
 | AADSTS65004 | UserDeclinedConsent - User declined to consent to access the app. Have the user retry the sign-in and consent to the app|
 | AADSTS65005 | MisconfiguredApplication - The app required resource access list does not contain apps discoverable by the resource or The client app has requested access to resource, which was not specified in its required resource access list or Graph service returned bad request or resource not found. If the app supports SAML, you may have configured the app with the wrong Identifier (Entity). Try out the resolution listed for SAML using the link below: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS650052 | The app needs access to a service `(\"{name}\")` that your organization `\"{organization}\"` has not subscribed to or enabled. Contact your IT Admin to review the configuration of your service subscriptions. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - Authentication failed. The refresh token is not valid. Error may be due to the following reasons:<ul><li>Token binding header is empty</li><li>Token binding hash does not match</li></ul> |
 | AADSTS70001 | UnauthorizedClient - The application is disabled. |
-| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient - Error validating the credentials. The specified client_secret does not match the expected value for this client. Correct the client_secret and try again. For more info, see [Use the authorization code to request an access token](v2-oauth2-auth-code-flow.md#request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType - The app returned an unsupported grant type. |
 | AADSTS70004 | InvalidRedirectUri - The app returned an invalid redirect URI. The redirect address specified by the client does not match any configured addresses or any addresses on the OIDC approve list. |
 | AADSTS70005 | UnsupportedResponseType - The app returned an unsupported response type due to the following reasons:<ul><li>response type 'token' is not enabled for the app</li><li>response type 'id_token' requires the 'OpenID' scope -contains an unsupported OAuth parameter value in the encoded wctx</li></ul> |
@@ -161,6 +203,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS75001 | BindingSerializationError - An error occurred during SAML message binding. |
 | AADSTS75003 | UnsupportedBindingError - The app returned an error related to unsupported binding (SAML protocol response cannot be sent via bindings other than HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid - Azure AD doesn’t support the SAML request sent by the app for SSO. |
+| AADSTS7500514 | A supported type of SAML response was not found. The supported response types are 'Response' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:protocol') or 'Assertion' (in XML namespace 'urn:oasis:names:tc:SAML:2.0:assertion'). Application error - the developer will handle this error.|
 | AADSTS75008 | RequestDeniedError - The request from the app was denied since the SAML request had an unexpected destination. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - The authentication method by which the user authenticated with the service doesn't match requested authentication method. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 Authentication Request has invalid NameIdPolicy. |
@@ -216,6 +259,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
+| AADSTS900382 | Confidential Client is not supported in Cross Cloud request. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
 | AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
@@ -265,9 +309,13 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS700020 | InteractionRequired - The access grant requires interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
+| AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
+| AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled - The application is disabled. |
+| AADSTS7500529 | The value ‘SAMLId-Guid’ is not a valid SAML ID - Azure AD uses this attribute to populate the InResponseTo attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, id6c1c178c166d486687be4aaf5e482730 is a valid ID. |
 
 ## Next steps
 

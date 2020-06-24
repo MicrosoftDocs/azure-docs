@@ -1,14 +1,14 @@
 ---
-title: Monitoring, Metrics, and Alerts - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: This page provides information about ExpressRoute monitoring
 services: expressroute
 author: mialdrid
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # ExpressRoute monitoring, metrics, and alerts
@@ -21,7 +21,7 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## ExpressRoute metrics
 
-To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filer by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 

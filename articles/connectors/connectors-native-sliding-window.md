@@ -1,25 +1,22 @@
 ---
-title: Schedule tasks to handle contiguous data - Azure Logic Apps
+title: Schedule tasks to handle contiguous data
 description: Create and run recurring tasks that handle contiguous data by using sliding windows in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
+ms.date: 03/25/2020
 ---
 
 # Schedule and run tasks for contiguous data by using the Sliding Window trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs that must handle data in contiguous chunks, you can start your logic app workflow with the **Sliding Window** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for whatever reason, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+To regularly run tasks, processes, or jobs that must handle data in contiguous chunks, you can start your logic app workflow with the **Sliding Window** trigger. You can set a date and time as well as a time zone for starting the workflow and a recurrence for repeating that workflow. If recurrences are missed for any reason, for example, due to disruptions or disabled workflows, this trigger processes those missed recurrences. For example, when synchronizing data between your database and backup storage, use the Sliding Window trigger so that the data gets synchronized without incurring gaps. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Here are some patterns that this trigger supports:
 
-* Run immediately and repeat every *n* number of seconds, minutes, or hours.
+* Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
-* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, or hours. With this trigger, you can specify a start time in the past, which runs all past recurrences.
+* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months. With this trigger, you can specify a start time in the past, which runs all past recurrences.
 
 * Delay each recurrence for a specific duration before running.
 
@@ -39,7 +36,7 @@ For differences between this trigger and the Recurrence trigger or for more info
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Create a blank logic app.
 
-1. After Logic App Designer appears, in the search box, enter "sliding window" as your filter. From the triggers list, select this trigger as the first step in your logic app workflow: **Sliding Window**
+1. After the Logic App Designer appears, in the search box, enter `sliding window` as your filter. From the triggers list, select the **Sliding Window** trigger as the first step in your logic app workflow.
 
    ![Select "Sliding Window" trigger](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -47,16 +44,15 @@ For differences between this trigger and the Recurrence trigger or for more info
 
    ![Set interval and frequency](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Property | Required | JSON name | Type | Description |
+   | Property | JSON name | Required | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Interval** | Yes | interval | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Hour", then the recurrence is every 6 hours. |
-   | **Frequency** | Yes | frequency | String | The unit of time for the recurrence: **Second**, **Minute**, or **Hour** |
+   | **Interval** | `interval` | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Month: 1-16 months <br>- Week: 1-71 weeks <br>- Day: 1-500 days <br>- Hour: 1-12,000 hours <br>- Minute: 1-72,000 minutes <br>- Second: 1-9,999,999 seconds <p>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
+   | **Frequency** | `frequency` | Yes | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** |
    ||||||
 
    ![Advanced recurrence options](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   For more recurrence options, open the **Add new parameter** list. 
-   Any options that you select appear on the trigger after selection.
+   For more recurrence options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
 
    | Property | Required | JSON name | Type | Description |
    |----------|----------|-----------|------|-------------|

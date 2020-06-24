@@ -1,33 +1,217 @@
 ---
-title: 'Enable Security Audits for Azure AD Domain Services | Microsoft Docs'
-description: Enable Security Audits for Azure AD Domain Services
+title: Enable security audits for Azure AD Domain Services | Microsoft Docs
+description: Learn how to enable security audits to centralize the logging of events for analysis and alerts in Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/28/2019
+ms.topic: how-to
+ms.date: 02/10/2020
 ms.author: iainfou
 
 ---
-# Enable Security Audits for Azure AD Domain Services (Preview)
-Azure AD Domain Service Security Auditing enables customers to use the Azure AD Domain Service portal to stream security audit events to targeted resources. Resources that can receive these events include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. Shortly after enabling security audit events, Azure AD Domain Service sends all the audited events for the selected category to the targeted resource. Security audit events  enable customers to archive audited events into Azure storage. Additionally, customers can stream events into security information and event management (SIEM) software (or equivalent) using event hubs, or do their own analysis and insights using Azure Log Analytics from the Azure portal. 
+# Enable security audits for Azure Active Directory Domain Services
+
+Azure Active Directory Domain Services (Azure AD DS) security audits lets Azure stream security events to targeted resources. These resources include Azure Storage, Azure Log Analytics workspaces, or Azure Event Hub. After you enable security audit events, Azure AD DS sends all the audited events for the selected category to the targeted resource.
+
+You can archive events into Azure storage and stream events into security information and event management (SIEM) software (or equivalent) using Azure Event Hubs, or do your own analysis and using Azure Log Analytics workspaces from the Azure portal.
 
 > [!IMPORTANT]
-> Azure AD Domain Services security auditing is available only on Azure Resource Manager-based instances for Azure AD Domain Services.
->
->
+> Azure AD DS security audits are only available for Azure Resource Manager-based managed domains. For information on how to migrate, see [Migrate Azure AD DS from the Classic virtual network model to Resource Manager][migrate-azure-adds].
 
-## Auditing event categories
-Azure AD Domain Services security auditing aligns with traditional auditing that comes for Active Directory Domain Services domain controllers. Reusing existing audit patterns ensures the same logic may be used when analyzing the events. Azure AD Domain Services security auditing includes the following event categories.
+## Security audit destinations
+
+You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short-term.
+
+The following table outlines scenarios for each destination resource type.
+
+> [!IMPORTANT]
+> You need to create the target resource before you enable Azure AD DS security audits. You can create these resources using the Azure portal, Azure PowerShell, or the Azure CLI.
+
+| Target Resource | Scenario |
+|:---|:---|
+|Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
+|Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
+
+## Enable security audit events using the Azure portal
+
+To enable Azure AD DS security audit events using the Azure portal, complete the following steps.
+
+> [!IMPORTANT]
+> Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. At the top of the Azure portal, search for and select **Azure AD Domain Services**. Choose your managed domain, such as *aaddscontoso.com*.
+1. In the Azure AD DS window, select **Diagnostic settings** on the left-hand side.
+1. No diagnostics are configured by default. To get started, select **Add diagnostic setting**.
+
+    ![Add a diagnostic setting for Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
+
+1. Enter a name for the diagnostic configuration, such as *aadds-auditing*.
+
+    Check the box for the security audit destination you want. You can choose from an Azure Storage account, an Azure event hub, or a Log Analytics workspace. These destination resources must already exist in your Azure subscription. You can't create the destination resources in this wizard.
+
+    ![Enable the required destination and type of audit events to capture](./media/security-audit-events/diagnostic-settings-page.png)
+
+    * **Azure storage**
+        * Select **Archive to a storage account**, then choose **Configure**.
+        * Select the **Subscription** and the **Storage account** you want to use to archive security audit events.
+        * When ready, choose **OK**.
+    * **Azure event hubs**
+        * Select **Stream to an event hub**, then choose **Configure**.
+        * Select the **Subscription** and the **Event hub namespace**. If needed, also choose an **Event hub name** and then **Event hub policy name**.
+        * When ready, choose **OK**.
+    * **Azure Log Analytic workspaces**
+        * Select **Send to Log Analytics**, then choose the **Subscription** and **Log Analytics Workspace** you want to use to store security audit events.
+
+1. Select the log categories you want included for the particular target resource. If you send the audit events to an Azure Storage account, you can also configure a retention policy that defines the number of days to retain data. A default setting of *0* retains all data and doesn't rotate events after a period of time.
+
+    You can select different log categories for each targeted resource within a single configuration. This ability lets you choose which logs categories you want to keep for Log Analytics and which logs categories your want to archive, for example.
+
+1. When done, select **Save** to commit your changes. The target resources start to receive Azure AD DS security audit events soon after the configuration is saved.
+
+## Enable security audit events using Azure PowerShell
+
+To enable Azure AD DS security audit events using Azure PowerShell, complete the following steps. If needed, first [install the Azure PowerShell module and connect to your Azure subscription](/powershell/azure/install-az-ps).
+
+> [!IMPORTANT]
+> Azure AD DS security audits aren't retroactive. You can't retrieve or replay events from the past. Azure AD DS can only send events that occur after security audits are enabled.
+
+1. Authenticate to your Azure subscription using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet. When prompted, enter your account credentials.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Create the target resource for the security audit events.
+
+    * **Azure storage** - [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
+    * **Azure event hubs** - [Create an event hub using Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). You may also need to use the [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) cmdlet to create an authorization rule that grants Azure AD DS permissions to the event hub *namespace*. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
+
+        > [!IMPORTANT]
+        > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
+
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+
+1. Get the resource ID for your Azure AD DS managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
+
+    ```azurepowershell
+    $aadds = Get-AzResource -name aaddsDomainName
+    ```
+
+1. Configure the Azure Diagnostic settings using the [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) cmdlet to use the target resource for Azure AD Domain Services security audit events. In the following examples, the variable *$aadds.ResourceId* is used from the previous step.
+
+    * **Azure storage** - Replace *storageAccountId* with your storage account name:
+
+        ```powershell
+        Set-AzDiagnosticSetting `
+            -ResourceId $aadds.ResourceId `
+            -StorageAccountId storageAccountId `
+            -Enabled $true
+        ```
+
+    * **Azure event hubs** - Replace *eventHubName* with the name of your event hub and *eventHubRuleId* with your authorization rule ID:
+
+        ```powershell
+        Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -EventHubName eventHubName `
+            -EventHubAuthorizationRuleId eventHubRuleId `
+            -Enabled $true
+        ```
+
+    * **Azure Log Analytic workspaces** - Replace *workspaceId* with the ID of the Log Analytics workspace:
+
+        ```powershell
+        Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -WorkspaceID workspaceId `
+            -Enabled $true
+        ```
+
+## Query and view security audit events using Azure Monitor
+
+Log Analytic workspaces let you view and analyze the security audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
+
+* [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
+* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Create and share dashboards of Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
+
+The following sample queries can be used to start analyzing security audit events from Azure AD DS.
+
+### Sample query 1
+
+View all the account lockout events for the last seven days:
+
+```Kusto
+AADDomainServicesAccountManagement
+| where TimeGenerated >= ago(7d)
+| where OperationName has "4740"
+```
+
+### Sample query 2
+
+View all the account lockout events (*4740*) between February 3, 2020 at 9 a.m. and February 10, 2020 midnight, sorted ascending by the date and time:
+
+```Kusto
+AADDomainServicesAccountManagement
+| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where OperationName has "4740"
+| sort by TimeGenerated asc
+```
+
+### Sample query 3
+
+View account sign-in events seven days ago (from now) for the account named user:
+
+```Kusto
+AADDomainServicesAccountLogon
+| where TimeGenerated >= ago(7d)
+| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+```
+
+### Sample query 4
+
+View account sign-in events seven days ago from now for the account named user that attempted to sign in using a bad password (*0xC0000006a*):
+
+```Kusto
+AADDomainServicesAccountLogon
+| where TimeGenerated >= ago(7d)
+| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+```
+
+### Sample query 5
+
+View account sign-in events seven days ago from now for the account named user that attempted to sign in while the account was locked out (*0xC0000234*):
+
+```Kusto
+AADDomainServicesAccountLogon
+| where TimeGenerated >= ago(7d)
+| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+```
+
+### Sample query 6
+
+View the number of account sign-in events seven days ago from now for all sign-in attempts that occurred for all locked out users:
+
+```Kusto
+AADDomainServicesAccountLogon
+| where TimeGenerated >= ago(7d)
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| summarize count()
+```
+
+## Audit event categories
+
+Azure AD DS security audits align with traditional auditing for traditional AD DS domain controllers. In hybrid environments, you can reuse existing audit patterns so the same logic may be used when analyzing the events. Depending on the scenario you need to troubleshoot or analyze, the different audit event categories need to be targeted.
+
+The following audit event categories are available:
 
 | Audit Category Name | Description |
 |:---|:---|
@@ -42,7 +226,8 @@ Azure AD Domain Services security auditing aligns with traditional auditing that
 |System| Audits system-level changes to a computer not included in other categories and that have potential security implications. This category includes the following subcategories:<ul><li>[Audit IPsec Driver](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Audit Other System Events](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Audit Security State Change](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Audit Security System Extension](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Audit System Integrity](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## Event IDs per category
- Azure AD Domain Services security auditing records the following event IDs when the specific action triggers an auditable event.
+
+ Azure AD DS security audits record the following event IDs when the specific action triggers an auditable event:
 
 | Event Category Name | Event IDs |
 |:---|:---|
@@ -56,190 +241,14 @@ Azure AD Domain Services security auditing aligns with traditional auditing that
 |Privilege Use security|4985|
 |System security|4612, 4621|
 
-## Enable security audit events
-The following guidance helps you to successfully subscribe to Azure AD Domain Services security audit events.
+## Next steps
 
-> [!IMPORTANT]
-> Azure AD Domain Services security audits are not retroactive. It is not possible to retrieve events from the past or to replay events from the past. The service can only send events that occur after it is enabled.
->
+For specific information on Kusto, see the following articles:
 
-### Choose the target resource
-You can use any combination of Azure Storage, Azure Event Hubs, or Azure Log Analytics Workspaces as a target resource for your security audits. Consider the following table for the best resource for your use case.
+* [Overview](/azure/kusto/query/) of the Kusto query language.
+* [Kusto tutorial](/azure/kusto/query/tutorial) to familiarize you with query basics.
+* [Sample queries](/azure/kusto/query/samples) that help you learn new ways to see your data.
+* Kusto [best practices](/azure/kusto/query/best-practices) to optimize your queries for success.
 
-> [!IMPORTANT]
-> You need to create the target resource before you enable Azure AD Domain Services security audits.
->
-
-| Target Resource | Scenario |
-|:---|:---|
-|Azure Storage|Consider using this target when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes; however, those targets provide capabilities beyond the primary need of archiving. To create an Azure Storage account, follow [Create a storage account.](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal#create-a-storage-account-1)|
-|Azure Event Hubs|Consider using this target when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software. To create an event hub, follow [Quickstart: Create an event hub using Azure portal.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
-|Azure Log Analytics Workspace|Consider using this target when your primary need is to analyze and review secure audits from the Azure portal directly.  To create a Log Analytics workspace, follow [Create a Log Analytics workspace in the Azure portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
-
-## Using the Azure portal to enable security audit events 
-1. Sign in to the Azure portal at https://portal.azure.com.  In the Azure portal, click All services. In the list of resources, type **Domain**. As you begin typing, the list filters based on your input. Click **Azure AD Domain Services**.
-2. Click the Azure AD Domain Services instance from the list.
-3. Click **Diagnostic settings (preview)** from the list of actions on the left.</p>
-![diagnostic setting action](./media/security-audit-events/diagnostic-settings-action.png)
-4. Type the name of diagnostic configuration (**aadds-auditing** as an example).</p>
-![diagnostic settings page](./media/security-audit-events/diagnostic-settings-page.png)
-5. Select the appropriate checkbox next to the targeted resources you'll use with security audit events.
-    > [!NOTE]
-    > You cannot create  target resources from this page.
-    >
-    
-    **Azure storage:**</p>
-    Select **Archive to a storage account**. Click **Configure**. Select the **subscription** and the **storage account** you want to use to archive security auditing events. Click **OK**.</p>
-    
-    ![diagnostic storage settings](./media/security-audit-events/diag-settings-storage.png)
-    
-    **Azure event hubs:**</p>
-    Select **Stream to an event hub**. Click **Configure**. In the **Select event hub page**, select the **subscription** used to create the event hub. Next, select the **event hub namespace**, **event hub name**, and **event hub policy name**. Click **OK**.</p>
-    ![diagnostic event hub settings](./media/security-audit-events/diag-settings-eventhub.png)
-    
-    **Azure Log Analytic workspaces:**</p>
-    Select **Send to Log Analytics**. Select the **Subscription** and **Log Analytics Workspace** used to store security audit events.</p>
-    ![diagnostic workspace settings](./media/security-audit-events/diag-settings-log-analytics.png)
-
-6. Select the log categories you want included for the particular target resource. If using storage accounts, you can configure retention policies.
-
-    > [!NOTE]
-    > You can select different log categories for each targeted resource within a single configuration. This enables you to choose which logs categories you want to keep for Log Analytics and which logs categories your want to archive.
-    >
-
-7. Click **Save** to commit your changes. The target resources will receive Azure AD Domain Services security audit events shortly after you save your configuration.
-
-## Using Azure PowerShell to enable security audit events
- 
-### Prerequisites
-
-Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
-
-### Enable security audits
-
-1. Authenticate to the Azure Resource Manager for the appropriate tenant and subscription using the **Connect-AzAccount** Azure PowerShell cmdlet.
-2. Create the target resource for the security audit events.</p>
-    **Azure storage:**</p>
-    Follow [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell) to create your storage account.</p>
-    **Azure event hubs:**</p>
-    Follow [Quickstart: Create an event hub using Azure PowerShell](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-powershell) to create your event hub. You may also need to use the [New-AzEventHubAuthorizationRule](https://docs.microsoft.com/powershell/module/az.eventhub/new-azeventhubauthorizationrule?view=azps-2.3.2) Azure PowerShell cmdlet to create an authorization rule to allow Active Directory AD Domain Services permissions to the event hub **namespace**. The authorization rule must include the **Manage**, **Listen**, and **Send** rights.
-    > [!IMPORTANT]
-    > Ensure you set the authorization rule on the event hub namespace and not the event hub.
-       
-    </p>
-    
-    **Azure Log Analytic workspaces:**</p>
-    Follow [Create a Log Analytics workspace with Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace-posh) to create your workspace.
-3. Get the resource ID for your Azure AD Domain Services instance. In an opened, authenticated Windows PowerShell console, type the following command. Use the **$aadds.ResourceId** variable as a parameter for the Azure AD Domain Services resource ID for future cmdlets.
-    ```powershell
-    $aadds = Get-AzResource -name aaddsDomainName
-    ``` 
-4. Use the **Set-AzDiagnosticSetting** cmdlet to configure the Azure Diagnostic settings to use the target resource for Azure AD Domain Services security audit events. In the examples below, the variable $aadds.ResourceId represents the resource ID of your Azure AD Domain Services instance (see Step 3).</p>
-    **Azure storage:**
-    ```powershell
-    Set-AzDiagnosticSetting `
-    -ResourceId $aadds.ResourceId` 
-    -StorageAccountId storageAccountId `
-    -Enabled $true
-    ```
-    Replace *storageAccountId* with your storage account ID.</p>
-    
-    **Azure event hubs:**
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -EventHubName eventHubName `
-    -EventHubAuthorizationRuleId eventHubRuleId `
-    -Enabled $true
-    ```
-    Replace *eventHubName* with the name of your event hub. Replace *eventHubRuleId* with your authorization rule ID you previously created.</p>
-    
-    **Azure Log Analytic workspaces:**
-    ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -WorkspaceID workspaceId `
-    -Enabled $true
-    ```
-    Replace *workspaceId* with the ID of the Log Analytics workspace you previously created. 
-
-## View security audit events using Azure Monitor
-Log Analytic workspaces enable you to view and analyze the security audit events using Azure Monitor and the Kusto query language. The query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax.
-Here are some resources to help you get started with Kusto query languages.
-* [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/)
-* [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-* [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
-* [Create and share dashboards of Log Analytics data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)
-
-## Sample queries
-
-### Sample query 1
-All the account lockout events for the last seven days.
-```Kusto
-AADDomainServicesAccountManagement
-| where TimeGenerated >= ago(7d)
-| where OperationName has "4740"
-```
-
-### Sample query 2
-All the account lockout events (4740) between June 26, 2019 at 9 a.m. and July 1, 2019 midnight, sorted ascending by the date and time.
-```Kusto
-AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01) 
-| where OperationName has "4740"
-| sort by TimeGenerated asc
-```
-
-### Sample query 3
-Account log on events seven days ago (from now) for the account named user.
-```Kusto
-AADDomainServicesAccountLogon
-| where TimeGenerated >= ago(7d)
-| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-```
-
-### Sample query 4
-Account logon events seven days ago from now for the account named user that attempted to sign in using a bad password (0xC0000006a).
-```Kusto
-AADDomainServicesAccountLogon
-| where TimeGenerated >= ago(7d)
-| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-```
-
-### Sample query 5
-Account logon events seven days ago from now for the account named user that attempted to sign in while the account was locked out (0xC0000234).
-```Kusto
-AADDomainServicesAccountLogon
-| where TimeGenerated >= ago(7d)
-| where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-```
-
-### Sample query 6
-The number of account logon events seven days ago from now for all sign in attempts that occurred for all locked out users.
-```Kusto
-AADDomainServicesAccountLogon
-| where TimeGenerated >= ago(7d)
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| summarize count()
-```
-
-## Related content
-* [Overview](https://docs.microsoft.com/azure/kusto/query/) of the Kusto query language.
-* [Kusto tutorial](https://docs.microsoft.com/azure/kusto/query/tutorial) to familiarize you with query basics.
-* [Sample queries](https://docs.microsoft.com/azure/kusto/query/samples) that help you learn new ways to see your data.
-* Kusto [best practices](https://docs.microsoft.com/azure/kusto/query/best-practices) – optimize your queries for success.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+<!-- LINKS - Internal -->
+[migrate-azure-adds]: migrate-from-classic-vnet.md

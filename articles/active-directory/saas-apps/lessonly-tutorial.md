@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -28,7 +27,7 @@ In this tutorial, you'll learn how to integrate Lesson.ly with Azure Active Dire
 * Enable your users to be automatically signed-in to Lesson.ly with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -43,6 +42,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Lesson.ly supports **SP** initiated SSO
 * Lesson.ly supports **Just In Time** user provisioning
+* Once you configure Lesson.ly you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Lesson.ly from the gallery
 
@@ -62,10 +62,10 @@ Configure and test Azure AD SSO with Lesson.ly using a test user called **B.Simo
 To configure and test Azure AD SSO with Lesson.ly, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Lesson.ly SSO](#configure-lessonly-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Lesson.ly test user](#create-lessonly-test-user)** - to have a counterpart of B.Simon in Lesson.ly that is linked to the Azure AD representation of user.
+    * **[Create Lesson.ly test user](#create-lessonly-test-user)** - to have a counterpart of B.Simon in Lesson.ly that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -80,17 +80,33 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.lessonly.com/signin`
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.lessonly.com/auth/saml`
 
 	> [!NOTE]
 	> When referencing a generic name that **companyname** needs to be replaced by an actual name.
+	
+    b. In the **Reply URL (Assertion Customer Service URL)** text box, type a URL using the following pattern:
+    `https://<companyname>.lessonly.com/auth/saml/callback`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.lessonly.com/auth/saml/metadata`
-
+    
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Lessonly.com Client support team](mailto:support@lessonly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Reply URL, and Identifier. Contact [Lessonly.com Client support team](mailto:support@lessonly.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. Lesson.ly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, Lesson.ly application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+    | Name | Source Attribute|
+	| ---------------  | ----------------|
+	| urn:oid:2.5.4.42 | user.givenname |
+	| urn:oid:2.5.4.4  | user.surname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+	| urn:oid:1.3.6.1.4.1.5923.1.1.1.10 | user.objectid |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -136,7 +152,7 @@ To configure single sign-on on **Lesson.ly** side, you need to send the download
 
 ### Create Lesson.ly test user
 
-The objective of this section is to create a user called Britta Simon in Lessonly.com. Lessonly.com supports just-in-time provisioning, which is by default enabled.
+The objective of this section is to create a user called B.Simon in Lessonly.com. Lessonly.com supports just-in-time provisioning, which is by default enabled.
 
 There is no action item for you in this section. A new user will be created during an attempt to access Lessonly.com if it doesn't exist yet.
 
@@ -153,7 +169,7 @@ When you click the Lesson.ly tile in the Access Panel, you should be automatical
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

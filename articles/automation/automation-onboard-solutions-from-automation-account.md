@@ -1,161 +1,75 @@
 ---
-title: Learn how to onboard Update Management, Change Tracking, and Inventory solutions in Azure Automation
-description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
+title: Enable Azure Automation Update Management from Automation account
+description: This article tells how to enable Update Management from an Automation account.
 services: automation
-ms.service: automation
-author: bobbytreed
-ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
 ---
-# Onboard Update Management, Change Tracking, and Inventory solutions
+# Enable Update Management from an Automation account
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are many ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), from your Automation account, or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from your Automation account.
+This article describes how you can use your Automation account to enable the [Update Management](automation-update-management.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
+
+> [!NOTE]
+> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md).
+
+## Prerequisites
+
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Automation account](automation-offering-get-started.md) to manage machines.
+* A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com.
 
-## Enable solutions
+## Enable Update Management
 
-Navigate to your Automation account and select either **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**.
+1. In your Automation account, select **Update management** under **Update management**.
 
-Choose the Log Analytics workspace and Automation account and click **Enable** to enable the solution. The solution takes up to 15 minutes to enable.
+2. Choose the Log Analytics workspace and Automation account and click **Enable** to enable Update Management. The setup takes up to 15 minutes to complete.
 
-![Onboard Inventory solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
+    ![Enable Update Management](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-> [!NOTE]
-> When enabling solutions, only certain regions are supported for linking a Log Analytics workspace and an Automation Account.
->
-> For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
+## Enable Azure VMs
 
-The Change Tracking and Inventory solution provides the ability to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solution on a virtual machine.
+1. From your Automation account select **Update management** under **Update management**.
 
-When the change tracking and inventory solution onboarding notification completes, click on **Update Management** under **CONFIGURATION MANAGEMENT**.
+2. Click **+ Add Azure VMs** and select one or more VMs from the list. Virtual machines that can't be enabled are grayed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation account. 
 
-The Update Management solution allows you to manage updates and patches for your Azure Windows VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM. This action enabled the solution for your VM.
+3. Click **Enable** to add the selected VMs to the computer group saved search for the feature.
 
-Select **Update management** under **UPDATE MANAGEMENT**. The Log Analytics workspace selected is the same workspace used in the preceding step. Click **Enable** to onboard the Update management solution. The solution takes up to 15 minutes to enable.
+    ![Enable Azure VMs](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
-![Onboard update solution](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
+## Enable non-Azure VMs
 
-## Scope Configuration
+Machines not in Azure need to be added manually. 
 
-Each solution uses a Scope Configuration within the workspace to target the computers that get the solution. The Scope Configuration is a group of one or more saved searches that is used to limit the scope of the solution to specific computers. To access the Scope Configurations, in your Automation account under **RELATED RESOURCES**, select **Workspace**. Then in the workspace under **WORKSPACE DATA SOURCES**, select **Scope Configurations**.
+1. From your Automation account, select **Update management** under **Update management**.
 
-If the selected workspace doesn't have the Update Management or Change Tracking solutions yet, the following scope configurations are created:
+2. Click **Add non-Azure machine**. This action opens up a new browser window with [instructions to install and configure the Log Analytics agent for Windows](../azure-monitor/platform/log-analytics-agent.md) so that the machine can begin reporting Update Management operations. If you're enabling a machine that's currently managed by Operations Manager, a new agent isn't required and the workspace information is entered into the existing agent.
 
-* **MicrosoftDefaultScopeConfig-ChangeTracking**
+## Enable machines in the workspace
 
-* **MicrosoftDefaultScopeConfig-Updates**
+Manually installed machines or machines already reporting to your workspace must to be added to Azure Automation for Update Management to be enabled. 
 
-If the selected workspace already has the solution, the solution isn't re-deployed, and the scope configuration isn't added to it.
+1. From your Automation account, select **Update management** under **Update management**.
 
-## Saved searches
+2. Select **Manage machines**. The **Manage machines** button might be grayed out if you previously chose the option **Enable on all available and future machines**
 
-When a computer is added to the Update Management or the Change Tracking and Inventory solutions, they're added to one of two saved searches in your workspace. These saved searches are queries that contain the computers that are targeted for these solutions.
+    ![Saved searches](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
-Navigate to your Automation account and select **Saved searches** under **General**. The two saved searches used by these solutions can be seen in the following table:
+4. To enable Update Management for all available machines, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** button.
 
-|Name     |Category  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
-|MicrosoftDefaultComputerGroup     | Updates        | Updates__MicrosoftDefaultComputerGroup         |
+5. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
 
-Select either saved search to view the query used to populate the group. The following image shows the query and its results:
+6. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
 
-![Saved searches](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
-
-## Onboard Azure VMs
-
-From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
-
-Click **+ Add Azure VMs**, select one or more VMs from the list. Virtual machines that can't be enabled are greyed out and unable to be selected. Azure VMs can exist in any region no matter the location of your Automation Account. On the **Enable Update Management** page, click **Enable**. This action adds the selected VMs to the computer group saved search for the solution.
-
-![Enable Azure VMs](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
-
-## Onboard a non-Azure machine
-
-Machines not in Azure need to be added manually. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
-
-Click **Add non-Azure machine**. This action opens up a new browser window with the [instructions on how to install and configure the Microsoft Monitoring Agent on the machine](../azure-monitor/platform/log-analytics-agent.md) so the machine can begin reporting to the solution. If you're onboarding a machine that currently managed by System Center Operations Manager, a new agent isn't required, the workspace information is entered into the existing agent.
-
-## Onboard machines in the workspace
-
-Manually installed machines or machines already reporting to your workspace must to be added to Azure Automation for the solution to be enabled. From your Automation account select **Inventory** or **Change tracking** under **CONFIGURATION MANAGEMENT**, or **Update management** under **UPDATE MANAGEMENT**.
-
-Select **Manage machines**. This action opens up the **Manage Machines** page. This page allows you to enable the solution on a select set of machines, all available machines, or enable the solution for all current machines and enable it on all future machines. The **Manage machines** button may be greyed out if you previously chose the option **Enable on all available and future machines**.
-
-![Saved searches](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### All available machines
-
-To enable the solution for all available machines, select **Enable on all available machines**. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** button.
-
-### All available and future machines
-
-To enable the solution for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and Scope Configurations from the workspace. This action opens the solution to all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently as there's no Scope Configuration left.
-
-You can add the Scope Configurations back by adding the initial saved searches back. For more information, see [Saved searches](#saved-searches).
-
-### Selected machines
-
-To enable the solution for one or more machines, select **Enable on selected machines** and click **add** next to each machine you want to add to the solution. This task adds the selected machine names to the computer group saved search query for the solution.
-
-## Unlink workspace
-
-The following solutions are dependent on a Log Analytics workspace:
-
-* [Update Management](automation-update-management.md)
-* [Change Tracking](automation-change-tracking.md)
-* [Start/Stop VMs during off-hours](automation-solution-vm-management.md)
-
-If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal.  Before you continue, you first need to remove the solutions mentioned earlier, otherwise this process will be prevented from proceeding. Review the article for the particular solution you've imported to understand the steps required to remove it.
-
-After you remove these solutions, you can complete the following steps to unlink your Automation account.
-
-> [!NOTE]
-> Some solutions including earlier versions of the Azure SQL monitoring solution may have created automation assets and may also need to be removed prior to unlinking the workspace.
-
-1. From the Azure portal, open your Automation account, and on the Automation account page select **Linked workspace** under the section labeled **Related Resources** on the left.
-
-2. On the Unlink workspace page, click **Unlink workspace**.
-
-   ![Unlink workspace page](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
-
-   You will receive a prompt verifying you wish to continue.
-
-3. While Azure Automation tries to unlink the account your Log Analytics workspace, you can track the progress under **Notifications** from the menu.
-
-If you used the Update Management solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Update schedules - Each will have names that match the update deployments you created)
-
-* Hybrid worker groups created for the solution -  Each will be named similarly to  machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
-
-If you used the Start and Stop VMs during off-hours solution, optionally you may want to remove the following items that are no longer needed after you remove the solution.
-
-* Start and stop VM runbook schedules
-* Start and stop VM runbooks
-* Variables
-
-Alternatively you can also unlink your workspace from your Automation Account from your Log Analytics workspace. On your workspace, select **Automation Account** under **Related Resources**. On the Automation Account page, select **Unlink account**.
-
-## Clean up resources
-
-To remove a VM from Update Management:
-
-* In your Log Analytics workspace, remove the VM from the saved search for the Scope Configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
-* Remove the [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+7. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
 
 ## Next steps
 
-Continue to the tutorials on the solutions to learn how to use them.
-
-* [Tutorial - Manage Updates for your VM](automation-tutorial-update-management.md)
-
-* [Tutorial - Identify software on a VM](automation-tutorial-installed-software.md)
-
-* [Tutorial - Troubleshoot changes on a VM](automation-tutorial-troubleshoot-changes.md)
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

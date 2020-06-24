@@ -1,45 +1,29 @@
 ---
-title: Access and usage reports for Azure MFA - Azure Active Directory
-description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
+title: Sign-in event details for Azure Multi-Factor Authentication - Azure Active Directory
+description: Learn how to view sign-in activity for Azure Multi-Factor Authentication events and status messages.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/30/2018
+ms.topic: how-to
+ms.date: 05/15/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Reports in Azure Multi-Factor Authentication
+# Use the sign-ins report to review Azure Multi-Factor Authentication events
 
-Azure Multi-Factor Authentication provides several reports that can be used by you and your organization accessible through the Azure portal. The following table lists the available reports:
+To review and understand Azure Multi-Factor Authentication events, you can use the Azure Active Directory (Azure AD) sign-ins report. This report shows authentication details for events when a user is prompted for multi-factor authentication, and if any Conditional Access policies were in use. For detailed information on the sign-ins report, see the [overview of sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).
 
-| Report | Location | Description |
-|:--- |:--- |:--- |
-| Blocked User History | Azure AD > MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
-| Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
-| Usage for on-premises components | Azure AD > MFA Server > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
-| Bypassed User History | Azure AD > MFA Server > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
-| Server status | Azure AD > MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
+This article shows you how to view the Azure AD sign-ins report in the Azure portal, and then the MSOnline V1 PowerShell module.
 
-## View MFA reports
+## View the Azure AD sign-ins report
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **MFA Server**.
-3. Select the report that you wish to view.
-
-   ![MFA Server server status report in the Azure portal](./media/howto-mfa-reporting/report.png)
-
-## Azure AD sign-ins report
-
-With the **sign-ins activity report** in the [Azure portal](https://portal.azure.com), you can get the information you need to determine how your environment is doing.
-
-The sign-ins report can provide you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It enables you to answer questions like:
+The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It lets you answer questions like the following:
 
 - Was the sign-in challenged with MFA?
 - How did the user complete MFA?
@@ -48,92 +32,88 @@ The sign-ins report can provide you with information about the usage of managed 
 - How many users are unable to complete the MFA challenge?
 - What are the common MFA issues end users are running into?
 
-This data is available through the [Azure portal](https://portal.azure.com) and the [reporting API](../reports-monitoring/concept-reporting-api.md).
+To view the sign-in activity report in the [Azure portal](https://portal.azure.com), complete the following steps. You can also query data using the [reporting API](../reports-monitoring/concept-reporting-api.md).
 
-![Azure AD sign-ins report in the Azure portal](./media/howto-mfa-reporting/sign-in-report.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account with *global administrator* permissions.
+1. Search for and select **Azure Active Directory**, then choose **Users** from the menu on the left-hand side.
+1. Under *Activity* from the menu on the left-hand side, select **Sign-ins**.
+1. A list of sign-in events is shown, including the status. You can select an event to view more details.
 
-### Sign-ins report structure
+    The *Authentication Details* or *Conditional Access* tab of the event details shows you the status code or which policy triggered the MFA prompt.
 
-The sign-in activity reports for MFA give you access to the following information:
+    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
-**MFA required:** Whether MFA is required for the sign-in or not. MFA can be required due to per-user MFA, Conditional Access, or other reasons. Possible values are **Yes** or **No**.
+If available, the authentication is shown, such as text message, Microsoft Authenticator app notification, or phone call.
 
-**MFA Result:** More information on whether MFA was satisfied or denied:
+The following details are shown on the *Authentication Details* window for a sign-in event that show if the MFA request was satisfied or denied:
 
-- If MFA was satisfied, this column provides more information about how MFA was satisfied.
-   - Azure Multi-Factor Authentication
-      - completed in the cloud
-      - has expired due to the policies configured on tenant
-      - registration prompted
-      - satisfied by claim in the token
-      - satisfied by claim provided by external provider
-      - satisfied by strong authentication
-      - skipped as flow exercised was Windows broker logon flow
-      - skipped due to app password
-      - skipped due to location
-      - skipped due to registered device
-      - skipped due to remembered device
-      - successfully completed
-   - Redirected to external provider for multi-factor authentication
+* If MFA was satisfied, this column provides more information about how MFA was satisfied.
+   * completed in the cloud
+   * has expired due to the policies configured on tenant
+   * registration prompted
+   * satisfied by claim in the token
+   * satisfied by claim provided by external provider
+   * satisfied by strong authentication
+   * skipped as flow exercised was Windows broker logon flow
+   * skipped due to app password
+   * skipped due to location
+   * skipped due to registered device
+   * skipped due to remembered device
+   * successfully completed
 
-- If MFA was denied, this column would provide the reason for denial.
-   - Azure Multi-Factor Authentication denied;
-      - authentication in-progress
-      - duplicate authentication attempt
-      - entered incorrect code too many times
-      - invalid authentication
-      - invalid mobile app verification code
-      - misconfiguration
-      - phone call went to voicemail
-      - phone number has an invalid format
-      - service error
-      - unable to reach the user’s phone
-      - unable to send the mobile app notification to the device
-      - unable to send the mobile app notification
-      - user declined the authentication
-      - user did not respond to mobile app notification
-      - user does not have any verification methods registered
-      - user entered incorrect code
-      - user entered incorrect PIN
-      - user hung up the phone call without succeeding the authentication
-      - user is blocked
-      - user never entered the verification code
-      - user not found
-      - verification code already used once
-
-**MFA authentication method:** The authentication method the user used to complete MFA. Possible values include:
-
-- Text message
-- Mobile app notification
-- Phone call (Authentication phone)
-- Mobile app verification code
-- Phone call (Office phone)
-- Phone call (Alternate authentication phone)
-
-**MFA authentication detail:** Scrubbed version of the phone number, for example: +X XXXXXXXX64.
-
-**Conditional Access** Find information about Conditional Access policies that affected the sign-in attempt including:
-
-- Policy name
-- Grant controls
-- Session controls
-- Result
+* If MFA was denied, this column would provide the reason for denial.
+   * authentication in-progress
+   * duplicate authentication attempt
+   * entered incorrect code too many times
+   * invalid authentication
+   * invalid mobile app verification code
+   * misconfiguration
+   * phone call went to voicemail
+   * phone number has an invalid format
+   * service error
+   * unable to reach the user's phone
+   * unable to send the mobile app notification to the device
+   * unable to send the mobile app notification
+   * user declined the authentication
+   * user did not respond to mobile app notification
+   * user does not have any verification methods registered
+   * user entered incorrect code
+   * user entered incorrect PIN
+   * user hung up the phone call without succeeding the authentication
+   * user is blocked
+   * user never entered the verification code
+   * user not found
+   * verification code already used once
 
 ## PowerShell reporting on users registered for MFA
 
 First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) installed.
 
-Identify users who have registered for MFA using the PowerShell that follows.
+Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
-Identify users who have not registered for MFA using the PowerShell that follows.
+Identify users who have not registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
 
-```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```powershell
+Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
+```
 
-## Possible results in activity reports
+Identify users and output methods registered:
 
-The following table may be used to troubleshoot multi-factor authentication using the downloaded version of the multi-factor authentication activity report. They will not appear directly in the Azure portal.
+```powershell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
+
+## Downloaded activity reports result codes
+
+The following table can help troubleshoot events using the downloaded version of the activity report from the previous portal steps or PowerShell commands. These result codes don't appear directly in the Azure portal.
 
 | Call Result | Description | Broad description |
 | --- | --- | --- |
@@ -183,8 +163,17 @@ The following table may be used to troubleshoot multi-factor authentication usin
 | FAILED_AUTH_RESULT_TIMEOUT | Auth Result Timeout | The user took too long to complete the Multi-Factor Authentication attempt. |
 | FAILED_AUTHENTICATION_THROTTLED | Authentication Throttled | The Multi-Factor Authentication attempt was throttled by the service. |
 
+## Additional MFA reports
+
+The following additional information and reports are available for MFA events, including those for MFA Server:
+
+| Report | Location | Description |
+|:--- |:--- |:--- |
+| Blocked User History | Azure AD > Security > MFA > Block/unblock users | Shows the history of requests to block or unblock users. |
+| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server through the NPS extension, ADFS, and MFA Server. |
+| Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of MFA Server requests to bypass MFA for a user. |
+| Server status | Azure AD > Security > MFA > Server status | Displays the status of MFA Servers associated with your account. |
+
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
-* [For Users](../user-help/multi-factor-authentication-end-user.md)
-* [Where to deploy](concept-mfa-whichversion.md)
+This article provided an overview of the sign-ins activity report. For more detailed information on what this report contains and understand the data, see [sign-in activity reports in Azure AD](../reports-monitoring/concept-sign-ins.md).

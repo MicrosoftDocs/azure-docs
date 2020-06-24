@@ -1,24 +1,18 @@
 ---
-title: How to request custom claims using MSAL for iOS and macOS 
+title: Request custom claims (MSAL iOS/macOS) | Azure 
 titleSuffix: Microsoft identity platform
 description: Learn how to request custom claims.
 services: active-directory
-documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: twhitney
-ms.reviewer: ''
+ms.author: marsma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Request custom claims using MSAL for iOS and macOS

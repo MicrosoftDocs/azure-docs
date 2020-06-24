@@ -1,15 +1,9 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in a .NET Framework app | Microsoft Docs
-description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps
+title: '.NET Framework Tutorial: dynamic configuration in Azure App Configuration'
+description: In this tutorial, you learn how to dynamically update the configuration data for .NET Framework apps using Azure App Configuration. 
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-
-ms.assetid: 
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
@@ -28,20 +22,19 @@ This tutorial shows how you can implement dynamic configuration updates in your 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up your application to update its configuration with an app configuration store on demand.
-> * Inject the latest configuration in your application's controllers.
-
+> * Set up your .NET Framework app to update its configuration in response to changes in an App Configuration store.
+> * Inject the latest configuration in your application.
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 or later](https://dotnet.microsoft.com/download)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
+6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -49,7 +42,9 @@ In this tutorial, you learn how to:
 
     Leave **Label** and **Content Type** empty for now.
 
-## Create a .NET console app
+7. Select **Apply**.
+
+## Create a .NET Framework console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
@@ -96,7 +91,7 @@ In this tutorial, you learn how to:
         PrintMessage().Wait();
     }
     ```
-    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the app configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance can be used to trigger a refresh operation anywhere in your code.
+    The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the App Configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance can be used to trigger a refresh operation anywhere in your code.
 
     > [!NOTE]
     > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
@@ -118,7 +113,7 @@ In this tutorial, you learn how to:
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -132,7 +127,7 @@ In this tutorial, you learn how to:
 
     ![App launch local](./media/dotnet-app-run.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the app configuration store instance that you created in the quickstart.
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
 1. Select **Configuration Explorer**, and update the values of the following keys:
 
@@ -153,7 +148,7 @@ In this tutorial, you learn how to:
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn how to add an Azure-managed service identity that streamlines access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET Framework app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

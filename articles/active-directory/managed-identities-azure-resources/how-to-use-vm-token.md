@@ -1,5 +1,5 @@
 ---
-title: How to use managed identities for Azure resources on a virtual machine to acquire an access token
+title: Use managed identities on a virtual machine to acquire access token - Azure AD
 description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
@@ -41,8 +41,8 @@ If you plan to use the Azure PowerShell examples in this article, be sure to ins
 
 ## Overview
 
-A client application can request managed identities for Azure resources [app-only access token](../develop/developer-glossary.md#access-token) for accessing a given resource. The token is [based on the managed identities for Azure resources service principal](overview.md#how-does-it-work). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
-[service-to-service calls requiring client credentials](../develop/v1-oauth2-client-creds-grant-flow.md).
+A client application can request managed identities for Azure resources [app-only access token](../develop/developer-glossary.md#access-token) for accessing a given resource. The token is [based on the managed identities for Azure resources service principal](overview.md#managed-identity-types). As such, there is no need for the client to register itself to obtain an access token under its own service principal. The token is suitable for use as a bearer token in
+[service-to-service calls requiring client credentials](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -72,7 +72,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | The managed identities for Azure resources endpoint for the Instance Metadata Service. |
 | `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint. Please use API version `2018-02-01` or greater. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of `https://management.azure.com/`. |
 | `Metadata` | An HTTP request header field, required by managed identities for Azure resources as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case. |
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
@@ -89,7 +89,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
 | `http://localhost:50342/oauth2/token` | The managed identities for Azure resources endpoint, where 50342 is the default port and is configurable. |
-| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.azure.com/. |
+| `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of `https://management.azure.com/`. |
 | `Metadata` | An HTTP request header field, required by managed identities for Azure resources as a mitigation against Server Side Request Forgery (SSRF) attack. This value must be set to "true", in all lower case.|
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
@@ -351,11 +351,11 @@ The managed identities for Azure resources endpoint signals errors via the statu
 
 | Status Code | Error Reason | How To Handle |
 | ----------- | ------------ | ------------- |
-| 404 Not found. | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
+| 404 Not found. | IMDS endpoint is updating. | Retry with Exponential Backoff. See guidance below. |
 | 429 Too many requests. |  IMDS Throttle limit reached. | Retry with Exponential Backoff. See guidance below. |
 | 4xx Error in request. | One or more of the request parameters was incorrect. | Do not retry.  Examine the error details for more information.  4xx errors are design-time errors.|
 | 5xx Transient error from service. | The managed identities for Azure resources sub-system or Azure Active Directory returned a transient error. | It is safe to retry after waiting for at least 1 second.  If you retry too quickly or too often, IMDS and/or Azure AD may return a rate limit error (429).|
-| timeout | IMDS endpoint is updating. | Retry with Expontential Backoff. See guidance below. |
+| timeout | IMDS endpoint is updating. | Retry with Exponential Backoff. See guidance below. |
 
 If an error occurs, the corresponding HTTP response body contains JSON with the error details:
 
@@ -374,7 +374,7 @@ This section documents the possible error responses. A "200 OK" status is a succ
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the preceding REST section for an example.|
 | 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the preceding REST section for an example.|
 |           | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. |  |
-|           | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn’t use local loopback to call the extension, or on a VM that doesn’t have managed identities for Azure resources configured correctly. See [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
+|           | unauthorized_client | The client is not authorized to request an access token using this method. | Caused by a request that didn't use local loopback to call the extension, or on a VM that doesn't have managed identities for Azure resources configured correctly. See [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration. |
 |           | access_denied | The resource owner or authorization server denied the request. |  |
 |           | unsupported_response_type | The authorization server does not support obtaining an access token using this method. |  |
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |

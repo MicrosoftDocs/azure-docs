@@ -5,15 +5,15 @@ summary: The Azure portal is a web-based, unified console that provides an alter
 
 metadata:
   title: Azure portal documentation
-  description: Learn how to manage your Azure subscription and resources using the Azure portal web-based console.
+  description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 09/17/2019
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -35,6 +35,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Set your portal preferences
+            url: set-preferences.md
           - text: Create and share custom dashboards
             url: azure-portal-dashboards.md
           - text: Manage your favorites
@@ -87,3 +89,13 @@ landingContent:
           - text: Turn on high contrast
             url: azure-portal-change-theme-high-contrast.md
  
+
+   # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: ../azure-portal/supportability/how-to-create-azure-support-request.md
+          - text: Troubleshoot region or SKU subscription issues
+            url: ../azure-portal/supportability/sku-series-unavailable.md

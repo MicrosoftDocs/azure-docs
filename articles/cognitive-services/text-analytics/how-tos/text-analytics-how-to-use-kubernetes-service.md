@@ -3,13 +3,13 @@ title: Run Azure Kubernetes Service - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the Text Analytics container image to Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/19/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Deploy a Text Analytics container to Azure Kubernetes Service

@@ -1,10 +1,10 @@
 ---
-title: AzureLogCollector VM Extension | Microsoft Docs
+title: AzureLogCollector VM Extension 
 description: Describes the AzureLogCollector VM extension, which collects all the log files and brings them together into one location in Azure Storage.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: gwallace
-manager: gwallace
+author: mimckitt
+manager: vashan
 editor: ''
 
 ms.assetid: aa033a65-8eb8-4cae-9f91-0f80cbb55ae4
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
-ms.author: gwallace
+ms.author: mimckitt
 
 ---
 # AzureLogCollector Extension

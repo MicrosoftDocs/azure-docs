@@ -2,10 +2,10 @@
 title: Azure Database Migration Service documentation
 summary: "Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required before performing a migration. When you're ready to begin the migration process, Azure Database Migration Service performs all the required steps."
 metadata: 
-  description: " Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
+  description: "Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/25/2019
+  ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
 
@@ -29,6 +29,12 @@ landingContent:
         links:
           - text: Create service – Portal
             url: quickstart-create-data-migration-service-portal.md
+          - text: Create service in hybrid mode – Portal
+            url: quickstart-create-data-migration-service-hybrid-portal.md
+      - linkListType: reference
+        links:
+          - text: Known issues - Using hybrid mode
+            url: known-issues-dms-hybrid-mode.md
       - linkListType: video
         links:            
           - text: Introduction to Azure Data Migration Service
@@ -48,40 +54,44 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to SQL Database single database - online
+          - text: Migrate to SQL DB single database - online
             url: tutorial-sql-server-azure-sql-online.md
-          - text: Migrate to SQL Database single database - offline
+          - text: Migrate to SQL DB single database - offline
             url: tutorial-sql-server-to-azure-sql.md
-          - text: Migrate to SQL Database managed instance - online
+          - text: Migrate to SQL DB managed instance - online
             url: tutorial-sql-server-managed-instance-online.md
-          - text: Migrate to SQL Database managed instance - offline
+          - text: Migrate to SQL DB managed instance - offline
             url: tutorial-sql-server-to-managed-instance.md
-          - text: Migrate RDS SQL Server to SQL Database single database / managed instance - online
+          - text: Migrate RDS SQL Server to SQL DB single database / managed instance - online
             url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to SQL Database single database
+          - text: Known issues - Online migration to SQL DB single database
             url: known-issues-azure-sql-online.md
-          - text: Network topologies for SQL Database managed instance migrations
+          - text: Known issues - Online migration to SQL DB managed instance
+            url: known-issues-azure-sql-db-managed-instance-online.md
+          - text: Network topologies for SQL DB managed instance migrations
             url: resource-network-topologies.md
-          - text: Custom roles for online migrations from SQL Server to SQL Database managed instance
+          - text: Custom roles for online migrations from SQL Server to SQL DB managed instance
             url: resource-custom-roles-sql-db-managed-instance.md            
       - linkListType: video
         links:
-          - text: Migrate SQL Server 2008 to SQL Database managed instance
+          - text: Migrate SQL Server 2008 to SQL DB managed instance
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 # Card 3
   - title: Migrate open-source databases to Azure
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Migrate to Azure Database for PostgreSQL - Single Server - online
+          - text: Migrate to Azure DB for PostgreSQL online via the portal
+            url: tutorial-postgresql-azure-postgresql-online-portal.md
+          - text: Migrate to Azure DB for PostgreSQL online via the CLI
             url: tutorial-postgresql-azure-postgresql-online.md
-          - text: Migrate RDS PostgreSQL to Azure Database for PostgreSQL - Single Server - online
+          - text: Migrate RDS PostgreSQL to Azure DB for PostgreSQL
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-          - text: Migrate to Azure Database for MySQL - online
+          - text: Migrate to Azure DB for MySQL - online
             url: tutorial-mysql-azure-mysql-online.md
-          - text: Migrate RDS MySQL to Azure Database for MySQL - online
+          - text: Migrate RDS MySQL to Azure DB for MySQL - online
             url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
           - text: Migrate to Azure Cosmos DB Mongo API - online
             url: tutorial-mongodb-cosmos-db-online.md
@@ -89,13 +99,15 @@ landingContent:
             url: tutorial-mongodb-cosmos-db.md
       - linkListType: reference
         links:
-          - text: Known issues - Online migration to Azure Database for PostgreSQL - Single server
+          - text: Known issues - Online migration to Azure DB for PostgreSQL
             url: known-issues-azure-postgresql-online.md
-          - text: Known issues - Online migration to Azure Database for MySQL
+          - text: Known issues - Online migration to Azure DB for MySQL
             url: known-issues-azure-mysql-online.md
+          - text: Known issues - Migration from MongoDB to Azure Cosmos DB
+            url: known-issues-mongo-cosmos-db.md
       - linkListType: video
         links:
-          - text: Migrate PostgreSQL to Azure Database for PostgreSQL - Single server
+          - text: Migrate PostgreSQL to Azure DB for PostgreSQL - Single server
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
           - text: Migrate to Azure Cosmos DB Mongo API
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
@@ -104,7 +116,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Service and tools by data migration scenario
+          - text: Services and tools by data migration scenario
             url: dms-tools-matrix.md
           - text: Database Migration Guide
             url: https://datamigration.microsoft.com/

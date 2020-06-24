@@ -1,11 +1,7 @@
 ---
 title: Troubleshoot Application Insights in a Java web project
 description: Troubleshooting guide - monitoring live Java apps with Application Insights.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
 
 ---
@@ -33,7 +29,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
 #### I used to see data, but it has stopped
-* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 * Have you recently upgraded your SDK? Please ensure that only Unique SDK jars are present inside the project directory. There should not be two different versions of SDK present.
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
@@ -48,7 +43,6 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Have you configured Java agent by following [Configure Java Agent](java-agent.md) ?
 * Make sure both the java agent jar and the AI-Agent.xml file are placed in the same folder.
 * Make sure that the dependency you are trying to auto-collect is supported for auto collection. Currently we only support MySQL, MsSQL, Oracle DB and Azure Cache for Redis dependency collection.
-* Are you using JDK 1.7 or 1.8? Currently we do not support dependency collection in JDK 9.
 
 ## No usage data
 **I see data about requests and response times, but no page view, browser, or user data.**

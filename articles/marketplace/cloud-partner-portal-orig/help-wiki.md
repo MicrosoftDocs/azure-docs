@@ -1,13 +1,12 @@
 ---
 title: Dynamics 365 for Operations Help Wiki 
 description: Deprecated this article and linked to PC article; was "Dynamics 365 for Operations Help Wiki information page"
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: ChJenk
-manager: Ricardo.Villalobos  
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Operations Help Wiki

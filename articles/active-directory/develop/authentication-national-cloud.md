@@ -1,24 +1,19 @@
 ---
-title:  Authentication using Azure Active Directory in national clouds 
+title: Azure AD authentication & national clouds | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about app registration and authentication endpoints for national clouds.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop    
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
-ms.reviewer: negoe,CelesteDG
-ms.custom: aaddev
-ms.collection: M365-identity-device-management
+ms.reviewer: negoe,celested
+ms.custom: aaddev,references_regions
 ---
 
 # National clouds
@@ -61,8 +56,8 @@ The following table lists the base URLs for the Azure AD endpoints used to acqui
 
 You can form requests to the Azure AD authorization or token endpoints by using the appropriate region-specific base URL. For example, for Azure Germany:
 
-  - Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - Token common endpoint is `https://login.microsoftonline.de/common/oauth2/token`.
+  - Authorization common endpoint is `https://login.microsoftonline.de/common/oauth2/v2.0/authorize`.
+  - Token common endpoint is `https://login.microsoftonline.de/common/oauth2/v2.0/token`.
 
 For single-tenant applications, replace "common" in the previous URLs with your tenant ID or name. An example is `https://login.microsoftonline.de/contoso.com`.
 

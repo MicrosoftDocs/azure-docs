@@ -12,7 +12,7 @@ ms.author: lbosq
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and column-family data models. The Azure Cosmos DB Gremlin API is used to store and operate with graph data on a fully managed database service designed for any scale.  
 
-![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png)
+:::image type="content" source="./media/graph-introduction/cosmosdb-graph-architecture.png" alt-text="Azure Cosmos DB graph architecture" border="false":::
 
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org) graph database standard, and uses the Gremlin query language. 
 
@@ -50,7 +50,7 @@ The following are the differentiated features that Azure Cosmos DB Gremlin API o
 
 * **Compatibility with Apache TinkerPop**
 
-  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](http://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's Gremlin API. 
+  Azure Cosmos DB supports the [open-source Apache TinkerPop standard](https://tinkerpop.apache.org/). The Tinkerpop standard has an ample ecosystem of applications and libraries that can be easily integrated with Azure Cosmos DB's Gremlin API. 
 
 * **Tunable consistency levels**
 
@@ -95,7 +95,7 @@ Graph databases are often included within the NoSQL or non-relational database c
 ### Gremlin by example
 Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
 
-![Sample database showing persons, devices, and interests](./media/gremlin-support/sample-graph.png) 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Sample database showing persons, devices, and interests" border="false"::: 
 
 This graph has the following *vertex* types (called "label" in Gremlin):
 

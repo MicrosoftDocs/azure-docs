@@ -102,8 +102,8 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text - custom translator](./translator/custom-translator/overview.md)||x||
+|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
@@ -111,9 +111,9 @@ The following data categorizes each service by which kind of data it allows or r
  
 The services are used in any application that can make REST API(s) or SDK calls. Examples of applications include web sites, bots, virtual or mixed reality, desktop and mobile applications. 
 
-## How is Cognitive search related to Cognitive Services?
+## How is Azure Cognitive Search related to Cognitive Services?
 
-[Azure Search](../search/search-what-is-azure-search.md) uses Cognitive Services to provide this feature. Cognitive Services is exposed in Azure Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
+[Azure Cognitive Search](../search/search-what-is-azure-search.md) is a separate cloud search service that optionally uses Cognitive Services to add image and natural language processing to indexing workloads. Cognitive Services is exposed in Azure Cognitive Search through [built-in skills](../search/cognitive-search-predefined-skills.md) that wrap individual APIs. You can use a free resource for walkthroughs, but plan on creating and attaching a [billable resource](../search/cognitive-search-attach-cognitive-services.md) for larger volumes.
 
 ## How can you use Cognitive Services?
 
@@ -128,12 +128,12 @@ Cognitive Services that provide exported models for other machine learning tools
 ## Learn more
 
 * [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/service/concept-deep-learning-vs-machine-learning.md)
+* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## Next steps
 
 * Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Learn how to [authenticate](authentication.md) to an Cognitive Service.
+* Learn how to [authenticate](authentication.md) to a Cognitive Service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
 * Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
 * Keep up to date with [service updates](https://azure.microsoft.com/updates/?product=cognitive-services).

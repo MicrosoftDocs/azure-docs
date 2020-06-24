@@ -39,6 +39,10 @@ SELECT RAND() AS rand
 [{"rand": 0.87860053195618093}]  
 ``` 
 
+## Remarks
+
+This system function will not utilize the index.
+
 ## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)

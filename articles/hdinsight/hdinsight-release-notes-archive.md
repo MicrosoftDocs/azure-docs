@@ -1,24 +1,318 @@
 ﻿---
 title: Archived release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
+description: Archived release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.custom: hdinsightactive
+ms.date: 01/08/2019
 ---
-# Archived release notes
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+# Archived release notes
 
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
 
-## New features
+## Release date: 01/09/2020
+
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+
+### New features
+#### TLS 1.2 enforcement
+Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. Learn more about [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight uses TLS 1.2 on public HTTPs endpoints but TLS 1.1 is still supported for backward compatibility. 
+
+With this release, customers can opt into TLS 1.2 only for all connections through the public cluster endpoint. To support this, the new property **minSupportedTlsVersion** is introduced and can be specified during cluster creation. If the property is not set, the cluster still supports TLS 1.0, 1.1 and 1.2, which is the same as today's behavior. Customers can set the value for this property to "1.2", which means that the cluster only supports TLS 1.2 and above. For more information, see [Transport Layer Security](./transport-layer-security.md).
+
+#### Bring your own key for disk encryption
+All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE). Data on those disks is encrypted by Microsoft-managed keys by default. Starting from this release, you can Bring Your Own Key (BYOK) for disk encryption and manage it using Azure Key Vault. BYOK encryption is a one-step configuration during cluster creation with no additional cost. Just register HDInsight as a managed identity with Azure Key Vault and add the encryption key when you create your cluster. For more information, see [Customer-managed key disk encryption](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
+
+### Deprecation
+No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
+
+### Behavior changes
+No behavior changes for this release. To get ready for upcoming changes, see [Upcoming changes](#upcoming-changes).
+
+### Upcoming changes
+The following changes will happen in upcoming releases. 
+
+#### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.3 on HDInsight 3.6 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+
+#### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
+Starting July 1, 2020, customers will not be able to create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30, 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](./spark/migrate-versions.md).
+
+#### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+Starting July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption. For more information, see [Migrate Apache Kafka workloads to Azure HDInsight 4.0](./kafka/migrate-versions.md).
+
+#### HBase 2.0 to 2.1.6
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.6
+
+#### Spark 2.4.0 to 2.4.4
+In the upcoming HDInsight 4.0 release, Spark version will be upgraded from version 2.4.0 to 2.4.4
+
+#### Kafka 2.1.0 to 2.1.1
+In the upcoming HDInsight 4.0 release, Kafka version will be upgraded from version 2.1.0 to 2.1.1
+
+#### A minimum 4-core VM is required for Head Node 
+A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
+
+#### ESP Spark cluster node size change 
+In the upcoming release, the minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
+A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity. A-series VMs will be deprecated for creating new ESP clusters.
+
+#### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. In the upcoming release, HDInsight will use Azure virtual machine scale sets instead. See more about Azure virtual machine scale sets.
+
+### Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
+
+### Component version change
+No component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 here.
+
+## Release date: 12/17/2019
+
+This release applies both for HDInsight 3.6 and 4.0.
+
+### New features
+
+#### Service tags
+Service tags simplify security for Azure virtual machines and Azure virtual networks by enabling you to easily restrict network access to the Azure services. You can use service tags in your network security group (NSG) rules to allow or deny traffic to a specific Azure service globally or per Azure region. Azure provides the maintenance of IP addresses underlying each tag. HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. HDInsight customers can enable service tag through Azure Portal, PowerShell, and REST API. For more information, see [Network security group (NSG) service tags for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+
+#### Custom Ambari DB
+HDInsight now allows you to use your own SQL DB for Apache Ambari. You can configure this custom Ambari DB from the Azure portal or through resource manager template.  This feature allows you to choose the right SQL DB for your processing and capacity needs. You can also upgrade easily to match business growth requirements. For more information, see [Set up HDInsight clusters with a custom Ambari DB](hdinsight-custom-ambari-db.md).
+
+![Custom Ambari DB](./media/hdinsight-release-notes/custom-ambari-db.png)
+
+### Deprecation
+No deprecations for this release. To get ready for upcoming deprecations, see [Upcoming changes](#upcoming-changes).
+
+### Behavior changes
+No behavior changes for this release. To get ready for upcoming behavior changes, see [Upcoming changes](#upcoming-changes).
+
+### Upcoming changes
+The following changes will happen in upcoming releases. 
+
+#### Transport Layer Security (TLS) 1.2 enforcement
+Transport Layer Security (TLS) and Secure Sockets Layer (SSL) are cryptographic protocols that provide communications security over a computer network. For more information, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). While Azure HDInsight clusters accept TLS 1.2 connections on public HTTPS endpoints, TLS 1.1 is still supported for backward compatibility with older clients.
+
+Starting from the next release, you will be able to opt-in and configure your new HDInsight clusters to only accept TLS 1.2 connections. 
+
+Later in the year, starting on 6/30/2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. We recommend that you ensure that all your clients are ready to handle TLS 1.2 or later versions.
+
+#### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from February 2020 (exact date will be communicated later), HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+
+#### ESP Spark cluster node size change 
+In the upcoming release:
+- The minimum allowed node size for ESP Spark cluster will be changed to Standard_D13_V2. 
+- A-series VMs will be deprecated for creating new ESP clusters, as A-series VMs could cause ESP cluster issues because of relatively low CPU and memory capacity.
+
+#### HBase 2.0 to 2.1
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
+
+### Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
+
+### Component version change
+We've extended HDInsight 3.6 support to December 31, 2020. You can find more details in [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+No component version change for HDInsight 4.0.
+
+Apache Zeppelin on HDInsight 3.6: 0.7.0-->0.7.3. 
+
+You can find the most up-to-date component versions from [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+### New Regions
+
+#### UAE North
+The management IPs of UAE North are: `65.52.252.96` and `65.52.252.97`.
+
+
+## Release date: 11/07/2019
+
+This release applies both for HDInsight 3.6 and 4.0.
+
+### New features
+
+#### HDInsight Identity Broker (HIB) (Preview)
+
+HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through Azure Resource Management (ARM) template.
+
+#### Kafka Rest API Proxy (Preview)
+
+Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured AAD authorization and OAuth protocol. 
+
+#### Auto scale
+
+Autoscale for Azure HDInsight is now generally available across all regions for Apache Spark and Hadoop cluster types. This feature makes it possible to manage big data analytics workloads in a more cost-efficient and productive way. Now you can optimize use of your HDInsight clusters and only pay for what you need.
+
+Depending on your requirements, you can choose between load-based and schedule-based autoscaling. Load-based Autoscale can scale the cluster size up and down based on the current resource needs while schedule-based Autoscale can change the cluster size based on a predefined schedule. 
+
+Autoscale support for HBase and LLAP workload is also public preview. For more information, see [Automatically scale Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
+
+#### HDInsight Accelerated Writes for Apache HBase 
+
+Accelerated Writes uses Azure premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+
+#### Custom Ambari DB
+
+HDInsight now offers a new capacity to enable customers to use their own SQL DB for Ambari. Now customers can choose the right SQL DB for Ambari and  easily upgrade it based on their own business growth requirement. The deployment is done with an Azure Resource Manager template. For more information, see [Set up HDInsight clusters with a custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+
+#### F-series virtual machines are now available with HDInsight
+
+F-series virtual machines(VMs) are good choice to get started with HDInsight with light processing requirements. At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. For more information, see [Selecting the right VM size for your Azure HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+
+### Deprecation
+
+#### G-series virtual machine deprecation
+From this release, G-series VMs are no longer offered in HDInsight.
+
+#### Dv1 virtual machine deprecation
+From this release, the use of Dv1 VMs with HDInsight is deprecated. Any customer request for Dv1 will be served with Dv2 automatically. There is no price difference between Dv1 and Dv2 VMs.
+
+### Behavior changes
+
+#### Cluster managed disk size change
+HDInsight provides managed disk space with the cluster. From this release, the managed disk size of each node in the new created cluster is changed to 128 GB.
+
+### Upcoming changes
+The following changes will happen in the upcoming releases. 
+
+#### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from December, HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+
+#### HBase 2.0 to 2.1
+In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
+
+#### A-series virtual machine deprecation for ESP cluster
+A-series VMs could cause ESP cluster issues due to relatively low CPU and memory capacity. In the upcoming release, A-series VMs will be deprecated for creating new ESP clusters.
+
+### Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
+
+### Component version change
+There is no component version change for this release. You could find the current component versions for HDInsight 4.0 and HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+
+
+## Release Date: 08/07/2019
+
+### Component versions
+
+The official Apache versions of all HDInsight 4.0 components are given below. The components listed are releases of the most recent stable versions available.
+
+- Apache Ambari 2.7.1
+- Apache Hadoop 3.1.1
+- Apache HBase 2.0.0
+- Apache Hive 3.1.0
+- Apache Kafka 1.1.1, 2.1.0
+- Apache Mahout 0.9.0+
+- Apache Oozie 4.2.0
+- Apache Phoenix 4.7.0
+- Apache Pig 0.16.0
+- Apache Ranger 0.7.0
+- Apache Slider 0.92.0
+- Apache Spark 2.3.1, 2.4.0
+- Apache Sqoop 1.4.7
+- Apache TEZ 0.9.1
+- Apache Zeppelin 0.8.0
+- Apache ZooKeeper 3.4.6
+
+Later versions of Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and shouldn't substitute for the Apache component versions of the above list in a production environment.
+
+### Apache patch information
+
+For more information on patches available in HDInsight 4.0, see the patch listing for each product in the table below.
+
+| Product name | Patch information |
+|---|---|
+| Ambari | [Ambari patch information](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
+| Hadoop | [Hadoop patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
+| HBase | [HBase patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| Hive  | This release provides Hive 3.1.0 with no additional Apache patches.  |
+| Kafka | This release provides Kafka 1.1.1 with no additional Apache patches. |
+| Oozie | [Oozie patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
+| Phoenix | [Phoenix patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
+| Pig | [Pig patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
+| Ranger | [Ranger patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
+| Spark | [Spark patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| Sqoop | This release provides Sqoop 1.4.7 with no additional Apache patches. |
+| Tez | This release provides Tez 0.9.1 with no additional Apache patches. |
+| Zeppelin | This release provides Zeppelin 0.8.0 with no additional Apache patches. |
+| Zookeeper | [Zookeeper patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
+
+### Fixed Common Vulnerabilities and Exposures
+
+For more information on security issues resolved in this release, see Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
+
+### Known issues
+
+#### Replication is broken for Secure HBase with default installation
+
+For HDInsight 4.0, do the following steps:
+
+1. Enable inter-cluster communication.
+1. Sign in to the active headnode.
+1. Download a script to enable replication with the following command:
+
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. Type the command `sudo kinit <domainuser>`.
+1. Type the following command to run the script:
+
+    ```
+    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+For HDInsight 3.6, do the following:
+
+1. Sign in to active HMaster ZK.
+1. Download a script to enable replication with the following command:
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
+1. Type the following command:
+
+    ```bash
+    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+
+#### Phoenix Sqlline stops working after migrating HBase cluster to HDInsight 4.0
+
+Do the following steps:
+
+1. Drop the following Phoenix tables:
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.MUTEX`
+    1. `SYSTEM.CATALOG`
+1. If you can't delete any of the tables, restart HBase to clear any connections to the tables.
+1. Run `sqlline.py` again. Phoenix will re-create all of the tables that were deleted in step 1.
+1. Regenerate Phoenix tables and views for your HBase data.
+
+#### Phoenix Sqlline stops working after replicating HBase Phoenix metadata from HDInsight 3.6 to 4.0
+
+Do the following steps:
+
+1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This command will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
+1. Drop the following tables:
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.CATALOG`
+1. Start the HBase replication
+
+### Deprecation
+
+Apache Storm and ML services aren't available in HDInsight 4.0.
+
+## Release Date: 04/14/2019
+
+### New features
 
 The new updates and capabilities fall in to the following categories:
 
@@ -28,13 +322,13 @@ The new updates and capabilities fall in to the following categories:
 
     b.  [**New features in Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we are providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
+*  ***Update R Server 9.1 to Machine Learning Services 9.3*** – With this release, we're providing data scientists and engineers with the best of open source enhanced with algorithmic innovations and ease of operationalization, all available in their preferred language with the speed of Apache Spark. This release expands upon the capabilities offered in R Server with added support for Python, leading to the cluster name change from R Server to ML Services. 
 
 *  ***Support for Azure Data Lake Storage Gen2*** – HDInsight will support the Preview release of Azure Data Lake Storage Gen2. In the available regions, customers will be able to choose an ADLS Gen2 account as the Primary or Secondary store for their HDInsight clusters.
 
 *  ***HDInsight Enterprise Security Package Updates (Preview)*** – (Preview) [Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) support for Azure Blob Storage, ADLS Gen1, Cosmos DB, and Azure DB.
 
-## Component versions
+### Component versions
 
 The official Apache versions of all HDInsight 3.6 components are listed below. All components listed here are official Apache releases of the most recent stable versions available.
 
@@ -72,11 +366,11 @@ The official Apache versions of all HDInsight 3.6 components are listed below. A
 
 -   Apache ZooKeeper 3.4.6
 
-Later versions of a few Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
+Later versions of a few Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and shouldn't substitute for the Apache component versions of the above list in a production environment.
 
-## Apache patch information
+### Apache patch information
 
-### Hadoop
+#### Hadoop
 
 This release provides Hadoop Common 2.7.3 and the following Apache patches:
 
@@ -98,7 +392,7 @@ This release provides Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265): exclude json-smart explicitly from hadoop-auth pom.xml.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#close is not releasing ScheduledThreadPoolExecutors.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#close isn't releasing ScheduledThreadPoolExecutors.
 
 -   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496): Calling stopWriter() with FSDatasetImpl lock held may block other threads (cmccabe).
 
@@ -160,7 +454,7 @@ HDP 2.6.4 provided Hadoop Common 2.7.3 and the following Apache patches:
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NPE in LinuxContainerExecutor due to null PrivilegedOperationException exit code.
 
-### HBase
+#### HBase
 
 This release provides HBase 1.1.2 and the following Apache patches.
 
@@ -226,7 +520,7 @@ This release provides HBase 1.1.2 and the following Apache patches.
 
 -   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008): \[backport\] NullPointerException when restoring a snapshot after splitting a region.
 
-### Hive
+#### Hive
 
 This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following patches:
 
@@ -484,9 +778,9 @@ This release provides Hive 1.2.1 and Hive 2.1.0 in addition to the following pat
 
 -   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879): Disallow embedded element in UDFXPathUtil needs to work if xercesImpl.jar in classpath.
 
--   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Groupping sets position is set incorrectly during DPP.
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944): Grouping sets position is set incorrectly during DPP.
 
-### Kafka
+#### Kafka
 
 This release provides Kafka 1.0.0 and the following Apache patches.
 
@@ -520,7 +814,7 @@ This release provides Kafka 1.0.0 and the following Apache patches.
 
 -   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274): Improve KTable Source state store auto-generated names.
 
-### Mahout
+#### Mahout
 
 In HDP-2.3.x and 2.4.x, instead of shipping a specific Apache release of Mahout, we synchronized to a particular revision point on Apache Mahout trunk. This revision point is after the 0.9.0 release, but before the 0.10.0 release. This provides a large number of bug fixes and functional enhancements over the 0.9.0 release, but provides a stable release of the Mahout functionality before the complete conversion to new Spark-based Mahout in 0.10.0.
 
@@ -534,7 +828,7 @@ In HDP-2.5.x and 2.6.x, we removed the "commons-httpclient" library from Mahout 
 
 -   There is an even smaller possibility that some Mahout jobs may encounter crashes in Mahout's hbase-client code calls to the hadoop-common libraries, due to binary compatibility problems. Regrettably, there is no way to resolve this issue except revert to the HDP-2.4.2 version of Mahout, which may have security issues. Again, this should be very unusual, and is unlikely to occur in any given Mahout job suite.
 
-### Oozie
+#### Oozie
 
 This release provides Oozie 4.2.0 with the following Apache patches.
 
@@ -560,7 +854,7 @@ This release provides Oozie 4.2.0 with the following Apache patches.
 
 -   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167): Upgrade tomcat version on Oozie 4.3 branch.
 
-### Phoenix
+#### Phoenix
 
 This release provides Phoenix 4.7.0 and the following Apache patches:
 
@@ -604,7 +898,7 @@ This release provides Phoenix 4.7.0 and the following Apache patches:
 
 -   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588): Clone expression also if its children have Determinism.PER\_INVOCATION.
 
-### Pig
+#### Pig
 
 This release provides Pig 0.16.0 with the following Apache patches.
 
@@ -612,7 +906,7 @@ This release provides Pig 0.16.0 with the following Apache patches.
 
 -   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175): Upgrade jruby to 1.7.26.
 
-### Ranger
+#### Ranger
 
 This release provides Ranger 0.7.0 and the following Apache patches:
 
@@ -622,7 +916,7 @@ This release provides Ranger 0.7.0 and the following Apache patches:
 
 -   [RANGER-1982](https://issues.apache.org/jira/browse/RANGER-1982): Error Improvement for Analytics Metric of Ranger Admin and Ranger KMS.
 
--   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): Hbase audit log records may not show all tags associated with accessed column.
+-   [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984): HBase audit log records may not show all tags associated with accessed column.
 
 -   [RANGER-1988](https://issues.apache.org/jira/browse/RANGER-1988): Fix insecure randomness.
 
@@ -632,11 +926,11 @@ This release provides Ranger 0.7.0 and the following Apache patches:
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008): Policy evaluation is failing for multiline policy conditions.
 
-### Slider
+#### Slider
 
 This release provides Slider 0.92.0 with no additional Apache patches.
 
-### Spark
+#### Spark
 
 This release provides Spark 2.3.0 and the following Apache patches:
 
@@ -664,7 +958,7 @@ This release provides Spark 2.3.0 and the following Apache patches:
 
 -   [SPARK-23434](https://issues.apache.org/jira/browse/SPARK-23434): Spark should not warn \`metadata directory\` for a HDFS file path.
 
--   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Infer partition as Date only if it can be casted to Date.
+-   [SPARK-23436](https://issues.apache.org/jira/browse/SPARK-23436): Infer partition as Date only if it can be cast to Date.
 
 -   [SPARK-23457](https://issues.apache.org/jira/browse/SPARK-23457): Register task completion listeners first in ParquetFileFormat.
 
@@ -762,11 +1056,11 @@ This release provides Spark 2.3.0 and the following Apache patches:
 
 -   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881): Fix flaky test JobCancellationSuite."interruptible iterator of shuffle reader".
 
-### Sqoop
+#### Sqoop
 
 This release provides Sqoop 1.4.6 with no additional Apache patches.
 
-### Storm
+#### Storm
 
 This release provides Storm 1.1.1 and the following Apache patches:
 
@@ -780,13 +1074,13 @@ This release provides Storm 1.1.1 and the following Apache patches:
 
 -   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960): Better to stress importance of setting up proper OS account for Storm processes.
 
-### Tez
+#### Tez
 
 This release provides Tez 0.7.0 and the following Apache patches:
 
 -   [TEZ-1526](https://issues.apache.org/jira/browse/TEZ-1526): LoadingCache for TezTaskID slow for large jobs.
 
-### Zeppelin
+#### Zeppelin
 
 This release provides Zeppelin 0.7.3 with no additionalApache patches.
 
@@ -796,7 +1090,7 @@ This release provides Zeppelin 0.7.3 with no additionalApache patches.
 
 -   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903): Replace CXF with Jersey2.
 
-### ZooKeeper
+#### ZooKeeper
 
 This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
@@ -810,11 +1104,11 @@ This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
 -   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Patch for introduces potential race condition.
 
-## Fixed Common Vulnerabilities and Exposures
+### Fixed Common Vulnerabilities and Exposures
 
 This section covers all Common Vulnerabilities and Exposures (CVE) that are addressed in this release.
 
-### **​CVE-2017-7676**
+#### **​CVE-2017-7676**
 
 | **Summary:** Apache Ranger policy evaluation ignores characters after ‘\*’ wildcard character |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -838,7 +1132,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Fix detail:** Ranger Hive Authorizer was updated to correctly handle permission check with external location. |
 | **Recommended Action:** Users should upgrade to HDI 3.6 (with Apache Ranger 0.7.1+). |
 
-### **​CVE-2017-9799**
+#### **​CVE-2017-9799**
 
 | **Summary:** Potential execution of code as the wrong user in Apache Storm |
 |--------------------------------------------------------------------------------------------------|
@@ -849,7 +1143,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Impact:** Under some situations and configurations of storm it is theoretically possible for the owner of a topology to trick the supervisor to launch a worker as a different, non-root, user. In the worst case, this could lead to secure credentials of the other user being compromised. This vulnerability only applies to Apache Storm installations with security enabled. |
 | **Mitigation:** Upgrade to HDP-2.6.2.1 as there are currently no workarounds.  |
 
-### **​CVE-2016-4970**
+#### **​CVE-2016-4970**
 
 | **Summary:** handler/ssl/OpenSslEngine.java in Netty 4.0.x before 4.0.37.Final and 4.1.x before 4.1.1.Final allows remote attackers to cause a denial of service (infinite loop) |
 |--------------------------------------------------------------------------------------------------|
@@ -860,7 +1154,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Impact:** Impact is low as Hortonworks does not use OpenSslEngine.java directly in Hadoop codebase.     |
 | **Recommended Action:** Upgrade to HDP 2.6.3.   |
 
-### **​CVE-2016-8746**
+#### **​CVE-2016-8746**
 
 | **Summary:** Apache Ranger path matching issue in policy evaluation                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
@@ -872,7 +1166,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Fix detail:** Fixed policy evaluation logic                                                                                          |
 | **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)         |
 
-### **​CVE-2016-8751**
+#### **​CVE-2016-8751**
 
 | **Summary:** Apache Ranger stored cross site scripting issue  |
 |--------------------------------------------------------------------------------------------------|
@@ -884,7 +1178,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Fix detail:** Added logic to sanitize the user input.  |
 | **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)  |
 
-## Fixed issues for support
+### Fixed issues for support
 
 Fixed issues represent selected issues that were previously logged via Hortonworks Support, but are now addressed in the current release. These issues may have been reported in previous versions within the Known Issues section; meaning they were reported by customers or identified by Hortonworks Quality Engineering team.
 
@@ -919,7 +1213,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-97708              | [HIVE-18817](https://issues.apache.org/jira/browse/HIVE-18817)                                                                                                                                                                                                                 | ArrayIndexOutOfBounds exception during read of ACID table.                                                             |
 | BUG-97864              | [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)                                                                                                                                                                                                                 | Auto Merge fails when "insert into directory as orcfile"                                                               |
 | BUG-97889              | [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008)                                                                                                                                                                                                               | Policy evaluation is failing for multiline policy conditions.                                                          |
-| BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | Hbase column family access is authorized by a tagged column in the column family                                       |
+| BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | HBase column family access is authorized by a tagged column in the column family                                       |
 | BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer may mangle constant columns                                                                             |
 
 **Other**
@@ -1089,7 +1383,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | java.lang.RuntimeException: response code 500 - Executing a spark job to connect to phoenix query server and load data                         |
 | BUG-93550              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r does not work with spark1 due to scala version mismatch                                                                      |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive is failing to compact tables contained within a folder that is not owned by identity running HiveMetaStore                                |
-| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Notebooks and interpreters are not getting saved in zeppelin after &gt;1d stress testing                                                       |
+| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Notebooks and interpreters aren't getting saved in zeppelin after &gt;1d stress testing                                                       |
 | BUG-93932              | [ATLAS-2320](https://issues.apache.org/jira/browse/ATLAS-2320)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | classification "\*" with query throws 500 Internal server exception.                                                                           |
 | BUG-93948              | [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NM goes down with OOM due to leak in log-aggregation (part\#1)                                                                                 |
 | BUG-93965              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | DSL search: orderby non-string attribute throws exception                                                                                     |
@@ -1128,7 +1422,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-97067              | [HIVE-10697](https://issues.apache.org/jira/browse/HIVE-10697)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | ObjectInspectorConvertors\#UnionConvertor does a faulty conversion                                                                             |
 | BUG-97244              | [KNOX-1083](https://issues.apache.org/jira/browse/KNOX-1083)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | HttpClient default timeout should be a sensible value                                                                                          |
 | BUG-97459              | [ZEPPELIN-3271](https://issues.apache.org/jira/browse/ZEPPELIN-3271)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Option for disabling scheduler                                                                                                                 |
-| BUG-97511              | [KNOX-1197](https://issues.apache.org/jira/browse/KNOX-1197)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | AnonymousAuthFilter is not added when authentication=Anonymous in service                                                                      |
+| BUG-97511              | [KNOX-1197](https://issues.apache.org/jira/browse/KNOX-1197)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | AnonymousAuthFilter isn't added when authentication=Anonymous in service                                                                      |
 | BUG-97601              | [HIVE-17479](https://issues.apache.org/jira/browse/HIVE-17479)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Staging directories do not get cleaned up for update/delete queries                                                                            |
 | BUG-97605              | [HIVE-18858](https://issues.apache.org/jira/browse/HIVE-18858)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | System properties in job configuration not resolved when submitting MR job                                                                     |
 | BUG-97674              | [OOZIE-3186](https://issues.apache.org/jira/browse/OOZIE-3186)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Oozie is unable to use configuration linked using jceks://file/...                                                                             |
@@ -1139,7 +1433,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-97879              | [PHOENIX-4489](https://issues.apache.org/jira/browse/PHOENIX-4489)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | HBase Connection leak in Phoenix MR Jobs                                                                                                       |
 | BUG-98392              | [RANGER-2007](https://issues.apache.org/jira/browse/RANGER-2007)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | ranger-tagsync's Kerberos ticket fails to renew                                                                                                |
 | BUG-98484              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Hive Incremental Replication to Cloud not working                                                                                              |
-| BUG-98533              | [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934), [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Hbase snapshot restore is failing due to Null pointer exception                                                                                |
+| BUG-98533              | [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934), [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | HBase snapshot restore is failing due to Null pointer exception                                                                                |
 | BUG-98555              | [PHOENIX-4662](https://issues.apache.org/jira/browse/PHOENIX-4662)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | NullPointerException in TableResultIterator.java on cache resend                                                                               |
 | BUG-98579              | [HBASE-13716](https://issues.apache.org/jira/browse/HBASE-13716)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Stop using Hadoop's FSConstants                                                                                                                |
 | BUG-98705              | [KNOX-1230](https://issues.apache.org/jira/browse/KNOX-1230)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Many Concurrent Requests to Knox causes URL Mangling                                                                                           |
@@ -1186,7 +1480,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BUG-100045             | [HIVE-19056](https://issues.apache.org/jira/browse/HIVE-19056)                                                                                                                                                                                                                 | IllegalArgumentException in FixAcidKeyIndex when ORC file has 0 rows                                                                                         |
 | BUG-100139             | [KNOX-1243](https://issues.apache.org/jira/browse/KNOX-1243)                                                                                                                                                                                                                   | Normalize the required DNs that are Configured in KnoxToken Service                                                                                          |
-| BUG-100570             | [ATLAS-2557](https://issues.apache.org/jira/browse/ATLAS-2557)                                                                                                                                                                                                                 | Fix to allow to lookup hadoop ldap groups when are groups from UGI are wrongly set or are not empty                                                          |
+| BUG-100570             | [ATLAS-2557](https://issues.apache.org/jira/browse/ATLAS-2557)                                                                                                                                                                                                                 | Fix to allow to lookup hadoop ldap groups when are groups from UGI are wrongly set or aren't empty                                                          |
 | BUG-100646             | [ATLAS-2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Atlas UI Improvements: Search results page                                                                                                                   |
 | BUG-100737             | [HIVE-19049](https://issues.apache.org/jira/browse/HIVE-19049)                                                                                                                                                                                                                 | Add support for Alter table add columns for Druid                                                                                                            |
 | BUG-100750             | [KNOX-1246](https://issues.apache.org/jira/browse/KNOX-1246)                                                                                                                                                                                                                   | Update service config in Knox to support latest configurations for Ranger.                                                                                   |
@@ -1202,7 +1496,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-92678              | [ATLAS-2276](https://issues.apache.org/jira/browse/ATLAS-2276)                                                                                                                                                                                                                 | Path value for hdfs\_path type entity is set to lower case from hive-bridge.                                                                                 |
 | BUG-93097              | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | Action filter for Admin Audit is not working                                                                                                                 |
 | BUG-93135              | [HIVE-15874](https://issues.apache.org/jira/browse/HIVE-15874), [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                                                                                                 | Hive query returning wrong results when set hive.groupby.orderby.position.alias to true                                                                      |
-| BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                                                                                                                                                                 | Order by position does not work when cbo is disabled                                                                                                         |
+| BUG-93136              | [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)                                                                                                                                                                                                                 | Order by position doesn't work when cbo is disabled                                                                                                         |
 | BUG-93387              | [HIVE-17600](https://issues.apache.org/jira/browse/HIVE-17600)                                                                                                                                                                                                                 | Make OrcFile's "enforceBufferSize" user-settable.                                                                                                            |
 | BUG-93495              | [RANGER-1937](https://issues.apache.org/jira/browse/RANGER-1937)                                                                                                                                                                                                               | Ranger tagsync should process ENTITY\_CREATE notification, to support Atlas import feature                                                                   |
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                             | java.lang.RuntimeException: response code 500 - Executing a spark job to connect to phoenix query server and load data                                       |
@@ -1243,7 +1537,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-95798              | [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714), [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724), [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023), [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040) | Don't use guideposts for executing queries serially                                                                                                          |
 | BUG-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Partitioned view fails with FAILED: IndexOutOfBoundsException Index: 1, Size: 1                                                                              |
 | BUG-96019              | [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                 | Fix log4j import                                                                                                                                             |
-| BUG-96288              | [HBASE-14123](https://issues.apache.org/jira/browse/HBASE-14123), [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135), [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | Backport Hbase Backup/Restore 2.0                                                                                                                            |
+| BUG-96288              | [HBASE-14123](https://issues.apache.org/jira/browse/HBASE-14123), [HBASE-14135](https://issues.apache.org/jira/browse/HBASE-14135), [HBASE-17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | Backport HBase Backup/Restore 2.0                                                                                                                            |
 | BUG-96313              | [KNOX-1119](https://issues.apache.org/jira/browse/KNOX-1119)                                                                                                                                                                                                                   | Pac4J OAuth/OpenID Principal Needs to be Configurable                                                                                                        |
 | BUG-96365              | [ATLAS-2442](https://issues.apache.org/jira/browse/ATLAS-2442)                                                                                                                                                                                                                 | User with read-only permission on entity resource not able perform basic search                                                                              |
 | BUG-96479              | [HDFS-12781](https://issues.apache.org/jira/browse/HDFS-12781)                                                                                                                                                                                                                 | After Datanode down, In Namenode UI Datanode tab is throwing warning message.                                                                                |
@@ -1255,7 +1549,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-96873              | [ATLAS-2443](https://issues.apache.org/jira/browse/ATLAS-2443)                                                                                                                                                                                                                 | Capture required entity attributes in outgoing DELETE messages                                                                                               |
 | BUG-96880              | [SPARK-23230](https://issues.apache.org/jira/browse/SPARK-23230)                                                                                                                                                                                                               | When hive.default.fileformat is other kinds of file types, create textfile table cause a serde error                                                         |
 | BUG-96911              | [OOZIE-2571](https://issues.apache.org/jira/browse/OOZIE-2571), [OOZIE-2792](https://issues.apache.org/jira/browse/OOZIE-2792), [OOZIE-2799](https://issues.apache.org/jira/browse/OOZIE-2799), [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923)                 | Improve Spark options parsing                                                                                                                                |
-| BUG-97100              | [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984)                                                                                                                                                                                                               | Hbase audit log records may not show all tags associated with accessed column                                                                                |
+| BUG-97100              | [RANGER-1984](https://issues.apache.org/jira/browse/RANGER-1984)                                                                                                                                                                                                               | HBase audit log records may not show all tags associated with accessed column                                                                                |
 | BUG-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                             | Execute cross region index maintenance calls in postBatchMutateIndispensably                                                                                 |
 | BUG-97145              | [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245), [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)                                                                                                                                                 | Support column comments for an HBase backed table                                                                                                            |
 | BUG-97409              | [HADOOP-15255](https://issues.apache.org/jira/browse/HADOOP-15255)                                                                                                                                                                                                             | Upper/Lower case conversion support for group names in LdapGroupsMapping                                                                                     |
@@ -1269,7 +1563,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-98383              | [HIVE-18907](https://issues.apache.org/jira/browse/HIVE-18907)                                                                                                                                                                                                                 | Create utility to fix acid key index issue from HIVE-18817                                                                                                   |
 | BUG-98388              | [RANGER-1828](https://issues.apache.org/jira/browse/RANGER-1828)                                                                                                                                                                                                               | Good coding practice-add additional headers in ranger                                                                                                        |
 | BUG-98392              | [RANGER-2007](https://issues.apache.org/jira/browse/RANGER-2007)                                                                                                                                                                                                               | ranger-tagsync's Kerberos ticket fails to renew                                                                                                              |
-| BUG-98533              | [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934), [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008)                                                                                                                                             | Hbase snapshot restore is failing due to Null pointer exception                                                                                              |
+| BUG-98533              | [HBASE-19934](https://issues.apache.org/jira/browse/HBASE-19934), [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008)                                                                                                                                             | HBase snapshot restore is failing due to Null pointer exception                                                                                              |
 | BUG-98552              | [HBASE-18083](https://issues.apache.org/jira/browse/HBASE-18083), [HBASE-18084](https://issues.apache.org/jira/browse/HBASE-18084)                                                                                                                                             | Make large/small file clean thread number configurable in HFileCleaner                                                                                       |
 | BUG-98705              | [KNOX-1230](https://issues.apache.org/jira/browse/KNOX-1230)                                                                                                                                                                                                                   | Many Concurrent Requests to Knox causes URL Mangling                                                                                                         |
 | BUG-98711              | N/A                                                                                                                                                                                                                                                                            | NiFi dispatch can't use two-way SSL without service.xml modifications                                                                                        |
@@ -1287,18 +1581,18 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 | BUG-99807              | [OOZIE-2844](https://issues.apache.org/jira/browse/OOZIE-2844)                                                                                                                                                                                                                 | Increase stability of Oozie actions when log4j.properties is missing or not readable                                                                         |
 | RMP-9995               | [AMBARI-22222](https://issues.apache.org/jira/browse/AMBARI-22222)                                                                                                                                                                                                             | Switch druid to use /var/druid directory instead of /apps/druid on local disk                                                                                |
 
-## Behavioral changes
+### Behavioral changes
 
 |**Apache Component**|**Apache JIRA**|**Summary**|**Details**|
 |--|--|--|--|
-|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There is a "Deprecation" document and a "Change of behavior" guide, https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- For SQL part, there is another detailed "Migration" guide (from 2.2 to 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/A** |**Changes as documented in the Apache Spark release notes** |- There's a "Deprecation" document and a "Change of behavior" guide, https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- For SQL part, there's another detailed "Migration" guide (from 2.2 to 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark job completes successfully but there is an HDFS disk quota full error |**Scenario:** Running **insert overwrite** when a quota is set on the Trash folder of the user who runs the command.<br /><br />**Previous Behavior:** The job succeeds even though it fails to move the data to the Trash. The result can wrongly contain some of the data previously present in the table.<br /><br />**New Behavior:** When the move to the Trash folder fails, the files are permanently deleted.|
 |**Kafka 1.0**|**N/A**|**Changes as documented in the Apache Spark release notes** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/ Ranger** | |Additional ranger hive policies required for INSERT OVERWRITE |**Scenario:** Additional ranger hive policies required for **INSERT OVERWRITE**<br /><br />**Previous behavior:** Hive **INSERT OVERWRITE** queries succeed as usual.<br /><br />**New behavior:** Hive **INSERT OVERWRITE** queries are unexpectedly failing after upgrading to HDP-2.6.x with the error:<br /><br />Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />As of HDP-2.6.0, Hive **INSERT OVERWRITE** queries require a Ranger URI policy to allow write operations, even if the user has write privilege granted through HDFS policy.<br /><br />**Workaround/Expected Customer Action:**<br /><br />1. Create a new policy under the Hive repository.<br />2. In the dropdown where you see Database, select URI.<br />3. Update the path (Example: /tmp/*)<br />4. Add the users and group and save.<br />5. Retry the insert query.|
 |**HDFS**|**N/A** |HDFS should support for multiple KMS Uris |**Previous Behavior:** dfs.encryption.key.provider.uri property was used to configure the KMS provider path.<br /><br />**New Behavior:** dfs.encryption.key.provider.uri is now deprecated in favor of hadoop.security.key.provider.path to configure the KMS provider path.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Option for disabling scheduler |**Component Affected:** Zeppelin-Server<br /><br />**Previous Behavior:** In previous releases of Zeppelin, there was no option for disabling scheduler.<br /><br />**New Behavior:** By default, users will no longer see scheduler, as it is disabled by default.<br /><br />**Workaround/Expected Customer Action:** If you want to enable scheduler, you will need to add azeppelin.notebook.cron.enable with value of true under custom zeppelin site in Zeppelin settings from Ambari.|
 
-## Known issues
+### Known issues
 
 - **HDInsight integration with ADLS Gen 2** 
   There are two issues on HDInsight ESP clusters using Azure Data Lake Storage Gen 2 with user directories and permissions:
@@ -1317,11 +1611,11 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
   -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] Bugs in stream-stream self-joins
 
-  -   Spark sample notebooks are not available when Azure Data Lake Storage (Gen2) is default storage of the cluster.
+  -   Spark sample notebooks aren't available when Azure Data Lake Storage (Gen2) is default storage of the cluster.
 
 - **Enterprise Security Package**
 
-  - Spark Thrift Server does not accept connections from ODBC clients.
+  - Spark Thrift Server doesn't accept connections from ODBC clients.
     Workaround steps:
     1. Wait for about 15 minutes after cluster creation.
     2. Check ranger UI for existence of hivesampletable_policy.
@@ -1364,7 +1658,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
   **Description of Problem**
     
-  If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement will not work. Special characters are converted into ASCII before saving the policy into the database.
+  If a user wants to create policy with custom policy conditions and the expression or text contains special characters, then policy enforcement won't work. Special characters are converted into ASCII before saving the policy into the database.
     
   **Special Characters:** & &lt; &gt; " \` '
     
@@ -1422,7 +1716,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     a.	chmod 751 /hdp 
     b.	chmod –R 755 /hdp/apps
 
-## Deprecation
+### Deprecation
 
 -   **OMS Portal:** We have removed the link from HDInsight resource page that was pointing to OMS portal. Azure Monitor logs initially used its own portal called the OMS portal to manage its configuration and analyze collected data. All functionality from this portal has been moved to the Azure portal where it will continue to be developed. HDInsight has deprecated the support for OMS portal. Customers will use HDInsight Azure Monitor logs integration in Azure portal.
 
@@ -1430,8 +1724,8 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-## ​Upgrading
+### ​Upgrading
 
-All of these features are available in HDInsight 3.6. To get the latest version of Spark, Kafka and R Server (Machine Learning Services), please choose the Spark, Kafka, ML Services version when you [create a HDInsight 3.6 cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). To get support for ADLS, you can choose the ADLS storage type as an option. Existing clusters will not be upgraded to these versions automatically.
+All of these features are available in HDInsight 3.6. To get the latest version of Spark, Kafka and R Server (Machine Learning Services), please choose the Spark, Kafka, ML Services version when you [create a HDInsight 3.6 cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). To get support for ADLS, you can choose the ADLS storage type as an option. Existing clusters won't be upgraded to these versions automatically.
 
 All new clusters created after June 2018 will automatically get the 1000+ bug fixes across all the open-source projects. Please follow [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster) guide for best practices around upgrading to a newer HDInsight version.

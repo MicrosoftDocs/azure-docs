@@ -1,13 +1,13 @@
 ---
-title: How to use Azure Table Storage and Azure Cosmos DB Table API with C++
+title: Use Azure Table Storage and Azure Cosmos DB Table API with C++
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 10/07/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ---
 # How to use Azure Table storage and Azure Cosmos DB Table API with C++
 
@@ -43,14 +43,14 @@ In this guide, you use storage features from a C++ application. To do so, instal
 
 To install the Azure Storage Client Library for C++, use the following methods:
 
-* Linux. Follow the instructions given in [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* Windows. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console**. Run the following command in the **Package Management Console**:
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
 
-  ```powershell
-  Install-Package wastorage
-  ```
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
 
-For more information about **Package Management Console**, see [Install and manage packages with the Package Manager Console in Visual Studio](/nuget/tools/package-manager-console).
+You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
 
 ### Configure access to the Table client library
 

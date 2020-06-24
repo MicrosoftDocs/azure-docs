@@ -1,15 +1,8 @@
 ---
-title: How to use the WebJobs SDK - Azure
-description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure services and third-party services.
-services: app-service\web, storage
-documentationcenter: .net
+title: How to use the WebJobs SDK
+description: Learn more about how to write code for the WebJobs SDK. Create event-driven background processing jobs that access data in Azure and third-party services.
 author: ggailey777
-manager: jeconnoc
-editor: 
 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
@@ -88,7 +81,7 @@ The process for enabling development mode depends on the SDK version.
 Version 3.*x* uses the standard ASP.NET Core APIs. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -99,7 +92,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -129,7 +122,7 @@ In version 3.*x*, the connection limit defaults to infinite connections. If for 
 
 In version 2.*x*, you control the number of concurrent connections to a host by using the [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of 2 before starting your WebJobs host.
 
-All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
+All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there's room for them. That means your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
 The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service Plan. WebJobs typically need the Always On setting, and that's supported only by Basic and higher App Service Plans.
 
@@ -159,14 +152,14 @@ Automatic triggers call a function in response to an event. Consider this exampl
 ```cs
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
-    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
     ILogger log)
 {
     log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
-The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed in to the function in the `myQueueItem` parameter, is the name of the blob.
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The name of the blob item in the `samples-workitems` container is obtained directly from the queue trigger as a binding expression (`{queueTrigger}`).
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
@@ -240,7 +233,7 @@ The process for installing and managing binding types depends on whether you're 
 In version 3.*x*, the storage bindings are included in the `Microsoft.Azure.WebJobs.Extensions.Storage` package. Call the `AddAzureStorage` extension method in the `ConfigureWebJobs` method, as shown here:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -251,7 +244,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -259,7 +252,7 @@ static void Main()
 To use other trigger and binding types, install the NuGet package that contains them and call the `Add<binding>` extension method implemented in the extension. For example, if you want to use an Azure Cosmos DB binding, install `Microsoft.Azure.WebJobs.Extensions.CosmosDB` and call `AddCosmosDB`, like this:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -270,7 +263,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -322,7 +315,7 @@ The process for binding to the [`ExecutionContext`] depends on your SDK version.
 Call the `AddExecutionContextBinding` extension method in the `ConfigureWebJobs` method, as shown here:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -333,7 +326,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -377,7 +370,7 @@ You can configure the following bindings:
 This example shows how to configure the Azure Cosmos DB trigger:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -394,20 +387,19 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) article.
+For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
 
 ### Event Hubs trigger configuration (version 3.*x*)
 
 This example shows how to configure the Event Hubs trigger:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -423,13 +415,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) article.
+For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
 
 ### Queue storage trigger configuration
 
@@ -438,7 +429,7 @@ These examples show how to configure the Queue storage trigger:
 #### Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -454,13 +445,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) article.
+For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) article.
 
 #### Version 2.*x*
 
@@ -484,7 +474,7 @@ For more details, see the [host.json v1.x reference](../azure-functions/function
 This example shows how to configure the SendGrid output binding:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -499,8 +489,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -512,7 +501,7 @@ For more details, see the [SendGrid binding](../azure-functions/functions-bindin
 This example shows how to configure the Service Bus trigger:
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -527,13 +516,12 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) article.
+For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
 
 ### Configuration for other bindings
 
@@ -542,7 +530,7 @@ Some trigger and binding types define their own custom configuration types. For 
 #### Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -553,8 +541,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -690,11 +677,11 @@ For more information, see [Binding at runtime](../azure-functions/functions-dotn
 
 The Azure Functions documentation provides reference information about each binding type. You'll find the following information in each binding reference article. (This example is based on Storage queue.)
 
-* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). The package you need to install to include support for the binding in a WebJobs SDK project.
-* [Examples](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Code samples. The C# class library example applies to the WebJobs SDK. Just omit the `FunctionName` attribute.
-* [Attributes](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). The attributes to use for the binding type.
-* [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explanations of the attribute properties and constructor parameters.
-* [Usage](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
+* [Packages](../azure-functions/functions-bindings-storage-queue.md). The package you need to install to include support for the binding in a WebJobs SDK project.
+* [Examples](../azure-functions/functions-bindings-storage-queue-trigger.md). Code samples. The C# class library example applies to the WebJobs SDK. Just omit the `FunctionName` attribute.
+* [Attributes](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). The attributes to use for the binding type.
+* [Configuration](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explanations of the attribute properties and constructor parameters.
+* [Usage](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). The types you can bind to and information about how the binding works. For example: polling algorithm, poison queue processing.
   
 For a list of binding reference articles, see "Supported bindings" in the [Triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) article for Azure Functions. In that list, the HTTP, Webhooks, and Event Grid bindings are supported only by Azure Functions, not by the WebJobs SDK.
 
@@ -758,6 +745,9 @@ Some triggers have built-in support for concurrency management:
 * **FileTrigger**. Set `FileProcessor.MaxDegreeOfParallelism` to `1`.
 
 You can use these settings to ensure that your function runs as a singleton on a single instance. To ensure that only a single instance of the function is running when the web app scales out to multiple instances, apply a listener-level singleton lock on the function (`[Singleton(Mode = SingletonMode.Listener)]`). Listener locks are acquired when the JobHost starts. If three scaled-out instances all start at the same time, only one of the instances acquires the lock and only one listener starts.
+
+> [!NOTE]
+> See this [GitHub Repo](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) to learn more about how the SingletonMode.Function works.
 
 ### Scope values
 
@@ -928,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Call [`ConfigureServices`] in the builder to add your custom [`ITelemetryInitializer`] to the pipeline.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -955,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -967,9 +956,9 @@ In version 3.*x*, you no longer have to flush the [`TelemetryClient`] when the h
 
 #### Version 2.*x*
 
-In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+In version 2.*x*, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 If you want to modify any part of the Application Insights pipeline, you can supply your own `ITelemetryClientFactory`, and the host will use your class to construct a [`TelemetryClient`]. For example, this code overrides `DefaultTelemetryClientFactory` to modify a property of `ServerTelemetryChannel`:
 

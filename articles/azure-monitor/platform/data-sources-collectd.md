@@ -1,11 +1,10 @@
 ---
 title: Collect data from CollectD in Azure Monitor | Microsoft Docs
 description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/27/2018
 
 ---
@@ -97,8 +96,8 @@ The following are basic steps to configure collection of CollectD data in Azure 
 
 3. Restart CollectD and Log Analytics agent for Linux with the following commands.
 
-    sudo service collectd restart
-    sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## CollectD metrics to Azure Monitor schema conversion
 To maintain a familiar model between infrastructure metrics already collected by Log Analytics agent for Linux and the new metrics collected by CollectD the following schema mapping is used:

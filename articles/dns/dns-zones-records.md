@@ -1,21 +1,15 @@
 ---
-title: DNS Zones and Records overview - Azure DNS | Microsoft Docs
+title: DNS Zones and Records overview - Azure DNS
 description: Overview of support for hosting DNS zones and records in Microsoft Azure DNS.
-services: dns
-documentationcenter: na
-author: vhorne
-manager: jeconnoc
-editor: ''
+author: rohinkoul
 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Overview of DNS zones and records
@@ -26,7 +20,7 @@ This page explains the key concepts of domains, DNS zones, and DNS records and r
 
 The Domain Name System is a hierarchy of domains. The hierarchy starts from the 'root' domain, whose name is simply '**.**'.  Below this come top-level domains, such as 'com', 'net', 'org', 'uk' or 'jp'.  Below these are second-level domains, such as 'org.uk' or 'co.jp'. The domains in the DNS hierarchy are globally distributed, hosted by DNS name servers around the world.
 
-A domain name registrar is an organization that allows you to purchase a domain name, such as 'contoso.com'.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name www.contoso.com to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
+A domain name registrar is an organization that allows you to purchase a domain name, such as `contoso.com`.  Purchasing a domain name gives you the right to control the DNS hierarchy under that name, for example allowing you to direct the name `www.contoso.com` to your company web site. The registrar may host the domain in its own name servers on your behalf, or allow you to specify alternative name servers.
 
 Azure DNS provides a globally distributed, high-availability name server infrastructure, which you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
@@ -111,7 +105,7 @@ The multiple strings in a DNS record should not be confused with the multiple TX
 
 ### Tags
 
-Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
+Tags are a list of name-value pairs and are used by Azure Resource Manager to label resources.  Azure Resource Manager uses tags to enable filtered views of your Azure bill, and also enables you to set a policy on which tags are required. For more information about tags, see [Using tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
 Azure DNS supports using Azure Resource Manager tags on DNS zone resources.  It does not support tags on DNS record sets, although as an alternative 'metadata' is supported on DNS record sets as explained below.
 

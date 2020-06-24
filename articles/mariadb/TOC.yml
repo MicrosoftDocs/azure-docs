@@ -9,10 +9,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create DB - Portal
-    href: quickstart-create-mariadb-server-database-using-azure-portal.md
-  - name: Create DB - Azure CLI
-    href: quickstart-create-mariadb-server-database-using-azure-cli.md
+  - name: Create DB
+    items:
+    - name: Create DB - Portal
+      href: quickstart-create-mariadb-server-database-using-azure-portal.md
+    - name: Create DB - Azure CLI
+      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: Create DB - Azure PowerShell
+      href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+    - name: Create DB - ARM template
+      href: quickstart-create-mariadb-server-database-arm-template.md
+      displayName: deploy azure resource manager template
   - name: Connect & query
     items:
     - name: MySQL Workbench
@@ -25,10 +32,15 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-cli.md
+    - name: Azure PowerShell
+      href: tutorial-design-database-using-powershell.md
 - name: Samples
   items:
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: DB & Servers
@@ -43,20 +55,28 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
-    - name: Limits
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
-    - name: Firewall rules
-      href: concepts-firewall-rules.md
+    - name: Security overview
+      href: concepts-security.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Virtual Network
-      href: concepts-data-access-security-vnet.md
     - name: Connectivity architecture
       href: concepts-connectivity-architecture.md
+    - name: Firewall rules
+      href: concepts-firewall-rules.md
+    - name: Virtual Network
+      href: concepts-data-access-security-vnet.md
+    - name: Private Link
+      href: concepts-data-access-security-private-link.md
+    - name: Advanced Threat Protection
+      href: concepts-data-access-and-security-threat-protection.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -78,6 +98,8 @@
       href: concepts-query-performance-insight.md
     - name: Performance Recommendations
       href: concepts-performance-recommendations.md
+    - name: Server parameters
+      href: concepts-server-parameters.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -89,7 +111,7 @@
     - name: Data-in replication
       href: concepts-data-in-replication.md
     - name: Read replicas
-      href: concepts-read-replicas.md  
+      href: concepts-read-replicas.md
 - name: How-to guides
   items:
   - name: Manage a server
@@ -108,6 +130,8 @@
       href: howto-restore-server-portal.md
     - name: Azure CLI
       href: howto-restore-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restore-server-powershell.md
   - name: Migrate a database
     items:
     - name: Dump & restore
@@ -120,30 +144,44 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Configure TLS
+      href: howto-tls-configurations.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal
       href: howto-server-parameters.md
     - name: Azure CLI
       href: howto-configure-server-parameters-cli.md
+    - name: Azure PowerShell
+      href: howto-configure-server-parameters-using-powershell.md
   - name: Auto grow storage
     items:
     - name: Azure portal
       href: howto-auto-grow-storage-portal.md
     - name: Azure CLI
-      href: howto-auto-grow-storage-cli.md  
+      href: howto-auto-grow-storage-cli.md
+    - name: Azure PowerShell
+      href: howto-auto-grow-storage-powershell.md
+  - name: Deny Public Network Access
+    items:
+    - name: Azure portal
+      href: howto-deny-public-network-access.md
   - name: Access server logs
     items:
     - name: Slow query logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-server-logs-portal.md
       - name: Azure CLI
         href: howto-configure-server-logs-cli.md
     - name: Audit logs
-      items: 
+      items:
       - name: Azure portal
         href: howto-configure-audit-logs-portal.md
+      - name: Azure CLI
+        href: howto-configure-audit-logs-cli.md
   - name: Monitor
     items:
     - name: Create alerts on metrics
@@ -156,6 +194,8 @@
       href: howto-read-replicas-portal.md
     - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
+    - name: Create read replicas Azure PowerShell
+      href: howto-read-replicas-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors
@@ -172,12 +212,20 @@
       href: howto-manage-vnet-portal.md
     - name: Azure CLI
       href: howto-manage-vnet-cli.md
+  - name: Private Link
+    items:
+    - name: Azure portal
+      href: howto-configure-privatelink-portal.md
+    - name: Azure CLI
+      href: howto-configure-privatelink-cli.md
   - name: Restart server
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
     - name: Azure CLI
       href: howto-restart-server-cli.md
+    - name: Azure PowerShell
+      href: howto-restart-server-powershell.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -196,8 +244,8 @@
     href: https://azure.microsoft.com/roadmap/?category=databases
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mariadb/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-database-mariadb.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature

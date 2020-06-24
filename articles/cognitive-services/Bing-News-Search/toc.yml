@@ -1,5 +1,5 @@
 - name: Bing News Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   expanded: true
   items:
@@ -28,14 +28,8 @@
       href: go.md
   - name: SDK
     items:
-    - name: Using C#
-      href: news-search-sdk-quickstart.md
-    - name: Using Node.js
-      href: news-search-sdk-node-quickstart.md
-    - name: Using Python
-      href: news-sdk-python-quickstart.md
-    - name: Using Java
-      href: news-sdk-java-quickstart.md
+    - name: Bing News Search client libraries
+      href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Create a single-page web app
@@ -56,10 +50,6 @@
     href: ../bing-web-search/resize-and-crop-thumbnails.md
   - name: Upgrade from v5 to v7 of the API
     href: bing-news-upgrade-guide-v5-to-v7.md
-  - name: Work with Visual Studio
-    items:
-    - name: Use the Bing News Search Connected Service
-      href: vs-bing-news-search-connected-service.md
 - name: Concepts
   items:
     - name: Sending search queries
@@ -75,13 +65,13 @@
   - name: SDKs
     items:
       - name: .NET
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnews?view=azure-dotnet
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-dotnet
       - name: Java
         href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/newssearch?view=azure-node-latest
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
   - name: Use and display requirements
@@ -107,7 +97,7 @@
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: Bing News Search endpoints
     href: endpoint-news.md
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Analytics for Bing News Search API
     href: bing-news-stats.md

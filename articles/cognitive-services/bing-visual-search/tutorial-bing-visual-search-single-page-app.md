@@ -9,10 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 03/27/2020
 ms.author: aahi
 ---
-# Create a Visual Search single-page web app
+# Tutorial: Create a Visual Search single-page web app
 
 The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images.
 

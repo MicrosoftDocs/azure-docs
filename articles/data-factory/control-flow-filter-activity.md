@@ -1,5 +1,5 @@
 ---
-title: Filter activity in Azure Data Factory | Microsoft Docs
+title: Filter activity in Azure Data Factory 
 description: The Filter activity filters the inputs. 
 services: data-factory
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.date: 05/04/2018
 
 # Filter activity in Azure Data Factory
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Syntax
 

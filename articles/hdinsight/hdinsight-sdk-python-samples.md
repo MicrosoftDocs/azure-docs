@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 11/08/2019
+ms.custom: tracking-python
 ---
 
 # Azure HDInsight: Python samples
@@ -17,24 +18,26 @@ ms.date: 04/15/2019
 > * [Java Examples](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
+> [!Important]
+> Python 2.7 will be deprecated on January 1st 2020. If you are still using Python 2.7, upgrade to 3.7 in order to use the HDInsight Python SDK.  
 
 This article provides:
 
 * Links to samples for cluster creation tasks.
 * Links to reference content for other management tasks.
 
-## Prerequisites
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Azure HDInsight SDK for Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+## Prerequisites
+
+[Azure HDInsight SDK for Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
-* [Create a Kafka cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
-* [Create a Spark cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Create a Spark cluster with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
-* [Create a Spark cluster with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
+* [Create an Apache Kafka cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
+* [Create an Apache Spark cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
+* [Create an Apache Spark cluster with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Create an Apache Spark cluster with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
 You can get these samples for Python by cloning the [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repository.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services frequently asked questions | Microsoft Docs
-description: Frequently asked questions (FAQs)
+title: Azure Media Services frequently asked questions
+description: This article gives answers to the Frequently asked questions about Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,7 +16,7 @@ ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Frequently asked questions
+# Media Services v2 frequently asked questions
 
 This article addresses frequently asked questions raised by the Azure Media Services (AMS) user community.
 
@@ -52,7 +52,7 @@ A: To copy assets from one Media Services account to another using .NET, use [IA
 
 Q: What are the supported characters for naming files when working with AMS?
 
-A: Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
+A: Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 
 Q: How to connect using REST?
 

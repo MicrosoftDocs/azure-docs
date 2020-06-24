@@ -3,7 +3,7 @@ title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
 description: Description of device modeling for IoT Plug and Play developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/05/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -40,7 +40,7 @@ The following example shows the device capability model for a thermostat device:
       "schema": "urn:azureiot:deviceManagement:DeviceInformation:1"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -79,7 +79,7 @@ The following example shows the interface for a thermostat device:
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -169,7 +169,7 @@ interfaces[1] = deviceInfoInterfaceHandle;
 result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
     digitalTwinClientHandle, // The handle for the connection to Azure IoT
     "urn:example:Thermostat_T_1000:1",
-    interfaceHandleList, 2,
+    interfaces, 2,
     null, null);
 ```
 
@@ -177,26 +177,26 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 IoT Plug and Play lets you use devices that have registered their capabilities with your IoT hub. For example, you can access the properties and commands of a device directly.
 
-To use an IoT Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API.
+To use an IoT Plug and Play device that's connected to your IoT hub, use either the IoT Hub REST API or one of the IoT language SDKs. The following examples use the IoT Hub REST API. The current version of the API is `2019-07-01-preview`. Append `?api-version=2019-07-01-preview` to your REST PI calls.
 
 To get the value of a device property, such as the firmware version (`fwVersion`) in the `DeviceInformation` interface in the thermostat, you use the digital twins REST API.
 
-If your thermostat device is called `t-123`, you get the all the properties implemented by your device with a REST API GET call:
+If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-More generally, all properties are accessed with this REST API template where `{device-id}` is the identifier for the device:
+More generally, all properties on all interfaces are accessed with this REST API template where `{device-id}` is the identifier for the device:
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-If you know the name of the interface and want to get properties for that specific interface, scope the request to a specific interface by name:
+If you know the name of the interface, such as `deviceInformation`, and want to get properties for that specific interface, scope the request to a specific interface by name:
 
 ```REST
-GET /digitalTwins/t-123/interfaces/info
+GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
 More generally, properties for a specific interface can be accessed through this REST API template where `device-id` is the identifier for the device and `{interface-name}` is the name of the interface:

@@ -1,19 +1,10 @@
 ---
-title: Move files to and from Azure Linux VMs with SCP | Microsoft Docs
+title: Move files to and from Azure Linux VMs with SCP 
 description: Securely move files to and from a Linux VM in Azure using SCP and an SSH key pair.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
@@ -69,7 +60,7 @@ The following command copies files in the */home/azureuser/logs/* directory on t
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
+The `-r` flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
 
 ## Next steps
 

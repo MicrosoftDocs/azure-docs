@@ -32,7 +32,7 @@ landingContent:
           - text: Event Grid concepts
             url: concepts.md
           - text: Event sources
-            url: event-sources.md
+            url: overview.md#event-sources
           - text: Event handlers
             url: event-handlers.md
           - text: Event filters
@@ -44,6 +44,8 @@ landingContent:
         links:
           - text: Route Blob storage events to a web endpoint
             url: blob-event-quickstart-portal.md
+          - text: Azure Functions as an event handler
+            url: custom-event-to-function.md
           - text: Queue storage as an event handler
             url: custom-event-to-queue-storage.md
           - text: Event Hubs as an event handler
@@ -83,7 +85,12 @@ landingContent:
           - text: Event domains
             url: event-domains.md
           - text: Geo disaster recovery
-            url: geo-disaster-recovery.md            
+            url: geo-disaster-recovery.md    
+      - linkListType: architecture
+        links:
+          - text: Reference architecture for queues and events
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
+
   # Card
   - title: Customizations
     linkLists:

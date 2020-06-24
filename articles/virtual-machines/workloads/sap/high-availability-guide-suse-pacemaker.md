@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure | Microsoft Docs
+title: Setting up Pacemaker on SLES in Azure | Microsoft Docs
 description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,8 +14,8 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
-ms.author: sedusch
+ms.date: 05/21/2020
+ms.author: radeltch
 
 ---
 
@@ -25,8 +25,8 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -58,6 +58,9 @@ Run the following commands on all **iSCSI target virtual machines**.
 
    <pre><code>sudo zypper update
    </code></pre>
+
+   > [!NOTE]
+   > You might need to reboot the OS after you upgrade or update the OS. 
 
 1. Remove packages
 
@@ -296,7 +299,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
    Create the `softdog` configuration file
@@ -322,6 +324,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo zypper in socat
    </code></pre>
+
+1. **[A]** Install azure-lb component, needed for cluster resources
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > Check the version of package resource-agents and make sure the minimum version requirements are met:  
+   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
 
 1. **[A]** Configure the operating system
 
@@ -352,6 +364,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure cloud-netconfig-azure for HA Cluster
 
+   >[!NOTE]
+   > Check the installed version of package **cloud-netconfig-azure** by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by the cloud network plugin. If the version is lower than 1.3, we suggest to update package **cloud-netconfig-azure** to the latest available version.  
+
    Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
@@ -376,14 +391,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[2]** Enable ssh access
 
-   <pre><code># insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
+   <pre><code>
    sudo ssh-keygen
-
+   
    # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
    # Enter passphrase (empty for no passphrase): -> Press ENTER
    # Enter same passphrase again: -> Press ENTER
+   
+   # insert the public key you copied in the last step into the authorized keys file on the second server
+   sudo vi /root/.ssh/authorized_keys   
    
    # copy the public key
    sudo cat /root/.ssh/id_rsa.pub
@@ -440,14 +456,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Install Cluster
 
-   <pre><code>sudo ha-cluster-init
+   <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
    # Do you want to continue anyway (y/n)? <b>y</b>
    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-   # Network address to bind to (e.g.: 192.168.1.0) [10.0.0.0] <b>Press ENTER</b>
-   # Multicast address (e.g.: 239.x.x.x) [239.232.97.43] <b>Press ENTER</b>
-   # Multicast port [5405] <b>Press ENTER</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
@@ -467,12 +482,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configure corosync to use other transport and add nodelist. Cluster doesn't work otherwise.
+1. **[A]** Adjust corosync settings.  
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Also, make sure to remove the parameter mcastaddr.
+   Add the following bold content to the file if the values are not there or different. Make sure to change the token to 30000 to allow Memory preserving maintenance. For more information, see [this article for Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance].
 
    <pre><code>[...]
      <b>token:          30000
@@ -484,20 +499,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      interface { 
         [...] 
      }
-     <b>transport:      udpu</b>
-     # remove parameter mcastaddr
-     <b># mcastaddr: IP</b>
+     transport:      udpu
    } 
-   <b>nodelist {
+   nodelist {
      node {
-      # IP address of <b>prod-cl1-0</b>
       ring0_addr:10.0.0.6
      }
      node {
-      # IP address of <b>prod-cl1-1</b>
       ring0_addr:10.0.0.7
      } 
-   }</b>
+   }
    logging {
      [...]
    }
@@ -547,7 +558,8 @@ Use the following content for the input file. You need to adapt the content to y
   "Actions": [
     "Microsoft.Compute/*/read",
     "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action"
+    "Microsoft.Compute/virtualMachines/start/action", 
+    "Microsoft.Compute/virtualMachines/powerOff/action" 
   ],
   "NotActions": [
   ],
@@ -585,6 +597,9 @@ sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
 
+> [!TIP]
+>Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+
 ## Default Pacemaker configuration for SBD
 
 1. **[1]** Enable the use of a STONITH device and set the fence delay
@@ -605,9 +620,9 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 Azure offers [scheduled events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
 
-1. **[A]** Install the **azure-events** agent. 
+1. **[A]** Make sure the package for the **azure-events** agent is already installed and up to date. 
 
-<pre><code>sudo zypper install resource-agents
+<pre><code>sudo zypper info resource-agents
 </code></pre>
 
 2. **[1]** Configure the resources in Pacemaker. 

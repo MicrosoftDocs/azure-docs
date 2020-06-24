@@ -1,10 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Azure Stack virtual machines to Security Center | Microsoft Docs
+title: Onboard Azure Stack virtual machines to Azure Security Center
 description: This quickstart shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
+author: memildin
+manager: rkarlin
 
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
@@ -14,10 +14,10 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
+ms.author: memildin
 
 ---
-# Quickstart:  Onboard your Azure Stack virtual machines to Security Center
+# Quickstart: Onboard your Azure Stack virtual machines to Security Center
 After you onboard your Azure subscription, you can enable Security Center to protect your virtual machines running on Azure Stack by adding the **Azure Monitor, Update and Configuration Management** virtual machine extension from the Azure Stack marketplace.
 
 This quickstart shows you how to add the **Azure Monitor, Update and Configuration Management** virtual machine extension on a virtual machine (Linux and Windows are both supported) running on Azure Stack.
@@ -65,7 +65,7 @@ You must now add the **Azure Monitor, Update and Configuration Management** virt
 > If you do not see the **Azure Monitor, Update and Configuration Management** extension listed in your marketplace, please reach out to your Azure Stack operator to make it available.
 
 6. On the **Install extension** configuration blade, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad in the previous procedure.
-7.  When you are done providing the necessary configuration settings, click **OK**.
+7. When you are done providing the necessary configuration settings, click **OK**.
 8. Once the extension installation completes, its status will show as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Security Center portal.
 
 For further information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

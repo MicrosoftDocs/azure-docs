@@ -1,10 +1,11 @@
 ---
-title: Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Troubleshoot connections - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn how to troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/8/2019
 ---
@@ -66,8 +67,11 @@ most common causes are firewall misconfiguration or user error.
   connections to your database server. Some firewalls require allowing not only
   application by name, but allowing the IP addresses and ports of the server.
 * User error: Double-check the connection string. You might have mistyped
-  parameters like the server name, or a forgot a *\@servername* suffix in the
-  user name.
+  parameters like the server name. You can find connection strings for various
+  language frameworks and psql in the Azure portal. Go to the **Connection
+  strings** page in your Hyperscale (Citus) server group. Also keep in mind that
+  Hyperscale (Citus) clusters have only one database and its predefined name is
+  **citus**.
 
 ### Steps to resolve persistent connectivity issues
 

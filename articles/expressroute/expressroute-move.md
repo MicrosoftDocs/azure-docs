@@ -1,14 +1,13 @@
 ---
-title: 'Moving circuits from classic to Resource Manager - ExpressRoute: Azure | Microsoft Docs'
+title: 'ExpressRoute: Move circuits from classic to Azure Resource Manager'
 description: Overview of bridging the classic and the Resource Manager deployment models.
 services: expressroute
 author: ganesr
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.custom: seodec18
 
 ---
 # Moving ExpressRoute circuits from the classic to the Resource Manager deployment model
@@ -36,7 +35,7 @@ You can enable ExpressRoute circuits that are created in the Resource Manager de
 * Access to the classic deployment model is controlled by the **allowClassicOperations** parameter in the ExpressRoute circuit.
 
 > [!IMPORTANT]
-> All quotas that are documented on the [service limits](../azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
+> All quotas that are documented on the [service limits](../azure-resource-manager/management/azure-subscription-service-limits.md) page apply. As an example, a standard circuit can have at most 10 virtual network links/connections across both the classic and the Resource Manager deployment models.
 > 
 > 
 

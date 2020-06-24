@@ -1,24 +1,19 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
+title: Create an Azure Active Directory tenant
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a tenant
@@ -58,7 +53,7 @@ If you don't have an existing tenant associated with your account, you'll see a 
 
 ### Create a new Azure AD tenant
 
-If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
+If you don't already have an Azure AD tenant or want to create a new one for development, see the [quickstart](../fundamentals/active-directory-access-create-new-tenant.md) or simply follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
 - **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
@@ -73,6 +68,6 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 ## Next steps
 
-* Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* [Register an app](quickstart-register-app.md) and integrate with Microsoft identity platform. 
+* Learn the [basics of authentication](authentication-scenarios.md).
+* See [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.

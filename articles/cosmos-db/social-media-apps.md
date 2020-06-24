@@ -20,7 +20,7 @@ So, how do you store this data and where?
 
 You might have experience on SQL databases or have a notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model). You may start drawing something as follows:
 
-![Diagram illustrating a relative relational model](./media/social-media-apps/social-media-apps-sql.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-sql.png" alt-text="Diagram illustrating a relative relational model" border="false":::
 
 A perfectly normalized and pretty data structure... that doesn't scale.
 
@@ -152,7 +152,7 @@ Let’s take user information as an example:
 
 By looking at this information, you can quickly detect which is critical information and which isn’t, thus creating a "Ladder":
 
-![Diagram of a ladder pattern](./media/social-media-apps/social-media-apps-ladder.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram of a ladder pattern" border="false":::
 
 The smallest step is called a UserChunk, the minimal piece of information that identifies a user and it’s used for data duplication. By reducing the duplicated data size to only the information you'll "show", you reduce the possibility of massive updates.
 
@@ -189,13 +189,13 @@ When an edit arises where a chunk attribute is affected, you can easily find the
 
 Users will generate, luckily, much content. And you should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because you don’t follow the creators, or maybe you're just trying to find that old post you did six months ago.
 
-Because you're using Azure Cosmos DB, you can easily implement a search engine using [Azure Search](https://azure.microsoft.com/services/search/) in a few minutes without typing any code, other than the search process and UI.
+Because you're using Azure Cosmos DB, you can easily implement a search engine using [Azure Cognitive Search](https://azure.microsoft.com/services/search/) in a few minutes without typing any code, other than the search process and UI.
 
 Why is this process so easy?
 
-Azure Search implements what they call [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md). The transition of information from Cosmos DB to Azure Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-create-index-portal.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
+Azure Cognitive Search implements what they call [Indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx), background processes that hook in your data repositories and automagically add, update or remove your objects in the indexes. They support an [Azure SQL Database indexers](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure Blobs indexers](../search/search-howto-indexing-azure-blob-storage.md) and thankfully, [Azure Cosmos DB indexers](../search/search-howto-index-documentdb.md). The transition of information from Cosmos DB to Azure Cognitive Search is straightforward. Both technologies store information in JSON format, so you just need to [create your Index](../search/search-create-index-portal.md) and map the attributes from your Documents you want indexed. That’s it! Depending on the size of your data, all your content will be available to be searched upon within minutes by the best Search-as-a-Service solution in cloud infrastructure.
 
-For more information about Azure Search, you can visit the [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+For more information about Azure Cognitive Search, you can visit the [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## The underlying knowledge
 
@@ -225,7 +225,7 @@ Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.
 
 With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
-![Scaling up and defining a partition key](./media/social-media-apps/social-media-apps-scaling.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Scaling up and defining a partition key":::
 
 What happens if things keep getting better? Suppose users from another region, country, or continent notice your platform and start using it. What a great surprise!
 
@@ -235,15 +235,15 @@ Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-d
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you're using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they'll be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
 
-![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Adding global coverage to your social platform" border="false":::
 
 ## Conclusion
 
 This article sheds some light into the alternatives of creating social networks completely on Azure with low-cost services. it delivers results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".
 
-![Diagram of interaction between Azure services for social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram of interaction between Azure services for social networking" border="false":::
 
-The truth is that there's no silver bullet for this kind of scenarios. It’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
+The truth is that there's no silver bullet for this kind of scenarios. It’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Cognitive Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
 
 ## Next steps
 

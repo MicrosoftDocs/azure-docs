@@ -1,13 +1,12 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: PowerShell: classic: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Link a VNet to a circuit: classic'
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
-documentationcenter: na
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 07/27/2018
+ms.topic: how-to
+ms.date: 12/06/2019
 ms.author: cherylmc
 
 ---
@@ -31,8 +30,6 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual n
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Configuration prerequisites
 
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
@@ -44,40 +41,7 @@ You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual n
 
 ### Download the latest PowerShell cmdlets
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module. When using the following example, note that the version number (in this example, 5.1.1) will change as newer versions of the cmdlets are released.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-If you need more information about Azure PowerShell, see [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
-
-### Sign in
-
-To sign in to your Azure account, use the following examples:
-
-1. Open your PowerShell console with elevated rights and connect to your account.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Check the subscriptions for the account.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. If you have more than one subscription, select the subscription that you want to use.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## Connect a virtual network in the same subscription to a circuit
 You can link a virtual network to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.

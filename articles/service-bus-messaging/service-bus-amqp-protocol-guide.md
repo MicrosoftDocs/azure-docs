@@ -1,22 +1,10 @@
 ---
 title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft Docs
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
 
 The Advanced Message Queueing Protocol 1.0 is a standardized framing and transfer protocol for asynchronously, securely, and reliably transferring messages between two parties. It is the primary protocol of Azure Service Bus Messaging and Azure Event Hubs. Both services also support HTTPS. The proprietary SBMP protocol that is also supported is being phased out in favor of AMQP.
@@ -77,6 +65,15 @@ This window-based model is roughly analogous to the TCP concept of window-based 
 Azure Service Bus currently uses exactly one session for each connection. The Service Bus maximum frame-size is 262,144 bytes (256-K bytes) for Service Bus Standard and Event Hubs. It is 1,048,576 (1 MB) for Service Bus Premium. Service Bus does not impose any particular session-level throttling windows, but resets the window regularly as part of link-level flow control (see [the next section](#links)).
 
 Connections, channels, and sessions are ephemeral. If the underlying connection collapses, connections, TLS tunnel, SASL authorization context, and sessions must be reestablished.
+
+### AMQP outbound port requirements
+
+Clients that use AMQP connections over TCP require ports 5671 and 5672 to be opened in the local firewall. Along with these ports, it might be necessary to open additional ports if the [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) feature is enabled. `EnableLinkRedirect` is a new messaging feature that helps skip one-hop while receiving messages, thus helping to boost throughput. The client would start communicating directly with the back-end service over port range 104XX as shown in the following image. 
+
+![List of destination ports][4]
+
+A .NET client would fail with a SocketException ("An attempt was made to access a socket in a way forbidden by its access permissions") if these ports are blocked by the firewall. The feature can be disabled by setting `EnableAmqpLinkRedirect=false` in the connectiong string, which forces the clients to communicate with the remote service over port 5671.
+
 
 ### Links
 

@@ -1,7 +1,6 @@
 ---
 title: Computer groups in Azure Monitor log queries | Microsoft Docs
 description: Computer groups in Azure Monitor allow you to scope log queries to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log query.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -23,7 +22,7 @@ You can create a computer group in Azure Monitor using any of the methods in the
 | Log query |Create a log query that returns a list of computers. |
 | Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log query. |
 | Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Azure Monitor for each security group. (Windows machines only)|
-| Configuration Manager | Import collections from System Center Configuration Manager  and create a group in Azure Monitor for each. |
+| Configuration Manager | Import collections from Microsoft Endpoint Configuration Manager and create a group in Azure Monitor for each. |
 | Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Azure Monitor for each. |
 
 ### Log query
@@ -71,7 +70,7 @@ You configure Azure Monitor to import WSUS groups from **Advanced settings** in 
 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
-### System Center Configuration Manager
+### Configuration Manager
 When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
 Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  

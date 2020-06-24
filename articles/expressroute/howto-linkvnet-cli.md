@@ -1,15 +1,13 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: Link a VNet to circuit: CLI'
 description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI
@@ -83,7 +81,7 @@ az network express-route auth create --circuit-name MyCircuit -g ExpressRouteRes
 
 The response contains the authorization key and status:
 
-```azurecli
+```output
 "authorizationKey": "0a7f3020-541f-4b4b-844a-5fb43472e3d7",
 "authorizationUseStatus": "Available",
 "etag": "W/\"010353d4-8955-4984-807a-585c21a22ae0\"",
@@ -121,7 +119,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 
 The Circuit User needs the peer ID and an authorization key from the Circuit Owner. The authorization key is a GUID.
 
-```azurecli
+```powershell
 Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
@@ -153,15 +151,17 @@ The range of *RoutingWeight* is 0 to 32000. The default value is 0.
 ## Configure ExpressRoute FastPath 
 You can enable [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) if your ExpressRoute circuit is on [ExpressRoute Direct](expressroute-erdirect-about.md) and your virtual newtork gateway is Ultra Performance or ErGw3AZ. FastPath improves data path preformance such as packets per second and connections per second between your on-premises network and your virtual network. 
 
-> [!NOTE] 
-> If you already have a virtual network connection but haven't enabled FastPath you need to delete the virtual network connection and create a new one. 
-> 
->  
+**Configure FastPath on a new connection**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**Updating an existing connection to enable FastPath**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## Next steps
 

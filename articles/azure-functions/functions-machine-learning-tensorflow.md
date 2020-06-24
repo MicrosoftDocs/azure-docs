@@ -1,286 +1,316 @@
 ---
-title: "Tutorial: Use Python and TensorFlow in Azure Functions to make machine learning inferences | Microsoft Docs"
-description: This tutorial demonstrates how to apply TensorFlow machine learning models in Azure Functions
-services: functions
+title: Use Python and TensorFlow for machine learning in Azure 
+description: Use Python, TensorFlow, and Azure Functions with a machine learning model to classify an image based on its contents.
 author: anthonychu
-manager: gwallace
 
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow
 
-This article demonstrates how Azure Functions allows you to use Python and TensorFlow with a machine learning model to classify an image based on its contents.
-
-In this tutorial, you learn to: 
+In this article, you learn how to use Python, TensorFlow, and Azure Functions with a machine learning model to classify an image based on its contents. Because you do all work locally and create no Azure resources in the cloud, there is no cost to complete this tutorial.
 
 > [!div class="checklist"]
-> * Initialize a local environment for developing Azure Functions in Python
-> * Import a custom TensorFlow machine learning model into a function app
-> * Build a serverless HTTP API for predicting whether a photo contains a dog or a cat
-> * Consume the API from a web application
-
-![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> * Initialize a local environment for developing Azure Functions in Python.
+> * Import a custom TensorFlow machine learning model into a function app.
+> * Build a serverless HTTP API for classifying an image as containing a dog or a cat.
+> * Consume the API from a web app.
 
 ## Prerequisites 
 
-To create Azure Functions in Python, you need to install a few tools.
-
-- [Python 3.6](https://www.python.org/downloads/release/python-360/)
-- [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 and Python 3.6.x are verified with Azure Functions; Python 3.8 and later versions are not yet supported.)
+- The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/)
+
+### Prerequisite check
+
+1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
+1. Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
 
 ## Clone the tutorial repository
 
-To begin, open a terminal and clone the following repository using Git:
+1. In a terminal or command window, clone the following repository using Git:
 
-```console
-git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
-cd functions-python-tensorflow-tutorial
-```
+    ```
+    git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
+    ```
 
-The repository contains a few folders.
+1. Navigate into the folder and examine its contents.
 
-- *start*:  This is your working folder for the tutorial
-- *end*: This is the final result and full implementation for your reference
-- *resources*: Contains the machine learning model and helper libraries
-- *frontend*: A website that calls the function app
+    ```
+    cd functions-python-tensorflow-tutorial
+    ```
 
+    - *start* is your working folder for the tutorial.
+    - *end* is the final result and full implementation for your reference.
+    - *resources* contains the machine learning model and helper libraries.
+    - *frontend* is a website that calls the function app.
+    
 ## Create and activate a Python virtual environment
 
-Azure Functions requires Python 3.6.x. You'll create a virtual environment to ensure you're using the required Python version.
+Navigate to the *start* folder and run the following commands to create and activate a virtual environment named `.venv`. Be sure to use Python 3.7, which is supported by Azure Functions.
 
-Change the current working directory to the *start* folder. Then create and activate a virtual environment named *.venv*. Depending on your Python installation, the commands to create a Python 3.6 virtual environment may differ from the following instructions.
 
-#### Linux and macOS:
+# [bash](#tab/bash)
 
 ```bash
 cd start
-python3.6 -m venv .venv
+```
+
+```bash
+python -m venv .venv
+```
+
+```bash
 source .venv/bin/activate
 ```
 
-#### Windows:
+If Python didn't install the venv package on your Linux distribution, run the following command:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# [PowerShell](#tab/powershell)
 
 ```powershell
 cd start
-py -3.6 -m venv .venv
+```
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
 .venv\scripts\activate
 ```
 
-The terminal prompt is now prefixed with `(.venv)` which indicates you have successfully activated the virtual environment. Confirm that `python` in the virtual environment is indeed Python 3.6.x.
+# [Cmd](#tab/cmd)
 
-```console
-python --version
+```cmd
+cd start
 ```
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+You run all subsequent commands in this activated virtual environment. (To exit the virtual environment, run `deactivate`.)
+
+
+## Create a local functions project
+
+In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single boilerplate function named `classify` that provides an HTTP endpoint. You add more specific code in a later section.
+
+1. In the *start* folder, use the Azure Functions Core Tools to initialize a Python function app:
+
+    ```
+    func init --worker-runtime python
+    ```
+
+    After initialization, the *start* folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+
+    > [!TIP]
+    > Because a function project is tied to a specific runtime, all the functions in the project must be written with the same language.
+
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` create a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+
+    ```
+    func new --name classify --template "HTTP trigger"
+    ```
+
+    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Examine the file contents](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) in the Python quickstart.
+
+
+## Run the function locally
+
+1. Start the function by starting the local Azure Functions runtime host in the *start* folder:
+
+    ```
+    func start
+    ```
+    
+1. Once you see the `classify` endpoint appear in the output, navigate to the URL, ```http://localhost:7071/api/classify?name=Azure```. The message "Hello Azure!" should appear in the output.
+
+1. Use **Ctrl**-**C** to stop the host.
+
+
+## Import the TensorFlow model and add helper code
+
+To modify the `classify` function to classify an image based on its contents, you use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. The model, which is contained in the *resources* folder of the sample you cloned earlier, classifies an image based on whether it contains a dog or a cat. You then add some helper code and dependencies to your project.
+
+To build your own model using the free tier of the Custom Vision Service, follow the instructions in the [sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+
+> [!TIP]
+> If you want to host your TensorFlow model independent of the function app, you can instead mount a file share containing your model to your Linux function app. To learn more, see [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
+
+1. In the *start* folder, run following command to copy the model files into the *classify* folder. Be sure to include `\*` in the command. 
+
+    # [bash](#tab/bash)
+    
+    ```bash
+    cp ../resources/model/* classify
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    copy ..\resources\model\* classify
+    ```
+    
+    # [Cmd](#tab/cmd)
+    
+    ```cmd
+    copy ..\resources\model\* classify
+    ```
+    
+    ---
+    
+1. Verify that the *classify* folder contains files named *model.pb* and *labels.txt*. If not, check that you ran the command in the *start* folder.
+
+1. In the *start* folder, run the following command to copy a file with helper code into the *classify* folder:
+
+    # [bash](#tab/bash)
+    
+    ```bash
+    cp ../resources/predict.py classify
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    copy ..\resources\predict.py classify
+    ```
+    
+    # [Cmd](#tab/cmd)
+    
+    ```cmd
+    copy ..\resources\predict.py classify
+    ```
+    
+    ---
+
+1. Verify that the *classify* folder now contains a file named *predict.py*.
+
+1. Open *start/requirements.txt* in a text editor and add the following dependencies required by the helper code:
+
+    ```txt
+    tensorflow==1.14
+    Pillow
+    requests
+    ```
+    
+1. Save *requirements.txt*.
+
+1. Install the dependencies by running the following command in the *start* folder. Installation may take a few minutes, during which time you can proceed with modifying the function in the next section.
+
+    ```
+    pip install --no-cache-dir -r requirements.txt
+    ```
+    
+    On Windows, you may encounter the error, "Could not install packages due to an EnvironmentError: [Errno 2] No such file or directory:" followed by a long pathname to a file like *sharded_mutable_dense_hashtable.cpython-37.pyc*. Typically, this error happens because the depth of the folder path becomes too long. In this case, set the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` to `1` to enable long paths. Alternately, check where your Python interpreter is installed. If that location has a long path, try reinstalling in a folder with a shorter path.
+
+> [!TIP]
+> When calling upon *predict.py* to make its first prediction, a function named `_initialize` loads the TensorFlow model from disk and caches it in global variables. This caching speeds up subsequent predictions. For more information on using global variables, refer to the [Azure Functions Python developer guide](functions-reference-python.md#global-variables).
+
+## Update the function to run predictions
+
+1. Open *classify/\_\_init\_\_.py* in a text editor and add the following lines after the existing `import` statements to import the standard JSON library and the *predict* helpers:
+
+    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
+
+1. Replace the entire contents of the `main` function with the following code:
+
+    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
+
+    This function receives an image URL in a query string parameter named `img`. It then calls `predict_image_from_url` from the helper library to download and classify the image using the TensorFlow model. The function then returns an HTTP response with the results. 
+
+    > [!IMPORTANT]
+    > Because this HTTP endpoint is called by a web page hosted on another domain, the response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
+    >
+    > In a production application, change `*` to the web page's specific origin for added security.
+
+1. Save your changes, then assuming that dependencies have finished installing, start the local function host again with `func start`. Be sure to run the host in the *start* folder with the virtual environment activated. Otherwise the host will start, but you will see errors when invoking the function.
+
+    ```
+    func start
+    ```
+
+1. In a browser, open the following URL to invoke the function with the URL of a cat image and confirm that the returned JSON classifies the image as a cat.
+
+    ```
+    http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png
+    ```
+    
+1. Keep the host running because you use it in the next step. 
+
+### Run the local web app front end to test the function
+
+To test invoking the function endpoint from another web app, there's a simple app in the repository's *frontend* folder.
+
+1. Open a new terminal or command prompt and activate the virtual environment (as described earlier under [Create and activate a Python virtual environment](#create-and-activate-a-python-virtual-environment)).
+
+1. Navigate to the repository's *frontend* folder.
+
+1. Start an HTTP server with Python:
+
+    # [bash](#tab/bash)
+
+    ```bash 
+    python -m http.server
+    ```
+    
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    py -m http.server
+    ```
+
+    # [Cmd](#tab/cmd)
+
+    ```cmd
+    py -m http.server
+    ```
+
+1. In a browser, navigate to `localhost:8000`, then enter one of the following photo URLs into the textbox, or use the URL of any publicly accessible image.
+
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
+    
+1. Select **Submit** to invoke the function endpoint to classify the image.
+
+    ![Screenshot of finished project](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
+
+    If the browser reports an error when you submit the image URL, check the terminal in which you're running the function app. If you see an error like "No module found 'PIL'", you may have started the function app in the *start* folder without first activating the virtual environment you created earlier. If you still see errors, run `pip install -r requirements.txt` again with the virtual environment activated and look for errors.
 
 > [!NOTE]
-> For the remainder of the tutorial, you run commands in the virtual environment. If you need to reactivate the virtual environment in a terminal, execute the appropriate activate command for your operating system.
-
-## Create an Azure Functions project
-
-In the *start* folder, use the Azure Functions Core Tools to initialize a Python function app.
-
-```console
-func init --worker-runtime python
-```
-
-A function app can contain one or more Azure Functions. Open the *start* folder in an editor and examine the contents.
-
-- [*local.settings.json*](functions-run-local.md#local-settings-file): Contains application settings used for local development
-- [*host.json*](functions-host-json.md): Contains settings for the Azure Functions host and extensions
-- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management): Contains Python packages required by this application
-
-## Create an HTTP function
-
-The application requires a single HTTP API endpoint that takes an image URL as the input and returns a prediction of whether the image contains a dog or a cat.
-
-In the terminal, use the Azure Functions Core Tools to scaffold a new HTTP function named *classify*.
-
-```console
-func new --language python --template HttpTrigger --name classify
-```
-
-A new folder named *classify* is created, containing two files.
-
-- *\_\_init\_\_.py*: A file for the main function
-- *function.json*:  A file describing the function's trigger and its input and output bindings
-
-### Run the function
-
-In the terminal with the Python virtual environment activated, start the function app.
-
-```console
-func start
-```
-
-Open a browser and navigate to the following URL. The function should execute and return *Hello Azure!*
-
-```
-http://localhost:7071/api/classify?name=Azure
-```
-
-Use `Ctrl-C` to stop the function app.
-
-## Import the TensorFlow model
-
-You'll use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service.
-
-> [!NOTE]
-> If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
-
-The model consists of two files in the *<REPOSITORY_ROOT>/resources/model* folder: *model.pb* and *labels.txt*. Copy them into the *classify* function's folder.
-
-#### Linux and macOS:
-
-```bash
-cp ../resources/model/* classify
-```
-
-#### Windows:
-
-```powershell
-copy ..\resources\model\* classify
-```
-
-Be sure to include the \* in the above command. Confirm that *classify* now contains files named *model.pb* and *labels.txt*.
-
-## Add the helper functions and dependencies
-
-Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named *predict.py* in the *resources* folder. Copy this file into the *classify* function's folder.
-
-#### Linux and macOS:
-
-```bash
-cp ../resources/predict.py classify
-```
-
-#### Windows:
-
-```powershell
-copy ..\resources\predict.py classify
-```
-
-Confirm that *classify* now contains a file named *predict.py*.
-
-### Install dependencies
-
-The helper library has some dependencies that need to be installed. Open *start/requirements.txt* in your editor and add the following dependencies to the file.
-
-```txt
-tensorflow==1.14
-Pillow
-requests
-```
-
-Save the file.
-
-In the terminal with the virtual environment activated, run the following command in the *start* folder to install the dependencies. Some installation steps may take a few minutes to complete.
-
-```console
-pip install --no-cache-dir -r requirements.txt
-```
-
-### Caching the model in global variables
-
-In the editor, open *predict.py* and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is executed and saved to global variables. The loading from disk is skipped in subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
-
-For more information on global variables, refer to the [Azure Functions Python developer guide](functions-reference-python.md#global-variables).
-
-## Update function to run predictions
-
-Open *classify/\_\_init\_\_.py* in your editor. Import the *predict* library that you added to the same folder earlier. Add the following `import` statements below the other imports already in the file.
-
-```python
-import json
-from .predict import predict_image_from_url
-```
-
-Replace the function template code with the following.
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    image_url = req.params.get('img')
-    results = predict_image_from_url(image_url)
-
-    headers = {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-    }
-    return func.HttpResponse(json.dumps(results), headers = headers)
-```
-
-Make sure to save your changes.
-
-This function receives an image URL in a query string parameter named `img`. It calls `predict_image_from_url` from the helper library that downloads the image and returns a prediction using the TensorFlow model. The function then returns an HTTP response with the results.
-
-Since the HTTP endpoint is called by a web page hosted on another domain, the HTTP response includes an `Access-Control-Allow-Origin` header to satisfy the browser's Cross-Origin Resource Sharing (CORS) requirements.
-
-> [!NOTE]
-> In a production application, change `*` to the web page's specific origin for added security.
-
-### Run the function app
-
-Ensure the Python virtual environment is still activated and start the function app using the following command.
-
-```console
-func start
-```
-
-In a browser, open this URL that calls your function with the URL of a cat photo. Confirm that a valid prediction result is returned.
-
-```
-http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png
-```
-
-Keep the function app running.
-
-### Run the web app
-
-There's a simple web app in the *frontend* folder that consumes the HTTP API in the function app.
-
-Open a *separate* terminal and change to the *frontend* folder. Start an HTTP server with Python 3.6.
-
-#### Linux and macOS:
-
-```bash
-cd <FRONT_END_FOLDER>
-python3.6 -m http.server
-```
-
-#### Windows:
-
-```powershell
-cd <FRONT_END_FOLDER>
-py -3.6  -m http.server
-```
-
-In a browser, navigate to the HTTP server's URL that is displayed in the terminal. A web app should appear. Enter one of the following photo URLs into the textbox. You may also use a URL of a publicly accessible cat or dog photo.
-
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
-
-When you click submit, the function app is called and a result is displayed on the page.
+> The model always classifies the content of the image as a cat or a dog, regardless of whether the image contains either, defaulting to dog. Images of tigers and panthers, for example, typically classify as cat, but images of elephants, carrots, or airplanes classify as dog.
 
 ## Clean up resources
-The entirety of this tutorial runs locally on your machine, so there are no Azure resources or services to clean up.
+
+Because the entirety of this tutorial runs locally on your machine, there are no Azure resources or services to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model. You also learned how to call the API from a web application.
-
-You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
-
-To deploy the function app to Azure, use the [Azure Functions Core Tools](./functions-run-local.md#publish) or [Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
+In this tutorial, you learned how to build and customize an HTTP API endpoint with Azure Functions to classify images using a TensorFlow model. You also learned how to call the API from a web app. You can use the techniques in this tutorial to build out APIs of any complexity, all while running on the serverless compute model provided by Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Azure Functions Python Developer Guide](./functions-reference-python.md)
+> [Deploy the function to Azure Functions using the Azure CLI Guide](./functions-run-local.md#publish)
+
+See also:
+
+- [Deploy the function to Azure using Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
+- [Azure Functions Python Developer Guide](./functions-reference-python.md)
+- [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md)

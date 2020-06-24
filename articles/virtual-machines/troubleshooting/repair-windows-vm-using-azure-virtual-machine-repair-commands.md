@@ -6,8 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
-
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -59,31 +58,31 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 
 2. If this is the first time you have used the `az vm repair` commands, add the vm-repair CLI extension.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
    If you have previously used the `az vm repair` commands, apply any updates to the vm-repair extension.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az extension update -n vm-repair
    ```
 
-3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM, and attach the disk.
+3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM in a new Resource Group, and attach the OS disk copy.  The repair VM will be the same size and region as the non-functional VM specified. The Resource Group and VM name used in all steps will be for the non-functional VM.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Run `az vm repair run`. This command will run the specified repair script on the attached disk via the repair VM.
+4. Run `az vm repair run`. This command will run the specified repair script on the attached disk via the repair VM. If the troubleshooting guide you are using specified a run-id please use it here, otherwise you can use `az vm repair list-scripts` to see available repair scripts. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 
-   ```azurepowershell-interactive
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
+   ```azurecli-interactive
+   az vm repair run -g MyResourceGroup -n MyVM --run-on-repair --run-id win-hello-world --verbose
    ```
 
-5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM.
+5. Run `az vm repair restore`. This command will swap the repaired OS disk with the original OS disk of the VM. The Resource Group and VM name used here are for the non-functional VM used in step 3.
 
-   ```azurepowershell-interactive
+   ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose
    ```
 
@@ -93,7 +92,7 @@ The following example enables the diagnostic extension on the VM named ``myVMDep
 
 Azure CLI
 
-```azurepowershell-interactive
+```azurecli-interactive
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 

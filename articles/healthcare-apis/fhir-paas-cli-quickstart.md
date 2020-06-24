@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure API for FHIR using Azure CLI
-description: Deploy Azure API for FHIR using Azure CLI.
+title: 'Quickstart: Deploy Azure API for FHIR using Azure CLI'
+description: In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -30,15 +30,6 @@ Get a list of commands for HealthcareAPIs:
 az healthcareapis --help
 ```
 
-## Locate your identity object ID
-
-Object ID values are guids that correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
-
-```azurecli-interactive
-az ad user show --id myuser@consoso.com | jq -r .objectId
-```
-Read the how-to guide on [finding identity object IDs](find-identity-object-ids.md) for more details.
-
 ## Create Azure Resource Group
 
 Pick a name for the resource group that will contain the Azure API for FHIR and create it:
@@ -50,10 +41,8 @@ az group create --name "myResourceGroup" --location westus2
 ## Deploy the Azure API for FHIR
 
 ```azurecli-interactive
-az healthcareapis create --resource-group myResourceGroup --name nameoffhiraccount --kind fhir-r4 --location westus2 --access-policies-object-id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+az healthcareapis create --resource-group myResourceGroup --name nameoffhiraccount --kind fhir-r4 --location westus2 
 ```
-
-where `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` is the identity object ID for a user or service principal that you would like to have access to the FHIR API.
 
 ## Fetch FHIR API capability statement
 
@@ -73,7 +62,7 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this tutorial, you've deployed the Azure API for FHIR into your subscription. To learn how to access the FHIR API using Postman, proceed to the Postman tutorial.
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide.
 
 >[!div class="nextstepaction"]
->[Access FHIR API using Postman](access-fhir-postman-tutorial.md)
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

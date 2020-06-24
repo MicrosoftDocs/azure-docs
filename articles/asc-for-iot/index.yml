@@ -1,19 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Security Center for IoT documentation 
-summary: Azure Security Center for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection. 
+title: Azure Security Center for IoT documentation
+summary: Azure Security Center for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
 
 metadata:
   title: Azure Security Center for IoT documentation
-  description: Azure Security Center for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection. 
+  description: Learn how Azure Security Center for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
   services: service
   ms.service: asc-for-iot
-  ms.subservice: subservice
-  ms.topic: landing-page 
+  ms.topic: landing-page
   ms.collection: M365-security-compliance
-  author: mlottner 
-  ms.author: mlottner 
-  ms.date: 09/23/2019 
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/23/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -34,8 +33,8 @@ landingContent:
           - text: Azure Security Center for IoT Agents
             url: security-agent-architecture.md
           - text: Edge security module
-            url: security-edge-architecture.md   
-  - title: Onboard Azure Security Center for IoT into IoT Hub      
+            url: security-edge-architecture.md
+  - title: Onboard Azure Security Center for IoT into IoT Hub
     linkLists:
       - linkListType: get-started
         links:
@@ -45,7 +44,7 @@ landingContent:
             url: iot-hub-integration.md
           - text: Security agents
             url: security-agents.md
-  - title: Configure your solution       
+  - title: Configure your solution
     linkLists:
       - linkListType: quickstart
         links:
@@ -56,7 +55,7 @@ landingContent:
           - text: Create an Azure Security Center for IoT module twin
             url: quickstart-create-security-twin.md
           - text: Create custom security alerts
-            url: quickstart-create-custom-alerts.md    
+            url: quickstart-create-custom-alerts.md
   - title: Customize your solution
     linkLists:
       - linkListType: how-to-guide
@@ -79,7 +78,7 @@ landingContent:
             url: how-to-security-data-access.md
           - text: Investigate a device
             url: how-to-investigate-device.md
-  - title: Troubleshoot a security agent 
+  - title: Troubleshoot a security agent
     linkLists:
       - linkListType: tutorial
         links:
@@ -95,11 +94,11 @@ landingContent:
         links:
           - text: What is Azure Security Center for IoT?
             url: https://youtu.be/pq5uSp9u_x0
-          - text: Understanding Azure Security Center for IoT 
+          - text: Understanding Azure Security Center for IoT
             url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
       - linkListType: reference
         links:
           - text: Frequently asked questions
             url: resources-frequently-asked-questions.md
-          - text: Pricing and associated costs 
+          - text: Pricing and associated costs
             url: concept-pricing.md

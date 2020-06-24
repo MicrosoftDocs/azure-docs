@@ -7,130 +7,68 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/11/2020
 ---
 # Release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
-
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
+
+## Release date: 06/11/2020
+
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
-
-For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md).
-
-## Component versions
-
-The official Apache versions of all HDInsight 4.0 components are given below. The components listed are releases of the most recent stable versions available.
-
-- Apache Ambari 2.7.1
-- Apache Hadoop 3.1.1
-- Apache HBase 2.0.0
-- Apache Hive 3.1.0
-- Apache Kafka 1.1.1, 2.1.0
-- Apache Mahout 0.9.0+
-- Apache Oozie 4.2.0
-- Apache Phoenix 4.7.0
-- Apache Pig 0.16.0
-- Apache Ranger 0.7.0
-- Apache Slider 0.92.0
-- Apache Spark 2.3.1, 2.4.0
-- Apache Sqoop 1.4.7
-- Apache TEZ 0.9.1
-- Apache Zeppelin 0.8.0
-- Apache ZooKeeper 3.4.6
-
-Later versions of Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
-
-## Apache patch information
-
-For more information on patches available in HDInsight 4.0, see the patch listing for each product in the table below.
-
-| Product name | Patch information |
-|---|---|
-| Ambari | [Ambari patch information](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
-| Hadoop | [Hadoop patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
-| HBase | [HBase patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
-| Hive  | This release provides Hive 3.1.0 with no additional Apache patches.  |
-| Kafka | This release provides Kafka 1.1.1 with no additional Apache patches. |
-| Oozie | [Oozie patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
-| Phoenix | [Phoenix patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
-| Pig | [Pig patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
-| Ranger | [Ranger patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
-| Spark | [Spark patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
-| Sqoop | This release provides Sqoop 1.4.7 with no additional Apache patches. |
-| Tez | This release provides Tez 0.9.1 with no additional Apache patches. |
-| Zeppelin | This release provides Zeppelin 0.8.0 with no additional Apache patches. |
-| Zookeeper | [Zookeeper patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
-
-## Fixed Common Vulnerabilities and Exposures
-
-For more information on security issues resolved in this release, see Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
-
-## Known issues
-
-### Replication is broken for Secure HBase with default installation
-
-For HDInsight 4.0, do the following steps:
-
-1. Enable inter-cluster communication.
-1. Sign in to the active headnode.
-1. Download a script to enable replication with the following command:
-
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Type the command `sudo kinit <domainuser>`.
-1. Type the following command to run the script:
-
-    ```
-    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
-For HDInsight 3.6, do the following:
-
-1. Sign in to active HMaster ZK.
-1. Download a script to enable replication with the following command:
-    ```
-    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
-    ```
-1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
-1. Type the following command:
-
-    ```bash
-    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
-    ```
-
-### Phoenix Sqlline stops working after migrating HBase cluster to HDInsight 4.0
-
-Do the following steps:
-
-1. Drop the following Phoenix tables:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.MUTEX`
-    1. `SYSTEM.CATALOG`
-1. If you can't delete any of the tables, restart HBase to clear any connections to the tables.
-1. Run `sqlline.py` again. Phoenix will re-create all of the tables that were deleted in step 1.
-1. Regenerate Phoenix tables and views for your HBase data.
-
-### Phoenix Sqlline stops working after replicating HBase Phoenix metadata from HDInsight 3.6 to 4.0
-
-Do the following steps:
-
-1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This command will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
-1. Drop the following tables:
-    1. `SYSTEM.FUNCTION`
-    1. `SYSTEM.SEQUENCE`
-    1. `SYSTEM.STATS`
-    1. `SYSTEM.CATALOG`
-1. Start the HBase replication
-
+### Moving to Azure virtual machine scale sets
+HDInsight uses Azure virtual machines to provision the cluster now. From this release, new-created HDInsight clusters start using Azure virtual machine scale set. The change is rolling out gradually. You should expect no breaking change. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+ 
+### Reboot VMs in HDInsight cluster
+In this release, we support rebooting VMs in HDInsight cluster to reboot unresponsive nodes. Currently you can only do it through API, PowerShell and CLI support is on the way. For more information about the API, see [this doc](https://github.com/Azure/azure-rest-api-specs/codeowners/master/specification/hdinsight/resource-manager/Microsoft.HDInsight/stable/2018-06-01-preview/virtualMachines.json).
+ 
 ## Deprecation
+### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
+Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
+ 
+### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
+Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+ 
+### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+ 
+## Behavior changes
+### ESP Spark cluster head node size change 
+The minimum allowed head node size for ESP Spark cluster is changed to Standard_D13_V2. 
+VMs with low cores and memory as head node could cause ESP cluster issues because of relatively low CPU and memory capacity. Starting from release, use SKUs higher than Standard_D13_V2 and Standard_E16_V3 as head node for ESP Spark clusters.
+ 
+### A minimum 4-core VM is required for Head Node 
+A minimum 4-core VM is required for Head Node to ensure the high availability and reliability of HDInsight clusters. Starting from April 6 2020, customers can only choose 4-core or above VM as Head Node for the new HDInsight clusters. Existing clusters will continue to run as expected. 
+ 
+### Cluster worker node provisioning change
+When 80% of the worker nodes are ready, the cluster enters **operational** stage. At this stage, customers can do all the data plane operations like running scripts and jobs. But customers can't do any control plane operation like scaling up/down. Only deletion is supported.
+ 
+After the **operational** stage, the cluster waits another 60 minutes for the remaining 20% worker nodes. At the end of this 60 minutes, the cluster moves to the **running** stage, even if all of worker nodes are still not available. Once a cluster enters the **running** stage, you can use it as normal. Both control plan operations like scaling up/down, and data plan operations like running scripts and jobs are accepted. If some of the requested worker nodes are not available, the cluster will be marked as partial success. You are charged for the nodes that were deployed successfully. 
+ 
+### Create new service principal through HDInsight
+Previously, with cluster creation, customers can create a new service principal to access the connected ADLS Gen 1 account in Azure portal. Starting June 15 2020, customers cannot create new service principal in HDInsight creation workflow, only existing service principal is supported. See [Create Service Principal and Certificates using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+ 
+## Upcoming changes
+No upcoming breaking changes that you need to pay attention to.
+ 
+## Bug fixes
+HDInsight continues to make cluster reliability and performance improvements. 
+ 
+## Component version change
+### HBase 2.0 to 2.1.6
+HBase version is upgraded from version 2.0 to 2.1.6.
+ 
+### Spark 2.4.0 to 2.4.4
+Spark version is upgraded from version 2.4.0 to 2.4.4.
+ 
+### Kafka 2.1.0 to 2.1.1
+Kafka version is upgraded from version 2.1.0 to 2.1.1.
+ 
+You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
-Apache Storm and ML services aren't available in HDInsight 4.0.

@@ -1,10 +1,7 @@
 ---
 title: Azure Functions reliable event processing
 description: Avoid missing Event Hub messages in Azure Functions
-services: functions
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
@@ -57,7 +54,7 @@ As a general rule, every function should include a [try/catch block](./functions
 
 ### Retry mechanisms and policies
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools available. Using these libraries allow you to define robust retry-policies, which can also help preserve processing order.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools are available. Using these libraries allow you to define robust retry policies, which can also help preserve processing order.
 
 Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 
@@ -80,7 +77,7 @@ The assurance that every message is processed at least one time implies that som
 
 ## Stop and restart execution
 
-While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
+While a few errors may be acceptable, what if your app experiences significant failures? You may want to stop triggering on events until the system reaches a healthy state. Having the opportunity to pause processing is often achieved with a circuit breaker pattern. The circuit breaker pattern allows your app to "break the circuit" of the event process and resume at a later time.
 
 There are two pieces required to implement a circuit breaker in an event process:
 
@@ -89,7 +86,7 @@ There are two pieces required to implement a circuit breaker in an event process
 
 Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Storage, a Redis cache, or any other account that is accessible by a collection of functions.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [durable entities](./durable/durable-functions-overview.md) are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) or [durable functions](./durable/durable-functions-overview.md) are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
 
 ### Define a failure threshold across instances
 
@@ -121,7 +118,7 @@ Using this approach, no messages are lost, all messages are processed in order, 
 ## Resources
 
 - [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Azure Durable Functions Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Azure Durable Entity Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## Next steps
 

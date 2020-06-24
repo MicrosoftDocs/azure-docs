@@ -9,8 +9,8 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 09/10/2019
+ms.topic: how-to
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 
@@ -18,7 +18,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Search groups  and members (preview) in Azure Active Directory
+# Search groups and members (preview) in Azure Active Directory
 
 This article tells you how to search for members and owners of a group and how to use search filters as part of the groups improvement preview in the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,7 +42,7 @@ If you are having any issues, you can switch back the legacy experience by selec
 
 ## Group search and sorting
 
-The groups list search has been enhanced so that when you can enter a search string, search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters.
+The groups list search has been enhanced so that when you can enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters. Substring search is case-sensitive.
 
 ![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
 

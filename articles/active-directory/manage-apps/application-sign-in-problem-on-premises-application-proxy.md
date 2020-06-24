@@ -1,21 +1,19 @@
 ---
-title: Problem signing in to on-premise app using Azure AD app proxy | Microsoft Docs
+title: Problem signing in to on-premises app using Azure AD app proxy | Microsoft Docs
 description: Troubleshooting common issues faced when you are unable to sign in to an on-premises application integrated with Azure AD using the Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
 ms.collection: M365-identity-device-management
 ---
 

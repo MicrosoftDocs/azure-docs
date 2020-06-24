@@ -1,6 +1,6 @@
 ---
-title: Run a Spark job on Azure Databricks using Azure portal
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
+title: Quickstart - Run a Spark job on Azure Databricks using Azure portal
+description: This quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -8,8 +8,8 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.date: 05/08/2019
-ms.custom: mvc
+ms.date: 03/23/2020
+ms.custom: mvc, tracking-python
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
@@ -26,7 +26,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 > [!Note]
 > This tutorial cannot be carried out using **Azure Free Trial Subscription**.
-> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
+> If you have a free account, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/). Then, [remove the spending limit](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), and [request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) for vCPUs in your region. When you create your Azure Databricks workspace, you can select the **Trial (Premium - 14-Days Free DBUs)** pricing tier to give the workspace access to free Premium Azure Databricks DBUs for 14 days.
 
 ## Create an Azure Databricks workspace
 
@@ -46,16 +46,15 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
     |**Pricing Tier**     |  Choose between **Standard**, **Premium**, or **Trial**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
-    |**Virtual Network**     |  Choose to deploy an Azure Databricks workspace in your own Virtual Network (VNet). For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Select **Create**.
-
-4. The workspace creation takes a few minutes. During workspace creation, you can view the deployment status in **Notifications**.
+3. Select **Review + Create**, and then **Create**. The workspace creation takes a few minutes. During workspace creation, you can view the deployment status in **Notifications**. Once this process is finished, your user account is automatically added as an admin user in the workspace.
 
     ![Databricks deployment tile](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks deployment tile")
+
+    When a workspace deployment fails, the workspace is still created in a failed state. Delete the failed workspace and create a new workspace that resolves the deployment errors. When you delete the failed workspace, the managed resource group and any successfully deployed resources are also deleted.
 
 ## Create a Spark cluster in Databricks
 
@@ -80,7 +79,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ## Run a Spark SQL job
 
@@ -159,7 +158,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](/azure/databricks/data/data-sources/index) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

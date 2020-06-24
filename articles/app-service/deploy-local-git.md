@@ -1,18 +1,9 @@
 ---
-title: Deploy from local Git repo - Azure App Service
-description: Learn how to enable local Git deployment to Azure App Service.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-
+title: Deploy from local Git repo
+description: Learn how to enable local Git deployment to Azure App Service. One of the simplest ways to deploy code from your local machine.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
 
@@ -54,6 +45,9 @@ To get the URL to enable local Git deployment for an existing app, run [`az weba
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> If you are using a linux app-service-plan, you need to add this parameter: --runtime python|3.7
+
 
 Or, to create a new Git-enabled app, run [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the Cloud Shell with the `--deployment-local-git` parameter. Replace \<app-name>, \<group-name>, and \<plan-name> with the names for your new Git app, its Azure resource group, and its Azure App Service plan.
 
@@ -101,7 +95,9 @@ If your account has the necessary permissions, you can set up Azure Pipelines (P
 
 To enable local Git deployment for your app with Azure Pipelines (Preview):
 
-1. Navigate to your Azure App Service app page in the [Azure portal](https://portal.azure.com), and select **Deployment Center** in the left menu.
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+
+1. Select your Azure App Service app and select **Deployment Center** in the left menu.
    
 1. On the **Deployment Center** page, select **Local Git**, and then select **Continue**. 
    

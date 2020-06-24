@@ -1,15 +1,15 @@
 ---
-title: Ephemeral OS disks for Azure Virtual Machine Scale Sets | Microsoft Docs
-description: Learn more about ephemeral OS disks for Azure Virtual Machine Scale Sets.
-services: virtual-machine-scale-sets
-author: cynthn
-manager: jeconnoc
+title: Ephemeral OS disks for Azure Virtual Machine Scale Sets
+description: Learn more about ephemeral operating system disks for Azure Virtual Machine Scale Sets.
+author: vaibhav-agar
+ms.author: vaaga
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: article
+ms.subservice: disks
 ms.date: 07/01/2019
-ms.author: cynthn
+ms.reviewer: jushimana
+ms.custom: vaaga
+
 ---
 # Ephemeral OS disks for VM instances
 

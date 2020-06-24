@@ -1,19 +1,8 @@
 ---
-title: Choose VM sizes for pools - Azure Batch | Microsoft Docs
+title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: batch
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/12/2019
-ms.author: lahugh
+ms.topic: conceptual
+ms.date: 06/10/2020
 ms.custom: seodec18
 
 ---
@@ -33,38 +22,44 @@ There are a few exceptions and limitations to choosing a VM size:
 
 Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). See the following table to learn more about supported sizes and restrictions.
 
-Any promotional or preview VM sizes not listed aren't guaranteed for support.
+| VM series  | Supported sizes |
+|------------|---------|
+| Basic A | All sizes *except* Basic_A0 (A0) |
+| A | All sizes *except* Standard_A0 |
+| Av2 | All sizes |
+| B | None |
+| DC | None |
+| Dv2, DSv2 | All sizes |
+| Dv3, Dsv3 | All sizes |
+| Dav4<sup>1</sup> | None - not yet available |
+| Dasv4<sup>1</sup> | All sizes, except for Standard_D48as_v4, Standard_D64as_v4, Standard_D96as_v4 |
+| Ddv4, Ddsv4 |  None - not yet available |
+| Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
+| Eav4<sup>1</sup> | All sizes, except for Standard_E48a_v4, Standard_E64a_v4, Standard_E96a_v4 |
+| Easv4<sup>1</sup> | All sizes, except for Standard_E48as_v4, Standard_E64as_v4, Standard_E96as_v4 |
+| Edv4, Edsv4 |  None - not yet available |
+| F, Fs | All sizes |
+| Fsv2 | All sizes |
+| G, Gs | All sizes |
+| H | All sizes |
+| HB<sup>1</sup> | All sizes |
+| HBv2<sup>1</sup> | All sizes |
+| HC<sup>1</sup> | All sizes |
+| Ls | All sizes |
+| Lsv2<sup>1</sup> | All sizes |
+| M<sup>1</sup> | All sizes |
+| Mv2 | None - not yet available |
+| NC | All sizes |
+| NCv2<sup>1</sup> | All sizes |
+| NCv3<sup>1</sup> | All sizes |
+| ND<sup>1</sup> | All sizes |
+| NDv2<sup>1</sup> | None - not yet available |
+| NV | All sizes |
+| NVv3<sup>1</sup> | All sizes |
+| NVv4 | None |
+| SAP HANA | None |
 
-| VM series  | Supported sizes | Batch account pool allocation mode<sup>1</sup> |
-|------------|---------|-----------------|
-| Basic A-series | All sizes *except* Basic_A0 (A0) | Any |
-| A-series | All sizes *except* Standard_A0 | Any |
-| Av2-series | All sizes | Any |
-| B-series | None | Not available |
-| DC-series | None | Not available |
-| Dv2, DSv2-series | All sizes | Any |
-| Dv3, Dsv3-series | All sizes | Any |
-| Ev3, Esv3-series | All sizes | Any |
-| Fsv2-series | All sizes | Any |
-| H-series | All sizes | Any |
-| HB-series<sup>2</sup> | All sizes | Any |
-| HC-series<sup>2</sup> | All sizes | Any |
-| Ls-series | All sizes | Any |
-| Lsv2-series | None | Not available |
-| M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |
-| Mv2-series | None | Not available |
-| NC-series | All sizes | Any |
-| NCv2-series<sup>2</sup> | All sizes | Any |
-| NCv3-series<sup>2</sup> | All sizes | Any |
-| ND-series<sup>2</sup> | All sizes | Any |
-| NDv2-series | All sizes | User subscription mode |
-| NV-series | All sizes | Any |
-| NVv3-series | None | Not available |
-| SAP HANA | None | Not available |
-
-<sup>1</sup> Some newer VM series are partially supported initially. These VM series can be allocated by Batch accounts with the **pool allocation mode** set to **user subscription**. See [Manage Batch accounts](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information on Batch account configuration. See [Quotas and limits](batch-quota-limit.md) to learn how to request quota for these partially supported VM series for **user subscription** Batch accounts.  
-
-<sup>2</sup> These VM sizes can be allocated in Batch pools in Virtual Machine configuration, but you must request a specific [quota increase](batch-quota-limit.md#increase-a-quota).
+<sup>1</sup> These VM sizes can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
 
 ### Pools in Cloud Service configuration
 
@@ -91,5 +86,5 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * For information about using compute-intensive VM sizes, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).

@@ -1,27 +1,41 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory B2B documentation
-summary: Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
+title: External Identities documentation
+summary: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
 
 metadata: 
-   title: Application Management Documentation
-   description: Learn how to use Azure AD business-to-business (B2B) collaboration to securely share your company's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
+   title: External Identities documentation
+   description: External Identities is a set of capabilities that enables organizations to secure and manage any external user, including customers and partners. Building on B2B collaboration, External Identities brings additional capabilities for interacting and connecting with users outside your organization.
    ms.service: active-directory
-   ms.subservice: manage-apps
+   ms.subservice: B2B
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 08/27/2019
+   ms.date: 05/19/2020
    author: msmimart
    ms.author: mimart
    manager: celested
 
 landingContent:
-  - title: About B2B collaboration
+  - title: About External Identities
     linkLists:
       - linkListType: overview
         links:
+          - text: Compare External Identities solutions
+            url: compare-with-b2c.md
           - text: What is B2B guest user access?
             url: what-is-b2b.md
+  - title: Self-service sign-up (Preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is self-service sign-up?
+            url: self-service-sign-up-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Add a self-service sign-up user flow
+            url: self-service-sign-up-user-flow.md
+          - text: Define custom attributes for user flows
+            url: user-flow-add-custom-attributes.md
   - title: Invite B2B guest users
     linkLists:
       - linkListType: concept

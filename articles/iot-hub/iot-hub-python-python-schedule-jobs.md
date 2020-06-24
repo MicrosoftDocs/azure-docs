@@ -6,8 +6,9 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 03/17/2020
 ms.author: robinsh
+ms.custom: tracking-python
 ---
 
 # Schedule and broadcast jobs (Python)
@@ -50,7 +51,7 @@ At the end of this tutorial, you have two Python apps:
 
 ## Prerequisites
 
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+[!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 ## Create an IoT hub
 
@@ -69,10 +70,6 @@ In this section, you create a Python console app that responds to a direct metho
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
 
 2. Using a text editor, create a new **simDevice.py** file in your working directory.
 
@@ -175,17 +172,13 @@ For more information about IoT Hub shared access policies and permissions, see [
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 
-In this section, you create a Python console app that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
+In this section, you create a Python console app that initiates a remote **lockDoor** on a device using a direct method and also updates the device twin's desired properties.
 
-1. At your command prompt, run the following command to install the **azure-iot-service-client** package:
+1. At your command prompt, run the following command to install the **azure-iot-hub** package:
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iot-hub
     ```
-
-   > [!NOTE]
-   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
-   >
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.
 
@@ -197,16 +190,15 @@ In this section, you create a Python console app that initiates a remote **lockD
     import threading
     import uuid
 
-    import iothub_service_client
-    from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
-    from iothub_service_client import IoTHubDeviceTwin, IoTHubDeviceMethod, IoTHubError
+    from azure.iot.hub import IoTHubRegistryManager
+    from azure.iot.hub.models import Twin, TwinProperties, CloudToDeviceMethod, CloudToDeviceMethodResult, QuerySpecification, QueryResult
 
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
 
     METHOD_NAME = "lockDoor"
     METHOD_PAYLOAD = "{\"lockTime\":\"10m\"}"
-    UPDATE_JSON = "{\"properties\":{\"desired\":{\"building\":43,\"floor\":3}}}"
+    UPDATE_PATCH = {"building":43,"floor":3}
     TIMEOUT = 60
     WAIT_COUNT = 5
     ```
@@ -214,18 +206,12 @@ In this section, you create a Python console app that initiates a remote **lockD
 4. Add the following function that is used to query for devices:
 
     ```python
-    def query_condition(device_id):
-        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
+    def query_condition(iothub_registry_manager, device_id):
 
-        number_of_devices = 10
-        dev_list = iothub_registry_manager.get_device_list(number_of_devices)
+        query_spec = QuerySpecification(query="SELECT * FROM devices WHERE deviceId = '{}'".format(device_id))
+        query_result = iothub_registry_manager.query_iot_hub(query_spec, None, 1)
 
-        for device in range(0, number_of_devices):
-            if dev_list[device].deviceId == device_id:
-                return 1
-
-        print ( "Device not found" )
-        return 0
+        return len(query_result.items)
     ```
 
 5. Add the following methods to run the jobs that call the direct method and device twin:
@@ -236,10 +222,13 @@ In this section, you create a Python console app that initiates a remote **lockD
         print ( "Scheduling job: " + str(job_id) )
         time.sleep(wait_time)
 
-        if query_condition(device_id):
-            iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-            response = iothub_device_method.invoke(device_id, METHOD_NAME, METHOD_PAYLOAD, TIMEOUT)
+
+        if query_condition(iothub_registry_manager, device_id):
+            deviceMethod = CloudToDeviceMethod(method_name=METHOD_NAME, payload=METHOD_PAYLOAD)
+
+            response = iothub_registry_manager.invoke_device_method(DEVICE_ID, deviceMethod)
 
             print ( "" )
             print ( "Direct method " + METHOD_NAME + " called." )
@@ -249,10 +238,13 @@ In this section, you create a Python console app that initiates a remote **lockD
         print ( "Scheduling job " + str(job_id) )
         time.sleep(wait_time)
 
-        if query_condition(device_id):
-            iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
+        iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
 
-            twin_info = iothub_twin_method.update_twin(DEVICE_ID, UPDATE_JSON)
+        if query_condition(iothub_registry_manager, device_id):
+
+            twin = iothub_registry_manager.get_twin(DEVICE_ID)
+            twin_patch = Twin(properties= TwinProperties(desired=UPDATE_PATCH))
+            twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 
             print ( "" )
             print ( "Device twin updated." )
@@ -297,9 +289,9 @@ In this section, you create a Python console app that initiates a remote **lockD
                     time.sleep(1)
                     status_counter += 1
 
-        except IoTHubError as iothub_error:
+        except Exception as ex:
             print ( "" )
-            print ( "Unexpected error {0}" % iothub_error )
+            print ( "Unexpected error {0}" % ex )
             return
         except KeyboardInterrupt:
             print ( "" )

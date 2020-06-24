@@ -1,7 +1,6 @@
 ---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
@@ -33,13 +32,26 @@ More information on the various capabilities supported by [Network Performance M
  
 ## Supported Regions
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
+* North Europe
 * West Europe
+* France Central
+* Canada Central
+* West US
 * West Central US
+* North Central US
+* South Central US
+* Central US
 * East US
+* East US 2
+* West US 2
 * East Japan
 * South East Asia
 * South East Australia
+* Australia Central
+* Australia East
 * South UK
+* East Asia
+* Korea Central
 * Central India
 * US Government Virginia
 * China East 2

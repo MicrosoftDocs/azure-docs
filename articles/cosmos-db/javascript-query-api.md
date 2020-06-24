@@ -1,18 +1,18 @@
 ---
-title: Working with JavaScript language-integrated query API in Azure Cosmos DB
+title: Work with JavaScript integrated query API in Azure Cosmos DB Stored Procedures and Triggers
 description: This article introduces the concepts for JavaScript language-integrated query API to create stored procedures and triggers in Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 05/07/2020
+ms.author: tisande
 ms.reviewer: sngun
 
 ---
 
 # JavaScript query API in Azure Cosmos DB
 
-In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos DB server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) allows you to perform optimized queries using a JavaScript interface. You don't have to be aware of the SQL language to use this JavaScript interface. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls, with a syntax familiar to ECMAScript5's array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime and efficiently executed using Azure Cosmos DB indices.
+In addition to issuing queries using the SQL API in Azure Cosmos DB, the [Cosmos DB server-side SDK](https://azure.github.io/azure-cosmosdb-js-server/) provides a JavaScript interface for performing optimized queries in Cosmos DB Stored Procedures and Triggers. You don't have to be aware of the SQL language to use this JavaScript interface. The JavaScript query API allows you to programmatically build queries by passing predicate functions into sequence of function calls, with a syntax familiar to ECMAScript5's array built-ins and popular JavaScript libraries like Lodash. Queries are parsed by the JavaScript runtime and efficiently executed using Azure Cosmos DB indices.
 
 ## Supported JavaScript functions
 

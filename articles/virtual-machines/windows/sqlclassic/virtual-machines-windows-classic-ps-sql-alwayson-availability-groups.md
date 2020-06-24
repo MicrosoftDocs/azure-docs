@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure the Always On availability group on an Azure VM by using PowerShell | Microsoft Docs
 description: This tutorial uses resources that were created with the classic deployment model. You use PowerShell to create an Always On availability group in Azure.
 services: virtual-machines-windows
@@ -24,10 +24,10 @@ ms.author: mikeray
 > * [Classic: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Before you begin, consider that you can now complete this task in Azure resource manager model. We recommend Azure resource manager model for new deployments. See [SQL Server Always On availability groups on Azure virtual machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
 
 > [!IMPORTANT]
-> We recommend that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model.
+> We recommend that most new deployments use the Resource Manager model. Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../../../azure-resource-manager/management/deployment-models.md). This article covers using the classic deployment model.
 
 Azure virtual machines (VMs) can help database administrators to lower the cost of a high-availability SQL Server system. This tutorial shows you how to implement an availability group by using SQL Server Always On end-to-end inside an Azure environment. At the end of the tutorial, your SQL Server Always On solution in Azure will consist of the following elements:
 
@@ -478,7 +478,7 @@ Finally, you're ready to configure the availability group. You'll use the SQL Se
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Download **CreateAzureFailoverCluster.ps1** from [Create Failover Cluster for Always On Availability Groups in Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You'll use this script to help you create a functional failover cluster. For important information on how Windows Failover Clustering interacts with the Azure network, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Download **CreateAzureFailoverCluster.ps1** from [Create Failover Cluster for Always On Availability Groups in Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) to the local working directory. You'll use this script to help you create a functional failover cluster. For important information on how Windows Failover Clustering interacts with the Azure network, see [High availability and disaster recovery for SQL Server in Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Change to your working directory and create the failover cluster with the downloaded script.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -564,4 +564,4 @@ Finally, you're ready to configure the availability group. You'll use the SQL Se
 ## Next steps
 You've now successfully implemented SQL Server Always On by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for Always On availability groups in Azure](../classic/ps-sql-int-listener.md).
 
-For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+For other information about using SQL Server in Azure, see [SQL Server on Azure virtual machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

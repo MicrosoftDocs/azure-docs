@@ -1,22 +1,26 @@
 ---
-title: Azure Event Grid blob storage event schema
+title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
-ms.topic: reference
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 04/09/2020
 ms.author: spelluru
 ---
 
-# Azure Event Grid event schema for Blob storage
+# Azure Blob Storage as an Event Grid source
 
-This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for blob storage events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). It also gives you a list of quick starts and tutorials to use Azure Blob Storage as an event source.
 
-For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
-## List of events for Blob REST APIs
+>[!NOTE]
+> Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (general purpose v1)** does *not* support integration with Event Grid.
+
+## Event Grid event schema
+
+### List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
 
@@ -28,9 +32,9 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `CopyBlob`, `PutBlob`, and `PutBlockList` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-## List of the events for Azure Data Lake Storage Gen 2 REST APIs
+### List of the events for Azure Data Lake Storage Gen 2 REST APIs
 
-These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs.
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs. For more information bout Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 |Event name|Description|
 |----------|-----------|
@@ -44,9 +48,8 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-<a id="example-event" />
-
-## The contents of an event response
+<a name="example-event"></a>
+### The contents of an event response
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
 
@@ -65,7 +68,7 @@ This section contains an example of what that data would look like for each blob
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -82,7 +85,7 @@ This section contains an example of what that data would look like for each blob
 
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
-If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * The `dataVersion` key is set to a value of `2`.
 
@@ -104,7 +107,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -147,7 +150,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 
 ### Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
-If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of these changes:
 
 * The `dataVersion` key is set to a value of `2`.
 
@@ -281,7 +284,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
-## Event properties
+### Event properties
 
 An event has the following top-level data:
 
@@ -314,6 +317,17 @@ The data object has the following properties:
 | recursive | string | `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | sequencer | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
 | storageDiagnostics | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
+
+## Tutorials and how-tos
+|Title  |Description  |
+|---------|---------|
+| [Quickstart: route Blob storage events to a custom web endpoint with Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send blob storage events to a WebHook. |
+| [Quickstart: route Blob storage events to a custom web endpoint with PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure PowerShell to send blob storage events to a WebHook. |
+| [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
+| [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
+| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
+| [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 
 ## Next steps
 

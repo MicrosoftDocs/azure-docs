@@ -1,20 +1,21 @@
 ---
-title: Load data into Azure Data Lake Storage Gen1 by using Azure Data Factory | Microsoft Docs
+title: Load data into Azure Data Lake Storage Gen1
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen1'
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/17/2018
-ms.author: jingwang
-
 ---
+
 # Load data into Azure Data Lake Storage Gen1 by using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (previously known as Azure Data Lake Store) is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Storage Gen1 lets you capture data of any size, type, and ingestion speed. The data is captured in a single place for operational and exploratory analytics.
 
@@ -50,7 +51,7 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
  
     * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadADLSG1Demo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**ADFTutorialDataFactory**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
-    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md).  
     * **Version**: Select **V2**.
     * **Location**: Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations and regions. These data stores include Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database, and so on.
 

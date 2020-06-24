@@ -3,7 +3,7 @@ title: Investigate incidents with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Investigate incidents with Azure Sentinel
@@ -103,7 +103,21 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+## Closing an incident
 
+Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
+
+- True Positive - suspicious activity
+- Benign Positive - suspicious but expected
+- False Positive - incorrect alert logic
+- False Positive - incorrect data
+- Undetermined
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="{alt-text}":::
+
+After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## Next steps
 In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).

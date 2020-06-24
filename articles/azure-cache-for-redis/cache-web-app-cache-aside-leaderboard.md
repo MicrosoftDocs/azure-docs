@@ -1,21 +1,12 @@
 ---
-title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
-description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: cache
-documentationcenter: ''
+title: 'Tutorial: Create a Web App (cache-aside) - Azure Cache for Redis'
+description: Learn how to create a Web App with Azure Cache for Redis that uses the cache-aside pattern.
 author: yegu-ms
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+ms.author: yegu
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to use Azure Cache for Redis to improve performance and reduce back-end database load.
 
@@ -648,9 +639,9 @@ To run the app locally:
 
 ## Publish and run in Azure
 
-### Provision a SQL Azure database for the app
+### Provision a database for the app
 
-In this section, you will provision a new SQL Azure database for the app to use while hosted in Azure.
+In this section, you will provision a new database in SQL Database for the app to use while hosted in Azure.
 
 1. In the [Azure portal](https://portal.azure.com/), Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -669,7 +660,7 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | *East US* | Select the same region where you created the cache and App Service. |

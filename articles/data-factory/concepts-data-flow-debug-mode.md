@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory mapping data flow Debug Mode
+title: Mapping data flow Debug Mode
 description: Start an interactive debug session when building data flows
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
 ---
 
 # Mapping data flow Debug Mode
 
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
 

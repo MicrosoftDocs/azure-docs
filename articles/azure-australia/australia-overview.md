@@ -1,11 +1,12 @@
 ---
 title: What is Azure Australia? | Microsoft Docs
 description: Guidance on configuring Azure within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: Galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: overview
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
+ms.custom: references_regions
 ---
 
 # What is Azure Australia?

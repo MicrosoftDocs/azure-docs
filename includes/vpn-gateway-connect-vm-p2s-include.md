@@ -17,7 +17,7 @@ You can connect to a VM that is deployed to your VNet by creating a Remote Deskt
 
    - PowerShell - Use the example to view a list of VMs and private IP addresses from your resource groups. You don't need to modify this example before using it.
 
-     ```powershell
+     ```azurepowershell-interactive
      $VMs = Get-AzVM
      $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
 

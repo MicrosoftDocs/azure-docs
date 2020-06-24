@@ -1,5 +1,5 @@
 ---
-title: Manage user access with access reviews - Azure Active Directory | Microsoft Docs
+title: Manage user access with access reviews - Azure AD
 description: Learn how to manage users' access as membership of a group or assignment to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
@@ -29,7 +29,7 @@ With Azure Active Directory (Azure AD), you can easily ensure that users have ap
 
 - Azure AD Premium P2
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create and perform an access review
 

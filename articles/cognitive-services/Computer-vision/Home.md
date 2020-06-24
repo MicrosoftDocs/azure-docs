@@ -1,5 +1,5 @@
 ---
-title: What is the Computer Vision API? - Computer Vision
+title: What is Computer Vision? - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 10/01/2019 
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
@@ -17,13 +17,19 @@ ms.custom: seodec18
 
 # What is Computer Vision?
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-You can use Computer Vision in your application by using either a native SDK or invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information based on the visual features you're interested in. For example, Computer Vision can determine whether an image contains adult content, find specific brands or objects, or find human faces.
+
+You can use Computer Vision in your application through a client library SDK or by calling the REST API directly. This page broadly covers what you can do with Computer Vision.
+
+## Computer Vision for digital asset management
+
+Computer Vision can power many digital asset management (DAM) scenarios. DAM is the business process of organizing, storing, and retrieving rich media assets and managing digital rights and permissions. For example, a company may want to group and identify images based on visible logos, faces, objects, colors, and so on. Or, you might want to automatically [generate captions for images](./Tutorials/storage-lab-tutorial.md) and attach keywords so they're searchable. For an all-in-one DAM solution using Cognitive Services, Azure Cognitive Search, and intelligent reporting, see the [Knowledge Mining Solution Accelerator Guide](https://github.com/Azure-Samples/azure-search-knowledge-mining) on GitHub. For other DAM examples, see the [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) repository.
 
 ## Analyze images for insight
 
-You can analyze images to detect and provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
 
 | Action | Description |
 | ------ | ----------- |
@@ -41,11 +47,9 @@ You can analyze images to detect and provide insights about their visual feature
 
 ## Extract text from images
 
-You can use Computer Vision [Read API](concept-recognizing-text.md#read-api) to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses our latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. Currently, English is the only supported language.
+You can use the Computer Vision [Read](concept-recognizing-text.md#read-api) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses the latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. It currently works for seven different languages (see [Language support](./language-support.md)).
 
 You can also use the [optical character recognition (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API to extract printed text in several languages. If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
-
-
 
 ## Moderate content in images
 
@@ -72,6 +76,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following a quickstart guide:
 
-- [Quickstart: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
-- [Quickstart: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
-- [Quickstart: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)
+- [Quickstart: Computer Vision .NET client library](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+- [Quickstart: Computer Vision Python client library](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
+- [Quickstart: Computer Vision Java client library](./quickstarts-sdk/client-library.md?pivots=programming-language-java)

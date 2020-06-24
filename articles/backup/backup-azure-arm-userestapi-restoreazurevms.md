@@ -1,20 +1,14 @@
 ---
-title: 'Azure Backup: Restore Azure VMs using REST API'
-description: manage restore operations of Azure VM Backup using REST API
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
+title: Restore Azure VMs using REST API
+description: In this article, learn how to manage restore operations of Azure Virtual Machine Backup using REST API.
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: dacurwin
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ---
 
 # Restore Azure Virtual machines using REST API
 
-Once the backup of an Azure Virtual machine using Azure Backup is completed, one can restore entire Azure Virtual machines or disks or files from the same backup copy. This article describes how to restore an Azure VM or disks using REST API.
+Once the backup of an Azure virtual machine using Azure Backup is completed, one can restore entire Azure Virtual machines or disks or files from the same backup copy. This article describes how to restore an Azure VM or disks using REST API.
 
 For any restore operation, one has to identify the relevant recovery point first.
 
@@ -23,7 +17,7 @@ For any restore operation, one has to identify the relevant recovery point first
 The available recovery points of a backup item can be listed using the [list recovery point REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). It is a simple *GET* operation with all the relevant values.
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2016-12-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` is "Azure".
@@ -118,12 +112,12 @@ The recovery point is identified with the `{name}` field in the above response.
 
 ## Restore disks
 
-If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks as per their requirements. The storage account should be in the same region as the recovery services vault and should not be zone redundant. The disks as well as the configuration of the backed-up VM ("vmconfig.json") will be stored in the given storage account.
+If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the recovery services vault and should not be zone redundant. The disks as well as the configuration of the backed-up VM ("vmconfig.json") will be stored in the given storage account.
 
 Triggering restore disks is a *POST* request. To know more about the Restore disks operation, refer to the ["trigger restore" REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
 ```http
-POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
+POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
 ```
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` is "Azure" and the `{recoveryPointId}` is the `{name}` field of the recovery point mentioned [above](#example-response).
@@ -178,7 +172,7 @@ Once you submit the *POST* URI for triggering restore disks, the initial respons
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: 893fe372-8d6c-4c56-b589-45a95eeef95f
 x-ms-client-request-id: a15ce064-25bd-4ac6-87e5-e3bc6ec65c0b; a15ce064-25bd-4ac6-87e5-e3bc6ec65c0b
@@ -188,14 +182,14 @@ x-ms-correlation-request-id: 893fe372-8d6c-4c56-b589-45a95eeef95f
 x-ms-routing-request-id: SOUTHINDIA:20180604T130003Z:893fe372-8d6c-4c56-b589-45a95eeef95f
 Cache-Control: no-cache
 Date: Mon, 04 Jun 2018 13:00:03 GMT
-Location: https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01
+Location: https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
 Then track the resulting operation using the location header or Azure-AsyncOperation header with a simple *GET* command.
 
 ```http
-GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2016-12-01
+GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2019-05-13
 ```
 
 Once the operation completes, it returns 200 (OK) with the ID of the resulting restore job in the response body.
@@ -248,7 +242,7 @@ The following request body defines properties required to trigger a virtual mach
         "containerName": "IaasVMContainer;iaasvmcontainerv2;testRG;testVM",
         "protectedItemName": "VM;iaasvmcontainerv2;testRG;testVM",
         "recoveryPointId": "348916168024334",
-        "api-version": "2016-12-01",
+        "api-version": "2019-05-13",
       "parameters": {
         "properties": {
           "objectType":  "IaasVMRestoreRequest",

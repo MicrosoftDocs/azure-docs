@@ -1,17 +1,20 @@
 ---
 title: API Prerequisites | Azure Marketplace
 description: Prerequisites fro using the Cloud Partner Portal APIs.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
+ms.date: 04/08/2020
+ms.author: dsindona
 ---
 
 
 API Prerequisites
 ================
+
+> [!NOTE]
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
 
 There are two required programmatic assets that you need to use the Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 
@@ -40,7 +43,7 @@ Use the following steps to add the service principal:
 
 -   A **Friendly Name** for the service principal, for example `spAccount`.
 -   The **Application ID**. To find this identifier, go to the [Azure
-    Portal](https://portal.azure.com), click **Azure Active Directory**,
+    portal](https://portal.azure.com), click **Azure Active Directory**,
     choose **App registrations**, and click on your app.
 -   The **Tenant ID**, also known as the **Directory ID**, for your
     Azure AD tenant. You can find this identifier in the Azure Active Directory

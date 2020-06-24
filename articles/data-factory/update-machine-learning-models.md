@@ -1,5 +1,5 @@
 ---
-title: Update machine learning models using Azure Data Factory | Microsoft Docs
+title: Update machine learning models using Azure Data Factory 
 description: Describes how to create create predictive pipelines using Azure Data Factory and machine learning
 services: data-factory
 documentationcenter: ''
@@ -13,13 +13,16 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ---
 
-# Update Azure Machine Learning models by using Update Resource activity
-This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
+# Update ML Studio (classic)v models by using Update Resource activity
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+This article complements the main Azure Data Factory - ML Studio (classic)integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
 
 ## Overview
-As part of the process of operationalizing Azure Machine Learning models, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
+As part of the process of operationalizing ML Studio (classic) models, your model is trained and saved. You then use it to create a predictive Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps.
 
-Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Refer to [Retrain a Machine Learning Model](../machine-learning/machine-learning-retrain-machine-learning-model.md) for details about how you can retrain a model in Azure Machine Learning.
+Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. 
 
 Retraining may occur frequently. With Batch Execution activity and Update Resource activity, you can operationalize the Azure Machine Learning model retraining and updating the predictive Web Service using Data Factory.
 
@@ -27,9 +30,9 @@ The following picture depicts the relationship between training and predictive W
 
 ![Web services](./media/update-machine-learning-models/web-services.png)
 
-## Azure Machine Learning update resource activity
+## ML Studio (classic) update resource activity
 
-The following JSON snippet defines an Azure Machine Learning Batch Execution activity.
+The following JSON snippet defines an ML Studio (classic) Batch Execution activity.
 
 ```json
 {

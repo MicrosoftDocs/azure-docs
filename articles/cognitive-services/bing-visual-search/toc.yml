@@ -1,5 +1,5 @@
 - name: Bing Visual Search Documentation
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: Overview
   items:
     - name: What is Bing Visual Search API?
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Quickstarts
   items:
-    - name: REST API 
+    - name: REST API
       expanded: true
       items:
       - name: Using C#
@@ -24,24 +24,21 @@
         href: quickstarts/ruby.md
       - name: Using Go
         href: quickstarts/go.md
-
-    - name: SDK
+    - name: Client library
       expanded: true
       items:
-      - name: Using C#
-        href: visual-search-sdk-c-sharp.md
-      - name: Using Node.js
-        href: visual-search-sdk-node.md
-      - name: Using Python
-        href: visual-search-sdk-python.md
-      - name: Using Java
-        href: visual-search-sdk-java.md
+      - name: Bing Visual Search client libraries
+        href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
   - name: Uploading an image
     href: tutorial-visual-search-image-upload.md
   - name: Crop and search an area of an image
     href: tutorial-visual-search-crop-area-results.md
+  - name: Find similar images from previous searches
+    href: tutorial-visual-search-insights-token.md
+  - name: Create a Single-page Web app
+    href: tutorial-bing-visual-search-single-page-app.md
 - name: Samples
   items:
     - name: Code samples
@@ -64,10 +61,6 @@
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md
-  - name: Search for an image Using image insight tokens
-    href: tutorial-visual-search-insights-token.md
-  - name: Create a Single-page Web app
-    href: tutorial-bing-visual-search-single-page-app.md
 - name: Reference
   items:
   - name: REST v7 API
@@ -80,12 +73,14 @@
         href:  https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
+      - name: Node.js
+        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api

@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement application offer Test Drive tab | Azure Marketplace 
 description: Deprecated CPP article, linked to PC article; was "How to configure test drive for a Dynamics 365 for Customer Engagement application offer on the AppSource Marketplace."
-services: Azure, Marketplace, AppSource, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Customer Engagement application Test Drive tab

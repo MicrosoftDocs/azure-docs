@@ -3,20 +3,18 @@ title: Problems signing in to federated single sign-on gallery app | Microsoft D
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -25,7 +23,7 @@ ms.collection: M365-identity-device-management
 To troubleshoot the sign-in issues below, we recommend you follow these suggestion to get better diagnosis and automate the resolution steps:
 
 - Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
-- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../develop/howto-v1-debug-saml-sso-issues.md)
+- Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 
 ## Application not found in directory
@@ -38,7 +36,7 @@ The `Issuer` attribute sent from the application to Azure AD in the SAML request
 
 **Resolution**
 
-Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -68,7 +66,7 @@ The `AssertionConsumerServiceURL` value in the SAML request doesn't match the Re
 
 **Resolution**
 
-Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+Ensure that the `AssertionConsumerServiceURL` value in the SAML request matches the Reply URL value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -98,7 +96,7 @@ The user has not been granted access to the application in Azure AD.
 
 **Resolution**
 
-To assign one or more users to an application directly, follow the steps below. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
+To assign one or more users to an application directly, follow the steps below. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator**.
 
@@ -147,7 +145,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 
 **Resolution**
 
-1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
+1. Capture the SAML request. Follow the tutorial [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) to learn how to capture the SAML request.
 
 1. Contact the application vendor and share the following info:
 
@@ -159,7 +157,7 @@ The application vendor should validate that they support the Azure AD SAML imple
 
 ## Misconfigured application
 
-*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions for 'AAD Graph' in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
+*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
 
 **Possible cause**
 
@@ -167,7 +165,7 @@ The `Issuer` attribute sent from the application to Azure AD in the SAML request
 
 **Resolution**
 
-Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../develop/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
+Ensure that the `Issuer` attribute in the SAML request matches the Identifier value configured in Azure AD. If you use the [testing experience](../azuread-dev/howto-v1-debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin**.
 
@@ -268,4 +266,4 @@ To learn how to customize the SAML attribute claims sent to your application, se
 
 ## Next steps
 
-[How to debug SAML-based single sign-on to applications in Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

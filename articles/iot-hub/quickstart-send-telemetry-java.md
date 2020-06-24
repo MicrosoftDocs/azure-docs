@@ -8,8 +8,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.date: 06/21/2019
+ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt]
+ms.date: 05/26/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -17,19 +17,19 @@ ms.date: 06/21/2019
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-The quickstart shows how to send telemetry to an Azure IoT hub and read it with a Java application. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
-
-The quickstart uses two pre-written Java applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java application. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Java applications: one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Java. You need Java SE 8 on your development machine.
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+
+* [Apache Maven 3](https://maven.apache.org/download.cgi).
+
+* [A sample Java project](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
+
+* Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 You can verify the current version of Java on your development machine using the following command:
 
@@ -37,21 +37,23 @@ You can verify the current version of Java on your development machine using the
 java -version
 ```
 
-To build the samples, you need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi).
-
 You can verify the current version of Maven on your development machine using the following command:
 
 ```cmd/sh
 mvn --version
 ```
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### Add Azure IoT Extension
+
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-Download the sample Java project from https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip and extract the ZIP archive.
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Create an IoT hub
 
@@ -123,7 +125,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Output from telemetry sent by the device to your IoT hub](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![Output from telemetry sent by the device to your IoT hub](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## Read the telemetry from your hub
 
@@ -135,9 +137,9 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
-    | `eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
-    | `iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+    | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `EVENT_HUBS_COMPATIBLE_PATH`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `IOT_HUB_SAS_KEY`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
 3. In the local terminal window, run the following commands to install the required libraries and build the back-end application:
 
@@ -153,7 +155,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     The following screenshot shows the output as the back-end application receives telemetry sent by the simulated device to the hub:
 
-    ![Output as back-end application receives telemetry sent to your IoT hub](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
+    ![Output as back-end application receives telemetry sent to your IoT hub](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
 ## Clean up resources
 

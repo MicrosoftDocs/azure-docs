@@ -1,19 +1,21 @@
 ﻿---
-title: "Run a Databricks Notebook with the Databricks Notebook activity in Azure Data Factory"
+title: Run a Databricks Notebook with the activity
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
 services: data-factory
-documentationcenter: ""
-author: nabhishek 
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: "03/12/2018"
 ms.author: abnarain
+author: nabhishek
+manager: shwang
 ms.reviewer: douglasl
+ms.custom: seo-lt-2019
+ms.date: 03/12/2018
 ---
+
 # Run a Databricks notebook with the Databricks Notebook Activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you use the Azure portal to create an Azure Data Factory pipeline that executes a Databricks notebook against the Databricks jobs cluster. It also passes Azure Data Factory parameters to the Databricks notebook during execution.
 
@@ -157,8 +159,7 @@ In this section, you author a Databricks linked service. This linked service con
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```

@@ -1,8 +1,8 @@
 ---
-title: Anchor relationships and way-finding in Azure Spatial Anchors | Microsoft Docs
-description: Learn about the conceptual model behind anchor relationships. Learn to connect anchors within a space and to use the Nearby API to fulfill a way-finding scenario. 
+title: Anchor relationships and way-finding
+description: Learn about the conceptual model behind anchor relationships. Learn to connect anchors within a space and to use the Nearby API to fulfill a way-finding scenario.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
@@ -55,11 +55,11 @@ To connect anchors:
 
 ### Connect anchors in multiple sessions
 
-You can connect spatial anchors over multiple sessions. Using this method, you can create and connect some anchors at one time and then later create and connect more anchors. 
+You can connect spatial anchors over multiple sessions. Using this method, you can create and connect some anchors at one time and then later create and connect more anchors.
 
 To connect anchors over multiple sessions:
 
-1. The app creates some anchors in one CloudSpatialAnchorSession. 
+1. The app creates some anchors in one CloudSpatialAnchorSession.
 2. At a different time, the app locates one of these anchors (for example, Anchor A) by using a new CloudSpatialAnchorSession.
 3. Walk to a new location. The underlying mixed-reality or augmented-reality platform tracks the movement.
 4. Create Anchor C by using the same CloudSpatialAnchorSession. Anchors A, B, and C are now connected. The Spatial Anchors service maintains this relationship.
@@ -68,7 +68,7 @@ You can continue this procedure for more anchors and more sessions over time.
 
 ### Verify anchor connections
 
-The app can verify that two anchors are connected by issuing a query for nearby anchors. When the query's result contains the target anchor, the anchor connection is verified. If the anchors aren't connected, the app can try to connect them again. 
+The app can verify that two anchors are connected by issuing a query for nearby anchors, which you do by setting the `NearAnchorCriteria` on a `CloudSpatialAnchorWatcher`. When the query's result contains the target anchor, the anchor connection is verified. If the anchors aren't connected, the app can try to connect them again.
 
 Here are some reasons why anchors might fail to connect:
 

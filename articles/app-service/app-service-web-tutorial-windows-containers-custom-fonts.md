@@ -1,22 +1,11 @@
 ---
-title: Build ASP.NET app with Windows container (Preview) - Azure App Service | Microsoft Docs
-description: Learn how to deploy a custom Windows container into Azure App Service and deploy custom software in the container.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
+title: 'Tutorial: Legacy app with container (Preview)'
+description: Learn how to migrate a custom Windows container into Azure App Service and deploy custom software in the container.
+ms.topic: tutorial
 ms.date: 10/22/2019
-ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
+
 # Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
@@ -75,13 +64,13 @@ From the Solution Explorer, open **Dockerfile**.
 
 You need to use a [supported parent image](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code:
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 At the end of the file, add the following line and save the file:
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -207,4 +196,3 @@ The streamed logs looks like this:
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

@@ -1,25 +1,20 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for .NET) 
+title: Initialize MSAL.NET client applications | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about initializing client applications so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Initialize client applications using MSAL.NET
@@ -98,7 +93,7 @@ In the code snippets using application builders, a number of `.With` methods can
 
 The modifiers you can set on a public client or confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
 |`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
@@ -117,7 +112,7 @@ The modifiers you can set on a public client or confidential client application 
 
 The modifiers you can set on a public client application builder on Xamarin.iOS are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS only**: Sets the iOS key chain security group (for the cache persistence).|
 
@@ -125,7 +120,7 @@ The modifiers you can set on a public client application builder on Xamarin.iOS 
 
 The modifiers you can set on a confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|

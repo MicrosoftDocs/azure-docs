@@ -1,18 +1,17 @@
 ---
-title: Enable Azure Monitor for VMs by using Azure Policy | Microsoft Docs
+title: Enable Azure Monitor for VMs by using Azure Policy
 description: This article describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets by using Azure Policy.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
-ms.date: 10/15/2019
+author: bwren
+ms.author: bwren
+ms.date: 03/12/2020
 
 ---
 
-# Enable Azure Monitor for VMs (preview) by using Azure Policy
+# Enable Azure Monitor for VMs by using Azure Policy
 
-This article explains how to enable Azure Monitor for VMs (preview) for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
+This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure Policy. At the end of this process, you will have successfully configured enabling the Log Analytics and Dependency agents and identified virtual machines that aren't compliant.
 
 To discover, manage, and enable Azure Monitor for VMs for all of your Azure virtual machines or virtual machine scale sets, you can use either Azure Policy or Azure PowerShell. Azure Policy is the method we recommend because you can manage policy definitions to effectively govern your subscriptions to ensure consistent compliance and automatic enabling of newly provisioned VMs. These policy definitions:
 
@@ -20,17 +19,26 @@ To discover, manage, and enable Azure Monitor for VMs for all of your Azure virt
 * Report on compliance results.
 * Remediate for noncompliant VMs.
 
-If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs (preview) using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
+If you're interested in accomplishing these tasks with Azure PowerShell or an Azure Resource Manager template, see [Enable Azure Monitor for VMs using Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md).
+
+## Prerequisites
+Prior to using Policy to onboard your Azure VMs and virtual machine scale sets to Azure Monitoring for VMs, you must enable the VMInsights solution on the workspace you will use to store your monitoring data. This task can be completed from the **Get Started** page in Azure Monitor on the **Other onboarding options** tab.  Select **Configure a workspace**, which will prompt you to select the workspace to be configured.
+
+![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)
+
+You can also configure your workspace by choosing **Enable using policy** and then select the **Configure workspace** toolbar button.  This will install the VMInsights solution on the selected workspace which will enable the workspace to store the monitoring data sent by the VMs and virtual machine scale sets you enable using Policy. 
+
+![Enable using policy](media/vminsights-enable-at-scale-policy/enable-using-policy.png)
 
 ## Manage Policy Coverage feature overview
 
-Originally, the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was done exclusively from Azure Policy. The Manage Policy Coverage feature makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
+Azure Monitor for VMs Policy Coverage simplifies discovering, managing, and enabling at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. To access this feature,  select **Other onboarding options** from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
 
-![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page-01.png)
+![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
 From here, you can check and manage coverage for the initiative across your management groups and subscriptions. You can understand how many VMs exist in each of the management groups and subscriptions and their compliance status.
 
-![Azure Monitor for VMs Manage Policy page](./media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
+![Azure Monitor for VMs Manage Policy page](media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
 
 This information is useful to help you plan and execute your governance scenario for Azure Monitor for VMs from one central location. While Azure Policy provides a compliance view when a policy or initiative is assigned to a scope, with this new page you can discover where the policy or initiative isn't assigned and assign it in place. All actions like assign, view, and edit redirect to Azure Policy directly. The **Azure Monitor for VMs Policy Coverage** page is an expanded and integrated experience for only the initiative **Enable Azure Monitor for VMs**.
 
@@ -39,7 +47,7 @@ From this page, you also can configure your Log Analytics workspace for Azure Mo
 - Installs the Service Map solution.
 - Enables the operating system performance counters used by the performance charts, workbooks, and your custom log queries and alerts.
 
-![Azure Monitor for VMs configure workspace](./media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
+![Azure Monitor for VMs configure workspace](media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
 
 This option isn't related to any policy actions. It's available to provide an easy way to satisfy the [prerequisites](vminsights-enable-overview.md) required for enabling Azure Monitor for VMs.  
 
@@ -67,7 +75,7 @@ To enable Azure Monitor for VMs by using Azure Policy in your tenant:
 - Assign the initiative to a scope: management group, subscription, or resource group.
 - Review and remediate compliance results.
 
-For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#policy-assignment) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
+For more information about assigning Azure Policy, see [Azure Policy overview](../../governance/policy/overview.md#assignments) and review the [overview of management groups](../../governance/management-groups/overview.md) before you continue.
 
 ### Policies for Azure VMs
 
@@ -75,13 +83,13 @@ The policy definitions for an Azure VM are listed in the following table.
 
 |Name |Description |Type |
 |-----|------------|-----|
-|\[Preview\]: Enable Azure Monitor for VMs |Enable Azure Monitor for the virtual machines in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
-|\[Preview\]: Audit Dependency agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Audit Log Analytics agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Dependency agent for Linux VMs |Deploy Dependency agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Dependency agent for Windows VMs |Deploy Dependency agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Enable Azure Monitor for VMs |Enable Azure Monitor for the virtual machines in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|Audit Dependency agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|Audit Log Analytics agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|Deploy Dependency agent for Linux VMs |Deploy Dependency agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Dependency agent for Windows VMs |Deploy Dependency agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 
 ### Policies for Azure virtual machine scale sets
 
@@ -89,19 +97,19 @@ The policy definitions for an Azure virtual machine scale set are listed in the 
 
 |Name |Description |Type |
 |-----|------------|-----|
-|\[Preview\]: Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is az vmss update-instances. |Initiative |
-|\[Preview\]: Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Dependency agent for Linux virtual machine scale sets |Deploy Dependency agent for Linux virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Dependency agent for Windows virtual machine scale sets |Deploy Dependency agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Log Analytics agent for Linux virtual machine scale sets |Deploy Log Analytics agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
-|\[Preview\]: Deploy Log Analytics agent for Windows virtual machine scale sets |Deploy Log Analytics agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is `az vmss update-instances`. |Initiative |
+|Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|Deploy Dependency agent for Linux virtual machine scale sets |Deploy Dependency agent for Linux virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Dependency agent for Windows virtual machine scale sets |Deploy Dependency agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Log Analytics agent for Linux virtual machine scale sets |Deploy Log Analytics agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|Deploy Log Analytics agent for Windows virtual machine scale sets |Deploy Log Analytics agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 
 Standalone policy (not included with the initiative) is described here:
 
 |Name |Description |Type |
 |-----|------------|-----|
-|\[Preview\]: Audit Log Analytics workspace for VM – Report mismatch |Report VMs as noncompliant if they aren't logging to the Log Analytics workspace specified in the policy or initiative assignment. |Policy |
+|Audit Log Analytics workspace for VM – Report mismatch |Report VMs as noncompliant if they aren't logging to the Log Analytics workspace specified in the policy or initiative assignment. |Policy |
 
 ### Assign the Azure Monitor initiative
 
@@ -113,7 +121,7 @@ When you assign the policy or initiative, the scope selected in the assignment c
 
 2. In the Azure portal, select **Monitor**. 
 
-3. Choose **Virtual Machines (preview)** in the **Insights** section.
+3. Choose **Virtual Machines** in the **Insights** section.
  
 4. Select the **Get Started** tab. On the page, select **Manage Policy Coverage**.
 
@@ -149,7 +157,7 @@ The following matrix maps each possible compliance state for the initiative.
 | **Lock** | You don't have sufficient privileges to the management group.<sup>1</sup> | 
 | **Blank** | No policy is assigned. | 
 
-<sup>1</sup> If you don’t have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions. 
+<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions. 
 
 The following table maps each possible assignment status for the initiative.
 
@@ -162,31 +170,31 @@ The following table maps each possible assignment status for the initiative.
 | **Blank** | No VMs exist or a policy isn't assigned. | 
 | **Action** | Assign a policy or edit an assignment. | 
 
-<sup>1</sup> If you don’t have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions.
+<sup>1</sup> If you don't have access to the management group, ask an owner to provide access. Or, view compliance and manage assignments through the child management groups or subscriptions.
 
 ## Review and remediate the compliance results
 
 The following example is for an Azure VM, but it also applies to virtual machine scale sets. To learn how to review compliance results, see [Identify noncompliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the **Azure Monitor for VMs Policy Coverage** page, select either a management group or a subscription from the table. Select **View Compliance** by selecting the ellipsis (...).   
 
-![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance.png)
 
 Based on the results of the policies included with the initiative, VMs are reported as noncompliant in the following scenarios:
 
 * Log Analytics agent or Dependency agent isn't deployed.  
     This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a noncompliant policy.  
-    - \[Preview\]: Deploy Dependency agent for Linux VMs
-    - \[Preview\]: Deploy Dependency agent for Windows VMs
-    - \[Preview\]: Deploy Log Analytics agent for Linux VMs
-    - \[Preview\]: Deploy Log Analytics agent for Windows VMs
+    - Deploy Dependency agent for Linux VMs
+    - Deploy Dependency agent for Windows VMs
+    - Deploy Log Analytics agent for Linux VMs
+    - Deploy Log Analytics agent for Windows VMs
 
 * VM image (OS) isn't identified in the policy definition.  
     The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
-    - \[Preview\]: Audit Dependency agent deployment – VM image (OS) unlisted
-    - \[Preview\]: Audit Log Analytics agent deployment – VM image (OS) unlisted
+    - Audit Dependency agent deployment – VM image (OS) unlisted
+    - Audit Log Analytics agent deployment – VM image (OS) unlisted
 
 * VMs aren't logging in to the specified Log Analytics workspace.  
     It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a noncompliant workspace.  
-    - \[Preview\]: Audit Log Analytics workspace for VM – Report mismatch
+    - Audit Log Analytics workspace for VM – Report mismatch
 
 ## Edit an initiative assignment
 

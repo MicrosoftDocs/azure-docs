@@ -1,42 +1,34 @@
 ---
-title: What is Azure Cache for Redis? | Microsoft Docs
-description: Learn what Azure Cache for Redis is and how it is commonly used.
-services: cache
-documentationcenter: ''
+title: What is Azure Cache for Redis?
+description: Learn about Azure Cache for Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
 author: yegu-ms
-manager: martinekuan
-editor: ''
-ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.topic: overview
-ms.date: 03/26/2018
 ms.author: yegu
-ms.custom: mvc
+ms.service: cache
+ms.topic: overview
+ms.date: 05/12/2020
 
 #As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
-
 ---
 
-# Azure Cache for Redis description
+# Azure Cache for Redis
 
-Azure Cache for Redis is based on the popular software [Redis](https://redis.io/). It is typically used as a cache to improve the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by temporarily copying frequently accessed data to fast storage located close to the application. With [Azure Cache for Redis](https://redis.io/), this fast storage is located in-memory with Azure Cache for Redis instead of being loaded from disk by a database.
+Azure Cache for Redis provides an in-memory data store based on the open-source software [Redis](https://redis.io/). When used as a cache, Redis improves the performance and scalability of systems that rely heavily on backend data stores. Performance is improved by copying frequently accessed data to fast storage located close to the application. With Azure Cache for Redis, this fast storage is located in-memory instead of being loaded from disk by a database.
 
-Azure Cache for Redis can also be used as an in-memory data structure store, a distributed non-relational database, and a message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
+Azure Cache for Redis can be used as a distributed data cache, a session store, and a message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
 
-Azure Cache for Redis provides you access to a secure, dedicated Redis cache. Azure Cache for Redis is managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
+Azure Cache for Redis offers access to a secure, dedicated Redis cache. It is managed by Microsoft, hosted on Azure, and accessible to any application within or outside of Azure.
 
 ## Using Azure Cache for Redis
 
-There are many common patterns where Azure Cache for Redis is used to support application architecture or to improve application performance. Some of the most common include the following:
+Azure Cache for Redis improves application performance by supporting common application architecture patterns. Some of the most common include the following:
 
 | Pattern      | Description                                        |
 | ------------ | -------------------------------------------------- |
-| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Since a database can be large, loading an entire database into a cache is not a recommended approach. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data items into the cache only as needed. When the system makes changes to the backend data, it can at that time also update the cache, which is distributed with other clients. Additionally, the system can set an expiration on data items, or use an eviction policy to cause data updates to be reloaded into the cache.|
-| [Content Caching](cache-aspnet-output-cache-provider.md) | Most web pages are generated from templates with headers, footers, toolbars, menus, etc. They don't actually change often and should not be generated dynamically. Using an in-memory cache, like Azure Cache for Redis, will give your web servers quick access to this type of static content compared to backend datastores. This pattern reduces processing time and server load that would be required to generate content dynamically. This allows web servers to be more responsive, and can allow you to reduce the number of servers needed to handle loads. Azure Cache for Redis provides the Redis Output Cache Provider to help support this pattern with ASP.NET.|
-| [User session caching](cache-aspnet-session-state-provider.md) | This pattern is commonly used with shopping carts and other user history type information that a web application may want to associate with user cookies. Storing too much in a cookie can have a negative impact on performance as the cookie size grows and is passed and validated with every request. A typical solution is to use the cookie as a key to query the data in a backend database. Using an in-memory cache, like Azure Cache for Redis, to associate information with a user is much faster than interacting with a full relational database. |
-| Job and message queuing | When applications receive requests, often the operations associated with the request take additional time to execute. It is a common pattern to defer longer running operations by adding them to a queue, which is processed later, and possibly by another server. This method of deferring work is called task queuing. There are many software components designed to support task queues. Azure Cache for Redis also serves this purpose well as a distributed queue.|
-| Distributed transactions | It is a common requirement for applications to be able to execute a series of commands against a backend data-store as a single operation (atomic). All commands must succeed, or all must be rolled back to the initial state. Azure Cache for Redis supports executing a batch of commands as a single operation in the form of [Transactions](https://redis.io/topics/transactions). |
+| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Databases are often too large to load directly into a cache. It is common to use the [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) pattern to load data into the cache only as needed. When the system makes changes to the data, the system can also update the cache, which is then distributed to other clients. Additionally, the system can set an expiration on data, or use an eviction policy to trigger data updates into the cache.|
+| [Content Caching](cache-aspnet-output-cache-provider.md) | Many web pages are generated from templates that use static content such as headers, footers, banners. These static items shouldn't change often. Using an in-memory cache provides quick access to static content compared to backend datastores. This pattern reduces processing time and server load, allowing web servers to be more responsive. It can allow you to reduce the number of servers needed to handle loads. Azure Cache for Redis provides the Redis Output Cache Provider to support this pattern with ASP.NET.|
+| [User session caching](cache-aspnet-session-state-provider.md) | This pattern is commonly used with shopping carts and other user history data that a web application may want to associate with user cookies. Storing too much in a cookie can have a negative impact on performance as the cookie size grows and is passed and validated with every request. A typical solution uses the cookie as a key to query the data in a database. Using an in-memory cache, like Azure Cache for Redis, to associate information with a user is much faster than interacting with a full relational database. |
+| Job and message queuing | Applications often add tasks to a queue when the operations associated with the request take time to execute. Longer running operations are queued to be processed in sequence, often by another server.  This method of deferring work is called task queuing. Azure Cache for Redis provides a distributed queue to enable this pattern in your application.|
+| Distributed transactions | Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Cache for Redis supports executing a batch of commands as a single [transaction](https://redis.io/topics/transactions). |
 
 ## Azure Cache for Redis offerings
 
@@ -44,15 +36,15 @@ Azure Cache for Redis is available in the following tiers:
 
 | Tier | Description |
 |---|---|
-Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB). This is an ideal tier for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
-| Standard | A replicated cache in a two-node, primary/secondary, configuration managed by Microsoft, with a high-availability SLA (99.9%) |
+Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB)and is ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
+| Standard | A replicated cache in a two-node, primary/secondary, configuration managed by Azure with a high-availability SLA (99.9%) |
 | Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
 
 > [!TIP]
 > For more information about size, throughput, and bandwidth with premium caches, see [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
 >
 
-You can scale your cache up to a higher tier after it has already been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+You can scale your cache up to a higher tier after it has been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ### Feature comparison
 

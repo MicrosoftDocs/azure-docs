@@ -35,10 +35,10 @@ To learn more about how to configure this solution, refer to the solution guide 
 
 If you choose to run your application in a hybrid deployment where the web front-end tier is running within an Azure vNet in your Azure subscription and the DB tier of the application is running in VMware VMs in CloudSimple Private Cloud, you can use Azure internal load balancer (L4 load balancer) in front of your DB tier VMs for traffic management.
 
-To learn more, see Azure [Internal Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) documentation.
+To learn more, see Azure [Internal Load Balancer](../load-balancer/components.md#frontend-ip-configurations) documentation.
 
 ## Global server load balancer
 
 If you are looking for a DNS-based load balancer, then you may either use third party solutions available in Azure Marketplace or go with the native Azure solution.
 
-Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions and on-premise, while providing high availability and responsiveness. To learn more, see Azure [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) documentation.
+Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions and on-premises, while providing high availability and responsiveness. To learn more, see Azure [Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) documentation.

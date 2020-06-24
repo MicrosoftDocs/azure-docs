@@ -1,23 +1,24 @@
 ---
-title: Get Metadata activity in Azure Data Factory | Microsoft Docs
+title: Get Metadata activity in Azure Data Factory 
 description: Learn how to use the Get Metadata activity in a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: 
 
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: jingwang
 
 ---
 # Get Metadata activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can use the Get Metadata activity to retrieve the metadata of any data in Azure Data Factory. You can use this activity in the following scenarios:
 
@@ -31,7 +32,7 @@ The following functionality is available in the control flow:
 
 ## Capabilities
 
-The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 1 MB.
+The Get Metadata activity takes a dataset as an input and returns metadata information as output. Currently, the following connectors and corresponding retrievable metadata are supported. The maximum size of returned metadata is 2 MB.
 
 >[!NOTE]
 >If you run the Get Metadata activity on a self-hosted integration runtime, the latest capabilities are supported on version 3.6 or later.
@@ -50,17 +51,20 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
+- When using Get Metadata activity against a folder, make sure you have LIST/EXECUTE permission to the given folder.
 - For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
+- `lastModified` filter currently applies to filter child items but not the specified folder/file itself.
+- Wildcard filter on folders/files is not supported for Get Metadata activity.
 
 **Relational database**
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 

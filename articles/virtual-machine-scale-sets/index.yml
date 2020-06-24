@@ -1,56 +1,90 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Virtual Machine Scale Sets Documentation
+### YamlMime:Landing
+
+title: Virtual Machine Scale Sets documentation
+summary: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs.
+
 metadata:
-  title: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
-  services: virtual-machine-scale-sets
-  author: georgewallace
-  manager: gwallace
+  title: Virtual Machine Scale Sets documentation
+  description: Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
   ms.service: virtual-machine-scale-sets
   ms.topic: landing-page
-  ms.date: 03/14/2018
-  ms.author: gwallace
-abstract:
-  description: Azure virtual machine scale sets let you create and manage a group of identical, load balanced, and autoscaling VMs. Learn how to create, configure, manage, and autoscale virtual machine scale sets with our quickstarts, tutorials, and samples.
-sections:
-- title: Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to deploy a web server on a virtual machine scale set.
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
-      text: Azure Portal
-      href: /azure/virtual-machine-scale-sets/quick-create-portal
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/virtual-machine-scale-sets/quick-create-cli
-    - image: 
-        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/virtual-machine-scale-sets/quick-create-powershell 
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy, manage, and autoscale virtual machine scale sets on Azure.
-  - type: list
-    style: ordered
-    items:
-    - html: Create and manage a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
-    - html: Use data disks with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
-    - html: Use a custom VM image with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
-    - html: Deploy apps to a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
-    - html: Autoscale a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Example deployments for virtual machine scale sets.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI</a>
-    - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>
+  author: ju-shim
+  ms.author: jushiman
+  ms.reviewer: mimckitt
+  ms.date: 03/16/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About virtual machine scale sets
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are virtual machine scale sets?
+            url: overview.md
+          - text: Frequently asked questions (FAQ)
+            url: virtual-machine-scale-sets-faq.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure portal
+            url: quick-create-portal.md
+          - text: Azure PowerShell
+            url: quick-create-powershell.md
+          - text: Azure CLI
+            url: disk-encryption-cli.md
+
+  # Card
+  - title: Latest features
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Scale-in policy
+            url: virtual-machine-scale-sets-scale-in-policy.md
+          - text: Terminate notification
+            url: virtual-machine-scale-sets-terminate-notification.md
+          - text: Instance protection
+            url: virtual-machine-scale-sets-instance-protection.md
+
+  # Card
+  - title: Step-by-step guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create and manage a scale set with the Azure CLI
+            url: tutorial-create-and-manage-cli.md
+          - text: Create and manage a scale set with Azure PowerShell
+            url: tutorial-create-and-manage-powershell.md
+          - text: Use data disks with the Azure CLI
+            url: tutorial-use-disks-cli.md
+          - text: Use data disks with Azure PowerShell
+            url: tutorial-use-disks-powershell.md
+          - text: Use a custom VM image with the Azure CLI
+            url: tutorial-use-custom-image-cli.md
+          - text: Use a custom VM image with Azure PowerShell
+            url: tutorial-use-custom-image-powershell.md
+          - text: Deploy apps to a scale set with the Azure CLI
+            url: tutorial-install-apps-cli.md
+          - text: Deploy apps to a scale set with Azure PowerShell
+            url: tutorial-install-apps-powershell.md
+          - text: Autoscale a scale set with the Azure CLI
+            url: tutorial-autoscale-cli.md
+          - text: Autoscale a scale set with Azure PowerShell
+            url: tutorial-autoscale-powershell.md
+ 
+  
+# Card
+  - title: Self-paced training
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Build a scalable application with virtual machine scale sets
+            url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+          - text:  Create a Windows virtual machine in Azure
+            url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/

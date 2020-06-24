@@ -1,5 +1,5 @@
 ---
-title: Monitor data factories using Azure Monitor | Microsoft Docs
+title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,29 +12,162 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
 ---
-# Alert and monitor data factories by using Azure Monitor
+# Monitor and Alert Data Factory by using Azure Monitor
 
-Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-You can use monitoring data to gain deep insights about your applications. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
+Cloud applications are complex and have many moving parts. Monitors provide data to help ensure that your applications stay up and running in a healthy state. Monitors also help you avoid potential problems and troubleshoot past ones. You can use monitoring data to gain deep insights about your applications. This knowledge helps you improve application performance and maintainability. It also helps you automate actions that otherwise require manual intervention.
 
-Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. And Azure Data Factory writes diagnostic logs in Monitor.
+Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory can write diagnostic logs in Azure Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-For details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
-## Keeping Azure Data Factory data
+For further details, see [Azure Monitor overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor).
 
-Data Factory stores pipeline-run data for only 45 days. Use Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis. You can also keep them in a storage account so that you have factory information for your chosen duration.
+## Keeping Azure Data Factory metrics and pipeline-run data
 
-## Diagnostic logs
+Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets.
 
-* Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
-* Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
-* Analyze the logs with Log Analytics.
+* **Storage Account**: Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.
+* **Event Hub**: Stream the logs to Azure Event Hubs. The logs become input to a partner service or to a custom analytics solution like Power BI.
+* **Log Analytics**: Analyze the logs with Log Analytics. The Data Factory integration with Azure Monitor is useful in the following scenarios:
+  * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
+  * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
 
-You can use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
+You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
 
-## Set up diagnostic logs
+## Configure diagnostic settings and workspace
+
+Create or add diagnostic settings for your data factory.
+
+1. In the portal, go to Monitor. Select **Settings** > **Diagnostic settings**.
+
+1. Select the data factory for which you want to set a diagnostic setting.
+
+1. If no settings exist on the selected data factory, you're prompted to create a setting. Select **Turn on diagnostics**.
+
+   ![Create a diagnostic setting if no settings exist](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   If there are existing settings on the data factory, you see a list of settings already configured on the data factory. Select **Add diagnostic setting**.
+
+   ![Add a diagnostic setting if settings exist](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
+
+    * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables.
+    * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
+
+   ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+    > [!NOTE]
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
+
+1. Select **Save**.
+
+After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
+
+## Install Azure Data Factory Analytics solution from Azure Marketplace
+
+This solution provides you a summary of overall health of your Data Factory, with options to drill into details and to troubleshoot unexpected behavior patterns. With rich, out of the box views you can get insights into key processing including:
+
+* At a glance summary of data factory pipeline, activity and trigger runs
+* Ability to drill into data factory activity runs by type
+* Summary of data factory top pipeline, activity errors
+
+1. Go to **Azure Marketplace**, choose **Analytics** filter, and search for **Azure Data Factory Analytics (Preview)**
+
+   ![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+1. Details about **Azure Data Factory Analytics (Preview)**
+
+   ![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+1. Select **Create** and then create or select the **Log Analytics Workspace**.
+
+   ![Creating a new solution](media/data-factory-monitor-oms/monitor-log-analytics-image-5.png)
+
+### Monitor Data Factory metrics
+
+Installing Azure Data Factory Analytics creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. This results in the following metrics become enabled:
+
+* ADF Runs - 1) Pipeline Runs by Data Factory
+* ADF Runs - 2) Activity Runs by Data Factor
+* ADF Runs - 3) Trigger Runs by Data Factor
+* ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
+* ADF Errors - 2) Top 10 Activity Runs by Data Factory
+* ADF Errors - 3) Top 10 Trigger Errors by Data Factory
+* ADF Statistics - 1) Activity Runs by Type
+* ADF Statistics - 2) Trigger Runs by Type
+* ADF Statistics - 3) Max Pipeline Runs Duration
+
+![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+You can visualize the preceding metrics, look at the queries behind these metrics, edit the queries, create alerts, and take other actions.
+
+![Graphical representation of pipeline runs by data factory"](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
+
+
+## Data Factory Metrics
+
+With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
+
+Azure Data Factory version 2 emits the following metrics.
+
+| **Metric**           | **Metric display name**         | **Unit** | **Aggregation type** | **Description**                                       |
+|----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
+| PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | The total number of pipeline runs that succeeded within a minute window. |
+| PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | The total number of pipeline runs that failed within a minute window.    |
+| ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | The total number of activity runs that succeeded within a minute window.  |
+| ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | The total number of activity runs that failed within a minute window.     |
+| TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | The total number of trigger runs that succeeded within a minute window.   |
+| TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | The total number of trigger runs that failed within a minute window.      |
+
+To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+
+> [!NOTE]
+> Only completed, triggered activity and pipeline runs events are emitted. In progress and sandbox/debug runs are **not** emitted. 
+
+## Data Factory Alerts
+
+Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts.
+
+![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### Create Alerts
+
+1. Select **+ New Alert rule** to create a new alert.
+
+    ![New alert rule](media/monitor-using-azure-monitor/alerts_image4.png)
+
+1. Define the alert condition.
+
+    > [!NOTE]
+    > Make sure to select **All** in the **Filter by resource type** drop-down list.
+
+    !["Define alert condition" > "Select target", which opens the "Select a resource" pane ](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    !["Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    !["Configure signal type" pane](media/monitor-using-azure-monitor/alerts_image7.png)
+
+1. Define the alert details.
+
+    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
+
+1. Define the action group.
+
+    ![Create a rule, with "New Action group" highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Create a new action group](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Configure email, SMS, push, and voice](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Define an action group](media/monitor-using-azure-monitor/alerts_image12.png)
+
+## Set up diagnostic logs via the Azure Monitor REST API
 
 ### Diagnostic settings
 
@@ -61,7 +194,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to the JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -182,7 +315,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### Headers
 
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+* Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using Resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you got from Azure AD. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -408,143 +541,7 @@ Log Analytics inherits the schema from Monitor with the following exceptions:
     | $.properties.Parameters | Parameters | Dynamic |
     | $.properties.SystemParameters | SystemParameters | Dynamic |
     | $.properties.Tags | Tags | Dynamic |
-    
-## Metrics
 
-With Monitor, you can gain visibility into the performance and health of your Azure workloads. The most important type of Monitor data is the metric, which is also called the performance counter. Metrics are emitted by most Azure resources. Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
-
-Azure Data Factory version 2 emits the following metrics.
-
-| **Metric**           | **Metric display name**         | **Unit** | **Aggregation type** | **Description**                                       |
-|----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | The total number of pipeline runs that succeeded within a minute window. |
-| PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | The total number of pipeline runs that failed within a minute window.    |
-| ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | The total number of activity runs that succeeded within a minute window.  |
-| ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | The total number of activity runs that failed within a minute window.     |
-| TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | The total number of trigger runs that succeeded within a minute window.   |
-| TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | The total number of trigger runs that failed within a minute window.      |
-
-To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## Monitor Data Factory metrics with Azure Monitor
-
-You can use Data Factory integration with Monitor to route data to Monitor. This integration is useful in the following scenarios:
-
-* You want to write complex queries on a rich set of metrics that is published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
-
-* You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
-
-For a seven-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
-
-### Configure diagnostic settings and workspace
-
-Create or add diagnostic settings for your data factory.
-
-1. In the portal, go to Monitor. Select **Settings** > **Diagnostic settings**.
-
-1. Select the data factory for which you want to set a diagnostic setting.
-
-1. If no settings exist on the selected data factory, you're prompted to create a setting. Select **Turn on diagnostics**.
-
-   ![Create a diagnostic setting if no settings exist](media/data-factory-monitor-oms/monitor-oms-image1.png)
-
-   If there are existing settings on the data factory, you see a list of settings already configured on the data factory. Select **Add diagnostic setting**.
-
-   ![Add a diagnostic setting if settings exist](media/data-factory-monitor-oms/add-diagnostic-setting.png)
-
-1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
-
-    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
-
-1. Select **Save**.
-
-After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
-
-* In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_ tables
-* In _Azure-Diagnostics_ mode, diagnostic logs flow into _AzureDiagnostics_ table
-
-> [!NOTE]
-> Because an Azure log table can't have more than 500 columns, we highly recommended you select Resource-Specific mode. For more information, see [Log Analytics Known Limitations](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
-
-### Install Azure Data Factory Analytics from Azure Marketplace
-
-![Go to "Azure Marketplace", enter "Analytics filter", and select "Azure Data Factory Analytics (Preview")](media/data-factory-monitor-oms/monitor-oms-image3.png)
-
-![Details about "Azure Data Factory Analytics (Preview)"](media/data-factory-monitor-oms/monitor-oms-image4.png)
-
-Select **Create** and then select **OMS Workspace** and **OMS Workspace settings**.
-
-![Creating a new solution](media/data-factory-monitor-oms/monitor-oms-image5.png)
-
-### Monitor Data Factory metrics
-
-Installing Azure Data Factory Analytics creates a default set of views so that the following metrics become enabled:
-
-- ADF Runs - 1) Pipeline Runs by Data Factory
- 
-- ADF Runs- 2) Activity Runs by Data Factory
-
-- ADF Runs - 3) Trigger Runs by Data Factory
-
-- ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
-
-- ADF Errors - 2) Top 10 Activity Runs by Data Factory
-
-- ADF Errors - 3) Top 10 Trigger Errors by Data Factory
-
-- ADF Statistics - 1) Activity Runs by Type
-
-- ADF Statistics - 2) Trigger Runs by Type
-
-- ADF Statistics - 3) Max Pipeline Runs Duration
-
-![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
-
-You can visualize the preceding metrics, look at the queries behind these metrics, edit the queries, create alerts, and take other actions.
-
-![Graphical representation of pipeline runs by data factory"](media/data-factory-monitor-oms/monitor-oms-image8.png)
-
-> [!NOTE]
-> Azure Data Factory Analytics (Preview) sends diagnostic logs to _Resource-specific_ destination tables. You can write queries against the following tables: _ADFPipelineRun_, _ADFTriggerRun_, and _ADFActivityRun_.
-
-## Alerts
-
-Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts.
-
-![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
-
-### Create Alerts
-
-1. Select **+ New Alert rule** to create a new alert.
-
-    ![New alert rule](media/monitor-using-azure-monitor/alerts_image4.png)
-
-1. Define the alert condition.
-
-    > [!NOTE]
-    > Make sure to select **All** in the **Filter by resource type** drop-down list.
-
-    !["Define alert condition" > "Select target", which opens the "Select a resource" pane ](media/monitor-using-azure-monitor/alerts_image5.png)
-
-    !["Define alert condition" >" Add criteria", which opens the "Configure signal logic" pane](media/monitor-using-azure-monitor/alerts_image6.png)
-
-    !["Configure signal type" pane](media/monitor-using-azure-monitor/alerts_image7.png)
-
-1. Define the alert details.
-
-    ![Alert details](media/monitor-using-azure-monitor/alerts_image8.png)
-
-1. Define the action group.
-
-    ![Create a rule, with "New Action group" highlighted](media/monitor-using-azure-monitor/alerts_image9.png)
-
-    ![Create a new action group](media/monitor-using-azure-monitor/alerts_image10.png)
-
-    ![Configure email, SMS, push, and voice](media/monitor-using-azure-monitor/alerts_image11.png)
-
-    ![Define an action group](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next steps
 [Monitor and manage pipelines programmatically](monitor-programmatically.md)

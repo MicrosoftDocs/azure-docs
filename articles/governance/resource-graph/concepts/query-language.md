@@ -1,11 +1,8 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/21/2019
+ms.date: 03/07/2020
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -30,8 +27,14 @@ from related resource types. Here is the list of tables available in Resource Gr
 |---|---|
 |Resources |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|HealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
+
+For a complete list including resource types, see
+[Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
@@ -92,7 +95,8 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query. Custom join strategies, such as broadcast join, aren't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take` |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400 |
+|[mvexpand](/azure/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. |
 |[order](/azure/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
 |[project](/azure/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
@@ -139,6 +143,6 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
-- Learn to [explore resources](explore-resources.md)
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).
+- Learn more about how to [explore resources](explore-resources.md).

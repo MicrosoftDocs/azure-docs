@@ -1,5 +1,5 @@
 ---
-title: Copy data between Azure Data Lake Storage Gen1 and Azure SQL database using Sqoop | Microsoft Docs
+title: Copy data between Data Lake Storage Gen1 and Azure SQL - Sqoop | Microsoft Docs
 description: Use Sqoop to copy data between Azure SQL Database and Azure Data Lake Storage Gen1
 services: data-lake-store
 author: twooley
@@ -18,7 +18,7 @@ Learn how to use Apache Sqoop to import and export data between Azure SQL Databa
 
 Big data applications are a natural choice for processing unstructured and semi-structured data, such as logs and files. However, you may also have a need to process structured data that's stored in relational databases.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) is a tool designed to transfer data between  relational databases and a big data repository, such as Data Lake Storage Gen1. You can use it to import data from a relational database management system (RDBMS) such as Azure SQL Database into Data Lake Storage Gen1. You can then transform and analyze the data using big data workloads, and then export the data back into an RDBMS. In this article, you use an Azure SQL database as your relational database to import/export from.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) is a tool designed to transfer data between  relational databases and a big data repository, such as Data Lake Storage Gen1. You can use it to import data from a relational database management system (RDBMS) such as Azure SQL Database into Data Lake Storage Gen1. You can then transform and analyze the data using big data workloads, and then export the data back into an RDBMS. In this article, you use a database in Azure SQL Database as your relational database to import/export from.
 
 ## Prerequisites
 
@@ -27,11 +27,11 @@ Before you begin, you must have the following:
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create the account, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Storage Gen1 access.
-* **Azure SQL Database**. For instructions on how to create one, see [Create an Azure SQL database](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. For instructions on how to create a database in Azure SQL Database, see [Create a database in Azure SQL Database](../sql-database/sql-database-get-started.md)
 
-## Create sample tables in the Azure SQL database
+## Create sample tables in the database
 
-1. To start, create two sample tables in the Azure SQL database. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
+1. To start, create two sample tables in the database. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the database and then run the following queries.
 
     **Create Table1**
 
@@ -83,7 +83,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
        sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-   The **sql-database-server-name** placeholder represents the name of the server where the Azure SQL database is running. **sql-database-name** placeholder represents the actual database name.
+   The **sql-database-server-name** placeholder represents the name of the server where the database is running. **sql-database-name** placeholder represents the actual database name.
 
    For example,
 
@@ -113,7 +113,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
+1. Verify that the data was uploaded to the SQL Database table. Use [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) or Visual Studio to connect to the Azure SQL Database and then run the following query.
 
        SELECT * FROM TABLE2
 

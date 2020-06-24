@@ -1,9 +1,9 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure virtual machine scale set using Azure CLI
-description: Step by step instructions for configuring system and user-assigned managed identities on an Azure virtual machine scale set, using Azure CLI.
+title: Configure managed identities on virtual machine scale set - Azure CLI - Azure AD
+description: Step-by-step instructions for configuring system and user-assigned managed identities on an Azure virtual machine scale set, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: MarkusVi
 editor: 
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Managed identities for Azure resources provides Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
+Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
 In this article, you learn how to perform the following managed identities for Azure resources operations on an Azure virtual machine scale set, using the Azure CLI:
 - Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
@@ -31,9 +31,9 @@ In this article, you learn how to perform the following managed identities for A
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+- To perform the management operations in this article, your account needs the following Azure role-based access control assignments:
 
     > [!NOTE]
     > No additional Azure AD directory role assignments required.
@@ -43,7 +43,7 @@ In this article, you learn how to perform the following managed identities for A
     - [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role to assign and remove a user-assigned managed identity from and to a virtual machine scale set.
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
+    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
     - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
       
       > [!NOTE]
@@ -65,13 +65,13 @@ To create a virtual machine scale set with the system-assigned managed identity 
    az login
    ```
 
-2. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
+2. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have a resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Create a virtual machine scale set using [az vmss create](/cli/azure/vmss/#az-vmss-create) . The following example creates a virtual machine scale set named *myVMSS* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
+3. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set named *myVMSS* with a system-assigned managed identity, as requested by the `--assign-identity` parameter. The `--admin-username` and `--admin-password` parameters specify the administrative user name and password account for virtual machine sign-in. Update these values as appropriate for your environment: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -87,7 +87,7 @@ If you need to enable the system-assigned managed identity on an existing Azure 
    az login
    ```
 
-2. Use [az vmss identity assign](/cli/azure/vmss/identity/#az-vmss-identity-assign) command to enable a system-assigned managed identity to an existing VM:
+2. [Enable](/cli/azure/vmss/identity/#az-vmss-identity-assign) a system-assigned managed identity to an existing VM:
 
    ```azurecli-interactive
    az vmss identity assign -g myResourceGroup -n myVMSS
@@ -120,7 +120,7 @@ In this section, you learn how to enable and remove a user-assigned managed iden
 
 This section walks you through creation of a virtual machine scale set and assignment of a user-assigned managed identity to the virtual machine scale set. If you already have a virtual machine scale set you want to use, skip this section and proceed to the next.
 
-1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your user-assigned managed identity, using [az group create](/cli/azure/group/#az-group-create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
+1. You can skip this step if you already have a resource group you would like to use. Create a [resource group](~/articles/azure-resource-manager/management/overview.md#terminology) for containment and deployment of your user-assigned managed identity, using [az group create](/cli/azure/group/#az-group-create). Be sure to replace the `<RESOURCE GROUP>` and `<LOCATION>` parameter values with your own values. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -150,7 +150,7 @@ This section walks you through creation of a virtual machine scale set and assig
    }
    ```
 
-3. Create a virtual machine scale set using [az vmss create](/cli/azure/vmss/#az-vmss-create). The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY>` parameter values with your own values. 
+3. [Create](/cli/azure/vmss/#az-vmss-create) a virtual machine scale set. The following example creates a virtual machine scale set associated with the new user-assigned managed identity, as specified by the `--assign-identity` parameter. Be sure to replace the `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY>` parameter values with your own values. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -180,7 +180,7 @@ This section walks you through creation of a virtual machine scale set and assig
    }
    ```
 
-2. Assign the user-assigned managed identity to your virtual machine scale set using [az vmss identity assign](/cli/azure/vmss/identity). Be sure to replace the `<RESOURCE GROUP>` and `<VIRTUAL MACHINE SCALE SET NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` is the user-assigned identity's resource `name` property, as created in the previous step:
+2. [Assign](/cli/azure/vmss/identity) the user-assigned managed identity to your virtual machine scale set. Be sure to replace the `<RESOURCE GROUP>` and `<VIRTUAL MACHINE SCALE SET NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` is the user-assigned identity's resource `name` property, as created in the previous step:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>
@@ -188,7 +188,7 @@ This section walks you through creation of a virtual machine scale set and assig
 
 ### Remove a user-assigned managed identity from an Azure virtual machine scale set
 
-To remove a user-assigned managed identity from a virtual machine scale set use [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). If this is the only user-assigned managed identity assigned to the virtual machine scale set, `UserAssigned` will be removed from the identity type value.  Be sure to replace the `<RESOURCE GROUP>` and `<VIRTUAL MACHINE SCALE SET NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` will be the user-assigned managed identity's `name` property, which can be found in the identity section of the virtual machine scale set using `az vmss identity show`:
+To [remove](/cli/azure/vmss/identity#az-vmss-identity-remove) a user-assigned managed identity from a virtual machine scale set use `az vmss identity remove`. If this is the only user-assigned managed identity assigned to the virtual machine scale set, `UserAssigned` will be removed from the identity type value.  Be sure to replace the `<RESOURCE GROUP>` and `<VIRTUAL MACHINE SCALE SET NAME>` parameter values with your own values. The `<USER ASSIGNED IDENTITY>` will be the user-assigned managed identity's `name` property, which can be found in the identity section of the virtual machine scale set using `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

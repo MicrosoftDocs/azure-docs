@@ -4,10 +4,10 @@ description: How to troubleshoot Traffic Manager profiles when it shows as degra
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: dcscontentpm
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
@@ -16,7 +16,7 @@ ms.author: rohink
 
 # Troubleshooting degraded state on Azure Traffic Manager
 
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable diagnostic logging.  Refer to [Enable diagnostic logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
+This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable logging.  Refer to [Enable resource logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
 
 ![degraded endpoint status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 

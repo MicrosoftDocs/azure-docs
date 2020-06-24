@@ -1,10 +1,7 @@
 ---
-title: Tag and version images in Azure Container Registry
-description: Best practices for tagging and versioning Docker container images
-services: container-registry
+title: Image tag best practices
+description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
 author: stevelasker
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
@@ -36,6 +33,10 @@ When base image updates are available, or any type of servicing release of the f
 
 In this case, both the major and minor tags are continually being serviced. From a base image scenario, this allows the image owner to provide serviced images.
 
+### Delete untagged manifests
+
+If an image with a stable tag is updated, the previously tagged image is untagged, resulting in an orphaned image. The previous image's manifest and unique layer data remain in the registry. To maintain your registry size, you can periodically delete untagged manifests resulting from stable image updates. For example, [auto-purge](container-registry-auto-purge.md) untagged manifests older than a specified duration, or set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
+
 ## Unique tags
 
 **Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
@@ -48,6 +49,12 @@ Unique tagging simply means that every image pushed to a registry has a unique t
 * **Build ID** - This option may be best since it's likely incremental, and it allows you to correlate back to the specific build to find all the artifacts and logs. However, like a manifest digest, it might be difficult for a human to read.
 
   If your organization has several build systems, prefixing the tag with the build system name is a variation on this option: `<build-system>-<build-id>`. For example, you could differentiate builds from the API team’s Jenkins build system and the web team's Azure Pipelines build system.
+
+### Lock deployed image tags
+
+As a best practice, we recommend that you [lock](container-registry-image-lock.md) any deployed image tag, by setting its `write-enabled` attribute to `false`. This practice prevents you from inadvertently removing an image from the registry and possibly disrupting your deployments. You can include the locking step in your release pipeline.
+
+Locking a deployed image still allows you to remove other, undeployed images from your registry using Azure Container Registry features to maintain your registry. For example, [auto-purge](container-registry-auto-purge.md) untagged manifests or unlocked images older than a specified duration, or set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
 
 ## Next steps
 

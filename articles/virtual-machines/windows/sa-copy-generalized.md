@@ -1,23 +1,14 @@
 ---
-title: Create an unmanaged image of a generalized VM in Azure | Microsoft Docs
+title: Create an unmanaged image of a generalized VM in Azure 
 description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-
+ms.custom: storage-accounts
 ---
 
 # How to create an unmanaged VM image from an Azure VM
@@ -26,7 +17,7 @@ This article covers using storage accounts. We recommend that you use managed di
 
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM using a storage account. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Generalize the VM 
 This section shows you how to generalize your Windows virtual machine for use as an image. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
@@ -146,7 +137,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
     ```    
 
 ### Create a public IP address and network interface
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
    

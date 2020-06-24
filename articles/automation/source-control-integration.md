@@ -1,18 +1,18 @@
 ---
-title: Source Control integration in Azure Automation
-description: This article describes source control integration with GitHub in Azure Automation.
+title: Use source control integration in Azure Automation
+description: This article tells how to synchronize Azure Automation source control with other repositories.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
 ---
-# Source control integration in Azure Automation
+# Use source control integration
 
-Source control allows you to keep your runbooks in your Automation account up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
+ Source control integration in Azure Automation supports single-direction synchronization from your source control repository. Source control allows you to keep your runbooks in your Automation account up to date with scripts in your GitHub or Azure Repos source control repository. This feature makes it easy to promote code that has been tested in your development environment to your production Automation account.
+ 
+ Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts. 
+
+## Source control types
 
 Azure Automation supports three types of source control:
 
@@ -20,160 +20,186 @@ Azure Automation supports three types of source control:
 * Azure Repos (Git)
 * Azure Repos (TFVC)
 
-## Pre-requisites
+## Prerequisites
 
 * A source control repository (GitHub or Azure Repos)
-* A [Run-As Account](manage-runas-account.md)
-* Ensure you have the [latest Azure modules](automation-update-azure-modules.md) in your Automation Account
+* A [Run As account](manage-runas-account.md)
+* The [latest Azure modules](automation-update-azure-modules.md) in your Automation account, including the `Az.Accounts` module (Az module equivalent of `AzureRM.Profile`)
 
 > [!NOTE]
-> Source control sync jobs run under the users Automation Account and are billed at the same rate as other Automation jobs.
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
 
-## Configure source control - Azure portal
+## Configure source control
 
-Within your Automation Account, select **Source Control** and click **+ Add**
+This section tells how to configure source control for your Automation account. You can use either the Azure portal or PowerShell.
 
-![Select source control](./media/source-control-integration/select-source-control.png)
+### Configure source control in Azure portal
 
-Choose **Source Control type**, click **Authenticate**. A browser window opens and prompts you to sign in, follow the prompts to complete authentication.
+Use this procedure to configure source control using the Azure portal.
 
-On the **Source Control Summary** page, fill out the information and click **Save**. The following table shows a description of the available fields.
+1. In your Automation account, select **Source Control** and click **Add**.
 
-|Property  |Description  |
-|---------|---------|
-|Source control name     | A friendly name for the source control. *This name must contain only letters and numbers.*        |
-|Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
-|Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
-|Branch     | The branch to pull the source files from. Branch targeting isn't available for the TFVC source control type.          |
-|Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks </br>*Only runbooks in the folder specified are synced. Recursion isn't supported.*        |
-|Auto Sync<sup>1</sup>     | Turns on or off automatic sync when a commit is made in the source control repository         |
-|Publish Runbook     | If set to **On**, after runbooks are synced from source control they'll be automatically published.         |
-|Description     | A text field to provide additional details        |
+    ![Select source control](./media/source-control-integration/select-source-control.png)
 
-<sup>1</sup> To enable Auto Sync when configuring source control integration with Azure Repos, you must be a Project Administrator.
+2. Choose **Source Control type**, then click **Authenticate**. 
 
-![Source control summary](./media/source-control-integration/source-control-summary.png)
+3. A browser window opens and prompts you to sign in. Follow the prompts to complete authentication.
+
+4. On the Source Control Summary page, use the fields to fill in the source control properties defined below. Click **Save** when finished. 
+
+    |Property  |Description  |
+    |---------|---------|
+    |Source control name     | A friendly name for the source control. This name must contain only letters and numbers.        |
+    |Source control type     | Type of source control mechanism. Available options are:</br> * GitHub</br>* Azure Repos (Git)</br> * Azure Repos (TFVC)        |
+    |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
+    |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
+    |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
+    |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository.        |
+    |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
+    |Description     | Text specifying additional details about the source control.        |
+
+    <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure Repos, you must be a Project Administrator.
+
+   ![Source control summary](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Your login for your source control repository may be different than your login for the Azure portal. Ensure you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser and log out from visualstudio.com or github.com and try connecting source control again.
+> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control.
 
-## Configure source control - PowerShell
+### Configure source control in PowerShell
 
-You can also use PowerShell to configure source control in Azure Automation. To configure source control with the PowerShell cmdlets, a personal access token (PAT) is needed. You use the [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) to create the source control connection. The cmdlet requires a secure string of the Personal Access Token, to learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+You can also use PowerShell to configure source control in Azure Automation. To use the PowerShell cmdlets for this operation, you need a personal access token (PAT). Use the [New-AzAutomationSourceControl](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationsourcecontrol?view=azps-3.5.0
+) cmdlet to create the source control connection. This cmdlet requires a secure string for the PAT. To learn how to create a secure string, see [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
-### Azure Repos (Git)
+The following subsections illustrate PowerShell creation of the source control connection for GitHub, Azure Repos (Git), and Azure Repos (TFVC). 
 
-```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
-```
-
-### Azure Repos (TFVC)
+#### Create source control connection for GitHub
 
 ```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
-### GitHub
+#### Create source control connection for Azure Repos (Git)
+
+> [!NOTE]
+> Azure Repos (Git) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` is deprecated but still supported. The new format is preferred.
+
 
 ```powershell-interactive
-New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
-### Personal access token permissions
+#### Create source control connection for Azure Repos (TFVC)
 
-Source control requires some minimum permissions for personal access tokens. The following tables contain the minimum permissions required for GitHub and Azure Repos.
+> [!NOTE]
+> Azure Repos (TFVC) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_versionControl` is deprecated but still supported. The new format is preferred.
 
-#### GitHub
+```powershell-interactive
+New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+```
 
-For more information about creating a personal access token in GitHub, visit [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+#### Personal access token (PAT) permissions
+
+Source control requires some minimum permissions for PATs. The following subsections contain the minimum permissions required for GitHub and Azure Repos.
+
+##### Minimum PAT permissions for GitHub
+
+The following table defines the minimum PAT permissions required for GitHub. For more information about creating a PAT in GitHub, see [Creating a personal access token for the command line](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
 |Scope  |Description  |
 |---------|---------|
-|**repo**     |         |
-|repo:status     | Access commit status         |
-|repo_deployment      | Access deployment status         |
-|public_repo     | Access public repositories         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Write repository hooks         |
-|read:repo_hook|Read repository hooks|
+|**`repo`**     |         |
+|`repo:status`     | Access commit status         |
+|`repo_deployment`      | Access deployment status         |
+|`public_repo`     | Access public repositories         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Write repository hooks         |
+|`read:repo_hook`|Read repository hooks|
 
-#### Azure Repos
+##### Minimum PAT permissions for Azure Repos
 
-For more information about creating a personal access token in Azure Repos, visit [Authenticate access with personal access tokens](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+The following list defines the minimum PAT permissions required for Azure Repos. For more information about creating a PAT in Azure Repos, see [Authenticate access with personal access tokens](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
-|Scope  |
-|---------|
-|Code (read)     |
-|Project and team (read)|
-|Identity (read)      |
-|User profile (read)     |
-|Work items (read)    |
-|Service Connections (read, query, and manage)<sup>1</sup>    |
+| Scope  |  Access Type  |
+|---------| ----------|
+| `Code`      | Read  |
+| `Project and team` | Read |
+| `Identity` | Read     |
+| `User profile` | Read     |
+| `Work items` | Read    |
+| `Service connections` | Read, query, manage<sup>1</sup>    |
 
-<sup>1</sup> The Service Connections permission is only required if you have enabled autosync.
+<sup>1</sup> The `Service connections` permission is only required if you have enabled autosync.
 
-## Syncing
+## Synchronize with source control
 
-Select the source from the table on the **Source control** page. Click **Start Sync** to start the sync process.
+Follow these steps to synchronize with source control. 
 
-You can view the status of the current sync job or previous ones by clicking the **Sync jobs** tab. On the **Source Control** drop-down, select a source control.
+1. Select the source from the table on the Source control page. 
 
-![Sync status](./media/source-control-integration/sync-status.png)
+2. Click **Start Sync** to start the sync process. 
 
-Clicking on a job allows you to view the job output. The following example is the output from a source control sync job.
+3. View the status of the current sync job or previous ones by clicking the **Sync jobs** tab. 
 
-```output
-========================================================================================================
+4. On the **Source Control** dropdown menu, select a source control mechanism.
 
-Azure Automation Source Control.
-Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
+    ![Sync status](./media/source-control-integration/sync-status.png)
 
-Setting AzureRmEnvironment.
+5. Clicking on a job allows you to view the job output. The following example is the output from a source control sync job.
 
-Getting AzureRunAsConnection.
+    ```output
+    ===================================================================
 
-Logging in to Azure...
+    Azure Automation Source Control.
+    Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
-Source control information for syncing:
+    Setting AzEnvironment.
 
-[Url = https://ContosoExample.visualstudio.com/ContosoFinanceTFVCExample/_versionControl] [FolderPath = /Runbooks]
+    Getting AzureRunAsConnection.
 
-Verifying url: https://ContosoExample.visualstudio.com/ContosoFinanceTFVCExample/_versionControl
+    Logging in to Azure...
 
-Connecting to VSTS...
+    Source control information for syncing:
 
+    [Url = https://ContosoExample.visualstudio.com/ContosoFinanceTFVCExample/_versionControl] [FolderPath = /Runbooks]
 
-Source Control Sync Summary:
+    Verifying url: https://ContosoExample.visualstudio.com/ContosoFinanceTFVCExample/_versionControl
 
+    Connecting to VSTS...
 
-2 files synced:
- - ExampleRunbook1.ps1
- - ExampleRunbook2.ps1
+    Source Control Sync Summary:
 
+    2 files synced:
+     - ExampleRunbook1.ps1
+     - ExampleRunbook2.ps1
 
+    ==================================================================
 
-========================================================================================================
-```
+    ```
 
-Additional logging is available by selecting **All Logs** on the **Source Control Sync Job Summary** page. These additional log entries can help you troubleshoot issues that may arise when using source control.
+6. Additional logging is available by selecting **All Logs** on the Source Control Sync Job Summary page. These additional log entries can help you troubleshoot issues that might arise when using source control.
 
-## Disconnecting source control
+## Disconnect source control
 
-To disconnect from a source control repository, open **Source control** under **Account Settings** in your Automation Account.
+To disconnect from a source control repository:
 
-Select the source control you want to remove. On the **Source Control Summary** page, click **Delete**.
+1. Open **Source control** under **Account Settings** in your Automation account.
 
-## Encoding
+2. Select the source control mechanism to remove. 
 
-If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+3. On the Source Control Summary page, click **Delete**.
 
-## Updating the access token
+## Handle encoding issues
 
-Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+If multiple people are editing runbooks in your source control repository using different editors, encoding issues can occur. To learn more about this situation, see [Common causes of encoding issues](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
-* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
-* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
+## Update the PAT
+
+Currently, you can't use the Azure portal to update the PAT in source control. When your PAT is expired or revoked, you can update source control with a new access token in one of these ways:
+
+* Use the [REST API](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
+* Use the [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 
-To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+* For integrating source control in Azure Automation, see [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* For integrating runbook source control with Visual Studio Online, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

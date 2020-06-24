@@ -6,15 +6,16 @@ author: dlepow
 
 ms.service: container-service
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | :--- |
 | Maximum clusters per subscription | 100 |
-| Maximum nodes per cluster | 100 |
+| Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 1000 (100 nodes per [node pool][node-pool]) |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI deployment: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />Portal deployment: 30 |
 
@@ -23,6 +24,8 @@ ms.custom: include file
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

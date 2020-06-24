@@ -1,20 +1,9 @@
 ---
-title: Persist results or logs from completed jobs and tasks to a data store - Azure Batch | Microsoft Docs
+title: Persist job and task output to a data store
 description: Learn about different options for persisting output data from Batch tasks and jobs. You can persist data to Azure Storage, or to another data store.
-services: batch
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 11/14/2018
-ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Persist job and task output
@@ -47,17 +36,17 @@ For more information on persisting task output with the Batch service API, see [
 
 ### Use the Batch File Conventions library for .NET
 
-Batch defines an optional set of conventions for naming task output files in Azure Storage. The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) describes these conventions. The File Conventions standard determines the names of the destination container and blob path in Azure Storage for a given output file based on the names of the job and task.
+Batch defines an optional set of conventions for naming task output files in Azure Storage. The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) describes these conventions. The File Conventions standard determines the names of the destination container and blob path in Azure Storage for a given output file based on the names of the job and task.
 
 It's up to you whether you decide to use the File Conventions standard for naming your output data files. You can also name the destination container and blob however you wish. If you do use the File Conventions standard for naming output files, then your output files are available for viewing in the [Azure portal][portal].
 
-Developers building Batch solutions with C# and .NET can use the [File Conventions library for .NET][nuget_package] to persist task data to an Azure Storage account, according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). The File Conventions library handles moving output files to Azure Storage and naming destination containers and blobs in a well-known way.
+Developers building Batch solutions with C# and .NET can use the [File Conventions library for .NET][nuget_package] to persist task data to an Azure Storage account, according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions). The File Conventions library handles moving output files to Azure Storage and naming destination containers and blobs in a well-known way.
 
 For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md).
 
 ### Implement the Batch File Conventions standard
 
-If you are using a language other than .NET, you can implement the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) in your own application.
+If you are using a language other than .NET, you can implement the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions) in your own application.
 
 You may want to implement the File Conventions naming standard yourself when you want a proven naming scheme, or when you want to view task output in the Azure portal.
 

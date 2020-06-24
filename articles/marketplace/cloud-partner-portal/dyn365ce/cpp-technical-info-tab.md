@@ -1,12 +1,12 @@
 ---
 title: Dynamics 365 for Customer Engagement Technical Info tab | Azure Marketplace 
 description: Deprecated CPP article, linked to PC article; was "How to specify the technical information for a Dynamics 365 for Customer Engagement application on the AppSource Marketplace."
-services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: ChJenk
+author: dsindona
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-chjen
+ms.author: dsindona
 ---
 
 # Dynamics 365 for Customer Engagement Technical Info tab

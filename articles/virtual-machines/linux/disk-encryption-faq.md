@@ -1,17 +1,24 @@
 ---
-title: FAQ - Azure Disk Encryption for Linux VMs | Microsoft Docs
+title: FAQ - Azure Disk Encryption for Linux VMs 
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
 ---
 
-# Azure Disk Encryption for IaaS VMs FAQ
+# Azure Disk Encryption for Linux virtual machines FAQ
 
-This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Linux VMs. For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
+This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Linux virtual machines (VMs). For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
+
+## What is Azure Disk Encryption for Linux VMs?
+
+Azure Disk Encryption for Linux VMs uses the dm-crypt feature of Linux to provide full disk encryption of the OS disk* and data disks. Additionally, it provides encryption of the temporary disk when using the [EncryptFormatAll feature](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms). The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
+ 
+See [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
 ## Where is Azure Disk Encryption in general availability (GA)?
 
@@ -31,7 +38,7 @@ To get started, read the [Azure Disk Encryption overview](disk-encryption-overvi
 
 ## What VM sizes and operating systems support Azure Disk Encryption?
 
-The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vm-sizes) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
+The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists the [VM sizes](disk-encryption-overview.md#supported-vms) and [VM operating systems](disk-encryption-overview.md#supported-operating-systems) that support Azure Disk Encryption.
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
@@ -43,12 +50,26 @@ After you've encrypted the OS volume, disabling encryption on the OS volume isn'
 
 No, Azure Disk Encryption only encrypts mounted volumes.
 
+## What is Storage server-side encryption?
+
+Storage server-side encryption encrypts Azure managed disks in Azure Storage. Managed disks are encrypted by default with Server-side encryption with a platform-managed key (as of June 10, 2017). You can manage encryption of managed disks with your own keys by specifying a customer-managed key. For more information see: [Server-side encryption of Azure managed disks](disk-encryption.md).
+ 
+## How is Azure Disk Encryption different from Storage server-side encryption with customer-managed key and when should I use each solution?
+
+Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the temporary disk, using a customer-managed key.
+- If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
+- If your requirements include encrypting only data at rest with customer-managed key, then use [Server-side encryption with customer-managed keys](disk-encryption.md). You cannot encrypt a disk with both Azure Disk Encryption and Storage server-side encryption with customer-managed keys. 
+- If your Linux distro is not listed under [supported operating systems for Azure Disk Encryption](disk-encryption-overview.md#supported-operating-systems) or you are using a scenario called out in the [unsupported scenarios for Windows](disk-encryption-linux.md#unsupported-scenarios), consider [Server-side encryption with customer-managed keys](disk-encryption.md).
+- If your organization's policy allows you to encrypt content at rest with an Azure-managed key, then no action is needed - the content is encrypted by default. For managed disks, the content inside storage is encrypted by default with Server-side encryption with platform-managed key. The key is managed by the Azure Storage service. 
+
+
+
 ## How do I rotate secrets or encryption keys?
 
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 >[!WARNING]
-> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use Azure Disk Encryption on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from AAD application for this encrypted VM isn't supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -95,7 +116,7 @@ You can't apply Azure Disk Encryption on your custom Linux image. Only the galle
 
 ## Can I apply updates to a Linux Red Hat VM that uses the yum update?
 
-Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Linux package management behind a firewall](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall).
+Yes, you can perform a yum update on a Red Hat Linux VM.  For more information, see [Azure Disk Encryption on an isolated network](disk-encryption-isolated-network.md).
 
 ## What is the recommended Azure disk encryption workflow for Linux?
 
@@ -122,7 +143,9 @@ Azure Disk Encryption uses the decrypt default of aes-xts-plain64 with a 256-bit
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
+Encryption of XFS OS disks is supported.
+
+Encryption of XFS data disks is supported only when the EncryptFormatAll parameter is used. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
 
 ## Can I backup and restore an encrypted VM? 
 
@@ -130,7 +153,7 @@ Azure Backup provides a mechanism to backup and restore encrypted VM's within th
 
 ## Where can I go to ask questions or provide feedback?
 
-You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service, see the following articles:

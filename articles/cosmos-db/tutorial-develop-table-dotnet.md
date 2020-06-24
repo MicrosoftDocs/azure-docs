@@ -1,13 +1,13 @@
 ---
-title: Get started with Azure Cosmos DB Table API using .NET Standard SDK
-description: Store structured data in the cloud using the Azure Cosmos DB Table API.
-author: wmengmsft
-ms.author: wmeng
+title: Azure Cosmos DB Table API using .NET Standard SDK
+description: Learn how to store and query the structured data in Azure Cosmos DB Table API account
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 05/20/2019
+ms.date: 12/03/2019
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
@@ -17,7 +17,7 @@ ms.date: 05/20/2019
 
 You can use the Azure Cosmos DB Table API or Azure Table storage to store structured NoSQL data in the cloud, providing a key/attribute store with a schema less design. Because Azure Cosmos DB Table API and Table storage are schema less, it's easy to adapt your data as the needs of your application evolve. You can use Azure Cosmos DB Table API or the Table storage to store flexible datasets such as user data for web applications, address books, device information, or other types of metadata your service requires. 
 
-This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmo DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
+This tutorial describes a sample that shows you how to use the [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) with Azure Cosmos DB Table API and Azure Table storage scenarios. You must use the connection specific to the Azure service. These scenarios are explored using C# examples that illustrate how to create tables, insert/ update data, query data and delete the tables.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ To obtain the NuGet package, follow these steps:
 
 1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
 
-1. Search online for `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder` and select **Install** to install the Microsoft Azure Cosmos DB Table Library.
+1. Search online for [`Microsoft.Azure.Cosmos.Table`](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), [`Microsoft.Extensions.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration), [`Microsoft.Extensions.Configuration.Json`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json), [`Microsoft.Extensions.Configuration.Binder`](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder) and select **Install** to install the Microsoft Azure Cosmos DB Table Library.
 
 ## Configure your storage connection string
 
@@ -61,7 +61,7 @@ To obtain the NuGet package, follow these steps:
 
 1. Open the **Connection String** or **Access keys** pane. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
-   ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="View and copy the PRIMARY CONNECTION STRING in the Connection String pane":::
    
 1. To configure your connection string, from visual studio right click on your project **CosmosTableSamples**.
 
@@ -172,6 +172,12 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
     Console.WriteLine();
     return table;
 }
+```
+
+If you get a "503 service unavailable exception" error, it's possible that the required ports for the connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+
+```csharp
+tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 
 ## Define the entity 
@@ -410,7 +416,7 @@ namespace CosmosTableSamples
 
 Now build the solution and press F5 to run the project. When the project is run, you will see the following output in the command prompt:
 
-![Output from command prompt](./media/tutorial-develop-table-standard/output-from-sample.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/output-from-sample.png" alt-text="Output from command prompt":::
 
 If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
 
@@ -423,7 +429,7 @@ If you receive an error that says Settings.json file can’t be found when runni
 ```
 Now you can sign into the Azure portal and verify that the data exists in the table. 
 
-![Results in portal](./media/tutorial-develop-table-standard/results-in-portal.png)
+:::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Results in portal":::
 
 ## Next steps
 

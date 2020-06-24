@@ -2,12 +2,8 @@
 title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: glenga
 
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
@@ -15,8 +11,6 @@ ms.author: glenga
 # Azure Functions PowerShell developer guide
 
 This article provides details about how you write Azure Functions using PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 A PowerShell Azure function (function) is represented as a PowerShell script that executes when triggered. Each function script has a related `function.json` file that defines how the function behaves, such as how it's triggered and its input and output parameters. To learn more, see the [Triggers and binding article](functions-triggers-bindings.md). 
 
@@ -53,7 +47,7 @@ PSFunctionApp
 
 At the root of the project, there's a shared [`host.json`](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (`function.json`). The name of the function.json file's parent directory is always the name of your function.
 
-Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x and later versions](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*. For more information, see [PowerShell profile](#powershell-profile).
 
@@ -82,7 +76,7 @@ $TriggerMetadata.sys
 | MethodName | The name of the Function that was triggered     | string   |
 | RandGuid   | a unique guid to this execution of the function | string   |
 
-Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](functions-bindings-storage-queue.md#trigger---message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
+Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](functions-bindings-storage-queue-trigger.md#message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
 
 ## Bindings
 
@@ -179,7 +173,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### Push-OutputBinding example: Queue output binding
 
-`Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue.md#output). In the following example, the message written to the queue has a value of "output #1":
+`Push-OutputBinding` is used to send data to output bindings, such as an [Azure Queue storage output binding](functions-bindings-storage-queue-output.md). In the following example, the message written to the queue has a value of "output #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"

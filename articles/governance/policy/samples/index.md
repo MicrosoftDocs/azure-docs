@@ -1,35 +1,47 @@
 ---
 title: Index of policy samples
-description: Index of samples for Azure Policy. Categories include naming, tags, Key Vault, networking, storage, and more.
-author: DCtheGeek
-ms.service: azure-policy
+description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
+ms.date: 06/10/2020
 ms.topic: sample
-ms.date: 03/19/2019
-ms.author: dacoulte
 ---
 # Azure Policy Samples
 
-The following table includes links to samples for Azure Policy. These samples are also found in the [Azure Policy samples repository](https://github.com/Azure/azure-policy).
+This page is an index of Azure Policy built-in policy definitions and language use patterns.
 
-[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
+## Built-ins
 
-[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
+- [Policies](./built-in-policies.md)
+- [Initiatives](./built-in-initiatives.md)
 
-[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+## Patterns
 
-[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
+The following are examples of different patterns using the language and operators in Azure Policy:
 
-[!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
+- [Logical operators](./pattern-logical-operators.md)
+- [Fields](./pattern-fields.md)
+- [Parameters](./pattern-parameters.md)
+- [Effect details](./pattern-effect-details.md)
+- [Using tags](./pattern-effect-details.md)
+- [Value operator](./pattern-value-operator.md)
+- [Count operator](./pattern-count-operator.md)
+- [Grouping policy definitions in an initiative](./pattern-group-with-initiative.md)
+- [Deploying resources with deployIfNotExists](./pattern-deploy-resources.md)
 
-[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
+## Regulatory Compliance
 
-[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
+The following are the [Regulatory Compliance](../concepts/regulatory-compliance.md) built-ins:
 
-[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
+- [Azure Security Benchmark](./azure-security-benchmark.md)
+- [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
+- [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 
-[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
+## Other Samples
+
+- [GitHub - Community Policy repo](https://github.com/Azure/Community-Policy)
 
 ## Next steps
 
+- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 - Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).

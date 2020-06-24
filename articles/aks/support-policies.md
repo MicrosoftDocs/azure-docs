@@ -3,10 +3,8 @@ title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 services: container-service
 author: jnoller
-
-ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
 
 #Customer intent: As a cluster operator or developer, I want to understand what AKS components I need to manage, what components are managed by Microsoft (including security patches), and networking and preview features.
@@ -37,9 +35,6 @@ Microsoft manages and monitors the following components through the control pane
 AKS isn't a completely managed cluster solution. Some components, such as worker nodes, have *shared responsibility*, where users must help maintain the AKS cluster. User input is required, for example, to apply a worker node operating system (OS) security patch.
 
 The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience. For a fully customizable solution, see [AKS Engine](https://github.com/Azure/aks-engine).
-
-> [!NOTE]
-> AKS worker nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (prefixed with MC\\*). It's possible to change AKS worker nodes. For example, you can use Secure Shell (SSH) to change AKS worker nodes the way you change normal virtual machines (you can't, however, change the base OS image, and changes might not persist through an update or reboot), and you can attach other Azure resources to AKS worker nodes. But when you make changes *out of band management and customization,* the AKS cluster can become unsupportable. Avoid changing worker nodes unless Microsoft Support directs you to make changes.
 
 ## Shared responsibility
 
@@ -93,7 +88,7 @@ Microsoft and customers share responsibility for Kubernetes worker nodes where:
   * Docker or Moby daemon
 
 > [!NOTE]
-> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless these is an emergency maintenance or outage.
+> On a worker node, if a control plane component is not operational, the AKS team might need to reboot individual components or the entire worker node. These reboot operations are automated and provide auto-remediation for common issues. These reboots occur only on the _node_ level and not the cluster unless there is an emergency maintenance or outage.
 
 ### Customer responsibilities for AKS worker nodes
 
@@ -101,8 +96,22 @@ Microsoft doesn't automatically reboot worker nodes to apply OS-level patches. A
 
 Customers are responsible for executing Kubernetes upgrades. They can execute upgrades through the Azure control panel or the Azure CLI. This applies for updates that contain security or functionality improvements to Kubernetes.
 
+#### User customization of worker nodes
 > [!NOTE]
-> Because AKS is a *managed service*, its end goals include removing responsibility for patches, updates, and log collection to make the service management more complete and hands-off. As the service's capacity for end-to-end management increases, future releases might omit some functions (for example, node rebooting and automatic patching).
+> AKS worker nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (prefixed with MC\\*). It is possible to augment AKS worker nodes from their base configurations. For example, you can use Secure Shell (SSH) to change AKS worker nodes the way you change normal virtual machines. You cannot, however, change the base OS image. Any custom changes may not persist through an upgrade, scale, update or reboot. **However**, making changes *out of band and out of scope of the AKS API* leads to the AKS cluster becoming unsupported. Avoid changing worker nodes unless Microsoft Support directs you to make changes.
+
+Issuing unsupported operations as defined above, such as out of band deallocation of all agent nodes, renders the cluster unsupported. AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
+
+AKS manages the lifecycle and operations of worker nodes on behalf of customers - modifying the IaaS resources associated with the worker nodes is **not supported**. An example of an unsupported operation is customizing a node pool VM Scale Set by manually changing configurations on the VMSS through the VMSS portal or VMSS API.
+ 
+For workload specific configurations or packages, AKS recommends using [Kubernetes daemonsets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+Using Kubernetes privileged daemonsets and init containers enables customers to tune/modify or install 3rd party software on cluster worker nodes. Examples of such customizations include adding custom security scanning software or updating sysctl settings.
+
+While this is a recommended path if the above requirements apply, AKS engineering and support can not assist in troubleshooting or diagnosis of broken/nonfunctional modifications or those that render the node unavailable due to a customer deployed daemonset.
+
+> [!NOTE]
+> AKS as a *managed service* has end goals such as removing responsibility for patches, updates, and log collection to make the service management more complete and hands-off. As the service's capacity for end-to-end management increases, future releases might omit some functions (for example, node rebooting and automatic patching).
 
 ### Security issues and patching
 

@@ -1,7 +1,6 @@
 ---
 title: Log data ingestion time in Azure Monitor | Microsoft Docs
 description: Explains the different factors that affect latency in collecting log data in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -36,10 +35,10 @@ Agents and management solutions use different strategies to collect data from a 
 ### Agent upload frequency
 To ensure the Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Azure Monitor. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. Network conditions may negatively affect the latency of this data to reach Azure Monitor ingestion point.
 
-### Azure activity logs, diagnostic logs and metrics
+### Azure activity logs, resource logs and metrics
 Azure data adds additional time to become available at Log Analytics ingestion point for processing:
 
-- Data from diagnostic logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
+- Data from resource logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
 - Azure platform metrics take 3 minutes to be sent to Log Analytics ingestion point.
 - Activity log data will take about 10-15 minutes to be sent to Log Analytics ingestion point.
 

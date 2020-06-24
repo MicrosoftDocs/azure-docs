@@ -1,14 +1,8 @@
 ---
-title: Monitor containers in Azure Container Instances
+title: Monitor container instances
 description: How to monitor the consumption of compute resources like CPU and memory by your containers in Azure Container Instances.
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
 ---
 # Monitor container resources in Azure Container Instances
 
@@ -25,13 +19,13 @@ At this time, Azure Monitor metrics are only available for Linux containers.
 
 ## Available metrics
 
-Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers.
+Azure Monitor provides the following [metrics for Azure Container Instances][supported-metrics]. These metrics are available for a container group and individual containers. By default, the metrics are aggregated as averages.
 
-* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores (or 500 m) represents 50% usage of a CPU core. Aggregated as **average usage** across all cores.
+* **CPU Usage** - measured in **millicores**. One millicore is 1/1000th of a CPU core, so 500 millicores represents usage of 0.5 CPU core.
 
-* **Memory Usage** -  aggregated as **average bytes**.
+* **Memory Usage** - in bytes.
 
-* **Network Bytes Received Per Second** and **Network Bytes Transmitted Per Second** - aggregated as **average bytes per second**. 
+* **Network Bytes Received Per Second** and **Network Bytes Transmitted Per Second**. 
 
 ## Get metrics - Azure portal
 
@@ -57,9 +51,11 @@ CONTAINER_GROUP=$(az container show --resource-group <resource-group> --name <co
 
 Use the following command to get **CPU** usage metrics.
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric CPUUsage --output table
+```
 
+```output
 Timestamp            Name       Average
 -------------------  ---------  ---------
 2019-04-23 22:59:00  CPU Usage
@@ -78,9 +74,11 @@ Timestamp            Name       Average
 
 Change the value of the `--metric` parameter in the command to get other [supported metrics][supported-metrics]. For example, use the following command to get **memory** usage metrics. 
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
+```
 
+```output
 Timestamp            Name          Average
 -------------------  ------------  ----------
 2019-04-23 22:59:00  Memory Usage
@@ -99,9 +97,11 @@ Timestamp            Name          Average
 
 For a multi-container group, the `containerName` dimension can be added to return metrics per container.
 
-```console
-$ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```azurecli
+az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
+```
 
+```output
 Timestamp            Name          Containername             Average
 -------------------  ------------  --------------------  -----------
 2019-04-23 22:59:00  Memory Usage  aci-tutorial-app

@@ -1,5 +1,5 @@
 ---
-title: Run custom scripts on Linux VMs in Azure | Microsoft Docs
+title: Run custom scripts on Linux VMs in Azure 
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v1
 services: virtual-machines-linux
 documentationcenter: ''
@@ -120,7 +120,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| fileUris (e.g) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
 | commandToExecute (e.g) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (e.g) | examplestorageacct | string |
@@ -270,7 +270,7 @@ To troubleshoot, first check the Linux Agent Log, ensure the extension ran, chec
 
 You should look for the extension execution, it will look something like:
 
-```text
+```output
 2018/04/26 15:29:44.835067 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Target handler state: enabled
 2018/04/26 15:29:44.867625 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] [Enable] current handler state is: notinstalled
 2018/04/26 15:29:44.959605 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Download, message=Download succeeded, duration=59
@@ -301,7 +301,7 @@ Next step is to go an check the log file, this is the format:
 
 You should look for the individual execution, it will look something like:
 
-```text
+```output
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] sequence number is 0
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] setting file path is/var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/config/0.settings
@@ -343,7 +343,7 @@ az vm extension list -g myResourceGroup --vm-name myVM
 
 The output looks like the following text:
 
-```azurecli
+```output
 Name                  ProvisioningState    Publisher                   Version  AutoUpgradeMinorVersion
 --------------------  -------------------  ------------------------  ---------  -------------------------
 CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  True

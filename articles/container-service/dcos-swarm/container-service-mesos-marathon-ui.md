@@ -1,12 +1,9 @@
 ---
 title: (DEPRECATED) Manage Azure DC/OS cluster with Marathon UI
 description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
-
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc

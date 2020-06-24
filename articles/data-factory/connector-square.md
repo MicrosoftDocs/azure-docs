@@ -1,22 +1,21 @@
 ---
-title: Copy data from Square using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Square (Preview) 
 description: Learn how to copy data from Square to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.author: jingwang
-
 ---
+
 # Copy data from Square using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Square. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -53,8 +52,8 @@ The following properties are supported for Square linked service:
 | clientSecret | The client secret associated with your Square application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | redirectUri | The redirect URL assigned in the Square application dashboard. (i.e. http:\//localhost:2500)  | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
-| usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
+| usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
 **Example:**
 

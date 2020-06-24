@@ -1,7 +1,8 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Filtering, ordering, and paging of Media Services entities - Azure | Microsoft Docs
-description: This article discusses filtering, ordering, paging of Azure Media Services entities. 
+title: Filtering, ordering, and paging of Media Services entities
+titleSuffix: Azure Media Services
+description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -39,12 +40,12 @@ Range operators:
 
 - `gt`: Test whether a field is *greater than* a constant value.
 - `lt`: Test whether a field is *less than* a constant value.
-- `ge`: Test whether a field is *greater than or equal to* a constant. value
+- `ge`: Test whether a field is *greater than or equal to* a constant value.
 - `le`: Test whether a field is *less than or equal to* a constant value.
 
 ## Filter
 
-Use `$filter` to supply an OData filter parameter to find only the objects you’re interested in.
+Use `$filter` to supply an OData filter parameter to find only the objects you're interested in.
 
 The following REST example filters on the `alternateId` value of an asset:
 
@@ -57,11 +58,11 @@ The following C# example filters on the asset's created date:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## Order by
 
-Use `$orderby` to sort the returned objects by the specified parameter. For example:    
+Use `$orderby` to sort the returned objects by the specified parameter. For example:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -75,10 +76,10 @@ If a query response contains many items, the service returns a `$skiptoken` (`@o
 
 In Media Services v3, you can't configure the page size. The page size varies by the type of entity. Read the individual sections that follow for details.
 
-If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
+If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
 
 > [!TIP]
-> You should always use `nextLink` to enumerate the collection and not depend on a particular page size.
+> Always use `nextLink` to enumerate the collection and don't depend on a particular page size.
 >
 > The `nextLink` value will be present only if there's more than one page of entities.
 
@@ -92,7 +93,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-You'll get back a response similar to this:
+You'll get back a response similar to this one:
 
 ```
 HTTP/1.1 200 OK
@@ -160,8 +161,8 @@ The following table shows how you can apply the filtering and ordering options t
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
 |[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.policyId|`eq`, `ne`||
 |[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
@@ -169,10 +170,10 @@ The following table shows how you can apply the filtering and ordering options t
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
 |[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
-||properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 |[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 |[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
@@ -185,4 +186,4 @@ The following table shows how you can apply the filtering and ordering options t
 * [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Stream a file](stream-files-dotnet-quickstart.md)
-* [Quotas and limitations](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints.md)

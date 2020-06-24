@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 06/08/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -26,18 +26,21 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
-|  Number of NetApp accounts per Azure  Subscription   |  10    |  Yes   |
+|  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
-|  Number of IPs in a VNet (including peered VNets) that can access Azure NetApp Files   |    1000   |    Yes   |
+|  Number of used IPs in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    No   |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No    |
-|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
 |  Maximum size of a single file     |    16 TiB    |    No    |    
+|  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
+|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
+
+For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
 
 ## Maxfiles limits <a name="maxfiles"></a> 
 

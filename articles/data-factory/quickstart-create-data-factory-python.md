@@ -12,27 +12,36 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.custom: seo-python-october2019
+ms.custom: seo-python-october2019, tracking-python
 ---
 
-# Quickstart: Create an Azure Data Factory and pipeline using Python
+# Quickstart: Create a data factory and pipeline using Python
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-python.md)
 
-This quickstart describes how to use Python to create an Azure data factory. The pipeline in this data factory copies data from one folder to another folder in an Azure blob storage.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.
+In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in Azure Blob storage.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows, called pipelines.
+
+Pipelines can ingest data from disparate data stores. Pipelines process or transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning. Pipelines publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications.
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** and **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-### Create and upload an input file
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [An Azure Storage account](../storage/common/storage-account-create.md).
+
+* [Azure Storage Explorer](https://storageexplorer.com/) (optional).
+
+* [An application in Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values to use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to the **Contributor** role by following instructions in the same article.
+
+## Create and upload an input file
 
 1. Launch Notepad. Copy the following text and save it as **input.txt** file on your disk.
 
@@ -346,7 +355,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path = 'adfv2tutorial/input'
     blob_filename = 'input.txt'
     ds_azure_blob = AzureBlobDataset(
@@ -367,9 +376,9 @@ def main():
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name, inputs=[dsin_ref], outputs=[
                                  dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity

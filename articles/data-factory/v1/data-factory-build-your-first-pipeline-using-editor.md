@@ -1,5 +1,5 @@
 ---
-title: Build your first data factory (Azure portal) | Microsoft Docs
+title: Build your first data factory (Azure portal) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline by using the Data Factory Editor in the Azure portal.
 services: data-factory
 documentationcenter: ''
@@ -105,7 +105,7 @@ In this step, you link your storage account to your data factory. In this tutori
 
    ![Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 
@@ -427,7 +427,7 @@ In this tutorial, you created a data factory to process data by running a Hive s
 * Create a pipeline with an HDInsight Hive activity.
 
 ## Next steps
-In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to a SQL database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to Azure SQL Database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## See also
 | Topic | Description |

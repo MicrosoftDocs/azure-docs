@@ -1,17 +1,17 @@
 ---
-title: Azure Marketplace and AppSource publishing guide
-description: An overview of the Azure Marketplace and Microsoft AppSource for app and service publishers.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+title: Microsoft commercial marketplace publishing guide
+description: An overview of the commercial marketplace for Microsoft partners who want to publish offers to Microsoft AppSource and Azure Marketplace.
+author: dsindona
 ms.service: marketplace
-ms.topic: article
-ms.date: 06/05/2018
-ms.author: ellacroi
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 04/12/2020
+ms.author: dsindona
 ---
 
-# Azure Marketplace and AppSource publishing guide
+# Commercial marketplace publishing guide
 
-The Marketplace publishing guide is designed to help new and existing publishers learn how to use storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) to grow their business in partnership with Microsoft by listing applications and services.
+This publishing guide is designed to help new and existing publishers learn how to list applications and services in the commercial marketplace storefronts, [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com), to grow their business in partnership with Microsoft.
 
 >[!Note]
 >The Marketplace here refers to both Azure Marketplace and AppSource.  See [One Marketplace, two storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) for more information.
@@ -57,7 +57,7 @@ New listings in the Marketplace are eligible for a diverse set of free benefits 
 
 *   Co-selling: Begin or accelerate your journey to selling with Microsoft through the Marketplace. Access programs and support to drive joint sales with Microsoft teams.
 
-After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
+After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 Learn more about your [commercial marketplace benefits](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 

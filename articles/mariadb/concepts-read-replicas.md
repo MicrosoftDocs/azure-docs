@@ -1,11 +1,11 @@
 ---
-title: Read replicas in Azure Database for MariaDB
+title: Read replicas - Azure Database for MariaDB
 description: 'Learn about read replicas in Azure Database for MariaDB: choosing regions, creating replicas, connecting to replicas, monitoring replication, and stopping replication.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 6/10/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -15,6 +15,12 @@ The read replica feature allows you to replicate data from an Azure Database for
 Replicas are new servers that you manage similar to regular Azure Database for MariaDB servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
 ## When to use a read replica
 
@@ -26,12 +32,8 @@ Because replicas are read-only, they don't directly reduce write-capacity burden
 
 The read replica feature uses asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the master and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
 
-
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
-
-> [!NOTE]
-> Cross region replication is in preview.
 
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
@@ -40,8 +42,9 @@ You can have a master server in any [Azure Database for MariaDB region](https://
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
 
+*West US 2 is temporarily unavailable as a cross region replica location.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -51,12 +54,14 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 However, there are limitations to consider: 
 
 * Regional availability: Azure Database for MariaDB is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
-	
+    
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
 
-
 ## Create a replica
+
+> [!IMPORTANT]
+> The read replica feature is only available for Azure Database for MariaDB servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
 
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 
@@ -69,7 +74,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the master server. These rules must be set up independently for the replica.
+At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -87,7 +92,7 @@ Azure Database for MariaDB provides the **Replication lag in seconds** metric in
 
 This metric is calculated using the `seconds_behind_master` metric available in MariaDB's `SHOW SLAVE STATUS` command.
 
-Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+Set an alert to inform you when the replication lag reaches a value that isn't acceptable for your workload.
 
 ## Stop replication
 
@@ -107,6 +112,9 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 
 Read replicas are currently only available in the General Purpose and Memory Optimized pricing tiers.
 
+> [!NOTE]
+> The cost of running the replica server is based on the region where the replica server is running.
+
 ### Master server restart
 
 When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
@@ -122,13 +130,15 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
+Firewall rules and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
+
 ### Stopped replicas
 
 If you stop replication between a master server and a read replica, the stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again.
 
 ### Deleted master and standalone servers
 
-When a master server is deleted, replication is stopped to all read replicas. These replicas become standalone servers. The master server itself is deleted.
+When a master server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The master server itself is deleted.
 
 ### User accounts
 
@@ -143,6 +153,8 @@ The following server parameters are locked on both the master and replica server
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) parameter is locked on the replica servers.
+
+To update one of the above parameters on the master server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
 ### Other
 

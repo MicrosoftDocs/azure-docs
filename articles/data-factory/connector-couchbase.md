@@ -1,15 +1,15 @@
 ---
-title: Copy data from Couchbase using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Couchbase using Azure Data Factory (Preview) 
 description: Learn how to copy data from Couchbase to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 08/12/2019
@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Couchbase using Azure Data Factory (Preview)
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Couchbase. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ The following properties are supported for Couchbase linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Couchbase** | Yes |
-| connectionString | An ODBC connection string to connect to Couchbase. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put credential string in Azure Key Vault and pull the `credString` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectionString | An ODBC connection string to connect to Couchbase. <br/>You can also put credential string in Azure Key Vault and pull the `credString` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -62,10 +62,7 @@ The following properties are supported for Couchbase linked service:
     "properties": {
         "type": "Couchbase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>; Port=<port>;AuthMech=1;CredString=[{\"user\": \"JSmith\", \"pass\":\"access123\"}, {\"user\": \"Admin\", \"pass\":\"simba123\"}];"
-            }
+            "connectionString": "Server=<server>; Port=<port>;AuthMech=1;CredString=[{\"user\": \"JSmith\", \"pass\":\"access123\"}, {\"user\": \"Admin\", \"pass\":\"simba123\"}];"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -83,10 +80,7 @@ The following properties are supported for Couchbase linked service:
     "properties": {
         "type": "Couchbase",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>; Port=<port>;AuthMech=1;"
-            },
+            "connectionString": "Server=<server>; Port=<port>;AuthMech=1;",
             "credString": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

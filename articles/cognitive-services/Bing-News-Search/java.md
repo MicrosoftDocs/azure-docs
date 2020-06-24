@@ -9,33 +9,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 
 # Quickstart: Perform a news search using Java and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing News Search API and view the JSON response. This simple Java application sends a news search query to the API, and displays the response.
+Use this quickstart to make your first call to the Bing News Search API. This simple Java application sends a news search query to the API, and displays the JSON response.
 
-While this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
+Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
-
-* The [Gson library](https://github.com/google/gson)
+* The [Java Development Kit (JDK) 7 or 8](https://aka.ms/azure-jdks).
+* The [Gson library](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
-
 ## Create and initialize a project
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries:
 
     ```java
     import java.net.*;
@@ -48,7 +45,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     import com.google.gson.JsonParser;
     ```
 
-2. Create a new class, with variables for the API endpoint, your subscription key, and search term.
+2. Create a new class. Add variables for the API endpoint, your subscription key, and search term. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -62,7 +59,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 
 ## Construct the search request, and receive a JSON response
 
-1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+1. Use the variables from the previous step to format a search URL for the API request. URL-encode your search term before you append it to the request.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -73,7 +70,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     }
     ```
 
-2. Receive the JSON response from the Bing News Search API, and construct the result object.
+2. Receive the JSON response from the Bing News Search API and construct the result object.
 
     ```java
     // receive JSON body
@@ -86,6 +83,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
 ## Process the JSON response
 
 1. Separate the Bing-related HTTP headers from the JSON body, then close the stream and return the API response.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -99,7 +97,8 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     return results;
     ```
 
-2. Create a method to parse and reserialize JSON
+2. Create a method to parse and reserialize the JSON results.
+
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -110,8 +109,9 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     }
     ```
 
-3. In the main method of your application, call the search method, and display the results.
-    ```csharp
+3. In the main method of your application, call the search method and display the results.
+
+    ```java
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
@@ -124,7 +124,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     }
     ```
 
-## JSON Response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 

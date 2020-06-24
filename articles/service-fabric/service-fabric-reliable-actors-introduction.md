@@ -1,21 +1,11 @@
 ---
-title: Service Fabric Reliable Actors Overview | Microsoft Docs
-description: Introduction to the Service Fabric Reliable Actors programming model.
-services: service-fabric
-documentationcenter: .net
+title: Service Fabric Reliable Actors Overview 
+description: Introduction to the Service Fabric Reliable Actors programming model, based on the Virtual Actor pattern.
 author: vturecek
-manager: chackdan
-editor: ''
 
-ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-
 ---
 # Introduction to Service Fabric Reliable Actors
 Reliable Actors is a Service Fabric application framework based on the [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/) pattern. The Reliable Actors API provides a single-threaded programming model built on the scalability and reliability guarantees provided by Service Fabric.

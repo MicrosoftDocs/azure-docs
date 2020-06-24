@@ -1,75 +1,22 @@
 ### YamlMime:Landing
 
 title: Azure Digital Twins Preview Documentation
-summary: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
+summary: As announced at Microsoft Build 2020, Azure Digital Twins is preparing a new public preview version of the service. You will find the full documentation for the new service and its features in this location soon. You can also continue to access documentation for the first version of Azure Digital Twins at the link below.
 
 metadata:
   title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Use Azure Digital Twins to create smart spatial solutions.
-  services: digital-twins
+  description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
   ms.service: digital-twins
-  ms.subservice: digital-twins
   ms.topic: landing-page
   ms.collection: collection
-  author: KingdomOfEnds
-  ms.author: v-adgera
-  ms.date: 09/03/2019
+  author: philmea
+  ms.author: philmea
+  ms.date: 02/12/2020
 
 landingContent:
-  - title: About Azure Digital Twins
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Digital Twins?
-            url: about-digital-twins.md
-      - linkListType: concept
-        links:
-          - text: Understand Digital Twins object model and spatial intelligence graph
-            url: concepts-objectmodel-spatialgraph.md
-      - linkListType: video
-        links:
-          - text: Azure Digital Twins introduction
-            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Digital-Twins-Introduction
-
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Find available rooms
-            url: quickstart-view-occupancy-dotnet.md
-      - linkListType: tutorial
-        links:
-          - text: Deploy and configure 
-            url: tutorial-facilities-setup.md
-          - text: Provision and monitor conditions
-            url: tutorial-facilities-udf.md
-          - text: Notify with Logic Apps
-            url: tutorial-facilities-events.md
-          - text: Visualize events with Time Series Insights
-            url: tutorial-facilities-analyze.md
-
-  - title: Develop with Azure Digital Twins
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Device connectivity and telemetry ingress
-            url: concepts-device-ingress.md
-          - text: Data processing and user-defined functions
-            url: concepts-user-defined-functions.md
-      - linkListType: how-to-guide
-        links:
-          - text: Set up Postman
-            url: how-to-configure-postman.md
-          - text: Create user-defined functions
-            url: how-to-user-defined-functions.md
-
-  - title: API reference
+  - title: Azure Digital Twins, first version
     linkLists:
       - linkListType: reference
         links:
-          - text: User-defined functions client library
-            url: reference-user-defined-functions-client-library.md
-      - linkListType: how-to-guide
-        links:
-          - text: Use Digital Twins Swagger
-            url: how-to-use-swagger.md
+          - text: "Previous Versions Documentation: Azure Digital Twins"
+            url: https://docs.microsoft.com/previous-versions/azure/digital-twins/about-digital-twins

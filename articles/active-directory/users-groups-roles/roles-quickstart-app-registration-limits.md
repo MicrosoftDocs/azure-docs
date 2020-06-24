@@ -1,15 +1,14 @@
 ﻿---
-title: Grant an individual permission to exceed restrictions on app registrations - Azure Active Directory | Microsoft Docs
-description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory.
+title: Remove limits on creating app registrations - Azure AD | Microsoft Docs
+description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 07/31/2019
+ms.topic: quickstart
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Quickstart: Grant permission to create unlimited app registrations
 
-In this quickstart, you will create a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user. The assigned user can then use the Azure AD portal, Azure AD PowerShell, Azure AD Graph API, or Microsoft Graph API to create application registrations. Unlike the built-in Application Developer role, this custom role grants the ability to create an unlimited number of application registrations. The Application Developer role grants the ability, but the total number of created objects is limited to 250 to prevent hitting [the directory-wide object quota](directory-service-limits-restrictions.md).
+In this quickstart, you will create a custom role with permission to create an unlimited number of app registrations, and then assign that role to a user. The assigned user can then use the Azure AD portal, Azure AD PowerShell, or Microsoft Graph API to create application registrations. Unlike the built-in Application Developer role, this custom role grants the ability to create an unlimited number of application registrations. The Application Developer role grants the ability, but the total number of created objects is limited to 250 to prevent hitting [the directory-wide object quota](directory-service-limits-restrictions.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

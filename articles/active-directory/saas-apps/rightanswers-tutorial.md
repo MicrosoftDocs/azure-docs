@@ -51,19 +51,19 @@ To configure the integration of RightAnswers into Azure AD, you need to add Righ
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button](common/select-azuread.png)
+    ![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+    ![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button](common/add-new-app.png)
+    ![The New application button](common/add-new-app.png)
 
 4. In the search box, type **RightAnswers**, select **RightAnswers** from result panel then click **Add** button to add the application.
 
-	 ![RightAnswers in the results list](common/search-new-app.png)
+     ![RightAnswers in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -95,38 +95,38 @@ To configure Azure AD single sign-on with RightAnswers, perform the following st
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
     ![RightAnswers Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.rightanswers.com/portal/ss/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [RightAnswers Client support team](https://support.rightanswers.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [RightAnswers Client support team](https://uplandsoftware.com/rightanswers/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 6. On the **Set up RightAnswers** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+    a. Login URL
 
-	b. Azure AD Identifier
+    b. Azure AD Identifier
 
-	c. Logout URL
+    c. Logout URL
 
 ### Configure RightAnswers Single Sign-On
 
-To configure single sign-on on **RightAnswers** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RightAnswers support team](https://support.rightanswers.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **RightAnswers** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [RightAnswers support team](https://uplandsoftware.com/rightanswers/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!NOTE]
 > Your RightAnswers support team has to do the actual SSO configuration. You will get a notification when SSO has been enabled for your subscription.
@@ -162,11 +162,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **RightAnswers**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **RightAnswers**.
 
-	![The RightAnswers link in the Applications list](common/all-applications.png)
+    ![The RightAnswers link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -189,7 +189,7 @@ To enable Azure AD users to sign in to RightAnswers, they must be provisioned in
 Users are automatically created if necessary during the first single sign-on attempt.
 
 > [!NOTE]
-> You can use any other RightAnswers user account creation tools or APIs provided by RightAnswers to provision AAD user accounts.
+> You can use any other RightAnswers user account creation tools or APIs provided by RightAnswers to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -1,11 +1,11 @@
 ---
-title: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
+title: PowerShell script to list and get Azure Cosmos DB Cassandra API resources
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 
@@ -33,8 +33,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+|**Azure Cosmos DB**| |
+| [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lists Cosmos DB Accounts, or gets a specified Cosmos DB Account. |
+| [Get-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspace) | Lists Cosmos DB Cassandra API Keyspaces in an Account, or gets a specified Cosmos DB Cassandra API Keyspace in an Account. |
+| [Get-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratable) | Lists Cosmos DB Cassandra API Tables in a Keyspace, or gets a specified Cosmos DB Cassandra API Table in a Keyspace. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

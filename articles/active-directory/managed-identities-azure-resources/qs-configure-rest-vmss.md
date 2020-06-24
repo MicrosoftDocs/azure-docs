@@ -1,6 +1,6 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure VMSS using REST
-description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure VMSS using CURL to make REST API calls.
+title: Configure managed identities on Azure virtual machine scale set using REST - Azure AD
+description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure virtual machine scale set using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -31,7 +31,7 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following Azure role based access control assignments:
 
@@ -56,7 +56,7 @@ In this section, you learn how to enable and disable system-assigned managed ide
 
 To create a virtual machine scale set with system-assigned managed identity enabled, you need create a virtual machine scale set and retrieve an access token to use CURL to call the Resource Manager endpoint with the system-assigned managed identity type value.
 
-1. Create a [resource group](../../azure-resource-manager/resource-group-overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
+1. Create a [resource group](../../azure-resource-manager/management/overview.md#terminology) for containment and deployment of your virtual machine scale set and its related resources, using [az group create](/cli/azure/group/#az-group-create). You can skip this step if you already have resource group you would like to use instead:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

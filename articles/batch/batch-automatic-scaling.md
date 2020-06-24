@@ -1,19 +1,8 @@
 ---
-title: Automatically scale compute nodes in an Azure Batch pool | Microsoft Docs
+title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: 
-
-ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: multiple
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
 
 ---
@@ -28,9 +17,9 @@ You can enable automatic scaling either when a pool is created, or on an existin
 This article discusses the various entities that make up your autoscale formulas, including variables, operators, operations, and functions. We discuss how to obtain various compute resource and task metrics within Batch. You can use these metrics to adjust your pool's node count based on resource usage and task status. We then describe how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. Finally, we finish up with a few example formulas.
 
 > [!IMPORTANT]
-> When you create a Batch account, you can specify the [account configuration](batch-api-basics.md#account), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> When you create a Batch account, you can specify the [account configuration](accounts.md), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
->If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+>If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -124,14 +113,17 @@ You can get the value of these service-defined variables to make adjustments tha
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count.|
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count. For a multi-instance task, $ActiveTasks will include the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
 | $FailedTasks |The number of tasks that failed. |
 | $CurrentDedicatedNodes |The current number of dedicated compute nodes. |
-| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been pre-empted. |
-| $PreemptedNodeCount | The number of nodes in the pool that are in a pre-empted state. |
+| $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
+| $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
+
+> [!IMPORTANT]
+> Job release tasks are not currently included in the above variables that provide task counts, such as $ActiveTasks and $PendingTasks. Depending on your auto-scale formula, this can result in nodes being removed and no nodes being available to run the job release tasks.
 
 > [!TIP]
 > The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
@@ -664,6 +656,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+`$curTime` can be adjusted to reflect your local time zone by adding `time()` to the product of `TimeZoneInterval_Hour` and your UTC offset. For instance, use `$curTime = time() + (-6 * TimeInterval_Hour);` for Mountain Daylight Time (MDT). Keep in mind that the offset would need to be adjusted at the start and end of daylight saving time (if applicable).
 
 ### Example 2: Task-based adjustment
 
@@ -671,10 +664,10 @@ In this example, the pool size is adjusted based on the number of tasks in the q
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
-$samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$samples = $PendingTasks.GetSamplePercent(TimeInterval_Minute * 15);
 // If we have fewer than 70 percent data points, we use the last sample point,
 // otherwise we use the maximum of last sample point and the history average.
-$tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+$tasks = $samples < 70 ? max(0,$PendingTasks.GetSample(1)) : max( $PendingTasks.GetSample(1), avg($PendingTasks.GetSample(TimeInterval_Minute * 15)));
 // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise
 // half of current dedicated.
 $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);

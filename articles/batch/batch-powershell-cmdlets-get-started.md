@@ -1,20 +1,8 @@
 ---
-title: Get started with PowerShell - Azure Batch | Microsoft Docs
+title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
-services: batch
-documentationcenter: ''
-author: laurenhughes
-manager: gwallace
-editor: ''
-
-ms.assetid: 
-ms.service: batch
-ms.devlang: NA
-ms.topic: conceptual
-ms.tgt_pltfrm: powershell
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 01/15/2019
-ms.author: lahugh
 ms.custom: seodec18
 ---
 
@@ -121,7 +109,7 @@ When using many of these cmdlets, in addition to passing a BatchContext object, 
 
 ### Create a Batch pool
 
-When creating or updating a Batch pool, you select either the cloud services configuration or the virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). If you specify the cloud services configuration, your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases). If you specify the virtual machine configuration, you can either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace][vm_marketplace], or provide a custom image that you have prepared.
+When creating or updating a Batch pool, you select either the cloud services configuration or the virtual machine configuration for the operating system on the compute nodes (see [Nodes and pools](nodes-and-pools.md#configurations)). If you specify the cloud services configuration, your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases). If you specify the virtual machine configuration, you can either specify one of the supported Linux or Windows VM images listed in the [Azure Virtual Machines Marketplace][vm_marketplace], or provide a custom image that you have prepared.
 
 When you run **New-AzBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following snippet creates a Batch pool with size Standard_A1 compute nodes in the virtual machine configuration, imaged with Ubuntu Server 18.04-LTS. Here, the **VirtualMachineConfiguration** parameter specifies the *$configuration* variable as the PSVirtualMachineConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
 
@@ -254,9 +242,10 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-Now create the pool, and specify the package reference object as the argument to the `ApplicationPackageReferences` option:
+Now create the configuration and pool. This example uses the **CloudServiceConfiguration** parameter with a `PSCloudServiceConfiguration` type object initialized in `$configuration`, which sets the **OSFamily** to `6` for 'Windows Server 2019' and **OSVersion** to `*`. Specify the package reference object as the argument to the `ApplicationPackageReferences` option:
 
 ```powershell
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
@@ -304,4 +293,4 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](/powershell/module/az.batch).
 * For more information about applications and application packages in Batch, see [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md).
 
-[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1

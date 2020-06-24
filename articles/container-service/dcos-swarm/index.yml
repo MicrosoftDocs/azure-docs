@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Azure Container Service with DC/OS and Swarm Documentation
 metadata:
-  document_id: 
   title: Azure Container Service with DC/OS and Swarm Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how with these quickstarts, tutorials, and samples.
   services: container-service
   author: georgewallace
   manager: gwallace

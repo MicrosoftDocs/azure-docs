@@ -51,7 +51,7 @@ Yes. After you install the agent, you can complete the registration process by u
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
-**Q: Does Azure AD Connect support syncing from two domains to on Azure AD?**  
+**Q: Does Azure AD Connect support syncing from two domains to an Azure AD?**  
 Yes, this scenario is supported. Refer to [Multiple Domains](how-to-connect-install-multiple-domains.md).
  
 **Q: Can you have multiple connectors for the same Active Directory domain in Azure AD Connect?**  
@@ -108,7 +108,7 @@ The following is an informational document that presents some of the best practi
 - Staging servers are not meant to be a High Availability solution, but you can have multiple staging servers
 - Introducing a "Lag" Staging Servers could mitigate some potential downtime in case of error
 - Test and Validate all upgrades on the Staging Server first
-- Always validate exports before switching over to the staging serverLeverage the staging server for Full Imports and Full Synchronizations to reduce business impact
+- Always validate exports before switching over to the staging server.  Leverage the staging server for Full Imports and Full Synchronizations to reduce business impact
 - Keep version consistency between Azure AD Connect Servers as much as possible 
 
 **Q: Can I allow Azure AD Connect to create the Azure AD Connector account on Workgroup machine?**
@@ -260,9 +260,9 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 
 * Search the KB for technical solutions to common break-fix issues about support for Azure AD Connect.
 
-[Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
-* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 

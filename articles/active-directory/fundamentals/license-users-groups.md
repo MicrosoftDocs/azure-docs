@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign or remove licenses in the Azure Active Directory portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true.
+Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and do not transfer to other tenants. 
 
 ## Available license plans
 
@@ -83,6 +83,8 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 1. Select **Assign**.
 
     The user is added to the list of licensed users and has access to the included Azure AD services.
+    > [!NOTE]
+    > Licenses can also be assigned directly to a user from the user's **Licenses** page. If a user has a license assigned through a group membership and you want to assign the same license to the user directly, it can be done only from the **Products** page mentioned in step 1 only.
 
 ### To assign a license to a group
 
@@ -130,6 +132,9 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 1. Select **Remove license**.
 
     ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    
+    > [!NOTE]
+    > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
 
 ## Next steps
 
