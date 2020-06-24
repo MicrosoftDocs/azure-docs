@@ -73,9 +73,9 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
    > [!div class="mx-imgBorder"]
    > ![First pop-up window in the migration process, where you select Migrate now.](./media/migrate-authoring-key/prompt-when-migrating-2.png)
 
-3. Optionally, if any of your apps have collaborators, you're prompted to send them an email that lets them know about the migration. This is an optional step.
+3. If any of your apps have collaborators, you're prompted to send them an email that lets them know about the migration. This is an optional step.
 
-   For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before        sending it. The email template includes the exact app ID and app name.
+   For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
    
    ```html
    Dear Sir/Madam,
@@ -91,9 +91,9 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
    > [!Note]
    > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
-4. If you're a collaborator on any application, you're prompted to export a copy of the apps by selecting this option during the migration flow. 
+4. If you're a collaborator on any application, you're prompted to export a copy of the apps by selecting this option during the migration flow. This is an optional step.
 
-   This is an optional step. If you select the option, the following page appears. Select the download buttons on the left to export the apps you want. You can import these apps back after you migrate, because they won't be automatically migrated with you.
+   If you select the option, the following page appears. Select the download buttons on the left to export the apps you want. You can import these apps back after you migrate, because they won't be automatically migrated with you.
 
    > [!div class="mx-imgBorder"]
    > ![Prompt to export your applications.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
@@ -169,7 +169,7 @@ You can add contributors to the authoring resource from the Azure portal, on the
 
 The [LUIS portal](https://www.luis.ai) provides the migration process.
 
-You'll be asked to migrate if:
+You'll be asked to migrate if both of these conditions are true:
 * You have apps on the email authentication system for authoring.
 * You're the app owner.
 
@@ -178,7 +178,7 @@ On a weekly basis, you're prompted to migrate your apps. You can close this wind
 ## Prediction resources blocking migration
 Your migration negatively affects any application's runtime. When you migrate, any collaborators are removed from your apps, and you're removed as a collaborator from other apps. This process means the keys that a collaborator assigns are also removed, which might break your application if it's in production. This is the reason we block the migration until you manually remove collaborators or keys assigned to them.
 
-Migration is blocked if:
+Migration is blocked if either of these conditions is true:
 
 * You have assigned prediction/runtime resources in apps you don't own.
 * You have other users assign prediction/runtime resources to apps you own.
@@ -220,7 +220,7 @@ If you have an existing authoring resource but can't find it when you select the
 * Create a new resource from the LUIS portal instead.
 
 If you select the **Create New Authoring Resource** option and migration fails with the error message "Failed retrieving user's Azure information, retry again later":
-* Your subscription might have 10 or more authoring resources per region per subscription. If that's the case, you won't be able to create a new authoring resource.
+* Your subscription might have 10 or more authoring resources per region, per subscription. If that's the case, you won't be able to create a new authoring resource.
 * Migrate by selecting the **Use Existing Authoring Resource** option and selecting one of the existing resources under your subscription.
 
 If you see the following error, check the [recommended steps if you're the owner of the app](#recommended-steps-if-youre-the-owner-of-the-app).
