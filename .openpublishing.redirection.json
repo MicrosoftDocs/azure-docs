@@ -44702,6 +44702,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/analysis-services/analysis-services-data-providers.md",
+      "redirect_url": "https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/app/java-live.md",
       "redirect_url": "/azure/azure-monitor/app/java-get-started",
       "redirect_document_id": false
@@ -55466,7 +55471,7 @@
     },
     {
       "source_path": "articles/aks/azure-ad-integration.md",
-      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_url": "/azure/aks/azure-ad-integration-cli",
       "redirect_document_id": false
     },
     {

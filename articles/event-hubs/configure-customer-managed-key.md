@@ -1,15 +1,8 @@
 ---
 title: Configure your own key for encrypting Azure Event Hubs data at rest 
 description: This article provides information on how to configure your own key for encrypting Azure Event Hubs data rest. 
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
 ---
 
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
