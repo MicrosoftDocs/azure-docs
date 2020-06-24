@@ -88,6 +88,8 @@
     items:
     - name: IoMT connector data flow
       href: iomt-data-flow.md
+    - name: IoMT connector mapping templates
+      href: iomt-mapping-templates.md
 - name: Resources
   items:
   - name: FAQ
