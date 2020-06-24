@@ -225,7 +225,7 @@ Content-type: application/json
   "@odata.type": "microsoft.graph.synchronizationJob"
 } -->
 ```http
-HTTP/1.1 200 OK
+HTTP/1.1 201 OK
 Content-type: application/json
 
 {
