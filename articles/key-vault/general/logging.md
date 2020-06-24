@@ -91,7 +91,7 @@ In the [getting-started tutorial](../secrets/quick-create-cli.md), the key vault
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Enable logging using Azure Powershell
+## <a id="enable"></a>Enable logging using Azure PowerShell
 
 To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Key Vault logging):
 

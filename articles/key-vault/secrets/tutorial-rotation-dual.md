@@ -42,7 +42,7 @@ Below deployment link can be used, if you don't have existing key vault and stor
 1. Select **Review+Create**.
 1. Select **Create**
 
-    ![Create a resource group](../media/secrets/rotation-dual/dualrotation1.png)
+    ![Create a resource group](../media/secrets/rotation-dual/dualrotation-1.png)
 
 You'll now have a key vault, and two storage accounts. You can verify this setup in the Azure CLI by running the following command:
 
@@ -86,10 +86,10 @@ The function app rotation functions require these components and configuration:
 1. Select **Review+Create**.
 1. Select **Create**
 
-   ![Review+Create](../media/secrets/rotation-dual/dualrotation2.png)
+   ![Review+Create](../media/secrets/rotation-dual/dualrotation-2.png)
 
 After you complete the preceding steps, you'll have a storage account, a server farm, a function app, application insights. You should see below screen once deployment completed:
-   ![Deployment complete](../media/secrets/rotation-dual/dualrotation3.png)
+   ![Deployment complete](../media/secrets/rotation-dual/dualrotation-3.png)
 > [!NOTE]
 > In case of any failures you can click **Redeploy** to finish deployment of remaining components.
 
@@ -104,7 +104,7 @@ First, set your access policy to grant *manage secrets* permissions to users:
 az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
 ```
 
-You can now create a new secret with a Storage Account access key as value. You will also need the Storage Account resource id, secret validity period, and the key ID to add to secret, so rotation function can regenerate key in Storage Account.
+You can now create a new secret with a Storage Account access key as value. You will also need the Storage Account resource ID, secret validity period, and the key ID to add to secret, so rotation function can regenerate key in Storage Account.
 
 Retrieve Storage Account resource ID. Value can be found under `id` property
 ```azurecli
@@ -133,13 +133,13 @@ You can show secret information using below command:
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
 Notice that `CredentialId` is updated to alternate `keyName` and `value` is regenerated
-![Secret Show](../media/secrets/rotation-dual/dualrotation4.png)
+![Secret Show](../media/secrets/rotation-dual/dualrotation-4.png)
 
 Retrieve access keys to validate value
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Access Key List](../media/secrets/rotation-dual/dualrotation5.png)
+![Access Key List](../media/secrets/rotation-dual/dualrotation-5.png)
 
 ## Add additional Storage Accounts for rotation
 
@@ -162,7 +162,7 @@ Adding additional storage account keys for rotation to existing function require
 1. Select **Review+Create**.
 1. Select **Create**
 
-   ![Review+Create](../media/secrets/rotation-dual/dualrotation7.png)
+   ![Review+Create](../media/secrets/rotation-dual/dualrotation-7.png)
 
 ### Add Another Storage Account access key to Key Vault
 
@@ -189,13 +189,13 @@ Show secret information using below command:
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
 Notice that `CredentialId` is updated to alternate `keyName` and `value` is regenerated
-![Secret Show](../media/secrets/rotation-dual/dualrotation8.png)
+![Secret Show](../media/secrets/rotation-dual/dualrotation-8.png)
 
 Retrieve access keys to validate value
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Access Key List](../media/secrets/rotation-dual/dualrotation9.png)
+![Access Key List](../media/secrets/rotation-dual/dualrotation-9.png)
 
 ## Available Key Vault dual credential rotation functions
 
