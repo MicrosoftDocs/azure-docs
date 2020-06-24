@@ -285,7 +285,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](log-standard-properties#_isbillable) about `_IsBillable`.
+Note that the clause `where _IsBillable = true` filters out data types from certain solutions for which there is no ingestion charge. [Learn more](log-standard-properties.md#_isbillable) about `_IsBillable`.
 
 ### Data volume by solution
 
