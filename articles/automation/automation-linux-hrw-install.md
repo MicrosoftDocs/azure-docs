@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
 ---
 # Deploy a Linux Hybrid Runbook Worker
@@ -114,7 +114,17 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
 
-3. Run the following command to add the machine to a Hybrid Runbook Worker group, changing the values for the parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter, replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name doesn't exist in your Automation account, a new Hybrid Runbook Worker group is created with that name.
+3. Run the following command to add the machine to a Hybrid Runbook Worker group, changing the values for the parameters *-w*, *-k*, *-g*, and *-e*.
+
+    You can get the information required for parameters *-k* and *-e* from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
+
+    ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * For the `-e` parameter, copy the value for **URL**.
+
+    * For the `-k` parameter, copy the value for **PRIMARY ACCESS KEY**.
+
+    For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name. For the `-w` parameter, specify your Log Analytics workspace ID.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
