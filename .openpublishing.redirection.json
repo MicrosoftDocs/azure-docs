@@ -55466,7 +55466,7 @@
     },
     {
       "source_path": "articles/aks/azure-ad-integration.md",
-      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_url": "/azure/aks/azure-ad-integration-cli",
       "redirect_document_id": false
     },
     {
