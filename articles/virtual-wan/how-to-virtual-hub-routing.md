@@ -39,7 +39,7 @@ For more information, see [About virtual hub routing](about-virtual-hub-routing.
 
       :::image type="content" source="./media/how-to-virtual-hub-routing/next-hop.png" alt-text="Next hop":::
 
-5. Select the **Labels** tab to configure label names.
+5. Select the **Labels** tab to configure label names. Labels provide a mechanism to logically group route tables.
 
     :::image type="content" source="./media/how-to-virtual-hub-routing/labels.png" alt-text="Configure label names":::
 
