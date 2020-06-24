@@ -7,7 +7,7 @@ ms.date: 05/19/2020
 
 # Install HCX for Azure VMware Solution
 
-In this article, we go through procedures to set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud. HCX Advanced (default installation) supports up to three external sites, where each external site requires an HCX Enterprise manager or connector to be installed and activated.
+In this article, walk through procedures to set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud. HCX Advanced (default installation) supports up to three external sites, where each external site requires an HCX Enterprise manager or connector to be installed and activated.
 HCX enables migration of your VMware workloads to the cloud and or other connected sites through various built-in HCX supported migration types. If more than three sites are required, customers have the option to enable the HCX Enterprise add-on through Support. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
@@ -56,7 +56,7 @@ Infrastructure components must be running the required minimum version.
 * On-premises HCX IX and NE appliances should be able to reach vCenter
     and ESXi infrastructure.
 
-* To deploy the WAN Interconnect appliance, in addition to the /22 CIDR network address block used for SDDC deployment in the Azure portal, HCX requires a /29 block. You should factor this into your network planning.
+* To deploy the WAN Interconnect appliance, in addition to the /22 CIDR network address block used for SDDC deployment in the Azure portal, HCX requires a /29 block. Make sure to factor this into your network planning.
 
 ## Deploy the VMware HCX OVA on-premises
 
@@ -118,7 +118,7 @@ After installation, perform the following steps.
 
     ![Add site pairing](./media/hybrid-cloud-extension-installation/site-pairing.png)
 
-1. Enter **Remote HCX URL**, **Username**, and **Password**. Then select **Connect**.
+1. Enter the Remote HCX URL or IP address, AVS Cloudadmin **Username** and **Password**, and then select **Connect**.
 
    The system shows the connected site.
    
@@ -128,7 +128,7 @@ After installation, perform the following steps.
 
     ![Create network profile](./media/hybrid-cloud-extension-installation/create-network-profile.png)
 
-1. Enter HCX IX and NE IP address ranges (a minimum of 2 IP addresses is
+1. Enter HCX IX and NE IP address ranges (a minimum of two IP addresses is
     required for IX and NE appliances).
     
    ![Enter IP address ranges](./media/hybrid-cloud-extension-installation/enter-address-ranges.png)
@@ -175,7 +175,7 @@ After installation, perform the following steps.
 
 1. Select **Network Uplink** and select **Continue**.
       
-    Select one or more network profiles such that one of the following
+    Select one or more network profiles so that one of the following
     is true:  
     * The Interconnect Appliances on the remote site can be reached via
     this network  
@@ -225,10 +225,10 @@ Now configure the network profile change in AVS SDDC for Network
 Uplink.
 
 1. Sign in to SDDC NSX-T to create a new logical switch, or use an existing
-   logical switch which can be used for Network Uplink between
+   logical switch that can be used for Network Uplink between
    on-premises and AVS SDDC.
 
-1. Create a network profile for HCX uplink in AVS SDDC which can be
+1. Create a network profile for HCX uplink in AVS SDDC that can be
    used for on-premises to AVS SDDC communication.  
     
    ![Create network profile for uplink](./media/hybrid-cloud-extension-installation/network-profile-uplink.png)
