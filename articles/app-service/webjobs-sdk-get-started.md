@@ -233,7 +233,7 @@ The WebJobs SDK looks for the storage connection string in the Application Setti
     }
     ```
 
-1. Replace *{storage connection string}* with the connection string that you copied earlier.
+1. Replace *{storage connection string}* with the connection string that you copied previously.
 
 1. Select the *appsettings.json* file in Solution Explorer and in the **Properties** window, set **Copy to Output Directory** to **Copy if newer**.
 
@@ -303,7 +303,7 @@ Build and run the project locally and create a message queue to trigger the func
 1. Close the console window. 
 
 1. Go back to the **Queue** window and refresh it. The message is gone, since it has been processed by your function running locally. 
-1. 
+
 
 ## <a name="deploy-as-a-webjob"></a>Deploy to Azure
 
@@ -375,6 +375,8 @@ Before you deploy to Azure, do the following tasks to set up Application Insight
 
 ### Create App Service app and Application Insights instance
 
+   ![Setting app insights](./media/webjobs-sdk-get-started/app-insights-turn-on.png)
+
 1. [Create an Application Insights instance](../azure-monitor/app/create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 
 1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
@@ -386,7 +388,7 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
 * Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering). When running locally, all Information and higher-level logs are written to both the console and Application Insights.
 * Put the [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) object in a `using` block to ensure that log output is flushed when the host exits.
 
-Add the Application Insights provider to your logging code with the following steps. Use the key you added earlier to your app settings. 
+Add the Application Insights provider to your logging code with the following steps. Use the key you added previously to your app settings. 
 
 1. Install the latest stable 3.x version of the [`Microsoft.Azure.WebJobs.Logging.ApplicationInsights` NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
