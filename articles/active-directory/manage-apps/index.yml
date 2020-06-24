@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Application management documentation
-summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+summary: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
 
 metadata: 
    title: Application management documentation
-   description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Office 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
+   description: Azure Active Directory provides secure and seamless access to cloud and on-premises applications. Plus, there's no need to manage passwords. Your end-users can sign in once to access Microsoft 365 and thousands of other applications. Learn how to manage and deploy applications with our quickstarts, tutorials, and guidance.
    ms.service: active-directory
    ms.subservice: app-mgmt
    ms.workload: identity

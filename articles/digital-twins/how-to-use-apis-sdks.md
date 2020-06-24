@@ -112,29 +112,27 @@ Create and query twins:
 
 ```csharp
 // Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+
+twinData.Id = $"firstTwin";
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", "Hello World!");
 try {
-    await client.CreateDigitalTwinAsync($"firstTwin", JsonSerializer.Serialize(initData));
+    await client.CreateDigitalTwinAsync("firstTwin", JsonSerializer.Serialize(twinData));
 } catch(RequestFailedException rex) {
     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
 }
-
+ 
 // Run a query    
 AsyncPageable<string> result = client.QueryAsync("Select * From DigitalTwins");
 await foreach (string twin in result)
 {
+    // Use JSON deserialization to pretty-print
     object jsonObj = JsonSerializer.Deserialize<object>(twin);
     string prettyTwin = JsonSerializer.Serialize(jsonObj, new JsonSerializerOptions { WriteIndented = true });
     Console.WriteLine(prettyTwin);
+    // Or use BasicDigitalTwin for convenient property access
+    BasicDigitalTwin btwin = JsonSerializer.Deserialize<BasicDigitalTwin>(twin);
 }
 ```
 
@@ -259,13 +257,13 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 
 ## General API/SDK usage notes
 
-This section contains general information about and guidelines for using the APIs and SDKs.
-
 > [!NOTE]
 > Please note that during preview, Azure Digital Twins does not support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) connector, you may see a policy error.
 > To resolve this error, you can do one of the following:
 > * Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
 > * Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
+
+The following list provides additional detail and general guidelines for using the APIs and SDKs.
 
 * To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with a variety of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
 * You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), which you will likely use to authenticate [Azure functions set up with MSI](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
