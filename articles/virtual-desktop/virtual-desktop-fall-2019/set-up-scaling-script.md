@@ -101,7 +101,8 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. He
 
 6. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
-![An image of the Azure overview page showing the newly created automation account and runbook.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the Azure overview page showing the newly created automation account and runbook.](../media/automation-account.png)
 
   To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
@@ -231,11 +232,13 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
      After you run the script, the Logic App should appear in a resource group, as shown in the following image.
 
-     ![An image of the overview page for an example Azure Logic App.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![An image of the overview page for an example Azure Logic App.](../media/logic-app.png)
 
 To make changes to the execution schedule, such as changing the recurrence interval or time zone, go to the Autoscale scheduler and select **Edit** to go to the Logic Apps Designer.
 
-![An image of the Logic Apps Designer. The Recurrence and Webhook menus that let the user edit recurrence times and the webhook file are open.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the Logic Apps Designer. The Recurrence and Webhook menus that let the user edit recurrence times and the webhook file are open.](../media/logic-apps-designer.png)
 
 ## Manage your scaling tool
 
@@ -247,7 +250,8 @@ You can view a summarized status of all runbook jobs or view a more in-depth sta
 
 On the right of your selected Automation account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
 
-![A screenshot of the job status page.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of the job status page.](../media/jobs-status.png)
 
 ### View logs and scaling tool output
 
@@ -255,5 +259,6 @@ You can view the logs of scale-out and scale-in operations by opening your runbo
 
 Navigate to the runbook (the default name is WVDAutoScaleRunbook) in your resource group hosting the Azure Automation account and select **Overview**. On the overview page, select a job under Recent Jobs to view its scaling tool output, as shown in the following image.
 
-![An image of the output window for the scaling tool.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![An image of the output window for the scaling tool.](../media/tool-output.png)
 
