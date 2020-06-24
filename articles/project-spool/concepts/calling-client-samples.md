@@ -64,6 +64,7 @@ Task<AdHocCallClient> clientTask = CallClientFactory.Create(token);
 Task.WhenAll(clientTask).Wait();
 Tuple<AdHocCallClient, DeviceManager> resultTuple = clientTask.Result;
 AdHocCallClient callClient = resultTuple.Item1;
+DeviceManager deviceManager = resultTuple.Item2;
 ```
 --- 
 
