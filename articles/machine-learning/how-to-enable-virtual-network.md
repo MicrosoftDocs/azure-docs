@@ -55,7 +55,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > 
 
 > [!WARNING]
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
 > 
 > Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
@@ -300,6 +299,13 @@ except ComputeTargetException:
 ```
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+
+### Access data in a Compute Instance notebook
+
+Make sure your notebook is running on compute behind the same virtual network and subnet as your data. If you're using notebook on Compute Instance, you can must configure your Compute Instance to be in the same virtual network during creation. You cannot add an existing Compute Cnstance to a virtual network. You can set these configurations under **Advanced settings** > **Configure virtual network**
+
+[Screenshot showing compute instance virtual network configuration]()  
+
 
 ## Use a storage account for your workspace
 
