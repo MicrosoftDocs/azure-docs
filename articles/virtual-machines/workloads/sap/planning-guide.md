@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -543,13 +543,6 @@ Within Azure, a disk/VHD name follows the following naming connection that needs
     http(s)://<storage account name>.blob.core.windows.net/<container name>/<vhd name>
 
 The string above needs to uniquely identify the disk/VHD that is stored on Azure Storage.
-
-
-#### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
-
-Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the availability set of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
-
-We recommend to you use Azure managed disks, because they simplify the deployment and management of your virtual machines.
 
 
 #### Azure persisted storage types

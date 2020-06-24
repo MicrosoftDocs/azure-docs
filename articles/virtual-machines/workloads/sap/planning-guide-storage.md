@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -31,7 +31,23 @@ Microsoft Azure storage of Standard HDD, Standard SSD, Azure premium storage, an
 
 There are several more redundancy methods, which are all described in the article [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) that apply to some of the different storage types Azure has to offer. 
 
-How these resiliency options are applied to the Azure storage types used for SAP is described in the next sections.
+### Azure managed disks
+
+Managed disks are a resource type in Azure Resource Manager that can be used instead of VHDs that are stored in Azure Storage Accounts. Managed Disks automatically align with the [availability set][virtual-machines-manage-availability] of the virtual machine they are attached to and therefore increase the availability of your virtual machine and the services that are running on the virtual machine. For more information, read the [overview article](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+
+Related to resiliency, this example demonstrates the advantage of managed disks:
+
+- You are deploying your two DBMS VMs for your SAP system in an Azure availability set 
+- As Azure deploys the VMs, the disk with the OS image will be placed in a different storage cluster. This avoids that both VMs get impacted by an issue of a single Azure storage cluster
+- As you create new managed disks that you assign to these VMs to store the data and log files of your database, these new disks for the two VMs are also deployed in separate storage clusters, so, that none of disks of the first VM are sharing storage clusters with the disks of the second VM
+
+Deploying without managed disks in customer defined storage accounts, disk allocation is arbitrary and has no awareness of the fact that VMs are deployed within an AvSet for resiliency purposes.
+
+> [!NOTE]
+> Out of this reason and several other improvements that are exclusively available through managed disks, we require that new deployments of VMs that use Azure block storage for their disks (all Azure storage except Azure NetApp Files) need to use Azure managed disks for the base VHD/OS disks, data disks that contain SAP database files. Independent on whether you deploy the VMs through availability set, across Availability Zones or independent of the sets and zones. Disks that are used for the purpose of storing backups are not necessarily required to be managed disks.
+
+> [!NOTE]
+> Azure managed disks provide local redundancy (LRS) only. 
 
 
 ## Storage scenarios with SAP workloads
@@ -65,6 +81,7 @@ Before going into the details, we are presenting the summary and recommendations
 | DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | not supported |
 | DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | not supported |
 
+
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 <sup>2</sup> Using ANF requires /hana/data as well as /hana/log to be on ANF 
 
@@ -77,11 +94,23 @@ Characteristics you can expect from the different storage types list like:
 | Latency Writes | high | medium to high  | low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
 | HANA supported | no | no | yes<sup>1</sup> | yes | yes |
 | Disk snapshots possible | yes | yes | yes | no | yes |
+| Aligned with availability sets | through managed disks | through managed disks | through managed disks | no | no |
+| Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
+| Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
+| Geo redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
+
+
+> [!IMPORTANT]
+> To achieve less than 1 millisecond I/O latency using Azure NetApp Files (ANF), you need to work with Microsoft to arrange the correct placement between your VMs and the NFS shares based on ANF. So far there is no mechanism in place that provides an automatic proximity between a VM deployed and the NFS volumes hosted on ANF. Given the different setup of the different Azure regions, the network latency added could push the I/O latency beyond 1 millisecond if the VM and the NFS share are not allocated in proximity.
+
+
+> [!IMPORTANT]
+> None of the currently offered Azure block storage based managed disks, or Azure NetApp Files offer any zonal or geographical redundancy. As a result, you need to make sure that your high availability and disaster recovery architectures are not relying on any type of storage replication.
 
 
 ## Azure premium storage
