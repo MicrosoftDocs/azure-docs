@@ -135,6 +135,51 @@ If you are getting close to the maximum number and you try to add more role assi
 
 ![Access control - Add role assignment warning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
+## Download role assignments (Preview)
+
+You can download role assignments at a scope in CSV or JSON formats. This can be helpful if you need to inspect the list in a spreadsheet or take an inventory when migrating a subscription.
+
+> [!IMPORTANT]
+> Download role assignments is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+When you download role assignments, you should keep in mind the following criteria:
+
+- If you don't have permissions to read the directory, such as the Directory Readers role, the DisplayName, SignInName, and ObjectType columns will be blank.
+- Role assignments whose security principal has been deleted are not included.
+- Access granted to classic administrators are not included.
+
+Follow these steps to download role assignments at a scope.
+
+1. In the Azure portal, click **All services** and then select the scope where you want to download the role assignments. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click **Download role assignments (preview)** to open the Download role assignments pane.
+
+    ![Access control - Download role assignments](./media/role-assignments-list-portal/download-role-assignments.png)
+
+1. Use the check boxes to select the role assignments you want to include in the downloaded file.
+
+    - **Inherited** - Include inherited role assignments for the current scope.
+    - **At current scope** - Include role assignments for the current scope.
+    - **Children** - Include role assignments at levels below the current scope. This check box is disabled for management group scope.
+
+1. Select the file format, which can be comma-separated values (CSV) or JavaScript Object Notation (JSON).
+
+1. Specify the file name.
+
+1. Click **Start** to start the download.
+
+    The following show examples of the output for each file format.
+
+    ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
+
+    ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+
 ## Next steps
 
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
