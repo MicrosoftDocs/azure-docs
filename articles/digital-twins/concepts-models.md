@@ -24,7 +24,7 @@ A key characteristic of Azure Digital Twins is the ability to define your own vo
 
 A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [**digital twins**](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
-Models are written using the JSON-based **Digital Twin Definition Language (DTDL)**.  
+Models are written using the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
 
 ## Digital Twin Definition Language (DTDL) for writing models
 
