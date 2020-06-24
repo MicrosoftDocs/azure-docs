@@ -4,6 +4,7 @@ description: How to customize a cluster using cloud-init
 author: staer
 ms.date: 05/13/2020
 ms.author: danharri
+monikerRange: '>= cyclecloud-8'
 ---
 
 # Cloud-Init
