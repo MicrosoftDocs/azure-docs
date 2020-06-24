@@ -19,10 +19,10 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In this scenario, you want to route traffic through the Azure Firewall for VNet-to-Internet, VNet-to-Branch, or Branch-to-VNet traffic, but would like to go direct for VNet-to-VNet traffic. If you used Azure Firewall Manager, the route settings are automatically populated into the **Default Route Table**. Private Traffic applies to VNet and Branches, Internet traffic applies to 0.0.0.0/0.
 
-In this scenario, VPN, ExpressRoute, and User VPN connections are associated to the same route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. In order to configure this scenario, take the following steps into consideration:
+VPN, ExpressRoute, and User VPN connections are collectively called Branches and associate to the same (Default) route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. In order to configure this scenario, take the following steps into consideration:
 
 1. Create a custom route table **RT_VNET**.
-1. Create a route to activate VNet-to-Internet and VNet-to-Branch: 0.0.0.0/0 next hop Azure Firewall. In the Propagation section, you'll make sure that VNets are selected which would ensure more specific routes, thereby allowing VNet-to-VNet direct traffic flow.
+1. Create a route to activate VNet-to-Internet and VNet-to-Branch: 0.0.0.0/0 with the next hop pointing to Azure Firewall. In the Propagation section, you'll make sure that VNets are selected which would ensure more specific routes, thereby allowing VNet-to-VNet direct traffic flow.
 
    * In **Association:** Select VNets which will imply that VNets will reach destination according to the routes of this route table.
    * In **Propagation:** Select VNets which will imply that the VNets propagate to this route table; in other words, more specific routes will propagate to this route table, thereby ensuring direct traffic flow between VNet to VNet.
@@ -31,6 +31,8 @@ In this scenario, VPN, ExpressRoute, and User VPN connections are associated to 
 
    * Remember, branches are associated and propagating to the default route table.
    * Branches do not propagate to RT_VNET route table. This ensures the VNet-to-Branch traffic flow via the Azure Firewall.
+
+This will result in the routing configuration changes as seen the figure below
 
 **Figure 1**
 
