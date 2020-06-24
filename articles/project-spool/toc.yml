@@ -162,6 +162,8 @@
   items:
   - name: Roadmap
     href: roadmap.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: FAQ
     href: faq.md
   - name: Provide Product Feedback

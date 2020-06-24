@@ -1,4 +1,4 @@
-*Note: This is a temporary page.  **This will not be published**.  If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.* (test)
+*Note: This is a temporary page.  **This will not be published**.  If you have any questions or feedback along the way, feel free to ping/email me any time.  My alias is **mikben**.*
 
 ## Intro
 
