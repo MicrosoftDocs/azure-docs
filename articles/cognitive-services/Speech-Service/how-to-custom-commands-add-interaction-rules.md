@@ -134,7 +134,7 @@ Select **Train**, wait for the training to finish, and select **Test**.
 - **Output**: Updating previous alarm time to 2020-05-29 08:00.
 
 > [!NOTE]
-> In a real application, in the Actions section of this correction rule, you'll also need to send back an activity to the client or call an HTTP endpoint to update the alarm time in your system. This action should be solely responsible for updating the alarm time and not any other attribute of the command, in this case, the alarm tone.
+> In a real application, in the **Actions** section of this correction rule, you'll also need to send back an activity to the client or call an HTTP endpoint to update the alarm time in your system. This action should be solely responsible for updating the alarm time and not any other attribute of the command. In this case, that would be the alarm tone.
 
 ## Next steps
 
