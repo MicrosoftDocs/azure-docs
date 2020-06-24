@@ -966,6 +966,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-keys.md",
+      "redirect_url": "/azure/cognitive-services/luis/how-to-azure-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
       "redirect_url": "/azure/cognitive-services/luis/luis-migration-authoring",
       "redirect_document_id": false
@@ -48954,7 +48959,7 @@
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-powershell",
       "redirect_document_id": true
-    },                    
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-storage-explorer.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer",
@@ -48979,7 +48984,7 @@
       "source_path": "articles/lab-services/devtest-lab-vm-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vm-powershell",
       "redirect_document_id": true
-    },                       
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-vmcli.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vmcli",
@@ -49109,12 +49114,12 @@
       "source_path": "articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
-    },                                                        
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/index.yml",
       "redirect_url": "/azure/lab-services/",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/account-setup-guide.md",
       "redirect_url": "/azure/lab-services/account-setup-guide",
