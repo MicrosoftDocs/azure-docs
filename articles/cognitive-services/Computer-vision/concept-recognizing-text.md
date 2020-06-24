@@ -16,17 +16,19 @@ ms.custom: seodec18
 
 # Read text from images and documents
 
-Computer Vision includes new deep learning based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. This is useful in a variety of scenarios such as note taking, medical records, security, and banking. The OCR APIs do not store and use your data for improving the models. In addition, Microsoft offers more options such as virtual networks and containers to help meet your compliance and privacy needs.
+Computer Vision includes new deep learning based Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. Computer Vision extract text from analog (images, scanned documents) and digitized document. Computer Vision API enables you to extract text from images in the wild such as photos of cars with license plates, containers with serial numbers and also from document - invoices, bills, financial reports, articles and lots more. Computer Vision is available as a managed service in the cloud or on premise (containers) and supports also virtual networks and private endpoints to meet your enterprise grade compliance and privacy needs.
 
 ## Read API 
 
-Computer Vision’s Read API is Microsoft’s latest OCR technology that extracts text from images and PDF documents. It's optimized for images with visual noise and text-heavy images such as PDF documents that are either digital or scanned. It supports printed and handwritten text (English) and mixed languages in the same image or document. 
+Computer Vision’s Read API is Microsoft’s latest OCR technology that extracts printed text, handwritten text (English only), digits, and currency symbols from images and PDF documents. It's optimized for in-the-wild images and PDF documents that are either digital or scanned. It supports printed and handwritten text (English), and mixed languages in the same image or document.
 
 ### How it works
 
-The Read API is asynchronous. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation Id. 
+The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is asynchronous. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation Id. 
 
 The second step is to call the Get Results operation to get the extracted text content from your image or document. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and a confidence scores.
+
+Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
 
 ### Input requirements
 
@@ -56,7 +58,7 @@ The Read operation supports extracting handwritten text in English only.
 
 ### Printed text and supported languages
 
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. The following image shows extracted Spanish text from the Read API. 
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition). The following image shows extracted Spanish text from the Read API. 
 
 ![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
@@ -65,6 +67,11 @@ The Read API supports extracting printed text in English, Spanish, German, Frenc
 The Read OCR technology supports extracting text from images and documents with mixed languages. It does so by classifying each text line in the document before extracting the text contents.
 
 ![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
+
+### Data privacy and security
+
+As with all the cognitive services, developers using the Read service should be aware of Microsoft policies on customer data. See the Cognitive Services page on the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) to learn more.
+
 
 ### Use the cloud API
 
@@ -81,4 +88,5 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 ## Next steps
 
-Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
+- Learn about the [Read 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
