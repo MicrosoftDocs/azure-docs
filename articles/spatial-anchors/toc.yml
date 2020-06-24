@@ -48,6 +48,8 @@
     items:
     - name: In Unity
       href: how-tos/create-locate-anchors-unity.md
+    - name: In Unreal
+      href: how-tos/create-locate-anchors-unreal.md
     - name: In Objective-C
       href: how-tos/create-locate-anchors-objc.md
     - name: In Swift

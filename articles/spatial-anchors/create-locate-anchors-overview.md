@@ -4,9 +4,8 @@ description: In-depth explanation of how to create and locate anchors using Azur
 author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
-
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 006/24/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
 ---
@@ -21,6 +20,9 @@ To learn more, continue by choosing your development environment:
 
 > [!div class="nextstepaction"]
 > [C# on Unity (for HoloLens, iOS and Android)](how-tos/create-locate-anchors-unity.md)
+
+> [!div class="nextstepaction"]
+> [Blueprint in Unreal)](how-tos/create-locate-anchors-unreal.md)
 
 > [!div class="nextstepaction"]
 > [Objective-C on iOS](how-tos/create-locate-anchors-objc.md)
