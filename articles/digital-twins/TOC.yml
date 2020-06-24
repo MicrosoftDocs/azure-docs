@@ -46,10 +46,10 @@
       href: how-to-authenticate-client.md
   - name: Design models
     items: 
-    - name: Parse and validate models
-      href: how-to-use-parser.md
     - name: Manage custom models
       href: how-to-manage-model.md
+    - name: Parse and validate models
+      href: how-to-use-parser.md
   - name: Use live execution environment
     items:
     - name: Manage digital twins
