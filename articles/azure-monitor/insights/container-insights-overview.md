@@ -1,4 +1,4 @@
- ---
+---
 title: Overview of Azure Monitor for containers | Microsoft Docs
 description: This article describes Azure Monitor for containers that monitors AKS Container Insights solution and the value it delivers by monitoring the health of your AKS clusters and Container Instances in Azure.
 ms.topic: conceptual
@@ -15,7 +15,7 @@ Azure Monitor for containers is a feature designed to monitor the performance of
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) or on-premises
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
-- [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview) 
+- [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
 
 Azure Monitor for containers supports clusters running the Linux and Windows Server 2019 operating system.
 
