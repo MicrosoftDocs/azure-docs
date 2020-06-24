@@ -17,7 +17,7 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In this scenario, VPN, ExpressRoute, and User VPN connections (collectively called branches) are associated to the same route table (Default Route Table). All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-## <a name="architecture"></a>Scenario Workflow
+## <a name="architecture"></a>Scenario workflow
 
 In **Figure 1**, there are Blue and Red VNet connections.
 
@@ -26,7 +26,7 @@ In **Figure 1**, there are Blue and Red VNet connections.
 
 Consider the following steps when setting up routing.
 
-1. Create two custom route tables in Azure Portal, **RT_BLUE** and **RT_RED**.
+1. Create two custom route tables in the Azure portal, **RT_BLUE** and **RT_RED**.
 2. For route table **RT_BLUE**, under:
    * **Association**: Select all Blue VNets
    * **Propagation**: For Branches, Select the option for branches, implying branch(VPN/ER/P2S) connections will propagate routes to this route table.
