@@ -31,7 +31,7 @@ In above solution, Azure Key Vault stores Storage Account individual access keys
 ## Prerequisites
 
 * Azure Key Vault
-* 2 Azure Storage Accounts
+* Two Azure Storage Accounts
 
 Below deployment link can be used, if you don't have existing key vault and storage accounts:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
@@ -106,7 +106,7 @@ az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --sec
 
 You can now create a new secret with a Storage Account access key as value. You will also need the Storage Account resource id, secret validity period, and the key ID to add to secret, so rotation function can regenerate key in Storage Account.
 
-Retrieve Storage Account resource id. Value can be found under `id` property
+Retrieve Storage Account resource ID. Value can be found under `id` property
 ```azurecli
 az storage account show -n akvrotationstorage
 ```
