@@ -38,7 +38,7 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 
 * Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
 
-## Creating a cluster with Uptime SLA
+## Creating a new cluster with Uptime SLA
 
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
@@ -118,6 +118,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ## Next steps
 
 Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
+
 Configure your cluster to [limit egress traffic](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
