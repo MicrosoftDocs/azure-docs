@@ -26,8 +26,8 @@ In this scenario, we assume the following configuration:
 
 Additional considerations:
 
-* For an inter-hub scenario with Azure Firewall, the assumption is that spoke VNets do not associate to separate route tables. (**VNET 1** is associated to **Route Table A**, and **VNET 2** is associated to **Route Table B**). All VNets associate to the same route table in which the routes for the Azure Firewall reside.
-* Securing via Azure Firewall is currently limited to **Branch <-> VNet** and **Internet** only. Branch-to-Branch is not currently supported.
+* For an inter-hub scenario with Azure Firewall, the assumption is that spoke VNets do not associate to separate route tables. (e.g **VNET 1** associated to **Route Table A**, and **VNET 2** associated to **Route Table B**). All VNets associate to the same route table in which the routes for the Azure Firewall reside.
+* Securing via Azure Firewall is currently limited to **Branch <-> VNet** and **Internet** traffic only. Branch-to-Branch flow via the Azure Firewall currently not supported.
 
 **Figure 1**
 
@@ -39,7 +39,7 @@ In order to configure this scenario, take the following steps into consideration
 
 ### <a name="step-1"></a>Step 1
 
-Assuming that you have already secured the connections via Azure Firewall Manager, the first step is to ensure that all branch and VNet connections propagate **None**.
+Assuming that you have already secured the connections via Azure Firewall Manager, the first step is to ensure that all branch and VNet connections propagate **None**. This is required to ensure traffic is being set via the Azure Firewall.
 
 1. Select the hub and edit the **None** Route Table.
 1. Update **Propagation** to select all branches and all VNets.
@@ -64,13 +64,15 @@ Modify the **Default Route Table** in each of the hubs to add a static route for
 
 1. For the **Hub 1 Default Route Table**:
 
-    * **Branch to Hub 2 Branches via AZFW2**: 10.5.0.0/16->AZFW2. This configuration sets up a route to a different firewall due to the inter-hub traffic path.
-    * **Branch to Hub 2 VNets via AZFW2**: 10.2.0.0/16->AZFW2. This configuration sets up a route to a different firewall due to the inter-hub traffic path.
+    * **Branch to Hub 2 Branches via AZFW2**: 10.5.0.0/16->AZFW2. This configuration sets up a route for Hub 2 firewall.
+    * **Branch to Hub 2 VNets via AZFW2**: 10.2.0.0/16->AZFW2. This configuration sets up a route for Hub 2 firewall.
     * **Branch to Branch (Local)/ Branch to VNet (Local)/ Branch to Internet**: 0.0.0.0/0->AZFW1.
 
 2. For the **Hub 2 Default Route Table**:
 
     * Branch to Branch (Local and Remote)/ Branch to VNet (Local and Remote)/ Branch to Internet: 0.0.0.0/0->AZFW2.
+
+This will result in the routing configuration changes as seen the figure below
 
 **Figure 2**
 
