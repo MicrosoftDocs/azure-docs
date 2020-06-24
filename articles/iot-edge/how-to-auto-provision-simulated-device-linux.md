@@ -4,7 +4,7 @@ description: Use a simulated TPM on a Linux VM to test Azure Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 3/2/2020
+ms.date: 6/24/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -29,14 +29,14 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 
 * A Windows development machine with [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
 * An active IoT Hub.
-* If using a simulated TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
+* If using a simulated TPM, you need [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled on your development machine.  
 
 > [!NOTE]
 > TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
 ## Create a Linux virtual machine with a virtual TPM
 
-In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge.
+In this section, you create a new Linux virtual machine on Hyper-V. You configure this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge.
 
 ### Create a virtual switch
 
@@ -56,9 +56,9 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 ### Create virtual machine
 
-1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server](https://www.ubuntu.com/download/server).
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server](http://releases.ubuntu.com/18.04.4/). IoT-Edge supports only the 18.04.4 version.
 
-2. In Hyper-V Manager again, select **New** > **Virtual Machine** in the **Actions** menu.
+2. In Hyper-V Manager again, select **Action** > **New** > **Virtual Machine** in the **Actions** menu.
 
 3. Complete the **New Virtual Machine Wizard** with the following specific configurations:
 
@@ -74,7 +74,7 @@ It may take a few minutes to create the new VM.
 
 Once your VM is created, open its settings to enable the virtual trusted platform module (TPM) that lets you auto-provision the device.
 
-1. Select the virtual machine, then open its **Settings**.
+1. In Hyper-V Manager, right-click on the VM and select **Settings**.
 
 2. Navigate to **Security**.
 
@@ -88,20 +88,20 @@ Once your VM is created, open its settings to enable the virtual trusted platfor
 
 In the virtual machine, build a tool that you can use to retrieve the device's **Registration ID** and **Endorsement key**.
 
-1. Start your virtual machine and connect to it.
+1. In Hyper-V Manager, start your VM and connect to it.
 
 1. Follow the prompts within the virtual machine to finish the installation process and reboot the machine.
 
 1. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
    >[!TIP]
-   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address. First run `sudo apt install net-tools` and then `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
 1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM simulator.
 
    ```bash
    cd azure-iot-sdk-c/cmake
-   cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+   cmake -Duse_prov_client:BOOL=ON
    cd provisioning_client/tools/tpm_device_provision
    make
    sudo ./tpm_device_provision
