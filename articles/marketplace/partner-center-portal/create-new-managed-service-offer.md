@@ -133,9 +133,9 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide your offer's logo in four pixel sizes:
 
-- **Small** (40 x 40)
+- **Small** (48 x 48)
 - **Medium** (90 x 90)
-- **Large** (115 x 115)
+- **Large** (216 x 216)
 - **Wide** (255 x 115)
 
 Follow these guidelines for your logos:

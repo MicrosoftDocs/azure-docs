@@ -209,10 +209,6 @@ Provide your offer's logo in three pixel sizes:
 - **Large** (required; 216 x 216)
 - **Wide** (optional; 255 x 115)
 
-#### Hero
-
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
-
 #### Screenshots
 
 Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels.

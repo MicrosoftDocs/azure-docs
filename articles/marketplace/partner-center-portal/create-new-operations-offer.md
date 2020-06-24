@@ -205,9 +205,6 @@ Provide your offer's logo in two pixel sizes:
 - **Small** (48 x 48)
 - **Large** (216 x 216)
 
-#### Hero
-
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
 
 #### Screenshots
 
