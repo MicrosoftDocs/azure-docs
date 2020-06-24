@@ -13,25 +13,26 @@ ms.author: cherylmc
 ---
 # Scenario: Custom isolation for VNets
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific VNets from being able to reach other specific VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN).
 
-In this scenario, VPN, ExpressRoute, and User VPN connections are associated to the same route table (Default Route Table). All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+In this scenario, VPN, ExpressRoute, and User VPN connections (collectively called branches) are associated to the same route table (Default Route Table). All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-## <a name="architecture"></a>Scenario Workflow
+## <a name="architecture"></a>Scenario workflow
 
-In **Figure 1**, there are Blue and Red connections.
+In **Figure 1**, there are Blue and Red VNet connections.
 
 * Blue-connected VNets can reach each other, as well as reach all branches (VPN/ER/P2S) connections.
 * Red VNets can reach each other, as well as reach all branches (VPN/ER/P2S) connections.
-* When multiple hubs exist, hub-to-hub routing (also known as inter-hub) is enabled by default in Standard Virtual WAN.
 
 Consider the following steps when setting up routing.
 
-1. Create two custom route tables, **RT_BLUE** and **RT_RED**.
-2. For route table **RT_BLUE**:
+1. Create two custom route tables in the Azure portal, **RT_BLUE** and **RT_RED**.
+2. For route table **RT_BLUE**, under:
    * **Association**: Select all Blue VNets
-   * **Propagation**: For Branches, select **RT_BLUE**, in addition to any option you may have already selected before. For VNets, select all Blue VNets in addition to any option you may have already selected before.
-3. Repeat the same configuration for **RT_RED** route table for red VNets and branches (VPN/ER/P2S).
+   * **Propagation**: For Branches, Select the option for branches, implying branch(VPN/ER/P2S) connections will propagate routes to this route table.
+3. Repeat the same steps for **RT_RED** route table for red VNets and branches (VPN/ER/P2S).
+
+This will result in the routing configuration changes as seen the figure below
 
 **Figure 1**
 
