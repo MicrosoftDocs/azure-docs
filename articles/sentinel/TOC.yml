@@ -38,7 +38,7 @@
       items:
       - name: AWS CloudTrail
         href: connect-aws.md
-      - name: Azure AD
+      - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft 365
         href: connect-office-365.md
@@ -144,13 +144,13 @@
   - name: Useful resources
     href: resources.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
+    href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
     href: https://blogs.msdn.com/b/azuresecurity/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/
+    href: https://azure.microsoft.com/pricing/details/azure-sentinel/
   
 
     

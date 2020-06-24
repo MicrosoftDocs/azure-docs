@@ -1,21 +1,8 @@
 ---
 title: Azure Relay port settings | Microsoft Docs
 description: This article includes a table that describes the required configuration for port values for Azure Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Azure Relay port settings
