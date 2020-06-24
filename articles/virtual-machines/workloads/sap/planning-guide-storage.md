@@ -94,7 +94,7 @@ Characteristics you can expect from the different storage types list like:
 | Latency Writes | high | medium to high  | low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
 | HANA supported | no | no | yes<sup>1</sup> | yes | yes |
 | Disk snapshots possible | yes | yes | yes | no | yes |
-| Aligned with availability sets | through managed disks | through managed disks | through managed disks | no | no |
+| Allocation of disks on different storage clusters when using availability sets | through managed disks | through managed disks | through managed disks | disk type not supported with VMs deployed through availability sets | no<sup>3</sup> |
 | Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
 | Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
 | Geo redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
@@ -103,6 +103,8 @@ Characteristics you can expect from the different storage types list like:
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
 
 <sup>2</sup> Costs depend on provisioned IOPS and throughput
+
+<sup>3</sup> Creation of different ANF capacity pools does not guarantee deployment of capacity pools onto different storage units
 
 
 > [!IMPORTANT]
