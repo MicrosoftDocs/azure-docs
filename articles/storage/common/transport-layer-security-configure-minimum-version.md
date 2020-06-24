@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -40,7 +40,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose which types of requests to log. For example, choosing **StorageRead** and **StorageWrite** will log read and write requests to the selected service.
+1. Under **Category details**, in the **log** section, choose which types of requests to log. You can log read, write, and delete requests. For example, choosing **StorageRead** and **StorageWrite** will log read and write requests to the selected service.
 1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
@@ -151,7 +151,7 @@ resources
 
 To test that the minimum required TLS version for a storage account forbids calls made with an earlier version, you can configure a client to use an earlier version of TLS. For more information about configuring a client to use a specific version of TLS, see [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md).
 
-When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Not Found) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
+When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
 
 ## Next steps
 

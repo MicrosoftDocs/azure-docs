@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -27,7 +27,7 @@ The following examples show how to set the client's TLS version to 1.2 from Powe
 
 # [PowerShell](#tab/powershell)
 
-The following sample shows how to enable TLS 1.2 in PowerShell:
+The following sample shows how to enable TLS 1.2 in a PowerShell client:
 
 ```powershell
 # Set the TLS version used by the PowerShell client to TLS 1.2.
