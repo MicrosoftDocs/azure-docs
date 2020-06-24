@@ -18,7 +18,7 @@ ms.custom: aaddev
 ---
 # Migrate applications to Microsoft Authentication Library (MSAL)
 
-Many developers have built and deployed applications using the Active Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
+Many developers have built and deployed applications using the Azure Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
 
 By using MSAL instead of ADAL:
 
