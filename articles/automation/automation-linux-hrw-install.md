@@ -114,9 +114,9 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
 
-3. Run the following command to add the machine to a Hybrid Runbook Worker group, specifying the values for the parameters *-w*, *-k*, *-g*, and *-e*.
+3. Run the following command to add the machine to a Hybrid Runbook Worker group, specifying the values for the parameters `-w`, `-k`, `-g`, and `-e`.
 
-    You can get the information required for parameters *-k* and *-e* from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
+    You can get the information required for parameters `-k` and `-e` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
     ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
@@ -124,7 +124,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     * For the `-k` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
-    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name. 
+    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name.
 
     * For the `-w` parameter, specify your Log Analytics workspace ID.
 
