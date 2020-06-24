@@ -54,5 +54,5 @@
     items:
     - name: Get help with AVS deployment or provisioning failures
       href: fix-deployment-provisioning-failures.md  
-   - name: FAQ
-     href: faq.md
+  - name: FAQ
+    href: faq.md
