@@ -68,7 +68,7 @@ The function app rotation functions require these components and configuration:
 - An Azure App Service plan
 - A storage account required for function app trigger management
 - An access policy to access secrets in Key Vault
-- A role assignment to access Storage Account access keys
+- Assign Storage Account Key Operator Service role to function app to access Storage Account access keys
 - Storage Account key rotation functions with event trigger and http trigger (on-demand rotation)
 - EventGrid event subscription for **SecretNearExpiry** event
 
@@ -146,7 +146,7 @@ az storage account keys list -n akvrotationstorage
 Same function app can be reused to rotate multiple Storage Accounts. 
 
 Adding additional storage account keys for rotation to existing function requires:
-- A role assignment to access Storage Account access keys
+- Assign Storage Account Key Operator Service role to function app to access Storage Account access keys
 - EventGrid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link: 
@@ -200,6 +200,7 @@ az storage account keys list -n akvrotationstorage
 ## Available Key Vault dual credential rotation functions
 
 - [Storage Account](https://github.com/jlichwa/KeyVault-Rotation-StorageAccountKey-PowerShell)
+- [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## Learn more
 
