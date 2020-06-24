@@ -5,7 +5,7 @@ description: Learn how to design Conditional Access policies and effectively dep
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/09/2020
 
 ms.author: baselden

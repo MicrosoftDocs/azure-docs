@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/23/2020
 ms.author: spelluru 
 ms.reviewer: shvija
 ---

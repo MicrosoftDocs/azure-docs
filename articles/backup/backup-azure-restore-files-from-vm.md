@@ -231,7 +231,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For exampple: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
 > - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
