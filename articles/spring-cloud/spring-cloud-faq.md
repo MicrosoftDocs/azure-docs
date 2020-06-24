@@ -86,9 +86,9 @@ It depends on the logic of resource providers that own the extension resources. 
 
 ## Java runtime and OS versions
 
-### Which verions of Java runtime are supported in Azure Spring Cloud?
+### Which versions of Java runtime are supported in Azure Spring Cloud?
 
-Azure Spring Cloud supports Java LTS versions with the most recent builds, currently Java 8 build 252 and Java 11 build 7.  See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+Azure Spring Cloud supports Java LTS versions with the most recent builds, currently June 2020, Java 8 build 252 and Java 11 build 7 are supported. See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
 
 ### Who built these Java runtimes?
 
@@ -100,9 +100,10 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
+See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+
 * Java 8 LTS will be supported until March 2025.
 * Java 11 LTS will be supported until September 2026.
-See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 ### How can I download a supported Java runtime for local development?
 
@@ -111,6 +112,9 @@ See [Install the JDK for Azure and Azure Stack](https://docs.microsoft.com/azure
 ### What is the retire policy for older Java runtimes?
 
 Public notice will be sent out at 12 months before any old runtime version is retired. You will have 12 months to migrate to a later version.
+
+* Subscription admins will get email notification when we will retire a Java version.
+* The retire information will be published in the documentation.
 
 ### How can I get support for issues at the Java runtime level?
 
