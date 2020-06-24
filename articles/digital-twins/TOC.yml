@@ -56,8 +56,6 @@
       href: how-to-manage-twin.md
     - name: Manage a twin graph with relationships
       href: how-to-manage-graph.md
-    - name: Manage endpoints and routes
-      href: how-to-manage-routes.md
     - name: Interpret event data
       href: how-to-interpret-event-data.md
     - name: Set up an Azure function for processing data
@@ -70,6 +68,8 @@
       href: how-to-ingest-iot-hub-data.md
   - name: Connect output
     items:
+    - name: Manage endpoints and routes
+      href: how-to-manage-routes.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
 - name: Reference
