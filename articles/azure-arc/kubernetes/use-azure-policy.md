@@ -22,7 +22,7 @@ If you are using multiple Git repos as the sources of truth for each cluster (fo
 ## Create a policy assignment
 
 1. In the Azure portal, navigate to Policy, and in the **Authoring** section of the sidebar, select **Definitions**.
-2. Choose the "Deploy GitOps to Kubernetes cluster" built-in policy in the "Kubernetes" category, and click on **Select**.
+2. Choose the "Deploy GitOps to Kubernetes cluster" built-in policy in the "Kubernetes" category, and click on **Assign**.
 3. Set the **Scope** to the management group, subscription, or resource group where the policy assignment will apply.
 4. If you want to exclude any resources from the policy scope, then set **Exclusions**.
 5. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
