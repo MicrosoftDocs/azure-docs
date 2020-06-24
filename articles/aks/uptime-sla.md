@@ -54,7 +54,7 @@ Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The f
 # Create an AKS cluster with uptime SLA
 az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
 
 ```output
   },
@@ -95,6 +95,8 @@ Use the [`az aks update`][az-aks-nodepool-update] command to update the existing
 # Update an existing cluster to use Uptime SLA
  az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
  ```
+
+ The following JSON snippet shows the paid tier for the SKU, indicating your cluster is enabled with Uptime SLA:
 
  ```output
   },
