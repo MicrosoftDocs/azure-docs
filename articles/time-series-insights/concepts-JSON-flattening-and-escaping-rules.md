@@ -19,7 +19,7 @@ Your Time Series Insights environment will dynamically create the columns of you
 
 > [!IMPORTANT]
 >
-> * Review the rules below before selecting a [Time Series ID property](how-to-select-tsid.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-JSON-flattening-and-escaping-rules.md#example-b) below.
+> * Review the rules below before selecting a [Time Series ID property](time-series-insights-update-how-to-id.md) and/or your event source [timestamp propert(ies)](concepts-streaming-ingestion-event-sources.md#event-source-timestamp). If your TS ID or timestamp is within a nested object or has one or more of the special characters below, it's important to ensure that the property name that you provide matches the column name *after* the ingestion rules have been applied. See example [B](concepts-JSON-flattening-and-escaping-rules.md#example-b) below.
 
 | Rule | Example JSON |Column name in storage |
 |---|---|---|
@@ -41,7 +41,7 @@ However, in some cases, arrays containing objects are only meaningful in the con
 
 ### How do I know if my array of objects will produce multiple events?
 
-If one or more of your Time Series ID propert(ies) is nested within objects in an array, *or* if your event source timestamp property is nested, the ingestion engine will split it out to create multiple events. The property names that you provided for your TS ID(s) and/or timestamp should follow the flattening rules above, and will therefore indicate the shape of your JSON. See the examples below, and check out the guide on how to [select a Time Series ID property.](how-to-select-tsid.md)
+If one or more of your Time Series ID propert(ies) is nested within objects in an array, *or* if your event source timestamp property is nested, the ingestion engine will split it out to create multiple events. The property names that you provided for your TS ID(s) and/or timestamp should follow the flattening rules above, and will therefore indicate the shape of your JSON. See the examples below, and check out the guide on how to [select a Time Series ID property.](time-series-insights-update-how-to-id.md)
 
 ### Example A:
 Time Series ID at the object root and timestamp nested<br/>
