@@ -65,6 +65,23 @@ For example, if your internal virtual networks VNet1 and VNet2 should connect to
 
 ![Diagram of AMPLS B topology](./media/private-link-security/ampls-topology-b-1.png)
 
+### Consider limits
+
+There are 4 different limits you should consider when planning your Private Link setup:
+
+1. A VNet can only connect to 1 AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
+2. An Azure Monitor resource (Workspace or Application Insights component) can connect to 5 AMPLSs at most.
+3. An AMPLS object can connect to 20 Azure Monitor resources at most.
+4. An AMPLS object can connect to 10 Private Endpoints at most.
+
+In the below topology:
+1. Each VNet connects to 1 AMPLS object, so it can't connect to other AMPLSs.
+2. AMPLS B connects to 2 VNets: using 2/10 of its possible Private Endpoint connections.
+3. AMPLS A connects to 2 workspaces and 1 Application Insight component: using 3/20 of its possbile Azure Monitor resources.
+4. Workspace 2 connects to AMPLS A and AMPLS B: using 2/5 of its possible AMPLS connections.
+
+![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
+
 ## Example connection
 
 Start by creating an Azure Monitor Private Link Scope resource.

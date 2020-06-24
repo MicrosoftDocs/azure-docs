@@ -36,7 +36,7 @@ The storage account must meet the following requirements:
 
 - Accessible to resources on your VNet that write logs to the storage.
 - Must be on the same region as the workspace it’s linked to.
-- Explicitly allowed Log Analytics to read logs from the storage account by selecting *allow trusted MS services to access this storage account*.
+- Allow Azure Monitor access - If you chose to limit your storage account access to select networks, make sure to allow this exception: *allow trusted Microsoft services to access this storage account*.
 
 ## Process to configure customer-owned storage
 The basic process of using your own storage account for ingestion is as follows:
@@ -47,7 +47,12 @@ The basic process of using your own storage account for ingestion is as follows:
 
 The only method available to create and remove links is through the REST API. Details on the specific API request required for each process are provided in the sections below.
 
-## API request values
+## Command line and REST API
+
+### Command line
+To create and manage workspace linked storate accounts, use [az monitor log-analytics workspace linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). Using this command, you can link storate accounts to a workspace, list storage accounts per data source type and for all types, and unlink accounts.
+
+### Request and CLI values
 
 #### dataSourceType 
 
@@ -69,37 +74,7 @@ subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Mic
 ```
 
 
-
-## Get current links
-
-### Get linked storage accounts for a specific data source type
-
-#### API request
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### Response 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-### Get all linked storage accounts
+### Get linked storage accounts for all data source types
 
 #### API request
 
@@ -141,6 +116,34 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
         }
     ]
+}
+```
+
+
+### Get linked storage accounts for a specific data source type
+
+#### API request
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
+```
+
+#### Response 
+
+```json
+{
+    "properties":
+    {
+        "dataSourceType": "CustomLogs",
+        "storageAccountIds  ": 
+        [  
+            "<storage_account_resource_id_1>",
+            "<storage_account_resource_id_2>"
+        ],
+    },
+    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
+    "name": "CustomLogs",
+    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
 }
 ```
 
