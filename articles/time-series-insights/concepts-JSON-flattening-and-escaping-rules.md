@@ -15,7 +15,7 @@ ms.custom: seodec18
 # Ingestion Rules
 ### JSON Flattening, Escaping, and Array Handling
 
-Your Time Series Insights environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
+Your Azure Time Series Insights environment will dynamically create the columns of your warm and cold stores, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. These include escaping certain special characters and flattening nested JSON objects. It's important to know these rules so that you understand how the shape of your JSON will influence how your events are stored and queried. See the table below for the full list of rules. Examples A & B also demonstrate how you're able to efficiently batch multiple time series in an array.
 
 > [!IMPORTANT]
 >
@@ -82,7 +82,7 @@ Time Series ID at the object root and timestamp nested<br/>
 
 **Result in Parquet file:**
 <br/>
-The configuration and payload above will produce 3 columns and four events
+The configuration and payload above will produce three columns and four events
 
 | timestamp  | id_string | values.value_double 
 | ---- | ---- | ---- | 
@@ -93,7 +93,7 @@ The configuration and payload above will produce 3 columns and four events
 
 ### Example B:
 Composite Time Series ID with one property nested<br/> 
-**Environment Time Series ID:** `"vesselImo"` and `"telemetry.tagId"`<br/>
+**Environment Time Series ID:** `"plantId"` and `"telemetry.tagId"`<br/>
 **Event source timestamp:** `"timestamp"`<br/>
 **JSON payload:**
 
