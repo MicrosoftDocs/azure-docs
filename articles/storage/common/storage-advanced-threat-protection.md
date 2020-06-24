@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 06/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ---
@@ -19,14 +19,13 @@ Advanced threat protection for Azure Storage provides an additional layer of sec
 
 Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
-The service ingests resource logs of read, write, and delete requests to Blob Storage for threat detection. To investigate the alerts from advanced threat protection, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md#configure-logging).
+The service ingests resource logs of read, write, and delete requests to Blob storage and to Azure Files (preview) for threat detection. To investigate the alerts from advanced threat protection, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md#configure-logging).
 
 ## Availability
 
-Advanced threat protection for Azure Storage is currently available only for [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Account types that support advanced threat protection include general-purpose v2, block blob, and Blob storage accounts. Advanced threat protection is available in all public clouds and US government clouds, but not in other sovereign or Azure government cloud regions.
+Advanced threat protection for Azure Storage is currently available for Blob storage and for Azure Files (preview). Account types that support advanced threat protection include general-purpose v2, block blob, and Blob storage accounts. Advanced threat protection is available in all public clouds and US government clouds, but not in other sovereign or Azure government cloud regions.
 
 For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-
 
 ## Set up advanced threat protection
 
