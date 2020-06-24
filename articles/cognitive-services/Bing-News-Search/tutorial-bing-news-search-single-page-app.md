@@ -5,11 +5,10 @@ description: Use this tutorial to build a single-page web application that can s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
