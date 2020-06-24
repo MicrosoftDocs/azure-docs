@@ -1,18 +1,8 @@
 ---
 title: Migrate Azure Service Bus namespaces - standard to premium
 description: Guide to allow migration of existing Azure Service Bus standard namespaces to premium
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ---
 
 # Migrate existing Azure Service Bus standard namespaces to the premium tier
