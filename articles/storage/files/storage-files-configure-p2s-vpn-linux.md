@@ -112,7 +112,9 @@ The Azure virtual network gateway is the service that your on-premises Linux mac
 Remember to replace `<desired-vpn-name-here>` with the name you would like for these resources.
 
 > [!Note]  
-> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed. This is expected.
+> Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this bash script script will block for the deployment to be completed.
+>
+> P2S IKEv2/OpenVPN connections are not supported with the **Basic** SKU. This script uses the **VpnGw1** SKU for the virtual network gateway, accordingly.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
