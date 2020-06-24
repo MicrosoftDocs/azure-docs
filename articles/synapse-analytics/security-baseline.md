@@ -1,10 +1,10 @@
 ---
-title: Security baseline for Azure Synapse Analytics
+title: Azure security baseline for Synapse Analytics
 description: Azure security baseline for Synapse Analytics
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -1116,9 +1116,9 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Please follow the [Microsoft Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) to ensure your Penetration Tests are not in violation of Microsoft policies.
+**Guidance**: * [Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications [here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e).
+* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
