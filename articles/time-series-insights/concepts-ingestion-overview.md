@@ -26,7 +26,7 @@ The following articles cover data processing in depth, including best practices 
 
 * Review the supported [data types](concepts-supported-data-types.md)
 
-* Understand how the ingestion engine will apply a set of [rules](./concepts-json-flattening-escaping-rules.md) to your JSON payload to convert telemetry properties into your storage account columns.
+* Understand how the ingestion engine will apply a set of [rules](./concepts-json-flattening-escaping-rules.md) to your JSON properties to create your storage account columns.
 
 * Review your environment [throughput limitations](concepts-streaming-throughput-limitations.md) to plan for your scale needs.
 
