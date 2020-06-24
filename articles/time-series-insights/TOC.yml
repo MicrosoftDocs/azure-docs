@@ -65,6 +65,8 @@
       href: concepts-streaming-throughput-limitations.md
     - name: Storage
       href: concepts-storage.md
+    - name: Time Series Model
+      href: time-series-insights-update-tsm.md
     - name: Time Series Query
       href: time-series-insights-update-tsq.md
     - name: Visualize data in the explorer Preview
