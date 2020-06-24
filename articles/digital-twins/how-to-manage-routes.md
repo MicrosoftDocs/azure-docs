@@ -80,15 +80,17 @@ Event routes are defined using data plane APIs. A route definition can contain t
 
 If there is no route ID, no messages are routed outside of Azure Digital Twins. 
 If there is a route ID and the filter is `true`, all messages are routed to the endpoint. 
-If there is a route ID and a filter is added, messages will be filtered based on the filter.
+If there is a route ID and a different filter is added, messages will be filtered based on the filter.
 
 One route should allow multiple notifications and event types to be selected. 
 
-Here is the call to the SDK that is used to add an event route:
+`CreateEventRoute` is the SDK call that is used to add an event route. Here is an example of its usage:
 
-```csharp
-await client.CreateEventRoute("routeName", new EventRoute("endpointName"));
-```
+    ```csharp
+    EventRoute er = new EventRoute("endpointName");
+    er.Filter("true"); //Filter allows all messages
+    await client.CreateEventRoute("routeName", er);
+    ```
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
