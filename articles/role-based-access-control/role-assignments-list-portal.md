@@ -2,17 +2,12 @@
 title: List Azure role assignments using the Azure portal - Azure RBAC
 description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
