@@ -54,6 +54,9 @@ Make sure you have the corresponding permissions to call the following APIs.
 
 Applications in the Azure AD application gallery each have an [application template](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management.
 
+> [!NOTE] 
+> You can use applicationTemplate API to instantiate [Non-Gallery apps](add-non-gallery-app.md). Use applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
+
 #### Request
 
 <!-- {
@@ -105,6 +108,7 @@ Content-type: application/json
 ### Create the gallery application
 
 Using the template ID that you retrieved for your application in the last step, [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant.
+
 
 #### Request
 
