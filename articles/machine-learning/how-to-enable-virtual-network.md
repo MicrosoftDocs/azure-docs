@@ -64,11 +64,12 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 ## Machine Learning studio
 
-If your data is stored in a virtual network, you must use your workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant studio access to your data. This lets you perform the following operations in the studio:
+If your data is stored in a virtual network, you must use your workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant studio access to your data. This lets you perform the following operations:
 
-* Preview data
-* Visualize data in the designer
-* Start labeling projects
+* Preview data in the studio.
+* Visualize data in the designer.
+* Submit an AutoML experiment.
+* Start a labeling project.
 
 Studio supports the following datastore types in a virtual network:
 
@@ -76,7 +77,7 @@ Studio supports the following datastore types in a virtual network:
 * Azure Data Lake Storage Gen1 and Gen2
 * Azure SQL Database
 
-To grant studio access to these datastore types, use the following steps:
+### Add resources to the virtual network 
 
 Add your workspace and storage service to the virtual network.
 
@@ -94,16 +95,15 @@ Add your workspace and storage service to the virtual network.
 
 1. Enable __Allow trusted Microsoft services to access this storage account__.
 
+### Configure datastore to use managed identity
 
-Now that the workspace and storage service are joined to the virtual network, configure your datastores to use managed identity to access your data.
+Now that the workspace and storage service are joined to the virtual network, configure your datastore to use managed identity to access your data.
 
 1. In the studio, select __Datastores__.
 
 1. To create a new datastore, select __+ New datastore__. To update an existing one, select the datastore and select __Update credentials__.
 
 1. In the datastore settings, enable __Use workspace managed identity for data access in the ML studio__.
-
-TODO ADD IMAGE
 
 These steps add the workspace managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
@@ -125,9 +125,9 @@ Azure Data Lake Storage Gen1 only supports POSIX-style access control lists. You
 
 ### Azure SQL Database contained user
 
-To access data stored in an Azure SQL Database using managed identity, you must first create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
+To access data stored in an Azure SQL Database using managed identity, you must create a SQL contained user that maps to the managed identity. For more information on creating a user from an external provider, see [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Finally, you need to grant permissions to the contained user by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+Finally, grant permissions to the contained user by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ## <a name="compute-instance"></a>Compute clusters & instances 
 
