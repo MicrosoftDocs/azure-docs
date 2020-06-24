@@ -75,25 +75,32 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 #### Step 2: Check the values of RDP registry keys:
 
-1. Check if the RDP is disabled by polices.
+1. Check if RDP is disabled by group polices.
 
       ```
-      REM Get the local policy 
-      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
-
-      REM Get the domain policy if any
+      REM Get the group policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
-
-      - If the domain policy exists, the setup on the local policy is overwritten.
-      - If the domain policy states that RDP is disabled (1), then update the AD policy from domain controller.
-      - If the domain policy states that RDP is enabled (0), then no update is needed.
-      - If the domain policy doesn't exist and the local policy states that RDP is disabled (1), enable RDP by using the following command: 
       
-            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-                  
+      - If the group policy states that RDP is disabled (1), enable RDP by using the following command: 
+            
+            reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+               
+       Note : If the value is 1, RDP is disabled either by local policy or domain policy. Once you are able to RDP, check the resultant set of policy to identify the policy which is disabling RDP. Based on the policy being enforced, update the AD policy from domain controller or local policy of the VM.
 
-2. Check the current configuration of the terminal server.
+
+2. Check the current remote connection configuration.
+
+      ```
+      REM Get the local remote connection setting
+      reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections
+      ```
+      If the command returns 1, the VM is not allowing remote connection. Then, allow remote connection using the following command:
+
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+            
+
+ 3. Check the current configuration of the terminal server.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
