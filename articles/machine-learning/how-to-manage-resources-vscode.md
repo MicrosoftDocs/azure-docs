@@ -340,6 +340,33 @@ To create a run configuration in the extension:
 
 ## Endpoints
 
+You can deploy your model as a web service to the following deployment targets:
+
+- Azure Container Instances
+- Azure Kubernetes Service
+
+In the VS Code extension, you can:
+
+- Create deployment
+
+### Create deployment
+
+> [!NOTE]
+> Deployment creation cuurrently only works with Conda environments.
+
+1. Expand your workspace node.
+1. Right-click the **Endpoints** node and select **Deploy Service**.
+1. In the prompt:
+    1. Choose whether you want to use an already registered model or a local model file.
+    1. Select your model
+    1. Choose the deployment target you want to deploy your model to.
+    1. Provide a name for your model.
+    1. Provide the script to run when scoring the model.
+    1. Provide a Conda dependencies file.
+    1. A configuration file for your deployment in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+
+> [!NOTE]
+> Alternatively, you can right-click a registered model in the *Models* node and select **Deploy Service From Registered Model**. 
 
 ## Next steps
 
