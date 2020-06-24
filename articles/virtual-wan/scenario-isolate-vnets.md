@@ -23,7 +23,7 @@ In order to configure this scenario, take the following steps into consideration
 2. When you create the **RT_VNet** route table, configure the following settings:
 
    * **Association**: Select the VNets you want to isolate.
-   * **Propagation**: For Branches, select **RT_VNet**, in addition to any other option you may have chosen before. Remember, this route table has routes propagating from the branch connection only - implying that the VNets can only reach the branch(VPN/ER/P2S) destination.
+   * **Propagation**: Select the option for branches, implying branch(VPN/ER/P2S) connections will propagate routes to this route table.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Isolated VNets":::
 
