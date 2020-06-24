@@ -48,13 +48,13 @@
     items: 
     - name: Parse and validate models
       href: how-to-use-parser.md
-    - name: Manage a twin model
+    - name: Manage custom models
       href: how-to-manage-model.md
   - name: Use live execution environment
     items:
-    - name: Manage a digital twin
+    - name: Manage digital twins
       href: how-to-manage-twin.md
-    - name: Manage a twin graph with relationships
+    - name: Manage the twin graph with relationships
       href: how-to-manage-graph.md
     - name: Interpret event data
       href: how-to-interpret-event-data.md
