@@ -173,7 +173,7 @@ To authenticate a .NET app with Azure services, you can use the following minima
 You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier, as well as the URL of your Azure Digital Twins instance.
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`. You can use `az account list` command to see all the subscription details at any time. 
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the *hostName*, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`. You can use the `az account show --query tenantId` command to see your *Directory (tenant) ID*. 
 
 ```javascript
 import * as Msal from "msal";
