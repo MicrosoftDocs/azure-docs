@@ -174,6 +174,8 @@ Resource `kind`:
     > [!Note]
     > This keys are **not** used by the LUIS portal until they are assigned in the LUIS portal on the **Manage -> Azure resources**.
 
+<a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
+
 ## Assign resource in the LUIS portal
 
 You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns all apps to a single authoring resource.
