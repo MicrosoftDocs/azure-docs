@@ -38,7 +38,7 @@ East US, West US 2, West Europe, and Southeast Asia.
 During preview release, Azure Spring Cloud has the following known limitations:
 
 * `spring.application.name` will be overridden by the application name that's used to create each application.
-* `server.port` is not allowed in the configuration file from the Git repo. Adding it to the configuration file will likely render your application unreachable from other applications or the internet.
+* `server.port` defaults to ports 80/443. If any other value is applied, it will be overridden to 80/443.
 * The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
 
 ### What pricing tiers are available? 
@@ -102,8 +102,8 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 See [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
-* Java 8 LTS will be supported until March 2025.
-* Java 11 LTS will be supported until September 2026.
+* Java 8 LTS will be supported until December 2030.
+* Java 11 LTS will be supported until September 2027.
 
 ### How can I download a supported Java runtime for local development?
 
