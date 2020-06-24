@@ -126,8 +126,7 @@ This type of storage is targeting DBMS workloads, storage traffic that requires 
 Cost basis in the case of Azure premium storage is not the actual data volume stored in such disks, but the size category of such a disk, independent of the amount of the data that is stored within the disk. You also can create disks on premium storage that are not directly mapping into the size categories shown in the article [Premium SSD](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). Conclusions out of this article are:
 
 - The storage is organized in ranges. For example, a disk in the range 513 GiB to 1024 GiB capacity share the same capabilities and the same monthly costs
-- The IOPS per GiB is not tracking
--  linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
+- The IOPS per GiB are not tracking linear across the size categories. Smaller disks below 32 GiB have higher IOPS rates per GiB. For disks beyond 32 GiB to 1024 GiB, the IOPS rate per GiB is between 4-5 IOPS per GiB. For larger disks up to 32,767 GiB, the IOPS rate per GiB is going below 1
 - The I/O throughput for this storage is not linear with the size of the disk category. For smaller disks, like the category between 65 GiB and 128 GiB capacity, the throughput is around 780KB/GiB. Whereas for the extreme large disks like a 32,767 GiB disk, the throughput is around 28KB/GiB
 - The IOPS and throughput SLAs cannot be changed without changing the capacity of the disk
 
@@ -349,7 +348,7 @@ As limitations, you can note that:
 - With ANF, the traffic to the shared volumes is consuming the VM's network bandwidth and not storage bandwidth
 - With large NFS volumes in the double digit TiB capacity space, the throughput accessing such a volume out of a single VM is going to plateau based on limits of Linux for a single session interacting with the shared volume. 
 
-As you up-size Azure VMs in the lifecycle of a SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could make sense to adjust the storage configuration to the new capabilities of the Azure VM. 
+As you up-size Azure VMs in the lifecycle of an SAP system, you should evaluate the IOPS and storage throughput limits of the new and larger VM type. In some cases, it also could make sense to adjust the storage configuration to the new capabilities of the Azure VM. 
 
 
 ## Striping or not striping
