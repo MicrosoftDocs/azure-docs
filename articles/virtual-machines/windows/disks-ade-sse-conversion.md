@@ -4,7 +4,7 @@ description: How to migrate your managed disks using Azure Disk Encryption to se
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 06/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -15,7 +15,7 @@ This article covers how to migrate managed disks from Azure Disk Encryption (ADE
 
 ## Prerequisites
 
-Create a Key Vault and Disk Encryption Set for SSE+CMK  (Note: must be same subscription and region as the VM. This can be the same key vault and key used with ADE.) 
+In order to convert to SSE with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-powershell](../../../includes/virtual-machines-disks-encryption-create-key-vault-powershell.md)]
 
@@ -46,13 +46,16 @@ New-AzSnapshot
 
 ## Disable Azure Disk Encryption
 
-Since ADE and SSE are incompatible, you must disable ADE to start the migration process.
+Since ADE and SSE with customer-managed keys are incompatible, you must disable ADE to migrate to SSE with customer-managed keys.
 
 [!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-encryption-powershell.md)]
 
 ## Verify encryption status
 
-Verify encryption status is 'NotEncrypted' with. (Note: do not remove the extension until encryption status changes from 'DecryptionInProgress' to 'NotEncrypted'. Progress message will say 'Disable Encryption completed successfully'.)
+Ensure you've disabled encryption by checking the encryption status, it should be **NotEncrypted**.
+
+> [!NOTE]
+> Do not remove the extension until encryption status changes from **DecryptionInProgress** to **NotEncrypted**. Progress message will say **Disable Encryption completed successfully**.
 
 ```azurepowershell
 Get-AzVmDiskEncryptionStatus -ResourceGroupName "MyResourceGroup001" -VMName "VM001"
@@ -70,7 +73,7 @@ Remove-AzVMExtension -ResourceGroupName "ResourceGroup11" -Name "AzureiDskEncryp
 
 ## Stop the VM
 
-You must stop the VM in order to swap the encryption to SSE with customer-managed keys.
+You must stop the VM in order to change the encryption to SSE with customer-managed keys.
 
 ```azurepowershell
 Stop-AzVM -ResourceGroupName $myResourceGroup -Name $myVM
