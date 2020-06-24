@@ -55432,6 +55432,11 @@
     {
       "source_path": "articles/storage/blobs/storage-xamarin-blob-storage.md",
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin"
+    },
+    {
+      "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
+      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
     }
   ]
 }
