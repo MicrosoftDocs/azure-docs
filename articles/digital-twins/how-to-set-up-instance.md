@@ -56,7 +56,7 @@ In order to use Azure Digital Twins with a client application, you'll also need 
 
 #### Assign yourself a role
 
-Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. First, make sure you are classified as an owner in your Azure subscription. Then, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
+Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. First, use the `az role assignment list --assignee <your-Azure-email>` command to verify *roleDefinitionName* is *Owner* in your Azure subscription. Then, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
