@@ -50,7 +50,6 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 - Windows doesn't have a Memory RSS metric, and as a result it isn't available for Windows node and containers. The [Working Set](https://docs.microsoft.com/windows/win32/memory/working-set) metric is available.
 - Disk storage capacity information isn't available for Windows nodes.
 - Only pod environments are monitored, not Docker environments.
-# Currently verifying this...
 - With the preview release, a maximum of 30 Windows Server containers are supported. This limitation doesn't apply to Linux containers.
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
