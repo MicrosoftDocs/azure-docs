@@ -276,7 +276,7 @@
         href: service-fabric-backup-restore-service-trigger-restore.md
       - name: On-demand backup of partition
         href: service-fabric-backup-restore-service-ondemand-backup.md
-      - name: Correcting Possible Backup Inconsistencies
+      - name: View and Edit Reliable Collections Backup Offline
         href: service-fabric-backup-explorer.md
     - name: Initializer CodePackages
       href: initializer-codepackages.md
