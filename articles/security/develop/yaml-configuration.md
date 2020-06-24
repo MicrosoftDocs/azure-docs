@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure Security Code Analysis task customization guide
 description: This article describes lists YAML configuration options for customizing all tasks in the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 11/29/2019
@@ -72,29 +72,6 @@ This article lists all YAML configuration options available in each of the build
 | regexMatchTimeoutInSeconds | string | always | False |  |  | The amount of time in seconds to spend attempting a searcher match before abandoning the check.<br/>Adds ``-Co RegexMatchTimeoutInSeconds=<Value>`` to the command line.
 | fileScanReadBufferSize | string | always | False |  |  | Buffer size while reading content in bytes. (Defaults to 524288)<br/>Adds ``-Co FileScanReadBufferSize=<Value>`` to the command line.
 | maxFileScanReadBytes | string | always | False |  |  | Maximum number of bytes to read from a given file during content analysis. (Defaults to 104857600)<br/>Adds ``-Co MaxFileScanReadBytes=<Value>`` to the command line.
-
-## Microsoft Security Risk Detection task
-
-| **InputType**      | **Type**     | **Applicable**            | **Required** | **Default Value**             | **Options (for picklists)**                                   | **Description**                                                                                                                                                                                                                                                                           |
-|------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ServiceEndpointName | connectedService:Generic | always | True |  |  | The name of the preconfigured Service Endpoint (Generic type) on your VSTS project that stores the MSRD instance URL (you have onboarded to) and the REST API access token (which was generated from your account settings page and allows full access to your account).
-| AccountId | string | always | True |  |  | The GUID identifying the account. It can be retrieved from the account URL.
-| BinariesURL | string | always | True |  |  | A semicolon delimited list of URLs to be used by the fuzzing machine to download the binaries. Makes sure that the URLs are publicly available.
-| SeedsURL | string | always | False |  |  | A semicolon delimited list of URLs to be used by the fuzzing machine to download the seeds. Make sure that the URLs are publicly available.
-| OSPlatformType | pickList | always | True | Windows | Linux, Windows | The OS platform type of machines to run the fuzzing job on.
-| WindowsEdition | string | OSPlatformType = Windows | True | Server 2008 R2 |  | The OS edition of machines to run the fuzzing job on.
-| LinuxEdition | string | OSPlatformType = Linux | True | Redhat |  | The OS edition of machines to run the fuzzing job on.
-| PreSubmissionCommand | string | always | False |  |  | The script that needs to be run on a test machine to install the test target program and its dependencies before submission of the fuzzing job.
-| SeedDirectory | string | always | True |  |  | Path to the directory on the fuzzing machine containing the seeds. See [Seed File Directory](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/03-choose-seed-files#seed-file-directory) for details.
-| SeedExtension | string | always | True |  |  | The file extension of the seeds.
-| TestDriverExecutable | string | always | True |  |  | Path to the target executable on the fuzzing machine. See [Full Path to the EPE](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#full-path-to-the-epe) for details.
-| TestDriverExeType | pickList | always | True | x86 | amd64, x86 | The target executable file architecture.
-| TestDriverParameters | string | always | True | "%testfile%" |  | Command-line arguments passed to the test target executable. Note that the **"%testfile%"** symbol, including the double quotes, will be automatically be replaced with the full path to the target file the test driver is expected to parse, and is required. Refer to [Command-Line Arguments](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/02-choose-exe#command-line-arguments) for details.
-| ClosesItself | boolean | always | True | true |  | Check if the test driver terminates itself upon completion (e.g. the test driver parses the input files and exits immediately); Uncheck if the test driver needs to be forcibly closed (e.g. the test driver is a GUI application whose main window remains open after parsing the input). See [Self-termination](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#self-termination) for details.
-| MaxDurationInSeconds | string | always | True | 5 |  | Maximum duration of the test driver in seconds. Provide an estimation of the longest reasonably-expected time required for the target program to parse an input file. The more accurate this estimation, the more efficient the fuzzing run. See [Maximum expected execution duration](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/05-scope-exe-lifetime#maximum-expected-execution-duration) for details.
-| CanRunRepeat | boolean | always | True | true |  | Check if the test driver can be run repeatedly without depending on a persisted/shared global state. See [Runs from scratch](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#runs-from-scratch) for details.
-| CanTestDriverBeRenamed | boolean | always | True | false |  | Check if the test driver executable can be renamed and can still work correctly. See [Can be renamed and parallelized](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#can-be-renamed-and-parallelized) for details.
-| SingleOsProcess | boolean | always | True | false |  | Check if the test driver runs under a single OS process; Uncheck if the test driver spawns additional processes. See [Single process](https://docs.microsoft.com/security-risk-detection/how-to/submit-windows-fuzzing-job/04-describe-exe-characteristics#single-process) for details.
 
 ## Roslyn Analyzers task
 
