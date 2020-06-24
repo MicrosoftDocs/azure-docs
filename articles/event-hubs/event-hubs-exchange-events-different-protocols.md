@@ -1,20 +1,8 @@
 ---
 title: Azure Event Hubs - Exchange events using different protocols
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: femila
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: femila
-
+ms.date: 06/23/2020
 ---
 
 # Exchange events between consumers and producers that use different protocols: AMQP, Kafka, and HTTPS

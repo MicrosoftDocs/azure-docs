@@ -137,6 +137,6 @@ To learn how to build data factories with data pipelines, follow the step-by-ste
 
 | Tutorial | Description |
 | --- | --- |
-| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to a SQL database. |
+| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to SQL Database. |
 | [Transform data by using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that processes data by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
 | [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that moves data from a SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
