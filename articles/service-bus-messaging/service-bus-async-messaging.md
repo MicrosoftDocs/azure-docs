@@ -1,22 +1,10 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
 description: Learn how Azure Service Bus supports asynchronism via a store and forward mechanism with queues, topics, and subscriptions. 
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Asynchronous messaging patterns and high availability
 
 Asynchronous messaging can be implemented in a variety of different ways. With queues, topics, and subscriptions, Azure Service Bus supports asynchronism via a store and forward mechanism. In normal (synchronous) operation, you send messages to queues and topics, and receive messages from queues and subscriptions. Applications you write depend on these entities always being available. When the entity health changes, due to a variety of circumstances, you need a way to provide a reduced capability entity that can satisfy most needs.
