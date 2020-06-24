@@ -127,7 +127,7 @@ The following template creates an empty Log Analytics workspace. Save the this t
 ### Deploy the template
 Deploy the template using any standard method for deploying an ARM template. 
 
-# [CLI](#tab/CLI1)
+# [CLI](#tab/CLI)
 
 ```azurecli
 az login
@@ -139,7 +139,7 @@ az deployment group create \
 
 ```
 
-# [PowerShell](#tab/PowerShell1)
+# [PowerShell](#tab/PowerShell)
 
 ```powershell
 Connect-AzAccount
@@ -147,22 +147,25 @@ Select-AzSubscription -SubscriptionName my-subscription
 New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile CreateWorkspace.json -workspaceName my-resource-group -location eastus
 ```
 
+---
+
 ### Verify the deployment
 Verify that the workspace has been created using one of the following commands.
 
-# [CLI](#tab/CLI2)
+# [CLI](#tab/CLI)
 
 ```azurecli
 az login
 az monitor log-analytics workspace show --resource-group bw-ama  --workspace-name  bw-ama
 ```
 
-# [PowerShell](#tab/PowerShell2)
+# [PowerShell](#tab/PowerShell)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -Name bw-ama -ResourceGroupName bw-ama
 ```
 
+---
 
 ## Create diagnostic setting
 The following template creates a diagnostic setting that sends the Activity log to a Log Analytics workspace. Save the this template as *CreateDiagnosticSetting.json*.
@@ -248,6 +251,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionName my-subscription
 New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my-resource-group -TemplateFile CreateDiagnosticSetting.json -workspaceName my-resource-group -location eastus
 ```
+---
 
 ## Retrieve data with a log query
 Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource.
