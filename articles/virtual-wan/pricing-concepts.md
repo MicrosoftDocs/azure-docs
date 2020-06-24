@@ -9,6 +9,7 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: reyandap
+ms.custom: references_pricing
 
 ---
 # About Virtual WAN pricing
