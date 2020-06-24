@@ -48,7 +48,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Azure Monitor for containers is also enabled using the *--enable-addons monitoring* parameter.  This operation takes several minutes to complete.
+Use the [`az aks create`][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This operation takes several minutes to complete.
 
 ```azurecli-interactive
 # Create an AKS cluster with uptime SLA
