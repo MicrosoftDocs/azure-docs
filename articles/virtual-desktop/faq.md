@@ -89,7 +89,7 @@ CustomRdpProperty : audiocapturemode:i:0;audiomode:i:0;drivestoredirect:s:;redir
 
 ## Does Windows Virtual Desktop support guest users?
 
-Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have ME3, WE3, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would have to manage the guest users' user objects in both Azure AD and Active Directory as if they were local accounts within their own company.
+Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have ME3, WE3, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
 
 ## Why don't I see the client IP address in the WVDConnections table?
 
