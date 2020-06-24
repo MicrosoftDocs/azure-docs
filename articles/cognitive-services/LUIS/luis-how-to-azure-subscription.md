@@ -29,7 +29,14 @@ When the Azure resource creation process is finished, [assign the key](luis-how-
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
-## Key limits
+## Resource ownership
+
+LUIS doesn't have the concept of transferring ownership of a resource.
+
+You can transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
+
+
+## Resource limits
 
 ### Authoring key creation limits
 
@@ -45,11 +52,6 @@ Usage limits are based on the pricing tier.
 
 If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 error. If you exceed your transaction-per-month (TPS) quota, you receive an HTTP 403 error.
 
-## Resource ownership
-
-LUIS doesn't have the concept of transferring ownership of a resource.
-
-You can transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
 
 ## App Ownership, access, and security
 
@@ -60,6 +62,17 @@ You can move your LUIS app. Use the following documentation resources in the Azu
 * [Move app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [Move resource to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Move resource within same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
+
+
+## Reset authoring key
+
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource.
+
+**For apps that have not migrated yet**: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
+
+## Regenerate Azure key
+
+Regenerate the Azure keys from the Azure portal, on the **Keys** page.
 
 ### Contributions from other authors
 
@@ -142,7 +155,9 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 [!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
 
-## Create resources in Azure CLI
+## Create Azure resources
+
+### Create resources in Azure CLI
 
 Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
 
@@ -176,7 +191,7 @@ Resource `kind`:
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
-## Assign resource in the LUIS portal
+### Assign resource in the LUIS portal
 
 You can assign an authoring resource for a single app or for all apps in LUIS. The following procedure assigns all apps to a single authoring resource.
 
@@ -196,7 +211,7 @@ You can assign a to an app with the following procedure.
 1. Select the Prediction or Authoring resource tab then select the **Add prediction resource** or **Add authoring resource** button.
 1. Select the fields in the form to find the correct resource, then select **Save**.
 
-### Assign runtime resource without using LUIS portal
+### Assign query prediction runtime resource without using LUIS portal
 
 For automation purposes such as a CI/CD pipeline, you may want to automate the assignment of a LUIS runtime resource to a LUIS app. In order to do that, you need to perform the following steps:
 
@@ -237,15 +252,6 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 When you unassign a resource, it is not deleted from Azure. It is only unlinked from LUIS.
 
-## Reset authoring key
-
-**For [authoring resource migrated](luis-migration-authoring.md) apps**: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource.
-
-**For apps that have not migrated yet**: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
-
-## Regenerate Azure key
-
-Regenerate the Azure keys from the Azure portal, on the **Keys** page.
 
 ## Delete account
 
