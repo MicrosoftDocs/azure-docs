@@ -142,6 +142,8 @@
   items:
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+  - name: REST API reference
+    href: /rest/api/desktopvirtualization/
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator
