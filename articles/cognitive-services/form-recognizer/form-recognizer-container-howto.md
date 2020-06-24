@@ -135,7 +135,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 ### Form Recognizer
 
 > [!NOTE]
-> The `--mount type` used in these examples are Windows directory paths. If you're using Linux or macOS, change the parameter for your environment. 
+> The directories use for `--mount` in these examples are Windows directory paths. If you're using Linux or macOS, change the parameter for your environment. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
