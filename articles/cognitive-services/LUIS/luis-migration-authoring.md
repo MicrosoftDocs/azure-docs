@@ -91,17 +91,17 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
    > [!Note]
    > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
-4. Optionally, if you're a collaborator on any application, you are prompted to export a copy of the apps by selecting this option during the migration flow. 
+4. If you're a collaborator on any application, you're prompted to export a copy of the apps by selecting this option during the migration flow. 
 
-   After you select the option, you'll find the page below where you click the download button on the left to export the apps you want. You can import these apps back after you migrate, because they won't be automatically migrated with you. This is an optional step.
+   This is an optional step. If you select the option, the following page appears. Select the download buttons on the left to export the apps you want. You can import these apps back after you migrate, because they won't be automatically migrated with you.
 
    > [!div class="mx-imgBorder"]
-   > ![Prompt to export your application.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
+   > ![Prompt to export your applications.](./media/migrate-authoring-key/export-app-for-collabs-2.png)
 
 5. If you want to create a new LUIS authoring resource, select **Create New Authoring Resource**. If you want to migrate to an existing authoring resource that you've already created from Azure, select **Use Existing Authoring Resource**.
 
    > [!div class="mx-imgBorder"]
-   > ![Create authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
+   > ![Buttons for choosing an authoring resource](./media/migrate-authoring-key/choose-existing-authoring-resource.png)
 
    * If you selected **Create New Authoring Resource** for the migration, provide the following information in the next window. Then select **Done**.
 
@@ -111,7 +111,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
      * **Tenant Name**: The tenant that your Azure subscription is associated with. This is set by default to the tenant you're currently using. You can switch tenants by selecting the rightmost avatar, which contains your initials.
      * **Resource Name**: A custom name that you choose. It's used as part of the URL for your authoring and prediction endpoint queries.
      * **Subscription Name**: The subscription that will be associated with the resource. If you have more than one subscription that belongs to your tenant, select the one you want from the drop-down list.
-     * **Azure Resource Group Name**: A custom resource group name you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management.
+     * **Azure Resource Group Name**: A custom resource group name that you choose from the drop-down list. Resource groups allow you to group Azure resources for access and management.
 
      Note that you can have 10 free authoring resources per region, per subscription. If your subscription has more than 10 authoring resources in the same region, you won't be able to create a new one.
 
@@ -125,7 +125,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
      * **Resource name**: The authoring resource that you want to migrate to.
 
      > [!Note]
-     > If you can't see your authoring resource in the dropdown list, make sure that you created it in the **proper location** as per the LUIS portal you are signed in. Also make sure that what you created is indeed an **Authoring resource** and not a **prediction resource**.
+     > If you can't see your authoring resource in the drop-down list, make sure that you created it in the proper location according to the LUIS portal where you're signed in. Also make sure that what you created is an authoring resource and not a prediction resource.
 
 
 6. Validate your authoring resource name and select the **Migrate** button.
@@ -176,7 +176,7 @@ You'll be asked to migrate if:
 On a weekly basis, you're prompted to migrate your apps. You can close this window without migrating. If you want to migrate before the next scheduled period, you can begin the migration process from the **Azure** icon on the top toolbar of the LUIS portal.
 
 ## Prediction resources blocking migration
-Your migration negatively affects any application's runtime. When you migrate, any collaborators are removed from your apps, and you're removed as a collaborator from other apps. This process means the keys that a collaborator assigns are also removed, which might break your application if it's in production. This is the reason we block the migration until you remove collaborators or keys assigned to them manually.
+Your migration negatively affects any application's runtime. When you migrate, any collaborators are removed from your apps, and you're removed as a collaborator from other apps. This process means the keys that a collaborator assigns are also removed, which might break your application if it's in production. This is the reason we block the migration until you manually remove collaborators or keys assigned to them.
 
 Migration is blocked if:
 
@@ -192,7 +192,7 @@ We recommend that you:
 * Undergo the migration process, which should succeed if you manually remove collaborators.
 * Assign collaborators as contributors to your new authoring resource. Collaborators will migrate and reassign the prediction resources back to the applications. Note that this will cause a break in the application temporarily until the prediction resources are reassigned.
 
-There's another potential solution here. Before owner migration, collaborators can add app owners as contributors on their Azure subscriptions from the Azure portal. This step will grant the owner access to the runtime prediction resource. If the owner migrates by using the new subscription they've been added to (which will be found under a new tenant), this step will not just unblock the migration process for both collaborator and app owner. It will also allow for a smooth migration of apps with the prediction key still assigned to them not breaking the apps.
+There's another potential solution here. Before owner migration, collaborators can add app owners as contributors on their Azure subscriptions from the Azure portal. This step will grant the owner access to the runtime prediction resource. If the owner migrates by using the new subscription they've been added to (which will be found under a new tenant), this step will not just unblock the migration process for both collaborator and app owner. It will also allow for a smooth migration of apps, with the prediction key still assigned to them not breaking the apps.
 
 
 ### Recommended steps if you're a collaborator on an app
@@ -211,23 +211,23 @@ We recommend that you:
 ## Troubleshooting the migration process
 
 When you try to migrate but can't find your Azure subscription in the drop-down list:
-* Ensure you have a valid Azure subscription that is authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free trial](https://azure.microsoft.com/free/).
-* Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants from the avatar to the left of your initials in this toolbar:
+* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free trial](https://azure.microsoft.com/free/).
+* Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants from the avatar to the left of your initials on this toolbar:
 ![Toolbar where you can switch tenants.](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
 If you have an existing authoring resource but can't find it when you select the **Use Existing Authoring Resource** option:
-* Your resource was probably created in a different location than the portal where you're signed in. Check the [LUIS authoring regions and portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
+* Your resource was probably created in a location that's different from the portal where you're signed in. Check the [LUIS authoring regions and portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions).
 * Create a new resource from the LUIS portal instead.
 
 If you select the **Create New Authoring Resource** option and migration fails with the error message "Failed retrieving user's Azure information, retry again later":
-* Your subscription may have 10 or more authoring resources per region per subscription. If that's the case, you won't be able to create a new authoring resource.
-* Migrate by selecting the **Use Existing Authoring Resource** option and select one of the existing resources you have under your subscription.
+* Your subscription might have 10 or more authoring resources per region per subscription. If that's the case, you won't be able to create a new authoring resource.
+* Migrate by selecting the **Use Existing Authoring Resource** option and selecting one of the existing resources under your subscription.
 
-If you see the following error, check the [recommended steps if you're the owner of the app](#recommended-steps-if-youre-the-owner-of-the-app)
-![Migration fails for owners](./media/migrate-authoring-key/migration-failed-for-owner-2.png)
+If you see the following error, check the [recommended steps if you're the owner of the app](#recommended-steps-if-youre-the-owner-of-the-app).
+![Error that shows migration has failed for owners.](./media/migrate-authoring-key/migration-failed-for-owner-2.png)
 
-If you see the following error, check the [recommended steps if you're a collaborator on an app](#recommended-steps-if-youre-a-collaborator-on-an-app)
-![Migration fails for collaborators](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
+If you see the following error, check the [recommended steps if you're a collaborator on an app](#recommended-steps-if-youre-a-collaborator-on-an-app).
+![Error that shows migration has failed for collaborators.](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
 ## Next steps
