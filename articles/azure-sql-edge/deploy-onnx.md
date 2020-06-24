@@ -4,7 +4,7 @@ description: Learn how to train a model, convert it to ONNX, deploy it to Azure 
 keywords: deploy SQL Edge
 services: sql-edge
 ms.service: sql-edge
-ms.subservice:
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph

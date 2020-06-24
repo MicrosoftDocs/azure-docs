@@ -9,7 +9,7 @@ manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
