@@ -167,16 +167,27 @@ For more information, see:
     ✔ US Gov<br>
     ✘ China Gov, Other Gov
 
-Advanced threat protection for Azure Storage detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+### What's protected?
+
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) blobs or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) file shares.
+
+This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+
+### When will you see alerts?
 
 Security alerts are triggered when there are:
 
-- **Suspicious activities on your storage account** - for example, a file is uploaded that's suspected to contain malware. When advanced threat protection for Azure Storage detects uploaded malware, it generates an alert and can email the storage owner for approval to delete the suspicious files.
+- **Suspicious activities on your storage account** - for example, a file is uploaded that's suspected to contain malware. When threat protection for Azure Storage detects uploaded malware, it generates an alert and can email the storage owner for approval to delete the suspicious files.
 - **Anomalous behavior** - for example, changes in the access pattern to a storage account.
 
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
 
-To determine whether an uploaded file is suspicious, threat protection for Azure Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). The threat protection tools don’t scan the uploaded files, rather they examine the storage logs and compare the hashes of newly uploaded files with those of known viruses, trojans, spyware, and ransomware. Threat protection for Azure Storage doesn’t currently replace any malware scanning or sandboxing solutions that you may have in-place.
+### How does threat protection decide a file is suspicious?
+
+To determine whether an uploaded file is suspicious, threat protection for Azure Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). The threat protection tools don’t scan the uploaded files, rather they examine the storage logs and compare the hashes of newly uploaded files with those of known viruses, trojans, spyware, and ransomware.
+
+
+### Next steps 
 
 For pricing details, including a free 30-day trial, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
