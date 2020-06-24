@@ -3,7 +3,7 @@ title: Manage StorSimple volumes (Update 3)
 description: Explains how to add, modify, monitor, and delete StorSimple volumes, and how to take them offline if necessary.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/08/2017
 ms.author: alkohli
 
