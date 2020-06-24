@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://identity.kms.kisi.io/organizations/sign_in?domain=<DOMAIN>`
+    `https://web.kisi.io/organizations/sign_in?domain=<DOMAIN>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Kisi Physical Security Client support team](mailto:support@getkisi.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -106,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ---------------| --------------- | --------- |
 	| FirstName | | user.givenname |
 	| LastName | | user.surname |
-	| Email | | user.mail |
+	| Email | | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
