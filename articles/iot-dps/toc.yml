@@ -175,6 +175,8 @@
     href: https://github.com/Azure/azure-iot-sdk-java
   - name: Azure IoT SDK for .NET
     href: https://github.com/Azure/azure-iot-sdk-csharp
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

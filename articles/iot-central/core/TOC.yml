@@ -152,6 +152,10 @@
             - name: Toggle live chat
               href: howto-show-hide-chat.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

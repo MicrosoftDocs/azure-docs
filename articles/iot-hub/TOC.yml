@@ -416,7 +416,7 @@
 - name: Reference
   items:
     - name: Azure CLI
-      href: /cli/azure/iot
+      href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iot
     - name: .NET (Device)
