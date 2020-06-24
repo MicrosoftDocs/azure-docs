@@ -42,7 +42,6 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SendSafely supports **SP and IDP** initiated SSO
 * SendSafely supports **Just In Time** user provisioning
-* SendSafely supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial)
 
 * Once you configure SendSafely you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -145,8 +144,6 @@ To configure single sign-on on **SendSafely** side, follow the steps as provided
 ### Create SendSafely test user
 
 In this section, a user called B.Simon is created in SendSafely. SendSafely supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in SendSafely, a new one is created when you attempt to access SendSafely.
-
-SendSafely also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
