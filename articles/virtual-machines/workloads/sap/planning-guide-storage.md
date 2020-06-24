@@ -97,7 +97,7 @@ Characteristics you can expect from the different storage types list like:
 | Allocation of disks on different storage clusters when using availability sets | through managed disks | through managed disks | through managed disks | disk type not supported with VMs deployed through availability sets | no<sup>3</sup> |
 | Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
 | Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
-| Geo redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
+| Geo redundancy | not for managed disks | not for managed disks | no | no | no |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) for M/Mv2 VM families for log/redo log volumes
