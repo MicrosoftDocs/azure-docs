@@ -50,17 +50,17 @@ VC = virtual cluster
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
-| Gen5 | BC | 5 | 6 | 1 | 12 |
+| Gen5 | BC | 5 | 6 | 5 | 16 |
 
 \* Column total displays number of addresses that would be taken when one instance is deployed in subnet. Each additional instance in subnet adds number of addresses represented with instance usage column. Addresses represented with Azure usage column are shared across multiple virtual clusters while addresses represented with Virtual cluster usage column are shared across instances placed in that virtual cluster.
 
-**Example 1**: You plan to have two general purpose (Gen5 hardware) and two business critical managed instances (Gen5 hardware) placed in same subnet. That means you need 5 + 6 + 2 * 3 + 2 * 5 = 27 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27.
+**Example 1**: You plan to have one general purpose managed instances (Gen4 hardware) and one business critical managed instance (Gen5 hardware). That means you need 5 + 1 + 1 * 5 + 6 + 1 * 5 = 22 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27.
 
-**Example 2**: You plan to have two general purpose managed instances (Gen4 hardware) and one business critical managed instance (Gen5 hardware). That means you need 5 + 1 + 2 * 5 + 5 + 6 + 1 * 3 = 30 IP addresses. As IP ranges are defined in power of 2, you need the IP range of 32 (2^5) IP addresses. Therefore, you need to reserve the subnet with subnet mask of /27. However, as remaining number of addresses would be 32 – 30 = 2, this will prevent update operations for all instances as additional addresses are required in subnet for performing instance scaling.
+**Example 2**: You plan to have three general purpose (Gen5 hardware) and two business critical managed instances (Gen5 hardware) placed in same subnet. That means you need 5 + 6 + 3 * 3 + 2 * 5 = 30 IP addresses. Therefore, you need to reserve the subnet with subnet mask of /26. Selecting a subnet mask of /27 would cause the remaining number of addresses to be 2 (32 – 30), this would prevent update operations for all instances as additional addresses are required in subnet for performing instance scaling.
 
 ### Address requirements for update scenarios
 
-During scaling operation instances temporarily require additional IP capacity
+During scaling operation instances temporarily require additional IP capacity that depends on pricing tier and hardware generation
 
 | **Hardware gen** | **Pricing tier** | **Scenario** | **Additional addresses*** |
 | --- | --- | --- | --- |
