@@ -121,6 +121,8 @@
     href: troubleshoot-sign-in-issue.md
   - name: Enterprise cost view disabled
     href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+  - name: Billing account not found
+    href: troubleshoot-account-not-found.md
   - name: Contact support
     href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Samples
