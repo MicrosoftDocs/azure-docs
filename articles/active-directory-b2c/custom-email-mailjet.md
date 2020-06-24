@@ -22,6 +22,10 @@ Custom email verification requires the use of a third-party email provider like 
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## Prerequisites
+
+Before you begin, [change your custom policy to enable script execution](javascript-samples). In this solution, we specify a page layout using `contract` and version in the `DataUri` element.
+
 ## Create a Mailjet account
 
 If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day). 
