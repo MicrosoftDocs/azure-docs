@@ -77,7 +77,7 @@ In Maya, the process of instancing is simple.
 
 This action creates an instance of your object. You can move, rotate, or scale it independently of its parent and of other instances of that parent. 
 
-Any changes you make to an instance while it's in component modes are transmitted to all instances of your object. For example, you might work with an instanced object's components, such as vertices and polygon face. Make sure you want any changes you made to affect all of these instances.
+Any changes you make to an instance while it's in component modes are transmitted to all instances of your object. For example, you might work with an instanced object's components, such as vertices and polygon faces. Make sure you want any changes you made to affect all of these instances.
 
 In the sample scene, each individual box object was instanced. This action will have relevance when we export the scene to FBX format.
 
