@@ -146,7 +146,6 @@ Verify that the workspace has been created using one of the following commands. 
 # [CLI](#tab/CLI2)
 
 ```azurecli
-az login
 az monitor log-analytics workspace show --resource-group my-workspace-01  --workspace-name  my-resource-group
 ```
 
@@ -227,10 +226,9 @@ Deploy the template using any standard method for [deploying an ARM template](/a
 # [CLI](#tab/CLI3)
 
 ```azurecli
-az login
-az deployment group create \
+az deployment sub create \
     --name CreateDiagnosticSetting \
-    --resource-group my-resource-group \
+    --location eastus \
     --template-file CreateDiagnosticSetting.json \
     --parameters settingName='Send Activity log to workspace' workspaceId='/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01'
 
@@ -239,26 +237,21 @@ az deployment group create \
 # [PowerShell](#tab/PowerShell3)
 
 ```powershell
-Connect-AzAccount
 Select-AzSubscription -SubscriptionName my-subscription
-New-AzResourceGroupDeployment -Name CreateDiagnosticSetting -ResourceGroupName my-resource-group -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
 ### Verify the deployment
 Verify that the diagnostic setting has been created using one of the following commands. Replace the sample values for the subscription and setting name with the values you used above.
 
+> [!NOTE]
+> You cannot currently retrieve subscription level diagnostic settings using PowerShell.
+
 # [CLI](#tab/CLI2)
 
 ```azurecli
-az login
 az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-0000-0000-000000000000' --name 'Send to all locations with ARM'
-```
-
-# [PowerShell](#tab/PowerShell2)
-
-```powershell
-Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
 ```
 
 ---
@@ -270,7 +263,11 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource. You may need to wait a few minutes for the diagnostic setting to be created and for data to initially to be written to the workspace. After this delay, all events written to the Activity log will be sent to the workspace within a few seconds.
 
 ## Retrieve data with a log query
-Open the Azure portal to use Log Analytics to retrieve data from the workspace. Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you just created, then click **Select scope** and locate it.
+Use the Azure portal to use Log Analytics to retrieve data from the workspace. In the Azure portal, search for and then select **Monitor**. 
+
+![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
+
+Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you just created, then click **Select scope** and locate it.
 
 ![Log Analytics scope](media/quick-collect-activity-log/log-analytics-scope.png)
 
