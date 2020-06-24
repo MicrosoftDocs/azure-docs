@@ -70,11 +70,11 @@ The Azure Time Series Insights Preview supports full create, read, update, and d
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
 
-To learn more about the Time Series Model, read [Times Series Models](./time-series-insights-update-tsm.md).
+To learn more about the Time Series Model, read [Times Series Models](./concepts-model-overview.md).
 
 ## 3. Hierarchy tree and search panel
 
-The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./concepts-model-overview.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
 
 [![Hierarchy tree and search panel](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
@@ -239,6 +239,6 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 - Check out the article on [storage](concepts-storage.md)
 
-- Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
+- Read the Time Series Insights Preview document on [data modeling](./concepts-model-overview.md).
 
 - Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.

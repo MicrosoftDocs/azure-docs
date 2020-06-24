@@ -31267,6 +31267,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/time-series-insights/time-series-insights-update-storage-ingress.md",
+      "redirect_url": "/azure/time-series-insights/concepts-ingestion-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-tsm.md",
+      "redirect_url": "/azure/time-series-insights/concepts-model-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/time-series-insights-update-tsq.md",
+      "redirect_url": "/azure/time-series-insights/concepts-query-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/time-series-insights/time-series-insights-add-event-source.md",
       "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
       "redirect_document_id": true

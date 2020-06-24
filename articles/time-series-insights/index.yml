@@ -32,7 +32,7 @@ landingContent:
           - text: Visualize data in Time Series Insights explorer Preview
             url: time-series-insights-update-explorer.md
           - text: Time Series Model
-            url: time-series-insights-update-tsm.md
+            url: concepts-model-overview.md
       - linkListType: video
         links:
           - text: Time Series Insight for IoT apps. (13:31)

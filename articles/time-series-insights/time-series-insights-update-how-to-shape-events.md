@@ -28,7 +28,7 @@ General best practices include:
 For the best query performance, adhere to the following rules of thumb:
 
 * Don't send unnecessary properties. Time Series Insights Preview bills by usage. It's best to store and process only the data that you'll query.
-* Use instance fields for static data. This practice helps to avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, read [Time Series Model](./time-series-insights-update-tsm.md).
+* Use instance fields for static data. This practice helps to avoid sending static data over the network. Instance fields, a component of the Time Series Model, work like reference data in the Time Series Insights service that's generally available. To learn more about instance fields, read [Time Series Model](./concepts-model-overview.md).
 * Share dimension properties among two or more events. This practice helps you send data over the network more efficiently.
 * Don't use deep array nesting. Time Series Insights Preview supports up to two levels of nested arrays that contain objects. Time Series Insights Preview flattens arrays in messages into multiple events with property value pairs.
 * If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed.
@@ -90,7 +90,7 @@ There's a single Azure IoT Hub message sent where the outer array contains a sha
 
 **Takeaways:**
 
-* The example JSON has an outer array that uses [Time Series Instance](./time-series-insights-update-tsm.md#time-series-model-instances) data to increase the efficiency of the message. Even though Time Series Instances device metadata's not likely to change, it often provides useful properties for data analysis.
+* The example JSON has an outer array that uses [Time Series Instance](./concepts-model-overview.md#time-series-model-instances) data to increase the efficiency of the message. Even though Time Series Instances device metadata's not likely to change, it often provides useful properties for data analysis.
 
 * The JSON combines two or more messages (one from each device) into a single payload saving on bandwidth over time.
 
@@ -101,7 +101,7 @@ There's a single Azure IoT Hub message sent where the outer array contains a sha
 
 #### Time Series Instance 
 
-Let's take a closer look at how to use [Time Series Instance](./time-series-insights-update-tsm.md#time-series-model-instances) to shape your JSON more optimally. 
+Let's take a closer look at how to use [Time Series Instance](./concepts-model-overview.md#time-series-model-instances) to shape your JSON more optimally. 
 
 > [!NOTE]
 > The [Time Series IDs](./time-series-insights-update-how-to-id.md) below are *deviceIds*.

@@ -91,3 +91,7 @@ Refer to the following resources to learn more about optimizing hub throughput a
 * [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [Event Hub Partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
+
+## Next steps
+
+* Read about data [storage](concepts-storage.md)

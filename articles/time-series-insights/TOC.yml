@@ -66,9 +66,9 @@
     - name: Storage
       href: concepts-storage.md
     - name: Time Series Model
-      href: time-series-insights-update-tsm.md
+      href: concepts-model-overview.md
     - name: Time Series Query
-      href: time-series-insights-update-tsq.md
+      href: concepts-query-overview.md
     - name: Visualize data in the explorer Preview
       href: time-series-insights-update-explorer.md
     - name: Develop

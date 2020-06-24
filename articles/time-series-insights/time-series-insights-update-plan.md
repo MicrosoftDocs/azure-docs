@@ -47,7 +47,7 @@ Queries on warm store are free, while queries on cold store incur costs. It's im
 
 To start, you need three additional items:
 
-* A [Time Series Model](./time-series-insights-update-tsm.md)
+* A [Time Series Model](./concepts-model-overview.md)
 * An [event source connected to Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
@@ -73,7 +73,7 @@ When left blank, the Event Enqueue Time of an event source is used as the event 
 
 ## Understand the Time Series Model
 
-You can now configure your Time Series Insights environment’s Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
+You can now configure your Time Series Insights environment’s Time Series Model. The new model makes it easy to find and analyze IoT data. It enables the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses Time Series IDs, which map to an instance that associates the unique resource with variables, known as types, and hierarchies. Read about the new [Time Series Model](./concepts-model-overview.md).
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Time Series Insights. To build your model, read [Use the Time Series Model](./time-series-insights-update-how-to-tsm.md).
 
@@ -97,4 +97,4 @@ For more information, read [Shape events](./time-series-insights-send-events.md#
 - Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
 - Read more about [data ingestion](./concepts-ingestion-overview.md).
 - Review the article on [data storage](./concepts-storage.md)
-- Learn about [data modeling](./time-series-insights-update-tsm.md) in the Time Series Insights Preview.
+- Learn about [data modeling](./concepts-model-overview.md) in the Time Series Insights Preview.

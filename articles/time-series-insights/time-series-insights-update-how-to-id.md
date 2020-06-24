@@ -32,7 +32,7 @@ Selecting an appropriate Time Series ID is critical. Choosing a Time Series ID i
 Key best practices to follow include:
 
 * Pick a partition key with many distinct values (for example, hundreds or thousands). In many cases, this might be the device ID, sensor ID, or tag ID in your JSON.
-* The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
+* The Time Series ID should be unique at the leaf node level of your [Time Series Model](./concepts-model-overview.md).
 * The character limit for the Time Series ID's property name string is 128. For the Time Series ID's property value, the character limit is 1,024.
 * If a unique property value for the Time Series ID is missing, it's treated as a null value and follows the same rule of the uniqueness constraint.
 * If your Time Series ID is nested within a complex JSON object be sure to follow the ingress [flattening rules](./concepts-json-flattening-escaping-rules.md) when providing your property name. Check out example [B](concepts-json-flattening-escaping-rules.md#example-b). 

@@ -19,7 +19,7 @@ This Azure Time Series Insights explorer quickstart helps you get started with T
 
 Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data so that you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices. Azure Time Series Insights helps you to discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
-For additional flexibility, you can add Azure Time Series Insights to a preexisting application through its powerful [REST APIs](./time-series-insights-update-tsq.md) and [client SDK](https://github.com/microsoft/tsiclient). You can use the APIs to store, query, and consume time series data in a client application of your choice. You also can use the client SDK to add UI components to your existing application.
+For additional flexibility, you can add Azure Time Series Insights to a preexisting application through its powerful [REST APIs](./concepts-query-overview.md) and [client SDK](https://github.com/microsoft/tsiclient). You can use the APIs to store, query, and consume time series data in a client application of your choice. You also can use the client SDK to add UI components to your existing application.
 
 This Time Series Insights explorer quickstart offers a guided tour of features that are in general availability.
 

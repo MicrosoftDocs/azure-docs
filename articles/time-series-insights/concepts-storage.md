@@ -19,7 +19,7 @@ When you create an Azure Time Series Insights Preview *pay-as-you-go* (PAYG) SKU
 * An Azure Time Series Insights Preview environment that can be configured for warm data storage.
 * An Azure Storage general-purpose V1 blob account for cold data storage.
 
-Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Time Series Insights environment.
+Data in your warm store is available only via [Time Series Query](./concepts-query-overview.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Time Series Insights environment.
 
 Azure Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format-and-folder-structure). Time Series Insights Preview manages this cold store data exclusively, but it's available for you to read directly as standard Parquet files.
 
@@ -53,7 +53,7 @@ To ensure query performance and data availability, don't edit or delete any blob
 
 #### Accessing Time Series Insights Preview cold store data
 
-In addition to accessing your data from the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) and [Time Series Query](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
+In addition to accessing your data from the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) and [Time Series Query](./concepts-query-overview.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
 To access data directly from your Azure Storage account, you need read access to the account used to store your Time Series Insights Preview data. You can then read selected data based on the creation time of the Parquet file located in the `PT=Time` folder described below in the [Parquet file format](#parquet-file-format-and-folder-structure) section.  For more information on enabling read access to your storage account, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
 
@@ -95,8 +95,8 @@ Time Series Insights Preview events are mapped to Parquet file contents as follo
 
 ## Next steps
 
-* Read about [data modeling](./time-series-insights-update-tsm.md).
+* Read about [data modeling](./concepts-model-overview.md).
 
-* Learn about [data querying](time-series-insights-update-tsq.md)
+* Learn about [data querying](concepts-query-overview.md)
 
 * Plan your [Azure Time Series Insights Preview environment](./time-series-insights-update-plan.md).
