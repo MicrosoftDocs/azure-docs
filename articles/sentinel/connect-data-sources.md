@@ -108,12 +108,12 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
 | **Data type** | **How to connect** | **Data connector?** | **Comments** |
 |------|---------|-------------|------|
-| AWSCloudTrail | [Connect AWS](connect-aws.md) | V | |
-| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/platform-logs-overview.md)| V | |
-| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
-| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AWSCloudTrail | [Connect AWS](connect-aws.md) | &#10003; | |
+| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
+| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
+| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | &#10003; | |
+| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Connect Office 365](connect-office-365.md) | &#10003; | |
@@ -132,12 +132,12 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | ASC SecurityAlert  | [Connect Azure Security Center](connect-azure-security-center.md)  | &#10003; | |
 | MCAS SecurityAlert  | [Connect Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| X | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| X | |
-| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | X | |
-| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |
-| McasShadowItReporting  |  | X | |
-| Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | V | |
+| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| &#10007; | |
+| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | &#10007; | |
+| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
+| McasShadowItReporting  |  | &#10007; | |
+| Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | &#10003; | |
 
 
 ## Next steps
