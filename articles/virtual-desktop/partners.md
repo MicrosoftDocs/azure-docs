@@ -144,7 +144,7 @@ IGEL OS supports all popular virtual apps, desktops, and cloud workspace client 
 
 ![Ivanti Logo](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Office 365, or moving services to the cloud faster. 
+Ivanti User Workspace Manager is a Windows Virtual Desktop value-added service that eases desktop deployment and management by separating user data from the desktop for seamless portability. With Ivanti, users can deliver complex projects like migrating to Windows 10, adopting Microsoft 365, or moving services to the cloud faster. 
 
 When used with Windows Virtual Desktop, Ivanti User Workspace Manager provides simple contextual management of the user desktop experience, eliminating long sign-in times and eradicating group policy nightmares. Ivanti User Workspace Manager out-of-the-box templates simplify installation for users through agents and the existing console. Ivanti User Workspace Manager delivers responsive, secure desktops that users love, saving money on servers, managing users more effectively, and reducing endpoint security risk. 
 

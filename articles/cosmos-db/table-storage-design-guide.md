@@ -3,7 +3,7 @@ title: Design Azure Cosmos DB tables for scaling and performance
 description: "Azure Table storage design guide: Scalable and performant tables in Azure Cosmos DB and Azure Table storage"
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
