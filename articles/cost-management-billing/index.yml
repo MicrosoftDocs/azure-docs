@@ -151,20 +151,6 @@ landingContent:
         url: understand/pay-bill.md
 
   # Card (optional)
-  - title: Manage free account
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-      - text: Create free services
-        url: manage/create-free-services.md
-      - text: Avoid charges
-        url: manage/avoid-charges-free-account.md
-      - text: Check usage
-        url: manage/check-free-service-usage.md
-      - text: Upgrade account
-        url: manage/upgrade-azure-subscription.md
-
-  # Card (optional)
   - title: Buy reservations
     linkLists:
     - linkListType: concept
@@ -185,3 +171,17 @@ landingContent:
         url: reservations/charge-back-usage.md
       - text: Renew reservations
         url: reservations/reservation-renew.md
+
+  # Card (optional)
+  - title: Manage free account
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+      - text: Create free services
+        url: manage/create-free-services.md
+      - text: Avoid charges
+        url: manage/avoid-charges-free-account.md
+      - text: Check usage
+        url: manage/check-free-service-usage.md
+      - text: Upgrade account
+        url: manage/upgrade-azure-subscription.md
