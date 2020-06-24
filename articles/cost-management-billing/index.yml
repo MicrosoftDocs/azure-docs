@@ -78,6 +78,9 @@ landingContent:
         url: understand/download-azure-invoice.md
       - text: View and download your Azure usage and charges
         url: understand/download-azure-daily-usage.md
+      - text: View external service charges
+        url: understand/understand-azure-marketplace-charges.md
+
 
   # Card (optional)
   - title: Optimize your costs
@@ -132,14 +135,6 @@ landingContent:
         url: manage/add-change-subscription-administrator.md
       - text: Pay by invoice
         url: manage/pay-by-invoice.md
-
-  # Card (optional)
-  - title: Review individual accounts
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: View external service charges
-          url: understand/understand-azure-marketplace-charges.md
 
   # Card (optional)
   - title: Review Microsoft Customer Agreement accounts
