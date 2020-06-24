@@ -4,7 +4,7 @@ description: Azure security baseline for Azure DDoS Protection Standard
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 06/24/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
