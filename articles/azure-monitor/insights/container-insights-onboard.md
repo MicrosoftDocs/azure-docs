@@ -1,6 +1,6 @@
 ---
 title: How to enable Azure Monitor for containers | Microsoft Docs
-description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified. 
+description: This article describes how you enable and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified.
 ms.topic: conceptual
 ms.date: 06/15/2020
 
@@ -53,7 +53,7 @@ Before you start, make sure that you have the following:
 The following is officially supported with Azure Monitor for containers.
 
 - Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
+- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
 
 ## Network firewall requirements
 
@@ -61,7 +61,7 @@ The information in the following table lists the proxy and firewall configuratio
 
 |Agent Resource|Ports |
 |--------------|------|
-| `*.ods.opinsights.azure.com` | 443 |  
+| `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
 | `dc.services.visualstudio.com` | 443 |
 | `*.monitoring.azure.com` | 443 |
@@ -69,7 +69,7 @@ The information in the following table lists the proxy and firewall configuratio
 
 The information in the following table lists the proxy and firewall configuration information for Azure China 21Vianet.
 
-|Agent Resource|Ports |Description | 
+|Agent Resource|Ports |Description |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Data ingestion |
 | `*.oms.opinsights.azure.cn` | 443 | OMS onboarding |
@@ -77,7 +77,7 @@ The information in the following table lists the proxy and firewall configuratio
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
 
-|Agent Resource|Ports |Description | 
+|Agent Resource|Ports |Description |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Data ingestion |
 | `*.oms.opinsights.azure.us` | 443 | OMS onboarding |
@@ -88,7 +88,7 @@ The information in the following table lists the proxy and firewall configuratio
 Your ability to monitor performance relies on a containerized Log Analytics agent for Linux specifically developed for Azure Monitor for containers. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. The  agent version is microsoft/oms:ciprod04202018 or later, and is represented by a date in the following format: *mmddyyyy*.
 
 >[!NOTE]
->With the preview release of Windows Server support for AKS, an AKS cluster with Windows Server nodes do not have an agent installed to collect data and forward to Azure Monitor. Instead, a Linux node automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf all Windows nodes in the cluster.  
+>With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows server node to collect logs and forward it to Log Analytics. For performance metrics, a Linux node automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf all Windows nodes in the cluster.
 >
 
 When a new version of the agent is released, it is automatically upgraded on your managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). To follow the versions released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
