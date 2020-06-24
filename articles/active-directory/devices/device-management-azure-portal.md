@@ -31,7 +31,7 @@ The **All devices** page enables you to:
    - Devices deployed using [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
    - Printers using [Universal Print](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started)
 - Perform device identity management tasks like enable, disable, delete, or manage.
-   - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices must be managed from their respective admin interfaces.
+   - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices have limited management options in Azure AD. They must be managed from their respective admin interfaces.
 - Configure your device identity settings.
 - Enable or disable Enterprise State Roaming.
 - Review device-related audit logs
@@ -55,7 +55,7 @@ Both options allow administrators the ability to:
     - Mobile device management and compliance
     - BitLocker recovery key
 - Perform device identity management tasks like, enable, disable, delete, or manage.
-   - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices must be managed from their respective admin interfaces.
+   - [Printers](/universal-print/fundamentals/) and [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) devices have limited management options in Azure AD. They must be managed from their respective admin interfaces.
 
 > [!TIP]
 > - Hybrid Azure AD Joined Windows 10 devices do not have an owner. If you are looking for a device by owner and didn't find it, search by the device ID.
@@ -79,6 +79,7 @@ To enable or disable devices, you have two options:
 > - You must be a global administrator or cloud device administrator in Azure AD to enable or disable a device. 
 > - Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are protected by device-based Conditional Access or using Windows Hello for Business credentials.
 > - Disabling a device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
+> - Printers cannot be enabled or disabled in Azure AD.
 
 ### Delete an Azure AD device
 
@@ -89,6 +90,7 @@ To delete a device, you have two options:
 
 > [!IMPORTANT]
 > - You must be assigned the cloud device administrator, Intune administrator, or global administrator role in Azure AD to delete a device.
+> - Printers and Windows Autopilot devices cannot be deleted in Azure AD
 > - Deleting a device:
 >    - Prevents a device from accessing your Azure AD resources.
 >    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
@@ -104,9 +106,9 @@ You can use a device ID to verify the device ID details on the device or using P
   
 ### View or copy BitLocker keys
 
-You can view and copy the BitLocker keys to help users to recover their encrypted drive. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can copy these keys when accessing details of the device.
+You can view and copy the BitLocker keys to allow users to recover encrypted drives. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can find these keys when accessing details of a device by selecting **Show Recovery Key**.
 
-![View BitLocker keys](./media/device-management-azure-portal/36.png)
+![View BitLocker keys](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
 To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
