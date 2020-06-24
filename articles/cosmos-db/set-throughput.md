@@ -39,6 +39,9 @@ The following image shows how a physical partition hosts one or more logical par
 
 ## Set throughput on a database
 
+> [!NOTE]
+> Provisioning throughput on an Azure Cosmos database is currently not possible in accounts where [customer-managed keys](how-to-setup-cmk.md) are enabled.
+
 When you provision throughput on an Azure Cosmos database, the throughput is shared across all the containers (called shared database containers) in the database. An exception is if you specified a provisioned throughput on specific containers in the database. Sharing the database-level provisioned throughput among its containers is analogous to hosting a database on a cluster of machines. Because all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To learn how to configure provisioned throughput on a database, see [Configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md). To learn how to configure autoscale throughput on a database, see [Provision autoscale throughput](how-to-provision-autoscale-throughput.md).
 
 Setting throughput on an Azure Cosmos database guarantees that you receive the provisioned throughput for that database all the time. Because all containers within the database share the provisioned throughput, Azure Cosmos DB doesn't provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
@@ -86,11 +89,16 @@ You can combine the two models. Provisioning throughput on both the database and
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. The [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) depends on the following factors: 
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. 
 
-* The current data size that you store in the container
-* The maximum throughput that you ever provision on the container
-* The current number of Azure Cosmos containers that you have in a database with shared throughput. 
+To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) of a database or container, find the maximum of:
+
+* 400 RU/s 
+* Current storage in GB * 10 RU/s
+* Highest RU/s provisioned on the database or container / 100
+* Container count * 100 RU/s (shared throughput database only)
+
+The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value. 
 

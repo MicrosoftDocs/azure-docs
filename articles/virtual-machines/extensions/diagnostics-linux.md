@@ -69,7 +69,12 @@ Supported distributions and versions:
 
 ### Sample installation
 
-Fill in the correct values for the variables in the first section before running:
+> [!NOTE]
+> For either of the samples, fill in the correct values for the variables in the first section before running. 
+
+The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
+
+#### Azure CLI sample
 
 ```azurecli
 # Set your Azure VM diagnostic variables correctly below
@@ -98,8 +103,6 @@ my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_accoun
 # Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-
-The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
 
 #### PowerShell sample
 
@@ -434,6 +437,9 @@ Either "table" or "sinks", or both, must be specified.
 
 Controls the capture of log files. LAD captures new text lines as they are written to the file and writes them to table rows and/or any specified sinks (JsonBlob or EventHub).
 
+> [!NOTE]
+> fileLogs are captured by a subcomponent of LAD called `omsagent`. In order to collect fileLogs, you must ensure that the `omsagent` user has read permissions on the files you specify, as well as execute permissions on all directories in the path to that file. You can check this by running `sudo su omsagent -c 'cat /path/to/file'` after LAD is installed.
+
 ```json
 "fileLogs": [
     {
@@ -559,23 +565,36 @@ BytesPerSecond | Number of bytes read or written per second
 
 Aggregated values across all disks can be obtained by setting `"condition": "IsAggregate=True"`. To get information for a specific device (for example, /dev/sdf1), set `"condition": "Name=\\"/dev/sdf1\\""`.
 
-## Installing and configuring LAD 3.0 via CLI
+## Installing and configuring LAD 3.0
 
-Assuming your protected settings are in the file PrivateConfig.json and your public configuration information is in PublicConfig.json, run this command:
+### Azure CLI
+
+Assuming your protected settings are in the file ProtectedSettings.json and your public configuration information is in PublicSettings.json, run this command:
 
 ```azurecli
-az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management mode (arm) of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](https://docs.microsoft.com/azure/xplat-cli-connect).
+The command assumes you are using the Azure Resource Management (ARM) mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](https://docs.microsoft.com/azure/xplat-cli-connect).
+
+### PowerShell
+
+Assuming your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+```
 
 ## An example LAD 3.0 configuration
 
 Based on the preceding definitions, here's a sample LAD 3.0 extension configuration with some explanation. To apply this sample to your case, you should use your own storage account name, account SAS token, and EventHubs SAS tokens.
 
-### PrivateConfig.json
+> [!NOTE]
+> Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings will differ. If using the Azure CLI, save the following settings to ProtectedSettings.json and PublicSettings.json to use with the sample command above. If using PowerShell, save the settings to `$protectedSettings` and `$publicSettings` by running `$protectedSettings = '{ ... }'`.
 
-These private settings configure:
+### Protected settings
+
+These protected settings configure:
 
 * a storage account
 * a matching account SAS token
@@ -623,7 +642,7 @@ These private settings configure:
 }
 ```
 
-### PublicConfig.json
+### Public Settings
 
 These public settings cause LAD to:
 

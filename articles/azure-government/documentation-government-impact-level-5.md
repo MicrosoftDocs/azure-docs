@@ -138,7 +138,7 @@ Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 wo
 - Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../azure-sql/database/transparent-data-encryption-byok-overview.md)).
 
 > [!NOTE]
-> The instructions to enable this are the same as for Azure SQL database.
+> The instructions to enable this are the same as for Azure SQL Database.
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
@@ -341,11 +341,13 @@ You can protect data via storage accounts as your device is associated with a st
 
 Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
-Azure Logic Apps relies on Azure Storage to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see Azure Storage encryption for data at rest and Azure Data Encryption-at-Rest.(https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
-
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Logic Apps** | X | X | X | | |
+
+Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) and [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+
+If you host and run your logic apps in a dedicated [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), rather than in global multi-tenant Azure, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment).
 
 ### [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 
@@ -520,7 +522,7 @@ Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Appl
 
 ### Azure Scheduler
 
-Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](https://docs.microsoft.com/scheduler/migrate-from-scheduler-to-logic-apps).
 
 ## Media services
 
