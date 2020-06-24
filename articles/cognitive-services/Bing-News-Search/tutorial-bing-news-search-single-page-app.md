@@ -42,6 +42,7 @@ To follow along with the tutorial, you need subscription keys for the Bing Searc
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Create a Bing Maps resource"  target="_blank">Get a Bing Maps key<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
