@@ -2117,7 +2117,7 @@ formatNumber(<number>, <format>, <locale>?)
 Suppose that you want to format the number `1234567890`. This example formats that number as the string "1,234,567,890.00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'en-us')
+formatNumber(1234567890, '0,0.00', 'en-us')
 ```
 
 *Example 2"
@@ -2125,7 +2125,7 @@ formatNumber(1234567890, '{0:0,0.00}', 'en-us')
 Suppose that you want to format the number `1234567890`. This example formats the number to the string "1.234.567.890,00".
 
 ```
-formatNumber(1234567890, '{0:0,0.00}', 'is-is')
+formatNumber(1234567890, '0,0.00', 'is-is')
 ```
 
 *Example 3*

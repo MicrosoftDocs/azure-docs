@@ -1314,7 +1314,7 @@ productDirectory:
       url: virtual-network/index.yml
     # Card
     - title: Virtual WAN
-      summary: Optimize and automate branch to branch connectivity through Azure
+      summary: Microsoft-managed hub and spoke service for connectivity and security
       imageSrc: https://static.docs.com/ui/media/product/azure/virtual-wans.svg
       azureCategories:
         - networking

@@ -1,20 +1,8 @@
 ---
 title: Azure Relay API overview | Microsoft Docs
 description: This article provides an overview of available Azure Relay APIs (.NET Standard, .NET Framework, Node.js, etc.)
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: fdaa1d2b-bd80-4e75-abb9-0c3d0773af2d
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
+ms.date: 06/23/2020
 ---
 
 # Available Relay APIs
