@@ -22,7 +22,6 @@ Computer Vision includes new deep learning based Optical Character Recognition (
 
 Computer Vision’s Read API is Microsoft’s latest OCR technology that extracts printed text, handwritten text (English only), digits, and currency symbols from images and PDF documents. It's optimized to extract text from images in-the-wild, images with visual noise, PDF documents that are either digital or scanned, and text heavy images. It supports printed and handwritten text (English), and mixed languages in the same image or document. The full list of supported languages can be found [here.](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
-![An image being rotated and its text being read and delineated](./Images/readAPI-diagram.png)
 
 ### How it works
 
