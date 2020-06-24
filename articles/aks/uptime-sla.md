@@ -27,7 +27,7 @@ Uptime SLA is available in public regions where [AKS is supported](https://azure
 
 ## Limitations
 
-* Currently, if you enable Uptime SLA there is no way to remove it from a cluster 
+* Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
 * Private clusters aren't currently supported.
 
 ## SLA terms and conditions
