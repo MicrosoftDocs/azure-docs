@@ -114,7 +114,7 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
 
-3. Run the following command to add the machine to a Hybrid Runbook Worker group, changing the values for the parameters *-w*, *-k*, *-g*, and *-e*.
+3. Run the following command to add the machine to a Hybrid Runbook Worker group, specifying the values for the parameters *-w*, *-k*, *-g*, and *-e*.
 
     You can get the information required for parameters *-k* and *-e* from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
@@ -124,13 +124,15 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     * For the `-k` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
-    For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name. For the `-w` parameter, specify your Log Analytics workspace ID.
+    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name. 
+
+    * For the `-w` parameter, specify your Log Analytics workspace ID.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-4. After the command is completed, the Hybrid Worker Groups page in the Azure portal shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and select the **Hybrid Workers** tile. On the Hybrid Workers page, you see each member of the group listed.
+4. After the command is completed, the Hybrid Worker Groups page in your Automation account shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and select the **Hybrid Workers** tile. On the Hybrid Workers page, you see each member of the group listed.
 
     > [!NOTE]
     > If you are using the Log Analytics virtual machine extension for Linux for an Azure VM, we recommend setting `autoUpgradeMinorVersion` to `false` as auto-upgrading versions can cause issues with the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
