@@ -1,6 +1,6 @@
 ---
 title: 'JSON Flattening and Escaping Rules - Azure Time Series Insights | Microsoft Docs'
-description: Learn about JSON Flattening, Escaping, and Array Handling in Azure Time Series Insights.
+description: Learn about JSON flattening, escaping, and array handling in Azure Time Series Insights.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
