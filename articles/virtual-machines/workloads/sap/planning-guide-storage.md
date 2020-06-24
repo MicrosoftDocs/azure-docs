@@ -112,7 +112,7 @@ Characteristics you can expect from the different storage types list like:
 
 
 > [!IMPORTANT]
-> None of the currently offered Azure block storage based managed disks, or Azure NetApp Files offer any zonal or geographical redundancy. As a result, you need to make sure that your high availability and disaster recovery architectures are not relying on any type of storage replication.
+> None of the currently offered Azure block storage based managed disks, or Azure NetApp Files offer any zonal or geographical redundancy. As a result, you need to make sure that your high availability and disaster recovery architectures are not relying on any type of Azure native storage replication for these managed disks, NFS or SMB shares.
 
 
 ## Azure premium storage
