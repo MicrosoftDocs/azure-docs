@@ -56,6 +56,8 @@
         href: scenario-route-between-hubs-firewall.md
       - name: Any-to-any
         href: scenario-any-to-any.md
+      - name: Direct VNet routing/Azure Firewall for Branch and Internet
+        href: scenario-route-between-vnets-firewall.md
   - name: Site-to-site
     items:
     - name: About IPsec policies
