@@ -17,7 +17,9 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ## Common errors and resolutions
 
-### Error message: Self-hosted integration runtime can't connect to cloud service
+### Error message: 
+
+`Self-hosted integration runtime can't connect to cloud service`
 
 ![Self-hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
@@ -81,7 +83,8 @@ The following is the expected response:
 > *    Check whether the TLS/SSL certificate "wu2.frontend.clouddatahub.net/" is trusted on the proxy server.
 > *    If you're using Active Directory authentication on the proxy, change the service account to the user account that can access the proxy as "Integration Runtime Service."
 
-### Error message: Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state
+### Error message: 
+`Self-hosted integration runtime node/ logical SHIR is in Inactive/ "Running (Limited)" state`
 
 #### Cause 
 
@@ -129,37 +132,36 @@ This behavior occurs when nodes can't communicate with each other.
 
 ## Troubleshoot connectivity issue
 
-### Troubleshoot connectivity issue between Self-hosted IR and FE or Self-hosted IR and data source/sink
+### Troubleshoot connectivity issue between Self-hosted IR and Data Factory or Self-hosted IR and data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
 how to [collect the network trace](#how-to-collect-netmon-trace), understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
 
-Sometimes, when we troubleshoot the connectivity issues such as below one between Self-hosted IR and FE: 
+Sometimes, when we troubleshoot the connectivity issues such as below one between Self-hosted IR and Data Factory: 
 
 ![HTTP request failed](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
 Or the one between Self-hosted IR and data source/sink, we will encounter following errors:
 
 **Error message:**
-*Copy failed with error:
-Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’*
+`Copy failed with error:Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server: ‘IP address’`
 
 **Error message:**
-*One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.*
+`One or more errors occurred. An error occurred while sending the request. The underlying connection was closed: An unexpected error occurred on a receive. Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. An existing connection was forcibly closed by the remote host Activity ID.`
 
 **Resolution:**
 When encountering above issues, refer to the following instructions to troubleshoot further:
 
 Take the netmon trace and analyze further.
-- Firstly, you can set the filter to see any reset there from the server to the client side. From below example, you can see the server side is fe server.
+- Firstly, you can set the filter to see any reset there from the server to the client side. From below example, you can see the server side is Data Factory server.
 
-    ![FE server](media/self-hosted-integration-runtime-troubleshoot-guide/fe-server.png)
+    ![Data factory server](media/self-hosted-integration-runtime-troubleshoot-guide/data-factory-server.png)
 
 - When you get the reset package, you can find the conversation by following TCP.
 
     ![Find conversation](media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png)
 
-- Then you can get the conversion between client and FE server below by removing the filter.
+- Then you can get the conversion between client and Data Factory server below by removing the filter.
 
     ![Get conversation](media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png)
 - Based on the netmon trace collected, we can tell that the TTL (TimeToLive) total is 64. According to the **Default TTL and Hop Limit Values** mentioned in [this article](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) (as extracted below), we can see that it is the Linux System that resets the package and causes the disconnection.
@@ -182,7 +184,7 @@ Take the netmon trace and analyze further.
  
     *Network package from Linux System A with TTL 64 -> B TTL 64 Minus 1 = 63 -> C TTL 63 Minus 1 = 62 -> TTL 62 Minus 1 = 61 Self-hosted IR*
 
-- In ideal situation, the TTL will be 128, which means Windows System is running our Front-End. As shown in below example, *128 – 107 = 21 hops*, meaning that 21 hops for the package were sent from FE to Self-hosted IR during the TCP 3 handshake.
+- In ideal situation, the TTL will be 128, which means Windows System is running our Data Factory. As shown in below example, *128 – 107 = 21 hops*, meaning that 21 hops for the package were sent from Data Factory to Self-hosted IR during the TCP 3 handshake.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
