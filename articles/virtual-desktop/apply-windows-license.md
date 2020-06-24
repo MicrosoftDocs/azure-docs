@@ -5,7 +5,7 @@ services: virtual-desktop
 author: ChristianMontoya
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
 ---

@@ -3,13 +3,11 @@ title: Security controls
 description: A checklist of security controls for evaluating Azure SQL Database
 services: sql-database
 author: msmbaldwin
-manager: rkalrin
+manager: rkarlin
 ms.service: load-balancer
-
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-
 ---
 # Security controls for Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

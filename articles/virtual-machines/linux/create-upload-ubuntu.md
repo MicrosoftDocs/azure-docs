@@ -45,8 +45,8 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 	Ubuntu 16.04 and Ubuntu 18.04:
    
-		# sudo sed -i 's/archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
-		# sed -i 's/[a-z][a-z]\.archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
+		# sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+		# sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
 		# sudo apt-get update
 
 
@@ -62,7 +62,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 5. Modify the kernel boot line for Grub to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor, find the variable called `GRUB_CMDLINE_LINUX_DEFAULT` (or add it if needed) and edit it to include the following parameters:
    
-        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
+	```
+	GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
+	```
 
     Save and close this file, and then run `sudo update-grub`. This will ensure all console messages are sent to the first serial port, which can assist Azure technical support with debugging issues.
 
@@ -71,46 +73,49 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses netplan to configure the system network configuration during provisioning and each subsequent boot.
 
 		# sudo apt update
-		# sudo apt install -y cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+		# sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
 
    > [!Note]
    >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-8. Remove cloud-init default configs and leftover artifacts that may conflict with cloud-init provisioning on Azure:
+8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
 
 		# rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
 		# rm -f /etc/cloud/ds-identify.cfg
+		# rm -f /etc/netplan/*.yaml
 
 9. Configure cloud-init to provision the system using the Azure datasource:
 
-		# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
-		datasource_list: [ Azure ]
-		EOF
+	```
+	# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+	datasource_list: [ Azure ]
+	EOF
 
-		# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
-		system_info:
-		package_mirrors:
-			- arches: [i386, amd64]
-			failsafe:
-				primary: http://archive.ubuntu.com/ubuntu
-				security: http://security.ubuntu.com/ubuntu
-			search:
-				primary:
-				- http://azure.archive.ubuntu.com/ubuntu/
-				security: []
-			- arches: [armhf, armel, default]
-			failsafe:
-				primary: http://ports.ubuntu.com/ubuntu-ports
-				security: http://ports.ubuntu.com/ubuntu-ports
-		EOF
+	# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
+    system_info:
+       package_mirrors:
+         - arches: [i386, amd64]
+           failsafe:
+             primary: http://archive.ubuntu.com/ubuntu
+             security: http://security.ubuntu.com/ubuntu
+           search:
+             primary:
+               - http://azure.archive.ubuntu.com/ubuntu/
+             security: []
+         - arches: [armhf, armel, default]
+           failsafe:
+             primary: http://ports.ubuntu.com/ubuntu-ports
+             security: http://ports.ubuntu.com/ubuntu-ports
+	EOF
 
-		# cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
-		reporting:
-		logging:
-			type: log
-		telemetry:
-			type: hyperv
-		EOF
+	# cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
+    reporting:
+      logging:
+        type: log
+      telemetry:
+        type: hyperv
+	EOF
+	```
 
 10. Configure the Azure Linux agent to rely on cloud-init to perform provisioning. Have a look at the [WALinuxAgent project](https://github.com/Azure/WALinuxAgent) for more information on these options.
 
@@ -137,6 +142,12 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		# sudo rm -f /var/log/waagent.log
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+
+	> [!NOTE]
+	> The `sudo waagent -force -deprovision+user` command will attempt to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
+
+	> [!WARNING]
+	> Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.
 
 		# sudo waagent -force -deprovision+user
 		# rm -f ~/.bash_history

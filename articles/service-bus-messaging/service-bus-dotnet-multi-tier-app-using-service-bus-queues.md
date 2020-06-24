@@ -1,18 +1,9 @@
 ---
 title: .NET multi-tier application using Azure Service Bus | Microsoft Docs
 description: A .NET tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # .NET multi-tier application using Azure Service Bus queues
