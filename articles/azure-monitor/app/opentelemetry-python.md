@@ -431,8 +431,9 @@ In the list under **Active**:
 
 For more detailed information about how to use queries and logs, see [Logs in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
-## Learn more about OpenCensus for Python
+## Learn more about OpenTelemetry
 
+* [OpenTelemetry](https://opentelemetry.io/)
 * [OpenTelemetry Azure Monitor SDK on Github](https://github.com/microsoft/opentelemetry-azure-monitor-python)
 * [OpenTelemetry Python on GitHub](https://github.com/open-telemetry/opentelemetry-python)
 * [Azure Monitor Sample Applications](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
