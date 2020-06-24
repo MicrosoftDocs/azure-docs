@@ -183,7 +183,7 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name: Administrative unit      
+    - name: Administrative units     
       items:
       - name: Administrative units overview  
         href: directory-administrative-units.md
