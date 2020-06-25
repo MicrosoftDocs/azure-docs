@@ -1,6 +1,6 @@
 ---
-title: Security baseline for Azure Azure Firewall
-description: Security baseline for Azure Azure Firewall
+title: Security baseline for Azure Firewall
+description: Security baseline for Azure Firewall
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Security baseline for Azure Azure Firewall
+# Security baseline for Azure Firewall
 
 This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Firewall. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Firewall. **Controls** not applicable to Azure Firewall have been excluded. To see how Azure Firewall completely maps to the Azure Security Benchmark, see the [full Azure Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets/security_baselines).
 
