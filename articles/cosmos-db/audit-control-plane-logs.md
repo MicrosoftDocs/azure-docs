@@ -97,36 +97,37 @@ The following are the control plane operations available at the account level. M
 
 The following are the control plane operations available at the database and container level. These operations are available as metrics in Azure monitor:
 
+* SQL Database Created
 * SQL Database Updated
-* SQL Container Updated
 * SQL Database Throughput Updated
-* SQL Container Throughput Updated
 * SQL Database Deleted
+* SQL Container Created
+* SQL Container Updated
+* SQL Container Throughput Updated
 * SQL Container Deleted
-* Autoscale max throughput
 * Cassandra Keyspace Created
 * Cassandra Keyspace Updated
+* Cassandra Keyspace Throughput Updated
+* Cassandra Keyspace Deleted
 * Cassandra Table Created
 * Cassandra Table Updated
-* Cassandra Keyspace Throughput Updated
 * Cassandra Table Throughput Updated
-* Cassandra Keyspace Deleted
 * Cassandra Table Deleted
 * Gremlin Database Created
-* Gremlin Graph Created
 * Gremlin Database Updated
-* Gremlin Graph Updated
 * Gremlin Database Throughput Updated
-* Gremlin Graph Throughput Updated
 * Gremlin Database Deleted
+* Gremlin Graph Created
+* Gremlin Graph Updated
+* Gremlin Graph Throughput Updated
 * Gremlin Graph Deleted
 * Mongo Database Created
 * Mongo Database Updated
+* Mongo Database Throughput Updated
+* Mongo Database Deleted
 * Mongo Collection Created
 * Mongo Collection Updated
-* Mongo Database Throughput Updated
 * Mongo Collection Throughput Updated
-* Mongo Database Deleted
 * Mongo Collection Deleted
 * AzureTable Table Created
 * AzureTable Table Updated
