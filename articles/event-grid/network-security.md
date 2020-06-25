@@ -2,12 +2,12 @@
 title: Network security for Azure Event Grid resources
 description: This article describes how to configure access from private endpoints
 services: event-grid
-author: spelluru
+author: VidyaKukke
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.author: spelluru
+ms.author: vkukke
 ---
 
 # Network security for Azure Event Grid resources
