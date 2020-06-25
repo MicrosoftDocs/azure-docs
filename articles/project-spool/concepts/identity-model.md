@@ -19,7 +19,7 @@ Azure Communication Services is a user oriented platform. Users are entities tha
 
 ## Creating Users
 
-Users are implicitly created when you request a [user access token](./user-access-tokens.md) without providing a user ID. You also have to provide list of scopes to the function below. Scopes are list of strings that determine if a user can use the Azure Communication offerings, such as `"chat"`, `"call"`, `"sms"` etc.
+Users are implicitly created when you request a [user access token](./user-access-tokens.md) without providing a user ID. You also have to provide list of scopes to the function below. Scopes are list of strings that determine if a user can use the Azure Communication offerings, such as `"chat"`, `"call"`, `"voip"` etc.
 
 ```csharp
 var userTokenClient = new UserTokenClient(CONNECTION_STRING);
