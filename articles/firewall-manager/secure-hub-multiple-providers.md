@@ -110,7 +110,7 @@ Create your secured virtual hub using Firewall Manager.
 11. Select **Next: Review + create**.
 12. Select **Create**. It will take about 30 minutes to deploy.
 
-### Connect the hub and spoke VNets
+### Connect the hub and spoke virtual networks
 
 Now you can peer the hub and spoke VNets.
 
@@ -131,9 +131,9 @@ Now you can peer the hub and spoke VNets.
 4. Under **Azure Firewall**, select **Add policy**.
 5. Select **Policy-01** and then select **Save**.
 
-## Configure third-party security providers to connect to a secured hub
+## Configure Zscaler to connect to a secured hub
 
-To set up tunnels to your virtual hub’s VPN Gateway, Zscaler needs access rights to your hub. To do this, associate a service principal with your subscription or resource group, and grant access rights. You then must give these credentials to Zscaler using their portal.
+To set up tunnels to your virtual hub’s VPN Gateway, Zscaler needs access rights to your hub. To do this, associate a service principal with your resource group, and grant access rights. You then must give these credentials to Zscaler using their portal.
 
 ### Create and authorize a service principal
 
@@ -144,7 +144,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, Zscaler needs access righ
 3. Search for and then select **Azure Active Directory**.
 4. Select **App registrations**.
 5. Select **New registration**.
-6. Type **3P-Firewall** for the **Name**.
+6. For the **Name** type **3P-Firewall** .
 7. Select **Accounts in this organizational directory only (Microsoft only - Single tenant**)
 8. Select **Web** for the type of application you want to create. You can skip the redirect URL.
 9. Select **Register**.
@@ -169,26 +169,28 @@ To set up tunnels to your virtual hub’s VPN Gateway, Zscaler needs access righ
 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 
 
+## Configure route settings
 
+1. Browse to the Azure Firewall Manager -> Secured Hubs. 
+2. Select a hub. The Hub status should now show **Provisioned** instead of **Security Connection Pending**.
 
+   Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
+3. Select the hub, and navigate to **Route Settings**.
 
+   When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, VNet connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
+4. Under **Internet traffic**, select **VNet-to-Internet** or **Branch-to-Internet** or both so routes are configured send via the third party.
 
+   This only indicates which type of traffic should be routed to the hub, but it doesn’t affect the routes on VNets or branches yet. These routes are not propagated to all VNets/branches attached to the hub by default.
+5. You must select **secure connections** and select the connections on which these routes should be set. This indicates which VNets/branches can start sending Internet traffic to the third-party provider.
+6. From **Route settings**, select **Secure connections** under Internet traffic, then select the VNet or branches (*sites* in Virtual WAN) to be secured. Select **Secure Internet traffic**.
+   ![Secure Internet traffic](media/deploy-trusted-security-partner/secure-internet-traffic.png)
+7. Navigate back to the hubs page. The hub’s **security partner provider** status should now be  **Secured**.
 
+## Virtual network Internet traffic via Zscaler
 
-## Route traffic to your hub
+Next, you can check if virtual machines can access the Internet and validate that the traffic is flowing to the third-party service.
 
-Now you must ensure that network traffic gets routed to through your firewall.
-
-1. From Firewall Manager, select **Secured virtual hubs**.
-2. Select **Hub-01**.
-3. Under **Settings**, select **Route settings**.
-4. Under **Internet traffic**, **Traffic from Virtual Networks**, select **Send via Azure Firewall**.
-5. Under **Azure private traffic**, **Traffic to Virtual Networks**, select **Send via Azure Firewall**.
-6. Select **Edit IP address prefix(es)**.
-8. Type **10.0.1.0/24** as the address of the Workload subnet and select **Save**.
-9. Under **Settings**, select **Connections**.
-10. Verify that the **hub-spoke** connection shows **Internet Traffic** as **Secured**.
-
+After finishing the route setting steps, the virtual machines are sent a 0/0 to the third party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
 
 ## Test your firewall
 
@@ -266,8 +268,6 @@ Now, test the firewall rules to confirm that it works as expected.
 So now you've verified that the firewall rules are working:
 
 * You can browse to the one allowed FQDN, but not to any others.
-
-
 
 ## Next steps
 
