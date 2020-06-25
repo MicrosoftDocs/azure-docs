@@ -60,7 +60,7 @@ The advantages of the centralized architecture are:
 The disadvantages of the centralized architecture are:
 
 * This architecture is applicable only for agent-based VM data, it will not cover PaaS, SaaS and Azure fabric data sources.
-* It might be hard to separate the data between the customers when they are merged into a single workspace. The only good method to do so is to use the computer's fully qualified domain name (FQDN) or via the Azure subscription ID. 
+* It might be hard to separate the data between the customers when they are merged into a single workspace. The only good method to do so is to use the computer's fully qualified domain name (FQDN) or via the Azure subscription ID.
 * All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
 * Azure fabric and PaaS services such as Azure Diagnostics and Azure Audit Logs requires the workspace to be in the same tenant as the resource, thus they cannot send the logs to the central workspace.
 * All VM agents from all customers will be authenticated to the central workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
@@ -73,13 +73,13 @@ There are two options to implement logs in a central location:
 
 1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](../../azure-monitor/platform/data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between the Log Analytics workspace and [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between the Log Analytics workspace and [Power BI](../../azure-monitor/platform/powerbi.md).
 
 ## Next steps
 
 * Automate creation and configuration of workspaces using [Resource Manager templates](template-workspace-configuration.md)
 
-* Automate creation of workspaces using [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automate creation of workspaces using [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Use [Alerts](../../azure-monitor/platform/alerts-overview.md) to integrate with existing systems
 

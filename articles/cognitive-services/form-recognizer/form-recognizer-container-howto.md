@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 06/24/2020
 ms.author: aahi
 ---
 
@@ -133,6 +133,9 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 [Examples](form-recognizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
 ### Form Recognizer
+
+> [!NOTE]
+> The directories use for `--mount` in these examples are Windows directory paths. If you're using Linux or macOS, change the parameter for your environment. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
