@@ -1,69 +1,77 @@
 ---
-title: Secure access to a key vault - Azure Key Vault | Microsoft Docs
-description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
+title: Secure access to a Managed HSM - Azure Key Vault Managed HSM| Microsoft Docs
+description: Manage access permissions for Managed HSM and keys. Covers the authentication and authorization model for Managed HSM, and how to secure your HSM pools.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-# Customer intent: As a key vault administrator, I want to set access policies and configure the key vault, so that I can ensure it's secure and auditors can properly monitor all activities for this key vault.
+ms.date: 09/17/2020
+ms.author: ambapat
+# Customer intent: As an HSM pool administrator, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM pool.
 ---
-# Secure access to a key vault
+# Secure access to a Managed HSM pool
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your HSM pools by allowing only authorized applications and users. This article provides an overview of the Managed HSM access model. It explains authentication and authorization, and describes how to secure access to your HSM pools.
 
 ## Access model overview
 
-Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
+Access to a Managed HSM pool is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Managed HSM pool itself. Operations in this plane include creating and deleting HSM pools and retrieving HSM pool properties. The data plane is where you work with the data stored in an HSM pool. You can add, delete, and modify keys, and manage role assignments to control access to the HSM pool and keys.
 
-To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
+To access a Managed HSM pool in either plane, all callers must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. A caller can be any one of the [security principals](../../role-based-access-control/overview.md#security-principal) defined in Azure Active Directory - user, group, service principal or managed identity.
 
-Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC) and the data plane uses a Key Vault access policy.
+Both planes use Azure Active Directory for authentication. For authorization they use different systems as follows
+- The management plane uses Azure role-based access control -- Azure RBAC -- an authorization system built on Azure Azure Resource Manager 
+- The data plane uses a HSM pool level RBAC (local RBAC) -- an authorization system implemented and enforced at the HSM pool level. 
 
-## Active Directory authentication
+When an HSM pool resource is created, the requestor also provides a list of data plane administrators (all [security principals](../../role-based-access-control/overview.md#security-principal) are supported). Only these administrators are able to access the HSM pool  data plane to perform key operations and manage data plane role assignments (local RBAC).
 
-When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in two ways:
+Permission model for both planes uses the same syntax (RBAC), but they are enforced at different levels and role assignments use different scopes. Management plane RBAC is enforced by ARM while data plane RBAC is enforced by HSM pool itself.
 
-- **User plus application access**: The application accesses Key Vault on behalf of a signed-in user. Examples of this type of access include Azure PowerShell and the Azure portal. User access is granted in two ways. Users can access Key Vault from any application, or they must use a specific application (referred to as _compound identity_).
-- **Application-only access**: The application runs as a daemon service or background job. The application identity is granted access to the key vault.
+> [!IMPORTANT] 
+> Granting a security principal management plane access to an HSM pool resource does not grant them any access to data plane to access keys or data plane role assignments (local RBAC). This isolation is by design to prevent inadvertent expansion of privileges affecting access to keys stored in Managed HSM.
 
-For both types of access, the application authenticates with Azure AD. The application uses any [supported authentication method](../active-directory/develop/authentication-scenarios.md) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+For example, a subscription administrator (since they have "Contributor" permission to all resources in the subscription) can delete an HSM pool in their subscription, but if they don't have data plane access specifically granted through local RBAC, they cannot gain access to keys or manage role assignment in the HSM pool to grant themselves or others access to data plane.
 
-The model of a single mechanism for authentication to both planes has several benefits:
 
-- Organizations can control access centrally to all key vaults in their organization.
-- If a user leaves, they instantly lose access to all key vaults in the organization.
-- Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security.
+## Azure Active Directory authentication
+
+When you create an HSM pool in an Azure subscription, it's automatically associated with the Azure Active Directory tenant of the subscription. All callers in both planes must be registered in this tenant and authenticate to access the HSM pool. 
+
+The application authenticates with Azure Active Directory before calling either plane. The application can use any [supported authentication method](../../active-directory/develop/authentication-scenarios.md) based on the application type. The application acquires a token for a resource in the plane to gain access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Managed HSM endpoint. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+
+The use of a single authentication mechanism for both planes has several benefits:
+
+- Organizations can control access centrally to all HSM pools in their organization.
+- If a user leaves, they instantly lose access to all HSM pools in the organization.
+- Organizations can customize authentication by using the options in Azure Active Directory, such as to enable multi-factor authentication for added security.
 
 ## Resource endpoints
 
-Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant management plane access with RBAC.
+Security principals access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in an HSM pool, you grant data plane access by using HSM pool level local RBAC. To grant a user access to Managed HSM resource to create, read, delete, move the HSM pools and edit other properties and tags you use Azure RBAC.
 
 The following table shows the endpoints for the management and data planes.
 
-| Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
+| Access&nbsp;plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
-| Management plane | **Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure Resource Manager RBAC |
-| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Keys: decrypt, encrypt,<br> unwrap, wrap, verify, sign,<br> get, list, update, create,<br> import, delete, backup, restore<br><br> Secrets: get, list, set, delete | Key Vault access policy |
+| Management plane | **Global:**<br> management.azure.com:443<br> | Create, read, update, delete, and move HSM pools<br>Set HSM pool tags | Azure RBAC |
+| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br> | **Keys**: decrypt, encrypt,<br> unwrap, wrap, verify, sign, get, list, update, create, import, delete, backup, restore, purge<br/><br/> **Data plane role-management (local RBAC)***: list role definitions, assign roles, delete role assignments, define custom roles | Local RBAC |
 
-## Management plane and RBAC
+## Management plane and Azure RBAC
 
-In the management plane, you use RBAC(Role Based Access Control) to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+In the management plane, you use Azure RBAC to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure Active Directory. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-You create a key vault in a resource group and manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
+You create a key vault in a resource group and manage access by using Azure Active Directory. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
 
+- **Management group**:  An RBAC role assigned at the subscription level applies to all the subscriptions in that management group.
 - **Subscription**: An RBAC role assigned at the subscription level applies to all resource groups and resources within that subscription.
 - **Resource group**: An RBAC role assigned at the resource group level applies to all resources in that resource group.
 - **Specific resource**: An RBAC role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
-There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md).
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
@@ -74,10 +82,10 @@ There are several predefined roles. If a predefined role doesn't fit your needs,
 
 You grant data plane access by setting Key Vault access policies for a key vault. To set these access policies, a user, group, or application must have `Contributor` permissions for the management plane for that key vault.
 
-You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
+You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure Active Directory security group and add users to that group.
 
 <a id="key-vault-access-policies"></a>
-Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Key Vault access policies apply at the vault level. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
@@ -87,13 +95,13 @@ You can restrict data plane access by using [virtual network service endpoints f
 
 ## Example
 
-In this example, we're developing an application that uses a certificate for TLS/SSL, Azure Storage to store data, and an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) (or a virtual machine scale set). We can use a key vault to store the application secrets. We can store the bootstrap certificate that's used by the application to authenticate with Azure AD.
+In this example, we're developing an application that uses a certificate for TLS/SSL, Azure Storage to store data, and an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) (or a virtual machine scale set). We can use a key vault to store the application secrets. We can store the bootstrap certificate that's used by the application to authenticate with Azure Active Directory.
 
 We need access to the following stored keys and secrets:
 - **TLS/SSL certificate**: Used for TLS/SSL.
 - **Storage key**: Used to access the Storage account.
 - **RSA 2,048-bit key**: Used for sign operations.
-- **Bootstrap certificate**: Used to authenticate with Azure AD. After access is granted, we can fetch the storage key and use the RSA key for signing.
+- **Bootstrap certificate**: Used to authenticate with Azure Active Directory. After access is granted, we can fetch the storage key and use the RSA key for signing.
 
 We need to define the following roles to specify who can manage, deploy, and audit our application:
 - **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of secrets. The secrets can include TLS/SSL certificates, RSA keys for signing, connection strings, and storage account keys.
@@ -132,12 +140,12 @@ The three team roles need access to other resources along with Key Vault permiss
 
 For more information about how to deploy certificates, access keys, and secrets programmatically, see these resources:
 - Learn how to [deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) (blog post).
-- Download the [Azure Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343). This content illustrates how to use a bootstrap certificate to authenticate to Azure AD to access a key vault.
+- Download the [Azure Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343). This content illustrates how to use a bootstrap certificate to authenticate to Azure Active Directory to access a key vault.
 
 You can grant most of the access permissions by using the Azure portal. To grant granular permissions, you can use Azure PowerShell or the Azure CLI.
 
 The PowerShell snippets in this section are built with the following assumptions:
-- The Azure AD administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
+- The Azure Active Directory administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
 - All resources are located in the **ContosoAppRG** resource group.
 - The Key Vault logs are stored in the **contosologstorage** storage account.
 - The **ContosoKeyVault** key vault and the **contosologstorage** storage account are in the same Azure location.
@@ -183,7 +191,7 @@ Our defined custom roles are assignable only to the subscription where the **Con
 
 For our DevOps staff, the custom role assignment for the key vault `deploy/action` permission is scoped to the resource group. Only VMs created in the **ContosoAppRG** resource group are allowed access to the secrets (TLS/SSL and bootstrap certificates). VMs created in other resource groups by a DevOps member can't access these secrets, even if the VM has the secret URIs.
 
-Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/blobs/security-recommendations.md), and other Azure resources.
+Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
 
 > [!NOTE]
 > This example shows how Key Vault access is locked down in production. Developers should have their own subscription or resource group with full permissions to manage their vaults, VMs, and the storage account where they develop the application.
@@ -192,21 +200,21 @@ We recommend that you set up additional secure access to your key vault by [conf
 
 ## Resources
 
-* [Azure AD RBAC](../role-based-access-control/role-assignments-portal.md)
+* [Azure Active Directory RBAC](../../role-based-access-control/role-assignments-portal.md)
 
-* [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md)
+* [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
 
-* [Understand Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md)
+* [Understand Resource Manager deployment and classic deployment](../../azure-resource-manager/management/deployment-models.md)
 
-* [Manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Manage RBAC with Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-* [Manage RBAC with the REST API](../role-based-access-control/role-assignments-rest.md)
+* [Manage RBAC with the REST API](../../role-based-access-control/role-assignments-rest.md)
 
 * [RBAC for Microsoft Azure](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
-    This 2015 Microsoft Ignite conference video discusses access management and reporting capabilities in Azure. It also explores best practices for securing access to Azure subscriptions by using Azure AD.
+    This 2015 Microsoft Ignite conference video discusses access management and reporting capabilities in Azure. It also explores best practices for securing access to Azure subscriptions by using Azure Active Directory.
 
-* [Authorize access to web applications by using OAuth 2.0 and Azure AD](../active-directory/develop/v2-oauth2-auth-code-flow.md)
+* [Authorize access to web applications by using OAuth 2.0 and Azure Active Directory](../../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 
