@@ -208,7 +208,7 @@ Or, for more information about the parser library, including an example of how t
 ## Next steps
 
 See how to manage models with the DigitalTwinsModels APIs:
-* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage custom models](how-to-manage-model.md)
 
 Or, learn about how digital twins are created based on models:
 * [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)

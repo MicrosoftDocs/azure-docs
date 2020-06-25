@@ -56,40 +56,45 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
 1. Open a terminal.
 
-2. Add the `dotnet` repo to your sources list.
+2. Add the `dotnet` repo to your sources list corresponding to your distribution.
 
     ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 3. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 4. Add the official Docker GPG key to your APT keyring.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Set up the Docker repository.
+5. Add the MS Open Tech GPG key to your APT keyring.
+
+    ```bash
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
+    ```
+
+6. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-6. Add Azul JDK Key to your APT keyring and setup its repository.
+7. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-7. Refresh your package lists based on the newly added repositories.
+8. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
