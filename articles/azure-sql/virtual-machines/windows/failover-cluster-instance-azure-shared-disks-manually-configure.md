@@ -105,7 +105,7 @@ $resourceGroup = "<your resource group name>"
 
 ```
 
-For each VM, initialzie the attached shared disks as GBT and format as NTFS.
+For each VM, initialize  attached shared disks as GBT and format as NTFS.
 
 
 
@@ -150,7 +150,22 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
 
+## Validate the cluster
+Validate the cluster in the UI or by using PowerShell.
 
+To validate the cluster by using the UI, take the following steps on one of the virtual machines:
+
+1. Under Server Manager, select Tools, and then select Failover Cluster Manager.
+
+2. Under Failover Cluster Manager, select Action, and then select Validate Configuration.
+
+3. Select Next.
+
+4. Under Select Servers or a Cluster, enter the names of both virtual machines.
+
+5. Under Testing options, select Run only tests I select. Select Next.
+
+6. Under Test Selection, select all tests except for Storage Spaces Direct.
 
 ## Test cluster failover
 

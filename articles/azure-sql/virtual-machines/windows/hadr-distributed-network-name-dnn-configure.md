@@ -34,7 +34,7 @@ Before you complete the steps in this article, you should already have:
 ## Create the DNN resource 
 
 
-The distributed name resource (DNN) resource is created in the same cluster group as the SQL Server FCI. Use PowerShell to create the DNN resource inside the FCI cluster group. 
+The distributed network name (DNN) resource is created in the same cluster group as the SQL Server FCI. Use PowerShell to create the DNN resource inside the FCI cluster group. 
 
 The following PowerShell command adds a DNN resource to the SQL Server FCI cluster group with a resource name as `<dnnResourceName>`. The resource name is used to uniquely identify a resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
 

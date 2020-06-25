@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Load Balancer for HADR
+title: Configure Virtual Network Name with Azure Load Balancer for HADR
 description: Learn to configure an Azure load balancer to route traffic to your availability group or failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
