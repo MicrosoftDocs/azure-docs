@@ -36,8 +36,8 @@
     items:
     - name: Create an Azure support request
       href: supportability/how-to-create-azure-support-request.md
-    - name: Upload files for a support request
-      href: supportability/how-to-use-file-uploader.md
+    - name: Manage an Azure support request
+      href: supportability/how-to-manage-azure-support-request.md
     - name: Request quota increases
       items: 
       - name: Increase compute vCPU limits
