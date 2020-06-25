@@ -37,7 +37,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-events-routing.md",
-      "redirect_url": "/azure/digital-twins/concepts-route-events",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-events-routing",
       "redirect_document_id": false
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-service-limits.md",
-      "redirect_url": "/azure/digital-twins/reference-service-limits",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-service-limits",
       "redirect_document_id": false
     },
     {
@@ -39098,6 +39098,11 @@
     {
       "source_path": "articles/active-directory-b2c/page-contract.md",
       "redirect_url": "/azure/active-directory-b2c/page-layout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-email.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-email-sendgrid",
       "redirect_document_id": true
     },
     {
