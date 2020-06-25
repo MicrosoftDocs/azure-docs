@@ -133,7 +133,10 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 [![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use a __Service Tag__ of __MicrosoftContainerRegistry.Region_Name__ (For example, MicrosoftContainerRegistry.EastUS).
+> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use the following __Service Tags__:
+>
+> * __MicrosoftContainerRegistry__
+> * __AzureFrontDoor.FirstParty__
 >
 > This configuration is needed when you have code similar to the following snippets as part of your training scripts:
 >

@@ -1,5 +1,5 @@
 ---
-title: 'Scenario: Route between multiple hubs with Azure Firewall'
+title: 'Scenario: Azure Firewall - Interhub routing'
 titleSuffix: Azure Virtual WAN
 description: Scenarios for routing - routing between multiple hubs that have Azure Firewall
 services: virtual-wan
@@ -11,7 +11,7 @@ ms.date: 06/16/2020
 ms.author: cherylmc
 
 ---
-# Scenario: Route between multiple hubs with Azure Firewall
+# Scenario: Azure Firewall - Interhub
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this scenario, the goal is to route between multiple hubs that contain Azure Firewall. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 

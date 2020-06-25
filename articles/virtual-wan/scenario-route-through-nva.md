@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # Scenario: Route traffic through an NVA
 
-When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In the NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance). All VPN, ExpressRoute, and User VPN connections are associated to the same route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## <a name="architecture"></a>Scenario architecture
 
@@ -49,6 +49,8 @@ To set up routing via NVA, here are the steps to consider:
 
 3. Add an aggregated static route entry for VNETs 4,7,8 to Hub 1’s default route table.
 4. Repeat steps 2 and 3 for Hub 2’s default route table.
+
+This will result in the routing configuration changes as seen the figure below
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Result":::
 
