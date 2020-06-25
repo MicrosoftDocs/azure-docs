@@ -109,6 +109,6 @@ You must have at least *Log Analytics Contributor* permissions to delete a works
 * If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
   * The workspace name isn't available and being used by someone in your organization, or by other customer.
   * The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
-   1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
-   2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
-   3. Create a new workspace using the same workspace name.
+    1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
+    2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
+    3. Create a new workspace using the same workspace name.
