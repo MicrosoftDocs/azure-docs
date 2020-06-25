@@ -16,3 +16,5 @@ If your customer has an existing phone number and they want to keep using in you
 If Microsoft provides voice calling services in your country, you can port the phone number from the existing partner to Microsoft.
 If you do not want to port the number (keep it with the existing partner) or Microsoft does not yet provide the voice calling services in your country, you can interconnect your partner via the Azure Communication Services SIP Interface (available soon)
 The following diagram helps you to navigate through the available options, based on your scenario
+
+![alt text for image](../media/phone-decision-tree.png)
