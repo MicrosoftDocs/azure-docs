@@ -66,7 +66,7 @@ As a first quick step, double check and fix the internal URL by opening the appl
 To verify the application is assigned to a working Connector Group:
 
 1. Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
-1. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to verify all [required ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) are allowed.
+1. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to verify all [required ports](application-proxy-add-on-premises-application.md) are allowed.
 1. If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
 1. From here, there are a few ways to drill in further:
 
@@ -78,7 +78,7 @@ After using these steps to ensure the application is assigned to a group with wo
 
 ## Check all required ports are open
 
-To verify that all required ports are open, see the [documentation on opening ports](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). If all the required ports are open, move to the next section.
+Verify that all required ports are open. For required ports, see the open ports section of [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md). If all the required ports are open, move to the next section.
 
 ## Check for other Connector Errors
 
