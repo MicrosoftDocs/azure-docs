@@ -47,7 +47,7 @@ Follow the option that you want to use for deploying the quickstart template:
 | [Azure portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | If your Azure environment meets the prerequisites, and you're familiar with using ARM templates, these steps help you sign in directly to Azure and open the quickstart template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md). |
 | [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics: <p><p>- [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest) <br>- [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see these topics: <p><p>- [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview) <br>- [Introducing the Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) |
-| [Azure Resource Manager REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure). |
+| [Azure Resource Management REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure). |
 |||
 
 <a name="deploy-azure-portal"></a>
@@ -93,7 +93,7 @@ read
 
 For more information, see these topics:
 
-* [az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
+* [Azure CLI: az deployment group](https://docs.microsoft.com/cli/azure/deployment/group)
 * [Deploy resources with ARM templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
 
 #### [PowerShell](#tab/azure-powershell)
@@ -113,13 +113,13 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 For more information, see these topics:
 
-* [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
-* [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment)
+* [Azure PowerShell: New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+* [Azure PowerShell: New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment)
 * [Deploy resources with ARM templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 #### [REST API](#tab/rest-api)
 
-1. If you don't want to use an existing Azure resource group, create a new resource group by following this syntax for the request that you send to the Resource Manager REST API:
+1. If you don't want to use an existing Azure resource group, create a new resource group by following this syntax for the request that you send to the Resource Management REST API:
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
@@ -137,9 +137,9 @@ For more information, see these topics:
    PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG?api-version=2019-10-01
    ```
 
-   For more information, see [Resource Groups - Create Or Update](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate).
+   For more information, see [Resource Management REST API: Resource Groups - Create Or Update](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate).
 
-1. To deploy the quickstart template to your resource group, follow this syntax for the request that you send to the Resource Manager REST API:
+1. To deploy the quickstart template to your resource group, follow this syntax for the request that you send to the Resource Management REST API:
 
    ```http
    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
@@ -158,9 +158,9 @@ For more information, see these topics:
    PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG/providers/Microsoft.Resources/deployments/Check-Azure-Status-LA?api-version=2019-10-01
    ```
 
-   For more information, see [Deployments - Create Or Update](https://docs.microsoft.com/rest/api/resources/deployments/createorupdate).
+   For more information, see [Resource Management REST API: Deployments - Create Or Update](https://docs.microsoft.com/rest/api/resources/deployments/createorupdate).
 
-1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/template-parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Manager REST API:
+1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/template-parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Management REST API:
 
    ```json
    {
@@ -221,9 +221,9 @@ To view the logic app, you can use the Azure portal, run a script that you creat
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal search box, enter your logic app's name, which is `Check-Azure-Status-LA` in this example, and then select your logic app:
+1. In the Azure portal search box, enter your logic app's name, which is `Check-Azure-Status-LA` in this example. From the results list, select your logic app.
 
-1. If not already open the Logic App Designer isn't already open, on your logic
+1. When the Logic App Designer opens, review the logic app that was created by the quickstart template.
 
 ### [CLI](#tab/azure-cli)
 
@@ -234,7 +234,7 @@ az logic workflow show --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
+For more information, see [Azure CLI: az logic workflow show](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-show).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -244,7 +244,7 @@ Get-AzLogicApp -Name $logicAppName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-For more information, see [Get-AzLogicApp](https://docs.microsoft.com/powershell/module/az.logicapp/get-azlogicapp).
+For more information, see [Azure PowerShell: Get-AzLogicApp](https://docs.microsoft.com/powershell/module/az.logicapp/get-azlogicapp).
 
 ### [REST API](#tab/rest-api)
 
@@ -265,17 +265,24 @@ For example:
 GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG/providers/Microsoft.Logic/workflows/Check-Azure-Status-LA?api-version=2016-06-01
 ```
 
-For more information, see [Logic Apps REST API - Get](https://docs.microsoft.com/rest/api/logic/workflows/get).
+For more information, see [Logic Apps REST API: Workflows - Get](https://docs.microsoft.com/rest/api/logic/workflows/get).
 
 ---
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Manager REST API.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Management REST API.
 
 ### [Portal](#tab/azure-portal)
 
-To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group). To delete individual resources, see [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource).
+1. In the Azure portal search box, enter the name for the resource group, which is `Check-Azure-Status-RG` in this example. From the results list, select the resource group.
+
+1. On the When the Logic App Designer opens, review the logic app that was created by the quickstart template.
+
+
+1. In the Azure portal search box, 
+1. 
+To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ### [CLI](#tab/azure-cli)
 
@@ -286,7 +293,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-For more information, see [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+For more information, see [Azure CLI: az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -296,7 +303,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
-For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+For more information, see [Azure PowerShell: Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ### [REST API](#tab/rest-api)
 
@@ -316,7 +323,7 @@ For example:
 GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG?api-version=2019-10-01
 ```
 
-For more information, see [Resource Groups - Delete](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete).
+For more information, see [Resource Management REST API: Resource Groups - Delete](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete).
 
 ---
 
