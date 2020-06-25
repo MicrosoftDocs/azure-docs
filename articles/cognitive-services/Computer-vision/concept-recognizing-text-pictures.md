@@ -43,29 +43,15 @@ The Read API takes the following inputs:
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
-### Text from images and PDF documents
+Text from images and PDF documents | Handwritten Text in English
+------------ | -------------
+![An image being rotated and its text being read and delineated](./Images/text-from-images-example.png) | ![An image being rotated and its text being read and delineated](./Images/handwritten-example.png)
+The Read API takes images and PDF documents as inputs, and outputs average angle of rotation, height, and width of the pages. Within each page, it outputs text lines and words with bounding box coordinates for each text line and word. | The Read operation supports extracting handwritten text in English.
 
-The Read API takes images and PDF documents as inputs, and outputs average angle of rotation, height, and width of the pages. Within each page, it outputs text lines and words with bounding box coordinates for each text line and word.
-
-![An image being rotated and its text being read and delineated](./Images/text-from-images-example.png)
-
-### Handwritten text in English
-
-The Read operation supports extracting handwritten text in English.
-
-![An image being rotated and its text being read and delineated](./Images/handwritten-example.png)
-
-### Printed text in supported languages
-
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition)
-
-![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
-
-### Mixed languages support
-
-The Read API supports images and documents with multiple languages in them, commonly known as mixed language documents. It does so by classifying each text line in the document into the detected language before extracting the text contents.
-
-![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
+Printed text in supported languages | Mixed languages support
+------------ | -------------
+![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png) | ![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition) | The Read API supports images and documents with multiple languages in them, commonly known as mixed language documents. It does so by classifying each text line in the document into the detected language before extracting the text contents.
 
 ### Data privacy and security
 
