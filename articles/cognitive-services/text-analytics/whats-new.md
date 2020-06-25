@@ -16,6 +16,24 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## July 2020
+
+Model version `2020-07-01` for key phrase extraction, which adds support for the following languages:
+
+* Afrikaans
+* Bulgarian
+* Catalan
+* Croatian
+* Estonian
+* Greek
+* Hungarian
+* Indonesian
+* Latvian
+* Romanian
+* Slovak
+* Slovenian
+* Turkish
+
 ## May 2020
 
 ### Text Analytics API v3 General Availability
