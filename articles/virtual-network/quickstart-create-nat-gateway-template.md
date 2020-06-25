@@ -110,7 +110,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. Verify the following resources were created in the resource group:
 
-    ![Virtual Network NAT resource group](./media/quick-create-template/nat-gateway-template-rg.png)
+    ![Virtual Network NAT resource group](./media/create-profile-endpoint-template/nat-gateway-template-rg.png)
 
 ## Clean up resources
 
