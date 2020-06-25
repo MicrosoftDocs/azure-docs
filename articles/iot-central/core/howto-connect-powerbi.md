@@ -63,7 +63,7 @@ The Azure Function app triggers each time IoT Central writes a new file to Blob 
 
 ### Azure Data Factory
 
-Azure Data Factory connects to the SQL database as a linked service. It runs stored procedures to process the data and store it in the analysis tables.
+Azure Data Factory connects to SQL Database as a linked service. It runs stored procedures to process the data and store it in the analysis tables.
 
 Azure Data Factory runs every 15 minutes to transform the latest batch of data to load into the SQL tables (which is the current minimal number for the **Tumbling Window Trigger**).
 

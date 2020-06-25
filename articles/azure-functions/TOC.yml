@@ -22,6 +22,9 @@
       href: functions-create-your-first-function-visual-studio.md
     - name: Command line
       href: functions-create-first-azure-function-azure-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: functions-create-first-function-resource-manager.md 
   - name: Connect to storage
     items:
     - name: Visual Studio Code

@@ -59,7 +59,7 @@ conceptualContent:
           text: Face
         - url: ./form-recognizer/index.yml
           itemType: overview
-          text: Form Recognizer (Preview)
+          text: Form Recognizer
         - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)

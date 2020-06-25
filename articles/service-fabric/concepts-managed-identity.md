@@ -30,7 +30,7 @@ There are two types of managed identities:
 - A **System-assigned managed identity** is enabled directly on an Azure service instance.  The lifecycle of a system-assigned identity is unique to the Azure service instance that it's enabled on.
 - A **user-assigned managed identity** is created as a standalone Azure resource. The identity can be assigned to one or more Azure service instances and is managed separately from the lifecycles of those instances.
 
-To further understand the difference between managed identity types, see [How do managed identities for Azure resources work?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+To further understand the difference between managed identity types, see [How do managed identities for Azure resources work?](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## Supported scenarios for Service Fabric applications
 

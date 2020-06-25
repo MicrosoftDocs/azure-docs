@@ -28,7 +28,7 @@ When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azu
 The following sample shows how to invoke a stored procedure in a SQL Server database from a Data Factory pipeline (copy activity):  
 
 ## Output dataset JSON
-In the output dataset JSON, set the **type** to: **SqlServerTable**. Set it to **AzureSqlTable** to use with an Azure SQL database. The value for **tableName** property must match the name of first parameter of the stored procedure.  
+In the output dataset JSON, set the **type** to: **SqlServerTable**. Set it to **AzureSqlTable** to use with Azure SQL Database. The value for **tableName** property must match the name of first parameter of the stored procedure.  
 
 ```json
 {

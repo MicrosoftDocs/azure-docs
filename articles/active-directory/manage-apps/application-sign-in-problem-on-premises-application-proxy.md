@@ -3,19 +3,17 @@ title: Problem signing in to on-premises app using Azure AD app proxy | Microsof
 description: Troubleshooting common issues faced when you are unable to sign in to an on-premises application integrated with Azure AD using the Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -33,7 +31,7 @@ The following documents can help you to resolve some of the most common issues i
 
 ## I'm having a connectivity problem my application
   The following documents can help you to resolve some of the most common issues in this category.
-  * [I don't know what ports to open for my application](application-proxy-connectivity-ports-how-to.md)
+  * [I don't know what ports to open for my application](application-proxy-add-on-premises-application.md)
   * [I encountered a problem because there was no working connector in a connector group for my application](application-proxy-connectivity-no-working-connector.md)
 
 ## I'm having a problem configuring the Azure AD Application Proxy in the admin portal
