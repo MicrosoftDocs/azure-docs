@@ -21,7 +21,7 @@ All calls must be authenticated with a valid Azure Active Directory (OAuth 2) to
 ## Prerequisites
 
 > [!IMPORTANT]
-> The following example assumes the Azure Analysis Services firewall is disabled. If the firewall is enabled, then the public IP address of the request initiator will need included in a firewall rule.
+> The following example assumes the Azure Analysis Services firewall is disabled. If a firewall is enabled, the public IP address of the request initiator must be included in a firewall rule.
 
 ### Install SqlServer modules from PowerShell gallery.
 
