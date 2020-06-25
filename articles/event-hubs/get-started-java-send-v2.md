@@ -259,8 +259,9 @@ Add the following dependencies in the pom.xml file.
         private static final String STORAGE_CONTAINER_NAME = "<AZURE STORAGE CONTAINER NAME>";
     
         public static final Consumer<EventContext> PARTITION_PROCESSOR = eventContext -> {
-            System.out.printf("Processing event %s from partition %s with sequence number %d and body: %s %n", 
-                    eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
+            System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
+	            eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
+
             if (eventContext.getEventData().getSequenceNumber() % 10 == 0) {
                 eventContext.updateCheckpoint();
             }
