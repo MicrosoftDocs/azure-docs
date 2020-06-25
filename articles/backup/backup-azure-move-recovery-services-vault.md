@@ -1,7 +1,6 @@
 ---
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move recovery services vault across Azure subscriptions and resource groups.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ---
@@ -32,7 +31,11 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 - To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - The options for moving resources deployed through the Classic model differ depending on whether you're moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
-- You can only move a vault if Azure virtual machines are the only backup items in the vault.
+- You can only move a vault that contains any of the following types of backup items. Any backup items of types not listed below will need to be stopped and the data permanently deleted before moving the vault.
+  - Azure Virtual Machines
+  - Microsoft Azure Recovery Services (MARS) Agent
+  - Microsoft Azure Backup Server (MABS)
+  - Data Protection Manager (DPM)
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target VM resource group name (as it was in old subscription) to continue backups.
 
 > [!NOTE]
