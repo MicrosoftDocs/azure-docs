@@ -1,5 +1,5 @@
 ---
-title: Understanding the Azure Active Directory app manifest | Microsoft Docs
+title: Understanding the Azure Active Directory app manifest
 description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 author: rwike77
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/23/2020
+ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -16,7 +16,7 @@ ms.reviewer: sureshja
 
 # Azure Active Directory app manifest
 
-The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
 
 You can configure an app's attributes through the Azure portal or programmatically using [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) or [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
@@ -35,6 +35,20 @@ To configure the application manifest:
 ## Manifest reference
 
 This section describes the attributes found in the application manifest.
+
+### id attribute
+
+| Key | Value type |
+| :--- | :--- |
+| id | String |
+
+The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries.
+
+Example:
+
+```json
+    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
+```
 
 ### accessTokenAcceptedVersion attribute
 
@@ -134,7 +148,7 @@ Example:
     "appRoles": [
         {
            "allowedMemberTypes": [
-               "User"
+               "User"
            ],
            "description": "Read-only access to device information",
            "displayName": "Read Only",
@@ -225,19 +239,7 @@ Example:
     "optionalClaims": null,
 ```
 
-### id attribute
 
-| Key | Value type |
-| :--- | :--- |
-| id | String |
-
-The unique identifier for the app in the directory. This ID is not the identifier used to identify the app in any protocol transaction. It's used for the referencing the object in directory queries.
-
-Example:
-
-```json
-    "id": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
 
 ### identifierUris attribute
 
@@ -425,7 +427,7 @@ Example:
 | :--- | :--- |
 | parentalControlSettings | String |
 
-- `countriesBlockedForMinors` specifies the countries in which the app is blocked for minors.
+- `countriesBlockedForMinors` specifies the countries/regions in which the app is blocked for minors.
 - `legalAgeGroupRule` specifies the legal age group rule that applies to users of the app. Can be set to `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, or `BlockMinors`.  
 
 Example:

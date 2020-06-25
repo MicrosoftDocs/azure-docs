@@ -94,7 +94,7 @@ landingContent:
             url: stream-analytics-monitor-jobs.md
           - text: Monitor and manage jobs from Visual Studio
             url: stream-analytics-monitor-jobs-use-vs.md
-          - text: Troubleshoot using diagnostic logs
+          - text: Troubleshoot using resource logs
             url: stream-analytics-job-diagnostic-logs.md
           - text: Debug using the job diagram
             url: stream-analytics-job-diagram-with-metrics.md

@@ -73,5 +73,4 @@ Select the button in the application to begin a speech recognition section. The 
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
-
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

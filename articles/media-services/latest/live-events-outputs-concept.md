@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 04/08/2020
 ms.author: juliako
 
 ---
@@ -107,9 +107,12 @@ You can either use non-vanity URLs or vanity URLs.
 
 * Vanity URL
 
-    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. They want a predictive ingest URL, which doesn't change over time.
+    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. These broadcasters want a predictive ingest URL which doesn't change over time.
+    
+    > [!NOTE]
+    > In the Azure portal, the vanity URL is named "*Persistent input URL*".
 
-    To specify this mode, you set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
+    To specify this mode in the API, set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
 
     The access token needs to be unique in your data center. If your app needs to use a vanity URL, it's recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID).
 

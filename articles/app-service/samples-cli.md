@@ -24,14 +24,14 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create an ASP.NET Core app in a Docker container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app on Linux and loads a Docker image from Docker Hub. |
 |**Configure app**||
 | [Map a custom domain to an app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and maps a custom domain name to it. |
-| [Bind a custom SSL certificate to an app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and binds the SSL certificate of a custom domain name to it. |
+| [Bind a custom TLS/SSL certificate to an app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and binds the TLS/SSL certificate of a custom domain name to it. |
 |**Scale app**||
 | [Scale an app manually](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and scales it across 2 instances. |
 | [Scale an app worldwide with a high-availability architecture](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Creates two App Service apps in two different geographical regions and makes them available through a single endpoint using Azure Traffic Manager. |
 |**Protect app**||
 | [Integrate with Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and integrates it with Application Gateway using service endpoint and access restrictions. |
 |**Connect app to resources**||
-| [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a SQL database, then adds the database connection string to the app settings. |
+| [Connect an app to a SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a database in Azure SQL Database, then adds the database connection string to the app settings. |
 | [Connect an app to a storage account](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an App Service app and a storage account, then adds the storage connection string to the app settings. |
 | [Connect an app to an Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and an Azure Cache for Redis, then adds the redis connection details to the app settings.) |
 | [Connect an app to Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and a Cosmos DB, then adds the Cosmos DB connection details to the app settings. |

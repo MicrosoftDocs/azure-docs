@@ -5,9 +5,9 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -16,6 +16,9 @@ ms.custom: seo-lt-2019
 # Convert Resource Classes to Workload Groups
 
 Workload groups provide a mechanism to isolate and contain system resources.  Additionally, workload groups allow you to set execution rules for the requests running in them.  A query timeout execution rule allows runaway queries to be canceled without user intervention.  This article explains how to take an existing resource class and create a workload group with a similar configuration.  In addition, an optional query timeout rule is added.
+
+> [!NOTE]
+> See the [Mixing resource class assignments with classifiers](sql-data-warehouse-workload-classification.md#mixing-resource-class-assignments-with-classifiers) section in the [Workload Classification](sql-data-warehouse-workload-classification.md) concept document for guidance on using workload groups and resource classes at the same time.
 
 ## Understanding the existing resource class configuration
 
@@ -30,7 +33,7 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Workload groups operate based on percentage of overall system resources.  
 
-Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 9.6% of the overall system resources.  At DW2000c, 19.2% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
+Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 19.2% of the overall system resources.  At DW2000c, 9.6% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
 
 ## Create Workload Group
 
@@ -82,4 +85,6 @@ SELECT request_id, [label], classifier_name, group_name, command
 ## Next steps
 
 - [Workload Isolation](sql-data-warehouse-workload-isolation.md)
-- [How-To Create a Workload Group-link](quickstart-configure-workload-isolation-tsql.md)
+- [How-To Create a Workload Group](quickstart-configure-workload-isolation-tsql.md)
+- [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)

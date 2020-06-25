@@ -41,7 +41,7 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 ## Build the sample project
 
 1. Open *File > Build Settings*.
-1. Change *Platform* to **Universal Windows Platform**.
+1. Change *Platform* to **Universal Windows Platform** (**PC Standalone** is also supported but not used here, see [platform limitations](../reference/limits.md#platform-limitations)).
 1. Set *Target Device* to **PC**.
 1. Set *Architecture* to **x86**.
 1. Set *Build Type* to **D3D Project**.
@@ -53,6 +53,9 @@ Only flat desktop apps are currently supported on desktop so VR support has to b
 1. Switch the debugger mode to **Local Machine**.
   ![Solution configuration](./media/unity-deploy-config-pc.png)
 1. Build the solution (F7).
+
+> [!WARNING]
+> Make sure to select **x86**. **UWP/x64** is currently not supported, see [platform limitations](../reference/limits.md#platform-limitations).
 
 ## Launch the sample project
 

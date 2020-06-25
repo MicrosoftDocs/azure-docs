@@ -1,18 +1,10 @@
 ---
 title: Create and upload a Red Hat Enterprise Linux VHD for use in Azure 
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system.
-services: virtual-machines-linux
-documentationcenter: ''
 author: gbowerman
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: guybo
@@ -120,7 +112,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -206,7 +198,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -330,7 +322,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # waagent -force -deprovision
 
@@ -482,7 +474,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -613,7 +605,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 
@@ -730,7 +722,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
-        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # Note: if you are migrating a specific virtual machine and do not wish to create a generalized image,
         # skip the deprovision step
         # sudo waagent -force -deprovision
 

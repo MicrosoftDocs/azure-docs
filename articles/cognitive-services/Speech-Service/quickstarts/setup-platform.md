@@ -3,14 +3,15 @@ title: 'Quickstart: Set up dev platform'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to install the Speech SDK for your preferred platform and programming language combination.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: dapine
-zone_pivot_groups: programming-languages-set-three
+ms.custom: tracking-python
+zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---
 
 # Quickstart: Setup development environment
@@ -80,4 +81,26 @@ zone_pivot_groups: programming-languages-set-three
 
 [!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+[!INCLUDE [go-linux](../includes/quickstarts/platform/go-linux.md)]
+
+* * *
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+**Choose your target environment**
+
+#### [Browser-based](#tab/browser)
+
+[!INCLUDE [browser](../includes/quickstarts/platform/javascript-browser.md)]
+
+#### [NodeJS](#tab/nodejs)
+
+[!INCLUDE [node](../includes/quickstarts/platform/javascript-node.md)]
+
+* * *
 ::: zone-end

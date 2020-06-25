@@ -42,7 +42,7 @@ Your Azure Remote Rendering Account needs to have access to the provided storage
 
 | Endpoint | Method |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/create | POST |
+| /v1/accounts/**accountID**/conversions/create | POST |
 
 Returns the ID of the ongoing conversion, wrapped in a JSON document. The field name is "conversionId".
 
@@ -72,7 +72,7 @@ If your ARR account isn't linked to your storage account, this REST interface al
 
 | Endpoint | Method |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversion/createWithSharedAccessSignature | POST |
+| /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
 Returns the ID of the ongoing conversion, wrapped in a JSON document. The field name is "conversionId".
 
@@ -116,6 +116,7 @@ The status of an ongoing conversion started with one of the REST calls above can
 
 Returns a JSON document with a "status" field that can have the following values:
 
+- "Created"
 - "Running"
 - "Success"
 - "Failure"

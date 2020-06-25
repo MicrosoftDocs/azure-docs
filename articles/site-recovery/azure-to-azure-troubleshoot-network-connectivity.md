@@ -13,8 +13,8 @@ This article describes the common issues related to network connectivity when yo
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-| **URL** | **Details** |
-| --- | --- |
+| URL | Details |
+|---|---|
 | `*.blob.core.windows.net` | Required so that data can be written to the cache storage account in the source region from the VM. If you know all the cache storage accounts for your VMs, you can use an allow-list for the specific storage account URLs. For example, `cache1.blob.core.windows.net` and `cache2.blob.core.windows.net` instead of `*.blob.core.windows.net`. |
 | `login.microsoftonline.com` | Required for authorization and authentication to the Site Recovery service URLs. |
 | `*.hypervrecoverymanager.windowsazure.com` | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding _Site Recovery IP_ if your firewall proxy supports IPs. |
@@ -77,7 +77,7 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the target location:
 
-   | **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address** |
+   | Location | Site Recovery IP address | Site Recovery monitoring IP address |
    | --- | --- | --- |
    | Central US | 40.69.144.231 | 52.165.34.144 |
 
@@ -97,7 +97,7 @@ For this example, these NSG rules are required so that replication can be enable
 
 1. Create HTTPS port 443 outbound rules for the Site Recovery IPs that correspond to the source location:
 
-   |**Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address** |
+   | Location | Site Recovery IP address | Site Recovery monitoring IP address |
    | --- | --- | --- |
    | East US | 13.82.88.226 | 104.45.147.24 |
 
@@ -133,7 +133,8 @@ The custom proxy settings are invalid and the Azure Site Recovery Mobility servi
    Port=567
    ```
 
-1. Azure Site Recovery Mobility service agent supports only **unauthenticated proxies**.
+> [!NOTE]
+> Azure Site Recovery Mobility service agent supports only **unauthenticated proxies**.
 
 ### Fix the problem
 
@@ -141,4 +142,4 @@ To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connect
 
 ## Next steps
 
-[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)

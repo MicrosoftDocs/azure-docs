@@ -28,13 +28,13 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
     ```
 
 * In order to use an existing key vault, it must have the following properties to use as a customer-managed key:
-  * [Soft delete](../key-vault/key-vault-ovw-soft-delete.md)
+  * [Soft delete](../key-vault/general/overview-soft-delete.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Purge protected](../key-vault/key-vault-ovw-soft-delete.md#purge-protection)
+  * [Purge protected](../key-vault/general/overview-soft-delete.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -75,7 +75,7 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
     az mysql server key create –name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ## Using Data encryption for restore or replica servers
 
@@ -100,7 +100,7 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
     az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
     ```
 
-    Key url:  https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>
+    Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 

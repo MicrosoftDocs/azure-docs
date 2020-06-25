@@ -45,6 +45,16 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
+## Recommended Settings
+
+|Target QPS | App Service | Azure Cognitive Search |
+| -------------------- | ----------- | ------------ |
+| 3             | S1, 1 Instance   | S1, 1 Instance    |
+| 50         | S3, 10 Instances       | S1, 12 Instances         |
+| 80         | S3, 10 Instances      |  S3, 12 Instances  |
+| 100         | P3V2, 10 Instances  | S3, 12 Instances, 3 Partitions   |
+| 200 to 250         | P3V2, 20 Instances | S3, 12 Instances, 3 Partitions    |
+
 ## When to change a pricing tier
 
 |Upgrade|Reason|
@@ -167,6 +177,14 @@ Use these keys when making requests to the service through APIs.
 The terms authoring and query endpoint key are corrective terms. The previous term was **subscription key**. If you see other documentation referring to subscription keys, these are equivalent to authoring and query endpoint keys (used in the runtime).
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
+
+## Recommended settings for network isolation
+
+* Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protect App Service (QnA Runtime) from public access:
+    * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag "CognitiveServicesManagement". This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly.
+    * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    * Check out [more information about service tags.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## Next steps
 

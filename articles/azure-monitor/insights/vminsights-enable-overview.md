@@ -5,7 +5,8 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/27/2020
+ms.date: 05/29/2020
+
 
 ---
 
@@ -39,6 +40,7 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - East US2
 - Central US
 - North Central US
+- US Gov Va
 - Canada Central
 - UK South
 - North Europe
@@ -130,7 +132,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 | OS version | Kernel version |
 |:--|:--|
-| 18.04 | 5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
+| 18.04 | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 | 16.04.3 | 4.15.* |
 | 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 
@@ -171,8 +173,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.2.9060 | B7725B6B205CF8C336D9AAD87956336C816412740E9D6499BCACB6F862AE3896  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.2.9060 | C6995A67A7782AEC312647D74A99C3C823F68F5FFA490FD4BB6006A2FF2941B0 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
 ## Role-based access control
 

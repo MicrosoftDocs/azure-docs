@@ -22,6 +22,7 @@
   expanded: true
   items:
   - name: Application Gateway
+    expanded: true
     items:
      - name: Deploy WAF v2 - ARM template
        displayName: Resource Manager
@@ -62,6 +63,8 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: FAQ
+      href: ./ag/application-gateway-waf-faq.md
   - name: Front Door
     items:
     - name: Custom rules
@@ -74,6 +77,8 @@
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
       href: ./afds/waf-faq.md
+  - name: WAF and Azure Policy
+    href: ./shared/waf-azure-policy.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -106,7 +111,7 @@
        href: ./ag/bot-protection.md
      - name: Associate a policy with an existing Application Gateway
        href: ./ag/associate-waf-policy-existing-gateway.md
-     - name: Diagnostic logs
+     - name: Resource logs
        href: ./ag/web-application-firewall-logs.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md

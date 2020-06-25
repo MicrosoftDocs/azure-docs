@@ -10,10 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/10/2020
+ms.date: 06/09/2020
 ---
 
 # Create and configure a self-hosted integration runtime
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
 
@@ -49,19 +51,22 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the **Author** tab on the leftmost pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the leftmost pane.
 
-   ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
+   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Select **Connections** at the bottom of the leftmost pane, and select **Integration runtimes** in the **Connections** window. Select **+New**.
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. On the **Integration runtime setup** window, select **Perform data movement and dispatch activities to external computes**, and select **Continue**.
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
+
+1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Enter a name for your IR, and select **Create**.
 
-1. Select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
+1. On the **Integration runtime setup** page, select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
 
    ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
@@ -87,7 +92,7 @@ You can automate self-hosted IR setup on an Azure virtual machine by using the [
 
 You can use a command line to set up or manage an existing self-hosted IR. This usage can especially help to automate the installation and registration of self-hosted IR nodes.
 
-Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
+Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\4.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
 
 Use the application as follows:
 
@@ -365,9 +370,9 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 
 If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in diahost.exe.config and diawp.exe.config. When these files specify no proxy, the self-hosted integration runtime connects to the cloud service directly without going through a proxy. The following procedure provides instructions for updating the diahost.exe.config file:
 
-1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config as a backup of the original file.
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config as a backup of the original file.
 1. Open Notepad running as administrator.
-1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Find the default **system.net** tag as shown in the following code:
 
     ```xml

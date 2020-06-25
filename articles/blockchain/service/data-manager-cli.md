@@ -2,7 +2,7 @@
 title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
 description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
 #Customer intent: As a network operator, I want to use Azure CLI to configure Blockchain Data Manager.
 ---
@@ -43,7 +43,7 @@ az group create --name myRG --location eastus
 
 ## Create instance
 
-A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node.
+A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node. Blockchain Data Manager publishes a **RawBlockAndTransactionMsg** message which is a superset of information returned from web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) and [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) queries.
 
 ``` azurecli
 az resource create \

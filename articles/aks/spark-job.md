@@ -10,7 +10,7 @@ ms.custom: mvc
 
 # Running Apache Spark jobs on AKS
 
-[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
+[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-kubernetes-earliest-version], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -20,6 +20,7 @@ In order to complete the steps within this article, you need the following.
 * [Docker Hub][docker-hub] account, or an [Azure Container Registry][acr-create].
 * Azure CLI [installed][azure-cli] on your development system.
 * [JDK 8][java-install] installed on your system.
+* [Apache Maven][maven-install] installed on your system.
 * SBT ([Scala Build Tool][sbt-install]) installed on your system.
 * Git command-line tools installed on your system.
 
@@ -288,7 +289,7 @@ Pi is roughly 3.152155760778804
 
 In the above example, the Spark jar file was uploaded to Azure storage. Another option is to package the jar file into custom-built Docker images.
 
-To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add am `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
+To do so, find the `dockerfile` for the Spark image located at `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` directory. Add an `ADD` statement for the Spark job `jar` somewhere between `WORKDIR` and `ENTRYPOINT` declarations.
 
 Update the jar path to the location of the `SparkPi-assembly-0.1.0-SNAPSHOT.jar` file on your development system. You can also use your own custom jar file.
 
@@ -335,9 +336,10 @@ Check out Spark documentation for more details.
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 

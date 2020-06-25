@@ -31,8 +31,8 @@ When deploying Azure file shares into storage accounts, we recommend:
 
 ## Identity
 To access an Azure file share, the user of the file share must be authenticated and have authorization to access the share. This is done based on the identity of the user accessing the file share. Azure Files integrates with three main identity providers:
-- **Customer-owned Active Directory** (preview): Azure storage accounts can be domain joined to a customer-owned, Windows Server Active Directory, just like a Windows Server file server or NAS device. Your Active Directory Domain Controller can be deployed on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your DC is hosted. Once a storage account is domain joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
-- **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS provides a Microsoft-managed Active Directory Domain Controller that can be used for Azure resources. Domain joining your storage account to Azure AD DS provides similar benefits to domain joining it to a customer-owned Active Directory. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Azure AD DS provides AD-based authentication, this option also uses the Kerberos authentication protocol.
+- **On-premises Active Directory Domain Services (AD DS, or on-premises AD DS)** (preview): Azure storage accounts can be domain joined to a customer-owned, Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
+- **Azure Active Directory Domain Services (Azure AD DS)**: Azure AD DS provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Azure AD DS provides similar benefits to domain joining it to a customer-owned Active Directory. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Since Azure AD DS provides AD-based authentication, this option also uses the Kerberos authentication protocol.
 - **Azure storage account key**: Azure file shares may also be mounted with an Azure storage account key. To mount a file share this way, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, since the mounted file share will have full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used.
 
 For customers migrating from on-premises file servers, or creating new file shares in Azure Files intended to behave like Windows file servers or NAS appliances, domain joining your storage account to **Customer-owned Active Directory** is the recommended option. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](storage-files-active-directory-overview.md).
@@ -79,13 +79,13 @@ In general, Azure Files features and interoperability with other services are th
     - Premium file shares are billed using a provisioned billing model, which means you pay for how much storage you provision rather than how much storage you actually ask for. 
     - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.
 - **Redundancy options**
-    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage. 
+    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage.
     - Standard file shares are available for locally redundant, zone redundant, geo-redundant (GRS), and geo-zone redundant (GZRS) storage.
 - **Maximum size of file share**
     - Premium file shares can be provisioned for up to 100 TiB without any additional work.
     - By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB by opting into the *large file share* storage account feature flag. Standard file shares may only span up to 100 TiB for locally redundant or zone redundant storage accounts. For more information on increasing file share sizes, see [Enable and create large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Regional availability**
-    - Premium file shares are not available in every region, and zone redundant support is available in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Azure Availability Zone support by region](../../availability-zones/az-overview.md#services-support-by-region). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
+    - Premium file shares are not available in every region, and zone redundant support is available in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Azure Availability Zone support by region](../../availability-zones/az-region.md). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
     - Standard file shares are available in every Azure region.
 - Azure Kubernetes Service (AKS) supports premium file shares in version 1.13 and later.
 
@@ -148,24 +148,19 @@ New file shares start with the full number of credits in its burst bucket. Burst
 ### Enable standard file shares to span up to 100 TiB
 [!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-#### Regional availability
+#### Limitations
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## Redundancy
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## Migration
-In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. There are many tools, provided both by Microsoft and 3rd parties, to do a migration to a file share, but they can roughly be divided into two categories:
+In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 
 
-- **Tools which maintain file system attributes such as ACLs and timestamps**:
-    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync can be used as a method to ingest data into an Azure file share, even when the desired end deployment isn't to maintain an on-premises presence. Azure File Sync can be installed in place on existing Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 deployments. An advantage to using Azure File Sync as an ingest mechanism is that end users can continue to use the existing file share in place; cut-over to the Azure file share can occur after all of the data is finished uploading in the background.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well-known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
-
-- **Tools which do not maintain file system attributes**:
-    - **Data Box**: Data Box provides an offline data transfer mechanism to physical ship data into Azure. This method is designed to increase throughput and save bandwidth, but does not currently support file system attributes like timestamps and ACLs.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.
+The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
 
 ## Next steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
 * [Deploying Azure Files](storage-files-deployment-guide.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

@@ -1,0 +1,96 @@
+### YamlMime:Landing
+
+title: Live Video Analytics on IoT Edge documentation # < 60 chars
+summary: Learn how to use Live Video Analytics on IoT Edge # < 160 chars
+
+metadata:
+  title: Live Video Analytics on IoT Edge documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Live Video Analytics on IoT Edge # Required; article description that is displayed in search results. < 160 chars.
+  services: media-services
+  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author:  #Required; your GitHub user alias, with correct capitalization.
+  ms.author:  #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/12/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Live Video Analytics on IoT Edge (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Live Video Analytics on IoT Edge
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Media graph
+            url: media-graph-concept.md
+          - text: Video recording 
+            url: video-recording-concept.md
+          - text: Video playback
+            url: video-playback-concept.md
+      - linkListType: learn
+        links:
+          - text: Continuous video recording 
+            url: continuous-video-recording-concept.md
+          - text: Event-based video recording 
+            url: event-based-video-recording-concept.md
+          - text: Analyzing live videos 
+            url: analyze-live-video-concept.md    
+
+  # Card
+  - title: Scenarios
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started - Live Video Analytics on IoT Edge
+            url: get-started-detect-motion-emit-events-quickstart.md        
+          - text: Detect motion, record video clips to Azure Media Services
+            url: detect-motion-record-video-clips-media-services-quickstart.md
+          - text: Detect motion and emit events 
+            url: detect-motion-emit-events-quickstart.md
+          - text: Detect motion, record video to edge devices
+            url: detect-motion-record-video-clips-edge-devices-quickstart.md
+          - text: Run Live Video Analytics with your own model
+            url: use-your-model-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: Continuous video recording  
+            url: continuous-video-recording-tutorial.md
+          - text: Event-based video recording  
+            url: event-based-video-recording-tutorial.md  
+          - text: Playback multi-day recordings
+            url: playback-multi-day-recordings-tutorial.md
+
+  # Card
+  - title: Develop 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom Azure Resource Manager role
+            url: create-custom-azure-resource-manager-role-how-to.md
+          - text: Deploy to an IoT Edge device
+            url: deploy-iot-edge-device.md
+          - text: Monitoring and logging
+            url: monitoring-logging.md  
+          - text: Playback a recording 
+            url: playback-recordings-how-to.md
+          - text: Manage recording policy
+            url: manage-recording-policy-how-to.md            
+          - text: Troubleshoot
+            url: troubleshoot-how-to.md                  
+      - linkListType: reference
+        links:
+          - text: Direct methods
+            url: direct-methods.md
+          - text: Module twin configuration schema  
+            url: module-twin-configuration-schema.md
+          - text: Quotas and limitations  
+            url: quotas-limitations.md
+  

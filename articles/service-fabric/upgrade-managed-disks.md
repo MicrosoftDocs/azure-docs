@@ -2,7 +2,7 @@
 title: Upgrade cluster nodes to use Azure managed disks
 description: Here's how to upgrade an existing Service Fabric cluster to use Azure managed disks with little or no downtime of your cluster.
 ms.topic: how-to
-ms.date: 3/01/2020
+ms.date: 4/07/2020
 ---
 # Upgrade cluster nodes to use Azure managed disks
 
@@ -21,11 +21,11 @@ This article will walk you through the steps of upgrading the primary node type 
 > [!CAUTION]
 > You will experience an outage with this procedure only if you have dependencies on the cluster DNS (such as when accessing [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). Architectural [best practice for front-end services](https://docs.microsoft.com/azure/architecture/microservices/design/gateway) is to have some kind of [load balancer](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) in front of your node types to make node swapping possible without an outage.
 
-Here are the [templates and cmdlets](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) for Azure Resource Manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
+Here are the [templates and cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) for Azure Resource Manager that we'll use to complete the upgrade scenario. The template changes will be explained in [Deploy an upgraded scale set for the primary node type](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  below.
 
 ## Set up the test cluster
 
-Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage) the Azure resource manager sample templates that we'll use to complete this scenario.
+Let's set up the initial Service Fabric test cluster. First, [download](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) the Azure resource manager sample templates that we'll use to complete this scenario.
 
 Next, sign in to your Azure account.
 
@@ -364,6 +364,6 @@ Learn how to:
 
 See also:
 
-* [Sample: Upgrade cluster nodes to use Azure managed disks](https://github.com/erikadoyle/service-fabric-scripts-and-templates/tree/managed-disks/templates/nodetype-upgrade-no-outage)
+* [Sample: Upgrade cluster nodes to use Azure managed disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
 
 * [Vertical scaling considerations](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

@@ -30,9 +30,12 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
 
 1. [Prepare an Azure Storage account](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Log into the subscription containing your Azure Remote Rendering account:
+1. Log into your subscription containing your Azure Remote Rendering account:
     1. Open a PowerShell
-    1. Run: `Connect-AzAccount -Subscription "<your Azure subscription id>"`
+    1. Run: `Connect-AzAccount` and follow the on-screen directions.
+
+> [!NOTE]
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
 1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
 
@@ -67,6 +70,9 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 
 > [!CAUTION]
 > Make sure to properly escape backslashes in the LocalAssetDirectoryPath path by using double backslashes: "\\\\" and use forward slashes "/" in all other paths like inputFolderPath and inputAssetPath.
+
+> [!CAUTION]
+> Optional values need to be filled out or you need to remove the key and value altogether. For example, if you do not use the  `"outputAssetFileName"` parameter, you need to delete the whole line inside `arrconfig.json`.
 
 ### accountSettings
 

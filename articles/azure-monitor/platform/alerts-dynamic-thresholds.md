@@ -88,7 +88,8 @@ When an alert rule is first created, the thresholds appearing in the chart are c
 
 ## How much data is needed to trigger an alert?
 
-If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days or 30 samples of metric data are available to ensure accurate thresholds.
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
+For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
 ## Dynamic Thresholds best practices
 

@@ -1,11 +1,11 @@
 ---
-title: Go-To-Market Services - How to get featured in marketplace | Azure
+title: Go-To-Market Services - How to get featured in marketplace | Azure Marketplace
 description: Go-To-Market Services - This section describes how to get a listing featured in Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/21/2018
+ms.date: 04/16/2020
 ms.author: dsindona
 
 ---
@@ -34,7 +34,7 @@ You can take the following action items to improve your score:
 Featured Apps promotions operate separately from the search algorithm.
 
 >[!Note]
->If your solution is not appearing correctly in search results, file a support ticket through the Help menu in [Cloud Partner Portal](https://cloudpartner.azure.com/).
+>If your solution is not appearing correctly in search results, file a support ticket through the Help menu in [Partner Center](https://partner.microsoft.com/).
 
 Your GTM support also includes a full library of self-help templates, web content, training, and tools to help you further promote your listings and your business.
 
@@ -42,6 +42,6 @@ Your GTM support also includes a full library of self-help templates, web conten
 
 Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
-Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
 
 ---

@@ -2,15 +2,12 @@
 title: Configure single-page app - Microsoft identity platform | Azure
 description: Learn how to build a single-page application (app's code configuration)
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma

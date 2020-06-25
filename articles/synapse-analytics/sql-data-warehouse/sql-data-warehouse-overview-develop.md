@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ ms.reviewer: igorstan
 ## Key design decisions
 The following articles highlight concepts and design decisions for developing a distributed data warehouse using the SQL pool capability in Azure Synapse:
 
-* [connections](sql-data-warehouse-connect-overview.md)
+* [connections](../sql/connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)

@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -304,4 +304,4 @@ ORDER BY
 
 ## Next steps
 
-For more information about DMVs, see [System views](sql-data-warehouse-reference-tsql-system-views.md).
+For more information about DMVs, see [System views](../sql/reference-tsql-system-views.md).

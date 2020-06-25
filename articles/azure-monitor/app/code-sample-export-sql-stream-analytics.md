@@ -7,7 +7,7 @@ ms.date: 09/11/2017
 ---
 
 # Walkthrough: Export to SQL from Application Insights using Stream Analytics
-This article shows how to move your telemetry data from [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+This article shows how to move your telemetry data from [Azure Application Insights][start] into Azure SQL Database by using [Continuous Export][export] and [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 
@@ -57,7 +57,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     ![Choose event types](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/app/metrics-explorer.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
+1. Let some data accumulate. Sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer](../../azure-monitor/platform/metrics-charts.md) and individual events in [diagnostic search](../../azure-monitor/app/diagnostic-search.md). 
    
     And also, the data will export to your storage. 
 2. Inspect the exported data, either in the portal - choose **Browse**, select your storage account, and then **Containers** - or in Visual Studio. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
@@ -66,7 +66,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
    
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
-The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to a SQL database. That will make it easy to run lots of interesting queries.
+The events are written to blob files in JSON format. Each file may contain one or more events. So we'd like to read the event data and filter out the fields we want. There are all kinds of things we could do with the data, but our plan today is to use Stream Analytics to move the data to SQL Database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
 Once again starting from your subscription in [Azure portal][portal], create the database (and a new server, unless you've already got one) to which you'll write the data.
@@ -216,7 +216,7 @@ Select SQL as the output.
 
 ![In stream analytics, select Outputs](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Specify the SQL database.
+Specify the database.
 
 ![Fill in the details of your database](./media/code-sample-export-sql-stream-analytics/SA007.png)
 
@@ -236,7 +236,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 
 ## Related articles
-* [Export to PowerBI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
+* [Export to Power BI using Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 * [Detailed data model reference for the property types and values.](../../azure-monitor/app/export-data-model.md)
 * [Continuous Export in Application Insights](../../azure-monitor/app/export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -245,7 +245,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [portal]: https://portal.azure.com/
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

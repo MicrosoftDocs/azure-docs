@@ -96,8 +96,8 @@ The following are basic steps to configure collection of CollectD data in Azure 
 
 3. Restart CollectD and Log Analytics agent for Linux with the following commands.
 
-    sudo service collectd restart
-    sudo /opt/microsoft/omsagent/bin/service_control restart
+        sudo service collectd restart
+        sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## CollectD metrics to Azure Monitor schema conversion
 To maintain a familiar model between infrastructure metrics already collected by Log Analytics agent for Linux and the new metrics collected by CollectD the following schema mapping is used:

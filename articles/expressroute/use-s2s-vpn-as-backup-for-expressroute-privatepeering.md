@@ -1,11 +1,11 @@
-﻿---
+---
 title: 'Using S2S VPN as a backup for Azure ExpressRoute Private Peering | Microsoft Docs'
 description: This page provides architectural recommendations for backing up Azure ExpressRoute private peering with S2S VPN.
 services: networking
 author: rambk
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
 
@@ -27,7 +27,7 @@ In this article, let's see how to verify the connectivity both from the Azure pe
 
 In our setup, we have an on-premises network connected to an Azure hub VNet via both an ExpressRoute circuit and a S2S VPN connection. The Azure hub VNet is in turn peered to a spoke VNet, as shown in the diagram below:
 
-[![1]][1]
+![1][1]
 
 In the setup, the ExpressRoute circuit is terminated on a pair of "Customer Edge" (CE) routers at the on-premises. The on-premises LAN is connected to the CE routers via a pair of firewalls that operate in leader-follower mode. The S2S VPN is directly terminated on the firewalls.
 
@@ -84,7 +84,7 @@ The on-premises route advertisement of the secondary CE router through the secon
 
 To improve the high availability of the backup connection, the S2S VPN is also configured in the active-active mode. The Azure VPN gateway configuration is shown below. Note as part of the VPN configuration VPN the BGP peer IP addresses of the gateway--10.17.11.76 and 10.17.11.77--are also listed.
 
-[![2]][2]
+![2][2]
 
 The on-premises route is advertised by the firewalls to the primary and secondary BGP peers of the VPN gateway. The route advertisements are shown below (Junos):
 

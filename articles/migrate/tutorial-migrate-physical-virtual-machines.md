@@ -2,7 +2,7 @@
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 04/15/2020
 ms.custom: MVC
 ---
 
@@ -12,17 +12,15 @@ This article shows you how to migrate machines as physical servers to Azure, usi
 
 - Migrate on-premises physical servers.
 - Migrate VMs virtualized by platforms such as Xen, KVM.
-- Migrate Hyper-V or VMware VMs, if for some reason you're unable to use the standard migration process for [Hyper-V](tutorial-migrate-hyper-v.md), or [VMware ](server-migrate-overview.md) migration.
+- Migrate Hyper-V or VMware VMs, if for some reason you're unable to use the standard migration process for [Hyper-V](tutorial-migrate-hyper-v.md), or [VMware](server-migrate-overview.md) migration.
 - Migrate VMs running in private clouds.
 - Migrate VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and cloud VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+This tutorial is the third in a series that demonstrates how to assess and migrate physical servers to Azure. In this tutorial, you learn how to:
 
-
-In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Prepare Azure for migration with the Azure Migrate Server Migration tool.
+> * Prepare to use Azure with Azure Migrate:Server Migration.
 > * Check requirements for machines you want to migrate, and prepare a machine for the Azure Migrate replication appliance that's used to discover and migrate machines to Azure.
 > * Add the Azure Migrate Server Migration tool in the Azure Migrate hub.
 > * Set up the replication appliance.
@@ -41,21 +39,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Review](migrate-architecture.md) the migration architecture.
-2. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
-
-    - Create a VM in the selected resource group.
-    - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk. 
-
-3. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). When you replicate to Azure, Azure VMs are created, and joined to an Azure network you specify when you set up migration.
-
+[Review](migrate-architecture.md) the migration architecture.
 
 ## Prepare Azure
 
-Set up Azure permissions before you can migrate with Azure Migrate Server Migration.
+Prepare Azure for migration with Server Migration.
 
-- **Create a project**: Your Azure account needs permissions to create an Azure Migrate project. 
+**Task** | **Details**
+--- | ---
+**Create an Azure Migrate project** | Your Azure account needs Contributer or Owner permissions to create a project.
+**Verify permissions for your Azure account** | Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+
 
 ### Assign permissions to create project
 
@@ -65,32 +59,54 @@ Set up Azure permissions before you can migrate with Azure Migrate Server Migrat
     - If you just created a free Azure account, you're the owner of your subscription.
     - If you're not the subscription owner, work with the owner to assign the role.
 
+
+### Assign Azure account permissions
+
+Assign the Virtual Machine Contributor role to the Azure account. This provides permissions to:
+
+    - Create a VM in the selected resource group.
+    - Create a VM in the selected virtual network.
+    - Write to an Azure managed disk. 
+
+### Create an Azure network
+
+[Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
+
 ## Prepare for migration
+
+To prepare for physical server migration, you need to verify the physical server settings, and prepare to deploy a replication appliance.
 
 ### Check machine requirements for migration
 
 Make sure machines comply with requirements for migration to Azure. 
 
 > [!NOTE]
-> Agent-based migration with Azure Migrate Server Migration, has the same replication architecture as the agent based disaster recovery feature of the Azure Site Recovery service, and some of the components used share the same code base. Some requirements might link to Site Recovery documentation.
+> When migrating physical machines, Azure Migrate:Server Migration uses the same replication architecture as agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
 
 1. [Verify](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements.
-2. Verify VM settings. On-premises machines that you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
-
+2. Verify that on-premises machines that you replicate to Azure comply with [Azure VM requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+3. There are some changes needed on VMs before you migrate them to Azure.
+    - For some operating systems, Azure Migrate makes these changes automatically. 
+    - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure. 
+Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 ### Prepare a machine for the replication appliance
 
-Azure Migrate Server Migration uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components.
+Azure Migrate:Server Migration uses a replication appliance to replicate machines to Azure. The replication appliance runs the following components.
 
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. 
 
-Before you start, you need to prepare a Windows Server 2016 machine to host the replication appliance. The machine should comply with [these requirements](migrate-replication-appliance.md). The appliance shouldn't be installed on a source machine you want to protect.
+Prepare for appliance deployment as follows:
 
+- You prepare a machine to host the replication appliance. [Review](migrate-replication-appliance.md#appliance-requirements) the machine requirements. The appliance shouldn't be installed on a source machine that you want to replicate.
+- The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
+- Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
+- Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
 
-## Add the Azure Migrate Server Migration tool
+## Add the Server Migration tool
 
-Set up an Azure Migrate project, and then add the Azure Migrate Server Migration tool to it.
+Set up an Azure Migrate project, and then add the Server Migration tool to it.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -101,19 +117,10 @@ Set up an Azure Migrate project, and then add the Azure Migrate Server Migration
 
 5. In **Discover, assess and migrate servers**, click **Add tools**.
 6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
-7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**
+7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-    You can create an Azure Migrate project in any of these geographies.
-
-    **Geography** | **Region**
-    --- | ---
-    Asia | Southeast Asia
-    Europe | North Europe or West Europe
-    United States | East US or West Central US
-
-    The geography specified for the project is only used to store the metadata gathered from on-premises VMs. You can select any target region for the actual migration.
 8. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
 9. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
 10. In **Review + add tools**, review the settings, and click **Add tools**
@@ -121,7 +128,7 @@ Set up an Azure Migrate project, and then add the Azure Migrate Server Migration
 
 ## Set up the replication appliance
 
-The first step of migration is to set up the replication appliance. You  download the installer file for the appliance, and run it on the [machine you prepared](#prepare-a-machine-for-the-replication-appliance). After installing the appliance, you register it with Azure Migrate Server Migration.
+The first step of migration is to set up the replication appliance. To set up the appliance for physical server migration, you download the installer file for the appliance, and then run it on the [machine you prepared](#prepare-a-machine-for-the-replication-appliance). After installing the appliance, you register it with Azure Migrate Server Migration.
 
 
 ### Download the replication appliance installer

@@ -1,15 +1,8 @@
 ---
 title: Send or receive events from Azure Event Hubs using Java (legacy)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the old azure-eventhubs package. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-eventhubs)
@@ -311,7 +304,8 @@ For different types of build environments, you can explicitly obtain the latest 
 		
            System.out.println("End of sample");
        }
-    ```
+   }
+   ```
 3. Create one more class called `EventProcessor`, using the following code:
    
     ```java

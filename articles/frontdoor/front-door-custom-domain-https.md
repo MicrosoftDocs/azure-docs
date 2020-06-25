@@ -20,7 +20,7 @@ ms.author: sharadag
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with your Front Door under the frontend hosts section. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it is sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site's security certificate and verifies it's issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
-Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as https:\//contoso.azurefd.net), HTTPS is automatically enabled for requests made to https://contoso.azurefd.net. However, once you onboard the custom domain 'www.contoso.com' you will need to additionally enable HTTPS for this frontend host.   
+Azure Front Door supports HTTPS on a Front Door default hostname, by default. For example, if you create a Front Door (such as `https://contoso.azurefd.net`), HTTPS is automatically enabled for requests made to `https://contoso.azurefd.net`. However, once you onboard the custom domain 'www.contoso.com' you will need to additionally enable HTTPS for this frontend host.   
 
 Some of the key attributes of the custom HTTPS feature are:
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Enable the HTTPS protocol on your custom domain.
 > - Use an AFD-managed certificate 
-> - Use your own certificate, that is, a custom SSL certificate
+> - Use your own certificate, that is, a custom TLS/SSL certificate
 > - Validate the domain
 > - Disable the HTTPS protocol on your custom domain
 
@@ -45,9 +45,9 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
-## SSL certificates
+## TLS/SSL certificates
 
-To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure Front Door or use your own certificate.
+To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that is managed by Azure Front Door or use your own certificate.
 
 
 ### Option 1 (default): Use a certificate managed by Front Door
@@ -69,7 +69,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 ### Option 2: Use your own certificate
 
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](front-door-troubleshoot-allowed-ca.md).
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your TLS/SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure Front Door](front-door-troubleshoot-allowed-ca.md).
 
 #### Prepare your Azure Key vault account and certificate
  
@@ -81,7 +81,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner CAs that Azure Key Vault integrates with. Upload your certificate as a **certificate** object, rather than a **secret**.
 
 > [!NOTE]
-> For your own SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms.
+> For your own TLS/SSL certificate, Front Door doesn't support certificates with EC cryptography algorithms.
 
 #### Register Azure Front Door
 
@@ -257,7 +257,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
     
-    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
 
 5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 

@@ -15,7 +15,7 @@ ms.date: 11/04/2019
 
 In Azure Cognitive Search, the [simple query syntax](query-simple-syntax.md) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
 
-In this article, we use examples to illustrate the simple syntax.
+In this article, we use examples to illustrate the simple syntax, populating the `search=` parameter of a [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) operation.
 
 An alternative query syntax is [Full Lucene](query-lucene-syntax.md), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 

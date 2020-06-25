@@ -2,12 +2,12 @@
 title: Audio input format
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/16/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Supported audio input format

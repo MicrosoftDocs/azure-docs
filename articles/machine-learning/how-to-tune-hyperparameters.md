@@ -8,9 +8,9 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 
 ---
 
@@ -181,7 +181,7 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 <a name='specify-early-termination-policy'/>
 
-## Specify early termination policy
+## <a name="early-termination"></a> Specify early termination policy
 
 Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
@@ -316,7 +316,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 
 Often, finding the best hyperparameter values for your model can be an iterative process, needing multiple tuning runs that learn from previous hyperparameter tuning runs. Reusing knowledge from these previous runs will accelerate the hyperparameter tuning process, thereby reducing the cost of tuning the model and will potentially improve the primary metric of the resulting model. When warm starting a hyperparameter tuning experiment with Bayesian sampling, trials from the previous run will be used as prior knowledge to intelligently pick new samples, to improve the primary metric. Additionally, when using Random or Grid sampling, any early termination decisions will leverage metrics from the previous runs to determine poorly performing training runs. 
 
-Azure Machine Learning allows you to warm start your hyperparameter tuning run by leveraging knowledge from up to 5 previously completed / cancelled hyperparameter tuning parent runs. You can specify the list of parent runs you want to warm start from using this snippet:
+Azure Machine Learning allows you to warm start your hyperparameter tuning run by leveraging knowledge from up to 5 previously completed / canceled hyperparameter tuning parent runs. You can specify the list of parent runs you want to warm start from using this snippet:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveRun
@@ -326,7 +326,7 @@ warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
 warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
 ```
 
-Additionally, there may be occasions when individual training runs of a hyperparameter tuning experiment are cancelled due to budget constraints or fail due to other reasons. It is now possible to resume such individual training runs from the last checkpoint (assuming your training script handles checkpoints). Resuming an individual training run will use the same hyperparameter configuration and mount the outputs folder used for that run. The training script should accept the `resume-from` argument, which contains the checkpoint or model files from which to resume the training run. You can resume individual training runs using the following snippet:
+Additionally, there may be occasions when individual training runs of a hyperparameter tuning experiment are canceled due to budget constraints or fail due to other reasons. It is now possible to resume such individual training runs from the last checkpoint (assuming your training script handles checkpoints). Resuming an individual training run will use the same hyperparameter configuration and mount the outputs folder used for that run. The training script should accept the `resume-from` argument, which contains the checkpoint or model files from which to resume the training run. You can resume individual training runs using the following snippet:
 
 ```Python
 from azureml.core.run import Run

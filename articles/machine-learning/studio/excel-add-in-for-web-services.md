@@ -5,7 +5,7 @@ description: How to use Azure Machine Learning Web services directly in Excel wi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -14,7 +14,6 @@ ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio (classic) web services
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Excel makes it easy to call web services directly without the need to write any code.
 
 ## Steps to Use an Existing web service in the Workbook
@@ -79,4 +78,4 @@ Get the API key for your web service. Where you perform this action depends on w
 ## Sharing Your Workbook
 If you save your workbook, then the API/Primary key for the web services you have added is also saved. That means you should only share the workbook with individuals you trust.
 
-Ask any questions in the following comment section or on our [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ask any questions in the following comment section or on our [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

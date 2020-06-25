@@ -45,7 +45,7 @@ Input a text when prompted, and you will hear the synthesized audio played from 
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy for security info registr
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,9 +29,9 @@ The following policy applies to all selected users, who attempt to register usin
 1. Under **Assignments**, select **Users and groups**, and select the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
+   > Users must be enabled for the [combined registration](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
 1. Under **Conditions** > **Locations**.
    1. Configure **Yes**.
    1. Include **Any location**.
@@ -58,6 +58,7 @@ Some may choose to use device state instead of location in step 6 above:
 
 > [!WARNING]
 > If you use device state as a condition in your policy this may impact guest users in the directory. [Report-only mode](concept-conditional-access-report-only.md) can help determine the impact of policy decisions.
+> Note that report-only mode is not applicable for CA policies with "User Actions" scope.
 
 ## Next steps
 

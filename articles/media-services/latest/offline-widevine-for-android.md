@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 04/07/2020
 ms.author: willzhan
 
 ---
@@ -150,67 +150,13 @@ The above open-source PWA app is authored in Node.js. If you want to host your o
     - The certificate must have trusted CA and a self-signed development certificate does not work
     - The certificate must have a CN matching the DNS name of the web server or gateway
 
-## Frequently asked questions
+## FAQs
 
-### Question
-
-How can I deliver persistent licenses (offline-enabled) for some clients/users and non-persistent licenses (offline-disabled) for others? Do I have to duplicate the content and use separate content key?
-
-### Answer
-Since Media Services v3 allows an Asset to have multiple StreamingLocators. You can have
-
-1.    One ContentKeyPolicy with license_type = "persistent", ContentKeyPolicyRestriction with claim on "persistent", and its StreamingLocator;
-2.    Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
-3.    The two StreamingLocators have different ContentKey.
-
-Depending on business logic of custom STS, different claims are issued in the JWT token. With the token, only the corresponding license can be obtained and only the corresponding URL can be played.
-
-### Question
-
-For Widevine security levels, the Google's "Widevine DRM Architecture Overview" doc defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md),
-five different security levels are outlined. What is the relationship or mapping between the two different sets of security levels?
-
-### Answer
-
-The Google's "Widevine DRM Architecture Review" doc defines the following three security levels:
-
-1.  Security Level 1: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.
-2.  Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
-3.  Security Level 3 Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security.
-
-At the same time, in [Azure Media Services documentation on Widevine license template](widevine-license-template-overview.md), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
-
-1.  Software-based white-box crypto is required.
-2.  Software crypto and an obfuscated decoder is required.
-3.  The key material and crypto operations must be performed within a hardware backed TEE.
-4.  The crypto and decoding of content must be performed within a hardware backed TEE.
-5.  The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.
-
-Both security levels are defined by Google Widevine. The difference is in its usage level: architecture level or API level. The five security levels are used in the Widevine API. The content_key_specs object, which
-contains security_level is deserialized and passed to the Widevine global delivery service by Azure Media Services Widevine license service. The table below shows the mapping between the two sets of security levels.
-
-| **Security Levels Defined in Widevine Architecture** |**Security Levels Used in Widevine API**|
-|---|---| 
-| **Security Level 1**: All content processing, cryptography, and control are performed within the Trusted Execution Environment (TEE). In some implementation models, security processing may be performed in different chips.|**security_level=5**: The crypto, decoding, and all handling of the media (compressed and uncompressed) must be handled within a hardware backed TEE.<br/><br/>**security_level=4**: The crypto and decoding of content must be performed within a hardware backed TEE.|
-**Security Level 2**: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.| **security_level=3**: The key material and crypto operations must be performed within a hardware backed TEE. |
-| **Security Level 3**: Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security. | **security_level=2**: Software crypto and an obfuscated decoder are required.<br/><br/>**security_level=1**: Software-based whitebox crypto is required.|
-
-### Question
-
-Why does content download take so long?
-
-### Answer
-
-There are two ways to improve download speed:
-
-1.  Enable CDN so that end users are more likely to hit CDN instead of origin/streaming endpoint for content download. If user hits streaming endpoint, each HLS segment or DASH fragment is dynamically packaged and encrypted. Even though this latency is in millisecond scale for each segment/fragment, when you have an hour long video, the accumulated latency can be large causing longer download.
-2.  Provide end users the option to selectively download video quality layers and audio tracks instead of all contents. For offline mode, there is no point to download all of the quality layers. There are two ways to achieve this:
-    1.  Client controlled: either player app auto selects or user selects video  quality layer and audio tracks to download;
-    2.  Service controlled: one can use Dynamic Manifest feature in Azure Media Services to create a (global) filter, which limits HLS playlist or DASH MPD to a single video quality layer and selected audio tracks. Then the download URL presented to end users will include this filter.
+For more information, see [Widevine FAQs](frequently-asked-questions.md#widevine-streaming-for-android).
 
 ## Additional notes
 
-* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Summary
 

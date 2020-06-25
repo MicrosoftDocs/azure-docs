@@ -1,13 +1,8 @@
 ---
 title: 'Quickstart: Data streaming with Azure Event Hubs using the Kafka protocol'
 description: 'Quickstart: This article provides information on how to stream into Azure Event Hubs using the Kafka protocol and APIs.'
-services: event-hubs
-author: ShubhaVijayasarathy
-ms.author: shvija
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/12/2020
+ms.date: 06/23/2020
 ---
 
 # Quickstart: Data streaming with Event Hubs using the Kafka protocol
@@ -41,7 +36,7 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 
 3. Update the configuration details for the producer in `src/main/resources/producer.config` as follows:
 
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -71,7 +66,7 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 
 6. Update the configuration details for the consumer in `src/main/resources/consumer.config` as follows:
    
-    **SSL:**
+    **TLS/SSL:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093

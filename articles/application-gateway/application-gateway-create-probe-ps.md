@@ -5,7 +5,7 @@ description: Learn how to create a custom probe for Application Gateway by using
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 
@@ -192,5 +192,5 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](application-gateway-ssl-arm.md)
 

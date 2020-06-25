@@ -5,13 +5,14 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Blob storage trigger for Azure Functions
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-The Azure Blob storage trigger require a general-purpose storage account. To use a blob-only account, or if your application has specialized needs, review the alternatives to using this trigger.
+The Azure Blob storage trigger requires a general-purpose storage account. Storage V2 accounts with [hierarchal namespaces](../storage/blobs/data-lake-storage-namespace.md) are also supported. To use a blob-only account, or if your application has specialized needs, review the alternatives to using this trigger.
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md).
 
@@ -386,7 +387,7 @@ Azure Functions stores blob receipts in a container named *azure-webjobs-hosts* 
 * The blob name
 * The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
 
-To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time.
+To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time. To reprocess immediately, the *scaninfo* blob in *azure-webjobs-hosts/blobscaninfo* can be updated. Any blobs with a last modified timestamp after the `LatestScan` property will be scanned again.
 
 ## Poison blobs
 

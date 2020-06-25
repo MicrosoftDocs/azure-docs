@@ -103,12 +103,12 @@ The redirect URI is the URI the identity provider will send the security tokens 
 ### Redirect URI for public client apps
 
 If you're a public client app developer who's using MSAL:
-- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's 
-  redirect uri property to the default recommended redirect uri for public client applications. 
+- You'd want to use `.WithDefaultRedirectUri()` in desktop or UWP applications (MSAL.NET 4.1+). This method will set the public client application's
+  redirect uri property to the default recommended redirect uri for public client applications.
 
-  Platform  | Redirect URI  
+  Platform  | Redirect URI
   ---------  | --------------
-  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  Desktop app (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient`
   UWP | value of `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. This enables SSO with the browser by setting the value to the result of WebAuthenticationBroker.GetCurrentApplicationCallbackUri() which you need to register
   .NET Core | `https://localhost`. This enables the user to use the system browser for interactive authentication since .NET Core doesn't have a UI for the embedded web view at the moment.
 
@@ -129,7 +129,7 @@ For additional Android details, see [Brokered auth in Android](brokered-auth.md)
 
 ### Redirect URI for confidential client apps
 
-For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/Web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
+For web apps, the redirect URI (or reply URI) is the URI that Azure AD will use to send the token back to the application. This URI can be the URL of the web app/web API if the confidential app is one of these. The redirect URI needs to be registered in app registration. This registration is especially important when you deploy an app that you've initially tested locally. You then need to add the reply URL of the deployed app in the application registration portal.
 
 For daemon apps, you don't need to specify a redirect URI.
 

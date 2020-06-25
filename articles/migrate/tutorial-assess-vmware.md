@@ -1,11 +1,12 @@
 ---
-title: Assess VMware VMs for migration to Azure
+title: Assess VMware VMs with Azure Migrate Server Assessment
 description: Describes how to assess on-premises VMware VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 03/23/2019
+ms.date: 06/03/2020
+ms.custom: mvc
 ---
 
-# Assess VMware VMs by using Azure Migrate Server Assessment
+# Assess VMware VMs with Server Assessment
 
 This article shows you how to assess on-premises VMware virtual machines (VMs), using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete the first tutorial](tutorial-prepare-vmware.md) in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Prepare Azure](tutorial-prepare-vmware.md#prepare-azure) to work with Azure Migrate.
-    - [Prepare VMware for assessment](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) for assessment. This includes checking VMware settings, setting up an account that Azure Migrate can use to access vCenter Server.
+    - [Prepare VMware for assessment](tutorial-prepare-vmware.md#prepare-for-assessment) for assessment. This includes checking VMware settings, setting up an account that Azure Migrate can use to access vCenter Server.
     - [Verify](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) what you need in order to deploy the Azure Migrate appliance for VMware assessment.
 
 ## Set up an Azure Migrate project
@@ -43,9 +44,7 @@ Set up a new Azure Migrate project as follows:
 
 1. In **Getting started**, select **Add tools**.
 1. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-1. In **Project Details**, specify the project name and the geography in which you want to create the project. Asia, Europe, United Kingdom, and United States are supported.
-
-   The project geography is used only to store the metadata gathered from on-premises VMs. You can select any target region when you run a migration.
+1. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Boxes for project name and region](./media/tutorial-assess-vmware/migrate-project.png)
 
@@ -60,12 +59,12 @@ Set up a new Azure Migrate project as follows:
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate.
-- The appliance can be set up on a VMware VM using a downloaded OVA template. Alternatively, you can set up the appliance on a VM or physical machine with a PowerShell installer script.
-- This tutorial uses the OVA template. Review [this article](deploy-appliance-script.md) if you want to set up the appliance using a script.
+Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. The appliance can be set up in a number of ways.
+
+- Set up on a VMware VM using a downloaded OVA template. This is the method used in this tutorial.
+- Set up on a VMware VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
-
 
 
 ### Download the OVA template
@@ -81,18 +80,26 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 Check that the OVA file is secure, before you deploy it:
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-1. Run the following command to generate the hash for the OVA file:
+2. Run the following command to generate the hash for the OVA file:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-For version 2.19.07.30, the generated hash should match these values:
+3. Verify the latest appliance versions and hash values:
 
-**Algorithm** | **Hash value**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - For the Azure public cloud:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - For Azure Government:
+    
+        **Algorithm** | **Download** | **SHA256**
+        --- | --- | ---
+        VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### Create the appliance VM
 
@@ -110,9 +117,9 @@ Import the downloaded file, and create a VM:
 1. In **Network Mapping**, specify the network to which the VM will connect. The network needs internet connectivity to send metadata to Azure Migrate Server Assessment.
 1. Review and confirm the settings, and then select **Finish**.
 
-### Verify appliance access to Azure
+## Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ### Configure the appliance
 
@@ -131,7 +138,7 @@ Set up the appliance for the first time.
    - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
      - Select **Proxy settings**, and specify the proxy address and listening port in the form http://ProxyIPAddress or http://ProxyFQDN.
      - Specify credentials if the proxy needs authentication.
-     - Note that only HTTP proxy is supported.
+     - Only HTTP proxy is supported.
    - **Time sync**: The time on the appliance should be in sync with internet time for discovery to work properly.
    - **Install updates**: The appliance ensures that the latest updates are installed.
    - **Install VDDK**: The appliance checks that VMWare vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
@@ -158,15 +165,15 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
 2. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
-    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 
 3. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
-4. In **Discover applications and dependencies on VMs**, optionally click **Add credentials**, and specify the operating system for which the credentials are relevant, and the credentials username and password. Then click **Add**..
+4. In **Discover applications and dependencies on VMs**, optionally click **Add credentials**, and specify the operating system for which the credentials are relevant, and the credentials username and password. Then click **Add**.
 
     - You optionally add credentials here if you've created an account to use for the [application discovery feature](how-to-discover-applications.md), or the [agentless dependency analysis feature](how-to-create-group-machine-dependencies-agentless.md).
     - If you're not using these features, you can skip this setting.
-    - Review the credentials needed for [app discovery](migrate-support-matrix-vmware.md#application-discovery), or for [agentless analysis](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Review the credentials needed for [app discovery](migrate-support-matrix-vmware.md#application-discovery-requirements), or for [agentless analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Save and start discovery**, to kick off VM discovery.
 
@@ -250,7 +257,7 @@ The aggregated storage costs for the assessed group are split over different typ
 
 ### Review confidence rating
 
-Azure Migrate Server Assessment assigns a confidence rating to a performance-based assessment, from 1 star (lowest) to 5 stars (highest).
+Azure Migrate Server Assessment assigns a confidence rating to a performance-based assessment, from one star (lowest) to five stars (highest).
 
 ![Confidence rating](./media/tutorial-assess-vmware/confidence-rating.png)
 

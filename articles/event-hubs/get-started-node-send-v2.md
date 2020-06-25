@@ -1,15 +1,8 @@
 ---
 title: Send or receive events from Azure Event Hubs using JavaScript (latest)
 description: This article provides a walkthrough for creating a JavaScript application that sends/receives events to/from Azure Event Hubs using the latest azure/event-hubs version 5 package. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 01/30/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Send events to or receive events from event hubs by using JavaScript  (azure/event-hubs version 5)
@@ -117,7 +110,7 @@ To create an Azure storage account and a blob container in it, do the following 
 
 1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
 2. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
-3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
+3. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
 Be sure to record the connection string and container name for later use in the receive code.
 
@@ -183,7 +176,7 @@ Be sure to record the connection string and container name for later use in the 
 1. Run `node receive.js` in a command prompt to execute this file. The window should display messages about received events.
 
     > [!NOTE]
-    > For the complete source code, including additional informational comments, go to the [GitHub receiveEventsUsingCheckpointStore.js page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsUsingCheckpointStore.js).
+    > For the complete source code, including additional informational comments, go to the [GitHub receiveEventsUsingCheckpointStore.js page](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
 
 Congratulations! You have now received events from your event hub. The receiver program will receive events from all the partitions of the default consumer group in the event hub.
 

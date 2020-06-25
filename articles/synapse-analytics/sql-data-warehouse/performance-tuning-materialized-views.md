@@ -1,23 +1,20 @@
 ---
-title: Performance tuning with materialized views 
+title: Performance tuning with materialized views
 description: Recommendations and considerations you should know as you use materialized views to improve your query performance. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
 ---
 
 # Performance tuning with materialized views
 
-The materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
-
-The materialized views in Azure SQL Data Warehouse provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
+Materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
 ## Materialized views vs. standard views
 
@@ -40,7 +37,7 @@ Most of the requirements on a standard view still apply to a materialized view. 
 
 ## Benefits of using materialized views
 
-A properly designed materialized view can provide following benefits:
+A properly designed materialized view provides the following benefits:
 
 - Reduce the execution time for complex queries with JOINs and aggregate functions. The more complex the query, the higher the potential for execution-time saving. The most benefit is gained when a query's computation cost is high and the resulting data set is small.  
 - The optimizer in SQL pool can automatically use deployed materialized views to improve query execution plans.  This process is transparent to users providing faster query performance and doesn't require queries to make direct reference to the materialized views.
@@ -113,7 +110,7 @@ Options to reduce the number of materialized views:
 
 - Drop the materialized views that have low usage or are no longer needed.  A disabled materialized view is not maintained but it still incurs storage cost.  
 
-- Combine materialized views created on the same or similar base tables even if their data doesn't overlap.  Combing materialized views could result in a larger view in size than the sum of the separate views, however the view maintenance cost should reduce.  For example:
+- Combine materialized views created on the same or similar base tables even if their data doesn't overlap.  Combining materialized views could result in a larger view in size than the sum of the separate views, however the view maintenance cost should reduce.  For example:
 
 ```sql
 
@@ -157,7 +154,7 @@ Materialized views allow data changes in the base tables.  Data in materialized 
 
 ## Example
 
-This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, identify the preferred customers and their country of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY.
+This example uses a TPCDS-like query that finds customers who spend more money via catalog than in stores, identify the preferred customers and their country/region of origin.   The query involves selecting TOP 100 records from the UNION of three sub-SELECT statements involving SUM() and GROUP BY.
 
 ```sql
 WITH year_total AS (

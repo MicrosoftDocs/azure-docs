@@ -1,20 +1,16 @@
-﻿---
+---
 title: Azure Government ITAR Overview | Microsoft  Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: kydeeds
-manager: zakramer
 
-ms.assetid: e8c2c89e-d397-46f2-9b86-fd22049ffabf
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/14/2016
-ms.author: kydeeds
 
 ---
 # ITAR Overview for Azure Government

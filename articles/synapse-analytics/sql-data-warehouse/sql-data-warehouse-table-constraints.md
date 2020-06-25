@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
@@ -23,7 +23,10 @@ Synapse SQL pool supports these table constraints:
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
 - UNIQUE constraint is only supported with NOT ENFORCED is used.
 
+For syntax, check [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) and [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
+
 FOREIGN KEY constraint is not supported in Synapse SQL pool.  
+
 
 ## Remarks
 

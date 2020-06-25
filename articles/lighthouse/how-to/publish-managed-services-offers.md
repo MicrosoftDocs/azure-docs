@@ -1,13 +1,13 @@
 ---
-title: Publish a managed service offer to Azure Marketplace
-description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-ms.date: 03/30/2020
-ms.topic: conceptual
+title: Publish a Managed Service offer to Azure Marketplace
+description: Learn how to publish a Managed Service offer that onboards customers to Azure delegated resource management.
+ms.date: 05/04/2020
+ms.topic: how-to
 ---
 
-# Publish a managed service offer to Azure Marketplace
+# Publish a Managed Service offer to Azure Marketplace
 
-In this article, you'll learn how to publish a public or private managed service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in [Partner Center](https://partner.microsoft.com/). Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer are then able to to onboard subscriptions and resource groups for [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
 ## Publishing requirements
 
@@ -22,20 +22,20 @@ Your Microsoft Partner Network (MPN) ID will be [automatically associated](../..
 
 ## Create your offer
 
-For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a new Managed Services offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
+For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see  [Create a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
 To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies), particularly the [Managed Services](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services) section.
 
 Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded for Azure delegated resource management](#the-customer-onboarding-process).
 
 > [!IMPORTANT]
-> Each plan in a Managed service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate [private plan](../../marketplace/private-offers.md) that is exclusive to each customer.
+> Each plan in a Managed Service offer includes a **Manifest Details** section, where you define the Azure Active Directory (Azure AD) entities in your tenant that will have access to the delegated resource groups and/or subscriptions for customers who purchase that plan. It's important to be aware that any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you'll need to publish a separate [private plan](../../marketplace/private-offers.md) that is exclusive to each customer.
 
 ## Publish your offer
 
-Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More information about this process can be found [here](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish).
+Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More info about this process, can be found [here](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#publish). 
 
-You can [publish an updated version of your offer](../../marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
+You can [publish an updated version of your offer](../..//marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
 ## The customer onboarding process
 

@@ -1,5 +1,5 @@
 ---
-title: Create a function app from the Azure Portal 
+title: Create a function app from the Azure portal 
 description: Create a new function app in Azure from the portal. 
 ms.topic: how-to
 ms.date: 08/29/2019
@@ -31,7 +31,7 @@ When creating a function app, you must create or link to a general-purpose Azure
 >[!NOTE]
 >When using the Consumption hosting plan, your function code and binding configuration files are stored in Azure File storage in the main storage account. When you delete the main storage account, this content is deleted and cannot be recovered.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#azure-storage-services). 
+To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
 ## Next steps
 

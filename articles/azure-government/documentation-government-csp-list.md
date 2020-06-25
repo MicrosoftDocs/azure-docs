@@ -3,11 +3,9 @@ title: Azure Government authorized reseller list
 description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
 services: azure-government
 cloud: gov
-author: todorgb
 ms.service: azure-government
 ms.topic: article
 ms.date: 03/11/2020
-ms.author: todorb
 ---
 # Azure Government authorized reseller list
 
@@ -23,7 +21,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[1901 Group, LLC](https://1901group.com)|
 |[3Di inc](https://www.3disystems.com)|
 |[AC4S Consulting, Inc.](https://ac4s.com)|
-|[Accelera Solutions Inc](https://www.accelerasolutions.com/)|
+|[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
 |[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[ACP Technologies](https://acp.us.com)|
@@ -87,11 +85,11 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
-|[CodeLynx, LLC](https://www.codelynx.com/)|
+|[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
 |[Computer Professionals International](http://www.comproinc.com/)|
 |[Computer Solutions Inc.](http://cs-inc.co/)|
-|[Computex Technology Solutions](https://www.computex-inc.com/)|
+|[Computex Technology Solutions](http://www.computex-inc.com/)|
 |[ConvergeOne](https://www.convergeone.com)|
 |[Copper River Technologies, LLC](http://www.copperrivertech.com/)|
 |[Coretek Services](https://www.coretekservices.com/)|
@@ -211,7 +209,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[ManCom Inc](https://www.mancominc.com/)|
 |[ManTech](https://www.mantech.com/Pages/Home.aspx)|
 |[MetroStar Systems Inc.](https://www.metrostarsystems.com)|
-|[Mibura Inc.](https://www.mibura.com)|
+|Mibura Inc.|
 |[Microtechnologies, LLC](https://www.microtech.net/)|
 |[Miken Technologies](https://www.miken.net)|
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
@@ -272,13 +270,13 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Red Level](https://redlevelgroup.com/)|
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
-|[Regan Technologies Corporation](https://www.regantech.com/)|
+|[Regan Technologies Corporation](http://www.regantech.com/)|
 |Reperi LLC|
 |[Resource Metrix](https://www.rmtrx.com)|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
-|[Saiph Technologies Corporation](https://www.saiphtech.com/)|
+|[Saiph Technologies Corporation](http://www.saiphtech.com/)|
 |[SAP NS2](https://sapns2.com)|
 |[Science Applications International Corporation](https://www.saic.com)|
 |[Secure-24](https://www.secure-24.com)|
@@ -291,9 +289,9 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[Smartronix](https://www.smartronix.com)|
-|[Socius 1 LLC](https://www.socius1.com)|
+|[Socius 1 LLC](http://www.socius1.com)|
 |[Softchoice Corporation](https://www.softchoice.com)|
-|[Software Services Group (dba Secant Technolgies)](https://www.secantcorp.com/)|
+|[Software Services Group (dba Secant Technologies)](https://www.secantcorp.com/)|
 |[SoftwareONE Inc.](https://www.softwareone.com/en-us)|
 |[Solution Systems Inc.](https://www.solsyst.com/)|
 |[Stabilify](http://www.stabilify.net/)|
@@ -307,7 +305,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Sumo Logic](https://www.sumologic.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
@@ -336,7 +334,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Vana Solutions LLC](https://vanasolutions.com)|
 |[Vazata - Horizon Data Center Solutions LLC](https://www.vazata.com/)|
 |[VC3 INC](https://www.vc3.com/)|
-|[VerisVisalign](https://www.verisvisalign.com)|
+|[VerisVisalign](http://www.verisvisalign.com)|
 |[Vertosoft](https://vertosoft.com)|
 |[Vespa Group LLC](https://www.vespa-group.com)|
 |[Virsage Solutions](https://www.virsage.com/)|
