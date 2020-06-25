@@ -393,7 +393,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
+For more information, see the [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) article.
 
 #### Event Hubs trigger configuration (version 3.*x*)
 
@@ -421,11 +421,11 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
+For more information, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
 
 ### Queue storage trigger configuration
 
-These examples show how to configure the Queue storage trigger:
+The following examples show how to configure the Queue storage trigger.
 
 #### Version 3.*x*
 
@@ -451,7 +451,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) article.
+For more information, see the [Queue storage binding](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) article.
 
 #### Version 2.*x*
 
@@ -468,7 +468,7 @@ static void Main(string[] args)
 }
 ```
 
-For more details, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
+For more information, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
 
 ### SendGrid binding configuration (version 3.*x*)
 
@@ -495,7 +495,7 @@ static async Task Main()
 }
 ```
 
-For more details, see the [SendGrid binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) article.
+For more information, see the [SendGrid binding](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings) article.
 
 ### Service Bus trigger configuration (version 3.*x*)
 
@@ -522,11 +522,11 @@ static async Task Main()
 }
 ```
 
-For more details, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
+For more information, see the [Service Bus binding](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) article.
 
 ### Configuration for other bindings
 
-Some trigger and binding types define their own custom configuration types. For example, the File trigger lets you specify the root path to monitor, as in these examples:
+Some trigger and binding types define their own custom configuration types. For example, the File trigger lets you specify the root path to monitor, as in the following examples.
 
 #### Version 3.*x*
 
@@ -731,7 +731,7 @@ You can apply the Timeout attribute at the class or method level, and you can sp
 
 ### Singleton attribute
 
-The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. It does this by using [distributed locking](#viewing-lease-blobs).
+The [`Singleton`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonAttribute.cs) attribute ensures that only one instance of a function runs, even when there are multiple instances of the host web app. The Singleton attribute uses [distributed locking](#viewing-lease-blobs) to ensure that one instance runs.
 
 In this example, only a single instance of the `ProcessImage` function runs at any given time:
 
@@ -758,7 +758,7 @@ You can use these settings to ensure that your function runs as a singleton on a
 
 #### Scope values
 
-You can specify a *scope expression/value* on a singleton. The expression/value ensures that all executions of the function at a specific scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function while serializing other invocations as dictated by your requirements. For example, in the following code, the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in regions East, East, and West respectively, the messages that have region East are run serially while the message with region West is run in parallel with those in East.
+You can specify a *scope expression/value* on a singleton. The expression/value ensures that all executions of the function at a specific scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function while serializing other invocations as dictated by your requirements. For example, in the following code, the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in regions East, East, and West, the messages that have region East are run serially. The message with region West is run in parallel with those in region East.
 
 ```csharp
 [Singleton("{Region}")]
