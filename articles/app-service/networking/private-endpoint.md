@@ -61,7 +61,7 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This i
 
 ## DNS
 
-By default without Private Endpoint the public name of your web app is a canonical name to the cluster name pointing to the Public IP of the cluster.
+By default, without Private Endpoint, the public name of your web app is a canonical name to the cluster.
 For example, the name resolution will be:
 mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net
 clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net
@@ -74,18 +74,20 @@ mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.n
 clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net
 cloudservicename.cloudapp.net A 40.122.110.154 
 
-If you have a private DNS server or an Azure DNS private zone, you need to setup a zone named privatelink.azurewebsites.net, and register the record for your web app with a A record and the Private Endpoint IP.
+If you have a private DNS server or an Azure DNS private zone, you need to setup a zone named privatelink.azurewebsites.net. Register the record for your web app with a A record and the Private Endpoint IP.
 For example, the name resolution will be:
 mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net
 mywebapp.privatelink.azurewebsites.net A 10.10.10.8 
 
-If you need to use a custom DNS name, you must add the custom name in your Web App. During the preview, the custom name must be validated like any custom name, using public DNS resolution. For more information, see [custom DNS validation][dnsvalidation].
+If you need to use a custom DNS name, you must add the custom name in your Web App. 
+During the preview, the custom name must be validated like any custom name, using public DNS resolution. 
+For more information, see [custom DNS validation][dnsvalidation].
 
 If you need to use the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you need to create two records in your Azure DNS private zone or your custom DNS server. 
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
-Please note that these two records are automaticaly populated if you have a private zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
+Note that these two records are automaticaly populated if you have a private zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
 
 ## Pricing
 
