@@ -11,3 +11,8 @@ If you want just to try Azure Communications Services or build a new project wit
 
 > [!NOTE]
 > Microsoft does not provide voice telephony services in each country. We keep expanding the countries rapidly. If your country is not served by Microsoft directly, you can interconnect the telephony via the SIP interface on your own or with our partners' help. The SIP interface does not allow interconnection with your own carrier for sending and receiving the SMS
+
+If your customer has an existing phone number and they want to keep using in your solution (for example, 1 800 – COMPANY), you have several choices.
+If Microsoft provides voice calling services in your country, you can port the phone number from the existing partner to Microsoft.
+If you do not want to port the number (keep it with the existing partner) or Microsoft does not yet provide the voice calling services in your country, you can interconnect your partner via the Azure Communication Services SIP Interface (available soon)
+The following diagram helps you to navigate through the available options, based on your scenario
