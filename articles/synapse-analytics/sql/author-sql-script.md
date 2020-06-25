@@ -18,31 +18,25 @@ Azure Synapse Studio (preview) provides a SQL script web interface for you to au
 There are several ways to start the authoring experience in SQL script. You can create a new SQL script through one of the following methods.
 
 1. Select the **"+"** icon and choose **SQL script**. 
-
- ![newsqlscript](media/author-sql-script/newsqlscript.png)
+![newsqlscript](media/author-sql-script/newsqlscript.png)
 
 2. From the Actions menu under Develop SQL scripts Choose **New SQL script** from the **Actions** menu under Develop SQL scripts.
-
 ![newsqlscript2actions](media/author-sql-script/newsqlscript2actions.png)
 
 Alternatively, you can: 
 
 3. Choose **Import** from the **Actions** menu under Develop SQL scripts and select an existing SQL script from your local storage.
-
 ![newsqlscript3actions](media/author-sql-script/newsqlscript3actions.png)
 
 ## Create your SQL script
 
 1. Choose a name for your SQL script by selecting the **Property** button and replacing the default name assigned to the SQL script. 
-
 ![newsqlscriptrename](media/author-sql-script/newsqlscriptrename.png)
 
 2. Choose the specific SQL pool or the SQL on-demand from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**. 
-
 ![newsqlchoosepool](media/author-sql-script/newsqlchoosepool.png)
 
 3. Start authoring your SQL script using the intellisense feature.
-
 ![newsqlintellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## Run your SQL script
