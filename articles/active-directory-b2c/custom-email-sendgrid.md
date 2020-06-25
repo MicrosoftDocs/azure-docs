@@ -1,4 +1,3 @@
-
 ---
 title: Custom email verification with SendGrid
 titleSuffix: Azure AD B2C
