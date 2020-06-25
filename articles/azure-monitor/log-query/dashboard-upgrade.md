@@ -29,11 +29,11 @@ The new visualization technology addresses some common issues with the old imple
 
 1. **Same available types** - All visualization types available in Log Analytics are available as pinned parts on dashboards.
 
-1. **Consistent look-and-feel** - The visualization look-and-feel for pinned parts are now almost identical to that in Log Analytics. The differences are due to optimizations which require subtle differences in the data contents of the visual. See the considerations part of this document for more insight into those differences.
+1. **Consistent look-and-feel** - The visualization look-and-feel for pinned parts are now almost identical to those in Log Analytics. The differences are due to optimizations which require subtle differences in the data contents of the visual. See the considerations part of this document for more insight into those differences.
 
 1. **Tooltips and labels** – New pinned Log Analytics visualizations support tooltips. Pie and doughnut charts now support labels.
 
-1. **Interactive legends** – Clicking the visualization legend allows adding/removing of dimensions from the pinned visual just as in As in Log Analytics.
+1. **Interactive legends** – Clicking the visualization legend allows adding/removing of dimensions from the pinned visual as in Log Analytics.
 
 ## Stage 1 - Opt-in upgrade message
 
@@ -48,7 +48,7 @@ When a Log Analytics pinned part is able to be upgraded, a new *opt-in* notifica
 
 Once clicked, the visualization will be updated to the new technology. Subtle differences in the visualization may occur to align with their look-and-feel in Log Analytics.
 
-After the visualizations are upgraded, you will need to re-publish your dashboard for the change to take effect: 
+After the visualizations are upgraded, you need to republish your dashboard for the change to take effect. 
 
  ![Sidebar](media/dashboard-upgrade/update-message-3.png)
 
@@ -57,17 +57,17 @@ After the visualizations are upgraded, you will need to re-publish your dashboar
 
 After an initial opt-in period is over, the Log Analytics team will upgrade all dashboards in the system. Aligning all Azure dashboards allows the team to introduce more visualizations and experience improvements across the board.
 
-## Considerations 
+## Considerations
 
-Log Analytics visualizations pinned to a dashboard have some specific behavior designed for an optimal experience. Please note the following considerations when pinning a visualization to a dashboard.
+Log Analytics visualizations pinned to a dashboard have some specific behavior designed for an optimal experience. Consider the following design considerations when pinning a visualization to a dashboard.
 
-**Query time scope - 30 day limit**
+**Query time scope - 30-day limit**
 
 As dashboards may contain multiple visualizations from multiple queries, the time scope for a single pinned query is limited to 30 days. A single query may only run on a time span smaller or equal to 30 days. This limitation is to ensure a reasonable dashboard load time.
 
-**Query data values - 25 values with other grouping** 
+**Query data values - 25 values and other grouping** 
 
-Dashboards are a visually dense and complex artifacts.  In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. 
+Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. 
 
 **Dashboard refresh on load**
 
