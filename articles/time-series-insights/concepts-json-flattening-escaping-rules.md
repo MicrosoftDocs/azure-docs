@@ -10,7 +10,7 @@ ms.date: 06/25/2020
 
 # JSON flattening and escaping rules - Gen 2
 
-This article describes... 
+This article describes...
 
 ## Article body
 

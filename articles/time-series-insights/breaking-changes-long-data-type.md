@@ -16,7 +16,7 @@ ms.custom: dpalled
 
 These changes will be applied to Preview (PAYG) environments only. If you have a Standard (S) SKU TSI environment, you may disregard these changes.
 
-We are making changes to how we store and index numeric data in Azure Time Series Insights Preview that might impact you. If you’re impacted by any of the cases below, make the necessary changes as soon as possible. Your data will start being indexed as Long and Double between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
+We are making changes to how we store and index numeric data in Azure Time Series Insights Preview that might impact you. If you’re impacted by any of the cases below, make the necessary changes as soon as possible. Your data will start being indexed as Long and Double between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication. 
 
 This change impacts you in the following cases:
 
