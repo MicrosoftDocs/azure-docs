@@ -158,7 +158,7 @@ Connect Storage Explorer to your target Microsoft Azure subscription or Azure St
 
 ### Migrate tables
 
-Copy tables from Germany source to global storage table using Storage Explorer. You can copy tables by right clicking the table you want to copy and choosing **Copy table** from the shortcut menu. The following example shows copying the *testmigrationtable* from an *Azure Germany subscription*.
+Copy tables from Azure Germany to an Azure global using Storage Explorer. You can copy tables by right clicking the table you want to copy and choosing **Copy table** from the shortcut menu. The following example shows copying the *testmigrationtable* from an *Azure Germany subscription*.
 
 ![Copy table menu selected from Azure Germany subscription](./media/germany-migration-storage/copy-table.png)
 
@@ -167,6 +167,44 @@ Paste the table into the target Azure Storage account using Storage Explorer. Yo
 ![Paste table menu selected from target Azure Storage](./media/germany-migration-storage/paste-table.png)
 
 Repeat the copy and paste steps for each table you want to migrate.
+
+## File shares
+
+Use AzCopy for your migration to copy file shares directly from Azure Germany to global Azure. AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works for Azure-to-Azure, on-premises-to-Azure, and Azure-to-on-premises migrations. 
+
+[Download AzCopy](https://aka.ms/downloadazcopy).
+
+The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+
+AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
+
+```http
+https://<storageaccountname>.blob.core.cloudapi.de/<filesharename>
+```
+
+URIs for global Azure always have this format:
+
+```http
+https://<storageaccountname>.blob.core.windows.net/<filesharename>
+```
+
+You need a storage account SAS token to access the Azure Storage account. 
+
+This example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account.
+
+URI part | example value
+-------- | --------------
+Source storageAccount | `migratetest`
+Source file share | `sourcefileshare`
+Target storageAccount | `migratetarget`
+Target fileshare | `targetfileshare`
+
+
+```cmd
+azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
+```
+
+For more information about AzCopy, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md) and [Transfer data with AzCopy and file storage](../storage/common/storage-use-azcopy-files#copy-files-between-storage-accounts).
 
 ## Next steps
 
