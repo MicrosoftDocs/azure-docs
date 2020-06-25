@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 05/08/2020
+ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
 ---
