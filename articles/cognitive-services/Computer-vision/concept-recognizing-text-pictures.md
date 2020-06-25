@@ -43,10 +43,7 @@ The Read API takes the following inputs:
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
-Text from images and PDF documents | Handwritten Text in English
------------- | -------------
-![An image being rotated and its text being read and delineated](./Images/text-from-images-example.png) | Content from cell 2
-The Read API takes images and PDF documents as inputs, and outputs average angle of rotation, height, and width of the pages. Within each page, it outputs text lines and words with bounding box coordinates for each text line and word. | Content in the second column
+
 ### Text from images and PDF documents
 
 The Read API takes images and PDF documents as inputs, and outputs average angle of rotation, height, and width of the pages. Within each page, it outputs text lines and words with bounding box coordinates for each text line and word.
