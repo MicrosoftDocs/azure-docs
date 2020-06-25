@@ -409,27 +409,27 @@ In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/c
 
 2.	Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
 
-   ```csharp
+    ```csharp
 
-   public sealed partial class MainPage : Page
-   {
+    public sealed partial class MainPage : Page
+    {
+            ...
+
+            string redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker
+                                .GetCurrentApplicationCallbackUri().ToString();
+            public MainPage()
+            {
+                ...
+            }
            ...
-
-           string redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker
-                               .GetCurrentApplicationCallbackUri().ToString();
-           public MainPage()
-           {
-               ...
-           }
-          ...
-   }
+    }
   
-   ```
+    ```
 
-   Run the app, and then copy the value of `redirectUri` when the breakpoint is hit. The value should look something similar to the following:  
-   `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Run the app, and then copy the value of `redirectUri` when the breakpoint is hit. The value should look something similar to the following:  
+    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-   You can then remove the line of code because it's required only once, to fetch the value.
+    You can then remove the line of code because it's required only once, to fetch the value. 
 
 3. In the app registration portal, add the returned value in **RedirectUri** in the **Authentication** blade.
    
