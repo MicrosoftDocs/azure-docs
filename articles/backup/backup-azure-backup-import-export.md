@@ -84,7 +84,7 @@ This section describes the offline backup workflow so that your data can be deli
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. The staging location might be on a network share or a local computer. If the copy computer and source computer are different, specify the full network path of the staging location.
     * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account (general purpose v1 or general purpose v2) in any Azure subscription.
-    * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported before being copied to the Recovery Services vault.
+    * **Azure Storage Container**: The name of the destination blob storage container in the Azure storage account where the backup data is imported before being copied to the Recovery Services vault.
     * **Azure Subscription ID**: The ID for the Azure subscription where the Azure storage account is created.
     * **Azure Import Job Name**: The unique name by which the Azure Import/Export service and Azure Backup track the transfer of data sent on disks to Azure.
   

@@ -281,7 +281,7 @@ op monitor interval=3600
 </code></pre>
 
 > [!IMPORTANT]
-> Make sure that cluster property **concurrent-fencing** is also set to *true*, in addition to the recommended stonith configuration, so that the monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
+> The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
 
 ### **[1]** Enable the use of a STONITH device
 

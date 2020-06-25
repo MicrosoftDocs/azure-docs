@@ -50,7 +50,7 @@ Some subscription channels are not supported:
 | Pay As You Go                | Yes                               |
 | Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
+| Sponsored                    | Yes                               |
 | Free Trial                   | Not available                     |
 
 
