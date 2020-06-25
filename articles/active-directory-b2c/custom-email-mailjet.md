@@ -414,42 +414,42 @@ To localize the email, you must send localized strings to Mailjet, or your email
 1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
 1. Update your Mailjet template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
-```XML
-<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
-    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
-    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
-    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
-  </OutputClaims>
-</ClaimsTransformation>
-<ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
-    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="Messages.0.Subject" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
-    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="Messages.0.Variables.otpmessage" />
-    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="Messages.0.Variables.otpcodeIntro" />
-    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="Messages.0.Variables.otpsignature" />
-  </InputClaims>
-  <InputParameters>
-    <!-- Update the template_id value with the ID of your Mailjet template. -->
-    <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
-    <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
+    ```XML
+    <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+        <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+        <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+        <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.To.0.Email" />
+        <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="Messages.0.Subject" />
+        <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="Messages.0.Variables.otp" />
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="Messages.0.Variables.email" />
+        <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="Messages.0.Variables.otpmessage" />
+        <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="Messages.0.Variables.otpcodeIntro" />
+        <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="Messages.0.Variables.otpsignature" />
+      </InputClaims>
+      <InputParameters>
+        <!-- Update the template_id value with the ID of your Mailjet template. -->
+        <InputParameter Id="Messages.0.TemplateID" DataType="int" Value="1234567"/>
+        <InputParameter Id="Messages.0.TemplateLanguage" DataType="boolean" Value="true"/>
 
-    <!-- Update with an email appropriate for your organization. -->
-    <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
-  </OutputClaims>
-</ClaimsTransformation>
-```
+        <!-- Update with an email appropriate for your organization. -->
+        <InputParameter Id="Messages.0.From.Email" DataType="string" Value="my_email@mydomain.com"/>
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
+      </OutputClaims>
+    </ClaimsTransformation>
+    ```
 
 1. Add the following [Localization](localization.md) element.
- 
-```xml
+
+    ```xml
     <Localization Enabled="true">
       <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
         <SupportedLanguage>en</SupportedLanguage>
@@ -473,19 +473,27 @@ To localize the email, you must send localized strings to Mailjet, or your email
         </LocalizedStrings>
       </LocalizedResources>
     </Localization>
-```
+    ```
 
-1. Finally, add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
+1. Add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
 
-```xml
-<ContentDefinition Id="api.localaccountsignup">
-  <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
-  <LocalizedResourcesReferences MergeBehavior="Prepend">
-    <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-    <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
-  </LocalizedResourcesReferences>
-</ContentDefinition>
-```
+    ```xml
+    <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+      <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+      </LocalizedResourcesReferences>
+    </ContentDefinition>
+    ```
+
+1. Finally, add the following input claims transformation to the LocalAccountSignUpWithLogonEmail technical profile.
+
+    ```xml
+    <InputClaimsTransformations>
+      <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
+    </InputClaimsTransformations>
+    ```
 
 ## Next steps
 
