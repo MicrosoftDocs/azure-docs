@@ -42,9 +42,6 @@ For more information on delivering events to webhooks, see [Webhook event delive
 > [!IMPORTANT]
 Azure Event Grid only supports **HTTPS** webhook endpoints. 
 
-### Encryption at rest
-
-All events or data written to disk by the Event Grid service are encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
 
 ## Next steps
-See [Authenticate publishing client](security-authenticate-publishing-clients.md) to learn about authenticating clients publishing events to topics or domains. 
+See [Authenticate publishing clients](security-authenticate-publishing-clients.md) to learn about authenticating clients publishing events to topics or domains. 

@@ -184,7 +184,7 @@
       href: security-authentication.md
     - name: Authenticate publishing clients
       href: security-authenticate-publishing-clients.md
-    - name: Authorization 
+    - name: Authorize access to Event Grid resources 
       href: security-authorization.md
     - name: Network security
       href: network-security.md

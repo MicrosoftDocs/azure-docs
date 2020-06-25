@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.author: spelluru
 ---
 
-# Get access key for an Event Grid resource (topic or domain)
-Access keys are used to authenticate an application publishing events to Azure Event Grid topics or domains. We recommend regenerating your keys regularly and storing them securely. You are provided with two access keys so that you can maintain connections using one key while regenerating the other.
+# Get access keys for Event Grid resources (topics or domains)
+Access keys are used to authenticate an application publishing events to Azure Event Grid resources (topics and domains). We recommend regenerating your keys regularly and storing them securely. You are provided with two access keys so that you can maintain connections using one key while regenerating the other.
 
-This article describes how to get access keys for an Event Grid topic or domain using Azure portal, PowerShell, or CLI. 
+This article describes how to get access keys for an Event Grid resource (topic or domain) using Azure portal, PowerShell, or CLI. 
 
 ## Azure portal
 In the Azure portal, switch to **Access keys** tab of the **Event Grid Topic** or **Event Grid Domain** page for your topic or domain.  
