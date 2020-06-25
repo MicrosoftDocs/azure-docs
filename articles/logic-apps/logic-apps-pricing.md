@@ -7,7 +7,7 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 06/25/2020
 ---
 
 # Pricing model for Azure Logic Apps
@@ -117,7 +117,7 @@ If you have an [*integration service environment* (ISE)](../logic-apps/connect-v
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This level isn't available for [Azure China 21Vianet](../china/overview-operations.md) or for [Azure Government (Arizona, Texas, and Virginia)](../azure-government/documentation-government-welcome.md). For more information, see [Azure Locations] (https://azure.microsoft.com/global-infrastructure/locations/).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 
