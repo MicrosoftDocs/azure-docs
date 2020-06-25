@@ -21,7 +21,7 @@ With Live Metrics Stream, you can:
 * Monitor any Windows performance counter live.
 * Easily identify a server that is having issues, and filter all the KPI/live feed to just that server.
 
-[![Live Metrics Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+![Live Metrics tab](./media/live-stream/live-metric.png)
 
 Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
 
@@ -58,42 +58,43 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time.
 
-![Custom Request KPI](./media/live-stream/live-stream-filteredMetric.png)
+![Filter request rate](./media/live-stream/filter-request.png)
 
 You can monitor a value different from Count. The options depend on the type of stream, which could be any Application Insights telemetry: requests, dependencies, exceptions, traces, events, or metrics. It can be your own [custom measurement](../../azure-monitor/app/api-custom-events-metrics.md#properties):
 
-![Value Options](./media/live-stream/live-stream-valueoptions.png)
+![Query builder on request rate with custom metric](./media/live-stream/query-builder-request.png)
 
 In addition to Application Insights telemetry, you can also monitor any Windows performance counter by selecting that from the stream options, and providing the name of the performance counter.
 
 Live metrics are aggregated at two points: locally on each server, and then across all servers. You can change the default at either by selecting other options in the respective drop-downs.
 
 ## Sample Telemetry: Custom Live Diagnostic Events
-By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Click the filter icon to see the applied criteria at any point in time. 
+By default, the live feed of events shows samples of failed requests and dependency calls, exceptions, events, and traces. Click the filter icon to see the applied criteria at any point in time.
 
-![Default live feed](./media/live-stream/live-stream-eventsdefault.png)
+![Filter button](./media/live-stream/filter.png)
 
-As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we are selecting specific request failures, traces, and events. We are also selecting all exceptions and dependency failures.
+As with metrics, you can specify any arbitrary criteria to any of the Application Insights telemetry types. In this example, we are selecting specific request failures, and events.
 
-![Custom live feed](./media/live-stream/live-stream-events.png)
+![Query Builder](./media/live-stream/query-builder.png)
 
 Note: Currently, for Exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with inner exception message (follows the "<--" delimiter) "The client disconnected." use a message not-contains "Error reading request content" criteria.
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
-![Sampled live failures](./media/live-stream/live-metrics-eventdetail.png)
+![Sampled live failures](./media/live-stream/sample-telemetry.png)
 
 ## Filter by server instance
 
-If you want to monitor a particular server role instance, you can filter by server.
+If you want to monitor a particular server role instance, you can filter by server. To filter select the server name under *Servers*.
 
-![Sampled live failures](./media/live-stream/live-stream-filter.png)
+![Sampled live failures](./media/live-stream/filter-by-server.png)
 
 ## Secure the control channel
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
-![Create API key](./media/live-stream/live-metrics-apikeycreate.png)
+![API key > Create API key](./media/live-stream/api-key.png)
+![Create API Key tab. Select "authenticate SDK control channel" then "generate key"](./media/live-stream/create-api-key.png)
 
 ### Add API key to Configuration
 
