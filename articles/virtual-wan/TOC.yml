@@ -56,7 +56,7 @@
         href: scenario-route-through-nva.md
       - name: Azure Firewall - Interhub
         href: scenario-route-between-hubs-firewall.md
-      - name: Direct VNet routing/Azure Firewall for Branch and Internet
+      - name: Azure Firewall - custom
         href: scenario-route-between-vnets-firewall.md
   - name: Site-to-site
     items:

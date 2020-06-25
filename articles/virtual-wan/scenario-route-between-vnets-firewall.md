@@ -1,5 +1,5 @@
 ---
-title: 'Scenario: Route directly between VNets, use Azure Firewall for Branch and Internet routing'
+title: 'Scenario: Azure Firewall custom routing for Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Scenarios for routing - routing traffic between VNets directly, but use Azure Firewall for VNet ->Internet/Branch and Branch to VNet traffic flows
 services: virtual-wan
@@ -11,7 +11,7 @@ ms.date: 06/23/2020
 ms.author: cherylmc
 
 ---
-# Scenario: Route directly between VNets, use Azure Firewall for Branches and Internet
+# Scenario: Azure Firewall - custom
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this scenario, the goal is to route traffic between VNets directly,  but use Azure Firewall for VNet-to-Internet/Branch and Branch-to-VNet traffic flows. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
