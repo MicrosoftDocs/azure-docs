@@ -60,9 +60,13 @@ When created these compute resources are automatically part of your workspace, u
 You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
-* Autoscaling each time you submit a run 
+* Autoscales each time you submit a run
+* Scales back to 0 nodes when idle, so you don't have to pay for nodes when you aren't using them
 * Automatic cluster management and job scheduling 
 * Support for both CPU and GPU resources
+
+> [!NOTE]
+> Unlike compute clusters, a compute instance does not autoscale.  You should [stop the compute instance](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) when you are not using it to avoid extra cost.
 
 ### Supported VM series and sizes
 
