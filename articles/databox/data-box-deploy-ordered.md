@@ -117,7 +117,7 @@ You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted inter
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
-The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
+The button launches an interactive shell that you can use to run the steps outlined in this how-to article.
 
 <!-- To start Azure Cloud Shell:
 
@@ -203,7 +203,7 @@ Do the following steps in the Azure portal to order a device.
 
 3. Click **Create**.
 
-4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**.
+4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -216,7 +216,7 @@ Do the following steps in the Azure portal to order a device.
 
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
-6. In **Order**, specify the **Order details**. Enter or select the following information and click **Next**.
+6. In **Order**, specify the **Order details**. Enter or select the following information and select **Next**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -476,11 +476,11 @@ The following table shows the parameter information for `az databox job list`:
 
 # [Portal](#tab/portal)
 
-To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar.
+To cancel this order, in the Azure portal, go to **Overview** and select **Cancel** from the command bar.
 
 After placing an order, you can cancel it at any point before the order status is marked processed.
 
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
+To delete a canceled order, go to **Overview** and select **Delete** from the command bar.
 
 # [Azure CLI](#tab/azure-cli)
 
