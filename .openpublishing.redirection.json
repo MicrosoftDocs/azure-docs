@@ -38151,8 +38151,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/application-proxy-connectivity-ports-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to",
+      "source_path": "articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
       "redirect_document_id": true
     },
     {
@@ -38283,7 +38283,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
