@@ -1,20 +1,12 @@
 ---
 title: Overview of cloud-init support for Linux VMs in Azure 
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: danielsollondon
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 06/15/2019
+ms.topic: how-to
+ms.date: 06/15/2020
 ms.author: danis
 
 ---
@@ -30,7 +22,7 @@ Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedoc
 
 cloud-init also works across distributions. For example, you don't use **apt-get install** or **yum install** to install a package. Instead you can define a list of packages to install. cloud-init automatically uses the native package management tool for the distro you select.
 
-We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. 
+We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure Marketplace. 
 These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets. Initially we collaborate with the endorsed Linux distro partners and upstream to ensure cloud-init functions with the OS on Azure, then the packages are updated and made publicly available in the distro package repositories. 
 
 There are two stages to making cloud-init available to the endorsed Linux distro OS's on Azure, package support, and then image support:
@@ -65,7 +57,7 @@ RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: *18.5-3.el7.centos*|
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |yes (note this is a preview image, and once all CentOS 7.7 images support cloud-init, this will be removed 1st September 2020) | yes - support from package version: `18.5-3.el7.centos`|
 
 * CentOS 7.7 images that will be cloud-init enabled be updated here in June 2020 
 * CentOS 7.8 images are provisioned using cloud-init.
@@ -77,11 +69,11 @@ RedHat:RHEL 7.8 and 8.2 (Gen1 and Gen2) images are provisioned using cloud-init.
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| preview image (note this is a preview image, and it once all Oracle 7.7 images support cloud-init, this will be removed mid 2020, notice will be given) | no, in preview, package is: *18.5-3.0.1.el7*
 
-### SuSE SLES
+### SUSE SLES
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|SUSE SLES 15 SP1 |suse |sles-15-sp1-basic |cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
-|SUSE SLES 15 SP1 |suse |sles-15-sp1-basic |gen2-cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
+|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
+|SUSE SLES 15 SP1 |SUSE |sles-15-sp1-basic |gen2-cloud-init-preview| See [SUSE cloud-init blog](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) for details | No, in preview. |
 
 
 ### Debian
@@ -116,6 +108,7 @@ The following example creates a resource group named *myResourceGroup* in the *e
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
+
 The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
 ```yaml
@@ -128,7 +121,7 @@ Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to 
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *centos74*:
+The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \
@@ -150,6 +143,10 @@ Once the VM has been provisioned, cloud-init will run through all the modules an
 For more details of cloud-init logging, refer to the [cloud-init documentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## Next steps
+
+[Troubleshoot issues with cloud-init](cloud-init-troubleshooting.md).
+
+
 For cloud-init examples of configuration changes, see the following documents:
  
 - [Add an additional Linux user to a VM](cloudinit-add-user.md)

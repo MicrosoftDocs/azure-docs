@@ -215,13 +215,13 @@ Content can be pulled from different places based on the locale that's used. In 
 
 For example, your custom page URI might look like:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 You can load the page in French by pulling content from:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

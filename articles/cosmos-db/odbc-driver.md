@@ -3,7 +3,7 @@ title: Connect to Azure Cosmos DB using BI analytics tools
 description: Learn how to use the Azure Cosmos DB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
 

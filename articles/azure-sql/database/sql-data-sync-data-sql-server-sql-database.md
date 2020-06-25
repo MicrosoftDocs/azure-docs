@@ -212,7 +212,7 @@ Yes. Create the schema manually in the new database by scripting it from the ori
 
 It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations aren't versioned. Furthermore, SQL Data Sync doesn't back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
 
-For one recommended backup technique, see [Copy an Azure SQL database](database-copy.md).
+For one recommended backup technique, see [Copy a database in Azure SQL Database](database-copy.md).
 
 ### Can Data Sync sync encrypted tables and columns
 

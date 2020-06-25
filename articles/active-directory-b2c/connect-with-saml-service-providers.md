@@ -115,7 +115,7 @@ Locate the `<ClaimsProviders>` section and add the following XML snippet.
 
 You can change the value of the `IssuerUri` metadata. This is the issuer URI that is returned in the SAML response from Azure AD B2C. Your relying party application should be configured to accept an issuer URI during SAML assertion validation.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Token Issuer</DisplayName>
   <TechnicalProfiles>
@@ -161,7 +161,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Change the `PolicyId` and `PublicPolicyUri` of the policy to _B2C_1A_signup_signin_saml_ and `http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml` as seen below.
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -174,7 +174,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Add following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 of the _SignUpOrSignIn_ user journey. If you started from a different folder in the starter pack, or customized your user journey by adding or removing orchestration steps, make sure the number (in the `order` element) is aligned with the one specified in the user journey for the token issuer step (for example, in the other starter pack folders it's step number 4 for `LocalAccounts`, 6 for `SocialAccounts` and 9 for `SocialAndLocalAccountsWithMfa`).
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="SignUpOrSignIn">
         <OrchestrationSteps>
@@ -186,7 +186,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML.
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="SAML2"/>
@@ -206,7 +206,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 Your final relying party policy file should look like the following:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -293,7 +293,7 @@ If there are properties specified in *both* the SAML metadata URL and in the app
 
 For this tutorial, which uses the SAML test application, use the following value for `samlMetadataUrl`:
 
-```JSON
+```json
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
@@ -305,7 +305,7 @@ If you choose to configure the reply URL and logout URL in the application manif
 
 For this tutorial, in which you use the SAML test application, set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
 
-```JSON
+```json
 "replyUrlsWithType":[
   {
     "url":"https://samltestapp2.azurewebsites.net/SP/AssertionConsumer",
@@ -320,7 +320,7 @@ This optional property represents the `Logout` URL (`SingleLogoutService` URL in
 
 For this tutorial, which uses the SAML test application, leave `logoutUrl` set to `https://samltestapp2.azurewebsites.net/logout`:
 
-```JSON
+```json
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",
 ```
 

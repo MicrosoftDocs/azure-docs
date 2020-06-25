@@ -45,7 +45,8 @@ To add or edit a single custom RDP property, run the following PowerShell cmdlet
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
 
@@ -56,7 +57,8 @@ $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 
@@ -66,7 +68,8 @@ You can reset individual custom RDP properties to their default values by follow
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/resetcustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/resetcustomrdpproperty.png)
 
 ## Next steps
 

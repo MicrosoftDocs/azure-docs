@@ -141,7 +141,7 @@ Your REST API can be based on any platform and written in any programing languag
 ## Localize the REST API
 In a RESTful technical profile, you may want to send the current session's language/locale, and if necessary, raise a localized error message. Using the [claims resolver](claim-resolver-overview.md), you can send a contextual claim, such as the user language. The following example shows a RESTful technical profile demonstrating this scenario.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

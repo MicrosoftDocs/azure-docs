@@ -3,8 +3,10 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 06/25/2020
+ms.author: mlearned
 ---
 
 # Integrate AKS-managed Azure AD (Preview)
@@ -185,7 +187,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## Non-interactive login with kubelogin
 
-There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the cluster in non-interactive scenarios.
+There are some non-interactive scenarios, such as continuous integration pipelines, that are not currently available with kubectl. You can use [kubelogin](https://github.com/Azure/kubelogin) to access the the cluster with non-interactive service principal login.
 
 ## Next steps
 
