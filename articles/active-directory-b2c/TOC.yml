@@ -373,6 +373,8 @@
       href: partner-trusona.md
     - name: Twilio
       href: partner-twilio.md
+    - name: TypingDNA
+      href: partner-typingdna.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview

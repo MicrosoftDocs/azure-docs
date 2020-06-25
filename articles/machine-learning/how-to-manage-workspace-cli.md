@@ -9,7 +9,7 @@ ms.topic: how-to
 
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/19/2020
+ms.date: 06/25/2020
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI

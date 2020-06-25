@@ -2,13 +2,13 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 06/25/2020
 ---
 # Automatic deletions from deployment history
 
 Every time you deploy a template, information about the deployment is written to the deployment history. Each resource group is limited to 800 deployments in its deployment history.
 
-Starting in June 2020, Azure Resource Manager automatically deletes deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
+Azure Resource Manager will soon start automatically deleting deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
