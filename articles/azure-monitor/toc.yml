@@ -382,6 +382,8 @@
         href: log-query/unify-app-resource-data.md
     - name: Examples and guidance
       items:
+      - name: Example query UI
+        href: log-query/saved-queries.md
       - name: Log query examples
         href: log-query/examples.md
       - name: Smart analytics examples
@@ -1116,6 +1118,8 @@
         href: learn/tutorial-logs-dashboards.md
       - name: Dashboard using application data
         href: learn/tutorial-app-dashboards.md
+      - name: Upgrading Log Analytics Dashboards
+        href: log-query/dashboard-upgrade.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Custom data collection and analysis
