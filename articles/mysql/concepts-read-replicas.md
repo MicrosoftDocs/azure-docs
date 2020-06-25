@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/10/2020
+ms.date: 6/24/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -42,9 +42,7 @@ You can have a master server in any [Azure Database for MySQL region](https://az
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
-
-*West US 2 is temporarily unavailable as a cross region replica location.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -53,7 +51,7 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 
 However, there are limitations to consider: 
 
-* Regional availability: Azure Database for MySQL is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
+* Regional availability: Azure Database for MySQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
@@ -65,7 +63,7 @@ However, there are limitations to consider:
 
 If a master server has no existing replica servers, the master will first restart to prepare itself for replication.
 
-When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours.The replica server is always created in the same resource group and same subscription as the master server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation.
+When you start the create replica workflow, a blank Azure Database for MySQL server is created. The new server is filled with the data that was on the master server. The creation time depends on the amount of data on the master and the time since the last weekly full backup. The time can range from a few minutes to several hours. The replica server is always created in the same resource group and same subscription as the master server. If you want to create a replica server to a different resource group or different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation.
 
 Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent an interruption in replication caused by out-of-storage errors.
 

@@ -32,7 +32,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
   "name": "VMSnapshot",
   "location":"<myLocation>",
   "properties": {
-    "publisher": "Microsoft.RecoveryServices",
+    "publisher": "Microsoft.Azure.RecoveryServices",
     "type": "VMSnapshot",
     "typeHandlerVersion": "1.9",
     "autoUpgradeMinorVersion": true,

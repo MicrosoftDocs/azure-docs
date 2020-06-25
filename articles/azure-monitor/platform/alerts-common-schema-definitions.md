@@ -217,9 +217,9 @@ Any alert instance describes the resource that was affected and the cause of the
 				]
 			}
 		]
-	},
 	"IncludeSearchResults": "True",
 	"AlertType": "Metric measurement"
+	},
 }
 ```
 

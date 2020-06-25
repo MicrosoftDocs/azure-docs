@@ -19,9 +19,9 @@ When you delete a Log Analytics workspace, a soft-delete operation is performed 
 After the soft-delete period, the workspace resource and its data are non-recoverable – its data is queued for permanent deletion and completely purged within 30 days. The workspace name is 'released' and you can use it to create a new workspace.
 
 > [!NOTE]
-> If you want to override the soft-delete behavior and delete your workspace permanently, follow the steps in [Permanent workspace delete](#permanent-workspace-delete).
+> If you want to override the soft-delete behavior and permanently delete your workspace, follow the steps in [Permanent workspace delete](#permanent-workspace-delete).
 
-You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions, and other Azure services and sources that store their data in Log Analytics, such as:
+You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions and other Azure services store their data in Log Analytics, such as:
 
 * Management solutions
 * Azure Automation
@@ -102,10 +102,13 @@ The workspace and all its data are brought back after the recovery operation. So
 > * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
  
 ## Troubleshooting
-You must have at least *Log Analytics Contributor* permissions to delete a workspace.<br>
-If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
-* The workspace name isn't available and being used by someone in your organization, or by other customer.
-* The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
-   1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
-   2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
-   3. Create a new workspace using the same workspace name.
+
+You must have at least *Log Analytics Contributor* permissions to delete a workspace.
+
+* If you aren't sure if deleted workspace is in soft-delete state and can be recovered, click [Recover](#recover-workspace) in *Log Analytics workspaces* page to see a list of soft-deleted workspaces per subscription. Permanently deleted workspaces aren't included in the list.
+* If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
+  * The workspace name isn't available and being used by someone in your organization, or by other customer.
+  * The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
+     1. [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace.
+     2. [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace.
+     3. Create a new workspace using the same workspace name.

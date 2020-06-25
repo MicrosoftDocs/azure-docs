@@ -78,7 +78,7 @@ Zone redundancy is a *supplemental capability* to the [multi-master replication]
 
 When configuring multi-region writes for your Azure Cosmos account, you can opt into zone redundancy at no extra cost. Otherwise, please see the note below regarding the pricing for zone redundancy support. You can enable zone redundancy on an existing region of your Azure Cosmos account by removing the region and adding it back with the zone redundancy enabled.
 
-This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Australia East, Japan East, North Europe, France Central* regions.
+This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central* regions.
 
 > [!NOTE]
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.

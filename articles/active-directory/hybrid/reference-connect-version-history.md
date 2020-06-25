@@ -578,8 +578,6 @@ Allow    | Authenticated Users           | List Contents        | This object  |
 Allow    | Authenticated Users           | Read All Properties  | This object  |
 Allow    | Authenticated Users           | Read Permissions     | This object  |
 
-To tighten the settings for the AD DS account you can run [this PowerShell script](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). The PowerShell script will assign the permissions mentioned above to the AD DS account.
-
 #### PowerShell script to tighten a pre-existing service account
 
 To use the PowerShell script, to apply these settings, to a pre-existing AD DS account, (ether provided by your organization or created by a previous installation of Azure AD Connect, please download the script from the provided link above.
