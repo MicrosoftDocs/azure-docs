@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 06/30/2020
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the WebJobs SDK to be able to execute event-driven code in Azure.
 ---
@@ -22,17 +22,16 @@ These are the key differences between version 3.*x* and version 2.*x* of the Web
 * In version 3.*x*, you'll install the Storage binding extension required by the WebJobs SDK. In version 2.*x*, the Storage bindings are included in the SDK.
 * Visual Studio 2019 tooling for .NET Core (3.*x*) projects differs from tooling for .NET Framework (2.*x*) projects. To learn more, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-Several descriptions in this article include examples for both WebJobs version 3.*x* and WebJobs version 2.*x*.
+Several descriptions in this article provide examples for both WebJobs version 3.*x* and WebJobs version 2.*x*.
 
-> [!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. 
->  
-> * Azure Functions version 2.*x* is built on WebJobs SDK version 3.*x*.
-> * Azure Functions version 1.*x* is built on WebJobs SDK version 2.*x*.
->  
->Source code repositories for both Azure Functions and WebJobs SDK use the WebJobs SDK numbering. Several sections of this how-to article link to Azure Functions documentation. 
->
->For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) 
+[Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK. 
+  
+ * Azure Functions version 2.*x* is built on WebJobs SDK version 3.*x*.
+ * Azure Functions version 1.*x* is built on WebJobs SDK version 2.*x*.
+  
+Source code repositories for both Azure Functions and WebJobs SDK use the WebJobs SDK numbering. Several sections of this how-to article link to Azure Functions documentation. 
+
+For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) 
 
 ## WebJobs host
 
