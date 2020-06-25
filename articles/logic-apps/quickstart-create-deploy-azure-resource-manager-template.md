@@ -24,27 +24,27 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Create a logic app
 
-### Review the template
+### Review the quickstart template
 
-This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the template's ["azuredeploy.json file"](https://azure.microsoft.com/resources/templates/101-logic-app-create/azuredeploy.json) in the templates gallery.
+This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) in the templates gallery.
 
-The template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](https://docs.microsoft.com/azure/connectors/apis-list#connector-types), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
+The quickstart template creates a logic app workflow that uses the Recurrence trigger, which is set to run every hour, and an HTTP [*built-in* action](https://docs.microsoft.com/azure/connectors/apis-list#connector-types), which calls a URL that returns the status for Azure. A built-in action is native to the Azure Logic Apps platform.
 
 This template creates the following Azure resource:
 
 * [**Microsoft.Logic/workflows**](https://docs.microsoft.com/azure/templates/microsoft.logic/workflows), which creates the workflow for a logic app.
 
-To find more template samples for Azure Logic Apps, review the [Microsoft.Logic](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic) templates in the gallery.
+To find more quickstart templates for Azure Logic Apps, review the [Microsoft.Logic](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic) templates in the gallery.
 
 <a name="deploy-template"></a>
 
-### Deploy the template
+### Deploy the quickstart template
 
-To deploy the template, you can follow the steps for any of these options:
+Follow the option that you want to use for deploying the quickstart template:
 
 | Option | Description |
 |--------|-------------|
-| [Azure portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | If your Azure environment meets the prerequisites, and you're familiar with using ARM templates, these steps help you sign in directly to Azure and open the template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md). |
+| [Azure portal](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-portal#deploy-template) | If your Azure environment meets the prerequisites, and you're familiar with using ARM templates, these steps help you sign in directly to Azure and open the quickstart template in the Azure portal. For more information, see [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md). |
 | [Azure CLI](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-cli#deploy-template) | The Azure command-line interface (Azure CLI) is a set of commands for creating and managing Azure resources. To run these commands, you need Azure CLI version 2.6 or later. To check your CLI version, type `az --version`. For more information, see these topics: <p><p>- [What is Azure CLI](https://docs.microsoft.com/cli/azure/what-is-azure-cli?view=azure-cli-latest) <br>- [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) |
 | [Azure PowerShell](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=azure-powershell#deploy-template) | Azure PowerShell provides a set of cmdlets that use the Azure Resource Manager model for managing your Azure resources. For more information, see these topics: <p><p>- [Azure PowerShell Overview](https://docs.microsoft.com/powershell/azure/azurerm/overview) <br>- [Introducing the Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) <br>- [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) |
 | [Azure Resource Manager REST API](../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?tabs=rest-api#deploy-template) | Azure provides Representational State Transfer (REST) APIs, which are service endpoints that support HTTP operations (methods) that you use to create, retrieve, update, or delete access to service resources. For more information, see [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure). |
@@ -54,7 +54,7 @@ To deploy the template, you can follow the steps for any of these options:
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the following image to sign in with your Azure account and open the template in the Azure portal:
+1. Select the following image to sign in with your Azure account and open the quickstart template in the Azure portal:
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -72,7 +72,7 @@ To deploy the template, you can follow the steps for any of these options:
 
    Here is how the page looks with the values used in this example:
 
-   ![Provide information for your logic app template](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
+   ![Provide information for quickstart template](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
 1. When you're done, select **Review + create**.
 
@@ -119,41 +119,96 @@ For more information, see these topics:
 
 #### [REST API](#tab/rest-api)
 
-To create a resource group and deploy a template to that resource group, specify these values in your HTTP request's URI:
+1. If you don't want to use an existing Azure resource group, create a new resource group by following this syntax for the request that you send to the Resource Manager REST API:
 
-* Your Azure subscription ID
-* A name to use for the resource group
-* A name to use for the deployment
+   ```http
+   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
+   ```
 
-```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
-```
+   | Value | Description |
+   |-------|-------------|
+   | `subscriptionId`| The GUID for the Azure subscription that you want to use |
+   | `resourceGroupName` | The name for the Azure resource group to create. This example uses `Check-Azure-Status-RG`. |
+   |||
 
-In the request body, provide the location plus links to the template and the template parameter file, similar to this example:
+   For example:
 
-```json
-{
-   "location": "West US",
-   "properties": {
-      "templateLink": {
-         "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json",
-         "contentVersion": "1.0.0.0"
-      },
-      "parametersLink": {
-         "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-         "contentVersion": "1.0.0.0"
-      },
-      "mode": "Incremental"
+   ```http
+   PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG?api-version=2019-10-01
+   ```
+
+   For more information, see [Resource Groups - Create Or Update](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate).
+
+1. To deploy the quickstart template to your resource group, follow this syntax for the request that you send to the Resource Manager REST API:
+
+   ```http
+   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+   ```
+
+   | Value | Description |
+   |-------|-------------|
+   | `subscriptionId`| The GUID for the Azure subscription that you want to use |
+   | `resourceGroupName` | The name for the Azure resource group to use. This example uses `Check-Azure-Status-RG`. |
+   | `deploymentName` | The name to use for your deployment. This example uses `Check-Azure-Status-LA`. |
+   |||
+
+   For example:
+
+   ```http
+   PUT https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourcegroups/Check-Azure-Status-RG/providers/Microsoft.Resources/deployments/Check-Azure-Status-LA?api-version=2019-10-01
+   ```
+
+   For more information, see [Deployments - Create Or Update](https://docs.microsoft.com/rest/api/resources/deployments/createorupdate).
+
+1. To provide the values to use for the deployment, such as the Azure region and links to the quickstart template and [parameter file](../azure-resource-manager/templates/template-parameters.md), which contains the values for the quickstart template to use at deployment, follow this syntax for the request body that you send to the Resource Manager REST API:
+
+   ```json
+   {
+      "location": "{Azure-region}",
+      "properties": {
+         "templateLink": {
+            "uri": "{quickstart-template-URL}",
+            "contentVersion": "1.0.0.0"
+         },
+         "parametersLink": {
+            "uri": "{quickstart-template-parameter-file-URL}",
+            "contentVersion": "1.0.0.0"
+         },
+         "mode": "Incremental"
+      }
    }
-}
-```
+   ```
 
-For more information about the parameter file, see Create Resource Manager parameter file.
+   | Property | Value | Description |
+   |----------|-------|-------------|
+   | `location`| <*Azure-region*> | The Azure region to use for deployment. This example uses `West US`. |
+   | `templateLink` : `uri` | <*quickstart-template-URL*> | The URL location for the quickstart template to use for deployment: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json`. |
+   | `parametersLink` : `uri` | <*quickstart-template-parameter-file-URL*> | The URL location for the quickstart template's parameter file to use for deployment: <p><p>`https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json` <p><p>For more information about the Resource Manager parameter file, see these topics: <p><p>- [Create Resource Manager parameter file](../azure-resource-manager/templates/parameter-files.md) <br>- [Tutorial: Use parameter files to deploy your ARM template](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md) |
+   | `mode` | <*deployment-mode*> | Run either a incremental update or complete update. This example uses `Incremental`, which is the default value. For more information, see [Azure Resource Manager deployment modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes). |
+   |||
+
+   For example:
+
+   ```json
+   {
+      "location": "West US",
+      "properties": {
+         "templateLink": {
+            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json",
+            "contentVersion": "1.0.0.0"
+         },
+         "parametersLink": {
+            "uri": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.parameters.json",
+            "contentVersion": "1.0.0.0"
+         },
+         "mode": "Incremental"
+      }
+   }
+   ```
 
 For more information, see these topics:
 
 * [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/)
-* [Resource Groups - Create or Update](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ---
@@ -166,7 +221,9 @@ To view the logic app, you can use the Azure portal, run a script that you creat
 
 ### [Portal](#tab/azure-portal)
 
-1. 
+1. In the Azure portal search box, enter your logic app's name, which is `Check-Azure-Status-LA` in this example, and then select your logic app:
+
+1. If not already open the Logic App Designer isn't already open, on your logic
 
 ### [CLI](#tab/azure-cli)
 
@@ -197,13 +254,11 @@ For more information, see [Get-AzLogicApp](https://docs.microsoft.com/powershell
 
 ## Clean up resources
 
-If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Manager REST API:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to keep these resources. When you no longer need the logic app, delete the resource group by using either the Azure portal, Azure CLI, Azure PowerShell, or Resource Manager REST API.
 
 ### [Portal](#tab/azure-portal)
 
-To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
-
-To delete individual resources, see [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource).
+To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group). To delete individual resources, see [Delete the resource](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource).
 
 ### [CLI](#tab/azure-cli)
 
