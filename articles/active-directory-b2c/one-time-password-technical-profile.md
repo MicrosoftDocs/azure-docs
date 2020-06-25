@@ -165,5 +165,5 @@ The following example `TechnicalProfile` is used for verifying a code:
 
 See the following article for example of using one-time password technical profile with custom email verification:
 
-- [Custom email verification in Azure Active Directory B2C](custom-email.md)
+- Custom email verification in Azure Active Directory B2C ([Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md))
 
