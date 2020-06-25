@@ -103,6 +103,7 @@ The workspace and all its data are brought back after the recovery operation. So
  
 ## Troubleshooting
 You must have at least *Log Analytics Contributor* permissions to delete a workspace.<br>
+
 If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
 * The workspace name isn't available and being used by someone in your organization, or by other customer.
 * The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
