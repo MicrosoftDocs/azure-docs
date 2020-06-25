@@ -438,9 +438,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >[!IMPORTANT]
    >Depending on your version and image type, you may need to activate the Public cloud extension for your OS release, before you can install Azure Python SDK.
    >You can check the extension, by running SUSEConnect ---list-extensions.  
-   >To achieve the faster failover times with Azure Fence Agent: 
+   >To achieve the faster failover times with Azure Fence Agent:
    > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
-   > - on SLES15.X install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
+   > - on SLES 15 install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
 
 1. **[A]** Setup host name resolution
 
@@ -642,7 +642,7 @@ sudo crm configure property stonith-timeout=900
 </code></pre>
 
 > [!IMPORTANT]
-> Make sure that cluster property **concurrent-fencing** is also set to *true*, in addition to the recommended stonith configuration, so that the monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.
+> The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.
 
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
