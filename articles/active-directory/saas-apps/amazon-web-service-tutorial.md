@@ -122,7 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](./media/amazon-web-service-tutorial/certificate.png)
 
 1. On the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
 
