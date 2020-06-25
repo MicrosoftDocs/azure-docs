@@ -58,7 +58,7 @@ To create an SSH RSA key pair with PuTTYgen:
 
 2. Click **Generate**. By default PuTTYgen generates a 2048-bit SSH-2 RSA key.
 
-4. Move the mouse around in the blank area to provide randomness for the key.
+3. Move the mouse around in the blank area to provide randomness for the key.
 
 4. After the public key is generated, optionally enter and confirm a passphrase. You will be prompted for the passphrase when you authenticate to the VM with your private SSH key. Without a passphrase, if someone obtains your private key, they can sign in to any VM or service that uses that key. We recommend you create a passphrase. However, if you forget the passphrase, there is no way to recover it.
 
