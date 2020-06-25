@@ -4628,6 +4628,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-portal/supportability/how-to-use-file-uploader.md",
+      "redirect_url": "/azure/azure-portal/supportability/how-to-manage-azure-support-request",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-portal/resource-group-portal-linked-resources.md",
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
       "redirect_document_id": false

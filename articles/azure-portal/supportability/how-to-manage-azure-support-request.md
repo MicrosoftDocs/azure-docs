@@ -1,16 +1,23 @@
 ---
-title: Azure support request - file upload guidelines
-description: Describes the guidelines when using Microsoft Azure support request file upload option
-author: genlin
+title: Manage an Azure support request
+description: Describes how to grant consent for support to access your data, set case severity, upload files, and send messages.
+author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: how-to
-ms.date: 01/23/2020
-ms.author: genli
+ms.date: 06/25/2020
+ms.author: mblythe
+
+# To add: close and reopen, review case status, update contact info
 
 ---
-# Microsoft Azure new support request file upload utility guidelines
+
+# Manage an Azure support request
+
+
+
+## Microsoft Azure new support request file upload utility guidelines
 
 When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
@@ -26,7 +33,7 @@ Follow these guidelines when you use the file upload option:
 * You can't upload more than one file.
 * Files can't be larger than 4 MB.
 
-## Table of the allowed file name extensions
+### Table of the allowed file name extensions
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
