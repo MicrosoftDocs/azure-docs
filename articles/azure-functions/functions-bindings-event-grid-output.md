@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit, tracking-python
 
 # Azure Event Grid output binding for Azure Functions
 
-Use the Event Grid output binding to write events to a custom topic. You must have a valid [access key for the custom topic](../event-grid/security-authentication.md#authenticate-publishing-clients-using-sas-or-key).
+Use the Event Grid output binding to write events to a custom topic. You must have a valid [access key for the custom topic](../event-grid/security-authenticate-publishing-clients.md).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
 
