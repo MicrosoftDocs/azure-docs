@@ -47,7 +47,7 @@ The Azure AD Connect server contains critical identity data. It is important tha
 
 The Azure AD Connect server must be treated as a Tier 0 component as documented in the [Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  
 
-To read more about securing your Active Directory environment, see [Best Practices for Securing Active Directory](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+To read more about securing your Active Directory environment, see [Best Practices for Securing Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 #### Installation prerequisites 
 
