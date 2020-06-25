@@ -48,7 +48,7 @@ Before you begin, make sure that:
     - Some regions in Europe may receive the device packaged in a box. Ensure that you unpack the device and save the box for return shipment.
 1. You have reviewed the [Data Box safety guidelines](data-box-safety.md).
 1. You have received one grounded power cord to use with your 100-TB storage device.
-1. You have a host computer that is used to copy data (export order) to or copy data from (import order) your Data Box. Your host computer must
+1. You have a host computer that is used to copy data (import order) to or copy data from (export order) your Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
 1. You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
@@ -169,7 +169,7 @@ Advance to the next tutorial to learn how to copy data.
 Or
 
 > [!div class="nextstepaction"]
-> [Copy your data to Azure Data Box for export order](./data-box-deploy-export-copy-data.md)
+> [Copy your data from Azure Data Box for export order](./data-box-deploy-export-copy-data.md)
 
 ::: zone-end
 

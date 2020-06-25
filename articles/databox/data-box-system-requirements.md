@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 06/23/2020
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -27,7 +27,6 @@ The software requirements include the information on the supported operating sys
 ### Supported operating systems for clients
 
 [!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
-
 
 
 ### Supported filesystems for Linux clients
