@@ -180,8 +180,10 @@
       href: geo-disaster-recovery.md      
   - name: Security 
     items: 
-    - name: Authentication
+    - name: Authentication event delivery 
       href: security-authentication.md
+    - name: Authenticate publishing clients
+      href: security-authenticate-publishing-clients.md
     - name: Authorization 
       href: security-authorization.md
     - name: Network security
