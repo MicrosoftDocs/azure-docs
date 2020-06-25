@@ -12,9 +12,10 @@ This tutorial shows how to deploy a data-driven Python [Django](https://www.djan
 
 ![Deploy Python Django web app to Azure App Service](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-In this tutorial, you learn how to:
+In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
+> * Set up your initial environment with Python and the Azure CLI
 > * Create an Azure Database for Postgres database
 > * Deploy code to Azure App Service and connect to Postgres
 > * Update your code and redeploy
@@ -23,50 +24,71 @@ In this tutorial, you learn how to:
 
 You can follow the steps in this article on macOS, Linux, or Windows.
 
-## Configure your local environment
+## Set up your initial environment
 
-Before you begin, you must have the following accounts and tools:
+Before you begin, you must have the following:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 is also supported).
-- <a href="https://git-scm.com/downloads" target="_blank">Git</a>.
-- The <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher. Run `az --version` to check your version.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
+- The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
-## Clone the sample app
+Open a terminal window and check your Python version is 3.6 or higher:
 
-In a terminal window, clone the sample app repository:
-
-```terminal
-git clone https://github.com/Azure-Samples/djangoapp
+```bash
+# You may need to use python3 --version
+python --version
 ```
 
-Then go into the repository folder:
+Check that your Azure CLI version is 2.0.80 or higher:
 
-```terminal
-cd djangoapp
+```azurecli
+az --version
 ```
 
-The djangoapp sample repository contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
-
-## Prepare the app for App Service
-
-Like many Python web frameworks, Django requires certain settings to run in a production environment like App Service. These changes are described in the [deployment checklist]](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/). 
-
-The sample application already contains these settings in the *azuresite/production.py* file. These settings are used in the app if the `DJANGO_ENV` environment variable is set to "production"; otherwise the app uses the defaults in *azuresite/settings.py*.
-
-You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
-
-## Sign in to Azure through the Azure CLI
-
-In a terminal window, run the [`az login`](/cli/azure/reference-index#az-login) command:
+Then sign in to Azure through the CLI:
 
 ```azurecli
 az login
 ```
 
-This command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
+This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions.
 
 Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
+
+
+## Clone or download the sample app
+
+# [Git clone](#tab/clone)
+
+Clone the sample repository:
+
+```terminal
+git clone https://github.com/Azure-Samples/djangoapp
+```
+
+Then go into that folder:
+
+```terminal
+cd djangoapp
+```
+
+# [Download](#tab/download)
+
+Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), select **Clone**, and then select **Download ZIP**. 
+
+Unpack the ZIP file into a folder named *djangoapp*. 
+
+Then open a terminal window in that *djangoapp* folder.
+
+---
+
+The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
+
+Like many Python web frameworks, Django requires certain settings to run in a production environment like App Service. These changes are described in the [deployment checklist](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/). 
+
+The djangoapp sample already contains these settings in the *azuresite/production.py* file. These settings are used in the app if the `DJANGO_ENV` environment variable is set to "production"; otherwise the app uses the defaults in *azuresite/settings.py*.
+
+You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
 ## Create Postgres database in Azure
 
@@ -83,14 +105,14 @@ Then create the Postgres database in Azure with the [`az postgres up`](/cli/azur
 
 <!-- Issue: without --location -->
 ```azurecli
-az postgres up -g DjangoPostgres-tutorial-rg -l westus2 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up -g DjangoPostgres-tutorial-rg -l westus2 --sku-name B_Gen4_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is *https://\<postgres-server-name>.postgres.database.azure.com*). A good pattern is to use a combination of your personal or company name with a series of numbers.
-
-
+Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is *https://\<postgres-server-name>.postgres.database.azure.com*). A good pattern is to use a combination of your company name and another unique.
 
 For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
+
+The B_Gen4_1 (Basic, Gen4, 1 core) [pricing tier](/postgresql/concepts-pricing-tiers) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores)  tier instead.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -108,7 +130,7 @@ When the command completes, it outputs a JSON object that contains different con
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> `--location <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
+> `-l <location-name>`, can be set to any one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/). You can get the regions available to your subscription with the [`az account list-locations`](/cli/azure/account#az-account-list-locations) command. For production apps, put your database and your app in the same location.
 
 ## Deploy the code to Azure App Service
 
@@ -128,7 +150,9 @@ az webapp up -g DjangoPostgres-tutorial-rg -l westus2 --plan DjangoPostgres-tuto
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
-Replace *\<app-name>* with a unique name across all Azure (the server endpoint is *https://\<app-name>.azurewebsites.net*). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your personal or company name with a series of numbers.
+Replace *\<app-name>* with a unique name across all Azure (the server endpoint is *https://\<app-name>.azurewebsites.net*). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
+
+For the `-l` location argument, use the same location as you did for the database in the previous section.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -142,20 +166,7 @@ This command performs the following actions, which may take a few minutes:
 
 Upon successful deployment, the command generates JSON output like the following example:
 
-<pre>
-{
-  "URL": "http://msdocs-djangoapp-12345.azurewebsites.net",
-  "appserviceplan": "DjangoPostgres-tutorial-plan",
-  "location": "westus",
-  "name": "msdocs-djangoapp-12345",
-  "os": "Linux",
-  "resourcegroup": "&lt;DjangoPostgres-tutorial-rg&gt;",
-  "runtime_version": "python|3.7",
-  "runtime_version_detected": "-",
-  "sku": "BASIC",
-  "src_path": "//var//lib//postgresql//djangoapp"
-}
-</pre>
+![Example az webapp up command output](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 > [!TIP]
 > Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with `az webapp up`.
@@ -218,11 +229,11 @@ Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the que
 
 ## Make code changes and redeploy
 
-In this section, you make local changes to the app and redeploy the code to App Service. In the process, you set up a development environment for the app in which you can do ongoing work.
+In this section, you make local changes to the app and redeploy the code to App Service. In the process, you set up a Python virtual environment that supports ongoing work.
 
 ### Run the app locally
 
-Run the following commands to set up your local development environment and run the app in the Django development server. Be sure to follow the prompts when creating the superuser:
+In a terminal window, run the following commands. Be sure to follow the prompts when creating the superuser:
 
 # [bash](#tab/bash)
 
@@ -277,17 +288,9 @@ python manage.py runserver
 ```
 ---
 
-Once the web app is fully loaded, the Django development server displays a message similar to the following text:
+Once the web app is fully loaded, the Django development server provides the local app URL in the message, "Starting development server at http://127.0.0.1:8000/. Quit the server with CTRL-BREAK".
 
-<pre>
-Performing system checks...
-
-System check identified no issues (0 silenced).
-June 24, 2020 - 10:27:14
-Django version 2.2.13, using settings 'azuresite.settings'
-Starting development server at http://127.0.0.1:8000/
-Quit the server with CTRL-BREAK.
-</pre>
+![Example Django development server output](./media/tutorial-python-postgresql-app/django-dev-server-output.png)
 
 Go to *http:\//localhost:8000* in a browser, which should display the message "No polls are available". 
 
@@ -301,19 +304,14 @@ Stop the Django server by pressing **Ctrl**+**C**.
 
 ### Update the app
 
-In `polls/models.py`, locate the following line:
-
-<pre>
-choice_text = models.CharField(max_length=200)
-</pre>
-
-Make a trivial change to the size of the field:
+In `polls/models.py`, locate the line that begins with `choice_text` and change the `max_length` parameter to 100:
 
 ```python
+# Find this lie of code and set max_length to 100 instead of 200
 choice_text = models.CharField(max_length=100)
 ```
 
-Because you changed the data model, you must create a new Django migration and migrate the database:
+Because you changed the data model, create a new Django migration and migrate the database:
 
 ```
 python manage.py makemigrations

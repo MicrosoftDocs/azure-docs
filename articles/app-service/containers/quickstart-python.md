@@ -13,19 +13,42 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](app-se
 
 If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01).
 
-## Configure your local environment
+## Set up your initial environment
 
 Before you begin, you must have the following:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 or higher</a>.
+- The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
-- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 is also supported).
-- <a href="https://git-scm.com/downloads" target="_blank">Git</a>.
-- The <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher. Run `az --version` to check your version.
+Open a terminal window and check your Python version is 3.6 or higher:
 
-## Download the sample
+```bash
+# You may need to use python3 --version
+python --version
+```
 
-In a terminal window, clone the sample application to your local computer:
+Check that your Azure CLI version is 2.0.80 or higher:
+
+```azurecli
+az --version
+```
+
+Then sign in to Azure through the CLI:
+
+```azurecli
+az login
+```
+
+This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions.
+
+Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
+
+## Clone or download the sample
+
+# [Git clone](#tab/clone)
+
+Clone the sample repository:
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -37,38 +60,67 @@ Then go into that folder:
 cd python-docs-hello-world
 ```
 
-The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
+# [Download](#tab/download)
+
+Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world), select **Clone**, and then select **Download ZIP**.
+
+Unpack the ZIP into a folder named *python-docs-hello-world*. 
+
+Then open a terminal window in that *python-docs-hello-world* folder.
+
+---
+
+The sample code contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
 ## Run the sample
 
-In a terminal window, use the following commands (as appropriate for your operating system) to install the required dependencies and launch the built-in Flask development server. 
-
 # [Bash](#tab/bash)
+
+First create a virtual environment and install dependencies:
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+
+Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
+
+```
 export FLASK_APP=application.py
 flask run
 ```
 
 # [PowerShell](#tab/powershell)
 
+First create a virtual environment and install dependencies:
+
 ```powershell
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
+```
+
+Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
+
+```powershell
 Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
 # [Cmd](#tab/cmd)
 
+First create a virtual environment and install dependencies:
+
 ```cmd
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt
+```
+
+Then set the `FLASK_APP` environment variable to the app's entry module and run the Flask development server:
+
+```cmd
 SET FLASK_APP=application.py
 flask run
 ```
@@ -81,18 +133,6 @@ Open a web browser, and go to the sample app at `http://localhost:5000/`. The ap
 
 In your terminal window, press **Ctrl**+**C** to exit the Flask development server.
 
-## Sign in to Azure through the Azure CLI
-
-In a terminal window, run the `az login` command:
-
-```azurecli
-az login
-```
-
-This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions.
-
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
-
 ## Deploy the sample
 
 Deploy the code in your local folder (*python-docs-hello-world*) using the `az webapp up` command:
@@ -101,39 +141,15 @@ Deploy the code in your local folder (*python-docs-hello-world*) using the `az w
 az webapp up --sku F1 -n <app-name>
 ```
 
-Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*).
+Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
 
 The `--sku F1` argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.
 
 You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.
 
-The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command may take a few minutes to complete. While running, it displays information similar to the following example, where `<app-name>` will be the name you provided earlier. This information also includes the name of the resource group and App Service plan created by the command.
+The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan and hosting app, configuring logging, then performing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
 
-<pre>
-Creating Resource group 'appsvc_rg_Linux_centralus' ...
-Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_centralus' ...
-App service plan creation complete
-Creating app '&lt;app-name&gt;' ....
-Configuring default logging for the app, if not already enabled
-Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
-Getting scm site credentials for zip deployment
-Starting zip deployment. This operation can take a while to complete ...
-Deployment endpoint responded with status code 202
-You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
-{
-  "URL": "http://&lt;app-name&gt;.net",
-  "appserviceplan": "appsvc_asp_Linux_centralus",
-  "location": "eastus",
-  "name": "&lt;app-name&gt;",
-  "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_centralus",
-  "runtime_version": "python|3.7",
-  "runtime_version_detected": "-",
-  "sku": "FREE",
-  "src_path": "D:\\Examples\\python-docs-hello-world"
-}
-</pre>
+![Example output of the az webapp up command](./media/quickstart-python/az-webapp-up-output.png)
 
 [!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
@@ -184,12 +200,7 @@ To stream logs, run the following command:
 az webapp log tail
 ```
 
-Refresh the app in the browser to generate console logs, which should include lines similar to the following text. If you don't see output immediately, try again in 30 seconds.
-
-<pre>
-2020-04-03T22:54:04.236405938Z Handling request to home page.
-2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
-</pre>
+Refresh the app in the browser to generate console logs, which include messages describing HTTP requests to the app. If no output appears immediately, try again in 30 seconds.
 
 You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
