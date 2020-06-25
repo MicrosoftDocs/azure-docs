@@ -6,7 +6,7 @@ author: euangMS
 ms.service:  synapse-analytics
 ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
-ms.subservice: spark
+ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
 

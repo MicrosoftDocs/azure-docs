@@ -100,10 +100,10 @@ Authentication with the analytical store is the same as a transactional store. F
 |Synapse runtime |Current support |
 |---------|---------|
 |Synapse Spark pools | Read, Write (through transactional store), Table, Temporary View |
-|Synapse SQL Serverless    | Read, View (Gated Preview)  |
+|Synapse SQL serverless    | Read, View (Gated Preview)  |
 |Synapse SQL Provisioned   |  Not available |
 
-### Do my Synapse Spark tables sync with my Synapse SQL Serverless tables the same way they do with Azure Data Lake?
+### Do my Synapse Spark tables sync with my Synapse SQL serverless tables the same way they do with Azure Data Lake?
 Currently, this feature is not available.
 
 ### Can I do Spark structured streaming from analytical store?
