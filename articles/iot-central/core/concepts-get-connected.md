@@ -63,6 +63,13 @@ Use the connection information from the export file in your device code to enabl
 > [!NOTE]
 > To learn how you can connect devices without first registering them in IoT Central, see [Connect without first registering devices](#connect-without-registering-devices).
 
+## Add enrollment groups
+By default for every IoT Central application there are two enrollment groups already created to get started, one for IoT Devices and one for Azure IoT Edge Devices. Both of these are based on SAS(Symmetric keys).You can add additional enrollment groups as required by your application by clicking on **Add Enrollment group**(Administration>Device connection > Add Enrollment group).You can give a name to your enrollment group, select the type of devices you will connect to this group (IoT Device vs IoT Edge Device)and the attestation type (SAS vs X509).The section [Connect Devices Using X509 Certificates](#connect-devices-using-x.509-certificates) provides more details on how to add certificates, verify them and connect devices.
+  
+> [!NOTE]
+> An enrollment group is a group of devices that share a specific attestation mechanism. Enrollment groups support both X.509 as well as symmetric. All devices in the X.509 enrollment group present X.509 certificates that have been signed by the same root or intermediate Certificate Authority (CA). Each device in the symmetric key enrollment group present SAS tokens derived from the group symmetric key. [more info](https://docs.microsoft.com/azure/iot-dps/concepts-service#enrollment) 
+
+
 ## Connect devices using X.509 certificates
 
 In a production environment, using X.509 certificates is the recommended device authentication mechanism for IoT Central. To learn more, see [Device Authentication using X.509 CA Certificates](../../iot-hub/iot-hub-x509ca-overview.md).
@@ -71,9 +78,9 @@ Before you connect a device with an X.509 certificate, add and verify an interme
 
 ### Add and verify a root or intermediate certificate
 
-Navigate to **Administration > Device Connection > Manage primary certificate** and add the X.509 root or intermediate certificate you're using to generate the device certificates.
+Navigate to **Administration > Device Connection > Add Enrollment group** select the type of devices you will connect to this group (IoT Device vs IoT Edge Device)and the attestation type as Certificate(X509) and add the X.509 root or intermediate certificate you're using to generate the device certificates.
 
-![Connection settings](media/concepts-get-connected/manage-x509-certificate.png)
+![Connection settings](media/concepts-get-connected/manage-x509-certificate-add-group.png)
 
 Verifying certificate ownership ensures that the person uploading the certificate has the certificate's private key. To verify the certificate:
 
@@ -119,7 +126,7 @@ The flow is slightly different depending on whether the devices use SAS tokens o
 
 1. Copy the IoT Central application's group primary key:
 
-    ![Application group primary SAS key](media/concepts-get-connected/group-sas-keys.png)
+    ![Application group primary SAS key](media/concepts-get-connected/group-sas-keys-add-group.png)
 
 1. Use the [dps-keygen](https://www.npmjs.com/package/dps-keygen) tool to generate the device SAS keys. Use the group primary key from the previous step. The device IDs must be lower-case:
 
