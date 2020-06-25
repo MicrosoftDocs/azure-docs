@@ -83,7 +83,7 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
 
-    - You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see the next step.
+    - You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
     - For apps created using the free pricing plan, the only way to configure data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.
 
     ![Create new Event Hub](media/howto-export-data/export-event-hub.png)
@@ -99,8 +99,9 @@ Now that you have a destination to export data to, follow these steps to set up 
             3. Copy either the primary or secondary connection string
         - To use connection string for a specific event hub instance or Service Bus queue or topic, go to **Entities > Event Hubs** or **Entities > Queues** or **Entities > Topics**. Choose a specific instance, and follow the same steps above to get a connection string.
     - Storage account, go to the storage account in the Azure portal:
-        - **TODO** Under **Settings**, select **Access keys**
-        - Copy either the key1 connection string or the key2 connection string
+        - Only connection strings for the entire storage account are supported. Connection strings scoped to a single container are not supported.
+          1. Under **Settings**, select **Access keys**
+          2. Copy either the key1 connection string or the key2 connection string
 
     Paste in the connection string. Type in the instance or container name, keeping in mind this is case-sensitive.
 
