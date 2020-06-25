@@ -188,9 +188,9 @@ The value for this setting indicates a custom package index URL for Python apps.
 
 |Key|Sample value|
 |---|------------|
-|PIP\_EXTRA\_INDEX\_URL|http://my.package.repo/simple |
+|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#publicly-accessible-packages).
+To learn more, see [Custom dependencies](functions-reference-python.md#publicly-accessible-packages) in the Python developer reference.
 
 ## SCALE\_CONTROLLER\_LOGGING\_ENABLE
 
