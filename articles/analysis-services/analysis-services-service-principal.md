@@ -16,7 +16,7 @@ Service principals are an Azure Active Directory application resource you create
 
 In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
 
-Analysis Services also supports operations performed by managed identities using service principals. To learn more, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).	
+Analysis Services also supports operations performed by managed identities using service principals. To learn more, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) and [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## Create service principals
  
@@ -88,7 +88,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### AMO and ADOMD 
 
-When connecting with client applications and web apps, [AMO and ADOMD client libraries](analysis-services-data-providers.md) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
+When connecting with client applications and web apps, [AMO and ADOMD client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 

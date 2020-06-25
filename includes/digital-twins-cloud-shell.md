@@ -11,7 +11,7 @@ ms.author: baanders
 
 ### Set up Cloud Shell session
 
-After opening a Cloud Shell window, the first thing to do is log in and set the shell context to your subscription for this session. 
+After opening a Cloud Shell window, the first thing to do is log in and set the shell context to your subscription for this session. Run these commands in your Cloud Shell:
 
 ```azurecli
 az login
@@ -24,17 +24,18 @@ If this is the first time you've used this subscription with Azure Digital Twins
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Then, run the following command in your Cloud Shell instance to add the Microsoft Azure IoT Extension for Azure CLI.
+Next you'll add the [**Microsoft Azure IoT Extension for Azure CLI**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to your Cloud Shell, to enable commands for interacting with Azure Digital Twins and other IoT services. Use this command to add the extension:
 
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
 
-> [!NOTE]
-> This article uses the newest version of the Azure IoT extension, called `azure-iot`. The legacy version is called `azure-iot-cli-ext`.You should only have one version installed at a time. You can use the command `az extension list` to validate the currently installed extensions.
-> Use `az extension remove --name azure-cli-iot-ext` to remove the legacy version of the extension.
-> Use `az extension add --name azure-iot` to add the new version of the extension. 
-> To see what extensions you have installed, use `az extension list`.
+If you've installed the extension in the past, the output may say "Extension 'azure-iot' is already installed." If this happens, run the following to make sure you have the latest update: 
 
-> [!TIP]
-> You can run `az dt -h` to see the top-level Azure Digital Twins commands.
+   ```azurecli-interactive
+   az extension update --name azure-iot
+   ```
+
+Now you are ready to work with Azure Digital Twins in the Cloud Shell.
+
+You can verify this by running `az dt -h` at any time to see a list of the top-level Azure Digital Twins commands that are available.
