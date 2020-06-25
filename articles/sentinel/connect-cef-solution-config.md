@@ -25,7 +25,7 @@ In this step you will perform the necessary configuration changes on your securi
 
 If your security solution already has an existing connector, use the connector-specific instructions as follows:
 
-- [AI Vectra Detect](connect-aivectra-detect.md)
+- [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco](connect-cisco.md)
 - [ExtraHop Reveal(x)](connect-extrahop.md)

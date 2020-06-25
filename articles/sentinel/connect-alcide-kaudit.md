@@ -42,7 +42,7 @@ Alcide kAudit can export logs directly to Azure Sentinel.
 
 1. When asked for the Workspace ID and the Primary Key, you can copy them from the Alcide kAudit data connector page.
 
-    :::image type="content" source="media/connect-alcide-kaudit/alcide-workspace-id-primkey.png" alt-text="Workspace ID and Primary Key":::
+    :::image type="content" source="media/connect-alcide-kaudit/alcide-workspace-id-primary-key.png" alt-text="Workspace ID and Primary Key":::
 
 ## Find your data
 

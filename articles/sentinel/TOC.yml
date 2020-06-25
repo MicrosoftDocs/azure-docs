@@ -99,7 +99,7 @@
           href: connect-cef-solution-config.md
           items:  
           - name: AI Vectra Detect
-            href: connect-aivectra-detect.md
+            href: connect-ai-vectra-detect.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
