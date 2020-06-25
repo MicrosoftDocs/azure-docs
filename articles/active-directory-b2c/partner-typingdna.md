@@ -12,6 +12,7 @@ ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
 ---
+
 # Tutorial for configuring TypingDNA with Azure Active Directory B2C
 
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C with the TypingDNA  APP. By using TypingDNA App, Azure AD B2C customers can comply with [Payment Services Directive 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) transaction requirements through keystroke dynamics and strong customer authentication. Find more about TypingDNA [here](https://www.typingdna.com/).
@@ -23,7 +24,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 ## Scenario description
 
-![screenshot of typingdna architecture diagram](./media/partner-typingdna/typingdna-architecture-diagram.png)
+![Screenshot of TypingDNA architecture diagram](./media/partner-typingdna/typingdna-architecture-diagram.png)
 
 ### Sign-up
 
@@ -31,12 +32,13 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 2. When the user submits the page, the TypingDNA library will compute the typing characteristic of the user. After that, insert the information into a hidden text field which Azure AD B2C has rendered. This field is hidden with CSS.  
 
-    The sample contains HTML files with the JavaScript and CSS modifications, and is referenced by the `api.selfasserted.tdnasignin` and `api.selfasserted.tdnasignup` content definitions. Follow [this document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) to host your HTML files.
+    The sample contains HTML files with the JavaScript and CSS modifications, and is referenced by the `api.selfasserted.tdnasignin` and `api.selfasserted.tdnasignup` content definitions. Refer to [hosting the page content](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) to host your HTML files.
 
 3. Azure AD B2C now has the typing pattern within the claim bag when the user submits their credentials. It must call an API (yours) to pass this data to the TypingDNA REST API endpoint. This API is included in the sample (typingDNA-API-Interface).
-4. The middle layer API then passes the typing pattern data to TypingDNA REST API. At sign-up, the [check user endpoint](https://api.typingdna.com/index.html#api-API_Services-GetUser) is called to confirm the user didn't exist. Then the [save pattern](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) endpoint is called to save the user's first typing pattern.
+4. The middle layer API then passes the typing pattern data to TypingDNA REST API. At sign-up, the [check user endpoint](https://api.typingdna.com/index.html#api-API_Services-GetUser) is called to confirm the user didn't exist and then the [save pattern](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) endpoint is called to save the user's first typing pattern.
 
->[!NOTE] All calls to the TypingDNA REST API endpoint send a UserId. This must be a hashed value. Azure AD B2C uses the `HashObjectIdWithEmail` claims transformation to hash the email with a random salt and secret.  
+> [!NOTE]
+> All calls to the TypingDNA REST API endpoint send a UserId. This must be a hashed value. Azure AD B2C uses the `HashObjectIdWithEmail` claims transformation to hash the email with a random salt and secret.  
 
 The REST API calls are modeled with `validationTechnicalProfiles` within `LocalAccountSignUpWithLogonEmail-TDNA`:
 
@@ -55,9 +57,9 @@ The REST API calls are modeled with `validationTechnicalProfiles` within `LocalA
 
 ### Sign-in
 
-At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the custom HTML. Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call TypingDNA's REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Then the [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This is an indication of how close the typing pattern was to the original at sign up.
+At subsequent sign-in's, the user's typing pattern is computed in the same manner as at sign up using the custom HTML. Once the typing profile is within the Azure AD B2C claim bag, Azure AD B2C will call your API to call TypingDNA's REST API endpoint. The [check user](https://api.typingdna.com/index.html#api-API_Services-GetUser) endpoint is called to confirm the user exists. Next, [verify pattern](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) endpoint is called to return the `net_score`. This `net_score` is an indication of how close the typing pattern was to the original at sign up.
 
-This is modeled with `validationTechnicalProfiles` within `SelfAsserted-LocalAccountSignin-Email-TDNA`:
+This typing pattern is modeled with `validationTechnicalProfiles` within `SelfAsserted-LocalAccountSignin-Email-TDNA`:
 
 ```xml
 
