@@ -267,7 +267,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 
 | Runtime endpoint | Free | Basic | Standard | Notes |
 |------------------|------|-------|----------|-------|
-| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | You can distribute the workload across more than one account as necessary. |
+| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one account as necessary. |
 | Invoke calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Tracking calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Blocking concurrent calls | ~1,000 | ~1,000 | ~1,000 | Same for all SKUs. You can reduce the number of concurrent requests or reduce the duration as necessary. |
