@@ -67,7 +67,7 @@ The following screenshots capture logs when a consistency level is changed for a
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
-The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and the throughput of a is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
+The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
