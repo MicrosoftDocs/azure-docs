@@ -74,8 +74,6 @@ The steps in this section show how to set up your template virtual machine by do
     > [!NOTE]
     > In the **Add Server** dialog box, you will be prompted for the **port number** used for your license server and the name or IP address of the license server.
 
-1. After you are done installing the client software, you also need to enable the GPU to be used over RDP connection. See the article on [how to enable GPU over RDP connection](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) for more information.
-
 ## Cost
 
 Let's cover a possible cost estimate for this class. This estimate does not include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.

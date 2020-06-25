@@ -73,10 +73,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
 
 az provider register --namespace Microsoft.KubernetesConfiguration
-Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
 ```
 
 Registration is an asynchronous process. Registration may take approximately 10 minutes. You can monitor the registration process with the following commands:

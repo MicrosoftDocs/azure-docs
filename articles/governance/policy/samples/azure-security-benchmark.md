@@ -152,14 +152,6 @@ This built-in initiative is deployed as part of the
 
 ## Identity and Access Control
 
-### Log and alert on suspicious activity from administrative accounts
-
-**ID**: Azure Security Benchmark 3.7
-**Ownership**: Customer
-
-|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-
 ### Maintain an inventory of administrative accounts
 
 **ID**: Azure Security Benchmark 3.1
@@ -226,14 +218,6 @@ This built-in initiative is deployed as part of the
 |[MFA should be enabled on accounts with read permissions on your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |Multi-Factor Authentication (MFA) should be enabled for all subscription accounts with read privileges to prevent a breach of accounts or resources. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
 ## Incident Response
-
-### Create an incident scoring and prioritization procedure
-
-**ID**: Azure Security Benchmark 10.2
-**Ownership**: Customer
-
-|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
 
 ### Provide security incident contact details and configure alert notifications for security incidents
 
@@ -374,14 +358,6 @@ This built-in initiative is deployed as part of the
 |Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Microsoft Antimalware for Azure should be configured to automatically update protection signatures](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |This policy audits any Windows virtual machine not configured with automatic update of Microsoft Antimalware protection signatures. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |
-
-### Pre-scan files to be uploaded to non-compute Azure resources
-
-**ID**: Azure Security Benchmark 8.2
-**Ownership**: Customer
-
-|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
 
 ### Use centrally managed anti-malware software
 

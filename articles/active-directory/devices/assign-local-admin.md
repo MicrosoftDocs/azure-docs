@@ -88,7 +88,7 @@ You cannot assign groups to the device administrator role, only individual users
 
 Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
-When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
+When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in after 4 hours when a new primary refresh token is issued.
 
 ## Next steps
 
