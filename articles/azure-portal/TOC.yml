@@ -7,7 +7,13 @@
   - name: Get started with Azure Quickstart Center
     href: azure-portal-quickstart-center.md
   - name: Supported browsers and devices
-    href: azure-portal-supported-browsers-devices.md 
+    href: azure-portal-supported-browsers-devices.md
+- name: Quickstarts
+  items:
+  - name: Create a VM in the portal
+    href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+  - name: Create a dashboard - ARM template
+    href: quick-create-template.md
 - name: Concepts
   items:  
   - name: Share dashboards with role-based access control

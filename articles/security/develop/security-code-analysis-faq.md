@@ -1,7 +1,7 @@
 ---
 title: Microsoft Security Code Analysis documentation FAQ
 description: This article contains an FAQ about the Microsoft Security Code Analysis extension
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019

@@ -3,7 +3,7 @@ title: Azure Kubernetes Service (AKS) with Uptime SLA
 description: Learn about the optional Uptime SLA offering for the Azure Kubernetes Service (AKS) API Server.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
 ---
 
@@ -27,7 +27,6 @@ Uptime SLA is available in public regions where [AKS is supported](https://azure
 
 ## Limitations
 
-* Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
 * Private clusters aren't currently supported.
 
 ## SLA terms and conditions
@@ -39,6 +38,9 @@ Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is dete
 * Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.8.0 or later
 
 ## Creating a new cluster with Uptime SLA
+
+> [!NOTE]
+> Currently, if you enable Uptime SLA, there is no way to remove it from a cluster.
 
 To create a new cluster with the Uptime SLA, you use the Azure CLI.
 
