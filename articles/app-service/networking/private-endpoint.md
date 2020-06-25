@@ -88,7 +88,7 @@ If you need to use the Kudu console, or Kudu REST API (deployment with Azure Dev
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
-Note that these two records are automatically populated if you have a private zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
+These two records are automatically populated if you have a private zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
 
 ## Pricing
 
