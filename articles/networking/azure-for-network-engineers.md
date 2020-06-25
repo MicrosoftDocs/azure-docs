@@ -1,15 +1,14 @@
 ---
 title: 'Azure ExpressRoute: Azure for Network Engineers'
-description: This page explains how networks work in Azure cloud.
+description: This page explains to traditional network engineers how networks work in Azure.
 documentationcenter: na
 services: networking
 author: osamaz
 manager: tracsman
-
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/10/2020
+ms.date: 06/25/2020
 ms.author: osamaz
 
 ---
