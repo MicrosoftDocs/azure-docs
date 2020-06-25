@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/25/2020
 ms.author: sngun
 
 ---
