@@ -149,9 +149,9 @@ You should get the following results once the command completes:
     ]
     ```
 
-    For this tutorial, we're choosing the image `RedHat:RHEL-HA:7.6:7.6.2019062019` for the RHEL 7 example and choosing `RedHat:RHEL-HA:8.1:8.1.2020021914` for RHEL 8 example.
+    For this tutorial, we're choosing the image `RedHat:RHEL-HA:7.6:7.6.2019062019` for the RHEL 7 example and choosing `RedHat:RHEL-HA:8.1:8.1.2020021914` for the RHEL 8 example.
     
-    You can also choose SQL Server 2019 Pre-installed on RHEL8-HA. You can get the list virtual machine images that offer SQL 2019 on RHEL with HA using the command the following command:  
+    You can also choose SQL Server 2019 pre-installed on RHEL8-HA. You can get the list virtual machine images that offer SQL Server 2019 on RHEL with HA using the command the following command:  
     
     ```azurecli-interactive
     az vm image list --all --offer "sql2019-rhel8"
@@ -356,7 +356,7 @@ In this section, we will enable and start the pcsd service, and then configure t
 
     - When running the `pcs cluster auth` command to authenticate the cluster nodes, you will be prompted for a password. Enter the password for the **hacluster** user created earlier.
 
-**RHEL7**
+    **RHEL7**
 
     ```bash
     sudo pcs cluster auth <VM1> <VM2> <VM3> -u hacluster
@@ -365,16 +365,16 @@ In this section, we will enable and start the pcsd service, and then configure t
     sudo pcs cluster enable --all
     ```
 
-**RHEL8**
+    **RHEL8**
 
-   For RHEL 8, you will need to authenticate the nodes separately. Manually enter in the Username and Password for hacluster when prompted.
+    For RHEL 8, you will need to authenticate the nodes separately. Manually enter in the username and password for **hacluster** when prompted.
 
-   ```bash
-   sudo pcs host auth <node1> <node2> <node3>
-   sudo pcs cluster setup <clusterName> <node1> <node2> <node3>
-   sudo pcs cluster start --all
-   sudo pcs cluster enable --all
-   ```
+    ```bash
+    sudo pcs host auth <node1> <node2> <node3>
+    sudo pcs cluster setup <clusterName> <node1> <node2> <node3>
+    sudo pcs cluster start --all
+    sudo pcs cluster enable --all
+    ```
 
 1. Run the following command to check that all nodes are online.
 
@@ -948,13 +948,13 @@ We will be following the guide to [create the availability group resources in th
       **RHEL 7** 
   
         ```bash
-            sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
+        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true
         ```
 
       **RHEL 8** 
   
         ```bash
-            sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
+        sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s promotable notify=true
         ```
 
 2. Check your resource and ensure that they are online before proceeding using the following command:
@@ -976,7 +976,7 @@ We will be following the guide to [create the availability group resources in th
     
     **RHEL 8** 
     
-     ```output
+    ```output
     [<username>@VM1 ~]$ sudo pcs resource
     * Clone Set: ag_cluster-clone [ag_cluster] (promotable):
     * ag_cluster             (ocf::mssql:ag) :            Slave VMrhel3 (Monitoring) 
@@ -1127,6 +1127,7 @@ To ensure that the configuration has succeeded so far, we will test a failover. 
     ```
 
 2. If you check your constraints again, you'll see that another constraint was added because of the manual failover:
+    
     **RHEL 7**
     
     ```output
