@@ -83,7 +83,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. Verify the following resources were created in the resource group:
 
-    ![Azure CDN resource group](./media/create-profile-endpoint-template/cdn-profile-template-rg.png)
+    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Azure CDN resource group" border="true":::
 
 ## Clean up resources
 
