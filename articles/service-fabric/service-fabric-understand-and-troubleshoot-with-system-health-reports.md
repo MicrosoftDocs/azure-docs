@@ -5,7 +5,7 @@ author: oanapl
 
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
+ms.author: gwallace
 ---
 # Use system health reports to troubleshoot
 Azure Service Fabric components provide system health reports on all entities in the cluster right out of the box. The [health store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports. It also organizes them in a hierarchy that captures entity interactions.
