@@ -60,12 +60,6 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
 
 1. Register the resource providers and preview features.
 
-   > [!CAUTION]
-   > When you register a feature on a subscription, you can't un-register that feature. After you
-   > enable some preview features, defaults may be used for all AKS clusters then created in the
-   > subscription. Don't enable preview features on production subscriptions. Use a separate
-   > subscription to test preview features and gather feedback.
-
    - Azure portal:
 
      1. Register the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource
