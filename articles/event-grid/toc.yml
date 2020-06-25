@@ -247,7 +247,7 @@
     - name: View metrics
       href: monitor-event-delivery.md
     - name: Create alerts
-      href: monitor-event-delivery.md      
+      href: set-alerts.md      
 - name: Reference
   items:
   - name: Azure CLI
