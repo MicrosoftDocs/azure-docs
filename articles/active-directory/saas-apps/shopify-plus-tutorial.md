@@ -161,7 +161,7 @@ For all users under an email domain:
 
 Click Save.
 
-Important: Enabling of SAML for all users under email domain will affect all users who use this application, which means that users will not be able to sign in through their regular log in page. They will only be able to access the app through the Okta service. Shopify does not provide backup log-in URL where users can sign-in using their normal username and password. You can contact Shopify Support to turn off SAML, if necessary.
+Important: Enabling of SAML for all users under email domain will affect all users who use this application, which means that users will not be able to sign in through their regular log in page. They will only be able to access the app through Active Directory. Shopify does not provide backup log-in URL where users can sign-in using their normal username and password. You can contact Shopify Support to turn off SAML, if necessary.
 
 ## Test SSO 
 
