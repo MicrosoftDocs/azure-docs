@@ -19,8 +19,6 @@ ms.author: yelevin
 ---
 # Connect data from Microsoft Cloud App Security 
 
-
-
 The [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) connector lets you stream alerts and [Cloud Discovery logs](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) from MCAS into Azure Sentinel. This will enable you to gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
 
 ## Prerequisites
@@ -45,6 +43,8 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 1. Select which logs you want to stream into Azure Sentinel; you can choose **Alerts** and **Cloud Discovery Logs** (preview). 
 
 1. Click **Apply Changes**.
+
+1. You can select whether you want the alerts from Azure Security Center to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
 1. To use the relevant schema in Log Analytics for Cloud App Security alerts, type `SecurityAlert` in the query window. For the Cloud Discovery logs schema, type `McasShadowItReporting`.
 
