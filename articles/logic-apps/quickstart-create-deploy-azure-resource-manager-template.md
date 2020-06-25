@@ -223,7 +223,11 @@ To view the logic app, you can use the Azure portal, run a script that you creat
 
 1. In the Azure portal search box, enter your logic app's name, which is `Check-Azure-Status-LA` in this example. From the results list, select your logic app.
 
-1. When the Logic App Designer opens, review the logic app that was created by the quickstart template.
+1. In the Azure portal, find and select your logic app, which is `Check-Azure-Status-RG` in this example.
+
+1. When the Logic App Designer opens, review the logic app created by the quickstart template.
+
+1. To test the logic app, on the designer toolbar, select **Run**.
 
 ### [CLI](#tab/azure-cli)
 
@@ -275,14 +279,13 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 ### [Portal](#tab/azure-portal)
 
-1. In the Azure portal search box, enter the name for the resource group, which is `Check-Azure-Status-RG` in this example. From the results list, select the resource group.
+1. In the Azure portal, find and select the resource group that you want to delete, which is `Check-Azure-Status-RG` in this example.
 
-1. On the When the Logic App Designer opens, review the logic app that was created by the quickstart template.
+1. On the resource group menu, select **Overview** if not already selected. On the overview page, select **Delete resource group**.
 
+1. To confirm, enter the name for the resource group.
 
-1. In the Azure portal search box, 
-1. 
-To delete the resource group, see [Delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
+For more information, see [Delete resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group).
 
 ### [CLI](#tab/azure-cli)
 
