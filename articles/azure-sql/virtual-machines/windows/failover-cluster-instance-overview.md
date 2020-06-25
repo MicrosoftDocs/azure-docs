@@ -44,13 +44,13 @@ In on-premises clustered environment, the Windows Failover Cluster uses Storage 
 
 [Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Managed Disks](../../../virtual-machines/windows/index.yml), and Windows Server Failover Cluster supports using Azure Shared Disks with a failover cluster instance. 
 
-Benefits: Shared disks allows you to migrate clustered applications to Azure as-is becuase it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single disk as shared storage in WFCS or stripe multiple disks together to create a shared storgae pool. Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.
+Benefits: Azure Shared Disks allows you to migrate clustered applications to Azure as-is becuase it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.
 
 Limitations: 
 - Only available for SQL Server 2019 and Windows Server 2019 in Preview. 
 - Virtual machines must be placed in the same availablity Set and [Proximity placement group (PPG)]
 - Availability Zones are not supported.
-- Premium SSd Disk caching is not supported.
+- Premium SSD Disk caching is not supported.
  
 To get started, see [SQL Server failover cluster instance with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
@@ -59,9 +59,9 @@ To get started, see [SQL Server failover cluster instance with Azure Shared Disk
 
 ### Storage Spaces Direct
 
-[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) are a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN. 
+[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) (S2D) is a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN. 
 
-Benefits: S2D requires same capcity disks attached both VMs as it internally replicates updates on both VMs. Becuase  of the on-going replicaiton, using S2D requires high network bandwidth to achive high performance. S2D supports Azure Blob Cahce, so reads can be done locally from the cahce but updates are replicates simlutanously on both VMs. When used with the right VM sizes that allows the network activity required to synchrronize S2D then it offers a high performance shared storage solution for SQL FCI. 
+Benefits: S2D requires same disk capacity attached both VMs as it internally replicates writes between FCI nodes. Because of the on-going replication, using S2D requires high network bandwidth to achive high performance. S2D supports Azure Blob Cahce, so reads can be served locally from the cahce but updates are replicated simlutanously on both nodes. When used with the right VM size that allows the network activity required to synchrronize S2D, then it offers a high performance shared storage solution for SQL FCI. 
 
 Limitations:
 - Only available for Windows Server 2016 and later. 
@@ -71,14 +71,14 @@ Limitations:
 
 To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
-**Supported OS**:    
-**Supported SQL version**:    
+**Supported OS**:    Windows Server 2016 and higher
+**Supported SQL version**:    SQL Server 2016 and higher
 
 ### Premium file share
 
 [Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
-Benefits: PFS is the only shared storage solution if VMs are spreaded over multiple avialbility zones. PFS is a fully managed file system with single digit latencies adn burstable IP bandwidth. PFS can be used as the fully managed shared storage option for SQL FCI spread between multiple avialability zones.
+Benefits: PFS is the only shared storage solution if VMs are spreaded over multiple availability zones. PFS is a fully managed file system with single digit latencies and offers burstable IO performance. PFS can be used as the fully managed shared storage option for SQL FCI for multi zone deployments.
 
 
 Limitations: 
@@ -94,8 +94,8 @@ There are a number of third-party clustering solutions with supported storage.
 
 One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
 
-**Supported OS**:    
-**Supported SQL version**:    
+**Supported OS**:    All
+**Supported SQL version**:    All
 
 ### iSCSI and ExpressRoute
 
@@ -105,12 +105,12 @@ For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRou
 
 For third-party shared storage and data replication solutions, you should contact the vendor for any issues related to accessing data on failover.
 
-**Supported OS**:    
-**Supported SQL version**:    
+**Supported OS**:    All
+**Supported SQL version**:    All
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines support using an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
+Failover cluster instances with SQL Server on Azure Virtual Machines support using an [virtual network name](hadr-azure-load-balancer-configure.md) with Azure Load Balancer or a [distributed network name](hadr-distributed-network-name-dnn-configure.md) to route traffic to SQL Server instance regardless of which node currently owns the clustered resources. 
 
 To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
 
