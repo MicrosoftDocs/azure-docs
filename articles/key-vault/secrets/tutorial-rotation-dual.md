@@ -17,7 +17,10 @@ ms.author: jalichwa
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. Access keys and passwords should be rotated frequently.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys in Azure Key Vault  a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys stored in Azure Key Vault as secrets using function triggered by Azure Event Grid notification. :
+
+> [!NOTE]
+> Storage Account Keys can be automatically managed in Key Vault by providing shared access signature tokens for delegated access to Storage Account. There are services which require storage account connection string with access key and for that scenario this solution is recommended
 
 ![Diagram of rotation solution](../media/secrets/rotation-dual/rotation-diagram.png)
 
