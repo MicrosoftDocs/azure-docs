@@ -18,3 +18,6 @@ If you do not want to port the number (keep it with the existing partner) or Mic
 The following diagram helps you to navigate through the available options, based on your scenario
 
 ![alt text for image](../media/phone-decision-tree.png)
+
+Now let look at the phone number types and plans (capabilities) available in the Microsoft direct offer. If you want to interconnect your carrier, the phone number types and plans might or might not match the Microsoft offers. Note you cannot interconnect your carrier for SMS, you can only interconnect for making or receiving voice calls. Please consult your carrier on the phone number types and offers.
+For the guide on how to interconnect your carrier, please proceed here [LINK]
