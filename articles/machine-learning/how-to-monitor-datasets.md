@@ -17,18 +17,18 @@ ms.date: 06/25/2020
 # Detect data drift (preview) on datasets
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to monitor data drift and set alerts when data drift is high.  
+Learn how to monitor data drift and set alerts when drift is high.  
 
 With Azure Machine Learning dataset monitors (preview), you can:
 * **Analyze drift in your data** to understand how it changes over time.
-* **Monitor model data** for differences between training and serving datasets.  Learn how to [collect model data from deployed models](how-to-enable-data-collection.md).
+* **Monitor model data** for differences between training and serving datasets.  Start by [collecting model data from deployed models](how-to-enable-data-collection.md).
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
 
 An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
-You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Metrics and insights are also available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
+You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
 
 > [!Important]
 > Monitoring data drift with the SDK is available in all editions. However, monitoring data drift through the studio on the web is Enterprise edition only.
