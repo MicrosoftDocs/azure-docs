@@ -113,7 +113,9 @@
       href: platform/data-platform-logs.md
     - name: Log data ingestion time
       displayname: latency
-      href: platform/data-ingestion-time.md         
+      href: platform/data-ingestion-time.md 
+    - name: Stream data to Event Hubs
+      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Insights
     href: insights/insights-overview.md
   - name: Data security
@@ -299,36 +301,12 @@
       displayName: Platform logs, Resource logs, Activity log
       href: platform/platform-logs-overview.md 
     - name: Activity log
-      items:
-      - name: View in Azure portal
-        displayName: Platform logs, Activity log
-        href: platform/activity-log-view.md
-      - name: Collect and analyze
-        displayName: Platform logs, Activity log
-        href: platform/activity-log-collect.md
-      - name: Export (legacy)
-        displayname: Activity log
-        href: platform/activity-log-export.md
-    - name: Send to Log Analytics workspace
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-workspace.md
-    - name: Send to Azure storage
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-collect-storage.md
-    - name: Send to Event Hubs
-      displayname: Resource logs, Activity log, Platform logs
-      href: platform/resource-logs-stream-event-hubs.md
-    - name: Create diagnostic setting
+      href: platform/activity-log.md
+    - name: Resource logs
+      href: platform/resource-logs.md
+    - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: platform/diagnostic-settings.md
-    - name: Create diagnostic setting with Resource Manager
-      displayName: diagnostic setting, Platform logs, Resource logs, Activity log
-      href: platform/diagnostic-settings-template.md
-    - name: Change to blob storage format
-      displayname: Diagnostic settings
-      href: platform/resource-logs-blob-format.md
-    - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
   - name: Log Analytics
     items:
     - name: Log query overview
@@ -637,6 +615,8 @@
         href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
+      - name: Overview
+        href: app/codeless-overview.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
@@ -946,6 +926,8 @@
         href: insights/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for Arc enabled cluster
+        href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: insights/container-insights-hybrid-setup.md
       - name: Enable for Azure Red Hat OpenShift v3
@@ -1013,6 +995,8 @@
       href: insights/storage-insights-overview.md
     - name: Resource groups
       href: insights/resource-group-insights.md
+    - name: Troubleshoot insights
+      href: insights/troubleshoot-workbooks.md
   - name: Solutions
     items:
     - name: Overview
@@ -1183,12 +1167,12 @@
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
-    - name: Supported resource log types and categories
-      href: platform/resource-logs-categories.md
-    - name: Resource log schemas
-      href: platform/resource-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
+    - name: Resource log schemas
+      href: platform/resource-logs-schema.md
+    - name: Supported resource log categories
+      href: platform/resource-logs-categories.md
   - name: Diagnostic extension schemas
     items:
     - name: Windows diagnostics extension
@@ -1275,6 +1259,9 @@
       href: platform/oms-portal-transition.md
     - name: Disk metrics deprecation
       href: platform/portal-disk-metrics-deprecation.md
+    - name: Change to blob storage format
+      displayname: Diagnostic settings
+      href: platform/resource-logs-blob-format.md
 - name: Resources
   items:
   - name: Azure Roadmap

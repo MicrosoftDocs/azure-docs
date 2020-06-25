@@ -4,7 +4,6 @@ description: Step-by-step instructions for creating a listener for an Always On 
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf

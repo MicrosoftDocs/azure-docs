@@ -112,7 +112,7 @@ The device identity operations category tracks errors that occur when you attemp
 
 #### Routes
 
-The message routing category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
+The [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
 
 * A rule evaluates to "undefined",
 * IoT Hub marks an endpoint as dead, or
@@ -126,31 +126,23 @@ This category does not include specific errors about the messages themselves (li
     [
         {
             "time":"2019-12-12T03:25:14Z",
-            "resourceId":"/SUBSCRIPTIONS/91D12660-3DEC-467A-BE2A-213B5544DDC0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
             "operationName":"endpointUnhealthy",
             "category":"Routes",
             "level":"Error",
             "resultType":"403004",
             "resultDescription":"DeviceMaximumQueueDepthExceeded",
-            "properties":"{\"deviceId\":null,\"endpointName\":\"juan-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
             "location":"westus"
         }
     ]
 }
 ```
 
-#### Error list for last known error
+Here are more details on routing diagnostic logs:
 
-[!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
-
-#### Error codes output by the diagnostic logs
-
-<!-- Error codes output by the diagnostic logs (2.2.1.1.5)-->
-[!INCLUDE [iot-hub-diagnostics-error-codes](../../includes/iot-hub-diagnostics-error-codes.md)]
-
-#### IoT Hub diagnostics operation names
-
-[!INCLUDE [iot-hub-diagnostics-operation-names](../../includes/iot-hub-diagnostics-operation-names.md)]
+* [List of routing diagnostic log error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [List of routing diagnostic logs operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
 
 #### Device telemetry
 

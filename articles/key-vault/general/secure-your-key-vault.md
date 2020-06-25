@@ -76,6 +76,8 @@ You grant data plane access by setting Key Vault access policies for a key vault
 
 You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
 
+You can see the full list of vault and secret operations and understand the operations allowed when you configure key vault access policies by viewing the following reference. [Key Vault Operation Reference](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
+
 <a id="key-vault-access-policies"></a>
 Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

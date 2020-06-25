@@ -2,7 +2,7 @@
 title: Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 description: How to deploy and configure Hyperledger Fabric consortium network on Azure Kubernetes Service
 ms.date: 06/04/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
 ---
 

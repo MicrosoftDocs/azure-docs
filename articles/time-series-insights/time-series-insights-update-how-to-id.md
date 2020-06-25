@@ -1,14 +1,14 @@
 ---
 title: 'Best practices for choosing a Time Series ID - Azure Time Series Insights | Microsoft Docs'
 description: Learn about best practices when choosing a Time Series ID in Azure Time Series Insights Preview.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: shipramishra
+ms.author: shmishr
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.custom: seodec18
 ---
 
@@ -70,9 +70,7 @@ Example raw event:
 
 In the Azure portal, you can then enter the composite key as follows:
 
-```JSON
-[{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]
-```
+[![Configure Time Series ID for the environment.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
 
 ## Next steps
 

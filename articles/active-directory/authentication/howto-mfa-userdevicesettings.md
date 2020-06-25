@@ -30,7 +30,7 @@ If you're assigned the *Authentication Administrator* role you can require users
    - **Require Re-register MFA** makes it so that when the user signs in next time, they're requested to set up a new MFA authentication method.
    
       > [!NOTE]
-      > The user's currently registered devices aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered devices that are no longer usable.
+      > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
    
    - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
 
