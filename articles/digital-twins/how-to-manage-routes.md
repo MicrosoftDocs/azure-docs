@@ -3,9 +3,9 @@
 title: Manage endpoints and routes
 titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
-ms.date: 3/17/2020
+author: alexkarcher-msft
+ms.author: alkarche # Microsoft employees only
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
@@ -75,19 +75,21 @@ The samples in this article use the C# SDK.
 
 Event routes are defined using data plane APIs. A route definition can contain these elements:
 * The route ID you want to use
-* The ID of the endpoint you want to use
+* The name of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint 
 
 If there is no route ID, no messages are routed outside of Azure Digital Twins. 
-If there is a route ID and the filter is `null`, all messages are routed to the endpoint. 
-If there is a route ID and a filter is added, messages will be filtered based on the filter.
+If there is a route ID and the filter is `true`, all messages are routed to the endpoint. 
+If there is a route ID and a different filter is added, messages will be filtered based on the filter.
 
 One route should allow multiple notifications and event types to be selected. 
 
-Here is the call to the SDK that is used to add an event route:
+`CreateEventRoute` is the SDK call that is used to add an event route. Here is an example of its usage:
 
 ```csharp
-await client.CreateEventRoute("routeName", new EventRoute("endpointID"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
 > [!TIP]
@@ -133,11 +135,11 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 You can restrict the events being sent by adding a filter to an endpoint.
 
-To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-03-01-preview* with the following body:
+To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-preview* with the following body:
 
 ```json  
 {
-    "endpointId": "<endpoint-ID>",
+    "endpointName": "<endpoint-name>",
     "filter": "<filter-text>"
 }
 ``` 
@@ -146,9 +148,10 @@ Here are the supported route filters.
 
 | Filter name | Description | Filter schema | Supported values | 
 | --- | --- | --- | --- |
-| Type | The [type of event](./concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
-| Source | Name of Azure Digital Twins instance | `"filter" : "source = '<hostname>'"`|  **For notifications:** `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **For telemetry:** `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
-| Subject | A description of the event in the context of the event source above | `"filter": " subject = '<subject>'"` | **For notifications**, the subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> **For telemetry**, the subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
+| Type | The [type of event](./concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Source | Name of Azure Digital Twins instance | `"filter" : "source = '<hostname>'"`|  **For notifications**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **For telemetry**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Subject | A description of the event in the context of the event source above | `"filter": " subject = '<subject>'"` | **For notifications**: The subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **For telemetry**: The subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
+| Data schema | DTDL model ID | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry <br>**For notifications**: Data schema is not supported|
 | Content type | Content type of data value | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Spec version | The version of the event schema you are using | `"filter": "specversion = '<version>'"` | Must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | True / False | Allows creating a route with no filtering, or disabling a route | `"filter" : "<true/false>"` | `true` = route is enabled with no filtering <br> `false` = route is disabled |

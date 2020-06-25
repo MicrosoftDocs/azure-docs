@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a twin graph with relationships
+title: Manage the twin graph with relationships
 titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
@@ -24,7 +24,7 @@ The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) re
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance.md) and have set up [authentication](how-to-authenticate-client.md) for your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage a digital twin](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
 
 ## Create relationships
 
