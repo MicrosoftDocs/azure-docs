@@ -87,7 +87,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
-    --group-id mysqlServer \  
+    --group-id postgresqlServer \  
     --connection-name myConnection  
  ```
 
