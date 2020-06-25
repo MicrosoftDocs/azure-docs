@@ -19,7 +19,7 @@ The best way to authenticate to Azure services is by using a [managed identity](
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use dual credential authentication. Specifically, this tutorial rotates Azure Storage account keys in Azure Key Vault  a function triggered by Azure Event Grid notification:
 
-![Diagram of rotation solution](../media/secrets/rotation-dual/rotationdiagram.png)
+![Diagram of rotation solution](../media/secrets/rotation-dual/rotation-diagram.png)
 
 In above solution, Azure Key Vault stores Storage Account individual access keys as versions of the same secret alternating between primary and secondary key in subsequent versions. As one access key is stored in latest version of the secret, alternate key gets regenerated and added to Key Vault as new and latest version of the secret. That solution provides applications entire rotation cycle to refresh to newest regenerated key. 
 
@@ -29,7 +29,7 @@ In above solution, Azure Key Vault stores Storage Account individual access keys
 1. The function app adds new regenerated key to Azure Key Vault as new version of the secret.
 
 ## Prerequisites
-
+* An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure Key Vault
 * Two Azure Storage Accounts
 
@@ -42,7 +42,7 @@ Below deployment link can be used, if you don't have existing key vault and stor
 1. Select **Review+Create**.
 1. Select **Create**
 
-    ![Create a resource group](../media/secrets/rotation-dual/dualrotation-1.png)
+    ![Create a resource group](../media/secrets/rotation-dual/dual-rotation-1.png)
 
 You'll now have a key vault, and two storage accounts. You can verify this setup in the Azure CLI by running the following command:
 
@@ -86,10 +86,10 @@ The function app rotation functions require these components and configuration:
 1. Select **Review+Create**.
 1. Select **Create**
 
-   ![Review+Create](../media/secrets/rotation-dual/dualrotation-2.png)
+   ![Review+Create](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 After you complete the preceding steps, you'll have a storage account, a server farm, a function app, application insights. You should see below screen once deployment completed:
-   ![Deployment complete](../media/secrets/rotation-dual/dualrotation-3.png)
+   ![Deployment complete](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
 > In case of any failures you can click **Redeploy** to finish deployment of remaining components.
 
@@ -133,13 +133,13 @@ You can show secret information using below command:
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
 Notice that `CredentialId` is updated to alternate `keyName` and `value` is regenerated
-![Secret Show](../media/secrets/rotation-dual/dualrotation-4.png)
+![Secret Show](../media/secrets/rotation-dual/dual-rotation-4.png)
 
 Retrieve access keys to validate value
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Access Key List](../media/secrets/rotation-dual/dualrotation-5.png)
+![Access Key List](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## Add additional Storage Accounts for rotation
 
@@ -162,7 +162,7 @@ Adding additional storage account keys for rotation to existing function require
 1. Select **Review+Create**.
 1. Select **Create**
 
-   ![Review+Create](../media/secrets/rotation-dual/dualrotation-7.png)
+   ![Review+Create](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### Add Another Storage Account access key to Key Vault
 
@@ -189,13 +189,13 @@ Show secret information using below command:
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
 Notice that `CredentialId` is updated to alternate `keyName` and `value` is regenerated
-![Secret Show](../media/secrets/rotation-dual/dualrotation-8.png)
+![Secret Show](../media/secrets/rotation-dual/dual-rotation-8.png)
 
 Retrieve access keys to validate value
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![Access Key List](../media/secrets/rotation-dual/dualrotation-9.png)
+![Access Key List](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## Available Key Vault dual credential rotation functions
 
@@ -203,7 +203,7 @@ az storage account keys list -n akvrotationstorage
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## Learn more
-
 - Overview: [Monitoring Key Vault with Azure Event Grid (preview)](../general/event-grid-overview.md)
+- How to: [Create your first function in the Azure portal](../../azure-functions/functions-create-first-azure-function.md)
 - How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)
