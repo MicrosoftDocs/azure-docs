@@ -70,7 +70,7 @@ Follow these steps to deploy the previous template.
 
 1. Enter a location for the deployment such as *centralus*.
 
-1. Enter a list of actions for custom role as a comma-separated list such as *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
+1. Enter a list of actions for the custom role as a comma-separated list such as *Microsoft.Resources/resources/read,Microsoft.Resources/subscriptions/resourceGroups/read*.
 
 1. If necessary, press Enter to run the New-AzDeployment command.
 
