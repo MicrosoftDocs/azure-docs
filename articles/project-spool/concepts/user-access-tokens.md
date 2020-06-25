@@ -94,15 +94,10 @@ Azure Communication Services supports the following scopes for user access token
 
 | Name                  | Description                                                  |
 | --------------------- | ------------------------------------------------------------ |
-| `chat:message`        | Grants the ability to participate in chat threads            |
-| `chat:manage_threads` | Grants the ability create and invite users to chat threads   |
-| `voip:adhoc`          | Grants the ability to make outbound VOIP calls using the calling SDK |
-| `voip:pstn`           | Grants the ability to make outbound PSTN calls using the calling SDK |
-| `rooms:manage`        | Grants the ability to create and invite users to rooms       |
-
-> NOTE: These scopes are illustrative. We currently are not planning to support `chat:manage_threads`, but will continue to discuss offline.
-> |nmurav: why only Outbound calls for PSTN and VoiP? We also allow recieving the inbound calls
-
+| `chat`                | Grants the ability to participate in a chat                  |
+| `voip`                | Grants the ability to make and receive VOIP calls using the calling SDK |
+| `pstn`                | Grants the ability to make a PSTN calls using the calling SDK |
+| `joinRoom`            | Grants the ability to create or join a group call     |
 
 
 ## Reissuing user access tokens
