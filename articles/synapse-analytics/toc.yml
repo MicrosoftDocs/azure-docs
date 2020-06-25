@@ -196,7 +196,7 @@
         href: ./spark/apache-spark-autoscale.md
     - name: Development
       items:
-      - name: Libraries
+      - name: Libraries 
         - name: Add and manage libraries
           href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Runtime language and library support
