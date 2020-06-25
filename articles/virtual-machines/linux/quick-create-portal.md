@@ -53,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 1. When the deployment is finished, select **Go to resource**.
 
-1. On the page for your new VM, select the puplic IP address and copy it to your clipboard.
+1. On the page for your new VM, select the public IP address and copy it to your clipboard.
 
 
 	![Copy the public IP address](./media/quick-create-portal/ip-address.png)
