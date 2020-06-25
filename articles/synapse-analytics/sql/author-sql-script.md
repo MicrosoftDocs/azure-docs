@@ -54,7 +54,7 @@ You can also visualize the SQL script results in a chart by selecting the **Char
 
 ![newsqlscriptresultschart](media/author-sql-script/newsqlscriptresultschart.png)
 
-## Explore data from a Parquet file.
+## Explore data from a Parquet file
 
 You can explore Parquet files in a storage account using SQL script to preview the file contents.
 
