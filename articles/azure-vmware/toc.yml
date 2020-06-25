@@ -32,6 +32,8 @@
     href: concepts-upgrades.md
   - name: Hub and spoke integration
     href: concepts-avs-hub-and-spoke-integration.md
+  - name: API Management
+    href: concepts-api-management.md
 - name: How-to guides
   items:
   - name: Set up HCX
