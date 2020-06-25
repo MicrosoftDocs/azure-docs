@@ -244,8 +244,10 @@
       href: troubleshoot-errors.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
-    - name: View metrics and create alerts
+    - name: View metrics
       href: monitor-event-delivery.md
+    - name: Create alerts
+      href: monitor-event-delivery.md      
 - name: Reference
   items:
   - name: Azure CLI
