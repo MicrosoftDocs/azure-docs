@@ -72,7 +72,7 @@ A successful cluster creation using managed identities contains this service pri
   }
 ```
 
-Use the following command to query object id of your control plane managed identity:
+Use the following command to query objectid of your control plane managed identity:
 
 ```azurecli-interactive
 az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
