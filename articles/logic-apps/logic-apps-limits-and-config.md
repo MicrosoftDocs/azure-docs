@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
+ms.date: 06/25/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -213,7 +213,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier isn't available for [Azure China 21Vianet](../china/overview-operations.md) or for [Azure Government (Arizona, Texas, and Virginia)](../azure-government/documentation-government-welcome.md). For more information, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
