@@ -1,7 +1,7 @@
 ---
 title: Common FabricClient exceptions thrown 
 description: Describes the common exceptions and errors which can be thrown by the FabricClient APIs while performing application and cluster management operations.
-author: oanapl
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 06/20/2018
