@@ -12,7 +12,7 @@ ms.date: 06/25/2020
 
 # Enable Azure Monitor for VMs overview
 
-This article provides an overview of the options available to enable Azure Monitor for VMs on your virtual machines to monitor health and performance. Discover application dependencies that run on the following:
+This article provides an overview of the options available to enable Azure Monitor for VMs to monitor health and performance of the following:
 
 - Azure virtual machines 
 - Azure virtual machine scale sets
