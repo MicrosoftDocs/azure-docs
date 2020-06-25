@@ -65,7 +65,7 @@ The Read operation supports extracting handwritten text in English.
 
 ### Printed text in supported languages
 
-The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/language-support#text-recognition)
+The Read API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
 ![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
