@@ -31,7 +31,7 @@ The second step is to call the [Get Results](https://westcentralus.dev.cognitive
 
 If necessary, Read corrects the rotation of the recognized page by returning the rotational offset in degrees about the horizontal image axis, as seen in the following illustration.
 
-![An image being rotated and its text being read and delineated](./images/vision-overview-ocr.png)
+![An image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
 
