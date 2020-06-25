@@ -244,7 +244,7 @@
       href: troubleshoot-errors.md
     - name: Troubleshoot subscription validation
       href: troubleshoot-subscription-validation.md
-    - name: View metrics and set alerts
+    - name: View metrics and create alerts
       href: monitor-event-delivery.md
 - name: Reference
   items:

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
+ms.date: 06/19/2020
 
 
 ---
@@ -82,7 +82,7 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
 1. Regenerate the key. For information on regenerating an access key, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md). Save the new key.
 
-1. To update the workspace to use the new key, use the following steps:
+1. The Azure Machine Learning workspace will automatically synchronize the new key and begin using it after an hour. To force the workspace to synch to the new key immediately, use the following steps:
 
     1. To sign in to the Azure subscription that contains your workspace by using the following Azure CLI command:
 

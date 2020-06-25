@@ -166,9 +166,6 @@ When you run your application, you should now be authenticating to Azure Active 
 
 ## Key rotation using Azure Automation
 
-> [!IMPORTANT]
-> Azure Automation runbooks still require the use of the `AzureRM` module.
-
 You are now ready to set up a rotation strategy for the values you store as Key Vault secrets. Secrets can be rotated in several ways:
 
 - As part of a manual process

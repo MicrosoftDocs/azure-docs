@@ -1,6 +1,6 @@
 ---
 title: Run Apache Sqoop jobs by using PowerShell and Azure HDInsight 
-description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and an Azure SQL Database.
+description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and Azure SQL Database.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -14,7 +14,7 @@ ms.date: 05/14/2020
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export data between an HDInsight cluster and an Azure SQL Database or SQL Server database.  This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export data between an HDInsight cluster and Azure SQL Database or SQL Server.  This article is a continuation of [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to
 
 ## Sqoop export
 
-From Hive to SQL Server.
+From Hive to SQL.
 
-This example exports data from the Hive `hivesampletable` table to the `mobiledata` table in SQL Database. Set the values for the variables below and then execute the command.
+This example exports data from the Hive `hivesampletable` table to the `mobiledata` table in SQL. Set the values for the variables below and then execute the command.
 
 ```powershell
 $hdinsightClusterName = ""
@@ -91,7 +91,7 @@ If you receive the error message, `The specified blob does not exist.`, try agai
 
 ## Sqoop import
 
-From SQL Server to Azure Storage. This example imports data from the `mobiledata` table in SQL Database, to the `wasb:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character. This example assumes you've completed the prior example.
+From SQL to Azure Storage. This example imports data from the `mobiledata` table in SQL, to the `wasb:///tutorials/usesqoop/importeddata` directory on HDInsight. The fields in the data are separated by a tab character, and the lines are terminated by a new-line character. This example assumes you've completed the prior example.
 
 ```powershell
 $sqoopCommand = "import --connect $connectionString --table mobiledata --target-dir wasb:///tutorials/usesqoop/importeddata --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1"
@@ -123,7 +123,7 @@ Get-AzHDInsightJobOutput `
 
 This is a robust example that exports data from `/tutorials/usesqoop/data/sample.log` from the default storage account, and then imports it to a table called `log4jlogs` in a SQL Server database. This example isn't dependent on the prior examples.
 
-The following PowerShell script pre-processes the source file and then exports it to an Azure SQL Database to table `log4jlogs`. Replace `CLUSTERNAME`, `CLUSTERPASSWORD`, and `SQLPASSWORD` with the values you used from the prerequisite.
+The following PowerShell script pre-processes the source file and then exports it to table `log4jlogs`. Replace `CLUSTERNAME`, `CLUSTERPASSWORD`, and `SQLPASSWORD` with the values you used from the prerequisite.
 
 ```powershell
 <#------ BEGIN USER INPUT ------#>
@@ -214,7 +214,7 @@ $writeStream.Flush()
 $memStream.Seek(0, "Begin")
 $destBlob.UploadFromStream($memStream)
 
-#export the log file from the cluster to the SQL database
+#export the log file from the cluster to SQL
 Write-Host "Exporting the log file ..." -ForegroundColor Green
 
 $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
@@ -266,7 +266,7 @@ Get-AzHDInsightJobOutput `
 
 Linux-based HDInsight presents the following limitations:
 
-* Bulk export: The Sqoop connector that's used to export data to Microsoft SQL Server or Azure SQL Database doesn't currently support bulk inserts.
+* Bulk export: The Sqoop connector that's used to export data to SQL doesn't currently support bulk inserts.
 
 * Batching: By using the `-batch` switch when it performs inserts, Sqoop performs multiple inserts instead of batching the insert operations.
 

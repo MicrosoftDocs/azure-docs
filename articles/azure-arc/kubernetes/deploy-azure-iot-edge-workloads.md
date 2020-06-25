@@ -26,7 +26,7 @@ Azure Arc and Azure IoT Edge complement each other's capabilities quite well. Az
 
 * Use [IoT Edge's support for Kubernetes](https://aka.ms/edgek8sdoc) to deploy it via Azure Arc's Flux operator.
 
-* Download the [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the **deviceConnectionString** placeholder at the end of the file with the one noted in Step 1. You can set any other supported chart installation options as required. Create a namespace for the IoT Edge workload and create add a secret in it:
+* Download the [**values.yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) file for IoT Edge Helm chart and replace the **deviceConnectionString** placeholder at the end of the file with the one noted in Step 1. You can set any other supported chart installation options as required. Create a namespace for the IoT Edge workload and create a secret in it:
 
     ```
     $ kubectl create ns iotedge

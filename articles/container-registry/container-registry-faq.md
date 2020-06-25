@@ -216,7 +216,7 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Or, assign the role to a service principle identified by its application ID:
+  Or, assign the role to a service principal identified by its application ID:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -434,6 +434,7 @@ Here are some scenarios where operations may be disallowed:
 * Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
 
 ### How do I collect http traces on Windows?
 

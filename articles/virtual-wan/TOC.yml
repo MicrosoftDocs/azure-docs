@@ -44,14 +44,10 @@
       href: path-selection-multiple-links.md
 - name: How-to guides
   items:
-  - name: Connect virtual network gateway to Virtual WAN
-    href: connect-virtual-network-gateway-vwan.md
   - name: Configure Global VNet peering
     href: global-peering-vnet.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
-  - name: Configure custom IPsec policy
-    href: virtual-wan-custom-ipsec-portal.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -62,6 +58,10 @@
     items:
     - name: Create a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
+    - name: Connect virtual network gateway to Virtual WAN
+      href: connect-virtual-network-gateway-vwan.md
+    - name: Configure custom IPsec policy
+      href: virtual-wan-custom-ipsec-portal.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection
