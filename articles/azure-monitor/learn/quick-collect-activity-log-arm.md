@@ -1,15 +1,15 @@
 ---
-title: Create a Log Analytics workspace in the Azure Portal
-description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
+title: Send Azure Activity log to Log Analytics workspace using Azure resource manager template
+description: Use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: quickstart
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
+ms.date: 06/25/2020
 
 ---
 
-# Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template 
+# Send Azure Activity log to Log Analytics workspace using Azure resource manager template
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../log-query/log-query-overview.md) and enable other features such as [log alerts](../platform/alerts-log-query.md) and [workbooks](../platform/workbooks-overview.md). 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]

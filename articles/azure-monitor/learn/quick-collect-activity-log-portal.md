@@ -1,11 +1,11 @@
 ---
-title: Create a Log Analytics workspace in the Azure Portal
-description: Learn how to create a Log Analytics workspace to enable management solutions and data collection from your cloud and on-premises environments in the Azure portal.
+title: Send Azure Activity log to Log Analytics workspace using Azure portal
+description: Use the Azure portal to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: quickstart
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
+ms.date: 06/25/2020
 
 ---
 
@@ -42,20 +42,20 @@ Click **Add diagnostic setting** to create a new setting.
 
 ![Create diagnostic setting](media/quick-collect-activity-log/create-diagnostic-setting.png)
 
-Type in a name such as *Send Activity log to workspace*. Select each of the categories. Select **Send to Log Analytics** as the only destination and then specify the workspace that you just created. Click **Save** to create the diagnostic setting and then close the page.
+Type in a name such as *Send Activity log to workspace*. Select each of the categories. Select **Send to Log Analytics** as the only destination and then specify the workspace that you created. Click **Save** to create the diagnostic setting and then close the page.
 
 ![New diagnostic setting](media/quick-collect-activity-log/new-diagnostic-setting.png)
 
 ## Generate log data
-Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource. You may need to wait a few minutes for the diagnostic setting to be created and for data to initially to be written to the workspace. After this delay, all events written to the Activity log will be sent to the workspace within a few seconds.
+Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource. You may need to wait a few minutes for the diagnostic setting to be created and for data to initially be written to the workspace. After this delay, all events written to the Activity log will be sent to the workspace within a few seconds.
 
 ## Retrieve data with a log query
 
-Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you just created, then click **Select scope** and locate it.
+Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you created, then click **Select scope** and locate it.
 
 ![Log Analytics scope](media/quick-collect-activity-log/log-analytics-scope.png)
 
-In the query window, type `AzureActivity` and click **Run**. This is a simple query that returns all records in the *AzureActivity* table which contains all the records sent from the Activity log.
+In the query window, type `AzureActivity` and click **Run**. This is a simple query that returns all records in the *AzureActivity* table, which contains all the records sent from the Activity log.
 
 ![Simple query](media/quick-collect-activity-log/query-01.png)
 
