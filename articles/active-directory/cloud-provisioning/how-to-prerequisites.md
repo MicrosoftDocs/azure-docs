@@ -6,13 +6,8 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-<<<<<<< HEAD
-ms.topic: conceptual
-ms.date: 06/23/2020
-=======
 ms.topic: how-to
 ms.date: 12/06/2019
->>>>>>> 2a80adc55e908014c5e226100e23caf953c8d786
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
