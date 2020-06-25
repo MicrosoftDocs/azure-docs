@@ -37,7 +37,7 @@ Follow these steps to create a recovery services vault:
     eastus      AzureFiles
     ```
 
-2. Use the [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
+1. Use the [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
     The following example creates a recovery services vault named *azurefilesvault* in the East US region.
 
@@ -49,28 +49,6 @@ Follow these steps to create a recovery services vault:
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Specify the type of redundancy to use for the vault storage. You can use [locally redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) or [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    The following example sets storage redundancy option for *azurefilesvault* to **Georedundant** using the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    To check if the vault is created successfully, you can use the [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet to get details of your vault. The following example displays the details of the *azurefilesvault* we created in the steps above.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    The output will be similar to the following response:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## Enable backup for Azure file shares
