@@ -23,7 +23,7 @@ Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop W
 With version 3.x of the WebJobs, you create and publish a WebJob as a .NET Core console app. For step-by-step instructions to create and publish a .NET Core console app to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET Core WebJobs cannot be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJob as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
+> .NET Core WebJobs cannot be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJobs as .NET Framework console apps](#webjobs-as-net-framework-console-apps).  
 
 ### Deploy to Azure App Service
 
@@ -57,7 +57,7 @@ When you enable **Always on** in Azure, you can use Visual Studio to change the 
 
 1. Select **Publish** in the **Publish** tab to republish the WebJob with the updated settings.
 
-## WebJob as a .NET Framework console app  
+## WebJobs as .NET Framework console apps  
 
 When Visual Studio deploys a WebJobs-enabled .NET Framework console app project, it copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
 
@@ -200,7 +200,7 @@ WebJob deployment information:
 
 * If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy. If you change other scheduling settings, but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job instead of creating a new one.
 
-## Schedule a triggered WebJob
+## Scheduling a triggered WebJob
 
 WebJobs uses a *settings.job* file to determine when a WebJob is run. Use this file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
 
