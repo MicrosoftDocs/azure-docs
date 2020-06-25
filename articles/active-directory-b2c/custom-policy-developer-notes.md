@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -97,7 +97,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
-| [Third party email service providers](custom-email.md) |  |X  |  |  |
+| [Third party email service providers](custom-email-mailjet.md) |  |X  |  |  |
 | [Multi-language support](localization.md)|  |  | X |  |
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
 | [Display controls](display-controls.md) |  |X  |  |  |
