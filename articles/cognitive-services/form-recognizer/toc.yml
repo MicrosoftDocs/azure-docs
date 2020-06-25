@@ -65,7 +65,7 @@
 - name: Reference
   items:
   - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v1.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
   - name: SDKs

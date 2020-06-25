@@ -3,7 +3,7 @@ title: Create your first automated workflow
 description: Quickstart - Build your first automated workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
@@ -72,13 +72,13 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Provide this information for your trigger as shown and described here:
+1. Provide the information for your trigger as described in the table:
 
    ![Set up trigger with RSS feed, frequency, and interval](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **The RSS feed URL** | `http://feeds.reuters.com/reuters/topNews` | The link for the RSS feed that you want to monitor |
+   | **The RSS feed URL** | <*RSS-feed-URL*> | The link for the RSS feed that you want to monitor. This example uses `http://feeds.reuters.com/reuters/topNews`. |
    | **Interval** | 1 | The number of intervals to wait between checks |
    | **Frequency** | Minute | The unit of time for each interval between checks  |
    ||||

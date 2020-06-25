@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure SQL Database
 description: Lists Azure Policy built-in policy definitions for Azure SQL Database and SQL Managed Instance. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein

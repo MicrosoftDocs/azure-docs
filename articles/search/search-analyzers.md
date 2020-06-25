@@ -52,36 +52,53 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 Setting an analyzer is optional. As a general rule, try using the default standard Lucene analyzer first to see how it performs. If queries fail to return the expected results, switching to a different analyzer is often the right solution.
 
-The best time to assign an analyzer is during the development phase before the index is populated.
-
-1. On a field definition in the [index](https://docs.microsoft.com/rest/api/searchservice/create-index), set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`). 
+1. When creating a field definition in the [index](https://docs.microsoft.com/rest/api/searchservice/create-index), set the  **analyzer** property to one of the following: a [predefined analyzer](index-add-custom-analyzers.md#AnalyzerTable) such as `keyword`, a [language analyzer](index-add-language-analyzers.md) such as `en.microsoft`, or a custom analyzer (defined in the same index schema).  
  
-   Valid values can be the name of a predefined analyzer (such as `keyword`), a [language analyzer](index-add-language-analyzers.md) (such as `ja.lucene`), or a custom analyzer also defined in the index schema.
+   ```json
+     "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+   ```
 
    If you are using a [language analyzer](index-add-language-analyzers.md), you must use the **analyzer** property to specify it. The **searchAnalyzer** and **indexAnalyzer** properties do not support language analyzers.
 
-1. Optionally, instead of one **analyzer** property, you can set a pair of analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field properties. These properties are set together; if you set one, set both. You might use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
+1. Alternatively, set **indexAnalyzer** and **searchAnalyzer** to vary the analyzer for each workload. These properties are set together and replace the **analyzer** property, which must be null. You might use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
 
-1. For custom analyzers only, create a named **analyzer** section in the index definition, and then assign your custom analyzer to the field definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
+   ```json
+     "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": null,
+      "indexAnalyzer": "keyword",
+      "searchAnalyzer": "whitespace"
+    },
+   ```
 
-Assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed. If any of this is unclear, review the following table for a breakdown of which actions require a rebuild and why.
- 
- | Scenario | Impact | Steps |
- |----------|--------|-------|
- | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. You can use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to add a new field to an existing index, and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it.|
- | Add an **analyzer** or **indexAnalyzer** to an existing indexed field. | [rebuild](search-howto-reindex.md) | The inverted index for that field must be recreated from the ground up, and the content for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you can defer a rebuild by creating a new field to provide the revised definition and start using it in place of the old one. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
+1. For custom analyzers only, create an entry in the **[analyzers]** section of the index, and then assign your custom analyzer to the field definition per either of the previous two steps. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
 
 ## When to add analyzers
 
 The best time to add and assign analyzers is during active development, when dropping and recreating indexes is routine.
 
-As an index definition solidifies, you can append new analysis constructs to an index, but you will need to pass the **allowIndexDowntime** flag to [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) if you want to avoid this error:
+Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed (although you can change the **searchAnalyzer** property at any time with no impact to the index).
+
+To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
+
+To add a new field to an existing index, call [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
+
+To add a custom analyzer to an existing index, pass the **allowIndexDowntime** flag in [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) if you want to avoid this error:
 
 *"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."*
-
-The same holds true when assigning an analyzer to a field. An analyzer is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index, or add a new field with the analyzer you want.
-
-As noted, an exception is the **searchAnalyzer** variant. Of the three ways to specify analyzers (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), only the **searchAnalyzer** attribute can be changed on an existing field.
 
 ## Recommendations for working with analyzers
 
@@ -89,7 +106,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field properties. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If `analyzer` is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field properties. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If **analyzer** is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 
@@ -291,7 +308,7 @@ If you are using the .NET SDK code samples, you can append these examples to use
 
 ### Assign a language analyzer
 
-Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an analyzer construct. 
+Any analyzer that is used as-is, with no configuration, is specified on a field definition. There is no requirement for creating an entry in the **[analyzers]** section of the index. 
 
 This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
 

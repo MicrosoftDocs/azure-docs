@@ -92,6 +92,8 @@
       href: troubleshoot-reboot-loop.md
     - name: Stuck at Windows update
       href: troubleshoot-stuck-updating-boot-error.md
+    - name: Unexpected restart or error
+      href: troubleshoot-unexpected-restart-error-during-vm-boot.md
     - name: VM startup is stuck
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager

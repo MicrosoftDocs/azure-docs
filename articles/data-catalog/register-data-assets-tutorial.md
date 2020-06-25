@@ -11,7 +11,7 @@ ms.date: 08/01/2019
 
 # Tutorial: Register data assets in Azure Data Catalog
 
-In this tutorial, you use the registration tool to register data assets from the Azure SQL database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
+In this tutorial, you use the registration tool to register data assets from the database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -35,11 +35,11 @@ To set up Data Catalog, you must be the owner or co-owner of an Azure subscripti
 
 ### Register a data source
 
-You register data assets (tables) from an [Azure SQL database sample](../azure-sql/database/single-database-create-quickstart.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+You register data assets (tables) from a [database sample](../azure-sql/database/single-database-create-quickstart.md) for Azure SQL Database, but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
-The Azure SQL database name we're using in this tutorial is *RLSTest*.
+The database name we're using in this tutorial is *RLSTest*.
 
-You can now register data assets from the Azure SQL database sample by using Azure Data Catalog.
+You can now register data assets from the database sample by using Azure Data Catalog.
 
 1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
 
@@ -57,13 +57,13 @@ You can now register data assets from the Azure SQL database sample by using Azu
 
     ![Azure Data Catalog--data sources](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Enter the SQL Server connection properties for your Azure SQL database sample and select **CONNECT**.
+5. Enter the SQL Server connection properties for your database sample in Azure SQL Database and select **CONNECT**.
 
    ![Azure Data Catalog--SQL Server connection settings](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Register the metadata of your data asset. In this example, you register **Product** objects from the Azure SQL database sample namespace:
+6. Register the metadata of your data asset. In this example, you register **Product** objects from the sample namespace:
 
-    1. In the **Server Hierarchy** tree, expand your Azure SQL database sample and select **SalesLT**.
+    1. In the **Server Hierarchy** tree, expand your database sample and select **SalesLT**.
 
     2. Select **Product**, **ProductCategory**, **ProductDescription**, and **ProductModel** by using Ctrl+select.
 
@@ -81,7 +81,7 @@ You can now register data assets from the Azure SQL database sample by using Azu
 
           ![Azure Data Catalog tutorial--objects to be registered](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your Azure SQL database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays. Data remains under the control of the administrators and policies of the origin system.
+    8. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays. Data remains under the control of the administrators and policies of the origin system.
 
           ![Azure Data Catalog--registered objects](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -89,7 +89,7 @@ You can now register data assets from the Azure SQL database sample by using Azu
 
         ![Objects in the Azure Data Catalog portal](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-In this exercise, you registered objects from the Azure SQL database sample so that they can be easily discovered by users across your organization.
+In this exercise, you registered objects from the database sample for Azure SQL Database so that they can be easily discovered by users across your organization.
 
 In the next exercise, you learn how to discover registered data assets.
 
@@ -174,7 +174,7 @@ With comparison operators, you can use comparisons other than equality for prope
 
 3. Press **ENTER**.
 
-4. Confirm that you see the **Product**, **ProductCategory**, and **ProductDescription** tables and the Azure SQL database you registered in search results.
+4. Confirm that you see the **Product**, **ProductCategory**, and **ProductDescription** tables and the SQL database you registered in search results.
 
     ![Azure Data Catalog--comparison search results](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -247,7 +247,7 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 
 ### SQL Server Management Studio
 
-In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to the Azure SQL database to access the data in the data assets registered in this tutorial.
+In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to Azure SQL Database to access the data in the data assets registered in this tutorial.
 
 1. Open **SQL Server Management Studio**.
 
