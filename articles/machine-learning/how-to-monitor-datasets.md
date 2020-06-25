@@ -9,26 +9,26 @@ ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 06/22/2020
+ms.date: 06/25/2020
 
-## Customer intent: As a data scientist, I want to create dataset monitors and set alerts to monitor data drift in my datasets.
+## Customer intent: As a data scientist, I want to monitor data drift in my datasets and set alerts.
 ---
 
 # Detect data drift (preview) on datasets
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to create a dataset and dataset monitors and set alerts to monitor data drift.
+Learn how to monitor data drift and set alerts when data drift is high.  
 
 With Azure Machine Learning dataset monitors (preview), you can:
 * **Analyze drift in your data** to understand how it changes over time.
-* **Monitor model data** for differences between training and serving datasets.
+* **Monitor model data** for differences between training and serving datasets.  Learn how to [collect model data from deployed models](how-to-enable-data-collection.md).
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
 
 An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
-Metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
+You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Metrics and insights are also available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
 
 > [!Important]
 > Monitoring data drift with the SDK is available in all editions. However, monitoring data drift through the studio on the web is Enterprise edition only.
@@ -56,11 +56,11 @@ Azure Machine Learning simplifies drift detection by computing a single metric a
 
 This top down approach makes it easy to monitor data instead of traditional rules-based techniques. Rules-based techniques such as allowed data range or allowed unique values can be time consuming and error prone.
 
-With Azure Machine Learning dataset monitors you can set up alerts that assist in data drift detection in datasets over time.
-
+In Azure Machine Learning, you use dataset monitors to detect and alert for data drift.
+  
 ### Dataset monitors 
 
-with a dataset monitor you can:
+With a dataset monitor you can:
 
 * Detect and alert to data drift on new data in a dataset.
 * Analyze historical data for drift.
@@ -229,30 +229,34 @@ After finishing the wizard, the resulting dataset monitor will appear in the lis
 
 ## Understand data drift results
 
-The data monitor produces two groups of results: **Drift overview** and **Feature details**. The following animation shows the available drift monitor charts based on the selected feature and metric.
+This section shows you the results of a monitoring a dataset, found in the **Datasets** / **Dataset monitors** page in Azure studio.  You can update the settings as well as analyze existing data for a specific time period on this page.  
 
-![Demo video](./media/how-to-monitor-datasets/video.gif)
+Start with the top-level insights into the magnitude of data drift and a highlight of features to be further investigated.
 
-### Drift overview
+:::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Drift overview":::
 
-The **Drift overview** section contains top-level insights into the magnitude of data drift and highlights features to be further investigated. 
 
-| Metric | Description | Tips | 
-| ------ | ----------- | ---- | 
-| Data drift magnitude | A percentage of drift between the baseline and target dataset over time. Ranging from 0 to 100, 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift model can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
+| Metric | Description | 
+| ------ | ----------- | 
+| Data drift magnitude | A percentage of drift between the baseline and target dataset over time. Ranging from 0 to 100, 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift model can completely tell the two datasets apart. Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
+| Top drifting features | Shows the features from the dataset that have drifted the most and are therefore contributing the most to the Drift Magnitude metric. |
+| Threshold \ Data Drift magnitude beyond the set threshold will trigger alerts. This can be configured in the monitor settings. | 
 | Drift contribution by feature | Contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
-The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA'`, with January 2019 being used as the baseline dataset and all 2019 data used as the target.
- 
-![Drift overview](./media/how-to-monitor-datasets/drift-overview.png)
+### Drift magnitude trend
 
-### Feature details
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Drift magnitude trend":::
 
-The **Feature details** section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time.
+See how the dataset differs from the target dataset in the specified time period.  The closer to 100%, the more the two datasets differ.
 
-The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this statistical distance is for an individual feature. Min, max, and mean are also available. 
 
-In the Azure Machine Learning studio, if you click on a data point in the graph the distribution of the feature being shown will adjust accordingly. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature.
+### Drift magnitude by features
+
+This section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time.
+
+The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this statistical distance is for an individual feature. Min, max, and mean are also available.
+
+In the Azure Machine Learning studio, click on a bar in the graph to see the the feature level details for that date. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature.
 
 :::image type="content" source="media/how-to-monitor-datasets/feature_contribution.gif" alt-text="Feature details":::
 
@@ -264,29 +268,19 @@ Numeric features are profiled in each dataset monitor run. The following are exp
 
 | Metric | Description |  
 | ------ | ----------- |  
-| Wasserstein distance | Minimum amount of work to transform baseline distribution into the target distribution. |
-| Mean value | Average value of the feature. |
 | Min value | Minimum value of the feature. |
 | Max value | Maximum value of the feature. |
-
-The following metrics are available for data drift:
-
-|Metric  |Description  |
-|---------|---------|
-| Data drift detection algorithm |  A binary classifier is trained on a concatenated dataset with labels. The performance of the classifier translates to the statistical dissimilarity of the input datasets.       |
-|Magnitude     |   Based on Matthews correlation coefficient (MCC), a balanced metric assessing a binary classifier's performance taking into account all four components of confusion matrix. In the context of a binary classifier trained to detect drift, interpretation of the MCC metric translates well and has the following meaning: Considering MCC from 0 to 1, 0 indicates that the binary classifier was not able to classify two datasets apart from each other better than chance implying that the statistical properties of the two datasets are very similar i.e. no drift, where 1 indicates perfect prediction implying a substantial drift.      |
-|Contribution by feature     |  Based on feature importance reported in the underlying binary classifier machine learning model.      |
-|Euclidian distance     |  Computed for categorical columns. Euclidean distance is computed on two vectors, generated from empirical distribution of the same categorical column from two datasets. 0 indicates there is no difference in the empirical distributions.  The more it deviates from 0, the more this column has drifted. Trends can be observed from a time series plot of this metric and can be helpful in uncovering a drifting feature.  |
+| Mean value | Average value of the feature. |
+| Wasserstein distance | Minimum amount of work to transform baseline distribution into the target distribution. |
 
 ![Feature details numeric](./media/how-to-monitor-datasets/feature-details.png)
 
 #### Categorical features 
 
-Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio. A histogram is shown for the distribution.
+Categorical features are profiled in each dataset monitor run. The number of unique values are tracked over time, and a bar chart compares the baseline and target datasets.
 
 | Metric | Description |  
 | ------ | ----------- |  
-| Euclidian distance | Geometric distance between baseline and target distributions. |
 | Unique values | Number of unique values (cardinality) of the feature. |
 
 
