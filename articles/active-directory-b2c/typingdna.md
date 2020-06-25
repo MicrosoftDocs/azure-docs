@@ -1,3 +1,17 @@
+---
+title: TypingDNA with Azure Active Directory B2C
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with TypingDNA to help with Identity verification and proofing based on user typing pattern, provides ID verification solutions forcing multi-factor authentication and helps to comply with SCA requirements for Payment Services Directive 2 (PSD2).
+author: gargi-sinha
+manager: celestedg
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: reference
+ms.date: 06/25/2020
+ms.author: gasinh
+ms.subservice: B2C
+---
 # Tutorial for configuring TypingDNA with Azure Active Directory B2C
 
 In this walkthrough, learn how to integrate a sample online payment app in Azure Active Directory B2C with the TypingDNA  APP. By using TypingDNA App, Azure AD B2C customers can comply with [Payment Services Directive 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) (PSD2) transaction requirements through keystroke dynamics and strong customer authentication. Find more about TypingDNA [here](https://www.typingdna.com/).
