@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 06/24/2020
 ---
 
-## Upgrading your Log Analytics Dashboard visualizations
+# Upgrading your Log Analytics Dashboard visualizations
 
 In February 2020, we introduced an improved visualization technology. Improving and enhancing your ability to visualize query results and reach powerful insights, fast. 
 
-You can read more about this upgrade in this Azure Update <link: https://azure.microsoft.com/en-us/updates/azure-monitor-log-analytics-upgraded-results-visualization/> 
+You can read more about this upgrade in this [Azure Update](https://azure.microsoft.com/updates/azure-monitor-log-analytics-upgraded-results-visualization/)> 
 
 This new visualization technology is paving the way for new and improved experiences around your query result set. 
 
@@ -20,7 +20,7 @@ This new visualization technology is paving the way for new and improved experie
 
 Azure dashboards are a way to visualize the status of your entire Azure surface area. They are designed to provide a single pane of glass to your Azure estate status and allow a variety of shortcuts to common actions. 
 
-For more information, see [Azure dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards)
+For more information, see [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
 
 
 ## Upgrading Log Analytics dashboard parts
