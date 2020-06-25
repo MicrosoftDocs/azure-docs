@@ -6,7 +6,7 @@ author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 06/11/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ---
@@ -16,9 +16,11 @@ ms.reviewer: dineshm
 This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Blob storage client library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [\.NET v12](#tab/dotnet)
+
 ![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
 
 # [Node.js v10](#tab/nodejsv10)
+
 ![Image resizer app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -26,6 +28,7 @@ This tutorial is part one of a series. In this tutorial, you will learn how to d
 In part one of the series, you learn how to:
 
 > [!div class="checklist"]
+
 > * Create a storage account
 > * Create a container and set permissions
 > * Retrieve an access key
@@ -47,7 +50,11 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 
 The following example creates a resource group named `myResourceGroup`.
 
-```azurecli-interactive
+```bash
+az group create --name myResourceGroup --location southeastasia
+```
+
+```powershell
 az group create --name myResourceGroup --location southeastasia
 ```
 
@@ -60,10 +67,17 @@ The sample uploads images to a blob container in an Azure storage account. A sto
 
 In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.
 
-```azurecli-interactive
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia \
+  --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
+```
+
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+az storage account create --name $blobStorageAccount --location southeastasia `
   --resource-group myResourceGroup --sku Standard_LRS --kind StorageV2 --access-tier hot
 ```
 
@@ -75,14 +89,28 @@ Get the storage account key by using the [az storage account keys list](/cli/azu
 
 The *images* container's public access is set to `off`. The *thumbnails* container's public access is set to `container`. The `container` public access setting permits users who visit the web page to view the thumbnails.
 
-```azurecli-interactive
+```bash
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
   -n $blobStorageAccount --query "[0].value" --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount \
-  --account-key $blobStorageAccountKey --public-access off
+  --account-key $blobStorageAccountKey
 
 az storage container create -n thumbnails --account-name $blobStorageAccount \
+  --account-key $blobStorageAccountKey --public-access container
+
+echo "Make a note of your Blob storage account key..."
+echo $blobStorageAccountKey
+```
+
+```powershell
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+  -n $blobStorageAccount --query "[0].value" --output tsv)
+
+az storage container create -n images --account-name $blobStorageAccount `
+  --account-key $blobStorageAccountKey
+
+az storage container create -n thumbnails --account-name $blobStorageAccount `
   --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your Blob storage account key..."
@@ -99,7 +127,11 @@ Create an App Service plan with the [az appservice plan create](/cli/azure/appse
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
-```azurecli-interactive
+```bash
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
+```
+
+```powershell
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
@@ -109,8 +141,14 @@ The web app provides a hosting space for the sample app code that's deployed fro
 
 In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` is not unique, you get the error message: *Website with given name `<web_app>` already exists.* The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
 
-```azurecli-interactive
+```bash
 webapp="<web_app>"
+
+az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
+```
+
+```powershell
+$webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 ```
@@ -123,18 +161,31 @@ App Service supports several ways to deploy content to a web app. In this tutori
 
 The sample project contains an [ASP.NET MVC](https://www.asp.net/mvc) app. The app accepts an image, saves it to a storage account, and displays images from a thumbnail container. The web app uses the [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs), and [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) namespaces to interact with the Azure Storage service.
 
-```azurecli-interactive
+```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
+```powershell
+az webapp deployment source config --name $webapp --resource-group myResourceGroup `
+  --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
 # [Node.js v10](#tab/nodejsv10)
+
 App Service supports several ways to deploy content to a web app. In this tutorial, you deploy the web app from a [public GitHub sample repository](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configure GitHub deployment to the web app with the [az webapp deployment source config](/cli/azure/webapp/deployment/source) command.
 
-```azurecli-interactive
+```bash
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+```
+
+```powershell
+az webapp deployment source config --name $webapp --resource-group myResourceGroup `
+  --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
 ```
 
@@ -146,7 +197,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 The sample web app uses the [Azure Storage APIs for .NET](/dotnet/api/overview/azure/storage) to upload images. Storage account credentials are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
-```azurecli-interactive
+```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AzureStorageConfig__AccountName=$blobStorageAccount \
     AzureStorageConfig__ImageContainer=images \
@@ -154,14 +205,28 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
+```powershell
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
+  --settings AzureStorageConfig__AccountName=$blobStorageAccount `
+    AzureStorageConfig__ImageContainer=images `
+    AzureStorageConfig__ThumbnailContainer=thumbnails `
+    AzureStorageConfig__AccountKey=$blobStorageAccountKey
+```
+
 # [Node.js v10](#tab/nodejsv10)
 
 The sample web app uses the [Azure Storage Client Library](https://github.com/Azure/azure-storage-js) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the app settings for the web app. Add app settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) command.
 
-```azurecli-interactive
+```bash
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
     AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
+```
+
+```powershell
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup `
+  --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount `
+  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
 ```
 
 ---
@@ -208,8 +273,8 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 The following classes and methods are used in the preceding task:
 
-| Class    | Method   |
-|----------|----------|
+| Class | Method |
+|-------|--------|
 | [Uri](/dotnet/api/system.uri) | [Uri constructor](/dotnet/api/system.uri.-ctor) |
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
@@ -279,7 +344,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     const blockBlobURL = BlockBlobURL.fromBlobURL(blobURL);
 
     try {
-      
+
       await uploadStreamToBlockBlob(aborter, stream,
         blockBlobURL, uploadOptions.bufferSize, uploadOptions.maxBuffers);
 
@@ -292,6 +357,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     }
 });
 ```
+
 ---
 
 ## Verify the image is shown in the storage account
@@ -313,9 +379,11 @@ Choose a file with the file picker and select **Upload**.
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
 # [\.NET v12](#tab/dotnet)
+
 ![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
 # [Node.js v10](#tab/nodejsv10)
+
 ![Node.js V10 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

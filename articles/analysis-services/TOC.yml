@@ -30,9 +30,9 @@
   - name: Automation with service principals
     href: analysis-services-service-principal.md
   - name: Client libraries
-    href: analysis-services-data-providers.md
+    href: https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current
   - name: Compatibility level
-    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services
+    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers
@@ -122,11 +122,9 @@
   - name: Samples
     href: analysis-services-samples.md
   - name: Analysis Services team blog
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Microsoft Q&A question page for Azure Analysis Services
-    href: https://docs.microsoft.com/answers/topics/azure-analysis-services.html
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+    href: https://powerbi.microsoft.com/blog/category/analysis-services/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=Analysis%20Services
   - name: Azure status
     href: https://azure.microsoft.com/status/
   - name: Feedback

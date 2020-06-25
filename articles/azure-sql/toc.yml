@@ -39,7 +39,8 @@
       href: temporal-tables.md
     - name: Scale up / down
       href: database/scale-resources.md
-
+    - name: Read Scale-Out
+      href: database/read-scale-out.md
     - name: Security
       items:
       - name: Overview
@@ -300,8 +301,6 @@
       href: database/connectivity-architecture.md
     - name: Connectivity settings
       href: database/connectivity-settings.md
-    - name: Read Scale-Out
-      href: database/read-scale-out.md      
     - name: T-SQL differences
       href: database/transact-sql-tsql-differences-sql-server.md
     - name: Azure Automation
@@ -434,7 +433,7 @@
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
-          href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+          href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
         - name: SSMS
           href: database/connect-query-ssms.md
         - name: Azure portal
@@ -531,7 +530,7 @@
       items: 
       - name: Migrate to SQL Database
         href: database/migrate-to-database-from-sql-server.md
-      - name: Manage SQL database after migration
+      - name: Manage SQL Database after migration
         href: database/manage-data-after-migrating-to-database.md
       - name: Import/export (allow Azure services disabled)
         href: database/database-import-export-azure-services-off.md
@@ -702,12 +701,15 @@
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
-    - name: Create 
+    - name: Create SQL Managed Instance
       items:
-      - name: Using Azure portal
+      - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
-      - name: Using PowerShell
+      - name: PowerShell
         href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: managed-instance/create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
     - name: Configure
@@ -982,7 +984,7 @@
         - name: License model
           displayName: ahb, ahub, payg, change, modify, update
           href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
+        - name: Edition
           displayName: change, modify, update
           href: virtual-machines/windows/change-sql-server-edition.md
         - name: Storage
@@ -1154,7 +1156,7 @@
     href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+      href: /sql/connect/ado-net/microsoft-ado-net-sql-server
     - name: JDBC
       href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: Node.js

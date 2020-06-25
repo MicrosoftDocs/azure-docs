@@ -8,6 +8,7 @@ ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
+ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -16,6 +17,8 @@ ms.reviewer: baanders
 ---
 
 # Use Azure Digital Twins to update an Azure Maps indoor map
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This article walks through the steps required to use Azure Digital Twins data to update information displayed on an *indoor map* using [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it the perfect service for updating informational overlays on maps.
 
@@ -160,5 +163,5 @@ Depending on the configuration of your topology, you will be able to store these
 
 To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-* [How-to: Manage a digital twin](./how-to-manage-twin.md)
+* [How-to: Manage digital twins](./how-to-manage-twin.md)
 * [How-to: Query the twin graph](./how-to-query-graph.md)

@@ -24,27 +24,6 @@
     items:
     - name: Develop with Helm
       href: quickstart-helm.md
-    - name: Azure Dev Spaces
-      expanded: true
-      items:
-      - name: Use Azure Dev Spaces for team development
-        href: ../dev-spaces/quickstart-team-development.md
-        maintainContext: true
-      - name: Use Visual Studio Code
-        href: ../dev-spaces/quickstart-netcore.md
-        maintainContext: true
-      - name: Use Visual Studio
-        href: ../dev-spaces/quickstart-netcore-visualstudio.md
-        maintainContext: true
-      - name: Use the CLI
-        href: ../dev-spaces/quickstart-cli.md
-        maintainContext: true
-      - name: Use Azure Dev Spaces with Java
-        href: ../dev-spaces/quickstart-java.md
-        maintainContext: true
-      - name: Use Azure Dev Spaces Node.js
-        href: ../dev-spaces/quickstart-nodejs.md
-        maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Prepare application for AKS
@@ -153,6 +132,8 @@
       href: upgrade-cluster.md
     - name: Use Uptime SLA
       href: uptime-sla.md
+    - name: Use proximity placement groups (preview)
+      href: reduce-latency-ppg.md
     - name: Upgrade the node image (preview)
       href: node-image-upgrade.md
     - name: Process node OS updates
@@ -222,6 +203,9 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
+        - name: Enable the AGIC add-on for an existing AKS cluster
+          href: ../application-gateway/tutorial-ingress-controller-add-on-existing.md
+          maintainContext: true
         - name: Use TLS with your own certificates
           href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
@@ -256,12 +240,10 @@
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: Integrate Azure AD (preview)
+        - name: AKS-managed AAD (preview)
           href: managed-aad.md
         - name: Use the Azure CLI
           href: azure-ad-integration-cli.md
-        - name: Use the Azure portal
-          href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
@@ -301,54 +283,10 @@
       href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
-    - name: Develop with Dev Spaces
-      href: ../dev-spaces/azure-dev-spaces.md
-      maintainContext: true
-      items:
-      - name: Java (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-java.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-java.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-java.md
-          maintainContext: true
-      - name: .NET Core (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-netcore.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-netcore.md
-          maintainContext: true
-      - name: .NET Core (Visual Studio 2017)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-netcore-visualstudio.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-netcore-visualstudio.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-netcore-visualstudio.md
-          maintainContext: true
-      - name: Node.js (VS Code & CLI)
-        items:
-        - name: 1 - Get started
-          href: ../dev-spaces/get-started-nodejs.md
-          maintainContext: true
-        - name: 2 - Multi-service development
-          href: ../dev-spaces/multi-service-nodejs.md
-          maintainContext: true
-        - name: 3 - Team development
-          href: ../dev-spaces/team-development-nodejs.md
-          maintainContext: true
+    - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
+      href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - name: Use Local Process with Kubernetes with Visual Studio (preview)
+      href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS

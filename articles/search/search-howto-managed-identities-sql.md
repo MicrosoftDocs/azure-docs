@@ -1,7 +1,7 @@
 ---
-title: Set up a connection to an Azure SQL database using a managed identity (preview)
+title: Set up a connection to Azure SQL Database using a managed identity (preview)
 titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to an Azure SQL database  using a managed identity (preview)
+description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity (preview)
 
 manager: luisca
 author: markheff
@@ -12,15 +12,16 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ---
 
-# Set up an indexer connection to an Azure SQL database using a managed identity (preview)
+# Set up an indexer connection to Azure SQL Database using a managed identity (preview)
 
 > [!IMPORTANT] 
 > Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
 > You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
 
-This page describes how to set up an indexer connection to an Azure SQL database using a managed identity instead of providing credentials in the data source object connection string.
+This page describes how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the data source object connection string.
 
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
+
 * [Indexer overview](search-indexer-overview.md)
 * [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
@@ -35,7 +36,7 @@ When a system-assigned managed identity is enabled, Azure creates an identity fo
 After selecting **Save** you will see an Object ID that has been assigned to your search service.
 
 ![Object ID](./media/search-managed-identities/system-assigned-identity-object-id.png "Object ID")
- 
+
 ### 2 - Provision Azure Active Directory Admin for SQL Server
 
 When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
@@ -98,7 +99,7 @@ When indexing from a SQL database, the data source must have the following requi
 * **name** is the unique name of the data source within your search service.
 * **type** is `azuresql`
 * **credentials**
-    * When using a managed identity to authenticate, the **credentials** format is different than when not using a manged identity. Here you will provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of the Azure SQL database, the resource group of the SQL database, and the name of the SQL database. 
+    * When using a managed identity to authenticate, the **credentials** format is different than when not using a manged identity. Here you will provide an Initial Catalog or Database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Azure SQL Database, the resource group of SQL Database, and the name of the SQL database. 
     * Managed identity connection string format:
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Sql/servers/**your SQL Server name**/;Connection Timeout=**connection timeout length**;*
 * **container** specifies the name of the table or view that you would like to index.
