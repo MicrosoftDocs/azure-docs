@@ -1,6 +1,6 @@
 ---
-title: Azure security baseline for Azure Policy
-description: Azure security baseline for Azure Policy
+title: Security baseline for Azure Azure Policy
+description: Security baseline for Azure Azure Policy
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -12,9 +12,15 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure security baseline for Azure Policy
+# Security baseline for Azure Azure Policy
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Policy. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Policy. **Controls** not applicable to Azure Policy have been excluded. To see how Azure Policy completely maps to the Azure Security Benchmark, see the [full Azure Policy security baseline mapping file](https://github.com/adjohns/SecurityBenchmarks/blob/add-policy-excel-baselines/spreadsheets/security_baselines/azure-policy-security-baseline-latest.xlsx).
+This security baseline applies guidance from the [Azure Security Benchmark](../../../security/benchmarks/overview.md) to Azure Policy. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Policy. **Controls** not applicable to Azure Policy have been excluded. To see how Azure Policy completely maps to the Azure Security Benchmark, see the [full Azure Policy security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets/security_baselines).
+
+For a mapping of the Azure Security Benchmark controls to built-in
+policy definitions via the built-in initiative, see
+
+[Regulatory Compliance: Azure Security Benchmark](../samples/azure-security-benchmark.md).
+
 
 
 ## Logging and monitoring
