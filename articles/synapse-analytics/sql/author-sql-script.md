@@ -17,7 +17,7 @@ Azure Synapse Studio (preview) provides a SQL script web interface for you to au
 
 There are several ways to start the authoring experience in SQL script. You can create a new SQL script through one of the following methods.
 
-1. Select the **"+"** icon and choose **SQL script**. 
+1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
 ![newsqlscript](media/author-sql-script/newsqlscript.png)
 
 2. From the Actions menu under Develop SQL scripts Choose **New SQL script** from the **Actions** menu under Develop SQL scripts.
