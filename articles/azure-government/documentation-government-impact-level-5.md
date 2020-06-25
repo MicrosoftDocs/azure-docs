@@ -343,7 +343,7 @@ Azure Logic Apps can be used in Azure Government supporting all impact levels wi
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Logic Apps** | X | X | X | | |
+| **Azure Logic Apps** | X | X | X | | X |
 
 Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) and [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
