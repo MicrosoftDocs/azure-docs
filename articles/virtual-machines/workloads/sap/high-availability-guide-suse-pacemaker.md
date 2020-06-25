@@ -421,7 +421,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 
 1. **[A]** Install Azure Python SDK 
-   - On SLES 12 SP4 or SLES SP5
+   - On SLES 12 SP4 or SLES 12 SP5
    <pre><code>
     # You may need to activate the Public cloud extention first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
@@ -438,6 +438,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    >[!IMPORTANT]
    >Depending on your version and image type, you may need to activate the Public cloud extension for your OS release, before you can install Azure Python SDK.
    >You can check the extension, by running SUSEConnect ---list-extensions.  
+   >To achieve the faster failover times with Azure Fence Agent: 
+   > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
+   > - on SLES15.X install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
 
 1. **[A]** Setup host name resolution
 
