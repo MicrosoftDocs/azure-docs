@@ -77,13 +77,9 @@ To get started, see [Configure File Share Witness need link? or should we create
 **Supported SQL version**: SQL Server 2016 and later   
 **Supported FCI storage**: All   
 
-With Azure Shared Disk (ASD) enables a great advantage to support Disk Witness quorum type in addition to Cloud Witness because:
-1.	Disk Witness is very common in on-premises clusters and enables lift-and-shift patterns in Azure IaaS
-2.	Disk Witness cannot be used with Storage Spaces Direct (S2D) storage – in Azure, only ASD can support Disk Witness
-3.	Disk Witness technically provides the most protection for the cluster
  
-Both Disk Witness in addition to Cloud Witness quorum types for all Azure IaaS VM guest clusters are supported:
-A.	Disk Witness is a unique capability of Azure Shared Disks and is preferred because it is a familiar part of on-premises infrastructure
+Both Disk Witness andd File Share Witness in addition to Cloud Witness quorum types are suported for Azure IaaS VM guest clusters:
+A.	Disk Witness is a unique capability of Azure Shared Disks and might be preferred because it is a familiar part of on-premises infrastructure
 B.	Cloud Witness is ideal for multi-site, multi-zone, and multi-region deployments
 
 
@@ -91,18 +87,18 @@ B.	Cloud Witness is ideal for multi-site, multi-zone, and multi-region deploymen
 
 In a traditional on-premises network environment, a SQL Server failover cluster instance (FCI) appears to be a single instance of SQL Server running on a single computer. Since the failover cluster instance fails over from node to node, the virtual network name (VNN) for the instance provides a unified connection point and allows applications to connect to the SQL Server instance without knowing which node is currently active. When a failover occurs, the virtual network name is registered to the new active node after it starts. This process is transparent to the client or application connecting to SQL Server and this minimizes the downtime the application or clients experience during a failure. 
 
-Use an **Azure Load Balancer** or a **distributed network name (DNN)** to route traffic to the virtual network name of the failover cluster instance with a SQL Server on Azure VM. The distributed network name feature is currently only available for SQL Server 2019 CU2 and above on a Windows Server 2019 virtual machine. 
+Use an **Virtual Network Name with Azure Load Balancer** or a **distributed network name (DNN)** to route traffic to the virtual network name of the failover cluster instance with a SQL Server on Azure VM. The distributed network name feature is currently only available for SQL Server 2019 CU2 and above on a Windows Server 2019 virtual machine. 
 
-### Azure Load Balancer
+### Virtual Network name with Azure Load Balancer
 
-Since the virtual network name IP does not work in Azure, you can configure an [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the virtual network name in Azure. In Azure virtual machines, a load balancer holds the IP address for the virtual network name (VNN) that the clustered SQL Server resources relies on. The load balancer distributes inbound flows that arrive at the frontend, and then routes that traffic to the instances defined by the backend pool. Traffic flow is configured using load balancing rules and health probes. With SQL Server FCI, the backend pool instances are the Azure Virtual Machines running SQL Server. 
+Since the virtual IP access point works differently in Azure, you need to configure an [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the FCi nodes. In Azure virtual machines, a load balancer holds the IP address for the virtual network name (VNN) that the clustered SQL Server resources relies on. The load balancer distributes inbound flows that arrive at the frontend, and then routes that traffic to the instances defined by the backend pool. Traffic flow is configured using load balancing rules and health probes. With SQL Server FCI, the backend pool instances are the Azure Virtual Machines running SQL Server. 
 
 There is a slight failover delay when using the load balancer as the health probe conducts alive checks every 10 seconds by default. 
 
 To get started, learn how to [configure an Azure Load Balancer for an FCI](failover-cluster-instance-connectivity-configure.md#load-balancer). 
 
-**Supported OS**: Windows Server 2012 and greater   
-**Supported SQL version**: SQL Server 2012 and greater   
+**Supported OS**: All
+**Supported SQL version**: All
 **Supported FCI storage**: All storage options    
 
 ### Distributed network name
@@ -138,7 +134,7 @@ To get started, learn how to [configure a distributed network name (DNN) resourc
 
 1. Is there any version requirement for SQL Clients to support DNN with OLEDB and ODBC?
 
-   `MultiSubnetFailover=True` connection string support is necessary for DNN, and is available starting with SQL Server 2012 (11.x).
+   `MultiSubnetFailover=True` connection string support is recommended for DNN, and is available starting with SQL Server 2012 (11.x).
 
 1. Are there any SQL Server configuration changes required for to  use DNN? 
 
