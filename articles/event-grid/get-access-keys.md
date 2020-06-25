@@ -18,7 +18,7 @@ This article describes how to get access keys for an Event Grid topic or domain 
 ## Azure portal
 In the Azure portal, switch to **Access keys** tab of the **Event Grid Topic** or **Event Grid Domain** page for your topic or domain.  
 
-:::image type="content" source="./media/get-access-key/azure-portal.png" alt-text="Access keys page":::
+:::image type="content" source="./media/get-access-keysazure-portal.png" alt-text="Access keys page":::
 
 ## Azure PowerShell
 Use the [Get-AzEventGridTopicKey](/powershell/module/az.eventgrid/get-azeventgridtopickey?view=azps-4.3.0) command to get access keys for topics. 

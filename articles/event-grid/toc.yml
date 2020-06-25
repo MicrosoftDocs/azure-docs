@@ -205,7 +205,7 @@
     - name: Azure Resource Manager template
       href: create-view-manage-system-topics-arm.md      
   - name: Get access keys for topics or domains
-    href: get-access-key.md
+    href: get-access-keys.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
   - name: Subscribe to Auth0 events
