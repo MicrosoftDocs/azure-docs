@@ -60,7 +60,6 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS and data disk |
 | Canonical | Ubuntu 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS and data disk |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS and data disk (see note below) |
-| RedHat | RHEL 7.7 | 7-RAW | RedHat:RHEL:7-RAW:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.7 | 7-LVM | RedHat:RHEL:7-LVM:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS and data disk (see note below) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS and data disk (see note below) |
