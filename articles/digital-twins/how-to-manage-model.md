@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a twin model
+title: Manage custom models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
@@ -256,4 +256,4 @@ Models can also be managed using the Azure Digital Twins CLI. The commands can b
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
+* [How-to: Manage digital twins](how-to-manage-twin.md)

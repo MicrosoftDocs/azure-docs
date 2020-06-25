@@ -234,9 +234,9 @@ Also, you need to add outbound rules for [App Service Environment (ASE)](../app-
    Otherwise, follow the Azure portal instructions for troubleshooting deployment.
 
    > [!NOTE]
-   > If deployment fails or you delete your ISE, Azure might take up to an hour 
-   > before releasing your subnets. This delay means means you might have to wait 
-   > before reusing those subnets in another ISE.
+   > If deployment fails or you delete your ISE, Azure might take up to an hour, 
+   > or possibly longer in rare cases, before releasing your subnets. So, you might 
+   > have to wait before you can reuse those subnets in another ISE.
    >
    > If you delete your virtual network, Azure generally takes up to two hours 
    > before releasing up your subnets, but this operation might take longer. 

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a digital twin
+title: Manage digital twins
 titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
@@ -22,7 +22,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage the twin graph with relationships](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -348,4 +348,4 @@ Twins can also be managed using the Azure Digital Twins CLI. The commands can be
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
+* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
