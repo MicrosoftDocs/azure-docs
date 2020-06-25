@@ -90,10 +90,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SENDSAFELY_URL>/auth/`
 
-    e. In the **Relay State** text box, type a URL using the following pattern:
+    b. In the **Relay State** text box, type a URL using the following pattern:
     `https://<SENDSAFELY_URL>/auth/saml2/`
 
     > [!NOTE]
