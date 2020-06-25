@@ -332,7 +332,7 @@ How to programmatically access keys using Azure Active Directory: https://docs.m
 
 **Guidance**: Azure Cosmos DB uses two types of keys to authorize users and does not support Single Sign-On (SSO) at the data plane level. Access to the control plane for Cosmos DB is available via REST API and supports SSO. To authenticate, set the Authorization header for your requests to a JSON Web Token that you obtain from Azure Active Directory.
 
-Understand Azure Database for Cosmos DB REST API: /rest/api/cosmos-db/
+Understand Azure Database for Cosmos DB REST API: https://docs.microsoft.com/rest/api/cosmos-db/
 
 Understand SSO with Azure Active Directory: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
