@@ -208,7 +208,7 @@ For more information, see these topics:
 
 For more information, see these topics:
 
-* [Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/)
+* [Resource Management REST API](https://docs.microsoft.com/rest/api/resources/)
 * [Deploy resources with ARM templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ---
@@ -248,7 +248,24 @@ For more information, see [Get-AzLogicApp](https://docs.microsoft.com/powershell
 
 ### [REST API](#tab/rest-api)
 
-* [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/)
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}?api-version=2016-06-01
+```
+
+| Value | Description |
+|-------|-------------|
+| `subscriptionId`| The GUID for the Azure subscription where you deployed the quickstart template. |
+| `resourceGroupName` | The name for the Azure resource group where you deployed the quickstart template. This example uses `Check-Azure-Status-RG`. |
+| `workflowName` | The name for the logic app that you deployed. This example uses `Check-Azure-Status-LA`. |
+|||
+
+For example:
+
+```http
+GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG/providers/Microsoft.Logic/workflows/Check-Azure-Status-LA?api-version=2016-06-01
+```
+
+For more information, see [Logic Apps REST API - Get](https://docs.microsoft.com/rest/api/logic/workflows/get).
 
 ---
 
@@ -283,6 +300,23 @@ For more information, see [Remove-AzResourceGroup](https://docs.microsoft.com/po
 
 ### [REST API](#tab/rest-api)
 
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2019-10-01
+```
+
+| Value | Description |
+|-------|-------------|
+| `subscriptionId`| The GUID for the Azure subscription where you deployed the quickstart template. |
+| `resourceGroupName` | The name for the Azure resource group where you deployed the quickstart template. This example uses `Check-Azure-Status-RG`. |
+|||
+
+For example:
+
+```http
+GET https://management.azure.com/subscriptions/xxxxXXXXxxxxXXXXX/resourceGroups/Check-Azure-Status-RG?api-version=2019-10-01
+```
+
+For more information, see [Resource Groups - Delete](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete).
 
 ---
 
