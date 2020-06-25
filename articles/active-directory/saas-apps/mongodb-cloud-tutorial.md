@@ -166,7 +166,7 @@ When you select the MongoDB Cloud tile in Access Panel, you're automatically sig
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Sign up for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mongodb.mongodb_atlas_azure_08082019?tab=Overview)
+- [Sign up for MongoDB Atlas on Azure](https://azuremarketplace.microsoft.com/marketplace/apps/mongodb.mongodb_atlas_may_2020?tab=Overview)
 
 - [Try MongoDB Cloud with Azure AD](https://aad.portal.azure.com/)
 
