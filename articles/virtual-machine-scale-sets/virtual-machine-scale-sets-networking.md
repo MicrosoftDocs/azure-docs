@@ -47,7 +47,7 @@ When working with virtual machine scale sets and load balancer, the following sh
   * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
   * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
 * **Inbound NAT pool**:
-  * Inbound NAT pool is a collection of inbound NAT rules. 1 inbound NAT pool cannot support multiple VM Scale Sets.
+  * Inbound NAT pool is a collection of inbound NAT rules. 1 inbound NAT pool cannot support multiple virtual machine scale sets.
 * **Load balancing rules**:
   * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
 * **Outbound rules**:
@@ -141,7 +141,7 @@ The output, for an individual virtual machine dns name would be in the following
 ```
 
 ## Public IPv4 per virtual machine
-In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
+In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (also known as a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
