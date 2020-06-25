@@ -8,6 +8,7 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
+ms.custom: tracking-python
 ---
 
 # Quickstart: Run a workflow through the Microsoft Genomics service

@@ -75,9 +75,20 @@ This page lets you define marketplace details (such as offer name, description, 
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
+Here's an example of how offer information appears in the Azure portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Title
+2. Description
+3. Useful links
+4. Screenshots
+
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Search results summary
 
@@ -122,9 +133,9 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide your offer's logo in four pixel sizes:
 
-- **Small** (40 x 40)
+- **Small** (48 x 48)
 - **Medium** (90 x 90)
-- **Large** (115 x 115)
+- **Large** (216 x 216)
 - **Wide** (255 x 115)
 
 Follow these guidelines for your logos:

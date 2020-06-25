@@ -5,7 +5,7 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 06/15/2020
 ms.author: dsindona
 
 ---
@@ -37,7 +37,7 @@ The transact publishing option is currently supported for the following offer ty
 
 ### Billing infrastructure costs
 
-For **Virtual Machines and Azure Applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
+For **virtual machines** and **Azure applications**, Azure infrastructure usage fees are billed to the customer's Azure subscription. Infrastructure usage fees are priced and presented separately from the software provider's licensing fees on the customer's invoice.
 
 For **SaaS Apps**, you the publisher must account for Azure infrastructure usage fees and software licensing fees as a single cost item.  It is represented as a flat fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. Software licensing fees aren't metered or consumption based.
 
@@ -46,9 +46,9 @@ For **SaaS Apps**, you the publisher must account for Azure infrastructure usage
 Depending on the transaction option used, software license fees are as follows:
 
 - **Free** – No charge for software licenses.
-- **Bring your own license** (BYOL) – Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. This applies to Virtual Machines and Azure Applications only.
-- **Pay-as-you-go** – Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This applies to Virtual Machines and Azure Applications only.
-- **Subscription pricing** – Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This applies to SaaS Apps and Azure Applications - Managed Apps only.
+- **Bring your own license** (BYOL) – Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. This applies to virtual machines and Azure applications only.
+- **Pay-as-you-go** – Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This applies to virtual machines and Azure applications only.
+- **Subscription pricing** – Software license fees are presented as a monthly or annual, recurring fee billed as a flat rate or per-seat. This applies to SaaS apps (monthly or annual) and Azure applications - managed apps (monthly) only.
 - **Free software trial** – No charge for software licenses for 30 or 90 days.
 
 ### Free and bring-your-own-license (BYOL) pricing
@@ -110,7 +110,7 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 |Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
 ||
 
-**SaaS App subscription**
+**SaaS app subscription**
 
 This option must be configured to sell through Microsoft and can be priced at a flat rate or per user on a monthly or annual basis. If you enable the **Sell through Microsoft** option for a SaaS offer, you have the following cost structure:
 
@@ -131,7 +131,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 |Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
 |Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
 
-For certain SaaS Products that you publish on our Commercial Marketplace, Microsoft will reduce its **Marketplace Service Fee** from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer to qualify, at least one of your offers must be designated by Microsoft as either IP co-sell ready or IP co-sell prioritized. To receive this reduced Marketplace Service Fee for the month, eligibility must be met at least five business days before the end of the previous calendar month. Reduced Marketplace Service fee will not apply to VMs, Managed Apps, or any other products made available through the commercial marketplace. This reduced fee will be available to qualified offers, with license charges collected by Microsoft between May 1, 2019 and June 30, 2020. After that time, the fee will return to its normal amount.
+For certain SaaS products that you publish on the commercial marketplace, Microsoft will reduce its **Marketplace Service Fee** from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer to qualify, at least one of your offers must be designated by Microsoft as either IP co-sell ready or IP co-sell prioritized. To receive this reduced Marketplace Service Fee for the month, eligibility must be met at least five business days before the end of the previous calendar month. Reduced Marketplace Service fee will not apply to VMs, managed apps, or any other products made available through the commercial marketplace. This reduced fee will be available to qualified offers, with license charges collected by Microsoft between May 1, 2019 and June 30, 2020. After that time, the fee will return to its normal amount.
 
 ### Customer invoicing, payment, billing, and collections
 
@@ -177,8 +177,11 @@ For more information on setting up these accounts, see [Manage your commercial m
 
 The transact publishing option is only available for use with the following marketplace offer types:
 
-- **Virtual Machine** – Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as SKUs defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
-- **Azure Applications: Solution Template or Managed App** – Must provision one or more virtual machines and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, a flat-rate monthly subscription can be selected as the pricing model instead the virtual machine pricing. In some cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement. However, if you configure a Managed App offering for ISV infrastructure charges, the Azure resources are billed to the publisher, and the customer receives a flat fee that includes the cost of infrastructure, software licenses, and management services.
+- **Virtual machine** – Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as SKUs defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
+
+- **Azure application: solution template or managed app** – Must provision one or more virtual machines and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, a flat-rate monthly subscription can be selected as the pricing model instead the virtual machine pricing. In some cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement. However, if you configure a managed app offering for ISV infrastructure charges, the Azure resources are billed to the publisher, and the customer receives a flat fee that includes the cost of infrastructure, software licenses, and management services.
+
+- **SaaS application** - Must be a multitenant solution, use [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for authentication, and integrate with the [SaaS Fulfillment APIs](partner-center-portal/pc-saas-fulfillment-api-v2.md). Azure infrastructure usage is managed and billed directly to you (the partner), so you must account for Azure infrastructure usage fees and software licensing fees as a single cost item. For detailed guidance, see [Create a new SaaS offer in the commercial marketplace](partner-center-portal/create-new-saas-offer.md).
 
 ## Next steps
 

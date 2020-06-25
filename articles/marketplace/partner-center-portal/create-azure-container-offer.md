@@ -272,22 +272,20 @@ In the **Plan name** box, enter a name for this plan. Customers see this name wh
 
 This tab lets you choose which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
-#### Cloud availability
+#### Azure regions
 
-Your plan must be available in at least one cloud.
+All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
-
-Select the [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the [**Azure Government**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
 Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option can only be seen if **Azure Government Cloud** is selected under **Cloud availability**.
+This option can only be seen if **Azure Government** is selected under **Cloud availability**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.
 
@@ -329,7 +327,7 @@ If you want to hide your published offer so customers can't search, browse, or p
 
 This field is used when:
 
-- The offer is intended to be used indirectly when referenced though another application.
+- The offer is intended to be used indirectly when referenced through another application.
 - The offer should not be purchased individually.
 - The plan was used for initial testing and is no longer relevant.
 - The plan was used for temporary or seasonal offers and should no longer be offered.

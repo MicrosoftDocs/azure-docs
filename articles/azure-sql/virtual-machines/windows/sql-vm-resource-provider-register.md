@@ -1,10 +1,9 @@
 ---
 title: Register with the SQL VM resource provider 
-description: Register your Azure SQL Server virtual machine with the SQL VM resource provider to enable features for SQL Server VMs deployed outside of Azure Marketplace, as well as compliance, and improved manageability. 
+description: Register your Azure SQL Server virtual machine with the SQL VM resource provider to enable features for SQL Server virtual machines deployed outside of Azure Marketplace, as well as compliance, and improved manageability. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -16,7 +15,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Register a SQL Server virtual machine in Azure with the SQL VM resource provider
+# Register a SQL Server VM in Azure with the SQL VM resource provider
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider. Registering with the resource provider creates the **SQL virtual machine** _resource_ within your subscription, which is a separate resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine. 
@@ -27,7 +26,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 - **Compliance**: Registering with the SQL VM resource provider offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
 
-- **Free management**:  Registering with the SQL VM resource provider in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
+- **Free management**: Registering with the SQL VM resource provider in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
 
 - **Simplified license management**: Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Azure CLI, or PowerShell: 
 
@@ -46,7 +45,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
    ---
 
-To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-subscription-with-rp), which gives the  resource provider the ability to create resources within that specific subscription.
+To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-a-subscription-with-the-resource-provider), which gives the resource provider the ability to create resources within that specific subscription.
 
 ## Prerequisites
 
@@ -78,7 +77,7 @@ You can view the current mode of your SQL Server IaaS agent by using PowerShell:
   $sqlvm.SqlManagementType
   ```
 
-## Register subscription with RP
+## Register a subscription with the resource provider
 
 To register your SQL Server VM with the SQL VM resource provider, you must first register your subscription with the resource provider. This gives the SQL VM resource provider the ability to create resources within your subscription.  You can do so by using the Azure portal, the Azure CLI, or PowerShell.
 
@@ -90,14 +89,14 @@ To register your SQL Server VM with the SQL VM resource provider, you must first
 1. Enter **sql** in the filter to bring up the SQL-related resource providers. 
 1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.SqlVirtualMachine** provider, depending on your desired action. 
 
-![Modify the provider](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
+   ![Modify the provider](./media/sql-vm-resource-provider-register/select-resource-provider-sql.png)
 
 
 ### Command line
 
 Register your SQL VM resource provider to your Azure subscription using either Azure CLI or PowerShell. 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/bash)
 
 ```azurecli-interactive
 # Register the SQL VM resource provider to your subscription 
@@ -113,19 +112,19 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ---
 
-## Register SQL VM with RP 
+## Register with the resource provider 
 
 ### Lightweight management mode
 
-If the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) has not been installed on the VM, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. 
+If the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md) has not been installed on the virtual machine, then the recommendation is to register with the SQL VM resource provider in lightweight mode. This will install the SQL IaaS extension in [lightweight mode](#management-modes) and prevent the SQL Server service from restarting. You can then upgrade to full mode at any time, but doing so will restart the SQL Server service so it is recommended to wait until a scheduled maintenance window. 
 
 Provide SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
 
-Failover Cluster Instances and multi-instance deployments can only be registered with the SQL VM resource provider in lightweight mode. 
+Failover cluster instances and multi-instance deployments can only be registered with the SQL VM resource provider in lightweight mode. 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/bash)
 
-Register SQL Server VM in lightweight mode with the Azure CLI: 
+Register a SQL Server VM in lightweight mode with the Azure CLI: 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
@@ -135,7 +134,7 @@ Register SQL Server VM in lightweight mode with the Azure CLI:
 
 # [PowerShell](#tab/powershell)
 
-Register SQL Server VM in lightweight mode with PowerShell:  
+Register a SQL Server VM in lightweight mode with PowerShell:  
 
 
   ```powershell-interactive
@@ -152,7 +151,7 @@ Register SQL Server VM in lightweight mode with PowerShell:
 ### Full management mode
 
 
-If the SQL IaaS Extension has already been installed to the VM manually, then you can register the SQL Server VM in full mode without restarting the SQL Server service. **However, if the SQL IaaS extension has not been installed, registering in full mode will install the SQL IaaS extension in full mode and restart the SQL Server service. Please proceed with caution.**
+If the SQL IaaS Extension has already been installed to the virtual machine manually, then you can register the SQL Server VM in full mode without restarting the SQL Server service. **However, if the SQL IaaS extension has not been installed, registering in full mode will install the SQL IaaS extension in full mode and restart the SQL Server service. Please proceed with caution.**
 
 
 To register your SQL Server VM directly in full mode (and possibly restart your SQL Server service), use the following PowerShell command: 
@@ -174,9 +173,9 @@ Specify either `AHUB`, `PAYG`, or `DR` as the **sqlLicenseType**, and `SQL2008-W
 To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use the following Azure CLI or PowerShell code snippet: 
 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/bash)
 
-Register your SQL Server 2008 VM in NoAgent mode with the Azure CLI: 
+Register your SQL Server 2008 virtual machine in NoAgent mode with the Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -185,7 +184,7 @@ Register your SQL Server 2008 VM in NoAgent mode with the Azure CLI:
  ```
  
  
-Register your SQL Server 2008 R2 VM in NoAgent mode with the Azure CLI: 
+Register your SQL Server 2008 R2 virtual machine in NoAgent mode with the Azure CLI: 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
@@ -195,7 +194,7 @@ Register your SQL Server 2008 R2 VM in NoAgent mode with the Azure CLI:
 
 # [PowerShell](#tab/powershell)
 
-Register SQL Server 2008 VM in NoAgent mode with PowerShell: 
+Register your SQL Server 2008 virtual machine in NoAgent mode with PowerShell: 
 
 
   ```powershell-interactive
@@ -206,7 +205,7 @@ Register SQL Server 2008 VM in NoAgent mode with PowerShell:
     -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
   ```
   
-  Register SQL Server 2008 R2 VM in NoAgent mode with PowerShell: 
+  Register your SQL Server 2008 R2 virtual machine in NoAgent mode with PowerShell: 
 
 
   ```powershell-interactive
@@ -221,7 +220,7 @@ Register SQL Server 2008 VM in NoAgent mode with PowerShell:
 
 ## Upgrade to full management mode 
 
-SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Azure CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-rp) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Azure CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-the-resource-provider) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
 
 You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
 
@@ -238,7 +237,7 @@ To upgrade the agent mode to full:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) resource. 
-1. Select your SQL Server virtual machine, and select **Overview**. 
+1. Select your SQL Server VM, and select **Overview**. 
 1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
 
    ![Selections for changing the mode from the portal](./media/sql-vm-resource-provider-register/change-sql-iaas-mode-portal.png)
@@ -249,7 +248,7 @@ To upgrade the agent mode to full:
 
 ### Command line
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/bash)
 
 Run the following Azure CLI code snippet:
 
@@ -278,17 +277,17 @@ You can verify if your SQL Server VM has already been registered with the SQL VM
 ### Azure portal 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Go to your [SQL Server virtual machines](manage-sql-vm-portal.md).
+1. Go to your [SQL Server VMs](manage-sql-vm-portal.md).
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL VM resource provider. 
 1. View the value under **Status**. If **Status** is **Succeeded**, then the SQL Server VM has been registered with the SQL VM resource provider successfully. 
 
-![Verify status with SQL RP registration](./media/sql-vm-resource-provider-register/verify-registration-status.png)
+   ![Verify status with SQL RP registration](./media/sql-vm-resource-provider-register/verify-registration-status.png)
 
 ### Command line
 
 Verify current SQL Server VM registration status using either Azure CLI or PowerShell. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/bash)
 
 
   ```azurecli-interactive
@@ -306,18 +305,18 @@ Verify current SQL Server VM registration status using either Azure CLI or Power
 An error indicates that the SQL Server VM has not been registered with the resource provider. 
 
 
-## Unregister VM from RP
+## Unregister from the resource provider
 
-To unregister your SQL Server VM with the SQL VM resource provider, delete the SQL Virtual Machine *resource* using the Azure portal or Azure CLI. Deleting the SQL Virtual Machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertently delete the virtual machine when attempting to remove the *resource*. 
+To unregister your SQL Server VM with the SQL VM resource provider, delete the SQL virtual machine *resource* using the Azure portal or Azure CLI. Deleting the SQL virtual machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertently delete the virtual machine when attempting to remove the *resource*. 
 
-Unregistering the SQL VM with the SQL VM resource provider is necessary to downgrade the management mode from full. 
+Unregistering the SQL virtual machine with the SQL VM resource provider is necessary to downgrade the management mode from full. 
 
 ### Azure portal
 
 To unregister your SQL Server VM with the resource provider using the Azure portal, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-1. Navigate to the SQL Server VM resource. 
+1. Navigate to the SQL VM resource. 
   
    ![SQL virtual machines resource](./media/sql-vm-resource-provider-register/sql-vm-manage.png)
 
@@ -325,19 +324,19 @@ To unregister your SQL Server VM with the resource provider using the Azure port
 
    ![Delete SQL VM resource provider](./media/sql-vm-resource-provider-register/delete-sql-vm-resource-provider.png)
 
-1. Type the name of the SQL virtual machine and **clear the checkbox next to the virtual machine**.
+1. Type the name of the SQL virtual machine and **clear the check box next to the virtual machine**.
 
    ![Delete SQL VM resource provider](./media/sql-vm-resource-provider-register/confirm-delete-of-resource-uncheck-box.png)
 
    >[!WARNING]
    > Failure to clear the checkbox next to the virtual machine name will *delete* the virtual machine entirely. Clear the checkbox to unregister the SQL Server VM from the resource provider but *not delete the actual virtual machine*. 
 
-1. Select **Delete** to confirm the deletion of the SQL virtual machine *resource*, and not the SQL Server virtual machine. 
+1. Select **Delete** to confirm the deletion of the SQL virtual machine *resource*, and not the SQL Server VM. 
 
 ### Command line
 
 # [Azure CLI](#tab/azure-cli)
-To unregister your SQL Server virtual machine from the resource provider with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) command. This will remove the SQL Server virtual machine *resource* but will not delete the virtual machine. 
+To unregister your SQL Server VM from the resource provider with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
 
 
 ```azurecli-interactive
@@ -348,7 +347,7 @@ az sql vm delete
 ```
 
 # [PowerShell](#tab/azure-powershell)
-To unregister your SQL Server virtual machine from the resource provider with Azure CLI, use the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)command. This will remove the SQL Server virtual machine *resource* but will not delete the virtual machine. 
+To unregister your SQL Server VM from the resource provider with Azure CLI, use the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)command. This will remove the SQL Server VM *resource* but will not delete the virtual machine. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
@@ -375,7 +374,7 @@ Yes. Customers should register their SQL Server VMs with the SQL VM resource pro
 
 **Should I register with the SQL VM resource provider if my SQL Server VM already has the SQL Server IaaS extension installed?**
 
-If your SQL Server VM is self-installed and not provisioned from the SQL Server images in Azure Marketplace, you should register with the SQL VM resource provider even if you installed the SQL Server IaaS extension. Registering with the SQL VM resource provider creates a new resource of type Microsoft.SqlVirtualMachines. Installing the SQL Server IaaS extension does not create that resource.
+If your SQL Server VM is self-installed and not provisioned from the SQL Server images in Azure Marketplace, you should register with the SQL VM resource provider even if you installed the SQL Server IaaS extension. Registering with the SQL VM resource provider creates a new resource of type Microsoft.SqlVirtualMachine. Installing the SQL Server IaaS extension does not create that resource.
 
 **What is the default management mode when registering with the SQL VM resource provider?**
 
@@ -397,7 +396,7 @@ No. Registering with the SQL VM resource provider will only create a new metadat
 
 The SQL Server IaaS extension is needed only for enabling full manageability. Upgrading the manageability mode from lightweight to full will install the SQL Server IaaS extension and will restart SQL Server.
 
-**Will registering with the SQL Server VM resource provider restart SQL Server on my VM?**
+**Will registering with the SQL VM resource provider restart SQL Server on my VM?**
 
 It depends on the mode specified during registration. If lightweight or NoAgent mode is specified, then the  SQL Server service will not restart. However, specifying the management mode as full, or leaving the management mode blank will install the SQL IaaS extension in full management mode, which will cause the SQL Server service to restart. 
 
@@ -423,7 +422,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, [unregister](#unregister-vm-from-rp) the SQL Server virtual machine from the SQL Server resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
+To change the manageability mode from full manageability, [unregister](#unregister-from-the-resource-provider) the SQL Server VM from the SQL VM resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 

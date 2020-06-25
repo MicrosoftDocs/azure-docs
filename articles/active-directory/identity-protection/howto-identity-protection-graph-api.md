@@ -5,7 +5,7 @@ description: Learn how to query Microsoft Graph risk detections and associated i
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: reference
+ms.topic: how-to
 ms.date: 10/18/2019
 
 ms.author: joflore

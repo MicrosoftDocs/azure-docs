@@ -289,7 +289,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 1. Select **Failover** from the task pane to fail over your failover group containing your elastic pool.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your SQL database](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the failover group back to the original settings.

@@ -222,6 +222,9 @@ Yes. Azure Site Recovery for Linux Operation System supports application custom 
 
 5. Add the freeze and unfreeze input/output commands in pre and post-steps for the applications requiring app-consistency. You can choose to add another script specifying those and invoke it from "customscript.sh" with pre and post-options.
 
+>[!Note]
+>The Site Recovery agent version should be 9.24 or above to support custom scripts.
+
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure VMs after failover?
 

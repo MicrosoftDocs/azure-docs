@@ -2,10 +2,8 @@
 title: Integrate Azure NetApp Files with Azure Kubernetes Service
 description: Learn how to integrate Azure NetApp Files with Azure Kubernetes Service
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
-ms.author: zarhoads
 
 #Customer intent: As a cluster operator or developer, I want to learn how to integrate ANF with AKS
 ---

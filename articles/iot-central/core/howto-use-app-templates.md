@@ -55,7 +55,6 @@ When you create an application template, it doesn't include the following items:
 
 - Devices
 - Users
-- Job definitions
 - Continuous data export definitions
 
 Add these items manually to any applications created from an application template.

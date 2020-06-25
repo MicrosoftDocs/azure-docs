@@ -2,20 +2,26 @@
 title: Set up agent-based dependency analysis in Azure Migrate Server Assessment
 description: This article describes how to set up agent-based dependency analysis in Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 2/24/2020
+ms.date: 6/09/2020
 ---
 
 # Set up dependency visualization
 
-This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
-- [Learn about](concepts-dependency-visualization.md#agent-based-analysis) agent-based dependency analysis.
-- Review the prerequisites and support requirements for setting up agent-based dependency visualization for [VMware VMs](migrate-support-matrix-vmware.md#agent-based-dependency-analysis-requirements), [physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements), and [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md). The appliance discovers on-premises machines, and sends metadata, performance data to Azure Migrate:Server Assessment.
+- Review the support and deployment requirements for agent-based dependency analysis for:
+    - [VMware VMs](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+    - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
+    - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+- Make sure you:
+    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
+    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment. Set up an appliance for:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMs.
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
+        - [Physical servers](how-to-set-up-appliance-physical.md).
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/platform/manage-access.md) with an Azure Migrate project:
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.

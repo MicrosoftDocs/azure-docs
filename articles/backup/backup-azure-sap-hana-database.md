@@ -186,7 +186,7 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 1. In the vault menu, click **Backup items**.
 2. In **Backup Items**,  select the VM running the SAP HANA database, and then click **Backup now**.
-3. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
+3. In **Backup Now**, choose the type of backup you want to perform. Then click **OK**. This backup will be retained according to the policy associated with this backup item.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled

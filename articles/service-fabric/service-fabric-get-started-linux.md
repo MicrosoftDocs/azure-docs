@@ -24,7 +24,7 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
 
 These operating system versions are supported for development.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`), 18.04 (`Bionic Beaver`)
 
     Make sure that the `apt-transport-https` package is installed.
          
@@ -55,30 +55,30 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Ubuntu
 
 1. Open a terminal.
-2. Add the Service Fabric repo to your sources list.
+
+2. Add the `dotnet` repo to your sources list corresponding to your distribution.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
-    ```
-
-3. Add the `dotnet` repo to your sources list.
-
-    ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+3. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
-5. Add the official Docker GPG key to your APT keyring.
+4. Add the official Docker GPG key to your APT keyring.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    ```
+
+5. Add the MS Open Tech GPG key to your APT keyring.
+
+    ```bash
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
     ```
 
 6. Set up the Docker repository.

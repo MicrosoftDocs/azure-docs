@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 05/15/2020
  ms.author: rogarana
- ms.custom: include file
+ ms.custom: include file, references_regions
 ---
 
 For premium SSDs, standard SSDs, and standard HDDs, only the following regions currently support customer-managed keys:

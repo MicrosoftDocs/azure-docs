@@ -3,7 +3,7 @@ title: How to use a system-assigned managed identity to access Azure Cosmos DB d
 description: Learn how to configure an Azure Active Directory (Azure AD) system-assigned managed identity (managed service identity) to access keys from Azure Cosmos DB. 
 author: j-patrick
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
@@ -26,11 +26,11 @@ In this step, you'll assign a system-assigned managed identity to your function 
 
 1. Open the **Platform features** > **Identity** tab: 
 
-   ![Screenshot showing Platform features and Identity options for the function app.](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot showing Platform features and Identity options for the function app.":::
 
 1. On the **Identity** tab, turn **On** the system identity **Status** and select **Save**. The **Identity** pane should look as follows:  
 
-   ![Screenshot showing system identity Status set to On.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot showing system identity Status set to On.":::
 
 ## Grant access to your Azure Cosmos account
 
@@ -51,19 +51,19 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
 1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
 
-   ![Screenshot showing the Access control pane and the Role assignments tab.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot showing the Access control pane and the Role assignments tab.":::
 
 1. Select **+ Add** > **Add role assignment**.
 
 1. The **Add role assignment** panel opens to the right:
 
-   ![Screenshot showing the Add role assignment pane.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot showing the Add role assignment pane.":::
 
    * **Role**: Select **DocumentDB Account Contributor**
    * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select **Function App**.
    * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case, select the **FishTankTemperatureService** function app: 
 
-      ![Screenshot showing the Add role assignment pane populated with examples.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot showing the Add role assignment pane populated with examples.":::
 
 1. After you have selected your function app, select **Save**.
 

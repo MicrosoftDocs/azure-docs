@@ -45,7 +45,7 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 ## Create SendGrid template
 
-With a SendGrid account created and SendGrid API key stored in a Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
 1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create Template**.
 1. Enter a unique template name like `Verification email` and then select **Save**.
@@ -158,7 +158,7 @@ In your policy, add the following claim types to the `<ClaimsSchema>` element wi
 
 These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
-```XML
+```xml
 <ClaimType Id="Otp">
   <DisplayName>Secondary One-time password</DisplayName>
   <DataType>string</DataType>
@@ -187,7 +187,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 * Update the `from.email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -211,7 +211,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.0.0 data URI:
 
-```XML
+```xml
 <ContentDefinitions>
  <ContentDefinition Id="api.localaccountsignup">
     <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
@@ -234,7 +234,7 @@ This example display control is configured to:
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
-```XML
+```xml
 <DisplayControls>
   <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
     <DisplayClaims>
@@ -267,7 +267,7 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
 
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>One time password technical profiles</DisplayName>
   <TechnicalProfiles>
@@ -311,7 +311,7 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 As with the OTP technical profiles, add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -344,7 +344,7 @@ In the final step, add a reference to the DisplayControl you created. Replace yo
 
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -393,12 +393,12 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
 
 To localize the email, you must send localized strings to SendGrid, or your email provider. For example to localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. In the `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
 
-1. In your policy define the following string claims: subject, message, codeIntro and signature.
+1. In your policy, define the following string claims: subject, message, codeIntro, and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
 1. Change the `GenerateSendGridRequestBody` claims transformation to use input claims with the following XML snippet.
-1. Update your SendGrind template to use dynamic parameters in place of all the strings which will be localized by Azure AD B2C.
+1. Update your SendGrind template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />

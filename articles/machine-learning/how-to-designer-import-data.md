@@ -5,7 +5,7 @@ description: Learn how to import your data into Azure Machine Learning designer 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu

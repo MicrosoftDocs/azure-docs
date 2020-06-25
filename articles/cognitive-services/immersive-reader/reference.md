@@ -107,7 +107,7 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 
 ### LaunchResponse
 
-Contains the response from the call to `ImmersiveReader.launchAsync`.
+Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `iframe` that contains the Immersive Reader can be accessed via `container.firstChild`.
 
 ```typescript
 {

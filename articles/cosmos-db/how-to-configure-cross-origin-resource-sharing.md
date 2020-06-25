@@ -3,7 +3,7 @@ title: Cross-Origin Resource Sharing (CORS) in Azure Cosmos DB
 description: This article describes how to configure Cross-Origin Resource Sharing (CORS) in Azure Cosmos DB by using Azure portal and Azure Resource Manager templates.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
 
@@ -29,7 +29,7 @@ Use the following steps to enable Cross-Origin Resource Sharing by using Azure p
    > [!NOTE]
    > Currently, you cannot use wildcards as part of the domain name. For example `https://*.mydomain.net` format is not yet supported. 
 
-   ![Enable cross origin resource sharing using Azure portal](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
+   :::image type="content" source="./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png" alt-text="Enable cross origin resource sharing using Azure portal":::
 
 ## Enable CORS support from Resource Manager template
 

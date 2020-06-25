@@ -10,6 +10,7 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
+ms.custom: tracking-python
 ---
 # Manage Azure Data Lake Analytics using Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

@@ -98,7 +98,7 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
 
 ### How do I create connections with IKEv1 or IKEv2 protocol type?
-IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Legacy SKU. You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you do not specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) documentation. For SKU types and IKEv1/IKEv2 support, see [Connect gateways to policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+IKEv1 connections can be created on all RouteBased VPN type SKUs, except the Basic SKU, Standard SKU, and other [legacy SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). You can specify a connection protocol type of IKEv1 or IKEv2 while creating connections. If you do not specify a connection protocol type, IKEv2 is used as default option where applicable. For more information, see the [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) documentation. For SKU types and IKEv1/IKEv2 support, see [Connect gateways to policy-based VPN devices](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### Is transit between between IKEv1 and IKEv2 connections allowed?
 Yes. Transit between IKEv1 and IKEv2 connections is supported.
