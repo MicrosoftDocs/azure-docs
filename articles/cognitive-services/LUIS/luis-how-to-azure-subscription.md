@@ -31,9 +31,11 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 ## Resource ownership
 
-LUIS doesn't have the concept of transferring ownership of a resource.
+An Azure resource, such as a LUIS, is owned by the subscription containing the resource.
 
-You can transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription.
+To transfer ownership of a resource, ou can either:
+* Transfer [ownership](../../cost-management-billing/manage/billing-subscription-transfer.md) of your subscription
+* Export the LUIS app as a file, then import app on a different subscription. Export is available from the **My apps** page in the LUIS portal.
 
 
 ## Resource limits
@@ -55,9 +57,9 @@ If you exceed your transactions-per-second (TPS) quota, you receive an HTTP 429 
 
 ### Reset authoring key
 
-**For [authoring resource migrated](luis-migration-authoring.md) apps**: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource.
+For [authoring resource migrated](luis-migration-authoring.md) apps: if your authoring key is compromised, reset the key in the Azure portal on the **Keys** page for that authoring resource.
 
-**For apps that have not migrated yet**: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
+For apps that have not migrated yet: the key is reset on all your apps in the LUIS portal. If you author your apps via the authoring APIs, you need to change the value of Ocp-Apim-Subscription-Key to the new key.
 
 ### Regenerate Azure key
 
@@ -77,9 +79,9 @@ You can move your LUIS app. Use the following documentation resources in the Azu
 
 ### Contributions from other authors
 
-**For [authoring resource migrated](luis-migration-authoring.md) apps**: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md), using the collaborator's email address and the _contributor_ role.
+For [authoring resource migrated](luis-migration-authoring.md) apps: _contributors_ are managed in the Azure portal for the authoring resource, using the **Access control (IAM)** page. Learn [how to add a user](luis-how-to-collaborate.md), using the collaborator's email address and the _contributor_ role.
 
-**For apps that have not migrated yet**: all _collaborators_ are managed in the LUIS portal from the **Manage -> Collaborators** page.
+For apps that have not migrated yet: all _collaborators_ are managed in the LUIS portal from the **Manage -> Collaborators** page.
 
 ### Query prediction access for private and public apps
 
@@ -151,12 +153,9 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 1. When you are done with your resource selection process, [create a new app](luis-how-to-start-new-app.md#create-new-app-in-luis).
 
 
-<a name="create-resources-in-the-azure-portal"></a>
-
-
-[!INCLUDE [Create LUIS resource](includes/create-luis-resource.md)]
-
 ## Create Azure resources
+
+<a name="create-resources-in-the-azure-portal"></a>
 
 [!INCLUDE [Create LUIS resource in Azure Portal](includes/create-luis-resource.md)]
 
