@@ -10,29 +10,53 @@ ms.date: 06/16/2020
 ---
 # Saved queries in Azure Monitor Log Analytics
 
-Log Analytics now offers sets of saved queries that you can run on their own or modify and save as needed.
+Log Analytics now offers sets of example queries that you can run on their own or use as a starting point for your own queries. This article describes example queries and how to use them.
 
-Example queries are a great way to start your Log Analytics experience. They can provide instant insight into a resource and provide a nice way to start learning and using KQL, thus shortening the time it takes to start using Log Analytics. We have collected and curated over 250 example queries designed to provide you instant value and that number of example queries is continually growing.
+If you aren't familiar with Log Analytics or the KQL query language, example queries are a great way to start. They can provide instant insight into a resource and provide a nice way to start learning and using KQL, thus shortening the time it takes to start using Log Analytics. We have collected and curated over 250 example queries designed to provide you instant value and that number of example queries is continually growing.
 
-## Example query dialog
-
-The example query dialog appears as shown in the following screenshot: 
-
-![Example queries screen](media/saved-queries/example-query-start.png)
-
-Each example query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for additional fine tuning and tweaking.
 
 ## In-context queries
 
-The new example query experience shows results in context. The system automatically shows only queries relevant to the scope you have selected. For example, the previous screenshot shows the logs screen for a Azure Key Vault instance. The example queries shown are filtered according to the resource type and so show only Key Vault related examples. This behavior is consistent for all Log Analytics scopes.
+It's important to understand that the new example query experience shows results in context. The system automatically shows only queries relevant to the scope you have selected.
 
 - For a **single resource** – queries are filtered according to the resource type.
 - For a **resource group** - queries are filtered according to the resources in the specific resource group.
 - For a **Workspace** – queries are filtered according to the solutions installed on the workspace.
 
-## Filtering and group by
+You see this behavior in the screenshots shown later in this article. The behavior is consistent for all Log Analytics scopes. If you are not seeing a query for the resource type you want, it may be because of this behavior.
 
-While the default query experience filers to show only queries with the right context, you can choose to remove the filter and see all the queries.
+> [!TIP]
+> Choose your scopes carefully. The more resources you have in your scope, the longer the time for the portal to filter and show the sample query dialog. 
+
+## Example query user interface
+
+You can get to example queries from two different locations.
+
+### Example query dialog
+
+When you first enter the Log Analytics experience, you can click on **Example queries** in the upper right and bring up a large dialog.
+
+![Sidebar](media/saved-queries/sidebar-2.png)
+
+The example query dialog then appears as shown below:  
+
+![Example queries screen](media/saved-queries/example-query-start.png)
+
+This screenshot displays the logs screen for a Azure Key Vault instance. As mentioned previously in this article, the queries are shown in-context.  As a result, the screeenshot shows only Key Vault related examples. If you were to select an entire subscription, then queries for all the types in that subscription are displayed.  
+
+Each example query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for additional fine tuning and tweaking.
+
+### Sidebar query experience
+
+All the same functionality of the dialog experience can be accessed from the queries pane on the left-hand sidebar of Log Analytics. You can hover over a query name to get the query description and additional functionality.
+
+![Sidebar](media/saved-queries/sidebar-3.png)
+
+## Finding and filtering queries
+
+### Filtering and group by
+
+While the query dialog experience filers to show only queries with the right context, you can choose to remove the filter and see all the queries.
 
 ### Group by
 
@@ -53,7 +77,7 @@ The concepts for organizing queries are very similar to the concepts of organizi
 
 ### Filter
 
-You can also filter the queries according to the groupby values metioned earlier:
+You can also filter the queries according to the groupby values mentioned earlier. In the example query dialog, the filters are found at the top.
 
 ![Example queries screen filter](media/saved-queries/example-query-filter.png)
 
@@ -72,17 +96,6 @@ If you are a KQL pro and prefer to get directly to the query editor, you can tog
 ![Examples On-Off](media/saved-queries/examples-on-off.png)
 
 You can always access the sample query popup experience from the *Example queries* button on the top bar of Log Analytics.
-
-## Sidebar query experience
-
-The new query experience is also available in a "sidebar" flavor.  All the functionality of the dialog may be accessed from the queries pane on the left-hand side of Log Analytics.
-
-![Sidebar](media/saved-queries/sidebar-2.png)
-
-You can hover over a query name to get the query description and additional functionality.
-
-![Sidebar](media/saved-queries/sidebar-3.png)
-
 ## Query explorer
 
 The query explorer experience for saving and sharing user generated queries remains unchanged for the time being.
