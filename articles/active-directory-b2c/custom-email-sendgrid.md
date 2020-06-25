@@ -1,3 +1,4 @@
+
 ---
 title: Custom email verification with SendGrid
 titleSuffix: Azure AD B2C
@@ -9,7 +10,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/05/2020
+ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -163,7 +164,7 @@ These claims types are necessary to generate and verify the email address using 
   <DisplayName>Secondary One-time password</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
-<ClaimType Id="sendGridReqBody">
+<ClaimType Id="emailRequestBody">
   <DisplayName>SendGrid request body</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
@@ -188,7 +189,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 ```xml
-<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+<ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
     <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
@@ -202,7 +203,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
     <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
   </InputParameters>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim"/>
+    <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -248,7 +249,7 @@ Under content definitions, still within `<BuildingBlocks>`, add the following [D
       <Action Id="SendCode">
         <ValidationClaimsExchange>
           <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendGrid" />
+          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
         </ValidationClaimsExchange>
       </Action>
       <Action Id="VerifyCode">
@@ -315,23 +316,23 @@ As with the OTP technical profiles, add the following technical profiles to the 
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SendGrid">
+    <TechnicalProfile Id="SendOtp">
       <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
         <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
         <Item Key="AuthenticationType">Bearer</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+        <Item Key="ClaimUsedForRequestPayload">emailRequestBody</Item>
       </Metadata>
       <CryptographicKeys>
         <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridSecret" />
       </CryptographicKeys>
       <InputClaimsTransformations>
-        <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
+        <InputClaimsTransformation ReferenceId="GenerateEmailRequestBody" />
       </InputClaimsTransformations>
       <InputClaims>
-        <InputClaim ClaimTypeReferenceId="sendGridReqBody" />
+        <InputClaim ClaimTypeReferenceId="emailRequestBody" />
       </InputClaims>
     </TechnicalProfile>
   </TechnicalProfiles>
@@ -391,33 +392,90 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
 
 ## [Optional] Localize your email
 
-To localize the email, you must send localized strings to SendGrid, or your email provider. For example, you can localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. The `GenerateSendGridRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
+To localize the email, you must send localized strings to SendGrid, or your email provider. For example, you can localize the email subject, body, your code message, or signature of the email. To do so, you can use the [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to copy localized strings into claim types. The `GenerateEmailRequestBody` claims transformation, which generates the JSON payload, uses input claims that contain the localized strings.
 
 1. In your policy, define the following string claims: subject, message, codeIntro, and signature.
 1. Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
-1. Change the `GenerateSendGridRequestBody` claims transformation to use input claims with the following XML snippet.
+1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
 1. Update your SendGrid template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
-```xml
-<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
-    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
-    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
-    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
-    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
-  </InputClaims>
-  <InputParameters>
-    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
-    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
-  </OutputClaims>
-</ClaimsTransformation>
-```
+    ```xml
+    <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+        <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+        <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+        <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+        <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+        <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+        <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+        <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+        <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+      </InputClaims>
+      <InputParameters>
+        <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+        <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    ```
+
+1. Add the following [Localization](localization.md) element.
+
+    ```xml
+    <Localization Enabled="true">
+      <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+        <SupportedLanguage>en</SupportedLanguage>
+        <SupportedLanguage>es</SupportedLanguage>
+      </SupportedLanguages>
+      <LocalizedResources Id="api.localaccountsignup.en">
+        <LocalizedStrings>
+          <!--Email template parameters-->
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountsignup.es">
+        <LocalizedStrings>
+          <!--Email template parameters-->
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+    </Localization>
+    ```
+
+1. Add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
+
+    ```XML
+    <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
+      <LocalizedResourcesReferences MergeBehavior="Prepend">
+        <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+        <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
+      </LocalizedResourcesReferences>
+    </ContentDefinition>
+    ```
+
+1. Finally, add following input claims transformation to the LocalAccountSignUpWithLogonEmail technical profile.
+
+    ```XML
+    <InputClaimsTransformations>
+      <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
+    </InputClaimsTransformations>
+    ```
 
 ## Next steps
 

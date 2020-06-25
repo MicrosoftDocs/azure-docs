@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/22/2020
+ms.date: 06/25/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,10 +21,6 @@ Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized
 Custom email verification requires the use of a third-party email provider like [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md), or [SparkPost](https://sparkpost.com), a custom REST API, or any HTTP-based email provider (including your own). This article describes setting up a solution that uses Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
-## Prerequisites
-
-Before you begin, [change your custom policy to enable script execution](javascript-samples). In this solution, we specify a page layout using `contract` and version in the `DataUri` element.
 
 ## Create a Mailjet account
 
