@@ -111,7 +111,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
-- 06/24/2020: Change in [Setting up Pacemaker on SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) release new improved Azure Fence Agent and more resilient STONITH for devices, based on Azure Fence Agent 
+- 06/24/2020: Change in [Setting up Pacemaker on SLES in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) to release new improved Azure Fence Agent and more resilient STONITH configuration for devices, based on Azure Fence Agent 
 - 06/24/2020: Change in [Setting up Pacemaker on RHEL in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) to release more resilient STONITH configuration
 - 06/23/2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) guide and introduction of [Azure Storage types for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) guide
 - 06/22/2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
