@@ -11,7 +11,7 @@ ms.author: dsindona
 
 # Azure Resource Manager test drive
 
-Use this type if you have an offer on the Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group.
+Use this type if you have an offer on Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group. This is the only test drive option for virtual machine or Azure app offers.
 
 If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [Understand the structure and syntax of ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to better understand how to build and test your own templates.
 
@@ -298,19 +298,13 @@ The final section to complete is to be able to deploy the test drives automatica
 
     ![Azure Subscriptions](media/test-drive/azure-subscriptions.png)
 
-2. Obtain an **Azure AD Tenant ID**. If you already have a Tenant ID available you can find it in **Azure Active Directory** > **Properties** > **Directory ID**: <!-- DESCRIBE WHAT'S HAPPENING IN THESE SCREENS -->
+2. Obtain an **Azure AD Tenant ID**. If you already have a Tenant ID available you can find it in **Azure Active Directory** > **Properties** > **Directory ID**:
 
     ![Azure Active Directory properties](media/test-drive/azure-active-directory-properties.png)
 
     If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-<!-- >
-    ![List of Azure Active Directory tenants](media/test-drive/azure-active-directory-tenants.png)
 
-    ![Define the organization, domain and country/region for the Azure AD tenant](media/test-drive/azure-tenant-define-details.png)
-
-    ![Confirm the selection](media/test-drive/confirm-selection.png)
--->
-3. **Azure AD App ID** – Create and register a new application <!-- does "application" = Azure AD App ID? -->. We will use this application to perform operations on your test drive instance.
+3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.
 
       1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
       2. Search **App registrations** and select **Add**.
@@ -320,7 +314,7 @@ The final section to complete is to be able to deploy the test drives automatica
       6. Select **Create**.
       7. After the application has been created, select **Properties** > **Set the application as multi-tenant** and then **Save**.
 
-4. Select **Save**. <!-- AGAIN? -->
+4. Select **Save**.
 
 5. Copy the Application ID for this registered app and paste it in the test drive field.
 
@@ -328,8 +322,8 @@ The final section to complete is to be able to deploy the test drives automatica
 
 6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
 
-    1. Select the type of **Subscription** you are using for the test drive.<!-- START WHERE? SHOW -->
-    1. Select **Access control (IAM)**.<!-- SHOW? -->
+    1. Select the type of **Subscription** you are using for the test drive.
+    1. Select **Access control (IAM)**.
     1. Select the **Role assignments** tab, then **Add role assignment**.<br>
     ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
     1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.<br>
@@ -346,7 +340,7 @@ Now that all your test drive fields are complete, **Republish** your offer. Once
 
 1. Start a test drive in the UI.
 1. Open your Azure subscription inside the Azure portal.
-1. Verify that your test drive is deploying correctly. <!-- HOW DO WE GET TO THIS SCREEN -->
+1. Verify that your test drive is deploying correctly.
 
     ![Azure portal](media/test-drive/azure-portal.png)
 
