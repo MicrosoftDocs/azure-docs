@@ -1,17 +1,17 @@
 ---
-title: Azure Event Grid security and authentication
-description: This article describes different ways of authenticating access to your Event Grid resources (WebHook, subscriptions, custom topics)
+title: Authenticate event delivery to event handlers (Azure Event Grid)
+description: This article describes different ways of authenticating delivery to event handlers in Azure Event Grid. 
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 06/25/2020
 ms.author: spelluru
 ---
 
-# Authentication for event delivery
-This article provides information on authenticating event delivery to event handlers. It shows how to secure the webhook endpoint that's used to receive events from Event Grid using Azure Active Directory (Azure AD) or a shared secret.
+# Authenticate event delivery to event handlers (Azure Event Grid)
+This article provides information on authenticating event delivery to event handlers. It also shows how to secure the webhook endpoints that are used to receive events from Event Grid using Azure Active Directory (Azure AD) or a shared secret.
 
 ## Use system-assigned identities for event delivery
 You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.

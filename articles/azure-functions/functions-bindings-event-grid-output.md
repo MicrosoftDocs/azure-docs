@@ -158,7 +158,7 @@ module.exports = function(context) {
 
 # [Python](#tab/python)
 
-The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom Event Grid topic, as specified by the `topicEndpointUri`.
+The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
 
 Here's the binding data in the *function.json* file:
 
@@ -183,7 +183,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the Python sample to send a event to a custom Event Grid topic by setting the `EventGridOutputEvent`:
+Here's the Python sample to send an event to a custom topic by setting the `EventGridOutputEvent`:
 
 ```python
 import logging
