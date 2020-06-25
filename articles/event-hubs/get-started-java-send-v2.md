@@ -134,7 +134,9 @@ The code in this tutorial is based on the [EventProcessorClient sample on GitHub
 > If you are running on Azure Stack Hub, that platform may support a different version of Storage Blob SDK than those typically available on Azure. For example, if you are running [on Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview), the highest available version for the Storage service is version 2017-11-09. In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2017-11-09. For an example on how to target a specific Storage API version, see [this sample on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). For more information on the Azure Storage service versions supported on Azure Stack Hub, please refer to [Azure Stack Hub storage: Differences and considerations](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences).
 
 ### Create an Azure Storage and a blob container
-In this quickstart, you use Azure Storage (specifically, Blob Storage) as the checkpoint store. Follow these steps to create an Azure Storage account. 
+In this quickstart, you use Azure Storage (specifically, Blob Storage) as the checkpoint store. Checkpointing is a process by which an event processor marks or commits the position of the last successfully processed event within a partition. Marking a checkpoint is typically done within the function that processes the events. To learn more about checkpointing, see [Event processor](event-processor-balance-partition-load.md).
+
+Follow these steps to create an Azure Storage account. 
 
 1. [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal)
 2. [Create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
@@ -190,17 +192,17 @@ Add the following dependencies in the pom.xml file.
     public static void main(String[] args) throws Exception {
         // Create a blob container client that you use later to build an event processor client to receive and process events
         BlobContainerAsyncClient blobContainerAsyncClient = new BlobContainerClientBuilder()
-            .connectionString(STORAGE_CONNECTION_STRING) // Azure Storage connection string
-            .containerName(STORAGE_CONTAINER_NAME) //Azure Storage container name
+            .connectionString(STORAGE_CONNECTION_STRING) 
+            .containerName(STORAGE_CONTAINER_NAME) 
             .buildAsyncClient();
     
         // Create a builder object that you will use later to build an event processor client to receive and process events and errors.
         EventProcessorClientBuilder eventProcessorClientBuilder = new EventProcessorClientBuilder()
-            .connectionString(EH_NAMESPACE_CONNECTION_STRING, eventHubName) // Event Hubs namespace connection string and event hub name
-            .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME) // Consumer group (using default)
-            .processEvent(PARTITION_PROCESSOR) // Method to process events
-            .processError(ERROR_HANDLER) // Method to process errors
-            .checkpointStore(new BlobCheckpointStore(blobContainerAsyncClient)); // Use Blob Storage as a checkpoint store with the help of blob container client. 
+            .connectionString(EH_NAMESPACE_CONNECTION_STRING, eventHubName) 
+            .consumerGroup(EventHubClientBuilder.DEFAULT_CONSUMER_GROUP_NAME)
+            .processEvent(PARTITION_PROCESSOR) 
+            .processError(ERROR_HANDLER) 
+            .checkpointStore(new BlobCheckpointStore(blobContainerAsyncClient)); 
 
         // Use the builder object to create an event processor client 
         EventProcessorClient eventProcessorClient = eventProcessorClientBuilder.buildEventProcessorClient();
@@ -222,8 +224,8 @@ Add the following dependencies in the pom.xml file.
 
     ```java
     public static final Consumer<EventContext> PARTITION_PROCESSOR = eventContext -> {
-        System.out.printf("Processing event %s from partition %s with sequence number %d and body: %s %n", 
-                eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
+	    System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
+	            eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
 
         if (eventContext.getEventData().getSequenceNumber() % 10 == 0) {
             eventContext.updateCheckpoint();
@@ -259,7 +261,7 @@ Add the following dependencies in the pom.xml file.
         private static final String STORAGE_CONTAINER_NAME = "<AZURE STORAGE CONTAINER NAME>";
     
         public static final Consumer<EventContext> PARTITION_PROCESSOR = eventContext -> {
-            System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
+	    System.out.printf("Processing event from partition %s with sequence number %d with body: %s %n", 
 	            eventContext.getPartitionContext().getPartitionId(), eventContext.getEventData().getSequenceNumber(), eventContext.getEventData().getBodyAsString());
 
             if (eventContext.getEventData().getSequenceNumber() % 10 == 0) {
