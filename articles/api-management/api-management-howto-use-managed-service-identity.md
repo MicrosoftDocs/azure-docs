@@ -302,7 +302,7 @@ The following steps walk you through creating an API Management instance and ass
     New-AzApiManagement -ResourceGroupName $resourceGroupName -Location $location -Name $apiManagementName -Organization contoso -AdminEmail admin@contoso.com -Sku Consumption -UserAssignedIdentity $userIdentities
     ```
 
-3. Update an existing service to assign an identity to the service.
+3. Update an existing service to assign an identity to the service:
 
     ```azurepowershell-interactive
     # Get an API Management instance
