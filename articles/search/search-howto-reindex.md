@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 06/18/2020
 ---
 
 # How to rebuild an index in Azure Cognitive Search
@@ -17,7 +17,17 @@ This article explains how to rebuild an Azure Cognitive Search index, the circum
 
 A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Cognitive Search, you cannot drop and recreate individual fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. 
 
-It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
+It's common to rebuild indexes during development when you are iterating over index design, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
+
+## "Rebuild" versus "refresh"
+
+Rebuild should not be confused with refreshing the contents of an index with new, modified, or deleted documents. Refreshing a search corpus is almost a given in every search app, with some scenarios requiring up-to-the-minute updates (for example, when a search corpus needs to reflect inventory changes in an online sales app).
+
+As long as you are not changing the structure of the index, you can refresh an index using the same techniques that you used to load the index initially:
+
+* For push-mode indexing, call [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to push the changes to an index.
+
+* For indexers, you can [schedule indexer execution](search-howto-schedule-indexers.md) and use change-tracking or timestamps to identify the delta. If updates must be reflected faster than what a scheduler can manage, you can use push-mode indexing instead.
 
 ## Rebuild conditions
 

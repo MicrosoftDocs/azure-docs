@@ -20,7 +20,7 @@ In Partner Center, select **Payout** at the upper-right of the portal:
 ![Illustrates the Payout icon in the upper-right of the Partner Center portal.](./media/payout-overview.png)
 
 > [!TIP]
-> Not all account roles have access to payout information. For details, see [Roles and permissions to access the payout report](./payout-summary.md).
+> Not all account roles have access to payout information. For details, see [Roles and permissions to access the payout report](./payout-summary-overview.md#roles-and-permissions).
 
 ## Payment schedules
 

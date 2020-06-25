@@ -8,7 +8,7 @@ ms.date: 09/17/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, tracking-python
 ---
 

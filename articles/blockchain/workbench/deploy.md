@@ -2,7 +2,7 @@
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---

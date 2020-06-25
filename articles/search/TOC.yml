@@ -224,8 +224,6 @@
         href: cognitive-search-custom-skill-form.md
       - name: Example - Azure Machine Learning
         href: cognitive-search-tutorial-aml-custom-skill.md
-      - name: Example - Containers
-        href: https://go.microsoft.com/fwlink/?linkid=2089500 
     - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Knowledge store
@@ -482,7 +480,7 @@
   - name: Feedback Forum (UserVoice)
     href:  https://feedback.azure.com/forums/263029-azure-search 
   - name: Compliance and certifications
-    href: https://aka.ms/azurecompliance
+    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Documentation links (knowledge mining)
     href: cognitive-search-resources-documentation.md
   - name: Demo sites

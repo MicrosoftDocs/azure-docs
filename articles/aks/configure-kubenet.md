@@ -202,7 +202,9 @@ If your custom subnet does not contain a route table, AKS creates one for you an
 > [!WARNING]
 > Custom rules can be added to the custom route table and updated. However, rules are added by the Kubernetes cloud provider which must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Take caution when updating rules that only your custom rules are being modified.
 
-Learn more about setting up a [custom route table][custom-route-table]. 
+Learn more about setting up a [custom route table][custom-route-table].
+
+Kubenet networking requires organized route table rules to successfully route requests. Due to this design, route tables must be carefully maintained for each cluster which relies on it. Multiple clusters cannot share a route table because pod CIDRs from different clusters may overlap which causes unexpected and broken routing. When configuring multiple clusters on the same virtual network or dedicating a virtual network to each cluster, ensure the following limitations are considered.
 
 Limitations:
 
@@ -210,10 +212,9 @@ Limitations:
 * Managed identities are not currently supported with custom route tables in kubenet.
 * A custom route table must be associated to the subnet before you create the AKS cluster.
 * The associated route table resource cannot be updated after cluster creation. While the route table resource cannot be updated, custom rules can be modified on the route table.
-* All subnets within an AKS virtual network must be associated with the same route table.
-* Every AKS cluster must use a unique route table. You can't reuse a route table with multiple clusters.
+* Each AKS cluster must use a single, unique route table for all subnets associated with the cluster. You cannot reuse a route table with multiple clusters due to the potential for overlapping pod CIDRs and conflicting routing rules.
 
-After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table. 
+After you create a custom route table and associate it to your subnet in your virtual network, you can create a new AKS cluster that uses your route table.
 You need to use the subnet ID for where you plan to deploy your AKS cluster. This subnet also must be associated with your custom route table.
 
 ```azurecli-interactive

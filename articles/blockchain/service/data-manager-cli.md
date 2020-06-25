@@ -2,7 +2,7 @@
 title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
 description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
 #Customer intent: As a network operator, I want to use Azure CLI to configure Blockchain Data Manager.
 ---

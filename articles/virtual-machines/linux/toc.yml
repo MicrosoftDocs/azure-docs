@@ -56,12 +56,8 @@
     href: tutorial-azure-devops-blue-green-strategy.md
   - name: 15d - CI/CD with Azure Pipelines(YAML)
     href: tutorial-build-deploy-azure-pipelines.md
-  - name: 16a - Create LAMP stack
+  - name: 16 - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 16b - Create LEMP stack
-    href: tutorial-lemp-stack.md
-  - name: 16c - Create MEAN stack
-    href: tutorial-mean-stack.md
   - name: 17 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
@@ -161,8 +157,16 @@
     href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Images
-    href: shared-image-galleries.md
+  - name: Imaging
+    items:
+    - name: Overview
+      href: imaging.md
+    - name: Provisioning
+      href: provisioning.md
+    - name: Shared image galleries
+      href: shared-image-galleries.md
+    - name: Image builder
+      href: image-builder-overview.md
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
@@ -398,7 +402,7 @@
         displayName: Azure Resource Manager
       - name: Error codes
         href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
-  - name: Migrate from Classic to Azure Resource Manager
+  - name: Migrate from classic to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
       href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -419,6 +423,50 @@
   - name: Use Images
     displayName: SIG, AMI, image
     items:
+    - name: Distribution specific requirements
+      items:
+      - name: Generic steps
+        href: create-upload-generic.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
+      - name: CentOS
+        href: create-upload-centos.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: Debian
+        href: debian-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Oracle Linux
+        href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
+    - name: Use cloud-init
+      items:
+      - name: Cloud-init overview
+        href: using-cloud-init.md
+      - name: Deep dive
+        href: cloud-init-deep-dive.md
+      - name: Troubleshooting
+        href: cloud-init-troubleshooting.md
+      - name: Configure VM hostname
+        href: cloudinit-update-vm-hostname.md
+      - name: Update packages in a VM
+        href: cloudinit-update-vm.md
+      - name: Add a user on a VM
+        href: cloudinit-add-user.md
+      - name: Configure swapfile
+        href: cloudinit-configure-swapfile.md
+      - name: Run existing bash script
+        href: cloudinit-bash-script.md
+      - name: Prepare existing VM for cloud-init
+        href: cloudinit-prepare-custom-image.md
+    - name: Create images without an 
+      href: no-agent.md
+    - name: Disable Linux Agent provisioning
+      href: disable-provisioning.md
     - name: Shared Image Galleries
       items:
       - name: CLI
@@ -484,8 +532,6 @@
         href: ../image-version-encryption.md
     - name: Image builder (preview)
       items:
-      - name: Overview
-        href: image-builder-overview.md
       - name: Use Azure CLI
         href: image-builder.md
       - name: ARM template reference
@@ -499,27 +545,7 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
-    - name: Create custom image
-      items:
-      - name: Generic steps
-        href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
-      - name: CentOS
-        href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
-      - name: Debian
-        href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
-      - name: Oracle Linux
-        href: oracle-create-upload-vhd.md
-      - name: OpenBSD
-        href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
-    - name: Capture VM to image
+    - name: Capture VM to managed image
       href: capture-image.md
     - name: Build image with Packer
       href: build-image-with-packer.md
@@ -817,22 +843,6 @@
         href: /azure/developer/terraform/install-configure
       - name: Create a complete VM
         href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
-    - name: Cloud-init
-      items:
-      - name: Cloud-init overview
-        href: using-cloud-init.md
-      - name: Configure VM hostname
-        href: cloudinit-update-vm-hostname.md
-      - name: Update packages in a VM
-        href: cloudinit-update-vm.md
-      - name: Add a user on a VM
-        href: cloudinit-add-user.md
-      - name: Configure swapfile
-        href: cloudinit-configure-swapfile.md
-      - name: Run existing bash script
-        href: cloudinit-bash-script.md
-      - name: Prepare existing VM for cloud-init
-        href: cloudinit-prepare-custom-image.md
     - name: Jenkins
       href: /azure/developer/jenkins/overview
       items:

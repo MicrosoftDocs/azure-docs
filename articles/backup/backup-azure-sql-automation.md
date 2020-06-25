@@ -605,4 +605,4 @@ For example, let's assume a SQL AG has two nodes: 'sql-server-0' and 'sql-server
 
 sql-server-0, sql-server-1 will also be listed as "AzureVMAppContainer" when [backup containers are listed](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0).
 
-Just fetch the relevant SQL database to [enable backup](#configuring-backup) and the [on-demand backup](#on-demand-backup) and [restore PS cmdlets](#restore-sql-dbs) are identical.
+Just fetch the relevant database to [enable backup](#configuring-backup) and the [on-demand backup](#on-demand-backup) and [restore PS cmdlets](#restore-sql-dbs) are identical.

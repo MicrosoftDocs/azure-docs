@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
+ms.date: 06/17/2020
 ms.custom: seodec18, tracking-python
 
 
@@ -126,8 +126,16 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
+If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> You will need to request a new token after the token's `refresh_by` time. 
+> Currently the only way to retrieve the token is by using the Azure Machine Learning SDK or the Azure CLI machine learning extension.
+
+You will need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 

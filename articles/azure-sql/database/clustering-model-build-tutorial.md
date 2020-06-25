@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 # Tutorial: Build a clustering model in R with Azure SQL Database Machine Learning Services (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In part two of this three-part tutorial series, you'll build a K-Means model in R to perform clustering. In the next part of this series, you'll deploy this model in a SQL database with Azure SQL Database Machine Learning Services (preview).
+In part two of this three-part tutorial series, you'll build a K-Means model in R to perform clustering. In the next part of this series, you'll deploy this model in a database in Azure SQL Database with Azure SQL Database Machine Learning Services (preview).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -31,9 +31,9 @@ In this article, you'll learn how to:
 > * Perform clustering
 > * Analyze the results
 
-In [part one](clustering-model-prepare-data-tutorial.md), you learned how to prepare the data from an Azure SQL database to perform clustering.
+In [part one](clustering-model-prepare-data-tutorial.md), you learned how to prepare the data from a database to perform clustering.
 
-In [part three](clustering-model-deploy-tutorial.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering in R based on new data.
+In [part three](clustering-model-deploy-tutorial.md), you'll learn how to create a stored procedure that can perform clustering in R based on new data.
 
 ## Prerequisites
 
