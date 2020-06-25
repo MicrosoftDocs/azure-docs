@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
-ms.date: 6/16/2020
+ms.date: 6/30/2020
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
@@ -22,10 +22,7 @@ If instead of the Azure App Service you are using Visual Studio 2019 to develop 
 ## Overview
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app, API app, or mobile app. There is no additional cost to use WebJobs.
 
-> [!IMPORTANT]
-> WebJobs is not yet supported for App Service on Linux.
-
-The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. WebJobs is not yet supported for App Service on Linux. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
@@ -61,7 +58,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Services**. 
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
 1. Select your web app, API app, or mobile app from the list.  
 
@@ -101,7 +98,7 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Services**. 
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
 1. Select your web app, API app, or mobile app from the list. 
 
@@ -113,7 +110,7 @@ when making changes in one don't forget the other two.
 
     ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-1. Fill in the **Add WebJob** settings as specified in the table 
+1. Fill in the **Add WebJob** settings as specified in the table. 
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
@@ -121,7 +118,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Name** | myTriggeredWebJob | A name that is unique within an App Service app. Must start with a letter or a number and cannot contain special characters other than "-" and "_".|
    | **File Upload** | ConsoleApp.zip | A *.zip* file that contains your executable or script file as well as any supporting files needed to run the program or script. The supported executable or script file types are listed in the [Supported file types](#acceptablefiles) section. |
-   | **Type** | Triggered | The [WebJob types](#webjob-types) are described earlier in this article. |
+   | **Type** | Triggered | The [WebJob types](#webjob-types) are described previously in this article. |
    | **Triggers** | Manual | |
 
 4. Select **OK**.
@@ -136,12 +133,14 @@ when making changes in one don't forget the other two.
 
 ## <a name="CreateScheduledCRON"></a> Create a scheduled WebJob
 
+A scheduled Webjob is also triggered. You can schedule the trigger to occur automatically on the schedule you specify.
+ 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for app service and select **App Service**. 
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
 1. Select your web app, API app, or mobile app from the list. 
 
@@ -149,11 +148,11 @@ when making changes in one don't forget the other two.
 
    ![Select WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. On the **WebJobs** page, select **Add**.
+1. On the **WebJobs** page, select **Add**.
 
    ![WebJob page](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Fill in the the **Add WebJob** settings as specified in the table.
+3. Fill in the **Add WebJob** settings as specified in the table.
 
    ![Add WebJob page](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
@@ -167,7 +166,7 @@ when making changes in one don't forget the other two.
 
 4. Select **OK**.
 
-   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. The new WebJob appears on the **WebJobs** page. 
+   The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
 
