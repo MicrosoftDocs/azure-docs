@@ -154,7 +154,7 @@ In this example, the `hdfs` command transparently uses the default cluster stora
 HDInsight logs script output that is written to STDOUT and STDERR. You can view this information using the Ambari web UI.
 
 > [!NOTE]  
-> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
+> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see [Troubleshoot script actions](./troubleshoot-script-action.md) for other ways of accessing logged information.
 
 Most utilities and installation packages already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT, use `echo`. For example:
 
@@ -170,7 +170,7 @@ By default, `echo` sends the string to STDOUT. To direct it to STDERR, add `>&2`
 
 This redirects information written to STDOUT to STDERR (2) instead. For more information on IO redirection, see [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+For more information on viewing information logged by script actions, see [Troubleshoot script actions](./troubleshoot-script-action.md).
 
 ### <a name="bps8"></a> Save files as ASCII with LF line endings
 

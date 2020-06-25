@@ -1,5 +1,5 @@
 ---
-title: Add and manage SSL certificates
+title: Add and manage TLS/SSL certificates
 description: Create a free certificate, import an App Service certificate, import a Key Vault certificate, or buy an App Service certificate in Azure App Service.
 tags: buy-ssl-certificates
 
@@ -8,7 +8,7 @@ ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
-# Add an SSL certificate in Azure App Service
+# Add a TLS/SSL certificate in Azure App Service
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how to create, upload, or import a private certificate or a public certificate into App Service. 
 
@@ -42,7 +42,7 @@ The [free App Service Managed Certificate](#create-a-free-certificate-preview) o
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates in the certificate chain
 
-To secure a custom domain in an SSL binding, the certificate has additional requirements:
+To secure a custom domain in a TLS binding, the certificate has additional requirements:
 
 * Contains an [Extended Key Usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1)
 * Signed by a trusted certificate authority
@@ -54,7 +54,7 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 
 ## Create a free certificate (Preview)
 
-The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
+The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional TLS/SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
 - Does not support wildcard certificates.
 - Does not support naked domains.
@@ -89,7 +89,7 @@ If you purchase an App Service Certificate from Azure, Azure manages the followi
 
 - Takes care of the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
-- Maintains the certificate in [Azure Key Vault](../key-vault/key-vault-overview.md).
+- Maintains the certificate in [Azure Key Vault](../key-vault/general/overview.md).
 - Manages certificate renewal (see [Renew certificate](#renew-certificate)).
 - Synchronize the certificate automatically with the imported copies in App Service apps.
 
@@ -135,8 +135,8 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Resource group | As a recommendation, select the same resource group as your App Service certificate. |
 | Location | Select the same location as your App Service app. |
 | Pricing tier | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/key-vault-network-security.md) |
+| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/general/group-permissions-for-apps.md). |
+| Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/general/network-security.md) |
 
 Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
 
@@ -232,7 +232,7 @@ Create a file for the merged certificate, called _mergedcertificate.crt_. In a t
 
 ### Export certificate to PFX
 
-Export your merged SSL certificate with the private key that your certificate request was generated with.
+Export your merged TLS/SSL certificate with the private key that your certificate request was generated with.
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
@@ -240,7 +240,7 @@ If you generated your certificate request using OpenSSL, then you have created a
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
-When prompted, define an export password. You'll use this password when uploading your SSL certificate to App Service later.
+When prompted, define an export password. You'll use this password when uploading your TLS/SSL certificate to App Service later.
 
 If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](https://technet.microsoft.com/library/cc754329(v=ws.11).aspx).
 
@@ -358,16 +358,16 @@ Now you can delete the App Service certificate. From the left navigation, select
 
 ### Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## More resources
 
-* [Secure a custom DNS name with an SSL binding](configure-ssl-bindings.md)
+* [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Use an SSL certificate in your application code](configure-ssl-certificate-in-code.md)
+* [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

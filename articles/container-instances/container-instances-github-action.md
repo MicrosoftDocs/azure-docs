@@ -48,7 +48,7 @@ This article shows two ways to set up the workflow:
 
 In the GitHub workflow, you need to supply Azure credentials to authenticate to the Azure CLI. The following example creates a service principal with the Contributor role scoped to the resource group for your container registry.
 
-First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-acr-show] command:
+First, get the resource ID of your resource group. Substitute the name of your group in the following [az group show][az-group-show] command:
 
 ```azurecli
 groupId=$(az group show \

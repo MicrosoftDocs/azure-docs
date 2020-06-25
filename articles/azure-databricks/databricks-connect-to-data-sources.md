@@ -23,9 +23,9 @@ This article provides links to all the different data sources in Azure that can 
 
 The following list provides the data sources in Azure that you can use with Azure Databricks. For a complete list of data sources that can be used with Azure Databricks, see [Data sources for Azure Databricks](/azure/databricks/data/data-sources/index).
 
-- [Azure SQL database](/azure/databricks/data/data-sources/sql-databases)
+- [Azure SQL Database](/azure/databricks/data/data-sources/sql-databases)
 
-    This link provides the DataFrame API for connecting to SQL databases using JDBC and how to control the parallelism of reads through the JDBC interface. This topic provides detailed examples using the Scala API, with abbreviated Python and Spark SQL examples at the end.
+    This link provides the DataFrame API for connecting to SQL Database using JDBC and how to control the parallelism of reads through the JDBC interface. This topic provides detailed examples using the Scala API, with abbreviated Python and Spark SQL examples at the end.
 - [Azure Data Lake Storage](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)
 
     This link provides examples on how to use the Azure Active Directory service principal to authenticate with Azure Data Lake Storage. It also provides instructions on how to access the data in Azure Data Lake Storage from Azure Databricks.
@@ -42,7 +42,7 @@ The following list provides the data sources in Azure that you can use with Azur
 
     This link provides instructions on how to use the [Azure Event Hubs Spark connector](https://github.com/Azure/azure-event-hubs-spark) from Azure Databricks to access data in Azure Event Hubs.
 
-- [Azure SQL Data Warehouse](/azure/databricks/data/data-sources/azure/sql-data-warehouse)
+- [Azure SQL Data Warehouse](/azure/synapse-analytics/sql-data-warehouse/)
 
     This link provides instructions on how to use the Azure SQL Data Warehouse connector to connect from Azure Databricks.
     

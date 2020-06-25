@@ -7,7 +7,7 @@ ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-ms.custom: mvc
+ms.custom:  [mvc, amqp]
 ---
 # How to use different attestation mechanisms with Device Provisioning Service Client SDK for C
 

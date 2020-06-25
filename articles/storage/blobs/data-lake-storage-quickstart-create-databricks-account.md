@@ -6,7 +6,7 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/17/2020
+ms.date: 06/12/2020
 ms.reviewer: jeking
 ---
 
@@ -73,7 +73,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
-## Create storage account container
+## Create notebook
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to configure the storage account.
 

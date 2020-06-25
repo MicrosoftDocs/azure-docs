@@ -1,12 +1,12 @@
 ---
- title: NDv2-series - Azure Virtual Machines
- description: Specifications for the NDv2-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NDv2-series 
+description: Specifications for the NDv2-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # Updated NDv2-series

@@ -2,15 +2,12 @@
 title: Build single-page app calling a web API - Microsoft identity platform | Azure
 description: Learn how to build a single-page application that calls a web API
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi

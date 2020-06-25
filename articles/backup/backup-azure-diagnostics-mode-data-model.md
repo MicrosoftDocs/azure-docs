@@ -17,7 +17,7 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 
 ## Using Azure Backup data model
 
-You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard as per your requirements.
+You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard according to your requirements.
 
 ### Alert
 
@@ -454,7 +454,14 @@ Below are a few samples to help you write queries on Azure Backup data that resi
     | extend Vault= Resource
     | project-away Resource
     ````
-    
+
+## V1 schema vs V2 schema
+Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***. 
+
+For reasons of backward-compatibility, diagnostics data for Azure Backup Agent and Azure VM backup is currently sent to Azure Diagnostics table in both V1 and V2 schema (with V1 schema now on a deprecation path). You can identify which records in Log Analytics are of V1 schema by filtering records for SchemaVersion_s=="V1" in your log queries. 
+
+Refer to the third column 'Description' in the [data model](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) described above to identify which columns belong to V1 schema only.
+
 ## Next steps
 
 Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.

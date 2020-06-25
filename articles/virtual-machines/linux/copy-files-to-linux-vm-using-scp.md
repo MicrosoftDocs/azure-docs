@@ -4,7 +4,7 @@ description: Securely move files to and from a Linux VM in Azure using SCP and a
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks

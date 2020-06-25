@@ -37,7 +37,7 @@ Activity log alerts have a few common options:
 - **Resource group**: By default, the alert rule is saved in the same resource group as that of the target defined in Scope. The user can also define the Resource Group where the alert rule should be stored.
 - **Resource type**: Resource Manager defined namespace for the target of the alert.
 - **Operation name**: The [Azure Resource Manager operation](../../role-based-access-control/resource-provider-operations.md) name utilized for Role-Based Access Control . Operations not registered with Azure Resource Manager can not be used in an activity log alert rule.
-- **Level**: The severity level of the event (Verbose, Informational, Warning, Error, or Critical).
+- **Level**: The severity level of the event (Informational, Warning, Error, or Critical).
 - **Status**: The status of the event, typically Started, Failed, or Succeeded.
 - **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user who performed the operation.
 

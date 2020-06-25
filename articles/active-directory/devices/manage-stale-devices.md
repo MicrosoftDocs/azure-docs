@@ -5,7 +5,7 @@ description: Learn how to remove stale devices from your database of registered 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -175,7 +175,7 @@ To learn more about the different types, see the [device management overview](ov
 
 Any authentication where a device is being used to authenticate to Azure AD are denied. Common examples are:
 
-- **Hybrid Azure AD joined device** - Users might be to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
+- **Hybrid Azure AD joined device** - Users might be able to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
 - **Azure AD joined device** - Users can't use the device to sign in. 
 - **Mobile devices** - User can't access Azure AD resources such as Office 365. 
 

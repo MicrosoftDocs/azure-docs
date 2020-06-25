@@ -5,7 +5,7 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: alzam
 

@@ -3,13 +3,13 @@ title: Multi-device Conversation (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # What is Multi-device Conversation (Preview)?

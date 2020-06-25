@@ -24,7 +24,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 - The Java Speech SDK package is available for these operating systems:
   - Windows: 64-bit only
   - Mac: macOS X version 10.13 or later
-  - Linux: 64-bit only on Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8
+  - Linux: 64-bit only on Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - On RHEL/CentOS 8, run the following commands to install the required packages:
+  - On RHEL/CentOS, run the following commands to install the required packages:
 
         ```sh
         sudo yum update
@@ -55,7 +55,8 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
         ```
 
 > [!NOTE]
-> On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - On RHEL/CentOS 7, follow the instructions on [how to configure RHEL/CentOS 7 for Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - On RHEL/CentOS 8, follow the instructions on [how to configure OpenSSL for Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Note that installing this for the first time may require you to restart Windows before continuing with this guide.
 

@@ -2,10 +2,8 @@
 title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
@@ -27,7 +25,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * Each kubelet also creates a Certificate Signing Request (CSR), which is signed by the Cluster CA, for communication from the kubelet to the API server.
 * The etcd key value store has a certificate signed by the Cluster CA for communication from etcd to the API server.
 * The etcd key value store creates a CA that signs certificates to authenticate and authorize data replication between etcd replicas in the AKS cluster.
-* The API aggregator uses the Cluster CA to issue certificates for communication with other APIs, such as Open Service Broker for Azure. The API aggregator can also have its own CA for issuing those certificates, but it currently uses the Cluster CA.
+* The API aggregator uses the Cluster CA to issue certificates for communication with other APIs. The API aggregator can also have its own CA for issuing those certificates, but it currently uses the Cluster CA.
 * Each node uses a Service Account (SA) token, which is signed by the Cluster CA.
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
@@ -36,8 +34,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 > 
 > Additionally, you can check the expiration date of your cluster's certificate. For example, the following command displays the certificate details for the *myAKSCluster* cluster.
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
-> openssl x509 -in my-cert.crt -text
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
 ## Rotate your cluster certificates

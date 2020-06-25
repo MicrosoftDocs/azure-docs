@@ -1,11 +1,11 @@
 ---
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/21/2020
-ms.author: dapine
+ms.date: 04/29/2020
+ms.author: aahi
 ---
 
 ### Speech-to-text or Custom Speech-to-text
@@ -31,6 +31,7 @@ to this call using the container [host](https://docs.microsoft.com/dotnet/api/mi
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
+
 # [Python](#tab/python)
 
 Change from using this Azure-cloud initialization call:
@@ -40,11 +41,4 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-to this call using the container [host](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
-
-```python
-speech_config = speechsdk.SpeechConfig(
-    host="ws://localhost:5000")
-```
-
-***
+---

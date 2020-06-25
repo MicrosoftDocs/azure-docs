@@ -80,7 +80,7 @@ These steps give you a JSON file that you can use to start editing your strings.
 
 If you want to change the string for a custom user attribute, or you want to add one to the JSON, it's in the following format:
 
-```JSON
+```json
 {
   "LocalizedStrings": [
     {
@@ -102,7 +102,7 @@ Replace `<ExtensionAttributeValue>` with the new string to be displayed.
 
 If you want to provide a set list of values for responses, you need to create a `LocalizedCollections` attribute. `LocalizedCollections` is an array of `Name` and `Value` pairs. The order for the items will be the order they are displayed. To add `LocalizedCollections`, use the following format:
 
-```JSON
+```json
 {
   "LocalizedStrings": [...],
   "LocalizedCollections": [{

@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Blob storage input binding for Azure Functions
@@ -149,6 +150,7 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
     {
       "name": "inputblob",
       "type": "blob",
+      "dataType": "binary",
       "path": "samples-workitems/{queueTrigger}",
       "connection": "MyStorageConnectionAppSetting",
       "direction": "in"

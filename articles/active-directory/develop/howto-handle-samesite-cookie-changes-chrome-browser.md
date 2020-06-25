@@ -3,7 +3,6 @@ title: How to handle SameSite cookie changes in Chrome browser | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to handle SameSite cookie changes in Chrome browser.
 services: active-directory
-documentationcenter: ''
 author: jmprieur
 manager: CelesteDG
 
@@ -49,8 +48,8 @@ The table below presents the pull requests that worked around the SameSite chang
 
 | Sample | Pull request |
 | ------ | ------------ |
-|  [ASP.NET Core Web App incremental tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Same site cookie fix #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
-|  [ASP.NET MVC Web App sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
+|  [ASP.NET Core web app incremental tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [Same site cookie fix #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
+|  [ASP.NET MVC web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [Same site cookie fix #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
 |  [active-directory-dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2)  |  [Same site cookie fix #28](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2/pull/28)  |
 
 for details on how to handle SameSite cookies in ASP.NET and ASP.NET Core, see also:

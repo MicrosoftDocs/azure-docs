@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ---
 # How to use Azure Cognitive Search from a .NET Application
 
-This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
+This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
 
 ## What's in the Azure Cognitive Search SDK
 The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.

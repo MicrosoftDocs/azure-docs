@@ -72,6 +72,8 @@ The following diagram displays compute, network, and storage resources deployed 
 
 ![Resource Manager architecture](./media/deployment-models/arm_arch3.png)
 
+SRP: Storage Resource Provider, CRP: Compute Resource Provider, NRP: Network Resource Provider
+
 Note the following relationships between the resources:
 
 * All the resources exist within a resource group.

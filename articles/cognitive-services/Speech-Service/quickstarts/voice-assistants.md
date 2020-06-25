@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: travisw
-zone_pivot_groups: programming-languages-set-fourteen
+zone_pivot_groups: programming-languages-set-fifteen
 ---
 
 # Quickstart: Create a custom voice assistant
@@ -25,6 +25,11 @@ zone_pivot_groups: programming-languages-set-fourteen
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/java/header.md)]
 [!INCLUDE [java](../includes/quickstarts/voice-assistants/java/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Header](../includes/quickstarts/voice-assistants/go/header.md)]
+[!INCLUDE [go](../includes/quickstarts/voice-assistants/go/go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

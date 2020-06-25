@@ -227,6 +227,16 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 </azvpnprofile>
 ```
 
+### Can I import the profile from a command line prompt?
+
+You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+to force the import use the **-f** switch as well
+
+
 ## Next steps
 
 For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).

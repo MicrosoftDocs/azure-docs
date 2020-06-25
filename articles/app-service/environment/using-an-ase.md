@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 01/01/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -13,10 +13,10 @@ ms.custom: seodec18
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
 
-- **Front ends**: Where HTTP or HTTPS terminates in an App Service Environment.
-- **Workers**: The resources that host your apps.
-- **Database**: Holds information that defines the environment.
-- **Storage**: Used to host the customer-published apps.
+- **Front ends**: Where HTTP or HTTPS terminates in an App Service Environment
+- **Workers**: The resources that host your apps
+- **Database**: Holds information that defines the environment
+- **Storage**: Used to host the customer-published apps
 
 You can deploy an ASE with an external or internal virtual IP (VIP) for app access. A deployment with an external VIP is commonly called an *External ASE*. A deployment with an internal VIP is called an *ILB ASE* because it uses an internal load balancer (ILB). To learn more about the ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
@@ -83,7 +83,7 @@ In an ASE, you can scale an App Service plan up to 100 instances. An ASE can hav
 
 ## IP addresses
 
-App Service can allocate a dedicated IP address to an app. This capability is available after you configure IP-based SSL, as described in [Bind an existing custom SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for IP-based SSL.
+App Service can allocate a dedicated IP address to an app. This capability is available after you configure IP-based SSL, as described in [Bind an existing custom TLS/SSL certificate to Azure App Service][ConfigureSSL]. In an ILB ASE, you can't add more IP addresses to be used for IP-based SSL.
 
 With an External ASE, you can configure IP-based SSL for your app in the same way as in the multitenant App Service. There's always one spare address in the ASE, up to 30 IP addresses. Each time you use one, another is added so that an address is always readily available. A time delay is required to allocate another IP address. That delay prevents adding IP addresses in quick succession.
 
@@ -115,6 +115,29 @@ For information about how to create an ILB ASE, see [Create and use an ILB ASE][
 
 The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. For information on the Kudu console, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
+### DNS configuration 
+
+When you use an External ASE, apps made in your ASE are registered with Azure DNS. There are no additional steps then in an External ASE for your apps to be publicly available. With an ILB ASE, you must manage your own DNS. You can do this in your own DNS server or with Azure DNS private zones.
+
+To configure DNS in your own DNS server with your ILB ASE:
+
+1. create a zone for <ASE name>.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create a zone in <ASE name>.appserviceenvironment.net named scm
+1. create an A record in the scm zone that points * to the ILB IP address
+
+To configure DNS in Azure DNS Private zones:
+
+1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an A record in that zone that points * to the ILB IP address
+1. create an A record in that zone that points @ to the ILB IP address
+1. create an A record in that zone that points *.scm to the ILB IP address
+
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+
+The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
+
 ## Publishing
 
 In an ASE, as with the multitenant App Service, you can publish by these methods:
@@ -127,7 +150,7 @@ In an ASE, as with the multitenant App Service, you can publish by these methods
 
 With an External ASE, these publishing options all work the same way. For more information, see [Deployment in Azure App Service][AppDeploy].
 
-Publishing is significantly different with an ILB ASE, for which the publishing endpoints are all available only through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don't have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you must configure DNS for the apps in the system. That requirement includes the SCM endpoint. If the endpoints aren't defined properly, you can't publish. Your IDEs must also have network access to the ILB to publish directly to it.
+With an ILB ASE, the publishing endpoints are only available through the ILB. The ILB is on a private IP in the ASE subnet in the virtual network. If you don't have network access to the ILB, you can't publish any apps on that ASE. As noted in [Create and use an ILB ASE][MakeILBASE], you must configure DNS for the apps in the system. That requirement includes the SCM endpoint. If the endpoints aren't defined properly, you can't publish. Your IDEs must also have network access to the ILB to publish directly to it.
 
 Without additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an ILB ASE because the publishing endpoint isn't internet accessible. You can enable publishing to an ILB ASE from Azure DevOps by installing a self-hosted release agent in the virtual network that contains the ILB ASE. Alternatively, you can also use a CI system that uses a pull model, such as Dropbox.
 
@@ -135,7 +158,7 @@ The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE 
 
 ## Storage
 
-An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB by default. If you have five or more App Service plans, be careful not to exceed the 1-TB limit of the ASE. If you need more than the 250-GB limit in one App Service plan, contact support to adjust the App Service plan limit to a maximum of 1 TB. When the plan limit is adjusted, there's still a limit of 1 TB across all the App Service plans in the ASE.
+An ASE has 1 TB of storage for all the apps in the ASE. An App Service plan in the Isolated pricing SKU has a limit of 250 GB. In an ASE, 250 GB of storage is added per App Service plan up to the 1 TB limit. You can have more App Service plans than just four, but there is no more storage added beyond the 1 TB limit.
 
 ## Logging
 
@@ -164,7 +187,18 @@ To enable logging on your ASE:
 
 ![ASE diagnostic log settings][4]
 
-If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**.
+If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE does not have such an event, there will not be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+
+**Creating an alert**
+
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor][logalerts]. In brief:
+
+* Open the Alerts page in your ASE portal
+* Select **New alert rule**
+* Select your Resource to be your Log Analytics workspace
+* Set your condition with a custom log search to use a query like, "AppServiceEnvironmentPlatformLogs | where ResultDescription contains "has begun scaling" or whatever you want. Set the threshold as appropriate. 
+* Add or create an action group as desired. The action group is where you define the response to the alert such as sending an email or an SMS message
+* Name your alert and save it.
 
 ## Upgrade preference
 
@@ -240,3 +274,4 @@ To delete an ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[logalerts]: ../../azure-monitor/platform/alerts-log.md
