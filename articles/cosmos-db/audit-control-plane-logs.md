@@ -67,7 +67,7 @@ The following screenshots capture logs when a consistency level is changed for a
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
-The following screenshots capture logs when throughput of a Cassandra table is updated:
+The following screenshots capture logs when throughput of a Cassandra table is updated. The control plane logs for create and update operations on the database and the container are logged separately.  :
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
@@ -103,24 +103,32 @@ The following are the control plane operations available at the database and con
 * SQL Container Throughput Updated
 * SQL Database Deleted
 * SQL Container Deleted
+* Autoscale max throughput
+* Cassandra Keyspace Created
 * Cassandra Keyspace Updated
+* Cassandra Table Created
 * Cassandra Table Updated
 * Cassandra Keyspace Throughput Updated
 * Cassandra Table Throughput Updated
 * Cassandra Keyspace Deleted
 * Cassandra Table Deleted
+* Gremlin Database Created
+* Gremlin Graph Created
 * Gremlin Database Updated
 * Gremlin Graph Updated
 * Gremlin Database Throughput Updated
 * Gremlin Graph Throughput Updated
 * Gremlin Database Deleted
 * Gremlin Graph Deleted
+* Mongo Database Created
 * Mongo Database Updated
+* Mongo Collection Created
 * Mongo Collection Updated
 * Mongo Database Throughput Updated
 * Mongo Collection Throughput Updated
 * Mongo Database Deleted
 * Mongo Collection Deleted
+* AzureTable Table Created
 * AzureTable Table Updated
 * AzureTable Table Throughput Updated
 * AzureTable Table Deleted
@@ -140,14 +148,15 @@ The following are the operation names in diagnostic logs for different operation
 
 For API-specific operations, the operation is named with the following format:
 
-* ApiKind + ApiKindResourceType + OperationType + Start/Complete
-* ApiKind + ApiKindResourceType + "Throughput" + operationType + Start/Complete
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "Throughput" + operationType
 
 **Example** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
 
@@ -157,14 +166,28 @@ The following are some examples to get diagnostic logs for control plane operati
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## Next steps
