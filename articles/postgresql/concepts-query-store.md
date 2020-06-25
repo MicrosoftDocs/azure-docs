@@ -5,11 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 06/25/2020
 ---
+
 # Monitor performance with the Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6 and above
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -65,9 +66,6 @@ Or this query for wait stats:
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
-
-You can also emit Query Store data to [Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving. The log categories to configure are **QueryStoreRuntimeStatistics** and **QueryStoreWaitStatistics**. To learn about setup, visit the [Azure Monitor diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) article.
-
 
 ## Finding wait queries
 Wait event types combine different wait events into buckets by similarity. Query Store provides the wait event type, specific wait event name, and the query in question. Being able to correlate this wait information with the query runtime statistics means you can gain a deeper understanding of what contributes to query performance characteristics.
@@ -172,6 +170,69 @@ Query_store.qs_reset() returns void
 Query_store.staging_data_reset() returns void
 
 `staging_data_reset` discards all statistics gathered in memory by Query Store (that is, the data in memory that has not been flushed yet to the database). This function can only be executed by the server admin role.
+
+
+## Azure Monitor
+Azure Database for PostgreSQL is integrated with [Azure Monitor diagnostic settings](../azure-monitor/platform/diagnostic-settings.md). Diagnostic settings allows you to send your Postgres logs in JSON format to [Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md) for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving.
+
+>[!IMPORTANT]
+> This diagnostic feature for is only available in the General Purpose and Memory Optimized pricing tiers.
+
+### Configure diagnostic settings
+You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and Powershell. The log categories to configure are **QueryStoreRuntimeStatistics** and **QueryStoreWaitStatistics**. 
+
+To enable resource logs using the Azure portal:
+
+1. In the portal, go to Diagnostic Settings in the navigation menu of your Postgres server.
+2. Select Add Diagnostic Setting.
+3. Name this setting.
+4. Select your preferred endpoint (storage account, event hub, log analytics).
+5. Select the log types **QueryStoreRuntimeStatistics** and **QueryStoreWaitStatistics**.
+6. Save your setting.
+
+To enable this setting using Powershell, CLI, or REST API, visit the [diagnostic settings article](../azure-monitor/platform/diagnostic-settings.md).
+
+### JSON log format
+The following tables describes the fields for the two log types. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary.
+
+#### QueryStoreRuntimeStatistics
+|**Field** | **Description** |
+|---|---|
+| TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
+| ResourceId | Postgres server's Azure resource URI |
+| Category | `QueryStoreRuntimeStatistics` |
+| OperationName | `QueryStoreRuntimeStatisticsEvent` |
+| LogicalServerName_s | Postgres server name | 
+| runtime_stats_entry_id_s | ID from the runtime_stats_entries table |
+| user_id_s | OID of user who executed the statement |
+| db_id_s | OID of database in which the statement was executed |
+| query_id_s | Internal hash code, computed from the statement's parse tree |
+| end_time_s | End time corresponding to the time bucket for this entry |
+| calls_s | Number of times the query executed |
+| total_time_s | Total query execution time, in milliseconds |
+| min_time_s | Minimum query execution time, in milliseconds |
+| max_time_s | Maximum query execution time, in milliseconds |
+| mean_time_s | Mean query execution time, in milliseconds |
+| ResourceGroup | The resource group | 
+| SubscriptionId | Your subscription ID |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Resource | Postgres server name |
+| ResourceType | `Servers` | 
+
+
+#### QueryStoreWaitStatistics
+|**Field** | **Description** |
+|---|---|
+| TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
+| ResourceId | Postgres server's Azure resource URI |
+| Category | `QueryStoreWaitStatistics` |
+| OperationName | 
+| LogicalServerName_s | Postgres server name | 
+| ResourceGroup | The resource group | 
+| SubscriptionId | Your subscription ID |
+| ResourceProvider | `Microsoft.DBForPostgreSQL` | 
+| Resource | Postgres server name |
+| ResourceType | `Servers` | 
 
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
