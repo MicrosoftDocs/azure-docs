@@ -121,7 +121,7 @@ To estimate the costs of backing up SQL servers running in Azure VMs using Azure
 
 To estimate the costs of backing up SAP HANA servers running in Azure VMs using Azure Backup, you’ll need the following parameters:
 
-- Total size of the SAP HANA databases that you're trying to back up. This should be the sum of full backup size, as reported by SAP HANA for each of the databases.
+- Total size of the SAP HANA databases that you're trying to back up. This should be the sum of full backup size of each of the databases, as reported by SAP HANA.
 - Number of SAP HANA servers with the above size
 - What is the expected size of log backups?
   - The % indicates average daily log size as a % of the total size of SAP HANA databases that you're backing up on the SAP HANA server
