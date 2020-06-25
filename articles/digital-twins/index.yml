@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Digital Twins Preview Documentation
-summary: As announced at Microsoft Build 2020, Azure Digital Twins is preparing a new public preview version of the service. You will find the full documentation for the new service and its features in this location soon. You can also continue to access documentation for the first version of Azure Digital Twins at the link below.
+summary: Learn how to use Azure Digital Twins to create a digital representation of your assets, environments and business systems, to build next generation IoT solutions that model the real world.
 
 metadata:
   title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
@@ -14,9 +14,70 @@ metadata:
   ms.date: 02/12/2020
 
 landingContent:
-  - title: Azure Digital Twins, first version
+  - title: About Azure Digital Twins
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Digital Twins?
+            url: overview.md
+
+  - title: Get started with the tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Code a client app
+            url: tutorial-code.md
+      - linkListType: tutorial
+        links:
+          - text: Explore the basics with a sample client app
+            url: tutorial-command-line-app.md
+      - linkListType: tutorial
+        links:
+          - text: Connect an end-to-end solution
+            url: tutorial-end-to-end.md
+
+  - title: Learn
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Custom models
+            url: concepts-models.md
+      - linkListType: concept
+        links:
+          - text: Digital twins and the twin graph
+            url: concepts-twins-graph.md
+      - linkListType: concept
+        links:
+          - text: Query language
+            url: concepts-query-language.md
+
+  - title: Develop
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use the Azure Digital Twins CLI
+            url: how-to-use-cli.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure Digital Twins instance
+            url: how-to-set-up-instance.md
+      - linkListType: how-to-guide
+        links:
+          - text: Authenticate a client application
+            url: how-to-authenticate-client.md
+            
+  - title: API reference
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use the Azure Digital Twins APIs and SDKs 
+            url: how-to-use-apis-sdks.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom SDKs with AutoRest
+            url: how-to-create-custom-sdks.md
       - linkListType: reference
         links:
-          - text: "Previous Versions Documentation: Azure Digital Twins"
-            url: https://docs.microsoft.com/previous-versions/azure/digital-twins/about-digital-twins
+          - text: REST APIs
+            url:  https://docs.microsoft.com/rest/api/azure-digitaltwins/ 
+
