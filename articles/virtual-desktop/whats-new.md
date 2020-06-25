@@ -69,6 +69,8 @@ To learn more, see [our blog post](https://azure.microsoft.com/updates/windows-v
 
 ## Next steps
 
+Learn about future plans at the [Microsoft 365 Windows Virtual Desktop roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+
 Check out these articles to learn about updates for our clients for Windows Virtual Desktop and Remote Desktop Services:
 
 - [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
