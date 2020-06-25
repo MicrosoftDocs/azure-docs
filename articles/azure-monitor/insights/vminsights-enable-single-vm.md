@@ -18,7 +18,7 @@ This article describes how to enable Azure Monitor for VMs for a single  virtual
 
 Before you begin, review the [prerequisites](vminsights-enable-overview.md) and make sure your subscription and resources meet the requirements.  
 
-## Enable monitoring for a single Azure VM, Azure VMSS or Azure Arc machine
+## Enable Azure Monitor for VMs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
