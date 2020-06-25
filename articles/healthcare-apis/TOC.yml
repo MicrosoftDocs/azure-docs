@@ -19,6 +19,8 @@
     href: fhir-oss-powershell-quickstart.md
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
+  - name: Deploy IoMT connector - Portal
+    href: iomt-fhir-portal-quickstart.md
 - name: Tutorials
   expanded: false
   items:
