@@ -1,2 +1,178 @@
 - name: Azure Digital Twins
   href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Digital Twins
+    href: overview.md
+  - name: Differences from previous release
+    href: overview-differences.md
+- name: Tutorials
+  items:
+  - name: Code a client app
+    href: tutorial-code.md
+  - name: Explore the basics with a sample client app
+    href: tutorial-command-line-app.md
+  - name: Connect an end-to-end solution
+    href: tutorial-end-to-end.md
+- name: Concepts
+  items:
+  - name: Custom models
+    href: concepts-models.md
+  - name: Digital twins and the twin graph
+    href: concepts-twins-graph.md
+  - name: Query language
+    href: concepts-query-language.md
+  - name: Integration with other services
+    href: concepts-integration.md
+  - name: Event routes
+    href: concepts-route-events.md
+  - name: Security for Azure Digital Twins solutions
+    href: concepts-security.md
+- name: How-to guides
+  items:
+  - name: Develop
+    items:
+    - name: Use the APIs and SDKs
+      href: how-to-use-apis-sdks.md
+    - name: Create custom SDKs with AutoRest
+      href: how-to-create-custom-sdks.md
+  - name: Deploy
+    items:
+    - name: Use the Azure Digital Twins CLI
+      href: how-to-use-cli.md
+    - name: Create an Azure Digital Twins instance
+      href: how-to-set-up-instance.md
+    - name: Authenticate a client application
+      href: how-to-authenticate-client.md
+  - name: Design models
+    items: 
+    - name: Manage custom models
+      href: how-to-manage-model.md
+    - name: Parse and validate models
+      href: how-to-use-parser.md
+  - name: Use live execution environment
+    items:
+    - name: Manage digital twins
+      href: how-to-manage-twin.md
+    - name: Manage the twin graph with relationships
+      href: how-to-manage-graph.md
+    - name: Interpret event data
+      href: how-to-interpret-event-data.md
+    - name: Set up an Azure function for processing data
+      href: how-to-create-azure-function.md
+    - name: Query the twin graph
+      href: how-to-query-graph.md
+  - name: Connect input
+    items:
+    - name: Ingest telemetry from IoT Hub
+      href: how-to-ingest-iot-hub-data.md
+  - name: Connect output
+    items:
+    - name: Manage endpoints and routes
+      href: how-to-manage-routes.md
+    - name: Integrate with Azure Maps
+      href: how-to-integrate-maps.md
+- name: Reference
+  items:
+  - name: Digital Twins service limits
+    href: reference-service-limits.md
+  - name: APIs and SDKs
+    items:
+      - name: Control plane
+        items:
+        - name: Swagger
+          href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins
+        - name: .NET (C#) SDK - NuGet
+          href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
+        - name: .NET (C#) SDK - source
+          href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
+        - name: Python SDK
+          href: https://pypi.org/project/azure-mgmt-digitaltwins/
+        - name: Python SDK - source
+          href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins
+        - name: Go SDK - source
+          href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins
+      - name: Data plane
+        items:
+        - name: REST API reference
+          href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
+        - name: Swagger
+          href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
+        - name: .NET (C#) SDK - reference
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
+        - name: .NET (C#) SDK - NuGet
+          href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
+        - name: .NET (C#) SDK - source
+          href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
+  - name: DTDL
+    items: 
+    - name: DTDL v2 spec
+      href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+    - name: DTDL extension for VS Code
+      href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
+    - name: DTDL parser library - NuGet
+      href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
+    - name: DTDL validator sample
+      href: https://github.com/Azure-Samples/dtdl-validator
+    - name: DTMI spec
+      href: https://github.com/Azure/digital-twin-model-identifier
+  - name: Azure tools
+    items: 
+    - name: Azure CLI reference
+      href: /cli/azure/iot
+    - name: Azure IoT CLI extension reference
+      href: /cli/azure/ext/azure-iot/iot?view=azure-cli-latest
+    - name: Azure IoT CLI extension releases
+      href: https://github.com/Azure/azure-iot-cli-extension/releases
+    - name: Azure Cloud Shell
+      href: https://shell.azure.com
+    - name: Azure PowerShell
+      href: /powershell/module/az.iothub#iot
+    - name: Azure portal
+      href: https://portal.azure.com
+  - name: Azure RBAC documentation
+    href: /azure/role-based-access-control/overview
+- name: Resources
+  items:
+  - name: Support and help options
+    href: /azure/iot-fundamentals/iot-support-help
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Channel 9 videos
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22
+  - name: Customer data requests
+    href: resources-customer-data-requests.md
+  - name: Pricing and availability
+    items:
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/digital-twins
+    - name: Regions and availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT solution accelerators
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /azure/iot-central/core/overview-iot-central
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Plug and Play
+      href: /azure/iot-pnp
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge solutions
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
