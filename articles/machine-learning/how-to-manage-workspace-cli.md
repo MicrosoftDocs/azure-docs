@@ -357,7 +357,8 @@ For more information, see the [az ml workspace delete](https://docs.microsoft.co
 
 The Azure Machine Learning workspace uses Azure Container Registry (ACR) for some operations. It will automatically create an ACR instance when it first needs one.
 
-[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
+> [!WARNING]
+> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
 
 ## Next steps
 
