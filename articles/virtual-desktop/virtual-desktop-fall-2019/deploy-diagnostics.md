@@ -191,7 +191,8 @@ To set the Redirect URI:
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![The redirect URI page](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![The redirect URI page](../media/redirect-uri-page.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
