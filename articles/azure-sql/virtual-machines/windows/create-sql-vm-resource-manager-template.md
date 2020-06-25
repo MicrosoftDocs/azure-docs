@@ -24,11 +24,7 @@ The SQL VM ARM template requires the following:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Create a SQL Server VM
-
-
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
@@ -46,34 +42,34 @@ Five Azure resources are defined in the template:
 More SQL Server on Azure VM templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine).
 
 
-### Deploy the template
+## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 2. Select or enter the following values.
 
-   ![Resource Manager template, Azure Cosmos DB integration, deploy portal](./media/quick-create-template/create-cosmosdb-using-template-portal.png)
-
-    Unless it is specified, use the default values to create the Azure Cosmos resources.
-
     * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location.  For example, **Central US**.
-    * **Account Name**: enter a name for the Azure Cosmos account. It must be globally unique.
-    * **Location**: enter a location where you want to create your Azure Cosmos account. The Azure Cosmos account can be in the same location as the resource group.
-    * **Primary Region**: The primary replica region for the Azure Cosmos account.
-    * **Secondary region**: The secondary replica region for the Azure Cosmos account.
-    * **Default Consistency Level**: The default consistency level for the Azure Cosmos account.
-    * **Max Staleness Prefix**: Max stale requests. Required for BoundedStaleness.
-    * **Max Interval in Seconds**: Max lag time. Required for BoundedStaleness.
-    * **Database Name**: The name of the Azure Cosmos database.
-    * **Container Name**: The name of the Azure Cosmos container.
-    * **Throughput**:  The throughput for the container, minimum throughput value is 400 RU/s.
-    * **I agree to the terms and conditions state above**: Select.
+    * **Resource group**: The prepared resource group for your SQL Server VM. 
+    * **Region**: select a region.  For example, **Central US**.
+    * **Virtual Machine Name**: enter a name for SQL Server virtual machine. 
+    * **Virtual Machine Size**: Choose the appropriate size for your virtual machine from the drop-down.
+    * **Existing Virtual Network Name**: The primary replica region for the Azure Cosmos account.
+    * **Existing Vnet Resource Group**: The secondary replica region for the Azure Cosmos account.
+    * **Existing Subnet Name**: The default consistency level for the Azure Cosmos account.
+    * **Image Offer**: Max stale requests. Required for BoundedStaleness.
+    * **SQL Sku**: Max lag time. Required for BoundedStaleness.
+    * **Admin Username**: The name of the Azure Cosmos database.
+    * **Admin Password**: The name of the Azure Cosmos container.
+    * **Storage Workload Type**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **Sql Data Disks Count**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **Data Path**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **Sql Log Disks Count**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **Log Path**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **Location**:  The throughput for the container, minimum throughput value is 400 RU/s.
 
-3. Select **Purchase**. After the Azure Cosmos account has been deployed successfully, you get a notification:
+3. Select **Review + create **. After the Azure Cosmos account has been deployed successfully, you get a notification:
 
    ![Resource Manager template, Cosmos DB integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -81,23 +77,21 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 
 ## Review deployed resources
 
-<!-- You can also use the title "Validate the deployment". -->
+You can either use the Azure portal or the Azure CLI  to check the deployed resources. 
 
-<!-- Include a portal screenshot of the resources or use interactive Azure CLI and Azure PowerShell commands to show the deployed resources. -->
 
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+```azurecli-interactive
+echo "Enter the resource group where your SQL Server VM exists:" &&
+read resourcegroupName &&
+az resource list --resource-group $resourcegroupName 
+```
+
 
 ## Clean up resources
 
-<!-- Include a paragraph that explains how to delete unneeded resources. Add a portal screenshot or use interactive Azure CLI and Azure PowerShell commands to clean up the resources. -->
+When no longer needed, delete the resource group by using Azure CLI or Azure PowerShell:
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
-
-<!--
-
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
-
-Here are the samples for Azure CLI and Azure PowerShell:
+# [CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -106,22 +100,25 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
+# [PowerShell](#tab/PowerShell)
+
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
--->
+---
 
 ## Next steps
-
-<!-- You can either make the next steps similar to the next steps in your other quickstarts, or point users to the following tutorial.
-
-If you want to include links to more information about the service, it's acceptable to use a paragraph and bullet points.
--->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
+For other ways to deploy a SQL Server VM, see: 
+- [Azure portal](create-sql-vm-portal.md)
+- [PowerShell](create-sql-vm-powershell.md)
+
+To learn more, see [an overview of SQL Server on Azure VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
