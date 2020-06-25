@@ -30,12 +30,12 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup redundancy
 
-All created backups are replicated for protection against outages impacting backup storage in the region. Backup storage redundancy option provides flexibility to choose between locally redundant (LRS), zone redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) for protection against outages impacting backup storage in the primary region and give ability to restore your server in a different region in the event of a disaster.
+> [!IMPORTANT]
+> Configuring storage redundancy for backups is only allowed during single database and managed instance create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
 
-> [!NOTE]
-> Zone-redundant storage (ZRS) is available only in regions where zone-redundant storage type is available. For more details visit [Zone-redundant storage documentation page](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Backup storage redundancy option provides flexibility to choose between locally-redundant (LRS), zone-redundant (ZRS) or geo-redundant (RA-GRS) [storage blobs](../../storage/common/storage-redundancy.md). Storage redundancy mechanism stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. RA-GRS storage blobs are replicated to a [paired region](../../best-practices-availability-paired-regions.md) for protection against outages impacting backup storage in the primary region and give ability to restore your server in a different region in the event of a disaster. From the other hand, LRS and ZRS storage blobs are ensuring that your data stays within the same region where your single database or managed instance is deployed. Zone-redundant storage (ZRS) is available only in certain regions (for more details visit [Azure storage redundancy page](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-> [!NOTE]
+> [!IMPORTANT]
 > In SQL Managed instance, configured backup redundancy is applied for both, short-term retention backups (used for point-in-time restore - PITR) and long-term retention backups (used for restore from long-term backups - LTR).
 
 ### Backup usage
@@ -45,8 +45,8 @@ You can use these backups to:
 - **Point-in-time restore of existing database** - [Restore an existing database to a point in time in the past](recovery-using-backups.md#point-in-time-restore) within the retention period by using Azure portal, Azure PowerShell, Azure CLI, or REST API. For single and pooled databases, this operation will create a new database on the same server as the original database, but under a different name to avoid overwriting the original database. Once restore completes, you can delete or [rename](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) the original database, and rename the restored database to have the original database name. On a managed instance, this operation can similarly create a copy of the database on the same or a different managed instance under the same subscription and in the same region.
 - **Point-in-time restore of deleted database** - [Restore a deleted database to the time of deletion](recovery-using-backups.md#deleted-database-restore) or to any point in time within the retention period. The deleted database can be restored only on the same server or managed instance where the original database was created. When deleting a database, the service takes a final transaction log backup before deletion, to prevent any data loss.
 - **Geo-restore** - [Restore a database to another geographic region](recovery-using-backups.md#geo-restore). Geo-restore allows you to recover from a geographic disaster when you cannot access your database or backups in the primary region. It creates a new database on any existing server or managed instance, in any Azure region.
-> [!NOTE]
-> Geo-restore is available only for managed instances and databases with configured Geo-redundant (RA-GRS) backup storage.
+> [!IMPORTANT]
+> Geo-restore is available only for managed instances and single databases with configured geo-redundant (RA-GRS) backup storage.
 - **Restore from long-term backup** - [Restore a database from a specific long-term backup](long-term-retention-overview.md) of a single database or pooled database, if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](long-term-backup-retention-configure.md#using-the-azure-portal) or [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 To perform a restore, see [Restore database from backups](recovery-using-backups.md).
@@ -121,11 +121,6 @@ Backup retention for purposes of PITR within the last 1-35 days is sometimes cal
 
 For single and pooled databases and managed instances, you can configure long-term retention (LTR) of full backups for up to 10 years in Azure Blob storage. If you enable an LTR policy, the weekly full backups are automatically copied to a different storage container. To meet various compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly full backups. The storage consumption depends on the selected frequency of LTR backups, and the retention period or periods. You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
 
-As mentioned above, both PITR backups and LTR backups are protected with storage redundacy. For more information, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
-
-> [!IMPORTANT]
-> Configuring storage redundancy for backups is only allowed during single and pooled databasse or managed instances create. Once the resource is provisioned, you cannot change the backup storage redundancy option.
-
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
 ## Storage costs
@@ -166,7 +161,7 @@ You can monitor total backup storage consumption for each backup type (full, dif
 
 ### Backup storage redundancy
 
-Backup storage redundancy affects backup costs in a way that can be best described with following
+Backup storage redundancy affects backup costs in a following way
 - LRS price = x
 - ZRS price = 1.5x
 - RA-GRS price = 2x
