@@ -31,9 +31,12 @@ By Time
 
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
-|Call Duration|Total duration of the call per participant in a meeting|In Minutes|
-|Packet loss rate >10% or 0.1|The percentage of packets that are lost. Packet loss directly affects audio quality—from small, individual lost packets that have almost no impact to back-to-back burst losses that cause audio to cut out completely.
-|Round-trip time >500 ms|Average round-trip network propagation time|in milliseconds.
+| Total calling minutes |  |  |
+| Total calls |  | Group calls count as one call |
+| Call Drop Failure Rate | The drop failure rate, otherwise known as the Total Call Dropped Failure Percentage measurement in CQD, is the percentage of successfully established streams where the media path didn’t terminate normally. |  |
+| Packet Loss Rate | Average packet loss rate for stream. |  |
+| Round Trip Time | Average round-trip network propagation time, computed in milliseconds. |  |
+| Call Setup Failure Rate |  | The setup failure rate, otherwise known as the Total Call Setup Failure Percentage measurement in CQD, is the number of streams where the media path couldn’t be established between the endpoints at the start of the call. |
 
 todo: [Use this CQD template to assess your quality](https://docs.microsoft.com/en-us/MicrosoftTeams/quality-of-experience-review-guide)
 
