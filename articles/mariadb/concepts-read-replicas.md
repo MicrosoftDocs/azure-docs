@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/10/2020
+ms.date: 6/24/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -42,9 +42,7 @@ You can have a master server in any [Azure Database for MariaDB region](https://
 ### Universal replica regions
 You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
-
-*West US 2 is temporarily unavailable as a cross region replica location.
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -53,7 +51,7 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 
 However, there are limitations to consider: 
 
-* Regional availability: Azure Database for MariaDB is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
+* Regional availability: Azure Database for MariaDB is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
     
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South, and US Gov Virginia. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
@@ -74,7 +72,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the the master server.
+At creation, a replica inherits the firewall rules of the master server. Afterwards, these rules are independent from the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
