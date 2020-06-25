@@ -429,6 +429,9 @@ To get tracking information about a single, existing Azure Data Box order, run [
     NonScheduled    True             True                       False          True                         westus      mydataboxtest4  myresourcegroup  2020-06-18T03:48:00.905893+00:00  DeviceOrdered
    ```
 
+> [!NOTE]
+> List order can be supported at subscription level and that makes resource group an optional parameter (rather than a required parameter).
+
 ### List all orders
 
 If you have ordered multiple devices, you can run [az databox job list](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) to view all your Azure Data Box orders. The command lists all orders that belong to a specific resource group. Also displayed in the output: order name, shipping status, Azure region, delivery type, order status. Canceled orders are also included in the list.
