@@ -5,7 +5,7 @@ description: If you have internal user accounts for partners, distributors, supp
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 
 ms.author: mimart
