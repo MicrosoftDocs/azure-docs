@@ -39,7 +39,7 @@ Azure Accelerated Networking improves network performance by enabling single roo
 
 ## Azure virtual machine scale sets with Azure Load Balancer
 
-When working with virtual machine scale sets and load balancer, the following should be considered:
+When working with virtual machine scale sets and load balancer, the following items should be considered:
 
 * **Multiple virtual machine scale sets can't use the same load balancer**.
 * **Port Forwarding and inbound NAT rules**:
@@ -47,7 +47,7 @@ When working with virtual machine scale sets and load balancer, the following sh
   * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
   * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
 * **Inbound NAT pool**:
-  * Inbound NAT pool is a collection of inbound NAT rules. 1 inbound NAT pool cannot support multiple virtual machine scale sets.
+  * Inbound NAT pool is a collection of inbound NAT rules. One inbound NAT pool cannot support multiple virtual machine scale sets.
 * **Load balancing rules**:
   * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
 * **Outbound rules**:
