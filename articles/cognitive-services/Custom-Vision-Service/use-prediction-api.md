@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.author: anroth
+ms.author: pafarley
 ---
 
 # Use your model with the prediction API
