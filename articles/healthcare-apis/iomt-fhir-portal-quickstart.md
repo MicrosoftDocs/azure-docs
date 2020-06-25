@@ -56,7 +56,7 @@ Once installation is complete, the newly created IoMT connector will show up on 
 
 ## Configure IoMT connector (preview)
 
-IoMT connector needs two mapping templates to transform device messages into FHIR-based Observation resource(s): **device mapping** and **fhir mapping**. Your IoMT connector is not fully operational until these mappings are uploaded.
+IoMT connector needs two mapping templates to transform device messages into FHIR-based Observation resource(s): **device mapping** and **FHIR mapping**. Your IoMT connector isn't fully operational until these mappings are uploaded.
 
 [![IoMT connector missing mappings](media/quickstart-iomt-fhir-portal/portal-iomt-connector-missing-mappings.jpg)](media/quickstart-iomt-fhir-portal/portal-iomt-connector-missing-mappings.jpg#lightbox)
 
@@ -133,7 +133,7 @@ On the **FHIR mapping** page, add the following script to the JSON editor and cl
 }
 ```
 
-[![IoMT connector fhir mapping](media/quickstart-iomt-fhir-portal/portal-iomt-fhir-mapping.jpg)](media/quickstart-iomt-fhir-portal/portal-iomt-fhir-mapping.jpg#lightbox)
+[![IoMT connector FHIR mapping](media/quickstart-iomt-fhir-portal/portal-iomt-fhir-mapping.jpg)](media/quickstart-iomt-fhir-portal/portal-iomt-fhir-mapping.jpg#lightbox)
 
 ## Generate a connection string
 
@@ -157,7 +157,7 @@ Preserve this connection string to be used at a later step.
 
 ## Connect your devices to IoT
 
-Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial we'll leverage Azure IoT Central which has industry-focused solution templates to help you get started.
+Azure offers an extensive suite of IoT products to connect and manage your IoT devices. You can build your own solution based on PaaS using Azure IoT Hub, or start with a manage IoT apps platform with Azure IoT Central. For this tutorial, we'll leverage Azure IoT Central, which has industry-focused solution templates to help you get started.
 
 Deploy the [Continuous patient monitoring application template](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). This template includes two simulated devices producing real-time data to help you get started: **Smart Vitals Patch** and **Smart Knee Brace**.
 
@@ -165,7 +165,7 @@ Deploy the [Continuous patient monitoring application template](https://docs.mic
 > Whenever your real devices are ready, you can use same IoT Central application to [onboard your devices](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) and replace device simulators. Your device data will automatically start flowing to FHIR as well. 
 
 ## Connect your IoT data with the IoMT connector (preview)
-Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the IoMT connector. To export your IoT data to the IoMT connector we'll want to [set up a continuous data export within IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). On the continuous data export page:
+Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the IoMT connector. To export your IoT data to the IoMT connector, we'll want to [set up a continuous data export within IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export). On the continuous data export page:
 - Pick *Azure Event Hubs* as the export destination.
 - Select *Use a connection string* value for **Event Hubs namespace** field.
 - Provide IoMT connector's connection string obtained in a previous step for the **Connection String** field.
