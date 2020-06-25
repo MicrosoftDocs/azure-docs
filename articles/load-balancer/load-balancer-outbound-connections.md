@@ -82,6 +82,9 @@ SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#sn
 
 You can combine the scenarios described in the preceding sections to achieve a particular outcome. When multiple scenarios are present, an order of precedence applies: [scenario 1](#ilpip) takes precedence over [scenario 2](#lb) and [3](#defaultsnat). [Scenario 2](#lb) overrides [scenario 3](#defaultsnat).
 
+>[!IMPORTANT] 
+>You can integrate Azure Firewall with your existing virtual network with an Azure Standard Load Balancer to configure outbound connectivity without having assign a public IP to either the instance or the Azure Load Balancer.
+
 An example is an Azure Resource Manager deployment where the application relies heavily on outbound connections to a limited number of destinations but also receives inbound flows over a Load Balancer frontend. In this case, you can combine scenarios 1 and 2 for relief. For additional patterns, review [Managing SNAT exhaustion](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 ### <a name="multife"></a> Multiple frontends for outbound flows
@@ -398,3 +401,4 @@ When using an internal Standard Load Balancer, outbound NAT is not available unt
 - Learn more about [Load Balancer](load-balancer-overview.md).
 - Learn more about [network security groups](../virtual-network/security-overview.md).
 - Learn about some of the other key [networking capabilities](../networking/networking-overview.md) in Azure.
+- Learn more about [Integrating Azure Firewall with Azure Standard Load Balancer](../firewall/integrate-lb.md)
