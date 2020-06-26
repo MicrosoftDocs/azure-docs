@@ -23,7 +23,7 @@ When defining your container specification, certain parameters require adherence
 | Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
 | DNS name label | 5-63 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
 | Environment variable | 1-63 |Case insensitive |Alphanumeric, and underscore (_) anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
-| Volume name | 5-63 |Case insensitive |Alphanumeric, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+| Volume name | 5-63 |Lowercase |Alphanumeric, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
 
 <sup>1</sup>Restriction also for container group names when not specified independently of container instances, for example with `az container create` command deployments.
 
