@@ -148,6 +148,9 @@
     href: concepts/acs-event-grid.md
   - name: Push notifications
     href: concepts/push-notifications.md
+    items:
+      - name: Registering through communication service portal
+        href: concepts/notifications-azure-portal-registration.md
   - name: User Access Tokens
     href: concepts/user-access-tokens.md
   - name: Identity Model
