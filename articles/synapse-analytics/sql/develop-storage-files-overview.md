@@ -10,9 +10,9 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-# Accessing external storage in Synapse SQL
+# Accessing external storage in Synapse SQL (on-demand)
 
-This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
+This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -59,9 +59,9 @@ OPENROWSET enables user to query the files placed on some external data source:
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
