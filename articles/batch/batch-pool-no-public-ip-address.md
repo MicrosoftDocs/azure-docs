@@ -54,6 +54,8 @@ To restrict access to these compute nodes, reduce the discoverability of these n
 1. Optionally select a virtual network and subnet you wish to use. This virtual network must be in the same resource group as the pool you are creating.
 1. In **IP address provisioning type**, select "NoPublicIPAddresses"
 
+![](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+
 ## Use the Batch REST API to create a pool without public IP addresses
 
 The example below shows how to use the [Azure Batch REST API](https://docs.microsoft.com/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
