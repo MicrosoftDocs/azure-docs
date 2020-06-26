@@ -65,16 +65,3 @@ const placeCallOptions = { fromCallerId: '+14250000001' };
 oneToOneCall = callClient.call(['+1234567890'], placeCallOptions);
 ```
 ---
-
-## Place an outgoing telephone call using default Caller ID (Available soon)
-In the Azure Portal UI, you can specify which of the telephone numbers is supposed to be used as a Caller ID in case the callout is started with no explicitly specified number.
-
-![Screenshot of default caller ID](../media/default-caller-id.png)
-
-#### [Javascript](#tab/javascript)
-```js
-const placeCallOptions = {};
-oneToOneCall = callClient.call(['+1234567890'], placeCallOptions);
-```
-
-When triggering a call without explicitly selected Caller ID, the default one will be used (425-555-1234 in case of the screenshot).
