@@ -1,5 +1,5 @@
 ---
-title: Bulk import users in the Azure Active Directory | Microsoft Docs
+title: Revoke user access for emergency in Azure Active Directory | Microsoft Docs
 description: Add users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Revoke user access in emergencies with Azure Active Directory
+# Revoke user access in Azure Active Directory
 
 Among the scenarios that could require an administrator to revoke all access for a user include compromised accounts, employee termination, and other insider threats. Depending on the complexity of the environment, administrators can take several steps to ensure access is revoked. In some scenarios, there could be a period between initiation of access revocation and when access is effectively revoked.
 
@@ -94,7 +94,7 @@ As an administrator in Azure Active Directory, open PowerShell, run ``Connect-Az
 > [!NOTE]
 > Data on the device cannot be recovered after a wipe.
 
-## When is access effectively revoked
+## When access is revoked
 
 Once admins have taken the above steps, the user can't gain new tokens for any application tied to Azure Active Directory. The elapsed time between revocation and the user losing their access depends on how the application is granting access:
 
