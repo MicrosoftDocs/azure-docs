@@ -88,6 +88,7 @@ ms.author: aahi
 | Bulgarian             |     `bg`      |            |     ✓      |                2020-07-01                 |                    |
 | Catalan             |     `ca`      |            |     ✓      |                2020-07-01                 |                    |
 | Croatian              |     `hr`      |            |     ✓      |                2020-07-01                 |                    |
+| Danish                 |     `da`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Estonian              |     `et`      |            |     ✓      |                2020-07-01                 |                    |
