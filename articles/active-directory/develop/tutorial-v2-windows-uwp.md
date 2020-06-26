@@ -41,6 +41,7 @@ This guide uses the following NuGet package:
 |Library|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
+|[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Microsoft Graph Client Library|
 
 ## Set up your project
 
@@ -63,14 +64,15 @@ This guide creates an application that displays a button that queries Graph API 
 ### Add Microsoft Authentication Library to your project
 
 1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-1. Copy and paste the following command in the **Package Manager Console** window:
+1. Copy and paste the following commands in the **Package Manager Console** window:
 
     ```powershell
     Install-Package Microsoft.Identity.Client
+    Install-Package Microsoft.Graph
     ```
 
    > [!NOTE]
-   > This command installs [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Microsoft identity platform.
+   > The first command installs [Microsoft Authentication Library (MSAL.NET)](https://aka.ms/msal-net). MSAL.NET acquires, caches, and refreshes user tokens that access APIs that are protected by the Microsoft identity platform. The second command installs [Microsoft Graph .NET Client Library](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to authenticate requests to Microsoft Graph and make calls to the service.   
 
 ### Create your application’s UI
 
@@ -99,6 +101,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
 
     ```csharp
     using Microsoft.Identity.Client;
+    using Microsoft.Graph;
     using System.Diagnostics;
     using System.Threading.Tasks;
     ```
@@ -108,92 +111,100 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
     ```csharp
     public sealed partial class MainPage : Page
     {
-        //Set the API Endpoint to Graph 'me' endpoint
-        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
-
+       
         //Set the scope for API call to user.read
-        string[] scopes = new string[] { "user.read" };
+        private string[] scopes = new string[] { "user.read" };
 
         // Below are the clientId (Application Id) of your app registration and the tenant information.
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - the content of Tenant with the information about the accounts allowed to sign in in your application:
-        //   - for Work or School account in your org, use your tenant ID, or domain
-        //   - for any Work or School accounts, use organizations
-        //   - for any Work or School accounts, or Microsoft personal account, use common
-        //   - for Microsoft Personal account, use consumers
-        private const string ClientId = "0b8b0665-bc13-4fdc-bd72-e0227b9fc011";
+        private const string ClientId = "[Application Id pasted from the application registration portal]";
 
-        public IPublicClientApplication PublicClientApp { get; }
+        private const string Tenant = "common"; // Alternatively "[Enter your tenant, as obtained from the Azure portal, e.g. kko365.onmicrosoft.com]"
+        private const string Authority = "https://login.microsoftonline.com/" + Tenant;
+
+        // The MSAL Public client app
+        private static IPublicClientApplication PublicClientApp;
+
+        private static string MSGraphURL = "https://graph.microsoft.com/v1.0/";
+        private static AuthenticationResult authResult;
 
         public MainPage()
         {
-          this.InitializeComponent();
-
-          PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
-                .WithAuthority(AadAuthorityAudience.AzureAdAndPersonalMicrosoftAccount)
-                .WithLogging((level, message, containsPii) =>
-                {
-                    Debug.WriteLine($"MSAL: {level} {message} ");
-                }, LogLevel.Warning, enablePiiLogging:false,enableDefaultPlatformLogging:true)
-                .WithUseCorporateNetwork(true)
-                .Build();
+            this.InitializeComponent();
         }
 
         /// <summary>
-        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenAsync - to acquire a token requiring user to sign in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
-         AuthenticationResult authResult = null;
-         ResultText.Text = string.Empty;
-         TokenInfoText.Text = string.Empty;
+            try
+            {
+                // Sign in user using MSAL and obtain an access token for Micrososft Graph
+                GraphServiceClient graphClient = await SignInAndInitializeGraphServiceClient(scopes);
 
-         // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.
-         IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
-         IAccount firstAccount = accounts.FirstOrDefault();
+                // Call the /me endpoint of Graph
+                User graphUser = await graphClient.Me.Request().GetAsync();
 
-         try
-         {
-          authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                // Go back to the UI thread to make changes to the UI
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    ResultText.Text = "Display Name: " + graphUser.DisplayName + "\nBusiness Phone: " + graphUser.BusinessPhones.FirstOrDefault()
+                                      + "\nGiven Name: " + graphUser.GivenName + "\nid: " + graphUser.Id
+                                      + "\nUser Principal Name: " + graphUser.UserPrincipalName;
+                    DisplayBasicTokenInfo(authResult);
+                    this.SignOutButton.Visibility = Visibility.Visible;
+                });
+            }
+            catch (MsalException msalEx)
+            {
+                await DisplayMessageAsync($"Error Acquiring Token:{System.Environment.NewLine}{msalEx}");
+            }
+            catch (Exception ex)
+            {
+                await DisplayMessageAsync($"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}");
+                return;
+            }
+        }
+                /// <summary>
+        /// Signs in the user and obtains an access token for Microsoft Graph
+        /// </summary>
+        /// <param name="scopes"></param>
+        /// <returns> Access Token</returns>
+        private static async Task<string> SignInUserAndGetTokenUsingMSAL(string[] scopes)
+        {
+            // Initialize the MSAL library by building a public client application
+            PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(Authority)
+                .WithUseCorporateNetwork(false)
+                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+                 .WithLogging((level, message, containsPii) =>
+                 {
+                     Debug.WriteLine($"MSAL: {level} {message} ");
+                 }, LogLevel.Warning, enablePiiLogging: false, enableDefaultPlatformLogging: true)
+                .Build();
+
+            // It's good practice to not do work on the UI thread, so use ConfigureAwait(false) whenever possible.
+            IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
+            IAccount firstAccount = accounts.FirstOrDefault();
+
+            try
+            {
+                authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                                   .ExecuteAsync();
-         }
-         catch (MsalUiRequiredException ex)
-         {
-          // A MsalUiRequiredException happened on AcquireTokenSilent.
-          // This indicates you need to call AcquireTokenInteractive to acquire a token
-          System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+            }
+            catch (MsalUiRequiredException ex)
+            {
+                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
-          try
-          {
-           authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
-                                                      .ExecuteAsync()
-                                                      .ConfigureAwait(false);
-           }
-           catch (MsalException msalex)
-           {
-            await DisplayMessageAsync($"Error Acquiring Token:{System.Environment.NewLine}{msalex}");
-           }
-          }
-          catch (Exception ex)
-          {
-           await DisplayMessageAsync($"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}");
-           return;
-          }
+                authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
+                                                  .ExecuteAsync()
+                                                  .ConfigureAwait(false);
 
-          if (authResult != null)
-          {
-           var content = await GetHttpContentWithToken(graphAPIEndpoint,
-                                                       authResult.AccessToken).ConfigureAwait(false);
-
-           // Go back to the UI thread to make changes to the UI
-           await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-           {
-            ResultText.Text = content;
-            DisplayBasicTokenInfo(authResult);
-            this.SignOutButton.Visibility = Visibility.Visible;
-           });
-          }
+            }
+            return authResult.AccessToken;
         }
     }
     ```
@@ -216,73 +227,60 @@ Eventually, the `AcquireTokenSilent` method fails. Reasons for failure include a
 
 * Your application presents a visual indication to users that they need to sign in. Then they can select the right time to sign in. The application can retry `AcquireTokenSilent` later. Use this approach when users can use other application functionality without disruption. An example is when offline content is available in the application. In this case, users can decide when they want to sign in. The application can retry `AcquireTokenSilent` after the network was temporarily unavailable.
 
-### Call Microsoft Graph API by using the token you just obtained
+### Instantiate the Microsoft Graph Service Client by obtaining the token from the SignInUserAndGetTokenUsingMSAL method
 
 Add the following new method to *MainPage.xaml.cs*:
 
-   ```csharp
-   /// <summary>
-   /// Perform an HTTP GET request to a URL using an HTTP Authorization header
-   /// </summary>
-   /// <param name="url">The URL</param>
-   /// <param name="token">The token</param>
-   /// <returns>String containing the results of the GET operation</returns>
-   public async Task<string> GetHttpContentWithToken(string url, string token)
-   {
-       var httpClient = new System.Net.Http.HttpClient();
-       System.Net.Http.HttpResponseMessage response;
-       try
-       {
-           var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-           // Add the token in Authorization header
-           request.Headers.Authorization =
-             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-           response = await httpClient.SendAsync(request);
-           var content = await response.Content.ReadAsStringAsync();
-           return content;
-       }
-       catch (Exception ex)
-        {
-           return ex.ToString();
-       }
-    }
-   ```
+```csharp
+      /// <summary>
+     /// Sign in user using MSAL and obtain a token for Microsoft Graph
+     /// </summary>
+     /// <returns>GraphServiceClient</returns>
+     private async static Task<GraphServiceClient> SignInAndInitializeGraphServiceClient(string[] scopes)
+     {
+         GraphServiceClient graphClient = new GraphServiceClient(MSGraphURL,
+             new DelegateAuthenticationProvider(async (requestMessage) =>
+             {
+                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", await SignInUserAndGetTokenUsingMSAL(scopes));
+             }));
 
- This method makes a `GET` request from Graph API by using an `Authorization` header.
+         return await Task.FromResult(graphClient);
+     }
+```
 
 #### More information on making a REST call against a protected API
 
-In this sample application, the `GetHttpContentWithToken` method make an HTTP `GET` request against a protected resource that requires a token. Then the method returns the content to the caller. This method adds the acquired token in the **HTTP Authorization** header. For this sample, the resource is the Microsoft Graph API **me** endpoint, which displays the user's profile information.
+In this sample application, the `GetGraphServiceClient` method instantiates `GraphServiceClient` by using an access token. Then, `GraphServiceClient` is used to get the user's profile information from the **me** endpoint.
 
 ### Add a method to sign out the user
 
 To sign out the user, add the following method to *MainPage.xaml.cs*:
 
-   ```csharp
-   /// <summary>
-   /// Sign out the current user
-   /// </summary>
-   private async void SignOutButton_Click(object sender, RoutedEventArgs e)
-   {
-       IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
-       IAccount firstAccount = accounts.FirstOrDefault();
+```csharp
+/// <summary>
+/// Sign out the current user
+/// </summary>
+private async void SignOutButton_Click(object sender, RoutedEventArgs e)
+{
+    IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
+    IAccount firstAccount = accounts.FirstOrDefault();
 
-       try
-       {
-           await PublicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
-           await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-           {
-               ResultText.Text = "User has signed out";
-               this.CallGraphButton.Visibility = Visibility.Visible;
-                   this.SignOutButton.Visibility = Visibility.Collapsed;
-               });
-           }
-           catch (MsalException ex)
-           {
-               ResultText.Text = $"Error signing out user: {ex.Message}";
-           }
-       }
-   ```
+    try
+    {
+        await PublicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        {
+            ResultText.Text = "User has signed out";
+            this.CallGraphButton.Visibility = Visibility.Visible;
+                this.SignOutButton.Visibility = Visibility.Collapsed;
+            });
+        }
+        catch (MsalException ex)
+        {
+            ResultText.Text = $"Error signing out user: {ex.Message}";
+        }
+    }
+```
 
 > [!NOTE]
 > MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts. You need to support UI actions in the UI thread. This is the reason for the `Dispatcher.RunAsync` call and the precautions to call `ConfigureAwait(false)`.
@@ -297,20 +295,20 @@ The application in this sample supports a single user. MSAL supports scenarios w
 
 Add the following method to *MainPage.xaml.cs* to display basic information about the token:
 
-   ```csharp
-   /// <summary>
-   /// Display basic information contained in the token. Needs to be called from the UI thread.
-   /// </summary>
-   private void DisplayBasicTokenInfo(AuthenticationResult authResult)
-   {
-       TokenInfoText.Text = "";
-       if (authResult != null)
-       {
-           TokenInfoText.Text += $"User Name: {authResult.Account.Username}" + Environment.NewLine;
-           TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
-       }
-   }
-   ```
+```csharp
+/// <summary>
+/// Display basic information contained in the token. Needs to be called from the UI thread.
+/// </summary>
+private void DisplayBasicTokenInfo(AuthenticationResult authResult)
+{
+    TokenInfoText.Text = "";
+    if (authResult != null)
+    {
+        TokenInfoText.Text += $"User Name: {authResult.Account.Username}" + Environment.NewLine;
+        TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
+    }
+}
+```
 
 #### More information<a name="more-information-1"></a>
 
@@ -320,19 +318,19 @@ ID tokens acquired by using **OpenID Connect** also contain a small subset of in
 
 Add the following new method to *MainPage.xaml.cs*:
 
-   ```csharp
-   /// <summary>
-   /// Displays a message in the ResultText. Can be called from any thread.
-   /// </summary>
-   private async Task DisplayMessageAsync(string message)
-   {
-        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-            () =>
-            {
-                ResultText.Text = message;
-            });
-        }
-   ```
+```csharp
+/// <summary>
+/// Displays a message in the ResultText. Can be called from any thread.
+/// </summary>
+private async Task DisplayMessageAsync(string message)
+{
+     await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+         () =>
+         {
+             ResultText.Text = message;
+         });
+     }
+```
 
 ## Register your application
 
@@ -372,6 +370,69 @@ To enable Windows-Integrated Authentication when it's used with a federated Azur
 > [!IMPORTANT]
 > [Integrated Windows Authentication](https://aka.ms/msal-net-iwa) is not configured by default for this sample. Applications that request `Enterprise Authentication` or `Shared User Certificates` capabilities require a higher level of verification by the Windows Store. Also, not all developers want to perform the higher level of verification. Enable this setting only if you need Windows Integrated Authentication with a federated Azure AD domain.
 
+## Alternate approach to using WithDefaultRedirectURI()
+
+In the current sample, the `WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")` method is used. To use `WithDefaultRedirectURI()`, complete these steps:
+
+1. In *MainPage.XAML.cs*, replace `WithRedirectUri` with `WithDefaultRedirectUri`:
+
+   **Current code**
+
+   ```csharp
+
+   PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
+       .WithAuthority(Authority)
+       .WithUseCorporateNetwork(false)
+       .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+       .WithLogging((level, message, containsPii) =>
+        {
+            Debug.WriteLine($"MSAL: {level} {message} ");
+        }, LogLevel.Warning, enablePiiLogging: false, enableDefaultPlatformLogging: true)
+       .Build();
+
+   ```
+
+   **Updated code**
+
+   ```csharp
+
+   PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
+       .WithAuthority("https://login.microsoftonline.com/common")
+       .WithUseCorporateNetwork(false)
+       .WithDefaultRedirectUri()
+       .WithLogging((level, message, containsPii) =>
+        {
+            Debug.WriteLine($"MSAL: {level} {message} ");
+        }, LogLevel.Warning, enablePiiLogging: false, enableDefaultPlatformLogging: true)
+       .Build();
+   ```
+
+2.	Find the callback URI for your app by adding the `redirectURI` field in *MainPage.xaml.cs* and setting a breakpoint on it:
+
+    ```csharp
+
+    public sealed partial class MainPage : Page
+    {
+            ...
+
+            string redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker
+                                .GetCurrentApplicationCallbackUri().ToString();
+            public MainPage()
+            {
+                ...
+            }
+           ...
+    }
+  
+    ```
+
+    Run the app, and then copy the value of `redirectUri` when the breakpoint is hit. The value should look something similar to the following:  
+    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+
+    You can then remove the line of code because it's required only once, to fetch the value. 
+
+3. In the app registration portal, add the returned value in **RedirectUri** in the **Authentication** blade.
+   
 ## Test your code
 
 To test your application, select F5 to run your project in Visual Studio. Your main window appears:
