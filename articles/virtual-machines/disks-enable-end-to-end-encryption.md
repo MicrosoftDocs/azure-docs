@@ -4,45 +4,54 @@ description: How to find unattached Azure managed and unmanaged (VHDs/page blobs
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 06/26/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Enable end to end encryption
 
-## Prerequisites
-
-You must enable the feature for your subscription before you use the **EncryptionAtHost** property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
- `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"` 
-1.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
- `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  `
+Azure Disk Storage offers end-to-end encryption for managed disks, allowing you to have double encryption at rest and in transit, if you choose. For conceptual information on end-to-end encryption, as well as other managed disk encryption types, see [Server-side encryption of Azure managed disks](disk-encryption.md)
 
 ## Restrictions
 
-1.	The feature is available only in the USCentralEUAP region.
-2.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) for your VMs/VMSSes and vice versa.
-3.	You have to deallocate your existing VMs to enable the encryption.
-4.	You can enable the encryption for existing VMSS. However, only new VMs created after enabling the encryption is encrypted.
-5.	Legacy VM Sizes are not supported. You can find the list of supported VM sizes by:
+1.	End to end encryption is currently available only in the USCentralEUAP region.
+1.	You cannot enable the feature if you have enabled Azure Disks Encryption (guest-VM encryption using bitlocker/VM-Decrypt) for your VMs/VMSSes.
+1.	You have to deallocate your existing VMs to enable the encryption.
+1.	You can enable the encryption for existing VMSS. However, only new VMs created after enabling the encryption are automatically encrypted.
+1.	Legacy VM Sizes are not supported.
 
+### Supported VM sizes
+
+Only the following VM sizes currently support end-to-end encryption:
 
 |Type  |Supported  |Not supported  |
 |---------|---------|---------|
 |General purpose     | Dv3, Dav4, Dv2, Av2        | B, DSv2, Dsv3, DC, DCv2, Dasv4        |
 |Compute optimized     |         |         |
 |Memory optimized     | Ev3, Eav4        | DSv2, Esv3, M, Mv2, Easv4        |
-|Storage optimized     |         | Ls, Lsv2        |
+|Storage optimized     |         | Ls, Lsv2 (NVMe disks not encrypted)        |
 |GPU     | NC, NV        | NCv2, NCv3, ND, NVv3, NVv4, NDv2 (preview)        |
 |High performance compute     | H        | HB, HC, HBv2        |
 |Previous generations     | F, A, D, L, G        | DS, GS, Fs, NVv2        |
 
+## Prerequisites
+
+You must enable the feature for your subscription before you use the **EncryptionAtHost** property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+
+1.	Use the following command to register the feature for your subscription:
+ `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"` 
+1.	Registering can take a few minutes, so you can check the registration state using the following command:
+ `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  `
+
+## Create an Azure Key Vault and DiskEncryptionSet
+
+include here
+
 ## Enable end to end encryption for disks attached to a VM with customer managed keys
 
 1.	Follow the instructions here for creating a Key Vault for storing your keys and a DiskEncryptionSet pointing to a key in the Key Vault
-1.	Create a VM with managed disks by passing the resource URI of the DiskEncryptionSet created in the step #1 to the sample template CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json
+1.	Create a VM with managed disks that are encrypted with end-to-end encryption by passing the resource URI of the DiskEncryptionSet created in the step #1 to the sample template [CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json](https://github.com/ramankumarlive/manageddisksendtoendencryptionpreview/blob/master/CreateVMWithDisksEncryptedInTransitAtRestWithCMK.json)
 
 ```PowerShell
 $password=ConvertTo-SecureString -String "yourPassword" -AsPlainText -Force
@@ -57,7 +66,7 @@ New-AzResourceGroupDeployment -ResourceGroupName yourResourceGroupName `
 
 ## PMK
 
-1.	Create a VM with managed disks using the sample template CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json
+1.	Create a VM with managed disks using the sample template [CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json](https://github.com/ramankumarlive/manageddisksendtoendencryptionpreview/blob/master/CreateVMWithDisksEncryptedInTransitAtRestWithPMK.json)
 
 ```PowerShell
 $password=ConvertTo-SecureString -String "Password@123" -AsPlainText -Force
