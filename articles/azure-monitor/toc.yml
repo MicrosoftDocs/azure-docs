@@ -206,6 +206,14 @@
         href: platform/agents-overview.md
       - name: FAQ
         href: faq.md#agents
+      - name: Azure Monitor Agent
+        items:
+        - name: Overview
+          href: platform/azure-monitor-agent-overview.md
+        - name: Install
+          href: platform/azure-monitor-agent-install.md
+        - name: Data Collcetion Rules
+          href: platform/data-collection-rules.md
       - name: Azure Diagnostics extension
         items:
         - name: Overview
