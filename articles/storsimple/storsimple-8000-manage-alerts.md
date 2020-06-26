@@ -214,6 +214,12 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
 
+### Enclosure environment alerts
+
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+|  |  | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Please check the ambient outside temperature / airflow from the AC vent in the Datacenter. When the temperature returns to normal the alert will be automatically cleared after some time. If the issue persists, please contact Microsoft support.   |
+
 ## Next steps
 
 Learn more about [StorSimple errors and troubleshooting device deployment issues](storsimple-8000-troubleshoot-deployment.md).
