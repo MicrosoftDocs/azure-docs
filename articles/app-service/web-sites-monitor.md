@@ -57,7 +57,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 ## Understand metrics
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you've been granted access for private preview.
 > 
 
 > [!IMPORTANT]

@@ -15,7 +15,7 @@ ms.date: 06/17/2020
 The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + For English, Spanish, German, French, Italian, Portuguese, and Dutch, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.
-+ For all other languages, the ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used.
++ For all other languages, the ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md) API is used.
 
 The **OCR** skill extracts text from image files. Supported file formats include:
 
