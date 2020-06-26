@@ -104,7 +104,7 @@
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
-      name: Windows Stop Error “Status No Memory”
+    - name: Windows Stop Error “Status No Memory”
       href: troubleshoot-windows-stop-error.md
 - name: Cannot connect to my VM
   items:
