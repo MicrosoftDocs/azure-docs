@@ -40,7 +40,7 @@ To get started, you need the following:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* EasySSO for BitBucket supports SP and IDP initiated SSO.
+* EasySSO for BitBucket supports SP- and IdP-initiated SSO.
 * EasySSO for BitBucket supports "just-in-time" user provisioning.
 * After you configure EasySSO for BitBucket, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -79,7 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Screenshot of Set up Single Sign-On with SAML page, with pencil icon highlighted](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IdP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL that uses the following pattern:
     `https://<server-base-url>/plugins/servlet/easysso/saml`
@@ -126,7 +126,7 @@ In this section, you'll create a test user, B.Simon, in the Azure portal.
 1. In the **User** properties, follow these steps:
    1. For **Name**, enter `B.Simon`.  
    1. For **User name**, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Select the **Show password** check box, and then write down the password.
    1. Select **Create**.
 
 ### Assign the Azure AD test user
@@ -184,7 +184,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you create a user called Britta Simon in BitBucket. EasySSO for BitBucket supports just-in-time user provisioning, which is disabled by default. To enable it, you have to explicitly check **Create user on successful login** in the **General** section of EasySSO plug-in configuration. If a user doesn't already exist in BitBucket, a new one is created after authentication.
 
-However, if you don't wish to enable automatic user provisioning when the user first signs in, users must exist in user directories that the instance of BitBucket makes use of. For example, this directory might be LDAP or Atlassian Crowd.
+However, if you don't want to enable automatic user provisioning when the user first signs in, users must exist in user directories that the instance of BitBucket makes use of. For example, this directory might be LDAP or Atlassian Crowd.
 
 ![Screenshot of the General section of EasySSO plug-in configuration, with Create user on successful login highlighted](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-6.png)
 
