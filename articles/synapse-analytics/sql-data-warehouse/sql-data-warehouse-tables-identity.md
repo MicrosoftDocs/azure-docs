@@ -45,7 +45,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in Synapse SQL pool, the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which is in contrast to the behavior of SQL Server and Azure SQL Database. In Synapse SQL pool, the absence of a guarantee is more pronounced.
 
 The following example is an illustration:
 
