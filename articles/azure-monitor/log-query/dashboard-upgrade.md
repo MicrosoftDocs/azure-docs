@@ -27,13 +27,13 @@ For more information, see [Azure dashboards](https://docs.microsoft.com/azure/az
 
 The new visualization technology addresses some common issues with the old implementation and introduces some new capabilities to pinned Log Analytics parts: 
 
-1. **Same available types** - All visualization types available in Log Analytics are available as pinned parts on dashboards.
+- **Same available types** - All visualization types available in Log Analytics are available as pinned parts on dashboards.
 
-1. **Consistent look-and-feel** - The visualization look-and-feel for pinned parts are now almost identical to those in Log Analytics. The differences are due to optimizations which require subtle differences in the data contents of the visual. See the considerations part of this document for more insight into those differences.
+- **Consistent look-and-feel** - The visualization look-and-feel for pinned parts are now almost identical to those in Log Analytics. The differences are due to optimizations which require subtle differences in the data contents of the visual. See the considerations part of this document for more insight into those differences.
 
-1. **Tooltips and labels** – New pinned Log Analytics visualizations support tooltips. Pie and doughnut charts now support labels.
+- **Tooltips and labels** – New pinned Log Analytics visualizations support tooltips. Pie and doughnut charts now support labels.
 
-1. **Interactive legends** – Clicking the visualization legend allows adding/removing of dimensions from the pinned visual as in Log Analytics.
+- **Interactive legends** – Clicking the visualization legend allows adding/removing of dimensions from the pinned visual as in Log Analytics.
 
 ## Stage 1 - Opt-in upgrade message
 
@@ -44,7 +44,7 @@ When a Log Analytics pinned part is able to be upgraded, a new *opt-in* notifica
  
 ![Sidebar](media/dashboard-upgrade/update-message-2.png)
 
-> [WARNING!] Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
+> [!WARNING] Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
 
 Once clicked, the visualization will be updated to the new technology. Subtle differences in the visualization may occur to align with their look-and-feel in Log Analytics.
 
