@@ -42,7 +42,7 @@ VS Code is a free code editor that you can use locally or connected to remote co
 For guidance using VS Code with Jupyter Notebooks, see the [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) and [Data Science in Visual Studio Code](https://code.visualstudio.com/docs/python/data-science-tutorial) tutorials.
 
 
-You can also use the [Azure Notebooks runtime container](#Download-the-runtime-container-used-by-Azure-Notebooks) with Visual Studio Code through the Docker extension. For additional information about containers and VS Code, refer to the documentation [here](https://code.visualstudio.com/docs/containers/overview). 
+You can also use the [Azure Notebooks runtime container](#download-the-runtime-container-used-by-Azure-Notebooks) with Visual Studio Code through the Docker extension. For additional information about containers and VS Code, refer to the documentation [here](https://code.visualstudio.com/docs/containers/overview). 
 
 
 ## Using Notebooks in VS Codespaces
@@ -65,7 +65,7 @@ Azure Machine Learning provides an end-to-end machine learning platform to enabl
 1. Using the left-side navigation bar, select **Notebooks**.
 1. Click on the **Upload files** button and upload the project files that you downloaded from Azure Notebooks.
 
-For additional information about Azure ML and running Jupyter Notebooks, you can review the [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) or try the [Intro to Machine Learning](https://docs.microsoft.com/en-us/learn/modules/intro-to-azure-machine-learning-service/) module on Microsoft Learn.
+For additional information about Azure ML and running Jupyter Notebooks, you can review the [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) or try the [Intro to Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) module on Microsoft Learn.
 
 
 ## Using Azure Lab Services
