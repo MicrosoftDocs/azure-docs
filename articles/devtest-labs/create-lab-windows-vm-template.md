@@ -15,8 +15,6 @@ In this tutorial, you create a lab with a Windows Server 2019 Datacenter VM by u
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
@@ -24,6 +22,8 @@ In this tutorial, you do the following actions:
 > * Deploy the template
 > * Verify the template
 > * Cleanup resources
+
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -44,45 +44,53 @@ The resources defined in the template include:
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
 ## Deploy the template
+To run the deployment automatically, click the following button. Create a new resource group for the deployment so that you can easily clean up later.
 
-To deploy the template:
+[![Deploy to Azure](./media/create-lab-windows-vm-template/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
+1. Create a **new resource group** so that it's easy to clean up later.
+1. Select a **location** for the resource group. 
+1. Enter a **name for the lab**. 
+1. Enter a **name for the VM**. 
+1. Enter a **user name** who can access the VM. 
+1. Enter **password** for the user name. 
+1. Select **I agree to the terms and conditions stated above**. 
+1. Then, select **Purchase**.
 
-   ```azurepowershell-interactive
-   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-   $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-dtl-create-lab-windows-vm/azuredeploy.json"
-
-   New-AzResourceGroup -Name $resourceGroupName -Location $location
-   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
-
-   Write-Host "Press [ENTER] to continue ..."
-   ```
-
-   It takes some time to create a lab with a Windows Server 2019 Datacenter VM.
-
-1. Select **Copy** to copy the PowerShell script.
-1. Right-click the shell console, and then select **Paste**.
+    :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Deploy Template page":::
 
 ## Verify the deployment
-To verify the deployment, open the resource group from the [Azure portal](https://portal.azure.com) and confirm that you see a DevTest Labs instance (lab). When you select the, you see the home page for the lab with one VM in the list of VMs. 
+1. Select **Notifications** at the top to see the status of the deployment, and click **Deployment in progress** link.
 
-## Clean up resources
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
+    :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Deployment notification":::
+2. On the **Deployment - Overview** page, wait until the deployment is complete. This operation (especially, creating a VM) takes some time to complete. Then, select your **Go to resource group** or the **name of the resource group** as shown in the following image: 
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
+    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Navigate to resource group":::
+3. On the **Resource group** page, you see the list of resources in the resource group. Confirm that you see your lab of type (`DevTest Lab`) in the resources. You also see the depended resources such as virtual network and virtual machine in the resource group. 
 
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Resource group's home page":::
+4. Select your lab from the list of resource to see the home page for your lab. Confirm that you see the Windows Server 2019 Datacenter VM in the **My virtual machines** list. In the following image, the **Essentials** section is minimized. 
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Home page for the lab":::
+
+    > [!IMPORTANT] 
+    > Keep this page open and follow instructions in the next section to clean up resources to avoid costs for running the lab and the VM on Azure. 
+
+## Cleanup resources
+
+1. First, delete the lab so that you can delete the resource group. You won't be able to delete the resource group with a lab in it. To delete the lab, select **Delete** on the toolbar. 
+
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Delete lab button":::
+ 2. On the confirmation page, type the lab name, and select **Delete**. 
+ 3. Wait until the lab is deleted. Select the **bell** icon to see notification from the delete operation. This process takes some time. Confirm the lab deletion, and then select the **resource group** on the breadcrumb menu. 
+ 
+    :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirm deletion of VM in notifications":::
+ 1. On the **Resource group** page, select **Delete resource group** from the toolbar. On the confirmation page, type the **resource group name**, and select **Delete**. Check the notifications to confirm that the resource group is deleted.
+ 
+    :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Delete resource group button":::
 
 ## Next steps
-In this tutorial, you created a lab with a VM and gave a user access to the lab. To learn about how to access the lab as a lab user, advance to the next tutorial:
+In this tutorial, you created a lab with a VM. To learn about how to access the lab, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Access the lab](tutorial-use-custom-lab.md)
