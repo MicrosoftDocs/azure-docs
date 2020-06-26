@@ -37267,6 +37267,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/b2b/get-support.md",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
