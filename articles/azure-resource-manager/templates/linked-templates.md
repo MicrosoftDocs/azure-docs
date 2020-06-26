@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/26/2020
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -28,9 +28,9 @@ To nest a template, add a [deployments resource](/azure/templates/microsoft.reso
   "variables": {},
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -57,9 +57,9 @@ The following example deploys a storage account through a nested template.
   },
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -310,8 +310,6 @@ When referencing a linked template, the value of `uri` must not be a local file 
 > to something that uses **http** or **https**, for example, using the
 > `_artifactsLocation` parameter like so:
 > `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
-
-
 
 Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
 
