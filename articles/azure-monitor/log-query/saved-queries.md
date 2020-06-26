@@ -22,7 +22,7 @@ It's important to understand that the new example query experience shows results
 - For a **resource group** - queries are filtered according to the resources in the specific resource group.
 - For a **workspace** – queries are filtered according to the solutions installed on the workspace.
 
-The behavior is consistent for all Log Analytics scopes. You see this behavior in the screenshots shown later in this article. If you are not seeing a query for the resource type you want, it may be because of this behavior. A later section describes how to remove the scoping so you can view all possible queries. 
+This behavior is consistent for all Log Analytics scopes. If you are not seeing an example query for the resource type you want, it may be because of filters  due to being in-context. A later section describes how to remove in-context scoping so you can view all possible queries.
 
 > [!TIP]
 > The more resources you have in your scope, the longer the time for the portal to filter and show the sample query dialog.
@@ -41,9 +41,9 @@ The example query dialog then appears as shown below:
 
 ![Example queries screen](media/saved-queries/example-query-start.png)
 
-The previous screenshot displays the logs screen for a Azure Key Vault instance. As mentioned previously in this article, the queries are shown in-context.  As a result, the screeenshot shows only Key Vault related examples. If you select an entire subscription, then queries for all the resource types in that subscription are displayed.  
+The previous screenshot displays the logs screen for an Azure Key Vault instance. As mentioned previously in this article, the queries are shown in-context.  As a result, the screenshot shows only Key Vault related examples. If you select an entire subscription, then queries for all the resource types in that subscription are displayed.  
 
-Each example query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for additional fine tuning and tweaking.
+Each example query is represented by a card. You can quickly scan through the queries to find what you need. You can run the query directly from the dialog or choose to load it to the query editor for additional fine-tuning and tweaking.
 
 ### Sidebar query experience
 
@@ -57,7 +57,7 @@ The options in this section are available in both the dialog and sidebar query e
 
 ### Use Favorites
 
-You can favorite frequently-used queries to give you quicker access.
+You can favorite frequently used queries to give you quicker access.
 
 > [!TIP]
 > Collecting and viewing queries later is a good way to get started. Find the queries you need and click the star next to the query to add it to the Favorites. If later you find the query isn't useful to you, you can un-favorite it.  
@@ -68,7 +68,7 @@ While the query dialog experience filers to show only queries with the right con
 
 ### Group by
 
-Change the grouping of the queries by clicking the *group by* drop down list:
+Change the grouping of the queries by clicking the *group by* drop-down list:
 
 ![Example queries screen groupby](media/saved-queries/example-query-groupby.png)
 
@@ -79,7 +79,7 @@ The dialog supports grouping by:
 - **Solution** – An Azure Monitor solution associated with the queries
 - **Topic** – The topic of the example query such as *Activity Logs* or *App logs*. The topic property is unique to example queries and may differ according to the specific resource type.
 
-The grouping values also act as an active table of contents. Clicking one of the values on the left hand side of the screen scrolls the queries view right to the item clicked.
+The grouping values also act as an active table of contents. Clicking one of the values on the left-hand side of the screen scrolls the queries view right to the item clicked.
 
 ### Filter
 
@@ -93,7 +93,7 @@ The filter and group by functionality are designed to work in tandem. They provi
 
 ## Turning sample queries on and off
 
-If you are a KQL pro and prefer to get directly to the query editor, you can toggle the new query dialog "off". With the toggle off, the sample dialog does not load when Log Analytics screen loads.
+If you are a KQL pro and prefer to get directly to the query editor, you can toggle the new query dialog "off". With the toggle off, the example query dialog does not load when Log Analytics screen loads.
 
 ![Examples On-Off](media/saved-queries/examples-on-off.png)
 
@@ -101,7 +101,7 @@ You can always access the sample query popup experience from the *Example querie
 
 ## Query explorer
 
-The query explorer experience for saving and sharing user generated queries remains unchanged for the time being.
+The query explorer experience for saving and sharing user-generated queries remains unchanged for the time being.
 
 ## Next steps
 
