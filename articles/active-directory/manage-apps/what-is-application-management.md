@@ -1,6 +1,6 @@
 ---
 title: Managing Applications with Azure Active Directory | Microsoft Docs
-description: This article describes the benefits of integrating Azure Active Directory with your on-premises, cloud and SaaS applications.
+description: An overview of using Azure Active Directory (AD) as an Identity and Authorization Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,21 +8,60 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 06/05/2019
+ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
+#Customer intent: As an IT manager, I want to understand what application management is in Azure AD so that I can determine if I want to integrate apps with it.
 ---
 
-# Application management with Azure Active Directory
+# What is application management?
 
-Azure Active Directory (Azure AD) simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md). You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
+Azure AD is a centralized identity system, known as an Identity and Authorization Management (IAM) system, that provides a single place to store information about users. You can configure your applications to use Azure AD as the place where user information is stored. 
 
-![Diagram that shows apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
+Azure AD must be configured to integrate with an application. In other words, it needs to know what applications are using it as an identity system. The process of keeping Azure AD aware of these applications is known as application management.
+
+
+You manage applications on the **Enterprise applications** blade located in the Manage section of the Azure Active Directory portal.
+
+![The Enterprise applications option under the Manage section of the Azure AD portal.](media/what-is-application-management/enterprise-applications-in-nav.png)
+
+## What is an Identity and Authorization Management (IAM) system?
+An application is a piece of software that is used for some purpose. Most applications require users to sign in so that the application can provide a tailored experience for that particular user. In other words, the application needs to know the identity of the user using the application so that it knows what functionality to offer, or remove, for the user.
+
+If each application kept track of users separately then the result would be a silo of a different usernames and logins for every application. One application wouldn't know anything about the users in other applications.
+
+A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
+
+>[!TIP]
+> An IAM system provides a single place to keep track of user identities.
+
 
 ## Why manage applications with a cloud solution?
 
 Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it's more critical than ever to use a cloud-based solution to manage user access to all applications.
+
+## How does Azure AD work with applications?
+
+Azure AD simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md). You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
+
+![Diagram that shows apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
+
+
+
+
+
+
+
+
+
+<!---
+After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
+Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
+Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
+--->
+
+
 
 ## What types of applications can I integrate with Azure AD?
 
@@ -54,7 +93,35 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
+## <Top task>
+
+<!---Suggested:
+An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [Content + Learning content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
+Create a new H2 for each task you list.
+--->
+
+To use Azure AD as the identity system for an application you must:
+1. Let Azure AD know about the application you want to use.
+1. Configure the way Azure AD works with the application.
+1. Allow Azure AD users access to the application. APP PROVISIONING
+1. Maintain the way Azure AD works with the application.
+
+
+You can also configure apps deployed on-premises to use Azure AD using Application proxy.
+
+
+
 ## Next steps
+
+<!---Some context for the following links goes here--->
+- [link to next logical step for the customer](global-quickstart-template.md)
+
+<!--- Required:
+In Overview articles, provide at least one next step and no more than three.
+Next steps in overview articles will often link to a quickstart.
+Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
+Do not use a "More info section" or a "Resources section" or a "See also section".
+--->
 
 - [What is Application Proxy?](what-is-application-proxy.md)
 - [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
