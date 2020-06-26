@@ -66,7 +66,7 @@ A series of registration steps run before and after the runtime processes the st
 
 ## Use injected dependencies
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes.
+Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes for injected services or for your function classes.
 
 The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
