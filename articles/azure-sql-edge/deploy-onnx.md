@@ -375,7 +375,7 @@ AS (
         , PTRATIO
         , B
         , LSTAT
-    FROM [onnx].[dbo].[features]
+    FROM [dbo].[features]
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV

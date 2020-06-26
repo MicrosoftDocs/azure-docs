@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: sample
 ms.workload: identity
 ms.date: 06/01/2020
 ms.author: marsma
