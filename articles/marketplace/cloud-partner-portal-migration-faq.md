@@ -49,7 +49,7 @@ Following are Partner Center links for pages commonly used in the Cloud Partner 
 
 ## What about offers I published in the Cloud Partner Portal?
 
-The offers were moved to Partner Center and will be accessible to you after you sign in to Partner Center, with the exception of Dynamics Nav Managed Service and Cortana Intelligence offers. If your offer was live in the commercial marketplace, it will continue to be live and your customers will continue to be able to purchase and deploy it without interruptions. See the next question, **What offers were moved to Partner Center?,** for more details.
+The offers were moved to Partner Center and will be accessible to you after you sign in to Partner Center, with the exception of Dynamics Nav Managed Service and Cortana Intelligence offers. If your offer was live in the commercial marketplace, it will continue to be live and your customers will continue to be able to purchase and deploy it without interruptions. See the next question, **What offers were moved to Partner Center?**, for more details.
 
 ## What offers were moved to Partner Center?
 
@@ -65,13 +65,13 @@ For the offer types supported in Partner Center, all offers were moved regardles
 | Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer). |
 | Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer). |
 | Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer). |
-| PowerBI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for Microsoft AppSource](partner-center-portal/create-power-bi-app-offer). |
+| Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for AppSource](partner-center-portal/create-power-bi-app-offer). |
 | IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create, configure, and publish an IoT Edge module offer in Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation). |
 | Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](partner-center-portal/create-azure-container-offer). |
 | Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](partner-center-portal/create-consulting-service-offer). |
 | Managed Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer). |
-| Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), so we delisted Dynamics NAV Managed Service live offers from Microsoft AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center.To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer). |
-| Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we delisted Cortana Intelligence live offers from Microsoft AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](hhttps://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](partner-center-portal/offer-creation-checklist). |
+| Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), so we delisted Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center.To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer). |
+| Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we delisted Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](hhttps://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](partner-center-portal/offer-creation-checklist). |
 
 ## I can't find my Cloud Partner Portal offers in Partner Center
 
@@ -109,7 +109,7 @@ If you can't sign in to your account, you can open a [support ticket](https://pa
 
 ## Where are instructions for using Partner Center?
 
-Go to the [commercial marketplace documentation](https://docs.microsoft.com/azure/marketplace/), then expand **Commercial Marketplace Portal in Partner Center**. To see help topics for creating offers in Partner Center, expand **Create a new offer**.
+Go to the [commercial marketplace documentation](https://docs.microsoft.com/azure/marketplace/), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
 
 ## What are the publishing and offer management differences?
 
@@ -117,7 +117,7 @@ Here are some differences between the Cloud Partner Portal and Partner Center.
 
 ### Modular publishing capabilities
 
-Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screen shows that the only changes selected to be published are the changes to **Properties** and  **Offer Listing**. The changes you make in the Preview page will not published.
+Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screen shows that the only changes selected to be published are the changes to **Properties** and  **Offer Listing**. The changes you make in the Preview page will not be published.
 
 :::image type="content" source="media/cpp-pc-faq/review-page.png" alt-text="Shows the Partner Center Review and publish page":::
 
