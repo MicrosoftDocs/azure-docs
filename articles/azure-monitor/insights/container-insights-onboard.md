@@ -45,9 +45,9 @@ Before you start, make sure that you've met the following requirements:
    
    For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Azure Monitor for containers](container-insights-region-mapping.md).
 
-- You have a *Log Analytics contributor* role for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
+- You are a member of the *Log Analytics contributor* group for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
-- You have an [*Owner* role](../../role-based-access-control/built-in-roles.md#owner) on the AKS cluster resource.
+- You are a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on the AKS cluster resource.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
