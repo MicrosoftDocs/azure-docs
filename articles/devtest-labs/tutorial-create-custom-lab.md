@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/24/2020
+ms.date: 06/25/2020
 ms.author: spelluru
 
 ---

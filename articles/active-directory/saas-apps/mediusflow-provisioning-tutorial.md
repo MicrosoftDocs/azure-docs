@@ -48,11 +48,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure MediusFlow to support provisioning with Azure AD
 
-### Activate the Office 365 app within MediusFlow
+### Activate the Microsoft 365 app within MediusFlow
 Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following steps:
 
 #### User login
-To, enable the login flow to Office 365/Azure AD refer [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
+To, enable the login flow to Microsoft 365/Azure AD refer [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
 To, enable the configuration portal of the users for provisioning from Azure AD refer [this](

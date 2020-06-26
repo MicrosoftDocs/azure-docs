@@ -3,8 +3,8 @@ title: Design Azure Cosmos DB tables for scaling and performance
 description: "Azure Table storage design guide: Scalable and performant tables in Azure Cosmos DB and Azure Table storage"
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
@@ -635,7 +635,7 @@ For this option, use index entities that store the following data:
 
 ![Graphic showing employee entity, with string containing a list of employee IDs with same last name][15]
 
-The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey`.  
+The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
 
 You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 

@@ -39,7 +39,7 @@ A virtual network rule tells your Azure Database for PostgreSQL server to accept
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Benefits of a virtual network rule
 
@@ -63,7 +63,7 @@ If your **Microsoft.Sql** server was a node on a subnet in your virtual network,
 
 However as of August 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Details about virtual network rules
 
@@ -96,7 +96,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 > In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
-> - Make sure that both the subscription has the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+> - Make sure that both the subscription have the **Microsoft.Sql** and **Microsoft.DBforPostgreSQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Limitations
 

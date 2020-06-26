@@ -6,9 +6,7 @@ keywords: ios push notifications,push messages,push notifications,push message
 documentationcenter: xamarin
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios

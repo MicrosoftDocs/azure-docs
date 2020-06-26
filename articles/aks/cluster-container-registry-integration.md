@@ -19,7 +19,7 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 These examples require:
 
 * **Owner** or **Azure account administrator** role on the **Azure subscription**
-* Azure CLI version 2.0.73 or later
+* Azure CLI version 2.7.0 or later
 
 To avoid needing an **Owner** or **Azure account administrator** role, you can configure a service principal manually or use an existing service principal to authenticate ACR from AKS. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
 

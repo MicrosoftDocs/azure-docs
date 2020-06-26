@@ -78,7 +78,7 @@ To view detailed help guidance for this command, type `azcopy benchmark -h` and 
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (MB) per second. 
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10
