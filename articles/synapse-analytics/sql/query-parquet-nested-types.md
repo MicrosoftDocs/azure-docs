@@ -96,7 +96,7 @@ FROM
     ) AS [r];
 ```
 
-You can also explicilty reference the columns that you want to return in `WITH` clause:
+You can also explicitly reference the columns that you want to return in `WITH` clause:
 
 ```sql
 SELECT DocId,
@@ -111,7 +111,7 @@ FROM
     WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
 ```
 
-The stucture `MakOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
+The structure `MakOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
 
 ## Projecting values from repeated columns
 
