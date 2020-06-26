@@ -44,7 +44,7 @@ In traditional on-premises clustered environments, the Windows Failover Cluster 
 |---------|---------|---------|---------|
 |Min OS Version| Windows Server 2019|Windows Server 2012|Windows Server 2016|
 |Min SQL Server version|SQL Server 2019|SQL Server 2012|SQL Server 2016|
-|Supported VM availability |Availability sets & proximity placement groups |Availability sets & availability zones|Availability sets & availability zones |
+|Supported VM availability |Availability sets with proximity placement groups |Availability sets & availability zones|Availability sets |
 |Supports filestream|No|No|Yes |
 |Azure Blob Cache|No|No|Yes|
 
@@ -60,7 +60,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 **Benefits**: 
 - The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is. 
 - Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. 
-- Supports both Premium SSD and Ultra Disks. 
+- Supports shared Premium SSD for all versions of SQL Server and shared ultra SSD for SQL Server 2019. 
 - Use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 
 
@@ -158,12 +158,14 @@ Replication has three components: Publisher, Distributor, Subscriber. Any of the
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-For example, if you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN. 
+| Replication component (FCI w/ DNN) | Remote component | Network alias map| Server with network map| 
+|---------|---------|---------|-------- | 
+|Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
+|Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
+|Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
+|Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
 
-- If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to the publisher's DNN name on the distributor SQL Server.
-- If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL Server.
-- If subscriber is an FCI using DNN and the distributor is remote, define a network alias to map the subscriber's VNN to subscriber's DNN name on the distributor SQL server.
-- If distributor is an FCI using DNN and the subscriber is remote, define a network alias to map the distributor's VNN name to distributor's DNN name in the subscriber SQL Server.
+For example, if you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN. 
 
 **Database mirroring**   
 Database mirroring can be configured with an FCI as either database mirroring partner. Configure database mirroring using [Transact-SQL (T-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) rather than the SSMS GUI to ensure the database mirroring endpoint is created using the DNN instead of the VNN. 
