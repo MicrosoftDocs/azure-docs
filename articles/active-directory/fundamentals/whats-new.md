@@ -43,8 +43,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-Some applications such as VMWare and VCenter require the SPNameQualifier to be returned in the assertion subject. Azure AD now responds correctly when an SPNameQualifier is requested, and now works for SP initiated sign-in with IdP initiated sign-in to follow. 
-To learn more about SAML protocol in Azure Active Directory see, [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
+SSome SAML applications require SPNameQualifier to be returned in the assertion subject. Azure AD now responds correctly when an SPNameQualifier is requested in the request NameID policy, and now works for SP initiated sign-in with IdP initiated sign-in to follow. To learn more about SAML protocol in Azure Active Directory see, [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
 
 ---
 
