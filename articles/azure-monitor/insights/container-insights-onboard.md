@@ -1,4 +1,5 @@
 ---
+
 title: Enable Azure Monitor for containers | Microsoft Docs
 description: This article describes how to enable and configure Azure Monitor for containers so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
@@ -66,7 +67,7 @@ The following table lists the proxy and firewall configuration information that'
 
 |Agent resource|Port |
 |--------------|------|
-| `*.ods.opinsights.azure.com` | 443 |  
+| `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
 | `dc.services.visualstudio.com` | 443 |
 | `*.monitoring.azure.com` | 443 |
@@ -95,8 +96,7 @@ Your ability to monitor performance relies on a containerized Log Analytics agen
 The  agent version is microsoft/oms:ciprod04202018 or later, and it's represented by a date in the following format: *mmddyyyy*.
 
 >[!NOTE]
->With the preview release of Windows Server support for AKS, an AKS cluster with Windows Server nodes doesn't have an installed agent for collecting data and forwarding it to Azure Monitor. Instead, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf of all Windows nodes in the cluster.  
->
+>With the general availability of Windows Server support for AKS, an AKS cluster with Windows Server nodes has a preview agent installed as a daemonset pod on each individual Windows server node to collect logs and forward it to Log Analytics. For performance metrics, a Linux node that's automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf all Windows nodes in the cluster.
 
 When a new version of the agent is released, it's automatically upgraded on your managed Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS). To track which versions are released, see [agent release announcements](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).
 

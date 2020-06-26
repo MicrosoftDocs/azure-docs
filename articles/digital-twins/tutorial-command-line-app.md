@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Explore Azure Digital Twins with a sample client app
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
@@ -44,7 +41,7 @@ The first step in creating an Azure Digital Twins solution is defining twin [**m
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
-> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
+> DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
 In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
@@ -132,7 +129,8 @@ Re-run the `CreateModels` command to try re-uploading one of the same models you
 CreateModels Room
 ```
 
-As models cannot be overwritten, this will now return a service error:
+As models cannot be overwritten, this will now return a service error.
+For the details on how to delete existing models, see [How-to: Manage custom models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

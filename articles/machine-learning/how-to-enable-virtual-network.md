@@ -133,7 +133,10 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 [![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use a __Service Tag__ of __MicrosoftContainerRegistry.Region_Name__ (For example, MicrosoftContainerRegistry.EastUS).
+> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use the following __Service Tags__:
+>
+> * __MicrosoftContainerRegistry__
+> * __AzureFrontDoor.FirstParty__
 >
 > This configuration is needed when you have code similar to the following snippets as part of your training scripts:
 >
@@ -280,6 +283,11 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
+## Machine learning studio
+
+When accessing the studio from a resource inside a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+
+For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
 
 <a id="aksvnet"></a>
 
@@ -423,6 +431,9 @@ For more information on using the internal load balancer with AKS, see [Use inte
 ## Use Azure Container Instances (ACI)
 
 Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
+
+> [!WARNING]
+> To use Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
 
 To use ACI in a virtual network to your workspace, use the following steps:
 

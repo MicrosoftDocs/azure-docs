@@ -35,7 +35,7 @@ Below is a summary of the roles assigned to Data Share resource's managed identi
 |Azure Data Explorer Cluster | Contributor | Contributor
 |
 
-For SQL-based sharing, a SQL user needs to be created from an external provider in the SQL database with the same name as the Azure Data Share resource. Below is a summary of the permission required by the SQL user.
+For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Below is a summary of the permission required by the SQL user.
 
 | |  |  |
 |---|---|---|
@@ -61,7 +61,7 @@ To create a role assignment for the data share resource's managed identity, foll
 1. Under *Select*, type in the name of your Azure Data Share resource.
 1. Click *Save*.
 
-For SQL-based sources, in addition to the above steps, a SQL user needs to be created from an external provider in the SQL database with the same name as the Azure Data Share resource. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [share your data](share-your-data.md) tutorial. 
+For SQL-based sources, in addition to the above steps, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource. This user needs to be granted *db_datareader* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [share your data](share-your-data.md) tutorial. 
 
 ### Data consumer
 To receive data, consumer data share resource's managed identity needs to be granted access to the target Azure data store. For example, in the case of storage account, the data share resource's managed identity is granted the Storage Blob Data Contributor role. 
@@ -79,7 +79,7 @@ To create a role assignment for the data share resource's managed identity manua
 1. Under *Select*, type in the name of your Azure Data Share resource.
 1. Click *Save*.
 
-For SQL-based target, in addition to the above steps, a SQL user needs to be created from an external provider in the SQL database with the same name as the Azure Data Share resource. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [accept and receive data](subscribe-to-data-share.md) tutorial. 
+For SQL-based target, in addition to the above steps, a SQL user needs to be created from an external provider in SQL Database with the same name as the Azure Data Share resource. This user needs to be granted *db_datareader, db_datawriter, db_ddladmin* permission. A sample script along with other prerequisites for SQL-based sharing can be found in the [accept and receive data](subscribe-to-data-share.md) tutorial. 
 
 If you are sharing data using REST APIs, you need to create these role assignments manually. 
 

@@ -432,7 +432,7 @@
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
-          href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+          href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
         - name: SSMS
           href: database/connect-query-ssms.md
         - name: Azure portal
@@ -1137,7 +1137,7 @@
     href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+      href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15
     - name: JDBC
       href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: Node.js

@@ -42,7 +42,7 @@ To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.d
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
     ```python
-    ########### Python Form Recognizer Async Layout #############
+    ########### Python Form Recognizer Async Receipt #############
 
     import json
     import time
@@ -102,11 +102,11 @@ while n_try < n_tries:
         resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
         resp_json = json.loads(resp.text)
         if resp.status_code != 200:
-            print("GET Layout results failed:\n%s" % resp_json)
+            print("GET Receipt results failed:\n%s" % resp_json)
             quit()
         status = resp_json["status"]
         if status == "succeeded":
-            print("Layout Analysis succeeded:\n%s" % resp_json)
+            print("Receipt Analysis succeeded:\n%s" % resp_json)
             quit()
         if status == "failed":
             print("Analysis failed:\n%s" % resp_json)

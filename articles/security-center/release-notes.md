@@ -28,6 +28,14 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 ## June 2020
 
+Updates in June include:
+- [Secure score API (preview)](#secure-score-api-preview)
+- [Advanced data security for SQL machines (Azure, other clouds, and on-prem) (preview)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
+- [Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [New policies to create continuous export and workflow automation configurations at scale](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [New recommendation for using NSGs to protect non-internet-facing virtual machines](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+
+
 ### Secure score API (preview)
 
 You can now access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
@@ -72,6 +80,29 @@ Learn more about how Azure Security Center uses the agent in [What is the Log An
 Learn more about [extensions for Azure Arc machines](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 
+
+### New policies to create continuous export and workflow automation configurations at scale
+
+Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
+
+To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
+
+The policies can be found in Azure policy:
+
+
+|Goal  |Policy  |Policy ID  |
+|---------|---------|---------|
+|Continuous export to event hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Continuous export to to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+
+Learn more about using the two export policies in [Continuously Export Azure Security Center Alerts and Recommendations via Policy](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745).
+
+
 ### New recommendation for using NSGs to protect non-internet-facing virtual machines
 
 The "implement security best practices" security control now includes the following new recommendation:
@@ -85,6 +116,16 @@ Learn more in the [Network recommendations](recommendations-reference.md#recs-ne
 
 
 ## May 2020
+
+Updates in May include:
+- [Alert suppression rules (preview)](#alert-suppression-rules-preview)
+- [Virtual machine vulnerability assessment is now generally available](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Changes to just-in-time (JIT) virtual machine (VM) access](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Custom recommendations have been moved to a separate security control](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Toggle added to view recommendations in controls or as a flat list](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Expanded security control "Implement security best practices"](#expanded-security-control-implement-security-best-practices)
+- [Custom policies with custom metadata are now generally available](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Crash dump analysis capabilities migrating to fileless attack detection](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
 
 
 ### Alert suppression rules (preview)
@@ -207,6 +248,11 @@ Some of the benefits of this transition:
 
 ## April 2020
 
+Updates in April include:
+- [Dynamic compliance packages are now generally available](#dynamic-compliance-packages-are-now-generally-available)
+- [Identity recommendations now included in Azure Security Center free tier](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
 ### Dynamic compliance packages are now generally available
 
 The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
@@ -244,6 +290,14 @@ Learn more about [monitoring identity and access](security-center-identity-acces
 
 
 ## March 2020
+
+Updates in March include:
+- [Workflow automation is now generally available](#workflow-automation-is-now-generally-available)
+- [Integration of Azure Security Center with Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Protection for Azure Kubernetes Service](#protection-for-azure-kubernetes-service)
+- [Improved just-in-time experience](#improved-just-in-time-experience)
+- [Two security recommendations for web applications deprecated](#two-security-recommendations-for-web-applications-deprecated)
+
 
 ### Workflow automation is now generally available
 

@@ -177,7 +177,7 @@
       href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
     - name: Policy Definitions
       href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
-  - name: Azure SDK for Node
+  - name: Azure SDK for JavaScript
     items:
     - name: Policy
       href: /javascript/api/@azure/arm-policy
