@@ -52,12 +52,12 @@ To ensure that the nodes in your pool work in a VNet that has forced tunneling e
 
 - Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked by your on-premises network.
 
-When you add a UDR, define the route for each related Batch IP address prefix, and set **Next hop type** to **Internet**. See the following example:
+When you add a UDR, define the route for each related Batch IP address prefix, and set **Next hop type** to **Internet**.
 
 ![User-defined route](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent an outage due to an IP address change, we suggest that you establish a periodic process to refresh Batch service IP addresses automatically and keep them up to date in your route table. Alternately, you can [create a pool with specified IP addresses that you control](create-pool-public-ip.md).
+> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table. Alternately, you can [create a pool with specified IP addresses that you control](create-pool-public-ip.md).
 
 ## Next steps
 
