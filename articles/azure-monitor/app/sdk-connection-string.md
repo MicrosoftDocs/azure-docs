@@ -181,6 +181,14 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
+NetCore Explicitly Set:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
 NetCore config.json: 
 
