@@ -506,7 +506,9 @@
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
       href: platform/alerts-troubleshoot.md
-    - name: IT Service Management
+    - name: Alerts and region moves
+      href: platform/alerts-resource-move.md
+      - name: IT Service Management
       items:
       - name: IT Service Management Connector
         href: platform/itsmc-overview.md
