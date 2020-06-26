@@ -24,7 +24,7 @@ The following table shows a summary of the Data Box export order steps and the t
 | Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order) <br> [Enable verbose log in the order](#enable-verbose-log-in-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)              |
-| Data copy from device        | [Review copy logs](#copy-logs) <br> [Review verbose logs](#verbose-logs) before you copy data            |
+| Data copy from device        | [Review copy logs](#copy-log) <br> [Review verbose logs](#verbose-log) before you copy data            |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                       |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
