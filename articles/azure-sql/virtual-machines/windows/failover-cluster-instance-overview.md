@@ -18,7 +18,7 @@ ms.author: mathoma
 # Failover cluster instances with SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article introduces feature differences when working with failover cluster instances for SQL Server on Azure Virtual Machines (VMs). 
+This article introduces feature differences when working with failover cluster instances (FCI) for SQL Server on Azure Virtual Machines (VMs). 
 
 ## Overview
 
@@ -33,29 +33,43 @@ The rest of the article focuses on the differences for failover cluster instance
 
 Failover cluster instances with SQL Server on Azure Virtual Machines support using a disk witness, a cloud witness, or a file share witness for cluster quorum.
 
-To learn more, see [Quorum with SQL Server VMs in Azure](hadr-cluster-best-practices.md#quorum). 
+To learn more, see [Quorum best practices with SQL Server VMs in Azure](hadr-cluster-best-practices.md#quorum). 
 
 
 ## Storage
 
-In on-premises clustered environment, the Windows Failover Cluster uses Storage Area Network (SAN) that is accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage and only the actice node can access the files at a time. Azure IaaS offers various options as a shard storge solution for a SQL Server Failvoer Cluster instance deployment, please fnid the advantageous and limitations for each shraed storage option below.  
+In traditional on-premises clustered environments, the Windows Failover Cluster uses a Storage Area Network (SAN) that is accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage and only the active node can access the files at one time. SQL Server on Azure VMs offers various options as a shard storage solution for a SQL Server failover cluster instance deployment. The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
 
 ### Azure Shared Disks
 
-[Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Managed Disks](../../../virtual-machines/windows/index.yml), and Windows Server Failover Cluster supports using Azure Shared Disks with a failover cluster instance. 
+[Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Managed Disks](../../../virtual-machines/windows/managed-disks-overview.md), and Windows Server Failover Cluster supports using Azure Shared Disks with a failover cluster instance. 
 
-Benefits: Azure Shared Disks allows you to migrate clustered applications to Azure as-is becuase it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.
+**Supported OS**: Windows Server 2019    
+**Supported SQL version**: SQL Server 2019    
 
-Limitations: 
+
+|**Benefits** |**Limitations**|
+|---------|---------|
+|Azure Shared Disks allows you to migrate clustered applications to Azure as-is because it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. |Only available for SQL Server 2019 and Windows Server 2019 in Preview. |
+|Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. |Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).|
+|Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.| Availability Zones are not supported. |
+|  |Premium SSD Disk caching is not supported.| 
+
+
+**Benefits**: 
+- Azure Shared Disks allows you to migrate clustered applications to Azure as-is becuase it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. 
+- Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. 
+- Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.
+
+**Limitations**: 
 - Only available for SQL Server 2019 and Windows Server 2019 in Preview. 
-- Virtual machines must be placed in the same availablity Set and [Proximity placement group (PPG)]
+- Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
 - Availability Zones are not supported.
 - Premium SSD Disk caching is not supported.
  
 To get started, see [SQL Server failover cluster instance with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
-**Supported OS**: Windows Server 2019    
-**Supported SQL version**: SQL Server 2019    
+
 
 ### Storage Spaces Direct
 
