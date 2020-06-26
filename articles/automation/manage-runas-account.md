@@ -67,13 +67,13 @@ To create or update a Run As account, you must have specific privileges and perm
 
 <sup>1</sup> Non-administrator users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option on the User settings page is set to **Yes**. If the application registration setting is **No**, the user performing this action must be as defined in this table.
 
-If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the Add Automation Account page. 
+If you aren't a member of the subscription's Active Directory instance before you're added to the Global Administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page.
 
-If you are a member of the subscription's Active Directory instance when the Global Administrator role is assigned, you can also receive a `You do not have permissions to create…` warning on the Add Automation Account page. In this case, you can request removal from the subscription's Active Directory instance and then request to be re-added, so that you become a full user in Active Directory.
+If you are a member of the subscription's Active Directory instance when the Global Administrator role is assigned, you can also receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. In this case, you can request removal from the subscription's Active Directory instance and then request to be re-added, so that you become a full user in Active Directory.
 
 To verify that the situation producing the error message has been remedied:
 
-1. From the Azure Active Directory pane in the Azure portal, select **Users and groups**. 
+1. From the Azure Active Directory pane in the Azure portal, select **Users and groups**.
 2. Select **All users**.
 3. Choose your name, then select **Profile**. 
 4. Ensure that the value of the **User type** attribute under your user's profile is not set to **Guest**.
