@@ -4,7 +4,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/15/2020
+ ms.date: 06/26/2020
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -21,6 +21,10 @@ VMs can be evicted based on capacity or the max price you set. When creating a S
 The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
 
 If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
+
+> [!NOTE]
+>
+> The portal does not currently support `Delete` as an eviction option, you can only set `Delete` using PowerShell, CLI, and templates.
 
 You can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 

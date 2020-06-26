@@ -17,7 +17,7 @@ ms.reviewer: jagaveer
 
 
 ## Next steps
-Use the [portal](spot-portal.md), [CLI](../linux/spot-cli.md) or [PowerShell](spot-powershell.md) to deploy Spot VMs.
+Use the [portal](spot-portal.md), [CLI](../linux/spot-cli.md), [ARM template](spot-template.md), or [PowerShell](spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../../virtual-machine-scale-sets/use-spot.md).
 

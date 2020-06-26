@@ -61,6 +61,6 @@ az vm list \
 
 **Next steps**
 
-You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md) or a [template](spot-template.md).
+You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md), or a [template](spot-template.md).
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

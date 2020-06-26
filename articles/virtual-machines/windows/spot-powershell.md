@@ -70,6 +70,6 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## Next steps
 
-You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md) or a [template](../linux/spot-template.md).
+You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md), [portal](spot-portal.md) or a [template](../linux/spot-template.md).
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
