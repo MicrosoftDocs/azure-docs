@@ -46,7 +46,7 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 ## Deploy the template
 To run the deployment automatically, click the following button. 
 
-[![Deploy to Azure](./media/create-lab-windows-vm-template/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Deploy to Azure](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. Create a **new resource group** so that it's easy to clean up later.
 1. Select a **location** for the resource group. 
