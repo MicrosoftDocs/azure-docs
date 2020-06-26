@@ -7,7 +7,7 @@ author: msmimart
 manager: celestedg
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
 ms.author: mimart

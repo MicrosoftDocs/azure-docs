@@ -29,7 +29,7 @@ A compute instance is a fully-managed cloud-based workstation optimized for your
 
 |Key benefits||
 |----|----|
-|Productivity|Data scientists can build and deploy models using integrated notebooks and the following tools in their web browser:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio|
+|Productivity|Data scientists can build and deploy models using integrated notebooks and the following tools in their web browser:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)|
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Auto-provisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Role-based access control (RBAC)](/azure/role-based-access-control/overview)<br/>- [Virtual network support](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH policy to enable/disable SSH access|
 |Preconfigured&nbsp;or&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
@@ -54,7 +54,7 @@ These tools and environments are installed on the compute instance:
 
 |**R** tools & environments|Details|
 |----|:----:|
-|RStudio Server Open Source Edition||
+|RStudio Server Open Source Edition (preview)||
 |R kernel||
 |Azure Machine Learning SDK for R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK samples|
 
