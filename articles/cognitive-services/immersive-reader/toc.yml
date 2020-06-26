@@ -29,9 +29,15 @@
     href: how-to-customize-launch-button.md
   - name: Cache the authentication token
     href: how-to-cache-token.md
+  - name: Configure Read Aloud
+    href: how-to-configure-read-aloud.md
+  - name: Configure translation
+    href: how-to-configure-translation.md
+  - name: Store user preferences
+    href: how-to-store-user-preferences.md
 - name: Reference
   items:
-  - name: SDK Reference
+  - name: JavaScript SDK
     href: reference.md
 - name: Resources
   items:

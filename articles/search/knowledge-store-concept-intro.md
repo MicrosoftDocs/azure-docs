@@ -1,5 +1,5 @@
 ---
-title: Introduction to knowledge store (preview)
+title: Knowledge store concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications. This feature is in public preview.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ---
 
-# Introduction to knowledge stores in Azure Cognitive Search
+# Knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 

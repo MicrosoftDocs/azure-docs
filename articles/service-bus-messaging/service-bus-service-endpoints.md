@@ -1,16 +1,8 @@
 ---
 title: Configure virtual network service endpoints for Azure Service Bus
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
-services: service-bus
-documentationcenter: ''
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ---
 
 # Configure virtual network service endpoints for Azure Service Bus

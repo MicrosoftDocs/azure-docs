@@ -5,7 +5,7 @@ author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: genli
 

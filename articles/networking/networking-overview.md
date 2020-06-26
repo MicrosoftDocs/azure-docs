@@ -135,7 +135,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 ## <a name="deliver"></a>Application delivery services
 
-This section describes networking services in Azure that help deliver applications - Network Watcher, ExpressRoute Monitor, Azure Monitor, or VNet Terminal Access Point (TAP).
+This section describes networking services in Azure that help deliver applications - Content Delivery Network, Azure Front Door Service, Traffic Manager, Load Balancer, and Application Gateway.
 
 |Service|Why use?|Scenario|
 |---|---|---|

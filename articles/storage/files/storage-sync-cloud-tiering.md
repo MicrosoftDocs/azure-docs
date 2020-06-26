@@ -4,7 +4,7 @@ description: Learn about Azure File Sync's feature Cloud Tiering
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -26,11 +26,38 @@ When a user opens a tiered file, Azure File Sync seamlessly recalls the file dat
 ### How does cloud tiering work?
 The Azure File Sync system filter builds a "heatmap" of your namespace on each server endpoint. It monitors accesses (read and write operations) over time and then, based on both the frequency and recency of access, assigns a heat score to every file. A frequently accessed file that was recently opened will be considered hot, whereas a file that is barely touched and has not been accessed for some time will be considered cool. When the file volume on a server exceeds the volume free space threshold you set, it will tier the coolest files to Azure Files until your free space percentage is met.
 
-In versions 4.0 and above of the Azure File Sync agent, you can additionally specify a date policy on each server endpoint that will tier any files not accessed or modified within a specified number of days.
+Additionally, you can specify a date policy on each server endpoint that will tier any files not accessed within a specified number of days, regardless of available local storage capacity. This is a good choice to proactively free up local disk space if you know that files in that server endpoint don't need to be retained locally beyond a certain age. That frees up valuable local disk capacity for other endpoints on the same volume, to cache more of their files.
+
+The cloud tiering heatmap is essentially an ordered list of all the files that are syncing and are in a location that has cloud tiering enabled. To determine the relative position of an individual file in that heatmap, the system uses the maximum of either of the following timestamps, in that order: MAX(Last Access Time, Last Modified Time, Creation Time). Typically, last access time is tracked and available. However, when a new server endpoint is created, with cloud tiering enabled, then initially not enough time has passed to observe file access. In the absence of a last access time, the last modified time is used to evaluate the relative position in the heatmap. The same fallback is applicable to the date policy. Without a last access time, the date policy will act on the last modified time. Should that be unavailable, it will fall back to the create time of a file. Over time, the system will observe more and more file access requests and pivot to predominantly use the self-tracked last access time.
+
+Cloud tiering does not depend on the NTFS feature for tracking last access time. This NTFS feature is off by default and due to performance considerations, we do not recommend that you manually enable this feature. Cloud tiering tracks last access time separately and very efficiently.
 
 <a id="tiering-minimum-file-size"></a>
 ### What is the minimum file size for a file to tier?
-For agent versions 9.x and newer, the minimum file size for a file to tier is based on the file system cluster size (double the file system cluster size). For example, if the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. For agent versions 8.x and older, the minimum file size for a file to tier is 64KB.
+
+For agent versions 9 and newer, the minimum file size for a file to tier is based on the file system cluster size. The following table illustrates the minimum file sizes that can be tiered, based on the volume cluster size:
+
+|Volume cluster size (Bytes) |Files of this size or larger can be tiered  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) and larger    | 64 KB   |
+
+All file systems that are used by Windows organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file (up to the next multiple of the cluster size).
+
+Azure File Sync is supported on NTFS volumes with Windows Server 2012 R2 and newer. The following table describes the default cluster sizes when you create a new NTFS volume. 
+
+|Volume size    |Windows Server 2012R2 and newer |
+|---------------|---------------|
+|7 MB – 16 TB   | 4 KB          |
+|16TB – 32 TB   | 8 KB          |
+|32TB – 64 TB   | 16 KB         |
+|64TB – 128 TB  | 32 KB         |
+|128TB – 256 TB | 64 KB         |
+|> 256 TB       | Not supported |
+
+It is possible that upon creation of the volume, you manually formatted the volume with a different cluster (allocation unit) size. If your volume stems from an older version of Windows, default cluster sizes may also be different. [This article has more details on default cluster sizes.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### How does the volume free space tiering policy work?
@@ -73,7 +100,11 @@ Keeping more data local means lower egress costs as fewer files will be recalled
 
 <a id="how-long-until-my-files-tier"></a>
 ### I've added a new server endpoint. How long until my files on this server tier?
-In versions 4.0 and above of the Azure File Sync agent, once your files have been uploaded to the Azure file share, they will be tiered according to your policies as soon as the next tiering session runs, which happen once an hour. On older agents, tiering can take up to 24 hours to happen.
+
+Whether or not files need to be tiered per set policies is evaluated once an hour. You can encounter two situations when a new server endpoint is created:
+
+1. When you add a new server endpoint, then often files exist in that server location. They need to be uploaded first, before cloud tiering can begin. The volume free space policy will not begin its work until initial upload of all files has finished. However, the optional date policy will begin to work on an individual file basis, as soon as a file has been uploaded. The one-hour interval applies here as well. 
+2. When you add a new server endpoint, it is possible that you connect an empty server location to an Azure file share with your data in it. Whether that is for a second server or during a disaster recovery situation. If you choose to download the namespace and recall content during initial download to your server, then after the namespace comes down, files will be recalled based on the last modified timestamp. Only as many files will be recalled as fit within the volume free space policy and the optional date policy.
 
 <a id="is-my-file-tiered"></a>
 ### How can I tell whether a file has been tiered?
@@ -107,7 +138,6 @@ There are several ways to check whether a file has been tiered to your Azure fil
         > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss. 
 
 <a id="afs-recall-file"></a>
-
 ### A file I want to use has been tiered. How can I recall the file to disk to use it locally?
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read from, such as multimedia or .zip files, opening a file doesn't download the entire file.
 
@@ -118,13 +148,22 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Optional parameters:
-* `-Order CloudTieringPolicy` will recall the most recently modified files first.  
+* `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
+	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
+	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
 * `-ThreadCount` determines how many files can be recalled in parallel.
 * `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 * `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
+Example:
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
+``` 
+
 > [!Note]  
-> If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
+> - The Invoke-StorageSyncFileRecall cmdlet can also be used to improve file download performance when adding a new server endpoint to an existing sync group.  
+>- If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
 <a id="sizeondisk-versus-size"></a>
 ### Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync? 
@@ -132,6 +171,10 @@ Windows File Explorer exposes two properties to represent the size of a file: **
 
 <a id="afs-force-tiering"></a>
 ### How do I force a file or directory to be tiered?
+
+> [!NOTE]
+> When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+
 When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
 
 ```powershell
@@ -144,6 +187,15 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 For tiered files, thumbnails and previews won't be visible at your server endpoint. This behavior is expected since the thumbnail cache feature in Windows intentionally skips reading files with the offline attribute. With Cloud Tiering enabled, reading through tiered files would cause them to be downloaded (recalled).
 
 This behavior is not specific to Azure File Sync, Windows Explorer displays a "grey X" for any files that have the offline attribute set. You will see the X icon when accessing files over SMB. For a detailed explanation of this behavior, refer to [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+<a id="afs-tiering-disabled"></a>
+### I have cloud tiering disabled, why are there tiered files in the server endpoint location?
+
+There are two reasons why tiered files may exist in the server endpoint location:
+
+- When adding a new server endpoint to an existing sync group, the metadata is first synced to the server and the files are then downloaded to the server in the background. The files will show as tiered until they're downloaded locally. To improve the file download performance when adding a new server to a sync group, use the [Invoke-StorageSyncFileRecall](storage-sync-cloud-tiering.md#afs-recall-file) cmdlet.
+
+- If cloud tiering was enabled on the server endpoint and then disabled, files will remain tiered until they're accessed.
 
 
 ## Next Steps
