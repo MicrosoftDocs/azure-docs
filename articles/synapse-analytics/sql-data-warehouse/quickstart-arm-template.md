@@ -12,7 +12,7 @@ ms.date: 06/09/2020
 
 # Quickstart: Create an Azure Synapse Analytics SQL pool by using an ARM template
 
-This template will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
+This Azure Resource Manager template (ARM template) will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
