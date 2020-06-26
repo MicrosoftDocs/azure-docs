@@ -1137,7 +1137,7 @@
     href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: /sql/connect/ado-net/microsoft-ado-net-sql-server
+      href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15
     - name: JDBC
       href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: Node.js

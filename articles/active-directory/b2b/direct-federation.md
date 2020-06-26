@@ -5,8 +5,8 @@ description: Directly federate with a SAML or WS-Fed identity provider so guests
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/24/2020
 
 ms.author: mimart
 author: msmimart
@@ -219,3 +219,7 @@ To remove direct federation with an identity provider by using PowerShell:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## Next steps
+
+Learn more about the [invitation redemption experience](redemption-experience.md) when external users sign in with various identity providers.
