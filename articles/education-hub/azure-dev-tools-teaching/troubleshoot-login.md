@@ -1,4 +1,4 @@
- ---
+---
 title: Error message when logging into Azure Dev Tools for Teaching
 description: This describes the actions a student should take if they receive an error message when logging in to Azure Dev Tools for Teaching.
 author: rymend
@@ -8,8 +8,7 @@ ms.prod: azure
 ms.date: 06/30/2020
 ---
 
-
-# We couldn't find an account with that username
+# Error message: We couldn't find an account with that username
 SUMMARY NEEDED.
 <!---Required:
 The summary describes the symptom that the customer is experiencing. This summary should also include any prerequisite actions that should be performed before resolving the problem.
