@@ -52,10 +52,6 @@ Q. Why is my Scale/Pause/Resume taking so long?
 
 A. Several factors can influence the time for compute management operations. A common case for long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
 
-Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Azure Synapse?
-
-A: To rename a published artifact file, first clone the file and rename the new file to name that you prefer. You will need to manually update all the references of the artifact to the new file name and delete the old one.
-
 ## User support
 
 Q. I have a feature request, where do I submit it?

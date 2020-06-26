@@ -240,7 +240,9 @@
       - name: Brightspace by Desire2Learn
         href: brightspace-desire2learn-tutorial.md
       - name: Britive
-        href: britive-tutorial.md      
+        href: britive-tutorial.md
+      - name: BrowserStack Single Sign-on
+        href: browserstack-single-sign-on-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
@@ -459,7 +461,7 @@
         href: darwinbox-tutorial.md
       - name: Drift
         href: drift-tutorial.md
-      - name: Dropbox for Business
+      - name: Dropbox Business
         href: dropboxforbusiness-tutorial.md
       - name: Druva
         href: druva-tutorial.md
@@ -1576,7 +1578,7 @@
         href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
-      - name: Templafy
+      - name: Templafy SAML2
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
@@ -1853,7 +1855,7 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
-      - name: Dropbox for Business
+      - name: Dropbox Business
         href: dropboxforbusiness-provisioning-tutorial.md
       - name: Dynamic Signal
         href: dynamic-signal-provisioning-tutorial.md
