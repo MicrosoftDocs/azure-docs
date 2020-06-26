@@ -32,11 +32,11 @@ VPN, ExpressRoute, and User VPN connections are collectively called Branches and
    * Remember, branches are associated and propagating to the default route table.
    * Branches do not propagate to RT_VNET route table. This ensures the VNet-to-Branch traffic flow via the Azure Firewall.
 
-This will result in the routing configuration changes as seen the figure below
+This will result in the routing configuration changes as shown in **Figure 1**.
 
 **Figure 1**
 
-:::image type="content" source="./media/routing-scenarios/between-hubs-firewall/workflow.png" alt-text="workflow":::
+:::image type="content" source="./media/routing-scenarios/between-vnets-firewall/routing.png" alt-text="Figure 1":::
 
 ## Next steps
 
