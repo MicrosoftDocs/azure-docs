@@ -59,6 +59,7 @@ az resource update \
     --ids $storage_account_id \
     --set properties.allowBlobPublicAccess=false
     ```
+```
 
 To check whether public access is enabled with Azure CLI, call the [az resource show](/cli/azure/resource#az-resource-show) command and query for the **allowBlobPublicAccess** property:
 
