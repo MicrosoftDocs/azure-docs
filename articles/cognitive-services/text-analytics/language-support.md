@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/26/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -54,7 +54,7 @@ ms.author: aahi
 > * NER v3 currently only supports the English language. If you call NER v3 with a different language, the API will return v2.1 results, provided the language is supported in version 2.1.
 > * v2.1 only returns the full set of available entities for the English, Chinese-Simplified, French, German, and Spanish languages.  The "Person", "Location" and "Organization" entities are returned for the other supported languages.
 
-| Language               | Language code | v2.1 support | v3 support | Starting with v3 model version: |       Notes        |
+| Language               | Language code | v2 support | v3 support | Starting with v3 model version: |       Notes        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabic                |     `ar`      |     ✓      |            |                                 |                    |
 | Czech                 |     `cs`      |     ✓      |            |                                 |                    |
