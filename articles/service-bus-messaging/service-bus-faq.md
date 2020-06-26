@@ -1,17 +1,10 @@
 ---
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/10/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Azure Service Bus - Frequently asked questions (FAQ)
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
@@ -59,7 +52,7 @@ To find the right IP addresses to white list for your connections, follow these 
 1. Run the following command from a command prompt: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
 
@@ -68,14 +61,14 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 1. First, you run nslookup on the namespace.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
 

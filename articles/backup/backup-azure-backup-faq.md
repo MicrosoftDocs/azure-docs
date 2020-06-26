@@ -111,7 +111,7 @@ The following table explains how each data source size is determined.
 **Data source** | **Details**
 --- | ---
 Volume |The amount of data being backed up from single volume VM being backed up.
-SQL Server database |Size of single SQL database size being backed up.
+SQL Server database |Size of single database size being backed up.
 SharePoint | Sum of the content and configuration databases within a SharePoint farm being backed up.
 Exchange |Sum of all Exchange databases in an Exchange server being backed up.
 BMR/System state |Each individual copy of BMR or system state of the machine being backed up.

@@ -48,8 +48,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-<a id="example-event" />
-
+<a name="example-event"></a>
 ### The contents of an event response
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.

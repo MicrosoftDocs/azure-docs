@@ -167,7 +167,7 @@ You need to add two Docker steps for each image, one to build the image, and one
 
 ## Step 3: Create the release pipeline
 
-Azure DevOps Services allows you to [manage releases across environments](https://www.visualstudio.com/team-services/release-management/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create a new environment that represents your Azure Container Service Docker Swarm cluster.
+Azure DevOps Services allows you to [manage releases across environments](https://azure.microsoft.com/services/devops/pipelines/). You can enable continuous deployment to make sure that your application is deployed on your different environments (such as dev, test, pre-production, and production) in a smooth way. You can create a new environment that represents your Azure Container Service Docker Swarm cluster.
 
 ![Azure DevOps Services - Release to ACS](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-acs.png) 
 
@@ -197,7 +197,7 @@ The release workflow is composed of two tasks that you add.
 
     The command executed on the master use the Docker CLI and the Docker-Compose CLI to do the following tasks:
 
-   - Login to the Azure container registry (it uses three build variab`les that are defined in the **Variables** tab)
+   - Login to the Azure container registry (it uses three build variables that are defined in the **Variables** tab)
    - Define the **DOCKER_HOST** variable to work with the Swarm endpoint (:2375)
    - Navigate to the *deploy* folder that was created by the preceding secure copy task and that contains the docker-compose.yml file 
    - Execute `docker-compose` commands that pull the new images, stop the services, remove the services, and create the containers.

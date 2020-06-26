@@ -28,6 +28,7 @@ Azure Static Web Apps provides an API through Azure Functions. The capabilities 
 
 - The API route prefix must be _api_.
 - The API Functions app must be in JavaScript.
+- Route rules for API functions only support [redirects](routes.md#redirects) and [securing routes with roles](routes.md#securing-routes-with-roles).
 - Triggers and bindings are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).
   - All other [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings) except for output bindings are restricted.
 - Logs are only available if you add [Application Insights](../azure-functions/functions-monitoring.md) to your Functions app.

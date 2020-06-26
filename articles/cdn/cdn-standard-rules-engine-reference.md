@@ -6,7 +6,7 @@ author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 06/22/2020
 ms.author: allensu
 
 ---
@@ -29,9 +29,9 @@ To define a rule in the rules engine, set [match conditions](cdn-standard-rules-
 
  ![Azure CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Each rule can have up to four match conditions and three actions. Each Azure CDN endpoint can have up to five rules. 
+Each rule can have up to ten match conditions and five actions. Each Azure CDN endpoint can have up to 25 rules. 
 
-Included in the current five-rule limit for an Azure CDN endpoint is a default *global rule*. The global rule doesn't have match conditions, and actions that are defined in a global rule always trigger.
+Included in this limit is a default *global rule*. The global rule doesn't have match conditions; actions that are defined in a global rule always triggered.
 
 ## Syntax
 

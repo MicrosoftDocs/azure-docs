@@ -54,6 +54,9 @@ To create a Recovery Services vault:
 
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
+>[!NOTE]
+>The Storage Replication settings for the vault are not relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+
 1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
 2. In **Properties**, under **Backup Configuration**, click **Update**.
 
@@ -87,6 +90,7 @@ For this process, there are pricing implications as it is at the storage level.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time. 
 
 ### Configure Cross Region Restore
 

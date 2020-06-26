@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: normesta
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
 ---

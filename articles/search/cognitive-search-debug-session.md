@@ -1,5 +1,5 @@
 ---
-title: Debug an AI enrichment skillset (preview)
+title: Debug sessions concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Debug sessions, accessed through the Azure portal, provides an IDE like environment where you can identify and fix errors, validate changes, and push changes to skillsets in the AI enrichment pipeline. Debug sessions is in preview.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-# Debug sessions
+# Debug sessions in Azure Cognitive Search
 
 Debug sessions is a visual editor that works with an existing skillset in the Azure portal. Within a debug session you can identify and resolve errors, validate changes, and push changes to a production skillset in the AI enrichment pipeline.
 

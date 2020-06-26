@@ -4,7 +4,7 @@ description: Resolutions for common problems with outbound connectivity through 
 services: load-balancer
 author: erichrt
 ms.service: load-balancer
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
 ---

@@ -4,7 +4,7 @@ description: In this article, learn how to route web traffic based on the URL to
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc

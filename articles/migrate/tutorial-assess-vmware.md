@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete the first tutorial](tutorial-prepare-vmware.md) in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Prepare Azure](tutorial-prepare-vmware.md#prepare-azure) to work with Azure Migrate.
-    - [Prepare VMware for assessment](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) for assessment. This includes checking VMware settings, setting up an account that Azure Migrate can use to access vCenter Server.
+    - [Prepare VMware for assessment](tutorial-prepare-vmware.md#prepare-for-assessment) for assessment. This includes checking VMware settings, setting up an account that Azure Migrate can use to access vCenter Server.
     - [Verify](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) what you need in order to deploy the Azure Migrate appliance for VMware assessment.
 
 ## Set up an Azure Migrate project
@@ -94,7 +94,7 @@ Check that the OVA file is secure, before you deploy it:
         --- | --- | ---
         VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - For Azure Goverment:
+    - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
@@ -165,7 +165,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server instance. You can leave the default port or specify a custom port on which vCenter Server listens.
 2. In **User name** and **Password**, specify the vCenter Server account credentials that the appliance will use to discover VMs on the vCenter Server instance. 
 
-    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - You should have set up an account with the required permissions in the [previous tutorial](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual VMs.), review the instructions in [this article](set-discovery-scope.md) to restrict the account used by Azure Migrate.
 
 3. Select **Validate connection** to make sure that the appliance can connect to vCenter Server.
@@ -173,7 +173,7 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 
     - You optionally add credentials here if you've created an account to use for the [application discovery feature](how-to-discover-applications.md), or the [agentless dependency analysis feature](how-to-create-group-machine-dependencies-agentless.md).
     - If you're not using these features, you can skip this setting.
-    - Review the credentials needed for [app discovery](migrate-support-matrix-vmware.md#application-discovery), or for [agentless analysis](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Review the credentials needed for [app discovery](migrate-support-matrix-vmware.md#application-discovery-requirements), or for [agentless analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Save and start discovery**, to kick off VM discovery.
 
