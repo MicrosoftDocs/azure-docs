@@ -21,11 +21,11 @@ The following table shows a summary of the Data Box export order steps and the t
 
 | Data Box order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order) <br> [Enable verbose log in the order](#enable-verbose-log-in-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
-| Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
-| Data copy from device        | [Review copy logs](#view-copy-log-before-data-copy) <br> [Review verbose logs](#view-verbose-log-before-data-copy) for data copy                                                             |
-| Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
+| Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)              |
+| Data copy from device        | [Review copy logs](#copy-logs) <br> [Review verbose logs](#verbose-logs) before you copy data            |
+| Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                       |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 
@@ -44,6 +44,16 @@ To restrict access to an order, you can:
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
 For more information on suggested RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
+
+## Enable verbose log in the order
+
+When placing an export order for Data Box, you have the option to enable the collection of verbose log. Here is the order screen where you can enable the verbose log:
+
+![Select export option](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+
+When you select the **Include verbose log** option, a verbose log file is generated when copying the data from your Azure Storage account. This log contains a list of all files that were exported successfully.      
+
+For more information on export order, see [Create an export order for Data Box](data-box-deploy-export-ordered.md)
 
 ## Track the order
 
@@ -113,8 +123,6 @@ You have the following options to export those files:
 
 - You can transfer the files that could not be copied over the network. 
 - If your data size was larger than the usable device capacity, then a partial copy occurs and all the files that were not copied are listed in this log. You can use this log as an input XML to create a new Data Box order and then copy over these files.
-
-<!--For more information on the errors received during data copy to Data Box via SMB or NFS protocols, go to [Troubleshoot Data Box and Data Box Heavy issues](data-box-troubleshoot.md). -->
 
 ### Verbose log
 
