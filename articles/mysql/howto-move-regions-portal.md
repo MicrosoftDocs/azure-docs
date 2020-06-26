@@ -36,7 +36,7 @@ To create a read replica using the Azure portal, use the following steps:
 1. Select **Add Replica**.
 1. Enter a name for the replica server.
 1. Select the location for the replica server. The default location is the same as the master server's. Verify that you've selected the target location where you want the replica to be deployed.
-1. Select **OK** to confirm creation of the replica. Creating a read replica make take several minutes.
+1. Select **OK** to confirm creation of the replica. Creating a read replica may take several minutes.
 
 To stop replication to the replica, use the following steps:
 
