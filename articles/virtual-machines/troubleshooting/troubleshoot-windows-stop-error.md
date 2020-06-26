@@ -1,5 +1,5 @@
 ---
-title: Windows stop error Status No Memory
+title: Windows stop error - Status No Memory
 description: This article provides steps to resolve issues where Windows fails to start and displays the status “Status No Memory”.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
