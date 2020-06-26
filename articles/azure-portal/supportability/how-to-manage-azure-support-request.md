@@ -15,9 +15,29 @@ ms.author: mblythe
 
 # Manage an Azure support request
 
+## View support requests
 
+You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
 
-## Microsoft Azure new support request file upload utility guidelines
+:::image type="content" source="media/how-to-manage-azure-support-request/allrequestslower.png" alt-text="All support requests":::
+
+On this page, you can filter support requests by **Subscription**, **Created** date (UTC), and **Status**. Additionally, you can sort and search for support requests on this page.
+
+Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
+
+If you want to change the severity of the request, select  **Business impact**. Choose from a list of severities to assign.
+
+## Send a message related to a support request
+
+## Change the severity of a support request
+
+> [!NOTE]
+> The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+>
+
+## Share diagnostic information with Azure support
+
+## Upload files for a support request
 
 When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
@@ -65,3 +85,5 @@ Follow these guidelines when you use the file upload option:
 | -            | -      | -            | -      | -         | .wtl       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
+
+## Next steps

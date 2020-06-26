@@ -2,18 +2,16 @@
 title: How to create an Azure support request | Microsoft Docs
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 services: Azure Supportability
-author: ganganarayanan
+author: mgblythe
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
 ms.topic: how-to
-ms.date: 03/31/2020
-ms.author: kfollis
+ms.date: 06/25/2020
+ms.author: mblythe
 ---
 
 # How to create an Azure support request
-
-## Overview
 
 Azure enables you to create and manage support requests, also known as support tickets. You can create and manage requests in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
 
@@ -26,7 +24,7 @@ Azure enables you to create and manage support requests, also known as support t
 >
 >
 
-Based on customer feedback, we've updated the support request experience to focus on three main goals:
+The support request experience to focuses on three main goals:
 
 * **Streamlined**: Make support and troubleshooting easy to find and simplify how you submit a support request.
 * **Integrated**: You can easily open a support request when you're troubleshooting an issue with an Azure resource, without switching context.
@@ -95,31 +93,16 @@ Next, complete the **Contact info** section so we know how to contact you.
 
 ### Review + create
 
-Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to Support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
+Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
 
 A support agent will contact you using the method you indicated. For information about initial response time, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
-## All support requests
 
-You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
+## Next steps
 
-![All support requests](./media/how-to-create-azure-support-request/allrequestslower.png)
-
-On this page, you can filter support requests by **Subscription**, **Created** date (UTC), and **Status**. Additionally, you can sort and search for support requests on this page.
-
-Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
-
-If you want to change the severity of the request, select  **Business impact**. Choose from a list of severities to assign.
-
-> [!NOTE]
-> The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
->
->
 To learn more about self-help support options in Azure, watch this video:
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
-
-## Next steps
 
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
