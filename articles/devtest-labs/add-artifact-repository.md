@@ -1,8 +1,6 @@
 ---
 title: Add an artifact repository to your lab in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add an artifact repository to your lab in Azure DevTest labs.
-services: devtest-lab
-ms.service: devtest-lab
 ms.topic: article
 ms.date: 06/26/2020
 ---
