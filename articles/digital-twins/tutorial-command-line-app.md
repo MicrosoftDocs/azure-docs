@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Explore Azure Digital Twins with a sample client app
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
 
@@ -133,7 +130,7 @@ CreateModels Room
 ```
 
 As models cannot be overwritten, this will now return a service error.
-For the details on how to delete existing models, see [How-to: Manage a twin model](how-to-manage-model.md).
+For the details on how to delete existing models, see [How-to: Manage custom models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)

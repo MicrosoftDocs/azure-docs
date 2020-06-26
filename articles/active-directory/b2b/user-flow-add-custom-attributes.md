@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: "it-pro"
