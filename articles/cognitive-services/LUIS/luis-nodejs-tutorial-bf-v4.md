@@ -78,7 +78,7 @@ The bot service creation process also creates a new LUIS app with intents and ex
 
     ![Screenshot of Azure portal, enter the text `hello`.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    You can use the test functionality to quickly testing your bot. For more complete testing, including debugging, download the bot code and use Visual Studio Code.
+    You can use the test functionality to quickly test your bot. For more complete testing, including debugging, download the bot code and use Visual Studio Code.
 
 ## Download the web app bot source code
 In order to develop the web app bot code, download the code and use on your local computer.
