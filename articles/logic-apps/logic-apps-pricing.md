@@ -117,8 +117,7 @@ If you have an [*integration service environment* (ISE)](../logic-apps/connect-v
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier isn't available for [Azure 
-21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or for [Azure Government (Arizona, Texas, and Virginia)](../azure-government/documentation-government-welcome.md).
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government (Arizona, Texas, and Virginia)](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 
