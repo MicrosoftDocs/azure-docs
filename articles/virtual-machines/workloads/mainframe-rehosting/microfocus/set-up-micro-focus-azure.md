@@ -76,11 +76,11 @@ Before getting started, check out these prerequisites:
 
 9.  Double-click the file to start the installation. In the first window, select the installation location and accept the end-user license agreement.
 
-    ![Micro Focus Enterprise Server Setup screen](./media/install-img1.png)
+    ![Micro Focus Enterprise Server Setup screen](media/install-img1.png)
 
 >   When Setup is complete, the following message appears:
 
-    ![Micro Focus Enterprise Server Setup screen](./media/install-img2.png)
+    ![Micro Focus Enterprise Server Setup screen](media/install-img2.png)
 
  ### Check for updates
 
@@ -92,11 +92,11 @@ After the installation, be sure to check for any additional updates as a number 
 
 2.  Select **Start** \> **Micro Focus License Manager** \> **License Administration**, and then click the **Install** tab. Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the **mflic** file uploaded previously to the VM and select **Install Licenses**.
 
-    ![Micro Focus License Administration dialog box](./media/install-img3.png)
+    ![Micro Focus License Administration dialog box](media/install-img3.png)
 
 3.  Verify that Enterprise Server loads. Try launching the Enterprise Server Administration site from a browser using this URL: <http://localhost:86/>. The Enterprise Server Administration page is displayed as shown.
 
-    ![Enterprise Server Administration page](./media/install-img4.png)
+    ![Enterprise Server Administration page](media/install-img4.png)
 
 ## Install Enterprise Developer on the developer machine
 
@@ -113,17 +113,17 @@ After the installation, be sure to check for any additional updates as a number 
 
 4.  Double-click the **edvs2017.exe** file to start the installation. In the first window, select the installation location and accept the end-user license agreement. If you want, choose **Install Rumba 9.5** to install this terminal emulator, which you'll probably need.
 
-    ![Micro Focus Enterprise Developer for Visual Studio 2017 Setup dialog box](./media/install-img5.png)
+    ![Micro Focus Enterprise Developer for Visual Studio 2017 Setup dialog box](media/install-img5.png)
 
 5.  After setup is complete, the following message appears:
 
-    ![Setup successful message](./media/install-img6.png)
+    ![Setup successful message](media/install-img6.png)
 
 6.  Start the Micro Focus License Manager just as you did for Enterprise Server. Choose **Start** \> **Micro Focus License Manager** \> **License Administration**, and click the **Install** tab.
 
 7.  Choose the type of license format to upload: a license file or a 16-character license code. For example, for a file, in **License file**, browse to the **mflic** file uploaded previously to the VM and select  **Install Licenses**.
 
-    ![Micro Focus License Administration dialog box](./media/install-img7.png)
+    ![Micro Focus License Administration dialog box](media/install-img7.png)
 
 When Enterprise Developer loads, your deployment of a Micro Focus development and test environment on Azure is complete!
 
