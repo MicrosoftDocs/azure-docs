@@ -3,7 +3,7 @@ title: How to use authoring and runtime keys - LUIS
 description: When you first use Language Understanding (LUIS), you do not need to create an authoring key. When you intend to publish the app, then use your runtime endpoint, you need to create and assign the runtime key to the app.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 06/26/2020
 ---
 
 # Create LUIS resources
@@ -20,12 +20,12 @@ LUIS allows three types of Azure resources and one non-Azure resource:
 
 |Key|Purpose|Cognitive service `kind`|Cognitive service `type`|
 |--|--|--|--|
-|[Authoring key](#programmatic-key)|Access and manage data of application with authoring, training, publishing, and testing. Create a LUIS authoring key if you intend to programmatically author LUIS apps.<br><br>The purpose of the `LUIS.Authoring` key is to allow you to:<br>* programmatically manage Language Understanding apps and models, including training, and publishing<br> * control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
-|[Query prediction key](#prediction-endpoint-runtime-key)| Query prediction endpoint requests. Create a LUIS prediction key before your client app requests predictions beyond the 1,000 requests provided by the starter resource. |`LUIS`|`Cognitive Services`|
+|Authoring key|Access and manage data of application with authoring, training, publishing, and testing. Create a LUIS authoring key if you intend to programmatically author LUIS apps.<br><br>The purpose of the `LUIS.Authoring` key is to allow you to:<br>* programmatically manage Language Understanding apps and models, including training, and publishing<br> * control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|Query prediction key| Query prediction endpoint requests. Create a LUIS prediction key before your client app requests predictions beyond the 1,000 requests provided by the starter resource. |`LUIS`|`Cognitive Services`|
 |[Cognitive Service multi-service resource key](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Query prediction endpoint requests shared with LUIS and other supported Cognitive Services.|`CognitiveServices`|`Cognitive Services`|
 |Starter|Free authoring (without role-based access control) through the LUIS portal or APIs (including SDKs), free 1,000 prediction endpoint requests per month through a browser, API, or SDKs|-|Not an Azure resource|
 
-When the Azure resource creation process is finished, [assign the key](luis-how-to-azure-subscription.md) to the app in the LUIS portal.
+When the Azure resource creation process is finished, [assign the key](#assign-a-resource-to-an-app) to the app in the LUIS portal.
 
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you want to publish and query.
 
@@ -85,7 +85,7 @@ For apps that have not migrated yet: all _collaborators_ are managed in the LUIS
 
 ### Query prediction access for private and public apps
 
-For a **private** app, query prediction runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) runtime resource, and has the public app's ID.
+For a **private** app, query prediction runtime access is available for owners and contributors. For a **public** app, runtime access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](#create-resources-in-the-azure-portal) runtime resource, and has the public app's ID.
 
 Currently, there isn't a catalog of public apps.
 
@@ -297,6 +297,4 @@ Add a metric alert for the **total calls** metric for a certain time period. Add
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
-* Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md)
