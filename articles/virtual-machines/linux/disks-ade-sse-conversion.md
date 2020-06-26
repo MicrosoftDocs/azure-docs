@@ -4,7 +4,7 @@ description: How to migrate your managed disks using Azure Disk Encryption to se
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 06/26/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -74,7 +74,7 @@ Once you've confirmed the encryption status has changed and the encryption has b
 Use the following cmd to remove the Azure Disk Encryption extension from your VM.
 
 ```azurecli
-az vm extension delete -g MyResourceGroup --vm-name MyVm -n AzureiDskEncryption
+az vm extension delete -g MyResourceGroup --vm-name MyVm -n AzureDiskEncryption
 ```
 
 
