@@ -1,5 +1,5 @@
 ---
-title: Manage public read access for containers and blobs
+title: Configure anonymous public read access for containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
@@ -7,24 +7,24 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 06/25/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
 
-# Manage anonymous read access to containers and blobs
+# Configure anonymous public read access for containers and blobs
 
-You can enable anonymous, public read access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a shared access signature (SAS).
+Azure Storage supports anonymous public read access for containers and blobs. By default, all requests to a container and its blobs must be authorized by using either Azure Active Directory (Azure AD) or Shared Key authorization. You can configure a container's public access level setting to permit anonymous access, so that clients can read data in that container without authorizing the request.
 
-Public read access is best for scenarios where you want certain blobs to always be available for anonymous read access. For more fine-grained control, you can create a shared access signature. Shared access signatures enable you to provide restricted access using different permissions, for a specific time period. For more information about creating shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+This article describes how to configure anonymous public read access for a container. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md) 
+
+To learn how to disable public access for all blob data in a storage account, see [Prevent anonymous public access to containers and blobs](anonymous-read-access-prevent.md).
 
 ## Grant anonymous users permissions to containers and blobs
 
-By default, a container and any blobs within it may be accessed only by a user that has been given appropriate permissions. To grant anonymous users read access to a container and its blobs, you can set the container public access level. When you grant public access to a container, then anonymous users can read blobs within a publicly accessible container without authorizing the request.
+By default, a container and any blobs within it may be accessed only by a user that has appropriate permissions. To grant anonymous users read access to a container and its blobs, set the container's public access level. You can configure a container with the following permissions:
 
-You can configure a container with the following permissions:
-
-- **No public read access:** The container and its blobs can be accessed only by the storage account owner. This is the default for all new containers.
+- **No public read access:** The container and its blobs can be accessed only by the storage account owner. This option is the default for all new containers.
 - **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
 - **Public read access for container and its blobs:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
 
@@ -40,7 +40,7 @@ From the [Azure portal](https://portal.azure.com), you can update the public acc
 
 The following screenshot shows how to change the public access level for the selected containers.
 
-![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-manage/storage-manage-access-to-resources-0.png)
+![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/storage-manage-access-to-resources-0.png)
 
 > [!NOTE]
 > You cannot change the public access level for an individual blob. Public access level is set only at the container level.
@@ -114,61 +114,12 @@ public static void CreateAnonymousBlobClient()
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
 }
-``` 
-
----
-
-### Reference a container anonymously
-
-If you have the URL to a container that is anonymously available, you can use it to reference the container directly.
-
-# [\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_ListBlobsAnonymously":::
-
-# [\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-public static void ListBlobsAnonymously()
-{
-    // Get a reference to a container that's available for anonymous access.
-    CloudBlobContainer container = new CloudBlobContainer(
-        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container"));
-
-    // List blobs in the container.
-    // Note this is only possible when the container supports full public read access.
-    foreach (IListBlobItem blobItem in container.ListBlobs())
-    {
-        Console.WriteLine(blobItem.Uri);
-    }
-}
 ```
-
----
-
-### Reference a blob anonymously
-
-If you have the URL to a blob that is available for anonymous access, you can reference the blob directly using that URL:
-
-# [\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_DownloadBlobAnonymously":::
-
-# [\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-public static void DownloadBlobAnonymously()
-{
-    CloudBlockBlob blob = new CloudBlockBlob(
-        new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
-    blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
-}
-``` 
 
 ---
 
 ## Next steps
 
+- [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
+- [Prevent anonymous public access to containers and blobs](anonymous-read-access-prevent.md)
 - [Authorizing access to Azure Storage](../common/storage-auth.md)
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
-- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
