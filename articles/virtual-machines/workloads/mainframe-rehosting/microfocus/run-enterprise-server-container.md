@@ -41,7 +41,7 @@ Before getting started, check out these prerequisites:
 
 2.  Create the VM. To do this, open Azure portal, select **Create a resource** from the top left menu, and filter by *windows server operating system*. In the results, select **Windows Server.** In the next screen, select **Windows Server 2016 Datacenter – with Containers**.
 
-    ![Screenshot of Azure portal search results](media/run-img1.png)
+    ![Screenshot of Azure portal search results](./media/run-img1.png)
 
 3.  To configure the properties for the VM, choose instance details:
 
@@ -55,7 +55,7 @@ Before getting started, check out these prerequisites:
 
     5.  Make sure **port 3389 RDP** is open. Only this port needs to be publicly exposed, so you can sign in to the VM. Then, accept all the default values and click **Review + create**.
 
-    ![Screenshot of Create a virtual machine pane](media/run-img2.png)
+    ![Screenshot of Create a virtual machine pane](./media/run-img2.png)
 
 4.  Wait for the deployment to finish (a couple of minutes). A message states that your VM has been created.
 
@@ -106,7 +106,7 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 4.  Type **bld.bat IacceptEULA** to begin the build process for the initial base image. Wait a few minutes for this process to run. In the results, notice the two images that have been created—one for x64 and one for x86:
 
-    ![Command window showing images](media/run-img3.png)
+    ![Command window showing images](./media/run-img3.png)
 
 5.  To create the final image for the CICS demonstration, switch to the CICS directory by typing **cd\\Sandbox\\ent\_server\_dockerfiles\_5.0\_windows\\Examples\\CICS**.
 
@@ -114,7 +114,7 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 7.  Type **docker images** to display a list of all of the Docker images installed on the VM. Make sure **microfocus/es-acctdemo** is one of them.
 
-    ![Command window showing es-acctdemo image](media/run-img4.png)
+    ![Command window showing es-acctdemo image](./media/run-img4.png)
 
 ## Run the image
 
@@ -144,11 +144,11 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 4.  Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
 
-    ![Screenshot of Command window showing IP address](media/run-img5.png)
+    ![Screenshot of Command window showing IP address](./media/run-img5.png)
 
 5.  Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. Here, it’s **172.19.202.52:9040**. Yours will be similar. The **Sign on to CICS** screen opens.
 
-    ![Screenshot of Signon to CICS](media/run-img6.png)
+    ![Screenshot of Signon to CICS](./media/run-img6.png)
 
 6.  Sign in to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
 
@@ -156,11 +156,11 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 8.  To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
 
-     ![Screenshot of Account Demo](media/run-img7.png)
+     ![Screenshot of Account Demo](./media/run-img7.png)
 
 9.  Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
 
-    ![Screenshot of Account Demo](media/run-img8.png)
+    ![Screenshot of Account Demo](./media/run-img8.png)
 
 10.  To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**.
 
