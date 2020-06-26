@@ -148,7 +148,7 @@ In this example, this connection string specifies explicit overrides for every s
 Connection Strings are supported in the following SDK versions:
 - .NET and .NET Core v2.12.0
 - Java v2.5.1 and Java 3.0
-- Javascript v2.3.0
+- JavaScript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
 
