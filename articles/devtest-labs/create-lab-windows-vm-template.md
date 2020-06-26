@@ -44,7 +44,7 @@ The resources defined in the template include:
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
 ## Deploy the template
-To run the deployment automatically, click the following button. Create a new resource group for the deployment so that you can easily clean up later.
+To run the deployment automatically, click the following button. 
 
 [![Deploy to Azure](./media/create-lab-windows-vm-template/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
@@ -53,7 +53,7 @@ To run the deployment automatically, click the following button. Create a new re
 1. Enter a **name for the lab**. 
 1. Enter a **name for the VM**. 
 1. Enter a **user name** who can access the VM. 
-1. Enter **password** for the user name. 
+1. Enter **password** for the user. 
 1. Select **I agree to the terms and conditions stated above**. 
 1. Then, select **Purchase**.
 
@@ -66,12 +66,12 @@ To run the deployment automatically, click the following button. Create a new re
 2. On the **Deployment - Overview** page, wait until the deployment is complete. This operation (especially, creating a VM) takes some time to complete. Then, select your **Go to resource group** or the **name of the resource group** as shown in the following image: 
 
     :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Navigate to resource group":::
-3. On the **Resource group** page, you see the list of resources in the resource group. Confirm that you see your lab of type (`DevTest Lab`) in the resources. You also see the depended resources such as virtual network and virtual machine in the resource group. 
+3. On the **Resource group** page, you see the list of resources in the resource group. Confirm that you see your lab of type: `DevTest Lab` in the resources. You also see the dependent resources such as virtual network and virtual machine in the resource group. 
 
     :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Resource group's home page":::
 4. Select your lab from the list of resource to see the home page for your lab. Confirm that you see the Windows Server 2019 Datacenter VM in the **My virtual machines** list. In the following image, the **Essentials** section is minimized. 
 
-    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-home-page.png" alt-text="Home page for the lab":::
+    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Home page for the lab":::
 
     > [!IMPORTANT] 
     > Keep this page open and follow instructions in the next section to clean up resources to avoid costs for running the lab and the VM on Azure. 
@@ -81,7 +81,7 @@ To run the deployment automatically, click the following button. Create a new re
 1. First, delete the lab so that you can delete the resource group. You won't be able to delete the resource group with a lab in it. To delete the lab, select **Delete** on the toolbar. 
 
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-lab-button.png" alt-text="Delete lab button":::
- 2. On the confirmation page, type the lab name, and select **Delete**. 
+ 2. On the confirmation page, type the **lab name**, and select **Delete**. 
  3. Wait until the lab is deleted. Select the **bell** icon to see notification from the delete operation. This process takes some time. Confirm the lab deletion, and then select the **resource group** on the breadcrumb menu. 
  
     :::image type="content" source="./media/create-lab-windows-vm-template/confirm-lab-deletion.png" alt-text="Confirm deletion of VM in notifications":::
