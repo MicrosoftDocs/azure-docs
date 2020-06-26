@@ -164,7 +164,7 @@ A connection string can be set by either in code, environment variable, or confi
 
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net Explicitly Set:
+.NET Explicitly Set:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -172,7 +172,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net Config File:
+.NET Config File:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -219,7 +219,7 @@ ApplicationInsights.xml
 
 # [JavaScript](#tab/js)
 
-Important: Javascript doesn't support the use of Environment Variables.
+Important: JavaScript doesn't support the use of Environment Variables.
 
 Using the snippet:
 
