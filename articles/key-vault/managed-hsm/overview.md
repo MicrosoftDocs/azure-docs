@@ -1,6 +1,6 @@
 ---
 title: Azure Managed HSM Overview - Azure Managed HSM | Microsoft Docs
-description: Azure Managed HSM is a cloud service that works as a secure secrets store.
+description: Azure Managed HSM is a cloud service that safeguards your cryptographic keys for cloud applications.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -14,12 +14,16 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
 
 ---
-# What is Azure Managed HSM?
+# What is Azure Key Vault Managed HSM?
 
-Azure Managed HSM helps solve the following problems:
+Managed HSM is a cloud service that safeguards cryptographic keys for your cloud application. Managed HSM is a fully managed, highly available, single-tenant key management service that uses a **FIPS (Federal Information Protection Standard) 140-2 Level 3** validated HSMs.
 
-- **Secrets Management** - Azure Managed HSM can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
-- **Key Management** - Azure Managed HSM can also be used as a Key Management solution. Azure Managed HSM makes it easy to create and control the encryption keys used to encrypt your data. 
-- **Certificate Management** - Azure Managed HSM is also a service that lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources. 
-- **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validated HSMs
-
+## Key Benefits
+- Fully managed, highly available, single-tenant, uses FIPS 140-2 Level 3 validated HSMs
+- Zone resilient (where Availability zones are supported)
+- Integrated with Azure PaaS/SaaS services (same as Azure Key Vault) for encryption at rest with customer managed keys
+- Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions spread across  Availability Zones to provide high availability within the region
+- You can increase the durability and high availability further by extending the HSM pool to span multiple regions (coming soon)
+    - All regional HSM pools are kept in sync automatically
+    - Each HSM Pool in a region can be addressed through its regional endpoint
+    - Managed HSM instance will also have a global endpoint that allows reaching closest available regional endpoint (can be cross-region)
