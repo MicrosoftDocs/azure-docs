@@ -18,21 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## July 2020
 
-Model version `2020-07-01` for key phrase extraction, which adds support for the following languages:
-
-* Afrikaans
-* Bulgarian
-* Catalan
-* Croatian
-* Estonian
-* Greek
-* Hungarian
-* Indonesian
-* Latvian
-* Romanian
-* Slovak
-* Slovenian
-* Turkish
+Model version `2020-07-01` which adds additional [language support](language-support.md?tabs=key-phrase-extraction) for key phrase extraction. 
 
 ## May 2020
 
