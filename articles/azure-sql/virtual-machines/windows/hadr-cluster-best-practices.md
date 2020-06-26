@@ -20,16 +20,16 @@ ms.author: mathoma
 
 A cluster is used for high availability and disaster recovery (HADR) with SQL Server on Azure VMs. 
 
-This article provides details about supported cluster configurations used by both [failover cluster instances](failover-cluster-instance-overview.md), and [availability groups](availability-group-overview.md). 
+This article provides cluster configuration best practices for both [failover cluster instances](failover-cluster-instance-overview.md), and [availability groups](availability-group-overview.md) when used with SQL Server on Azure VMs. 
 
 
 ## Networking
 
-One thing to be aware of is that on an Azure virtual machine guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
 
 ## Quorum
 
-Although a two node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support and, cluster validation will not pass any cluster without a quorum resource. 
+Although a two node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support and cluster validation will not pass any cluster without a quorum resource. 
 
 Technically, a three node cluster can survive a single node loss (down to two nodes) without a quorum resource – but once the cluster is down to two nodes, there is risk of running into: 
 
@@ -38,7 +38,16 @@ Technically, a three node cluster can survive a single node loss (down to two no
 
 The quorum resource protects the cluster against either of these issues. 
 
-To configure the quorum resource with SQL Server on Azure VMs, you can use a Disk Witness, a Cloud Witness, or a File Share Witness. 
+To configure the quorum resource with SQL Server on Azure VMs, you can use a [Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), a [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). 
+
+
+||[Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+|---------|---------|---------|---------|
+|Supported OS| All |Windows Server 2016+| Windows Server 2012+|
+|Supported SQL Server version|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+|Supported FCI storage|Azure Shared Disks|All|All|
+
+The rest of this section provides additional details about the different options. 
 
 ### Disk Witness
 
@@ -46,7 +55,7 @@ A small clustered disk which is in the Cluster Available Storage group. This dis
 
 Since the disk witness is common in on-premises clusters, the familiar functionality makes it easier to adapt to the Azure environment, and technically provides the most protection for teh cluster. 
 
-To get started, see [Configure Disk Witness?? need link? or do we write this content ourselves? ]()
+To get started, see [Configure Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
 **Supported OS**: All    
@@ -70,7 +79,7 @@ A SMB file share that is typically configured on a file server running Windows S
 
 If you're going to use another Azure file share, you can mount it with the same process used to [mount the premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-the-premium-file-share). 
 
-To get started, see [Configure File Share Witness need link? or should we create our own :| ]
+To get started, see [Configure File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
 
 **Supported OS**: Windows Server 2012 and later   

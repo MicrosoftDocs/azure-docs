@@ -141,7 +141,7 @@ To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-clus
 
 Using the DNN with FCI has additional considerations when used with other SQL Server features: 
 
-### DNN Feature interoperability 
+### DNN feature interoperability 
 
 Consider the following when using the distributed network name (DNN) resource with SQL Server FCI and these features: 
 
@@ -159,10 +159,7 @@ Replication has three components: Publisher, Distributor, Subscriber. Any of the
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-
 For example, if you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN. 
-
-This is text to present the same information as the table, not sure which is better, leaving both for now: 
 
 - If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to the publisher's DNN name on the distributor SQL Server.
 - If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL Server.
@@ -201,9 +198,9 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Be sure to review [supported cluster configurations](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review [cluster configurations best practices](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

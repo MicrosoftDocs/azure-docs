@@ -65,20 +65,6 @@ The rest of this section lists the benefits and limitations of each storage opti
 |Supports both Premium SSD and Ultra Disks. | Availability Zones are not supported. |
 |Use a single shared disk or stripe multiple shared disks to create a shared storage pool.|Premium SSD Disk caching is not supported.| 
 
-
-**Benefits**: 
-- The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is. 
-- Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. 
-- Supports both Premium SSD and Ultra Disks. 
-- Use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
-
-
-**Limitations**: 
-- Only available for SQL Server 2019 and Windows Server 2019 while in Preview. 
-- Virtual machines must be placed in the same availability set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
-- Availability Zones are not supported.
-- Premium SSD Disk caching is not supported.
- 
 To get started, see [SQL Server failover cluster instance with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
 ### Storage Spaces Direct
@@ -88,19 +74,15 @@ To get started, see [SQL Server failover cluster instance with Azure Shared Disk
 **Supported OS**: Windows Server 2016 and higher   
 **Supported SQL version**: SQL Server 2016 and higher   
 
-   
 
-**Benefits:** 
-- Sufficient network bandwidth enables a robust and highly performant shared storage solution. 
-- Supports Azure Blob Cache, so reads can be served locally from the cache (updates are replicated simultaneously to both nodes). 
-- Supports filestream. 
+|**Benefits** |**Limitations**|
+|---------|---------|
+|Sufficient network bandwidth enables a robust and highly performant shared storage solution.|Only available for Windows Server 2016 and later. |
+|Supports Azure Blob Cache, so reads can be served locally from the cache (updates are replicated simultaneously to both nodes).|Availability zones are not supported.|
+|Supports filestream|Requires the same disk capacity attached to both virtual machines, which doubles the storage cost. |
+||High network bandwidth is required to achieve high performance due to on-going disk replication. |
+||Requires a larger VM size. |
 
-**Limitations:**
-- Only available for Windows Server 2016 and later. 
-- Availability zones are not supported.
-- Requires the same disk capacity attached to both virtual machines. 
-- High network bandwidth is required to achieve high performance due to on-going disk replication. 
-- Requires a larger VM size and double pay for storage, since storage is attached to each VM. 
 
  
 To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
@@ -113,14 +95,12 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported OS**: Windows Server 2012 and higher   
 **Supported SQL version**: SQL Server 2012 and higher   
 
-**Benefits:** 
-- Only shared storage solution for virtual machines spread over mulitple availablity zones. 
-- Fully managed file system with single digit latencies and burstable IO performance. 
 
-
-**Limitations:**
-- Only available for Windows Server 2012 and later. 
-- Filestream is not supported 
+|**Benefits** |**Limitations**|
+|---------|---------|
+|Only shared storage solution for virtual machines spread over mulitple availablity zones. |Only available for Windows Server 2012 and later. |
+|Fully managed file system with single digit latencies and burstable IO performance. | Filestream is not supported.|
+|Row3     |         |
 
 
 To get started, see [SQL Server failover cluster instance with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md). 
@@ -129,21 +109,22 @@ To get started, see [SQL Server failover cluster instance with Premium File Shar
 
 There are a number of third-party clustering solutions with supported storage. 
 
-One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
-
 **Supported OS**: All   
 **Supported SQL version**: All   
+
+One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
+
 
 ### iSCSI and ExpressRoute
 
 You can also expose an iSCSI target shared block storage via ExpressRoute. 
 
+**Supported OS**: All   
+**Supported SQL version**: All   
+
 For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.
 
 For third-party shared storage and data replication solutions, contact the vendor for any issues related to accessing data on failover.
-
-**Supported OS**: All   
-**Supported SQL version**: All   
 
 ## Connectivity
 
