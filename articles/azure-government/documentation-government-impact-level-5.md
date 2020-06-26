@@ -522,7 +522,7 @@ Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Appl
 
 ### Azure Scheduler
 
-Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](https://docs.microsoft.com/scheduler/migrate-from-scheduler-to-logic-apps).
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
 ## Media services
 
