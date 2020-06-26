@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -35,7 +35,7 @@ These risks are calculated offline using Microsoft's internal and external threa
 
 | Risk detection | Description |
 | --- | --- |
-| Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. |
+| Leaked credentials | This risk detection type indicates that the user's valid credentials have been leaked. When cybercriminals compromise valid passwords of legitimate users, they often share those credentials. This sharing is typically done by posting publicly on the dark web, paste sites, or by trading and selling the credentials on the black market. When the Microsoft leaked credentials service acquires user credentials from the dark web, paste sites, or other sources, they are checked against Azure AD users' current valid credentials to find valid matches. See [Common questions](#common-questions) for more information about leaked credentials. |
 | Azure AD threat intelligence | This risk detection type indicates user activity that is unusual for the given user or is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 
 ### Sign-in risk
@@ -61,8 +61,34 @@ These risks can be calculated in real-time or calculated offline using Microsoft
 | --- | --- | --- |
 | Additional risk detected | Real-time or Offline | This detection indicates that one of the above premium detections was detected. Since the premium detections are visible only to Azure AD Premium P2 customers, they are titled "additional risk detected" for customers without Azure AD Premium P2 licenses. |
 
+## Common questions
+
+### Leaked credentials
+
+#### Where does Microsoft find the leaked credentials?
+
+Microsoft finds leaked credentials in a variety of places, including:
+
+- Public paste sites such as pastebin.com and paste.ca where bad actors typically post such material. This is also most bad actors' first stop on their hunt to find stolen credentials.
+- Law enforcement agencies.
+- Other groups at Microsoft doing dark web research.
+
+#### Why aren't I seeing any leaked credentials after enabling PHS?
+
+Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Due to the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not performed. 
+
+#### I haven't seen any leaked credential risk events for quite some time. Is this thing working?
+
+If you haven't seen any leaked credential risk events, it's because of the following reasons:
+
+- You don't have PHS enabled for your tenant.
+- Microsoft hasn't found any leaked credential pairs that match those of your users.
+
+#### How often does Microsoft process new credential dumps?
+
+Credentials are processed immediately after they have been found, normally in multiple batches per day.
+
 ## Next steps
 
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
-
 - [Security overview](concept-identity-protection-security-overview.md)
