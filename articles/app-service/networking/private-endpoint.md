@@ -102,10 +102,10 @@ For more information, see [custom DNS validation][dnsvalidation].
 
 For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records in your Azure DNS private zone or your custom DNS server. 
 
-|Name |Type |Value |
-|-----|-----|------|
-|mywebapp.privatelink.azurewebsites.net|A|PrivateEndpointIP| 
-|mywebapp.scm.privatelink.azurewebsites.net|A|PrivateEndpointIP| 
+| Name | Type | Value |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
 > [!TIP]
 > These two records are automatically populated if you have a private DNS zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
