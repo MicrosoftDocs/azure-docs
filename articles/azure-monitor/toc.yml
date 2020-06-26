@@ -455,7 +455,7 @@
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
       - name: Troubleshoot log alerts
-        href: platform/alert-log-troubleshoot.md
+        href: platform/alerts-log-troubleshoot.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
