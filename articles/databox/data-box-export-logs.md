@@ -73,7 +73,7 @@ You can track your order through the Azure portal and through the shipping carri
 
     ![Query Activity logs](media/data-box-logs/query-activity-log-1.png)
 
-- Each sign into the Data Box is logged real time. However, this information is only available in the [Audit logs](#audit-logs) after the order is successfully completed.
+- Each sign into the Data Box is logged real time. However, this information is only available in the [Chain of custody audit logs](#chain-of-custody-audit-logs) after the order is successfully completed.
 
 ## View logs during data copy
 
