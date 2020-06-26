@@ -151,7 +151,7 @@ You should get the following results once the command completes:
 
     For this tutorial, we're choosing the image `RedHat:RHEL-HA:7.6:7.6.2019062019` for the RHEL 7 example and choosing `RedHat:RHEL-HA:8.1:8.1.2020021914` for the RHEL 8 example.
     
-    You can also choose SQL Server 2019 pre-installed on RHEL8-HA. You can get the list virtual machine images that offer SQL Server 2019 on RHEL with HA using the command the following command:  
+    You can also choose SQL Server 2019 pre-installed on RHEL8-HA images. To get the list of these images, run the following command:  
     
     ```azurecli-interactive
     az vm image list --all --offer "sql2019-rhel8"
@@ -206,7 +206,7 @@ You should get the following results once the command completes:
     ]
     ```
 
-    If you do use one of the above images to create the virtual machines, you can skip the [Install SQL Server and mssql-tools](#install-sql-server-and-mssql-tools) section as described in this article.
+    If you do use one of the above images to create the virtual machines, it has SQL Server 2019 pre-installed. Skip the [Install SQL Server and mssql-tools](#install-sql-server-and-mssql-tools) section as described in this article.
     
     
     > [!IMPORTANT]
