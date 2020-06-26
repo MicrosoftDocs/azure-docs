@@ -27,9 +27,9 @@
        - name: Enforce GitOps using Azure Policy
          href: ./kubernetes/use-azure-policy.md
        - name: Monitor with Azure Monitor for containers
-         href: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+         href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
        - name: Admission control policies using Azure Policy
-         href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+         href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
        - name: Deploy IoT workloads
          href: ./kubernetes/deploy-azure-iot-edge-workloads.md
        - name: Onboarding service principal
