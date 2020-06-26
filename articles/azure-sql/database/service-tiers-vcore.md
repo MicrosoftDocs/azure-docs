@@ -107,7 +107,7 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a database or pool in SQL Database at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
+In the Azure portal, you can select the hardware generation for a database or pool in SQL Database at the time of creation, or you can change the hardware generation of an existing database or pool.
 
 **To select a hardware generation when creating a SQL Database or pool**
 

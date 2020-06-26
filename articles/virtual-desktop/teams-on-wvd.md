@@ -37,7 +37,7 @@ This section will show you how to install the Teams desktop app on your Windows 
 
 ### Prepare your image for Teams
 
-To enable Teams per-machine installation, set the following registry key on the host:
+To enable media optimization for Teams, set the following registry key on the host:
 
 1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
 2. Create the following value for the Teams key:
@@ -52,29 +52,39 @@ Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/
 
 ### Install Microsoft Teams
 
-You can deploy the Teams desktop app using a per-machine installation. To install Microsoft Teams in your Windows Virtual Desktop environment:
+You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Windows Virtual Desktop environment:
 
 1. Download the [Teams MSI package](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) that matches your environment. We recommend using the 64-bit installer on a 64-bit operating system.
 
       > [!NOTE]
       > Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
-2. Run this command to install the MSI to the host VM.
+2. Run one of the following commands to install the MSI to the host VM:
 
-      ```console
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+    - Per-user installation
 
-      This installs Teams to the Program Files (x86) folder on a 64-bit operating system and to the Program Files folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
 
-      The next time you open Teams in a session, you'll be asked for your credentials.
+        This process is the default installation, which installs Teams to the **%AppData%** user folder. Teams won't work properly with per-user installation on a non-persistent setup.
 
-      > [!NOTE]
-      > Users and admins can't disable automatic launch for Teams during sign-in at this time.
+    - Per-machine installation
 
-      To uninstall the MSI from the host VM, run this command:
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
 
-      ```console
+        This installs Teams to the Program Files (x86) folder on a 64-bit operating system and to the Program Files folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
+
+        The next time you open Teams in a session, you'll be asked for your credentials.
+
+        > [!NOTE]
+        > Users and admins can't disable automatic launch for Teams during sign-in at this time.
+
+3. To uninstall the MSI from the host VM, run this command:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -140,7 +150,7 @@ Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as mult
 
 Enabling device redirections is not required when using Teams with media optimization. If you are using Teams without media optimization, set the following RDP properties to enable microphone and camera redirection:
 
-- `audiocapturemode:i:1` enables audio capture from the local device and redirets audio applications in the remote session.
+- `audiocapturemode:i:1` enables audio capture from the local device and redirects audio applications in the remote session.
 - `audiomode:i:0` plays audio on the local computer.
 - `camerastoredirect:s:*` redirects all cameras.
 

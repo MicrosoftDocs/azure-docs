@@ -1,16 +1,8 @@
 ---
 title: Move an Azure Event Hubs namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Event Hubs namespace from the current region to another region. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru 
-ms.reviewer: shvija
-#Customer intent: As an Azure administrator, I want to move an Event Hubs namespace to a different region so that it's closer to customers.
+ms.date: 06/23/2020
 ---
 
 # Move an Azure Event Hubs namespace to another region

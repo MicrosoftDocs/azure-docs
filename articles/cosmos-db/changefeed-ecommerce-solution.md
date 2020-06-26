@@ -4,7 +4,7 @@ description: This article describes how change feed can be used by a retail comp
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 

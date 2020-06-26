@@ -14,6 +14,10 @@
     items:
     - name: AI+Machine Learning
       items:
+      - name: Cognitive Search
+        href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Cognitive Services
+        href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Data Science Virtual Machine
         href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Machine Learning
@@ -40,6 +44,8 @@
         href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Synapse Analytics
+        href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json  
     - name: Blockchain
       items:
       - name: Blockchain
@@ -130,8 +136,6 @@
         href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Web
       items:
-      - name: Cognitive Search
-        href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Notification Hubs
         href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
@@ -293,6 +297,14 @@
       href: export-template-portal.md
     - name: Discover resources
       href: view-resources.md
+  - name: Validate templates
+    items:
+    - name: What-if deployment
+      href: template-deploy-what-if.md
+    - name: Test toolkit
+      href: test-toolkit.md
+    - name: Test cases
+      href: test-cases.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
@@ -309,8 +321,6 @@
       href: deploy-rest.md
     - name: Deploy from GitHub
       href: deploy-to-azure-button.md
-    - name: What-if deployment
-      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md

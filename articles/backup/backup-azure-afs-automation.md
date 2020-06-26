@@ -55,7 +55,7 @@ Set up PowerShell as follows:
 5. On the webpage that appears, you're prompted to enter your account credentials.
 
     Alternatively, you can include your account credentials as a parameter in the **Connect-AzAccount** cmdlet by using **-Credential**.
-   
+
     If you're a CSP partner working on behalf of a tenant, specify the customer as a tenant. Use their tenant ID or tenant primary domain name. An example is **Connect-AzAccount -Tenant "fabrikam.com"**.
 
 6. Associate the subscription that you want to use with the account, because an account can have several subscriptions:
@@ -90,20 +90,11 @@ Follow these steps to create a Recovery Services vault:
    New-AzResourceGroup -Name "test-rg" -Location "West US"
    ```
 
-2. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. Specify the same location for the vault that you used for the resource group.
+1. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. Specify the same location for the vault that you used for the resource group.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-
-3. Specify the type of redundancy to use for the vault storage. You can use [locally redundant storage](../storage/common/storage-redundancy-lrs.md) or [geo-redundant storage](../storage/common/storage-redundancy-grs.md).
-   
-   The following example sets the **-BackupStorageRedundancy** option for the [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmdlet for **testvault** set to **GeoRedundant**:
-
-   ```powershell
-   $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-   Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-   ```
 
 ### View the vaults in a subscription
 
@@ -245,16 +236,16 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 This section outlines an important change in backups of Azure file shares in preparation for general availability.
 
-While enabling a backup for Azure file shares, the user gives the customer a file-share name as the entity name, and a backup item is created. The backup item's name is a unique identifier that the Azure Backup service creates. Usually the identifier is a user-friendly name. But to handle the scenario of soft delete, where a file share can be deleted and another file share can be created with the same name, the unique identity of an Azure file share is now an ID. 
+While enabling a backup for Azure file shares, the user gives the customer a file-share name as the entity name, and a backup item is created. The backup item's name is a unique identifier that the Azure Backup service creates. Usually the identifier is a user-friendly name. But to handle the scenario of soft delete, where a file share can be deleted and another file share can be created with the same name, the unique identity of an Azure file share is now an ID.
 
-To know the unique ID of each item, run the **Get-AzRecoveryServicesBackupItem** command with the relevant filters for **backupManagementType** and **WorkloadType** to get all the relevant items. Then observe the name field in the returned PowerShell object/response. 
+To know the unique ID of each item, run the **Get-AzRecoveryServicesBackupItem** command with the relevant filters for **backupManagementType** and **WorkloadType** to get all the relevant items. Then observe the name field in the returned PowerShell object/response.
 
 We recommend that you list items and then retrieve their unique name from the name field in the response. Use this value to filter the items with the *Name* parameter. Otherwise, use the *FriendlyName* parameter to retrieve the item with its ID.
 
 > [!IMPORTANT]
-> Make sure that PowerShell is upgraded to the minimum version (Az.RecoveryServices 2.6.0) for backups of Azure file shares. With this version, the *FriendlyName* filter is available for the **Get-AzRecoveryServicesBackupItem** command. 
+> Make sure that PowerShell is upgraded to the minimum version (Az.RecoveryServices 2.6.0) for backups of Azure file shares. With this version, the *FriendlyName* filter is available for the **Get-AzRecoveryServicesBackupItem** command.
 >
-> Pass the name of the Azure file share to the *FriendlyName* parameter. If you pass the name of the file share to the *Name* parameter, this version throws a warning to pass the name to the *FriendlyName* parameter. 
+> Pass the name of the Azure file share to the *FriendlyName* parameter. If you pass the name of the file share to the *Name* parameter, this version throws a warning to pass the name to the *FriendlyName* parameter.
 >
 > Not installing the minimum version might result in a failure of existing scripts. Install the minimum version of PowerShell by using the following command:
 >
@@ -290,5 +281,5 @@ Azure file share snapshots are used while the backups are taken. Usually the job
 
 ## Next steps
 
-- Learn about [backing up Azure Files in the Azure portal](backup-afs.md).
-- Refer to the [sample script on GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) for using an Azure Automation runbook to schedule backups.
+* Learn about [backing up Azure Files in the Azure portal](backup-afs.md).
+* Refer to the [sample script on GitHub](https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) for using an Azure Automation runbook to schedule backups.

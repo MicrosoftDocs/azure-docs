@@ -36,7 +36,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |**App with connected resources**||
 | [App with MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Deploys an App Service app on Windows with Azure Database for MySQL. |
 | [App with PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Deploys an App Service app on Windows with Azure Database for PostgreSQL. |
-| [App with a SQL database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Deploys an App Service app and a SQL database at the Basic service level. |
+| [App with a database in Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Deploys an App Service app and a database in Azure SQL Database at the Basic service level. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Deploys an App Service app with an Azure Cache for Redis. |
 |**App Service Environment**||

@@ -5,7 +5,7 @@ description: Learn how to configure Azure Active Directory (Azure AD) device-bas
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/08/2020
 
 ms.author: joflore
