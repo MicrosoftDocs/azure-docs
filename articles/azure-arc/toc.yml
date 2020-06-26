@@ -36,7 +36,7 @@
         - name: Troubleshooting
           href: Troubleshooting.md
    - name: Arc for servers
-      items:
+     items:
       - name: Connect to Azure Arc
         items:
         - name: Connected Machine agent overview
