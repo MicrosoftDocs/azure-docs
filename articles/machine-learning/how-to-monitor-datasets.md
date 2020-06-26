@@ -93,7 +93,7 @@ Use Machine Learning datasets to monitor for data drift. Specify a baseline data
 
 ## Create target dataset
 
-The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the Python SDK or Azure Machine Learning studio. A column representing a "fine grain" timestamp must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "coarse grain" timestamp to improve the importance of time series functionality.
+The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the Python SDK or Azure Machine Learning studio. A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to improve the importance of time series functionality.
 
 ### Python SDK
 
@@ -239,9 +239,8 @@ Start with the top-level insights into the magnitude of data drift and a highlig
 | Metric | Description | 
 | ------ | ----------- | 
 | Data drift magnitude | A percentage of drift between the baseline and target dataset over time. Ranging from 0 to 100, 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift model can completely tell the two datasets apart. Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
-| Top drifting features | Shows the features from the dataset that have drifted the most and are therefore contributing the most to the Drift Magnitude metric. |
+| Top drifting features | Shows the features from the dataset that have drifted the most and are therefore contributing the most to the Drift Magnitude metric. Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. |
 | Threshold \ Data Drift magnitude beyond the set threshold will trigger alerts. This can be configured in the monitor settings. | 
-| Drift contribution by feature | Contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
 ### Drift magnitude trend
 
@@ -281,6 +280,8 @@ Categorical features are profiled in each dataset monitor run. The number of uni
 | Metric | Description |  
 | ------ | ----------- |  
 | Unique values | Number of unique values (cardinality) of the feature. |
+| Euclidian distance     |  Computed for categorical columns. Euclidean distance is computed on two vectors, generated from empirical distribution of the same categorical column from two datasets. 0 indicates there is no difference in the empirical distributions.  The more it deviates from 0, the more this column has drifted. Trends can be observed from a time series plot of this metric and can be helpful in uncovering a drifting feature.  |
+
 
 
 ![Feature details categorical](./media/how-to-monitor-datasets/feature-details2.png)
