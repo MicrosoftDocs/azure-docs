@@ -170,11 +170,9 @@ Repeat the copy and paste steps for each table you want to migrate.
 
 ## File shares
 
-Use AzCopy for your migration to copy file shares directly from Azure Germany to global Azure. AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works for Azure-to-Azure, on-premises-to-Azure, and Azure-to-on-premises migrations. 
+Use AzCopy for your migration to copy file shares directly from Azure Germany to global Azure. AzCopy is a free tool you can use to copy blobs, files, and tables.
 
-[Download AzCopy](https://aka.ms/downloadazcopy).
-
-The following example shows how AzCopy works. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
+To begin, [download AzCopy](https://aka.ms/downloadazcopy) and install.
 
 AzCopy uses the terms **Source** and **Dest**, expressed as URIs. URIs for Azure Germany always have this format:
 
@@ -187,18 +185,16 @@ URIs for global Azure always have this format:
 ```http
 https://<storageaccountname>.blob.core.windows.net/<filesharename>
 ```
-
 You need a storage account SAS token to access the Azure Storage account. 
 
-This example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account.
+The following example command copies all file shares, directories, and files from an Azure Germany storage account to a global Azure storage account. For a complete reference, see the [AzCopy documentation](../storage/common/storage-use-azcopy.md).
 
-URI part | example value
+URI part | Example value
 -------- | --------------
 Source storageAccount | `migratetest`
 Source file share | `sourcefileshare`
 Target storageAccount | `migratetarget`
 Target fileshare | `targetfileshare`
-
 
 ```cmd
 azcopy copy "https://migratetest.blob.core.cloudapi.de/sourcefileshare?<SAS-token>" "https://migratetarget.blob.core.windows.net/targetfileshare?<SAS-token>" --recursive=true
