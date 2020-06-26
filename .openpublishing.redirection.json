@@ -44292,7 +44292,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-databricks/",
+      "source_path": "articles/azure-databricks/index.yml",
       "redirect_url": "/azure/databricks/",
       "redirect_document_id": false
     },
