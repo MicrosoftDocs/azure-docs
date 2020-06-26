@@ -65,7 +65,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 Two Azure resources are defined in the template:
 
 * [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create an key vault secret.
+* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create a key vault secret.
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
@@ -79,16 +79,16 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     ![ARM template, Key Vault integration, deploy portal](../media/quick-create-template/create-key-vault-using-template-portal.png)
 
-    Unless it is specified, use the default value to create the key vault and a secret.
+    Unless it's specified, use the default value to create the key vault and a secret.
 
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location.  For example, **Central US**.
+    * **Location**: select a location. For example, **Central US**.
     * **Key Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace. You need the name in the next section when you validate the deployment.
-    * **Tenant Id**: the template function automatically retrieves your tenant ID.  Don't change the default value.
+    * **Tenant Id**: the template function automatically retrieves your tenant ID. Don't change the default value.
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
-    * **Secret Name**: enter a name for the secret that you store in the key vault.  For example, **adminpassword**.
-    * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in Prerequisites.
+    * **Secret Name**: enter a name for the secret that you store in the key vault. For example, **adminpassword**.
+    * **Secret Value**: enter the secret value. If you store a password, it's recommended to use the generated password you created in Prerequisites.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification:
 
