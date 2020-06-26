@@ -60,12 +60,13 @@ This tier is for mission-critical production applications that require elastic u
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8 <sup>[1](#naar)</sup>    |    320    |    200     |
-|S9 <sup>[1](#naar)</sup>    |    640    |    400     |
+|S8 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>   |    320    |    200     |
+|S9 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
 |S8v2 <sup>[1](#naar)</sup>   |    640     |    200     |
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - Not available in all regions.   
+<a name="rec">2</a> - v2 is recommended.
 
 ## Availability by region
 
