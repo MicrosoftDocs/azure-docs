@@ -37,6 +37,19 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## June 2020 
 
+### User risk condition in Conditional Access policy
+
+**Type:** Plan for change  
+**Service category:** Conditional Access  
+**Product capability:** Identity Security & Protection
+ 
+
+User risk support in Azure AD Conditional Access policy allows you to create multiple user risk-based policies. Different minimum user risk levels can be required for different users and apps. Based on user risk, you can create policies to block access, require multi-factor authentication, secure password change, or redirect to Microsoft Cloud App Security to enforce session policy, such as additional auditing.
+
+The user risk condition requires Azure AD Premium P2 because it uses Azure Identity Protection, which is a P2 offering. for more information about conditional access, refer to [Azure AD Conditional Access documentation](https://docs.microsoft.com/azure/active-directory/conditional-access/).
+
+---
+
 ### SAML SSO now supports apps that require SPNameQualifier to be set when requested
 
 **Type:** Fixed  
