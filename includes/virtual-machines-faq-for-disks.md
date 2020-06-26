@@ -478,7 +478,7 @@ No. In the current version, you cannot request manual approval. In a future vers
 
 **How many exports or imports using the same DiskAccess object can happen at the same time?**
 
-10
+5
 
 ## What if my question isn't answered here?
 
