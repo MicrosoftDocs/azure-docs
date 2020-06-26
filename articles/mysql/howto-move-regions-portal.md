@@ -14,10 +14,10 @@ ms.author: andrela
 
 There are various scenarios for moving an existing Azure Database for MySQL server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 
-You can use an Azure Database for MySQL [read replica](concepts-read-replicas.md) to complete the move to another region. You can do this by first creating a read replica in the target region. Next, stopping replication to the read replica server allows it to become a standalone server that accepts both read and write traffic. 
+You can use an Azure Database for MySQL [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. You can do this by first creating a read replica in the target region. Next, stopping replication to the read replica server allows it to become a standalone server that accepts both read and write traffic. 
 
 > [!NOTE]
-> If you are looking to create a replica server in a different resource group different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation. 
+> This article focuses on moving your server to a different region. If you are looking to move your server to a different resource group or subscription, refer to the [move](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) article. 
 
 ## Prerequisites
 
@@ -28,19 +28,20 @@ You can use an Azure Database for MySQL [read replica](concepts-read-replicas.md
 - Verify that your Azure subscription allows you to create MySQL servers in the target region. To enable the required quota, contact support.
 
 ## Prepare to move
-In this section, you create a read replica server in the target region using the Azure portal. You then stop replication to the replica server, which causes it to become a standalone server. 
+
+In this section, you create a cross-region read replica server in the target region using the Azure portal. You then stop replication to the replica server, which causes it to become a standalone server. 
 
 To create a read replica using the Azure portal, use the following steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select the existing Azure Database for MySQL server that you want to use as the source server. This action opens the **Overview** page.
 1. Select **Replication** from the menu, under **SETTINGS**.
-
-## Move
 1. Select **Add Replica**.
 1. Enter a name for the replica server.
 1. Select the location for the replica server. The default location is the same as the master server's. Verify that you've selected the target location where you want the replica to be deployed.
 1. Select **OK** to confirm creation of the replica. During replica creation, data is copied from the source server to the replica. The time may range from several minutes or more, in proportion to the size of the source server.
+
+## Complete move
 
 To stop replication to the replica, use the following steps:
 
