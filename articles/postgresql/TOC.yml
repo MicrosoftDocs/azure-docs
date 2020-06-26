@@ -193,6 +193,8 @@
       items:
       - name: Configuration options
         href: concepts-hyperscale-configuration-options.md
+      - name: Prepay for reserved capacity
+        href: concepts-hyperscale-reserved-pricing.md
 - name: How-to guides
   items:
   - name: Single server

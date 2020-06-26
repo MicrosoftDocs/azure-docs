@@ -10,7 +10,7 @@ ms.custom: tracking-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
+ms.date: 06/16/2020
 ---
 # Execute Python Script module
 
@@ -146,6 +146,17 @@ The preinstalled packages are:
 import os
 os.system(f"pip install scikit-misc")
 ```
+
+Use the following code to install packages for better performance, especially for inference:
+```python
+import importlib.util
+package_name = 'scikit-misc'
+spec = importlib.util.find_spec(package_name)
+if spec is None:
+    import os
+    os.system(f"pip install scikit-misc")
+```
+
 > [!NOTE]
 > If your pipeline contains multiple Execute Python Script modules that need packages that aren't in the preinstalled list, install the packages in each module.
 

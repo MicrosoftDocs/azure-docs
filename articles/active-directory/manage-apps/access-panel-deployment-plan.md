@@ -2,17 +2,17 @@
 title: Plan an Azure Active Directory Access Panel deployment
 description: Guidance on deploying the Azure Active Directory Access Panel 
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
 ---

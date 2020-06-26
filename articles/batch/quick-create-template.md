@@ -18,7 +18,7 @@ You must have an active Azure subscription.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create a storage account
+## Create a Batch account with storage
 
 ### Review the template
 

@@ -1,20 +1,16 @@
-﻿---
+---
 title: Azure Government Azure Monitor logs | Microsoft Docs
 description: This article describes how Azure Monitor logs is applicable to US Government agencies and solution providers
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sacha
-manager: jobruno
 
-ms.assetid:
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/05/2016
-ms.author: jobruno
 ---
 
 # Azure Government cybersecurity: Monitoring and securing your assets with Azure Monitor logs

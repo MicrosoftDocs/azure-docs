@@ -54,8 +54,12 @@
     href: expressroute-global-reach.md
   - name: About ExpressRoute encryption
     href: expressroute-about-encryption.md
-  - name: Security controls
-    href: expressroute-security-controls.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Security attributes
+      href: expressroute-security-controls.md
   - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Connect Azure to public cloud
@@ -131,6 +135,8 @@
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
     items:
+    - name: Azure portal
+      href: how-to-expressroute-direct-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-erdirect.md
     - name: Azure CLI

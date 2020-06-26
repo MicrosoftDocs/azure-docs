@@ -235,7 +235,7 @@ To understand retrieval, it helps to know a few basics about indexing. The unit 
 To produce the terms in an inverted index, the search engine performs lexical analysis over the content of documents, similar to what happens during query processing:
 
 1. *Text inputs* are passed to an analyzer, lower-cased, stripped of punctuation, and so forth, depending on the analyzer configuration. 
-2. *Tokens* are the output of text analysis.
+2. *Tokens* are the output of lexical analysis.
 3. *Terms* are added to the index.
 
 It's common, but not required, to use the same analyzers for search and indexing operations so that query terms look more like terms inside the index.

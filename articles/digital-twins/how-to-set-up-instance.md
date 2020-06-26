@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Set up an Azure Digital Twins instance
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This article will walk you through the basic steps to set up a new Azure Digital Twins instance. This includes creating the instance, and assigning [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to the instance for yourself.
 
@@ -59,7 +56,9 @@ In order to use Azure Digital Twins with a client application, you'll also need 
 
 #### Assign yourself a role
 
-Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. First, make sure you are classified as an owner in your Azure subscription. Then, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
+Create a role assignment for yourself, using your email associated with the AAD tenant on your Azure subscription. 
+
+First, make sure you are classified as an owner in your Azure subscription. You can check this by using the `az role assignment list --assignee <your-Azure-email>` command and verifying that the *roleDefinitionName* value is *Owner*. As an owner on the subscription, you can use the following command to assign your user to an owner role for your Azure Digital Twins instance:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

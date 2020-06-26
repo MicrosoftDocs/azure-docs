@@ -4,7 +4,7 @@ description: 'Learn how to troubleshoot Application Gateway Server Error: 502 - 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ---
