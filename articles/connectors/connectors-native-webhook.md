@@ -33,7 +33,7 @@ For example, the Office 365 Outlook connector's [**Send approval email**](connec
 > [!NOTE]
 > Logic Apps enforces Transport Layer Security (TLS) 1.2 when 
 > receiving the call back to the HTTP webhook trigger or action. 
-> If you see SSL handshake errors, make sure that you use TLS 1.2. 
+> If you see TLS handshake errors, make sure that you use TLS 1.2. 
 > For incoming calls, here are the supported cipher suites:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

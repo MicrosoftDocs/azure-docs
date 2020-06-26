@@ -1,20 +1,13 @@
 ---
 title: Using Visual Studio on an Azure virtual machine 
 description: Using Visual Studio on an Azure virtual machine.
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cathysull
 manager: cathys
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: virtual-machines-windows
 ms.custom: vs-azure
 ms.workload: azure-vs
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.date: 12/04/2019
+ms.topic: conceptual
+ms.date: 04/23/2020
 ms.author: cathys
 keywords: visualstudio
 ---
@@ -32,11 +25,11 @@ Images for the most recent major versions, Visual Studio 2019, Visual Studio 201
 
 | Release version                                                                                                                                                | Editions              | Product version   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Latest (Version 16.4)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Version 16.4.0    |
-| [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, Community | Version 16.0.9    |
-| [Visual Studio 2017: Latest (Version 15.9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, Community | Version 15.9.17   |
-| [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, Community | Version 15.0.27  |
-| [Visual Studio 2015: Latest (Update 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, Community | Version 14.0.25431.01 |
+| [Visual Studio 2019: Latest (Version 16.5)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, Community | Version 16.5.4    |
+| Visual Studio 2019: RTW                         | Enterprise | Version 16.0.13    |
+| Visual Studio 2017: Latest (Version 15.9)           | Enterprise, Community | Version 15.9.22   |
+| Visual Studio 2017: RTW                             | Enterprise, Community | Version 15.0.28  |
+| Visual Studio 2015: Latest (Update 3)               | Enterprise, Community | Version 14.0.25431.01 |
 
 > [!NOTE]
 > In accordance with Microsoft servicing policy, the originally released (RTW) version of Visual Studio 2015 has expired for servicing. Visual Studio 2015 Update 3 is the only remaining version offered for the Visual Studio 2015 product line.
@@ -106,7 +99,7 @@ For more information, see [Create a managed image of a generalized VM in Azure](
 > [!NOTE]
 > You still incur some cost for storage of the images, but that incremental cost can be insignificant compared to the overhead costs to rebuild the VM from scratch for each team member who needs one. For instance, it costs a few dollars to create and store a 127-GB image for a month that's reusable by your entire team. However, these costs are insignificant compared to hours each employee invests to build out and validate a properly configured dev box for their individual use.
 
-Additionally, your development tasks or technologies might need more scale, like varieties of development configurations and multiple machine configurations. You can use Azure DevTest Labs to create _recipes_ that automate construction of your "golden image." You can also use DevTest Labs to manage policies for your team’s running VMs. [Using Azure DevTest Labs for developers](/azure/devtest-lab/devtest-lab-developer-lab) is the best source for more information on DevTest Labs.
+Additionally, your development tasks or technologies might need more scale, like varieties of development configurations and multiple machine configurations. You can use Azure DevTest Labs to create _recipes_ that automate construction of your "golden image." You can also use DevTest Labs to manage policies for your team’s running VMs. [Using Azure DevTest Labs for developers](../../devtest-labs/devtest-lab-developer-lab.md) is the best source for more information on DevTest Labs.
 
 ## Next steps
 Now that you know about the preconfigured Visual Studio images, the next step is to create a new VM:

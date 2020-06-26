@@ -290,7 +290,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the SAML SSO for Jira by resolution GmbH tile in the Access Panel, you should be automatically signed in to the SAML SSO for Jira by resolution GmbH for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-You can also test single sign-on, if you navigate to [https://\<server-base-url>/plugins/servlet/samlsso](https://\<server-base-url>/plugins/servlet/samlsso). Substitute **\<server-base-url>** with the base URL of your Jira instance.
+You can also test single sign-on, if you navigate to `https://<server-base-url>/plugins/servlet/samlsso`. Substitute **\<server-base-url>** with the base URL of your Jira instance.
 
 
 ## Enable single sign-on redirection for Jira
@@ -310,7 +310,7 @@ To activate SSO redirect, do the following in **your Jira instance**:
 
 1. Press the **Save Settings** button in the top right corner.
 
-After activating the option, you can still reach the username/password prompt if the **Enable nosso** option is ticked by navigating to [https://\<server-base-url>/login.jsp?nosso](https://\<server-base-url>/login.jsp?nosso). As always, substitute **\<server-base-url>** with your base URL.
+After activating the option, you can still reach the username/password prompt if the **Enable nosso** option is ticked by navigating to `https://\<server-base-url>/login.jsp?nosso`. As always, substitute **\<server-base-url>** with your base URL.
 
 
 ## Additional resources

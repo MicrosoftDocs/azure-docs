@@ -15,6 +15,8 @@ ms.date: 01/09/2019
 
 # Copy or clone a data factory in Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to copy or clone a data factory in Azure Data Factory.
 
 ## Use cases for cloning a data factory

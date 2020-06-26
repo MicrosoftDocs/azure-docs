@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This tutorial describes how to provision a Data Box Gateway on a host system running VMware ESXi 6.0, 6.5, or 6.7. 
 
-You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
+You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete. 
 
 In this tutorial, you learn how to:
 

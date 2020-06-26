@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.custom: seoapr2020
+ms.date: 04/20/2020
 ---
 
 # Process and analyze JSON documents by using Apache Hive in Azure HDInsight
@@ -54,9 +55,12 @@ The file can be found at `wasb://processjson@hditutorialdata.blob.core.windows.n
 
 In this article, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
+> [!NOTE]  
+> Hive View is no longer available in HDInsight 4.0.
+
 ## Flatten JSON documents
 
-The methods listed in the next section require that the JSON document be composed of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
+The methods listed in the next section require the JSON document to be composed of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
 
 ```sql
 DROP TABLE IF EXISTS StudentsRaw;
@@ -100,7 +104,7 @@ Hive provides three different mechanisms to run queries on JSON documents, or yo
 
 ### Use the get_json_object UDF
 
-Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) that can perform JSON querying during runtime. This method takes two arguments--the table name and method name, which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
+Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) that queries JSON  during runtime. This method takes two arguments: the table name and method name. The method name has the flattened JSON document and the JSON field that needs to be parsed. Let's look at an example to see how this UDF works.
 
 The following query returns the first name and last name for each student:
 
@@ -113,18 +117,18 @@ FROM StudentsOneLine;
 
 Here is the output when you run this query in the console window:
 
-![Apache Hive get json object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
+![Apache Hive gets json object UDF](./media/using-json-in-hive/hdinsight-get-json-object.png)
 
 There are limitations of the get_json_object UDF:
 
 * Because each field in the query requires reparsing of the query, it affects the performance.
 * **GET\_JSON_OBJECT()** returns the string representation of an array. To convert this array to a Hive array, you have to use regular expressions to replace the square brackets "[" and "]", and then you also have to call split to get the array.
 
-This is why the Hive wiki recommends that you use **json_tuple**.  
+This conversion is why the Hive wiki recommends that you use **json_tuple**.  
 
 ### Use the json_tuple UDF
 
-Another UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), which performs better than [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string, and returns a tuple of values by using one function. The following query returns the student ID and the grade from the JSON document:
+Another UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), which does better than [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string. Then returns a tuple of values. The following query returns the student ID and the grade from the JSON document:
 
 ```sql
 SELECT q1.StudentId, q1.Grade
@@ -137,7 +141,7 @@ The output of this script in the Hive console:
 
 ![Apache Hive json query results](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-The json_tuple UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** can't handle nested JSONs.
+The `json_tuple` UDF uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive, which enables json\_tuple to create a virtual table by applying the UDT function to each row of the original table. Complex JSONs become too unwieldy because of the repeated use of **LATERAL VIEW**. Furthermore, **JSON_TUPLE** can't handle nested JSONs.
 
 ### Use a custom SerDe
 
@@ -145,7 +149,7 @@ SerDe is the best choice for parsing nested JSON documents. It lets you define t
 
 ## Summary
 
-In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you have only one field to look up on, you can choose to use the Hive UDF **get_json_object**. If you've more than one key to look up on, then you can use **json_tuple**. If you have a nested document, then you should use the **JSON SerDe**.
+The type of JSON operator in Hive that you choose depends on your scenario. With a simple JSON document and one field to look up, choose the Hive UDF **get_json_object**. If you've more than one key to look up on, then you can use **json_tuple**. For nested documents, use the **JSON SerDe**.
 
 ## Next steps
 
@@ -153,4 +157,3 @@ For related articles, see:
 
 * [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)

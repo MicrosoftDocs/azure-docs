@@ -5,7 +5,7 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: joflore
@@ -102,7 +102,7 @@ Azure AD join:
 
 - Is only applicable to Windows 10 devices. 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
-- Is not supported on devices with TPM in FIPS mode.
+- Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
@@ -183,6 +183,8 @@ Azure AD joined devices don't support on-premises applications relying on machin
 ### Remote Desktop Services
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
+
+Starting Windows 10 2004 update, users can alo use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
 
 ## Understand your provisioning options
 

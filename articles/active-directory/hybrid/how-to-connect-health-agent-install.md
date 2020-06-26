@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 
@@ -265,7 +265,7 @@ $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
 import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
  
-Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $myCreds
+Register-AzureADConnectHealthADDSAgent -Credential $myCreds
 
 ```
 

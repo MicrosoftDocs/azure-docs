@@ -2,16 +2,12 @@
 title: Microsoft identity platform (v2.0) overview - Azure
 description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
 ms.author: ryanwi

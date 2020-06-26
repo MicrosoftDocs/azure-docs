@@ -8,19 +8,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
-<a name="new-service-name"></a>
-
-## New service name
-
-Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded (yet optional) use of cognitive skills and AI processing in core operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
-
 ## Feature announcements
+
+### June 2020
+
++ [Azure Machine Learning (AML) (preview)](cognitive-search-aml-skill.md) is a cognitive skill used during indexing that wraps an Azure Machine Learning model. Through the skill, you can integrate a previously trained and deployed custom machine learning into an AI enrichment pipeline. [Sign up to request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). When you're ready to add an AML skill, use the AML template in the Skillset editor in Azure portal. For hands on guidance, get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
+
+### May 2020 (Microsoft Build)
+
++ [Debug sessions](cognitive-search-debug-session.md) feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions). Debug sessions provide a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md).
+
++ Security enhancements include the ability to [set up a private search endpoint (preview)](service-create-private-endpoint.md) that is inaccessible on the public internet. You can also [configure IP rules for in-bound firewall support (preview)](service-configure-firewall.md).
+
++ Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
+
++ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) and sessionId query parameters.
 
 ### March 2020
 
@@ -68,6 +76,12 @@ Azure Search is now renamed to **Azure Cognitive Search** to reflect the expande
 ### July 2019
 
 + Generally available in [Azure Government Cloud](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
+
+<a name="new-service-name"></a>
+
+## New service name
+
+Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded (yet optional) use of cognitive skills and AI processing in core operations. API versions, NuGet packages, namespaces, and endpoints are unchanged. New and existing search solutions are unaffected by the service name change.
 
 ## Service updates
 

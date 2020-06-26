@@ -6,7 +6,6 @@ services: active-directory
 author: jeevansd
 manager: CelesteDG
 
-ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 

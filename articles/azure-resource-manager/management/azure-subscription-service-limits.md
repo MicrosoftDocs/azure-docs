@@ -2,7 +2,9 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 03/26/2020
+author: davidsmatlak
+ms.author: v-dasmat
+ms.date: 06/04/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -119,6 +121,8 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 ## Azure Functions limits
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
+
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
 
 ## Azure Kubernetes Service limits
 
@@ -239,7 +243,11 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Media Services limits
 
-[!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]
+[!INCLUDE [azure-mediaservices-limits](../../../includes/media-servieces-limits-quotas-constraints.md)]
+
+### Media Services v2 (legacy)
+
+For limits specific to Media Services v2 (legacy), see [Media Services v2 (legacy)](https://docs.microsoft.com/azure/media-services/previous/media-services-quotas-and-limitations)
 
 ## Mobile Services limits
 
@@ -312,7 +320,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 ## SQL Database limits
 
-For SQL Database limits, see [SQL Database resource limits for single databases](../../sql-database/sql-database-vcore-resource-limits-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../sql-database/sql-database-vcore-resource-limits-elastic-pools.md), and [SQL Database resource limits for managed instances](../../sql-database/sql-database-managed-instance-resource-limits.md).
+For SQL Database limits, see [SQL Database resource limits for single databases](../../azure-sql/database/resource-limits-vcore-single-databases.md), [SQL Database resource limits for elastic pools and pooled databases](../../azure-sql/database/resource-limits-vcore-elastic-pools.md), and [SQL Database resource limits for managed instances](../../azure-sql/managed-instance/resource-limits.md).
 
 ## SQL Data Warehouse limits
 

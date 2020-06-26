@@ -1,11 +1,11 @@
 ---
 title: Security compliance with Azure Policy and Azure Blueprints
 description: Ensuring compliance and enforcing security with Azure Policy and Azure Blueprints for Australian Government agencies as it relates to the ASD ISM and Essential 8
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: v-emread
 ---
 
 # Security compliance with Azure Policy and Azure Blueprints
@@ -105,7 +105,7 @@ To create an Azure Blueprint, you can start with a blank Blueprint template, or 
 
 ![Azure Blueprint Artifacts](media/blueprint-artifacts.png)
 
-These artifacts could include the Azure Resource Group and Resources and associated Azure Policy and Policy Initiatives to enforce the configuration required for your environment to be compliant you’re your regulatory requirements, for example, the ISM controls for system hardening.
+These artifacts could include the Azure Resource Group and Resources and associated Azure Policy and Policy Initiatives to enforce the configuration required for your environment to be compliant you're your regulatory requirements, for example, the ISM controls for system hardening.
 
 Each of these artifacts can also be configured with parameters. These values are provided when the Blueprint has been assigned to an Azure subscription and deployed. Parameters allow for a single Blueprint to be created and used to deploy resources into different environments without having to edit the underlying Blueprint.
 

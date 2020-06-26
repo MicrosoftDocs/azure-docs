@@ -1,14 +1,14 @@
 ---
 title: What is the Bing Web Search API?
 titleSuffix: Azure Cognitive Services
-description: The Bing Web Search API is a RESTful service that provides instant answers to user queries. Search results are easily configured to include web pages, images, videos, news, translations, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
+description: The Bing Web Search API is a RESTful service that provides instant answers to web search queries. Configure results to include web pages, images, videos, news, and more. Results are provided as JSON and based on search relevance and your Bing Web Search subscriptions.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---

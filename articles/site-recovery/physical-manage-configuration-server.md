@@ -285,8 +285,8 @@ Upgrade the server as follows:
 > [!NOTE]
 > The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
-## Renew SSL certificates
-The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
+## Renew TLS/SSL certificates
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses a TLS/SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.
 
 ### Check expiry
 

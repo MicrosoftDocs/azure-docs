@@ -28,7 +28,7 @@ Nodes in an HDInsight cluster are implemented using Azure Virtual Machines. The 
 
 To ensure high availability of Hadoop services, HDInsight provides two head nodes. Both head nodes are active and running within the HDInsight cluster simultaneously. Some services, such as Apache HDFS or Apache Hadoop YARN, are only 'active' on one head node at any given time. Other services such as HiveServer2 or Hive MetaStore are active on both head nodes at the same time.
 
-To obtain the hostnames for different node types in your cluster, please use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
+To obtain the hostnames for different node types in your cluster, please use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > Do not associate the numeric value with whether a node is primary or secondary. The numeric value is only present to provide a unique name for each node.

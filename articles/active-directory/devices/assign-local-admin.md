@@ -5,7 +5,7 @@ description: Learn how to assign Azure roles to the local administrators group o
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -25,7 +25,7 @@ This article explains how the membership update works and how you can customize 
 
 ## How it works
 
-When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principles to the local administrators group on the device:
+When you connect a Windows device with Azure AD using an Azure AD join, Azure AD adds the following security principals to the local administrators group on the device:
 
 - The Azure AD global administrator role
 - The Azure AD device administrator role 
@@ -88,7 +88,7 @@ You cannot assign groups to the device administrator role, only individual users
 
 Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
-When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in, or after 4 hours when a new primary refresh token is issued.
+When you remove users from the device administrator role, they still have the local administrator privilege on a device as long as they are signed in to it. The privilege is revoked during the next sign-in after 4 hours when a new primary refresh token is issued.
 
 ## Next steps
 

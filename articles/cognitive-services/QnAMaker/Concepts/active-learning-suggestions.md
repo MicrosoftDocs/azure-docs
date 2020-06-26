@@ -21,7 +21,7 @@ Both methods provide the ranker with similar queries that are clustered.
 
 ## How active learning works
 
-Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences between QnA sets that match the query lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
+Active learning is triggered based on the scores of the top few answers returned by QnA Maker. If the score differences between QnA pairs that match the query lie within a small range, then the query is considered a possible suggestion (as an alternate question) for each of the possible QnA pairs. Once you accept the suggested question for a specific QnA pair, it is rejected for the other pairs. You need to remember to save and train, after accepting suggestions.
 
 Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries. When 5 or more similar queries are clustered, every 30 minutes, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject. All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users.
 

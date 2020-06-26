@@ -3,7 +3,7 @@ title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: romitgirdhar
+author: BorisB2015
 manager: gwallace
 editor: 
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
+ms.author: borisb
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -82,7 +82,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
 1.  Switch to the *oracle* superuser, then initialize the listener for logging:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 

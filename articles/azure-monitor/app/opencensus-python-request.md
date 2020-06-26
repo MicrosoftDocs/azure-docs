@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.custom: tracking-python
 
 ---
 
@@ -28,7 +29,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`.
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -37,20 +38,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. You can also add urls to `settings.py` under `BLACKLIST_PATHS` for requests that you do not want to track.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -82,7 +70,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](..
     
     ```
 
-2. You can configure your `flask` middleware directly in the code. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {

@@ -5,21 +5,23 @@ description: Troubleshoot module exceptions in Azure Machine Learning designer u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
+ms.topic: troubleshooting
 
 author: likebupt
 ms.author: keli19
-ms.date: 12/03/2019
+ms.date: 04/16/2020
 ---
 # Exceptions and error codes for the designer (preview)
 
 This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
 
-There are two ways to get the full text of an error message in the designer:  
+You can find the error message in the designer following these steps:  
 
-- Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
-  
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
+- Select the failed module, go to the **Outputs+logs** tab, you can find the detailed log in the **70_driver_log.txt** file under the **azureml-logs** category.
+
+- For detailed module error, you can check it in the error_info.json under **module_statistics** category.
+
+Following are error codes of modules in the designer.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
@@ -143,6 +145,7 @@ There are two ways to get the full text of an error message in the designer:
 |Parameter "{arg_name}" value should be less than or equal to parameter "{upper_boundary_parameter_name}" value.|
 |Parameter "{arg_name}" has value "{actual_value}" which should be less than or equal to {upper_boundary}.|
 |Parameter "{arg_name}" value {actual_value} should be less than or equal to parameter "{upper_boundary_parameter_name}" value {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to {upper_boundary_meaning} value {upper_boundary}.|
 
 
 ## Error 0008  
@@ -273,6 +276,7 @@ If the model was trained using any of the specialized training modules, connect 
 |Learner of invalid type is passed.|
 |Learner "{arg_name}" has invalid type.|
 |Learner "{arg_name}" has invalid type "{learner_type}".|
+|Learner of invalid type is passed. Exception message: {exception_message}|
 
 
 ## Error 0014  
@@ -399,6 +403,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Values in column are not sorted.|
 |Values in column "{col_index}" are not sorted.|
 |Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -651,6 +656,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |------------------------|
 |Argument must be finite.|
 |"{arg_name}" is not finite.|
+|Column "{column_name}" contains infinite values.|
 
 
 ## Error 0034  
@@ -730,7 +736,7 @@ For general information about how the Matchbox recommendation algorithm works, a
  This error is caused by many conditions and there is no specific remedy.  
  The following table contains generic messages for this error, which are followed by a specific description of the condition. 
 
- If no details are available, [send feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) and provide information about the modules that generated the error and related conditions.
+ If no details are available, [Microsoft Q&A question page for send feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
 
 |Exception Messages|
 |------------------------|
@@ -1202,7 +1208,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Exception Messages|
 |------------------------|
@@ -1549,6 +1555,18 @@ Resolution:
 |------------------------------------------------------------|
 |Given TransformationDirectory is invalid.|
 |TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
+## Error 0159
+ Exception occurs if module model directory is invalid. 
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given ModelDirectory is invalid.|
+|ModelDirectory "{arg_name}" is invalid.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
 
 
 ## Error 1000  
@@ -1556,7 +1574,7 @@ Internal library exception.
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|

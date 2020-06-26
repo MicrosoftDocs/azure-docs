@@ -3,20 +3,18 @@ title: Problem creating an Application Proxy application | Microsoft Docs
 description: How to troubleshoot issues creating Application Proxy applications in the Azure AD Admin portal
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
 ms.collection: M365-identity-device-management
 ---
 

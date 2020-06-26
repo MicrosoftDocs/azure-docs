@@ -1,18 +1,13 @@
 ---
-title: 'End-user authentication: Python with Azure Data Lake Storage Gen1 using Azure Active Directory | Microsoft Docs'
+title: End-user authentication - Python with Data Lake Storage Gen1 - Azure
 description: Learn how to achieve end-user authentication with Azure Data Lake Storage Gen1 using Azure Active Directory with Python
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-
+ms.custom: has-adal-ref, tracking-python
 ---
 # End-user authentication with Azure Data Lake Storage Gen1 using Python
 > [!div class="op_single_selector"]
@@ -20,8 +15,8 @@ ms.author: twooley
 > * [Using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Using Python](data-lake-store-end-user-authenticate-python.md)
 > * [Using REST API](data-lake-store-end-user-authenticate-rest-api.md)
-> 
-> 
+>
+>
 
 In this article, you learn about how to use the Python SDK to do end-user authentication with Azure Data Lake Storage Gen1. End-user authentication can further be split into two categories:
 
@@ -94,7 +89,7 @@ Use the following snippet to authenticate with Azure AD for account management o
     client_id = 'FILL-IN-HERE'
     redirect = 'urn:ietf:wg:oauth:2.0:oob'
     RESOURCE = 'https://management.core.windows.net/'
-    
+
     context = adal.AuthenticationContext(authority_url)
     code = context.acquire_user_code(RESOURCE, client_id)
     print(code['message'])
@@ -110,10 +105,9 @@ Use this to authenticate with Azure AD for filesystem operations on a Data Lake 
 ## End-user authentication without multi-factor authentication
 
 This is deprecated. For more information, see [Azure Authentication using Python SDK](/azure/python/python-sdk-azure-authenticate).
-   
+
 ## Next steps
 In this article, you learned how to use end-user authentication to authenticate with Azure Data Lake Storage Gen1 using Python. You can now look at the following articles that talk about how to use Python to work with Azure Data Lake Storage Gen1.
 
 * [Account management operations on Data Lake Storage Gen1 using Python](data-lake-store-get-started-python.md)
 * [Data operations on Data Lake Storage Gen1 using Python](data-lake-store-data-operations-python.md)
-

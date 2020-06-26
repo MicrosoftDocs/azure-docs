@@ -22,7 +22,7 @@ as a String) and **RegistrationKey** (provided as a
 [PSCredential](/dotnet/api/system.management.automation.pscredential)) to onboard with Azure
 Automation. For details about obtaining those values, see [Onboarding machines for management by
 Azure Automation State Configuration - Secure
-registration](/azure/automation/automation-dsc-onboarding#secure-registration).
+registration](/azure/automation/automation-dsc-onboarding#onboarding-securely-using-registration).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
@@ -191,8 +191,8 @@ for the default configuration script, see
 | settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration that is named must be included in the script that **settings.configuration.script** defines. This property is required if **settings.configuration.url** or **settings.configuration.function** are defined. If no value is given for these properties, the extension calls the default configuration script to set LCM metadata, and arguments should be supplied. |
 | settings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is not encrypted. |
 | settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.psd1) file to use as input for your DSC configuration. If the URL provided requires an SAS token for access, set the **protectedSettings.configurationDataUrlSasToken** property to the value of your SAS token. |
-| settings.privacy.dataCollection |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download WMF. For more information, see [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.privacy.dataCollection |string |Enables or disables telemetry collection. The only possible values for this property are **Enable**, **Disable**, **''**, or **$null**. Leaving this property blank or null enables telemetry. The default value is **''**. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/). |
+| settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download WMF. For more information, see [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/). |
 | protectedSettings.configurationArguments |Collection |Defines any parameters that you want to pass to your DSC configuration. This property is encrypted. |
 | protectedSettings.configurationUrlSasToken |string |Specifies the SAS token to use to access the URL that **settings.configuration.url** defines. This property is encrypted. |
 | protectedSettings.configurationDataUrlSasToken |string |Specifies the SAS token to use to access the URL that  **settings.configurationData.url** defines. This property is encrypted. |

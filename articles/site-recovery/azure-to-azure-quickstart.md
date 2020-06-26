@@ -33,7 +33,7 @@ The following steps enable VM replication to a secondary location.
 1. To view the replication settings, select **Review + Start replication**. If you need to change any defaults, select **Advanced settings**.
 1. To start the job that enables VM replication select **Start replication**.
 
-   ![enable replication](media/azure-to-azure-quickstart/enable-replication1.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Enable replication.":::
 
 ## Verify settings
 
@@ -43,7 +43,7 @@ After the replication job finishes, you can check the replication status, modify
 1. In **Operations** select **Disaster recovery**.
 1. To view the replication details from the **Overview** select **Essentials**. More details are shown in the **Health and status**, **Failover readiness**, and the **Infrastructure view** map.
 
-   ![Replication status](media/azure-to-azure-quickstart/replication-status.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/replication-status.png" alt-text="Replication status.":::
 
 ## Clean up resources
 
@@ -60,7 +60,7 @@ To disable replication, do these steps:
 1. From the **Overview**, select **Disable Replication**.
 1. To uninstall the Site Recovery extension, go to the VM's **Settings** > **Extensions**.
 
-   ![Disable replication](media/azure-to-azure-quickstart/disable2-replication.png)
+   :::image type="content" source="media/azure-to-azure-quickstart/disable2-replication.png" alt-text="Disable replication.":::
 
 ## Next steps
 

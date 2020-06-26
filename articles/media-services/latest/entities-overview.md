@@ -186,4 +186,4 @@ The following table shows how you can apply the filtering and ordering options t
 * [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Stream a file](stream-files-dotnet-quickstart.md)
-* [Quotas and limitations](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints.md)

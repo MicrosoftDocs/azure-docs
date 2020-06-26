@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
+ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -52,7 +52,7 @@ To run this sample, you need:
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 > 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information. 
+> 1. When the **Register an application** page appears, enter your application's registration information.
 > 1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Daemon-console`, then select **Register** to create the application.
 > 1. Once registered, select the **Certificates & secrets** menu.
 > 1. Under **Client secrets**, select **+ New client secret**. Give it a name and select **Add**. Copy the secret on a safe location. You will need it to use in your code.
@@ -62,7 +62,7 @@ To run this sample, you need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Download and configure your quickstart app
-> 
+>
 > #### Step 1: Configure your application in Azure portal
 > For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -81,12 +81,12 @@ To run this sample, you need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Enter_the_Supported_Account_Info_Here
+> > `Enter_the_Supported_Account_Info_Here`
 
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Python project
-> 
+>
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 > 1. Navigate to the sub folder **1-Call-MsGraph-WithSecret"**.
 > 1. Edit **parameters.json** and replace the values of the fields `authority`, `client_id`, and `secret` with the following snippet:
@@ -103,7 +103,7 @@ To run this sample, you need:
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
-    
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Admin consent
 
@@ -209,7 +209,7 @@ if not result:
 
 > |Where:| |
 > |---------|---------|
-> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom Web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
+> | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 
 For more information, please see the [reference documentation for `AcquireTokenForClient`](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
 
@@ -236,8 +236,3 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 client cre
 
 > [!div class="nextstepaction"]
 > [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

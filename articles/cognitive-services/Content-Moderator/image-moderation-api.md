@@ -1,7 +1,7 @@
 ---
 title: Image Moderation - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use Content Moderator’s machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
+description: Use Content Moderator's machine-assisted image moderation and human-in-the-loop Review tool to moderate images for adult and racy content.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 
 ---
 
 # Learn image moderation concepts
 
-Use Content Moderator’s machine-assisted image moderation and [human-in-the-loop Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
+Use Content Moderator's machine-assisted image moderation and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
 
 ## Evaluating for adult and racy content
 
@@ -136,12 +136,12 @@ Example extract:
     ....
     }
 
-## Human review tool
+## Review tool
 
-For more nuanced cases, use the Content Moderator [review tool](Review-Tool-User-Guide/human-in-the-loop.md) and its API to surface the moderation results and content in the review for your human moderators. They review the machine-assigned tags and confirm their final decisions.
+For more nuanced cases, use the Content Moderator [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) and its API to surface the moderation results and content in the review for your human moderators. They review the machine-assigned tags and confirm their final decisions.
 
 ![Image review for human moderators](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the Image moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.

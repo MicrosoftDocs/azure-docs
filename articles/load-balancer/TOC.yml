@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: Frequently asked questions
+    href: load-balancer-faqs.md
 - name: Quickstart
   items:
   - name: Create Load Balancer - Portal
@@ -36,8 +38,12 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: Components and limitations
-    href: concepts-limitations.md
+  - name: Components
+    href: components.md
+  - name: Concepts
+    href: concepts.md
+  - name: SKUs
+    href: skus.md
   - name: Health monitoring
     items:
     - name: Health probes
@@ -54,8 +60,6 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
     href: load-balancer-outbound-connections.md
-  - name: Outbound Rules
-    href: load-balancer-outbound-rules-overview.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
@@ -129,10 +133,14 @@
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
-  - name: Troubleshoot
-    items:
-    - name: Troubleshoot Azure Load Balancer
-      href: load-balancer-troubleshoot.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot Azure Load Balancer
+    href: load-balancer-troubleshoot.md
+  - name: Troubleshoot common deployment errors
+    href: load-balancer-common-deployment-errors.md
+  - name: Resolve common outbound connection issues
+    href: troubleshoot-outbound-connection.md
 - name: Reference
   items:
   - name: Code samples
@@ -146,11 +154,11 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Node.js
-    href: http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html
+    href: /javascript/api/@azure/arm-network/loadbalancers
   - name: Ruby
-    href: http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers
+    href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations
+    href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
   - name: REST
     href: https://msdn.microsoft.com/library/azure/mt163651.aspx
   - name: Resource Manager template

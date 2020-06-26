@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 10/22/2019
@@ -33,9 +33,9 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. In the left menu, select **Azure AD roles** and then select **Access reviews**.
+1. Select **Azure AD roles**.
 
-1. Under Manage, select **Access reviews**.
+1. Under Manage, select **Access reviews**, and then select **New**.
 
     ![Azure AD roles - Access reviews list showing the status of all reviews](./media/pim-how-to-start-security-review/access-reviews.png)
 

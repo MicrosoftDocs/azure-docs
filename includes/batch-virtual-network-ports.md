@@ -3,18 +3,15 @@ title: include file
 description: include file
 services: batch
 documentationcenter:
-author: LauraBrenner
+author: JnHs
 manager: evansma
 editor: ''
-
-ms.assetid:
 ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.workload:
-ms.date: 03/04/2020
-ms.author: labrenne
+ms.date: 06/16/2020
+ms.author: jenhayes
 ms.custom: include file
 ---
 
@@ -45,7 +42,7 @@ Additional VNet requirements differ, depending on whether the Batch pool is in t
 **Additional networking resources** - Batch automatically allocates additional networking resources in the resource group containing the VNet.
 
 > [!IMPORTANT]
->For each 50 dedicated nodes (or each 20 low-priority nodes), Batch allocates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
+>For each 100 dedicated or low-priority nodes, Batch allocates: one network security group (NSG), one public IP address, and one load balancer. These resources are limited by the subscription's [resource quotas](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to request a quota increase for one or more of these resources.
 
 #### Network security groups: Batch default
 
@@ -71,6 +68,11 @@ Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need 
 | --- | --- | --- | --- | --- | --- | --- |
 | N/A | `BatchNodeManagement` [Service tag](../articles/virtual-network/security-overview.md#service-tags) (if using regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
 | User source IPs for remotely accessing compute nodes and/or compute node subnet for Linux multi-instance tasks, if required. | N/A | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
+
+> [!WARNING]
+> Batch service IP addresses can change over time. Therefore, it is highly recommended to utilize the
+> `BatchNodeManagement` service tag (or regional variant) for NSG rules. It is not recommended to populate
+> NSG rules with Batch service IP addresses directly.
 
 **Outbound security rules**
 

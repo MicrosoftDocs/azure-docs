@@ -1,18 +1,8 @@
 ---
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 11/26/2019
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Use Virtual Network service endpoints with Azure Event Hubs
@@ -22,6 +12,23 @@ The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vn
 Once configured to bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service. 
 
 The result is a private and isolated relationship between the workloads bound to the subnet and the respective Event Hubs namespace, in spite of the observable network address of the messaging service endpoint being in a public IP range. There is an exception to this behavior. Enabling a service endpoint, by default, enables the `denyall` rule in the [IP firewall](event-hubs-ip-filtering.md) associated with the virtual network. You can add specific IP addresses in the IP firewall to enable access to the Event Hub public endpoint. 
+
+>[!WARNING]
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
+>
+> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+>
+> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> - Azure Monitor (diagnostic setting)
+> - Azure Stream Analytics
+> - Integration with Azure Event Grid
+> - Azure IoT Hub Routes
+> - Azure IoT Device Explorer
+>
+> The following Microsoft services are required to be on a virtual network
+> - Azure Web Apps
+> - Azure Functions
+
 
 > [!IMPORTANT]
 > Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.

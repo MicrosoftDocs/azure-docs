@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:

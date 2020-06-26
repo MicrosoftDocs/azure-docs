@@ -108,11 +108,8 @@ To see the original response:
 2.  Select **All operations**.
 3.  On the top of the screen, select **Design** tab.
 4.  In the **Outbound processing** section, click the **</>** icon.
-5.  Position the cursor inside the **&lt;outbound&gt;** element.
-6.  In the right window, under **Transformation policies**, click **+ Find and replace string in body**.
-7.  Modify your **find-and-replace** code (in the **\<outbound\>** element) to replace the URL to match your APIM gateway. For example:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Position the cursor inside the **&lt;outbound&gt;** element and click **Show snippets** button at the top right corner.
+6.  In the right window, under **Transformation policies**, click **Mask URLs in content**.
 
 ## Protect an API by adding rate limit policy (throttling)
 

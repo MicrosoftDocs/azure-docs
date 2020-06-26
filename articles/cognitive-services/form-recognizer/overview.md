@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 04/14/2020
 ms.author: pafarley
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
@@ -78,7 +78,7 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze Receipt** |Analyze a single receipt document to extract key information and other receipt text.|
 | **Analyze Layout** |Analyze the layout of a form to extract text and table structure.|
 
-Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ## Input requirements
 ### Custom model
@@ -89,7 +89,7 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 The input requirements for the receipt model are slightly different.
 
-* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
+* Format must be JPEG, PNG, PDF (text or scanned) or TIFF.
 * File size must be less than 20 MB.
 * Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
 * PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
@@ -97,8 +97,8 @@ The input requirements for the receipt model are slightly different.
 
 ## Data privacy and security
 
-This service is offered as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) of an Azure service under the [Online Service Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
+As with all the cognitive services, developers using the Form Recognizer service should be aware of Microsoft policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).
+Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm).

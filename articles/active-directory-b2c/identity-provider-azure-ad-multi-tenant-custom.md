@@ -40,7 +40,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    For example, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Select **Register**. Record the **Application (client) ID** for use in a later step.
 1. Select **Certificates & secrets**, and then select **New client secret**.
@@ -53,10 +53,10 @@ If you want to get the `family_name` and `given_name` claims from Azure AD, you 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Azure Active Directory**.
 1. From the **Manage** section, select **App registrations**.
 1. Select the application you want to configure optional claims for in the list.
-1. From the **Manage** section, select **Token configuration (preview)**.
+1. From the **Manage** section, select **Token configuration**.
 1. Select **Add optional claim**.
-1. Select the token type you want to configure.
-1. Select the optional claims to add.
+1. For the **Token type**, select **ID**.
+1. Select the optional claims to add, `family_name` and `given_name`.
 1. Click **Add**.
 
 ## Create a policy key
@@ -83,7 +83,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
 1. Find the **ClaimsProviders** element. If it does not exist, add it under the root element.
 1. Add a new **ClaimsProvider** as follows:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>commonaad</Domain>
       <DisplayName>Common AAD</DisplayName>
@@ -177,7 +177,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created in *TrustFrameworkExtensions.xml*.
 1. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `AzureADExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
     ```
 
@@ -188,7 +188,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 

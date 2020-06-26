@@ -26,11 +26,11 @@ This article helps you understand and resolve common alerts for network security
 
 *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-Invalid network security group rules are the most common cause of network errors for Azure AD DS. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Azure AD directory and Azure AD DS managed domain is also impacted. Make sure you keep the default ports open to avoid interruption in service.
+Invalid network security group rules are the most common cause of network errors for Azure AD DS. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Azure AD directory and Azure AD DS is also impacted. Make sure you keep the default ports open to avoid interruption in service.
 
 ## Default security rules
 
-The following default inbound and outbound security rules are applied to the network security group for an Azure AD DS managed domain. These rules keep Azure AD DS secure and allow the Azure platform to monitor, manage, and update the managed domain. You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps].
+The following default inbound and outbound security rules are applied to the network security group for a managed domain. These rules keep Azure AD DS secure and allow the Azure platform to monitor, manage, and update the managed domain. You may also have an additional rule that allows inbound traffic if you [configure secure LDAP][configure-ldaps].
 
 ### Inbound security rules
 
@@ -64,7 +64,7 @@ To verify the existing security rules and make sure the default ports are open, 
 
     Review the inbound and outbound rules and compare to the list of required rules in the previous section. If needed, select and then delete any custom rules that block required traffic. If any of the required rules are missing, add a rule in the next section.
 
-    After you add or delete rules to allow the required traffic, the Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
+    After you add or delete rules to allow the required traffic, the managed domain's health automatically updates itself within two hours and removes the alert.
 
 ### Add a security rule
 

@@ -29,7 +29,9 @@ landingContent:
             url: ./servers/overview.md 
       - linkListType: quickstart
         links:
-          - text: Connect machines to Azure using Azure Arc for servers - Portal
-            url: ./servers/quickstart-onboard-portal.md
-          - text: Connect machines to Azure using Azure Arc for servers - PowerShell
-            url: ./servers/quickstart-onboard-portal.md
+          - text: Connect machines to Azure Arc from the Azure portal
+            url: ./servers/onboard-portal.md
+          - text: Connect machines at scale using a service principal
+            url: ./servers/onboard-service-principal.md
+          - text: Connect machines to Azure with PowerShell DSC
+            url: ./servers/onboard-dsc.md

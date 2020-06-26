@@ -39,7 +39,6 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifies a web app's configuration. |
-| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Gets a web app's metrics. |
 
 ## Next steps
 

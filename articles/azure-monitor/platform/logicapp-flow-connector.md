@@ -15,6 +15,15 @@ ms.date: 03/13/2020
 
 For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
+## Connector limits
+The Azure Monitor Logs connector has these limits:
+* Max data size: 16 MB
+* Max query response size 100 MB
+* Max number of records: 500,000
+* Max query timeout 110 second.
+
+Depending on the size of your data and the query you use, the connector may hit its limits and fail. You can work around such cases when adjusting the trigger recurrence to run more frequently and query less data. You can use queries that aggregate your data to return less records and columns.
+
 ## Actions
 The following table describes the actions included with the Azure Monitor Logs connector. Both allow you to run a log query against a Log Analytics workspace or Application Insights application. The difference is in the way the data is returned.
 

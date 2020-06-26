@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 # Troubleshoot Azure AD connectivity
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
@@ -27,7 +28,7 @@ Azure AD Connect is using Modern Authentication (using the ADAL library) for aut
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured.  
+First we need to make sure [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) is correctly configured.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -54,24 +55,24 @@ The installation wizard is using two different security contexts. On the page **
 The following issues are the most common errors you encounter in the installation wizard.
 
 ### The installation wizard has not been correctly configured
-This error appears when the wizard itself cannot reach the proxy.  
+This error appears when the wizard itself cannot reach the proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * If you see this error, verify the [machine.config](how-to-connect-install-prerequisites.md#connectivity) has been correctly configured.
 * If that looks correct, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### A Microsoft account is used
-If you use a **Microsoft account** rather than a **school or organization** account, you see a generic error.  
+If you use a **Microsoft account** rather than a **school or organization** account, you see a generic error.
 ![A Microsoft Account is used](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### The MFA endpoint cannot be reached
-This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.  
+This error appears if the endpoint **https://secure.aadcdn.microsoftonline-p.com** cannot be reached and your global admin has MFA enabled.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * If you see this error, verify that the endpoint **secure.aadcdn.microsoftonline-p.com** has been added to the proxy.
 
 ### The password cannot be verified
-If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you see this error:  
+If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you see this error:
 ![Bad password.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Is the password a temporary password and must be changed? Is it actually the correct password? Try to sign in to `https://login.microsoftonline.com` (on another computer than the Azure AD Connect server) and verify the account is usable.
@@ -184,7 +185,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 </div>
 
 ### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user.
 
 <div id="privileged-identity-management">
 <!--
@@ -222,7 +223,7 @@ Shown as Unexpected error in the installation wizard. Can happen if you try to u
 ## Troubleshooting steps for previous releases.
 With releases starting with build number 1.1.105.0 (released February 2016), the sign-in assistant was retired. This section and the configuration should no longer be required, but is kept as reference.
 
-For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+For the single-sign in assistant to work, winhttp must be configured. This configuration can be done with [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### The Sign-in assistant has not been correctly configured

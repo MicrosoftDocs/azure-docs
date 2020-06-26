@@ -1,30 +1,30 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK & resources'
 description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/09/2018
-ms.author: sngun
-
+ms.date: 05/11/2020
+ms.author: anfeldma
 
 ---
-# Azure Cosmos DB .NET SDK for SQL API: Download and release notes
+# Azure Cosmos DB .NET SDK v2 for SQL API: Download and release notes
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
-> * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [.NET SDK v2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK v2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |

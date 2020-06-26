@@ -1,27 +1,14 @@
 ---
 title: Receive events using Event Processor Host - Azure Event Hubs | Microsoft Docs
 description: This article describes the Event Processor Host in Azure Event Hubs, which simplifies the management of checkpointing, leasing, and reading events ion parallel. 
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija 
-
+ms.date: 06/23/2020
 ---
 
 # Event processor host
 > [!NOTE]
 > This article applies to the old version of Azure Event Hubs SDK. To learn how to migrate your code to the newer version of the SDK, see these migration guides. 
-> - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md)
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
@@ -203,7 +190,7 @@ Now that you're familiar with the Event Processor Host, see the following articl
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Event Hubs programming guide](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

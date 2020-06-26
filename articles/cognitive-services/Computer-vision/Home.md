@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
 #Customer intent: As a developer, I want to evaluate image processing functionality, so that I can determine if it will work for my information extraction or object detection scenarios.
@@ -19,9 +19,9 @@ ms.custom: seodec18
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information based on the visual features you're interested in. For example, Computer Vision can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
-You can use Computer Vision in your application through a native SDK or by invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
+You can use Computer Vision in your application through a client library SDK or by calling the REST API directly. This page broadly covers what you can do with Computer Vision.
 
 ## Computer Vision for digital asset management
 
@@ -29,7 +29,7 @@ Computer Vision can power many digital asset management (DAM) scenarios. DAM is 
 
 ## Analyze images for insight
 
-You can analyze images to detect and provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+You can analyze images to provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
 
 | Action | Description |
 | ------ | ----------- |
@@ -47,7 +47,7 @@ You can analyze images to detect and provide insights about their visual feature
 
 ## Extract text from images
 
-You can use Computer Vision [Read](concept-recognizing-text.md#read-api) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses our latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. Currently, English and Spanish are the only supported languages.
+You can use the Computer Vision [Read](concept-recognizing-text.md#read-api) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses the latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. It currently works for seven different languages (see [Language support](./language-support.md)).
 
 You can also use the [optical character recognition (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API to extract printed text in several languages. If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
 
