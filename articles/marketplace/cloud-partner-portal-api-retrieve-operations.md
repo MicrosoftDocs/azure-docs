@@ -1,6 +1,6 @@
 ---
-title: Retrieve operations API | Azure Marketplace
-description: Retrieves all the operations on the offer or to get a particular operation for the specified operationId.
+title: Retrieve operations API - Azure Marketplace
+description: API to retrieve all the operations on the offer or to get a particular operation for the specified operationId.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -13,7 +13,7 @@ ms.author: dsindona
 # Retrieve operations
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
 
 Retrieves all the operations on the offer or to get a particular operation for the specified operationId. The client may use
 query parameters to filter on running operations.
