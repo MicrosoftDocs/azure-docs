@@ -15,8 +15,6 @@ The test drive option in the Microsoft commercial marketplace lets you configure
 
 If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box. Not all offer types have a test drive available.
 
-For help on how to set up your Dynamics 365 environment for test drive and grant AppSource permission to provision and deprovision test drive users in your tenant, follow [these instructions](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
-
 ## Azure Resource Manager test drive
 
 This is the only test drive option for virtual machine or Azure app offers and also requires fairly detailed setup. Read the sections below for [Deployment subscription details](#deployment-subscription-details) and [Test drive listings](#test-drive-listings-optional) (optional), then continue with the separate topic for [Azure Resource Manager test drive configuration](azure-resource-manager-test-drive.md).
@@ -34,6 +32,8 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 - **Instance Web API URL** (required) – Retrieve the Web API URL for your Dynamics 365 instance by logging into your Microsoft 365 account and navigating to **Settings** > **Customization** > **Developer Resources** > **Instance Web API (Service Root URL)**, copy the URL found here (for example, `https://testdrive.crm.dynamics.com/api/data/v9.0`).
 
 - **Role name** (required) – Provide the security role name you have defined in your custom Dynamics 365 test drive, which will be assigned to the user during their test drive (for example, test-drive-role).
+
+For help on how to set up your Dynamics 365 environment for test drive and grant AppSource permission to provision and deprovision test drive users in your tenant, follow [these instructions](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
 
 ## Logic app test drive
 
@@ -71,7 +71,7 @@ To allow Microsoft to deploy the test drive on your behalf, create and provide a
 
 - **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
 
-## Test drive listings (optional)
+## Test drive listings
 
 The **Test Drive listings** option found under the **Test drive** tab in Partner Center displays the languages (and markets) where your test drive is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market.
 
