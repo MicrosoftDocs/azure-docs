@@ -1,13 +1,13 @@
 ---
 title: Configure anonymous public read access for containers and blobs
 titleSuffix: Azure Storage
-description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
+description: Learn how to enable or disable anonymous access to blob data for the storage account. Set the container public access setting to make containers and blobs available for anonymous access.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 06/26/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -21,17 +21,15 @@ Azure Storage supports anonymous public read access for containers and blobs. By
 
 This article describes how to configure anonymous public read access for a container. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md).
 
-To learn how to disable public access for all blob data in a storage account, see [Prevent anonymous public access to containers and blobs](anonymous-read-access-prevent.md).
-
 ## Enable or disable public read access for a storage account
 
-By default, public access is disabled for a new??? storage account. Disabling public access for a storage account prevents all anonymous access to containers and blobs in that account. For improved security, Microsoft recommends that you disable public access for a storage account unless your scenario requires that users access blob resources anonymously.
+By default, public access is enabled for a storage account. Disabling public access prevents all anonymous access to containers and blobs in that account. For improved security, Microsoft recommends that you disable public access for your storage accounts unless your scenario requires that users access blob resources anonymously.
 
-To enable or disable public access for a storage account, use the Azure portal, PowerShell, or Azure CLI.
+To enable or disable public access for a storage account, use the Azure portal or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
-To enable or disable public access in the Azure portal, follow these steps:
+To enable or disable public access for a storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Locate the **Configuration** setting under **Settings**.
@@ -39,130 +37,90 @@ To enable or disable public access in the Azure portal, follow these steps:
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to enable or disable blob public access for account":::
 
-# [PowerShell](#tab/powershell)
-
-Not yet???
-
 # [Azure CLI](#tab/azure-cli)
 
-???
+To enable or disable public access for a storage account with Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **allowBlobPublicAccess** property for the storage account. To enable public access, set the **allowBlobPublicAccess** property to true; to disable, set it to **false**.
+
+The following example disables public blob access for the storage account. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli-interactive
+storage_account_id=$(az resource show \
+    --name anonpublicaccess \
+    --resource-group storagesamples-rg \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query id \
+    --output tsv)
+
+az resource update \
+    --ids $storage_account_id \
+    --set properties.allowBlobPublicAccess=false
+    ```
+
+To check whether public access is enabled with Azure CLI, call the [az resource show](/cli/azure/resource#az-resource-show) command and query for the **allowBlobPublicAccess** property:
+
+```azurecli-interactive
+az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query properties.allowBlobPublicAccess \
+    --output tsv
+```
 
 ---
 
+## Set the public access level for a container
 
-When public access is disabled at the level of the account, a container's public access level cannot be set.
-
-# [Azure portal](#tab/portal)
-
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disabled":::
-
-
-# [PowerShell](#tab/powershell)
-
-Not yet???
-
-# [Azure CLI](#tab/azure-cli)
-
-???
-
----
-
-
-
-## Grant anonymous users permissions to containers and blobs
-
-By default, a container and any blobs within it may be accessed only by a user that has appropriate permissions. To grant anonymous users read access to a container and its blobs, set the container's public access level. You can configure a container with the following permissions:
+To grant anonymous users read access to a container and its blobs, set the container's public access level. You can configure a container with the following permissions:
 
 - **No public read access:** The container and its blobs can be accessed only by the storage account owner. This option is the default for all new containers.
 - **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
 - **Public read access for container and its blobs:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
 
-### Set container public access level in the Azure portal
+You can set a container's public access level only if public access is enabled for the storage account. If public access is disabled for the storage account, changing the public access level for a container is not permitted. For more information, see [Enable or disable public read access for a storage account](#enable-or-disable-public-read-access-for-a-storage-account).
 
-From the [Azure portal](https://portal.azure.com), you can update the public access level for one or more containers:
+You cannot change the public access level for an individual blob. Public access level is set only at the container level.
+
+To set a container's public access level, use the Azure portal or Azure CLI. You can set the container's public access level when you create the container, or update this setting on an existing container.
+
+# [Azure portal](#tab/portal)
+
+To update the public access level for one or more existing containers in the Azure portal, follow these steps:
 
 1. Navigate to your storage account overview in the Azure portal.
-1. Under **Blob service** on the menu blade, select **Blobs**.
+1. Under **Blob service** on the menu blade, select **Containers**.
 1. Select the containers for which you want to set the public access level.
 1. Use the **Change access level** button to display the public access settings.
 1. Select the desired public access level from the **Public access level** dropdown and click the OK button to apply the change to the selected containers.
 
-The following screenshot shows how to change the public access level for the selected containers.
+    ![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/storage-manage-access-to-resources-0.png)
 
-![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/storage-manage-access-to-resources-0.png)
+When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, you'll see that the setting is disabled because public access is forbidden for the account.
 
-> [!NOTE]
-> You cannot change the public access level for an individual blob. Public access level is set only at the container level.
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot showing that setting container public access level is blocked when public access disabled":::
 
-### Set container public access level with .NET
+# [Azure CLI](#tab/azure-cli)
 
-# [\.NET v12 SDK](#tab/dotnet)
+To get the public access level for one or more containers with Azure CLI, call the [az storage container show permission](/cli/azure/storage/container#az-storage-container-show-permission) command. To update the public access level for one or more containers with Azure CLI, call the [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) command.
 
-To set the permissions for a container, call the [BlobContainerClient.SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) method. 
+Authorize these operations by passing in your account key, a connection string, or a shared access signature (SAS). The [Get Container ACL](/rest/api/storageservices/get-container-acl) operation that returns a container's public access level and the [Set Container ACL](/rest/api/storageservices/set-container-acl) operation that sets public access level do not support authorization with Azure AD. For more information, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
-The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, pass the **PublicAccessType.Blob** field into the [BlobContainerClient.SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) method. To remove all permissions for anonymous users, use the **BlobContainerPublicAccessType.None** field.
+The following example sets the public access setting for the storage account to enable anonymous access to the container and its blobs, then reads the setting. Remember to replace the placeholder values in brackets with your own values:
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_SetPublicContainerPermissions":::
+```azurecli-interactive
+az storage container set-permission \
+    --name <container-name> \
+    --account-name <account-name> \
+    --public-access container \
+    --account-key <account-key> \
+    --auth-mode key
 
-# [\.NET v11 SDK](#tab/dotnet11)
 
-To set the permissions for a container using the Azure Storage client library for .NET, first retrieve the container's existing permissions by calling one of the following methods:
-
-- [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
-- [GetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissionsasync)
-
-Next, set the **PublicAccess** property on the [BlobContainerPermissions](/dotnet/api/microsoft.azure.storage.blob.blobcontainerpermissions) object that is returned by the **GetPermissions** method.
-
-Finally, call one of the following methods to update the container's permissions:
-
-- [SetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
-- [SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
-
-The following example sets the container's permissions to full public read access. To set permissions to public read access for blobs only, set the **PublicAccess** property to **BlobContainerPublicAccessType.Blob**. To remove all permissions for anonymous users, set the property to **BlobContainerPublicAccessType.Off**.
-
-```csharp
-private static async Task SetPublicContainerPermissions(CloudBlobContainer container)
-{
-    BlobContainerPermissions permissions = await container.GetPermissionsAsync();
-    permissions.PublicAccess = BlobContainerPublicAccessType.Container;
-    await container.SetPermissionsAsync(permissions);
-
-    Console.WriteLine("Container {0} - permissions set to {1}", container.Name, permissions.PublicAccess);
-}
-```
-
----
-
-## Access containers and blobs anonymously
-
-A client that accesses containers and blobs anonymously can use constructors that do not require credentials. The following examples show a few different ways to reference containers and blobs anonymously.
-
-### Create an anonymous client object
-
-You can create a new service client object for anonymous access by providing the Blob storage endpoint for the account. However, you must also know the name of a container in that account that's available for anonymous access.
-
-# [\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_CreateAnonymousBlobClient":::
-
-# [\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-public static void CreateAnonymousBlobClient()
-{
-    // Create the client object using the Blob storage endpoint for your account.
-    CloudBlobClient blobClient = new CloudBlobClient(
-        new Uri(@"https://storagesamples.blob.core.windows.net"));
-
-    // Get a reference to a container that's available for anonymous access.
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-
-    // Read the container's properties. 
-    // Note this is only possible when the container supports full public read access.
-    container.FetchAttributes();
-    Console.WriteLine(container.Properties.LastModified);
-    Console.WriteLine(container.Properties.ETag);
-}
+az storage container show-permission \
+    --name <container-name> \
+    --account-name <account-name> \
+    --account-key <account-key>
+    --auth-mode key
 ```
 
 ---
@@ -170,5 +128,4 @@ public static void CreateAnonymousBlobClient()
 ## Next steps
 
 - [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
-- [Prevent anonymous public access to containers and blobs](anonymous-read-access-prevent.md)
 - [Authorizing access to Azure Storage](../common/storage-auth.md)

@@ -363,8 +363,6 @@
           items:
           - name: Configure anonymous public read access for containers and blobs  
             href: anonymous-read-access-configure.md
-          - name: Prevent anonymous public access to containers and blobs  
-            href: anonymous-read-access-prevent.md
           - name: Access public containers and blobs anonymously (.NET)
             href: anonymous-read-access-client.md
       - name: Manage Azure Storage encryption

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 06/26/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -102,5 +102,4 @@ public static void DownloadBlobAnonymously()
 ## Next steps
 
 - [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md)
-- [Prevent anonymous public access to containers and blobs](anonymous-read-access-prevent.md)
 - [Authorizing access to Azure Storage](../common/storage-auth.md)
