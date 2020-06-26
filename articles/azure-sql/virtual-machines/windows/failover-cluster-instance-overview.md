@@ -44,22 +44,26 @@ In traditional on-premises clustered environments, the Windows Failover Cluster 
 
 [Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure Managed Disks](../../../virtual-machines/windows/managed-disks-overview.md), and Windows Server Failover Cluster supports using Azure Shared Disks with a failover cluster instance. 
 
-**Supported OS**: Windows Server 2019    
-**Supported SQL version**: SQL Server 2019    
+**Supported OS**: Windows Server 2019   
+**Supported SQL version**: SQL Server 2019   
+
 
 
 |**Benefits** |**Limitations**|
 |---------|---------|
-|Azure Shared Disks allows you to migrate clustered applications to Azure as-is because it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. |Only available for SQL Server 2019 and Windows Server 2019 in Preview. |
-|Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. |Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).|
-|Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.| Availability Zones are not supported. |
-|  |Premium SSD Disk caching is not supported.| 
+|The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is.  |Only available for SQL Server 2019 and Windows Server 2019 in Preview. |
+|Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. |Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).|
+|Supports both Premium SSD and Ultra disks. | Availability Zones are not supported. |
+|Use a single shared disk or stripe multiple shared disks to create a shared storage pool.|Premium SSD Disk caching is not supported.| 
 
 
 **Benefits**: 
-- Azure Shared Disks allows you to migrate clustered applications to Azure as-is becuase it supports SCSI PR which is an industry standard leveraged by applications running on Storage Area Network (SAN) on-premises. 
-- Shared disks are supported both with Premium SSD and Ultra Disks. Use either a single shared disk or stripe multiple shared disks together to create a shared storage pool. 
-- Shared disks are the highly recommended solution for applications looking to migrate to Azure by keeping the HADR architecture as is.
+- The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is. 
+- Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. 
+- Supports both Premium SSD and Ultra disks. 
+- Use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
+
+
 
 **Limitations**: 
 - Only available for SQL Server 2019 and Windows Server 2019 in Preview. 
@@ -73,11 +77,16 @@ To get started, see [SQL Server failover cluster instance with Azure Shared Disk
 
 ### Storage Spaces Direct
 
-[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) (S2D) is a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN. 
+[Storage spaces direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) (S2D) is a Windows Server feature that is supported with failover clustering on Azure Virtual Machines. Storage spaces direct provide a software-based virtual SAN.
 
-Benefits: S2D requires same disk capacity attached both VMs as it internally replicates writes between FCI nodes. Because of the on-going replication, using S2D requires high network bandwidth to achive high performance. S2D supports Azure Blob Cahce, so reads can be served locally from the cahce but updates are replicated simlutanously on both nodes. When used with the right VM size that allows the network activity required to synchrronize S2D, then it offers a high performance shared storage solution for SQL FCI. 
+**Supported OS**: Windows Server 2016 and higher
+**Supported SQL version**: SQL Server 2016 and higher
 
-Limitations:
+**Benefits:** 
+- S2D requires same disk capacity attached both VMs as it internally replicates writes between FCI nodes. Because of the on-going replication, using S2D requires high network bandwidth to achive high performance. 
+- S2D supports Azure Blob Cahce, so reads can be served locally from the cahce but updates are replicated simlutanously on both nodes. When used with the right VM size that allows the network activity required to synchrronize S2D, then it offers a high performance shared storage solution for SQL FCI. 
+
+**Limitations:**
 - Only available for Windows Server 2016 and later. 
 - Filestream is supported. 
 - Availability zones are not supported.
@@ -85,14 +94,18 @@ Limitations:
 
 To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
-**Supported OS**:    Windows Server 2016 and higher
-**Supported SQL version**:    SQL Server 2016 and higher
 
 ### Premium file share
 
 [Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
-Benefits: PFS is the only shared storage solution if VMs are spreaded over multiple availability zones. PFS is a fully managed file system with single digit latencies and offers burstable IO performance. PFS can be used as the fully managed shared storage option for SQL FCI for multi zone deployments.
+**Supported OS**: Windows Server 2012 and higher
+**Supported SQL version**: SQL Server 2012 and higher
+
+**Benefits:** 
+- PFS is the only shared storage solution if VMs are spreaded over multiple availability zones. 
+- PFS is a fully managed file system with single digit latencies and offers burstable IO performance. 
+- PFS can be used as the fully managed shared storage option for SQL FCI for multi zone deployments.
 
 
 Limitations: 
