@@ -128,7 +128,7 @@ You can use the system-assigned identity of an API Management instance to retrie
 - Use the Key Vault certificate secret endpoint, which contains the secret.
 
 > [!Important]
-> If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's uploaded to Key Vault.
+> If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
 
 The following example shows an Azure Resource Manager template that contains the following steps:
 
