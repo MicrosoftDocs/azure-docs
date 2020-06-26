@@ -18853,7 +18853,7 @@
     },
     {
       "source_path": "articles/databox-family/index.md",
-      "redirect_url": "/azure/databox/index.yml",
+      "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
     },
     {
