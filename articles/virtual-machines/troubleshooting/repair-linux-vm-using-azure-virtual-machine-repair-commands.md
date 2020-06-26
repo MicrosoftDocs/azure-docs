@@ -22,7 +22,12 @@ ms.author: v-miegge
 If your Linux virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform mitigation on the disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure Virtual Machine repair commands to connect the disk to another Linux VM to fix any errors, then rebuild your original VM.
 
 > [!IMPORTANT]
-> The scripts in this article only apply to the VMs that use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * The scripts in this article only apply to the VMs that use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Outbound connectivity from the VM (port 443) is required for the script to run.
+> * Only one script may run at a time.
+> * A running script cannot be canceled.
+> * The maximum time a script can run is 90 minutes, after which it will time out.
+> * For VMs using Azure Disk Encryption, only managed disks encrypted with single pass encryption (with or without KEK) are supported.
 
 ## Repair process overview
 
@@ -49,6 +54,8 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
    Select **Copy** to copy the blocks of code, then paste the code into the Cloud Shell, and select **Enter** to run it.
 
    If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run ``az --version`` to find the version. If you need to install or upgrade your Azure CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   
+   If you need to login to Cloud Shell with a different account than you are currently logged in to the Azure Portal with you can use ``az login`` [az login reference](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  To switch between subscriptions associated with your account you can use ``az account set --subscription`` [az account set reference](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. If this is the first time you have used the `az vm repair` commands, add the vm-repair CLI extension.
 
@@ -62,7 +69,7 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
    az extension update -n vm-repair
    ```
 
-3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM in a new Resource Group, and attach the OS disk copy.  The repair VM will be the same size and region as the non-functional VM specified. The Resource Group and VM name used in all steps will be for the non-functional VM.
+3. Run `az vm repair create`. This command will create a copy of the OS disk for the non-functional VM, create a repair VM in a new Resource Group, and attach the OS disk copy.  The repair VM will be the same size and region as the non-functional VM specified. The Resource Group and VM name used in all steps will be for the non-functional VM. If your VM is using Azure Disk Encryption the command will attempt to unlock the encrypted disk so that it is accessible when attached to the repair VM.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
