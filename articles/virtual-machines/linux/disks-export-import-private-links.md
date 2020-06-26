@@ -19,20 +19,11 @@ You can set the NetworkAccessPolicy property to DenyAll to prevent anybody from 
 
 ## Limitations
 
-1. Only one VNET can be linked to a DiskAccess object.
-1. Your VNET must be in the same subscription as your DiskAccess object to link them.
-1. Up to 10 disks or snapshots can be imported or exported at the same time with the same DiskAccess object.
-1. You cannot request manual approval to link a VNET to a DiskAccess object.
+[!INCLUDE [virtual-machines-disks-private-links-limitations](../../../includes/virtual-machines-disks-private-links-limitations.md)]
 
 ## Regional availability
 
-Currently only available in:
-
-- US East
-- US West 2
-- South Central US
-- US Gov Virginia
-- US Gov Arizona
+[!INCLUDE [virtual-machines-disks-private-links-regions](../../../includes/virtual-machines-disks-private-links-regions.md)]
 
 ## Log in into your subscription and set your variables
 
