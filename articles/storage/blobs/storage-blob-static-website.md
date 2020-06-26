@@ -70,7 +70,7 @@ You can modify the public access level of the **$web** container, but this has n
 
 The following screenshot shows the public access level setting in the Azure portal:
 
-![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 While the primary static website endpoint is not affected, a change to the public access level does impact the primary blob service endpoint.
 
