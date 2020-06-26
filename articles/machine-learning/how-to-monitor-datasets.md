@@ -245,18 +245,17 @@ Start with the top-level insights into the magnitude of data drift and a highlig
 
 ### Drift magnitude trend
 
-:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Drift magnitude trend":::
-
 See how the dataset differs from the target dataset in the specified time period.  The closer to 100%, the more the two datasets differ.
 
+:::image type="content" source="media/how-to-monitor-datasets/drift-magnitude.png" alt-text="Drift magnitude trend":::
 
 ### Drift magnitude by features
 
 This section contains feature-level insights into the change in the selected feature's distribution, as well as other statistics, over time.
 
-The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time, which is conceptually similar to the data drift magnitude with the exception that this statistical distance is for an individual feature. Min, max, and mean are also available.
+The target dataset is also profiled over time. The statistical distance between the baseline distribution of each feature is compared with the target dataset's over time.  Conceptually, this is similar to the data drift magnitude.  However this statistical distance is for an individual feature rather than all features. Min, max, and mean are also available.
 
-In the Azure Machine Learning studio, click on a bar in the graph to see the the feature level details for that date. By default, it shows the baseline dataset's distribution and the most recent run's distribution of the same feature.
+In the Azure Machine Learning studio, click on a bar in the graph to see the the feature level details for that date. By default, you see the baseline dataset's distribution and the most recent run's distribution of the same feature.
 
 :::image type="content" source="media/how-to-monitor-datasets/feature_contribution.gif" alt-text="Feature details":::
 
@@ -288,7 +287,7 @@ Categorical features are profiled in each dataset monitor run. The number of uni
 
 ## Metrics, alerts, and events
 
-Metrics can be queried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace. Which gives access to all features of Application Insights including set up for custom alert rules and action groups to trigger an action such as, an Email/SMS/Push/Voice or Azure Function. Please refer to the complete Application Insights documentation for details. 
+Metrics can be queried in the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with your machine learning workspace. You have access to all features of Application Insights including set up for custom alert rules and action groups to trigger an action such as, an Email/SMS/Push/Voice or Azure Function. Refer to the complete Application Insights documentation for details. 
 
 To get started, navigate to the [Azure portal](https://portal.azure.com) and select your workspace's **Overview** page.  The associated Application Insights resource is on the far right:
 
