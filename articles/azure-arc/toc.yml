@@ -12,6 +12,7 @@
     - name: Azure Policy built-ins for servers
     href: ./servers/policy-samples.md
 - name: How-to guides
+  items:
    - name: Arc for Kubernetes
      items:
      - name: Cluster operations
