@@ -10,7 +10,7 @@ ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-project-spool
 
----
+--- 
 
 # React to Communication Services events by using Event Grid to trigger actions
 
