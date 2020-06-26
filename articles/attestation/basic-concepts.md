@@ -22,7 +22,8 @@ Attestation provider is a service endpoint that provides MAA REST contract.  Eac
 
 Example of URI of an attestation provider:  https://tradewinds.us.attest.azure.net
 
-Attestation request
+## Attestation request
+
 Attestation request is a serialized JSON object sent by client application to attestation provider. 
 The request object for SGX enclave has two properties: 
 - “Quote” – The value of the “Quote” property is a string containing a Base64Url encoded representation of the attestation quote
