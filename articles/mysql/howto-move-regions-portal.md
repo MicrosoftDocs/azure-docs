@@ -16,7 +16,7 @@ There are various scenarios for moving an existing Azure Database for MySQL serv
 
 You can use an Azure Database for MySQL [read replica](concepts-read-replicas.md) to complete the move to another region. You can do this by first creating a read replica in the target region. Next, stopping replication to the read replica server allows it to become a standalone server that accepts both read and write traffic. 
 
-[!NOTE]
+> [!NOTE]
 > If you are looking to create a replica server in a different resource group different subscription, you can [move the replica server](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) after creation. 
 
 ## Prerequisites
@@ -56,7 +56,7 @@ To stop replication to the replica, use the following steps:
 
 ## Clean up source server
 
-You may want to delete the source Azure Database for MySQL server. To do so:
+You may want to delete the source Azure Database for MySQL server. To do so, use the following steps:
 1. Once the replica has been created, locate and select your Azure Database for MySQL source server.
 1. In the **Overview** window, select **Delete**.
 1. Type in the name of the source server to confirm you want to delete.
