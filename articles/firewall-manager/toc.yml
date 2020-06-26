@@ -14,8 +14,6 @@
   items:
   - name: Secure your virtual hub - portal
     href: secure-cloud-network.md
-  - name: Secure your virtual hub with multiple providers
-    href: secure-hub-multiple-providers.md
   - name: Secure your hub virtual network - portal
     href: secure-hybrid-network.md
 - name: Concepts
