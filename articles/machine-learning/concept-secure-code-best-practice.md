@@ -11,7 +11,7 @@ author: larryfr
 ms.date: 11/12/2019
 ---
 
-## Secure code best practices with Azure Machine Learning
+# Secure code best practices with Azure Machine Learning
 
 In Azure Machine Learning, you can upload files and content from any source. Content within Jupyter notebooks or scripts can potentially read data from your sessions, access data within your organization in Azure, or run malicious processes on your behalf.
 
