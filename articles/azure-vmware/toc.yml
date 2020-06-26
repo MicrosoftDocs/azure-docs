@@ -48,6 +48,8 @@
       href: set-up-mabs-for-avs.md
     - name: Back up AVS VMs with Azure Backup Server
       href: backup-avs-vms-with-mabs.md
+  - name: Use Azure Application Gateway to protect your web apps on Azure VMware Solution
+    href: protect-avs-web-apps-with-app-gateway.md
 - name: Reference
   items:
 - name: Resources
