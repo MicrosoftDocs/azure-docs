@@ -1,5 +1,5 @@
 - name: Azure Arc enabled Kubernetes
-  href: index.yml
+  href: ../index.yml
 - name: Overview
   items:
   - name: About Azure Arc enabled Kubernetes
