@@ -175,7 +175,7 @@ For stateful production workloads using Service Fabric [reliable collections or 
 
 ##### Stateless workloads
 
-For stateless production workloads, the minimum supported non-primary node type size is two (as this would enable your service to survive the loss of a VM instance).
+For stateless production workloads, the minimum supported non-primary node type size is three to maintain quorum, however a node type size of five is recommended.
 
 ## Next steps
 
