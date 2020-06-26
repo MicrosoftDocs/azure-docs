@@ -218,9 +218,8 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-|  |  | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Please check the ambient outside temperature / airflow from the AC vent in the Datacenter. When the temperature returns to normal the alert will be automatically cleared after some time. If the issue persists, please contact Microsoft support.   |
+|  |  | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
 
 ## Next steps
 
 Learn more about [StorSimple errors and troubleshooting device deployment issues](storsimple-8000-troubleshoot-deployment.md).
-
