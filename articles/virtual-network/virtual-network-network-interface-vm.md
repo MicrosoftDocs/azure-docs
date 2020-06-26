@@ -146,7 +146,7 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 - Deleting a VM doesn't delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add those network interfaces to different VMs or delete them.
 
-- Acheiving the optimal performance documented requires Accelerated Networking. In some cases, it needs to be explicitly enabled for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
+- Achieving the optimal performance documented requires Accelerated Networking. In some cases, you must explicitly enable Accelerated Networking for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
 
 ## Next steps
 
