@@ -74,7 +74,7 @@ To run the deployment automatically, click the following button.
     :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Home page for the lab":::
 
     > [!IMPORTANT] 
-    > Keep this page open and follow instructions in the next section to clean up resources to avoid costs for running the lab and the VM on Azure. 
+    > Keep this page open and follow instructions in the next section to clean up resources to avoid costs for running the lab and the VM on Azure. If you want to go through the next tutorial to test accessing the VM in the lab, clean up resources after you go through that tutorial. 
 
 ## Cleanup resources
 
