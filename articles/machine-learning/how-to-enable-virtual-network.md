@@ -83,7 +83,7 @@ Add your workspace and storage account to the same virtual network so that they 
 
 1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md).
 
-1. To connect your storage account to the virtual network, [add it with **Firewalls and virtual networks** settings](#use-a-storage-account-for-your-workspace).
+1. To connect your storage account to the virtual network, [configure the Firewalls and virtual networks settings](#use-a-storage-account-for-your-workspace).
 
 ### Configure a datastore to use managed identity
 
@@ -95,7 +95,10 @@ These steps add the workspace managed identity as a __Reader__ to the storage se
 
 1. To create a new datastore, select __+ New datastore__. To update an existing one, select the datastore and select __Update credentials__.
 
-1. In the datastore settings, enable __Use workspace managed identity for data access in the ML studio__.
+1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace managed identity__.
+
+> [!NOTE]
+> These changes may take up to 10 minutes to take effect.
 
 ### Azure Blob storage Blob Data Reader
 
