@@ -63,6 +63,10 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 ## Machine Learning studio
 
+If you are accessing the studio from a resource inside a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+
+For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
+
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data. Failing to grant studio access will disable the following operations:
 
 * Preview data in the studio.
@@ -362,16 +366,10 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
-## Machine learning studio
+## Use datasets and datastores behind a virtual network
 
-When accessing the studio from a resource inside a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks. To avoid this when using the SDK, you need to create datastores and datasets that skip validation. Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use the sample syntax to skip datastore validation:
 
-For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
-### Access datasets and datastores behind a virtual network
-
-By default, Azure Machine Learning performs data existence and credential checks when you attempt to access data. When your data is behind a virtual network, Azure Machine Learning can't access the data, and fails its checks. To avoid this when using the SDK, you need to create datastores and datasets that skip validation. Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default. 
-
-The syntax to skip datastore validation is similar for the following services:
 - Azure Blob storage
 - Azure fileshare
 - PostgreSQL
