@@ -30,7 +30,9 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
-  - name: API management for AVS VMs
+  - name: Hub and spoke integration
+    href: concepts-avs-hub-and-spoke-integration.md
+  - name: API Management
     href: concepts-api-management.md
 - name: How-to guides
   items:
@@ -40,8 +42,6 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Get help with AVS deployment or provisioning failures
-    href: fix-deployment-provisioning-failures.md
   - name: Azure Backup Server for AVS
     items:
     - name: Set up Azure Backup Server for AVS
@@ -51,6 +51,10 @@
 - name: Reference
   items:
 - name: Resources
-  items: 
-    - name: FAQ
-      href: faq.md
+  items:
+  - name: Troubleshooting
+    items:
+    - name: Get help with AVS deployment or provisioning failures
+      href: fix-deployment-provisioning-failures.md  
+  - name: FAQ
+    href: faq.md

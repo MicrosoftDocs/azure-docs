@@ -5,11 +5,10 @@ description: Use this tutorial to build a single-page web application that can s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -347,7 +346,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `news` renderer is shown in the following javascript excerpt:
+The `news` renderer is shown in the following JavaScript excerpt:
 ```javascript
     // render news story
     news: function (item) {
