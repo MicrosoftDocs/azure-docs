@@ -52,6 +52,10 @@ Azure IoT Central is an industry agnostic application platform. Application temp
 - [Healthcare](../healthcare/overview-iot-central-healthcare.md).
   - Continuous patient monitoring
 
+## Application versions
+
+If you create an IoT Central application using the **Custom application (legacy)** application template, you create a *version 2* IoT Central application, all other templates create a *version 3* IoT Central application. You can [find the version of an existing application](./howto-find-app-version.md) from the **Help** link in any application.
+
 ## Next steps
 
 Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).

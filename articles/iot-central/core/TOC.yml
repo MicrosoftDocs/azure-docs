@@ -121,6 +121,8 @@
       items:
         - name: Manage your application
           items:
+            - name: Find application version
+              href: howto-find-app-version.md
             - name: Change application settings
               href: howto-administer.md
             - name: Manage users and roles
