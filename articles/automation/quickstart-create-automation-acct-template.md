@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/08/2020
+ms.date: 06/26/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -56,11 +56,10 @@ The following table lists the API version for the resources used in this example
 
 ### Before you use the template
 
-The JSON template is configured to prompt you for:
+The JSON parameters template is configured for you to specify:
 
 * The name of the workspace.
 * The region to create the workspace in.
-* To enable resource or workspace permissions.
 * The name of the Automation account.
 * The region to create the Automation account in.
 
