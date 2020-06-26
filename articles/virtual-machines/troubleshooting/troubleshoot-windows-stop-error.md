@@ -17,7 +17,7 @@ ms.date: 06/26/2020
 ms.author: v-mibufo
 ---
 
-# Windows Stop Error “Status No Memory”
+# Windows stop error - Status No Memory
 
 This article provides steps to resolve issues where Windows fails to start and displays the status or error code #0xC0000017, also known as “Status No Memory”.
 
@@ -51,7 +51,7 @@ Process Overview:
 > [!NOTE]
 > When encountering this error, the Guest OS isn't operational. You'll be troubleshooting in offline mode to resolve this issue.
 
-### Create and Access a Repair VM
+### Create and access a repair VM
 
 1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
@@ -85,7 +85,7 @@ If you're using a Generation 2 VM, the EFI partition of the attached disk may no
 
 1. Close the command prompt window.
 
-### Free Up Space on the Disk
+### Free up space on the disk
 
 Now that the broken disk is attached to the repair VM, you should verify that the OS on that disk has enough space to function properly. 
 
@@ -101,7 +101,7 @@ Now that the broken disk is attached to the repair VM, you should verify that th
    - Depending upon the level of fragmentation, de-fragmentation could take hours.
    - In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS disk’s letter (such as drive *F:*).
 
-### Clean out bad memory from the Boot Configuration Data (BCD) Store
+### Clean out bad memory from the Boot Configuration Data (BCD) store
 
 1. Open an elevated command prompt (run as administrator).
 1. Query the boot configuration file for bad memory flags with the following command:
@@ -121,7 +121,7 @@ Now that the broken disk is attached to the repair VM, you should verify that th
    
    - In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS disk’s letter (such as drive *F:*).
 
-### Restore the Page File to its Default Location
+### Restore the page file to its default location
 
 The page file stores data that cannot be held by your computer’s random-access memory (RAM) as a form of overflow/backup. It is possible that the file is hosted in a VHD rather than the temp drive, which is the default Azure location. If true, the file may not be accessible, and should be restored to the default location.
 
