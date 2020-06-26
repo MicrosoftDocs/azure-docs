@@ -61,7 +61,7 @@ az group create --name myResourceGroup --location westus2
 Then, create an AKS cluster:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
 A successful cluster creation using managed identities contains this service principal profile information:
@@ -70,6 +70,22 @@ A successful cluster creation using managed identities contains this service pri
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
+```
+
+Use the following command to query objectid of your control plane managed identity:
+
+```azurecli-interactive
+az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+```
+
+The result should look like:
+
+```json
+{
+  "principalId": "<object_id>",   
+  "tenantId": "<tenant_id>",      
+  "type": "SystemAssigned"                                 
+}
 ```
 
 > [!NOTE]
