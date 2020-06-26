@@ -64,6 +64,9 @@ Role bindings are used to assign roles for a given namespace. This approach lets
 
 A ClusterRoleBinding works in the same way to bind roles to users, but can be applied to resources across the entire cluster, not a specific namespace. This approach lets you grant administrators or support engineers access to all resources in the AKS cluster.
 
+> [!NOTE]
+> Any cluster actions taken by Microsoft support are made under a custom built-in role name `aks-support-rolebinding` provided by Kubernetes with user consent. AKS support is enabled to edit cluster configuration and resources, but can not modify permissions not create roles or role bindings. Read more about [AKS support policies](support-policies.md).
+
 ## Next steps
 
 To get started with Azure AD and Kubernetes RBAC, see [Integrate Azure Active Directory with AKS][aks-aad].
