@@ -5,7 +5,7 @@ description: Learn how to set up AD FS as an identity provider for direct federa
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 
 ms.author: mimart

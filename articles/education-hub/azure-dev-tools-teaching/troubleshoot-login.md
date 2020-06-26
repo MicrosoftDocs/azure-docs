@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: Error message when logging into Azure Dev Tools for Teaching
+=======
+title: Resolve login error for Azure Dev Tools for Teaching
+>>>>>>> 9cc3b8411107ac687ab00df37c9f5200f3af591b
 description: This describes the actions a student should take if they receive an error message when logging in to Azure Dev Tools for Teaching.
 author: rymend
 ms.author: rymend
@@ -8,7 +12,12 @@ ms.prod: azure
 ms.date: 06/30/2020
 ---
 
+<<<<<<< HEAD
 # Error message: We couldn't find an account with that username
+=======
+# We couldn't find an account with that username
+
+>>>>>>> 9cc3b8411107ac687ab00df37c9f5200f3af591b
 SUMMARY NEEDED.
 <!---Required:
 The summary describes the symptom that the customer is experiencing. This summary should also include any prerequisite actions that should be performed before resolving the problem.
@@ -29,14 +38,16 @@ Describe the cause of the symptoms. It is possible that there could be several c
 <!---Optional:
 Most common cause.
 --->
-### Cause #
+
+## Alternate cause 
 <!---Optional:
 Next most common cause.
 --->
 
-## Solution
+## Solution for university email logins
 If you are logging in with a university email address (example: John.Smith@university.edu) you will need to create a Microsoft Account with that email address. Creating an account is free and takes just a few minutes. Having a Microsoft Account will allow you to automatically log into all your Microsoft products with a single username and password.
-### Solution #
+
+## Solution for personal email logins
 If you are logging in with a personal email address (for example, John.Smith@email.com), but also have a university email address, try using the university email address. If you previously logged into your institution’s webstore with a personal email address or do not have a university email address, you will need to create or link a Microsoft Account with your personal email address.
 
 ## Next steps

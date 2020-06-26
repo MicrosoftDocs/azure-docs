@@ -3,6 +3,7 @@ title: Enrolling or Renewing Azure Dev Tools for teaching
 description: Description of how to create or renew an Azure Dev subscription.
 author: rymend
 ms.author: rymend
+ms.topic: quickstart
 ms.prod: azure
 ms.topic: quickstart
 ms.date: 06/30/2020
