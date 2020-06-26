@@ -1199,12 +1199,12 @@ productDirectory:
       url: media-services/latest/index.yml
     # Card
     - title: Data Box
-      summary: Appliances and solutions for data transfer to Azure and edge compute
+      summary: Appliances and solutions for data transfer to Azure
       imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
       azureCategories:
         - migration
         - storage
-      url: databox-family/index.md
+      url: databox/index.yml
     # Card
     - title: Spatial Anchors (Preview)
       summary: Create multi-user, spatially aware mixed reality experiences
