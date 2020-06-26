@@ -512,6 +512,8 @@
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
       href: platform/alerts-troubleshoot.md
+    - name: Alerts and region moves
+      href: platform/alerts-resource-move.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -561,12 +563,12 @@
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
+      - name: ASP.NET Console
+        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
+        href: app/console.md
       - name: Non-HTTP apps/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: .NET Console
-        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
-        href: app/console.md
       - name: Java
         items:
           - name: Web apps

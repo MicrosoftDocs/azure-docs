@@ -44292,7 +44292,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-databricks/",
+      "source_path": "articles/azure-databricks/index.yml",
       "redirect_url": "/azure/databricks/",
       "redirect_document_id": false
     },
@@ -55576,11 +55576,18 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-xamarin-blob-storage.md",
-      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin"
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cdn/create-profile-resource-manager-template.md",
-      "redirect_url": "/azure/cdn/create-profile-endpoint-template"
+      "redirect_url": "/azure/cdn/create-profile-endpoint-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
+      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
     }
   ]
 }
