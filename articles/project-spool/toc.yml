@@ -76,6 +76,8 @@
     items:
       - name: About Voice
         href: concepts/voice/voice.md
+      - name: Plan Your Telephony and SMS Solution
+        href: concepts/voice/plan-your-telephony-and-sms-solution.md
       - name: Call Flows
         href: concepts/voice/call-flows.md
       #- name: Phone Numbers
