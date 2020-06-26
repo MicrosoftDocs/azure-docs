@@ -295,7 +295,7 @@
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
   - name: Move between regions
-  items:
+    items:
     - name: Azure portal
       href: howto-move-regions-portal.md
 - name: Reference
