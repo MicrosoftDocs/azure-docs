@@ -186,7 +186,7 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Option 2, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
+> Option 2, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
