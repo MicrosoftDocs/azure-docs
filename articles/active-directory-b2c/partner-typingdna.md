@@ -24,7 +24,7 @@ In this walkthrough, learn how to integrate a sample online payment app in Azure
 
 ## Scenario description
 
-![Screenshot of TypingDNA architecture diagram](./media/partner-typingdna/typingdna-architecture-diagram.png)
+![Screenshot of TypingDNA architecture diagram](./media/partner-typingdna/typingdna-architecture-diagram1.png)
 
 ### Sign-up
 
