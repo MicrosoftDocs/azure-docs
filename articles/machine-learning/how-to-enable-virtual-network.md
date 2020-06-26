@@ -63,30 +63,33 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 ## Machine Learning studio
 
-If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant studio access to your data. Failing to grant studio access will disable the following operations:
+If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data. Failing to grant studio access will disable the following operations:
 
 * Preview data in the studio.
 * Visualize data in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-Studio supports reading data from the following datastore types in a virtual network:
+The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
-* Azure Data Lake Storage Gen1 and Gen2
+* Azure Data Lake Storage Gen1
+* Azure Data Lake Storage Gen2
 * Azure SQL Database
 
 ### Add resources to the virtual network 
 
-Add your workspace and storage account to same virtual network so that they can access each other. 
+Add your workspace and storage account to the same virtual network so that they can access each other using white-listed ip addresses. 
 
-1. [Enable Azure Private Link](how-to-configure-private-link.md) to connect your workspace to the virtual network.
+1. To connect your workspace to the virtual network, [enable Azure Private Link](how-to-configure-private-link.md).
 
-1. [Connect your storage account](#use-a-storage-account-for-your-workspace) to the virtual network.
+1. To connect your storage account to the virtual network, [add it with **Firewalls and virtual networks** settings](#use-a-storage-account-for-your-workspace).
 
-### Configure datastore to use managed identity
+### Configure a datastore to use managed identity
 
-Now that the workspace and storage service are joined to the virtual network, configure your datastore to use managed identity to access your data.
+After you add your workspace and storage service to the virtual network, you need to configure datastores to use managed identity to access your data.
+
+These steps add the workspace managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
 1. In the studio, select __Datastores__.
 
@@ -94,9 +97,10 @@ Now that the workspace and storage service are joined to the virtual network, co
 
 1. In the datastore settings, enable __Use workspace managed identity for data access in the ML studio__.
 
-These steps add the workspace managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
+### Azure Blob storage Blob Data Reader
 
 For __Azure Blob storage__, the workspace managed identity is also added as a [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) so that it can read the data.
+
 
 ### Azure Data Lake Storage Gen2 access control
 
