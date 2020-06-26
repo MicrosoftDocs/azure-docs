@@ -102,8 +102,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Synapse Analytics SQL pool using an Azure Resource Manager template and validated the deployment. To learn more about Azure Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure Synapse Analytics SQL pool using an ARM template and validated the deployment. To learn more about Azure Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Create and deploy your first Azure Resource Manager template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
