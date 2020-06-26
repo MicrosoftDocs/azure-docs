@@ -155,7 +155,7 @@ To begin, select the **Model** view from the Time Series Insights explorer **Ana
 
 ### Delete a type
 
-1. Select the type, and select the **delete** or **waste bin icon**. .
+1. Select the type, and select the **delete** or **waste bin icon**.
 
    [![Delete a type by selecting Delete.](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-type.png#lightbox)
 
