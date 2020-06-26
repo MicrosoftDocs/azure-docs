@@ -218,7 +218,7 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-|  |  | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
+| Hardware component Ambient temperature sensor reports status as failed.  | Enclosure type: Main enclosure | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
 
 ## Next steps
 
