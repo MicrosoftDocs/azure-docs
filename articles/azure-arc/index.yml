@@ -39,7 +39,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled Kubernetes?
-            url: ./overview.md 
+            url: ./kubernetes/overview.md 
       - linkListType: how-to-guide
         links:
           - text: Connect cluster
@@ -49,7 +49,7 @@ landingContent:
           - text: Use GitOps with Helm
             url: ./kubernetes/use-gitops-with-helm.md
           - text: Use Azure monitor for containers
-            url: ../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+            url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
           - text: Use Azure Policy
             url: ./kubernetes/use-azure-policy.md
           - text: Deploy Azure IoT edge workloads
