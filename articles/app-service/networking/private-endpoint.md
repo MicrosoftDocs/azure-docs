@@ -66,29 +66,29 @@ When you use Private Endpoint for Web App, the requested URL must match the name
 
 By default, without Private Endpoint, the public name of your web app is a canonical name to the cluster.
 For example, the name resolution will be:
-|Name |Type |Value
-|:-------|:------|:------
-|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net
-|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net
-|cloudservicename.cloudapp.net|A|40.122.110.154 
+|Name |Type |Value|
+|:-------|:------|:------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
 
 When you deploy a Private Endpoint, we update the DNS entry to point to the canonical name mywebapp.privatelink.azurewebsites.net.
 For example, the name resolution will be:
-|Name |Type |Value|Remark
-|:-------|:------|:------|:--------
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net
-|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net
-|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net
-|cloudservicename.cloudapp.net|A|40.122.110.154|<--This public IP is not your Private Endpoint, you will receive a 503 error
+|Name |Type |Value|Remark|
+|:-------|:------|:------|:--------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|<--This public IP is not your Private Endpoint, you will receive a 503 error|
 
 You must setup a private DNS server or an Azure DNS private zone, for tests you can modify the host entry of your test machine.
 The DNS zone that you need to create is: **privatelink.azurewebsites.net**. Register the record for your Web App with a A record and the Private Endpoint IP.
 For example, the name resolution will be:
-|Name |Type |Value|Remark
-|:-------|:------|:------|:------
-|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net
-|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your Private Endpoint IP address
+|Name |Type |Value|Remark|
+|:-------|:------|:------|:------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your Private Endpoint IP address|
 
 After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net.
 
@@ -98,10 +98,10 @@ During the preview, the custom name must be validated like any custom name, usin
 For more information, see [custom DNS validation][dnsvalidation].
 
 For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records in your Azure DNS private zone or your custom DNS server. 
-|Name |Type |Value
-|:-------|:------|:------
-|mywebapp.privatelink.azurewebsites.net|A|PrivateEndpointIP 
-|mywebapp.scm.privatelink.azurewebsites.net|A|PrivateEndpointIP 
+|Name |Type |Value|
+|:-------|:------|:------|
+|mywebapp.privatelink.azurewebsites.net|A|PrivateEndpointIP| 
+|mywebapp.scm.privatelink.azurewebsites.net|A|PrivateEndpointIP| 
 
 > [!TIP]
 > These two records are automatically populated if you have a private DNS zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
