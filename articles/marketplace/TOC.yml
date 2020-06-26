@@ -401,8 +401,6 @@
     href: ./partner-center-portal/update-existing-offer.md
   - name: Activate benefits
     href: ./partner-center-portal/marketplace-rewards.md
-  - name: Support options
-    href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
     items:
     - name: Analytics for the commercial marketplace
@@ -423,7 +421,23 @@
       href: ./partner-center-portal/ratings-reviews.md
     - name: Frequently asked questions and terminology
       href: ./partner-center-portal/faq-terminology.md
-  - name: Cloud Partner Portal API Reference
+  - name: Getting paid
+    items:
+    - name: Getting paid
+      href: ./partner-center-portal/get-paid.md
+    - name: Set up your payout account and tax forms
+      href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+    - name: Payment thresholds, methods, and time-frames
+      href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+    - name: Payout summary overview
+      href: ./partner-center-portal/payout-summary-overview.md
+    - name: Payout summaries
+      href: ./partner-center-portal/payout-summary.md
+    - name: Payout policy details
+      href: ./partner-center-portal/payout-policy-details.md
+    - name: Tax details
+      href: ./partner-center-portal/tax-details-paid-transactions.md
+  - name: CPP API Reference
     items:
     - name: Overview
       href: ./cloud-partner-portal-api-overview.md
@@ -453,19 +467,5 @@
       href: ./cloud-partner-portal-api-setting-price.md
     - name: Troubleshooting authentication errors
       href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
-  - name: Getting paid
-    items:
-    - name: Getting paid
-      href: ./partner-center-portal/get-paid.md
-    - name: Set up your payout account and tax forms
-      href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-    - name: Payment thresholds, methods, and time-frames
-      href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-    - name: Payout summary overview
-      href: ./partner-center-portal/payout-summary-overview.md
-    - name: Payout summaries
-      href: ./partner-center-portal/payout-summary.md
-    - name: Payout policy details
-      href: ./partner-center-portal/payout-policy-details.md
-    - name: Tax details
-      href: ./partner-center-portal/tax-details-paid-transactions.md
+  - name: Support options
+    href: ./partner-center-portal/support.md
