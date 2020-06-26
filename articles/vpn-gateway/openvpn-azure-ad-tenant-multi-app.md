@@ -26,7 +26,7 @@ In this step, you will enable Azure AD authentication on the VPN gateway.
 
 1. Enable Azure AD authentication on the VPN gateway by navigating to **Point-to-site configuration** and picking **OpenVPN (SSL)** as the **Tunnel type**. Select **Azure Active Directory** as the **Authentication type** then fill in the information under the **Azure Active Directory** section.
 
-    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/aadauthportal.png)
+    ![Azure VPN](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
 
     > [!NOTE]
     > Do not use the Azure VPN client's application ID: It will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.
