@@ -1,5 +1,5 @@
 ---
-title: Prepare Log Analytics workspace for Azure Monitor for VMs
+title: Configure Log Analytics workspace for Azure Monitor for VMs
 description: 
 ms.subservice:
 ms.topic: conceptual
@@ -9,8 +9,11 @@ ms.date: 06/22/2020
 
 ---
 
-# Prepare Log Analytics workspace for Azure Monitor for VMs
-Azure Monitor for VMs requires a Log Analytics workspace to store the data it collects. Before you onboard any agents, you must prepare this workspace by installing the **VMInsights** solution. This article describes different methods for preparing a Log Analytics workspace for Azure Monitor for VMs.
+# Configure Log Analytics workspace for Azure Monitor for VMs
+Azure Monitor for VMs requires a Log Analytics workspace to store the data it collects. Before you onboard any agents, you must configure this workspace by installing the **VMInsights** solution. This article describes different methods for preparing a Log Analytics workspace for Azure Monitor for VMs.
+
+## Azure portal with VM install
+When you enable monitoring for a single VM, VMSS, or Azure Arc machine in the Azure portal, you must select a Log Analytics workspace. If that workspace 
 
 ## Azure portal
 Go to the **Azure Monitor** page in the Azure portal and then select **Virtual machines**. 
