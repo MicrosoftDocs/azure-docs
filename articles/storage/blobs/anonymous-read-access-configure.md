@@ -69,6 +69,8 @@ az resource show \
 
 ---
 
+Disabling public access for a storage account does not affect any static websites hosted in that storage account.
+
 ## Set the public access level for a container
 
 To grant anonymous users read access to a container and its blobs, set the container's public access level. You can configure a container with the following permissions:

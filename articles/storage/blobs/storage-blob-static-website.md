@@ -78,6 +78,8 @@ For example, if you change the public access level of the **$web** container fro
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
 
+Disabling public access on a storage account does not affect static websites that are hosted in that storage account. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
+
 ## Mapping a custom domain to a static website URL
 
 You can make your static website available via a custom domain. 
