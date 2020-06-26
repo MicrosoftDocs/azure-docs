@@ -74,7 +74,7 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 > The Application Gateway Ingress Controller add-on supports *only* Application Gateway v2 SKUs (Standard and WAF), and *not* the Application Gateway v1 SKUs. When you're deploying a new Application Gateway instance through the AGIC add-on, you can deploy only an Application Gateway Standard_v2 SKU. If you want to enable the add-on for an Application Gateway WAF_v2 SKU, use either of these methods:
 >
 > - Enable WAF on Application Gateway through the portal. 
-> - Create the WAF_v2 Application Gateway instance first and then follow instructions on how to [enable the AGIC add-on with an existing AKS cluster and existing Application Gateway instance](tutorial-ingress-controller-add-on-existing.md). 
+> - Create the WAF_v2 Application Gateway instance first, and then follow instructions on how to [enable the AGIC add-on with an existing AKS cluster and existing Application Gateway instance](tutorial-ingress-controller-add-on-existing.md). 
 
 In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) and [managed identities](https://docs.microsoft.com/azure/aks/use-managed-identity). The AGIC add-on will be enabled in the resource group that you created, *myResourceGroup*. 
 
@@ -122,7 +122,7 @@ Application Gateway might take a minute to get the update. If Application Gatewa
 
 ## Clean up resources
 
-When you no longer them, remove the resource group, the Application Gateway instance, and all related resources:
+When you no longer need them, remove the resource group, the Application Gateway instance, and all related resources:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
