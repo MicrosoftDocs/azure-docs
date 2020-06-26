@@ -195,7 +195,7 @@ Here are the fields in the body of an edge change notification.
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
@@ -226,15 +226,14 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
+    "$relationshipId": "building_to_floor",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
     "ownershipUser": "user1",
     "ownershipDepartment": "Operations"
 }
 ```
-
 
 ### Digital twin change notifications
 
