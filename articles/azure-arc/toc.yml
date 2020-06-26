@@ -8,9 +8,9 @@
     href: ./servers/overview.md
 - name: Samples
     - name: Azure Policy built-ins for Kubernetes
-    href: ./kubernetes/policy-samples.md
+      href: ./kubernetes/policy-samples.md
     - name: Azure Policy built-ins for servers
-    href: ./servers/policy-samples.md
+      href: ./servers/policy-samples.md
 - name: How-to guides
   items:
    - name: Arc for Kubernetes
