@@ -4,7 +4,7 @@ description: Learn client configuration options to improve Azure Cosmos DB .NET 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 06/26/2020
 ms.author: sngun
 
 ---
@@ -226,7 +226,7 @@ The Azure Cosmos DB indexing policy also allows you to specify which document pa
 var collection = new DocumentCollection { Id = "excludedPathCollection" };
 collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*");
-collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);
 ```
 
 For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
