@@ -15,7 +15,7 @@ If you need additional support, see available **Help + support** options in the 
 ## Issues during container group deployment
 ### Naming conventions
 
-When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center and [Naming rules and restrictions for Azure resources][naming-rules].
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center and [Naming rules and restrictions for Azure resources][naming-rules].
 
 | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- |
