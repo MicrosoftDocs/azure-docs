@@ -44,7 +44,8 @@ When a Log Analytics pinned part is able to be upgraded, a new *opt-in* notifica
  
 ![Sidebar](media/dashboard-upgrade/update-message-2.png)
 
-> [!WARNING] Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
+> [!WARNING] 
+> Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
 
 Once clicked, the visualization will be updated to the new technology. Subtle differences in the visualization may occur to align with their look-and-feel in Log Analytics.
 
