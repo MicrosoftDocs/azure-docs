@@ -17,7 +17,7 @@ The Cloud Partner Portal has transitioned to Partner Center. Partner Center offe
 
 You can continue doing business as usual in Partner Center:
 
-| Area | Changes |
+| Area<img src="" width=200px> | Changes |
 | --- | --- |
 | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
 | Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md). |
