@@ -17,6 +17,8 @@ You can use an Azure Database for MySQL [read replica](concepts-read-replicas.md
 
 ## Prerequisites
 
+- The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+
 - Make sure that your Azure Database for MySQL source server is in the Azure region that you want to move from.
 
 - Verify that your Azure subscription allows you to create MySQL servers in the target region. To enable the required quota, contact support.
@@ -24,10 +26,9 @@ You can use an Azure Database for MySQL [read replica](concepts-read-replicas.md
 - Make sure that your subscription has enough resources to support the addition of MySQL servers for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## Prepare for the move
-In this section, you create a read replica server in the target region using the Azure portal. You then stop replication to the replica server. 
+In this section, you create a read replica server in the target region using the Azure portal. You then stop replication to the replica server which causes it to become a standalone server. 
 
 To create a read replica using the Azure portal, do the following:
-
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select the existing Azure Database for MySQL server that you want to use as the source server. This action opens the **Overview** page.
@@ -38,6 +39,10 @@ To create a read replica using the Azure portal, do the following:
 1. Select **OK** to confirm creation of the replica. Creating a read replica make take several minutes.
 
 To stop replication to the replica, do the following: 
+
+> [!IMPORTANT]
+> The standalone server can't be made into a replica again.
+> Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
 1. Once the replica has been created, locate your source server Azure Database for MySQL server. 
 1. Select **Replication** from the menu, under **SETTINGS**.
@@ -51,7 +56,6 @@ You may want to delete the source Azure Database for MySQL server. To do so:
 1. Select the Azure Database for MySQL server source server.
 1. In the **Overview** window select **Delete**.
 1. Select **Delete**.
-
 
 ## Next steps
 
