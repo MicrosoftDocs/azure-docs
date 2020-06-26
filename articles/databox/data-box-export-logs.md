@@ -25,7 +25,6 @@ The following table shows a summary of the Data Box export order steps and the t
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)              |
 | Data copy from device        | [Review copy logs](#copy-log) <br> [Review verbose logs](#verbose-log) before you copy data            |
-| Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                       |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 
@@ -181,17 +180,13 @@ Use your verbose log file:
 - To verify that the *crc64* corresponds to a non-zero string. A Cyclic Redundancy Check (CRC) computation is done during the export from Azure. The CRCs from the export and after the data is copied from Data Box to on-premise server can be compared. A CRC mismatch indicates that the corresponding files failed to copy properly.
 
 
-## Inspect BOM during prepare to ship
-
-During prepare to ship, you have the option to clean up your data from Data Box.
-
 ## Get chain of custody logs after data erasure
 
-After the data is erased from the Data Box disks as per the NIST SP 800-88 Revision 1 guidelines, the chain of custody logs are available. These logs include the audit logs and the order history. The BOM or manifest files are also copied with the audit logs.
+After the data is erased from the Data Box disks as per the NIST SP 800-88 Revision 1 guidelines, the chain of custody logs are available. These logs include the chain of custody audit logs and the order history. The BOM or manifest files are also copied with the audit logs.
 
-### Audit logs
+### Chain of custody audit logs
 
-Audit logs contain information on how to power on and access shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+The chain of custody audit logs contain information about powering on and accessing shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
