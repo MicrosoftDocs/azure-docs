@@ -1,5 +1,5 @@
 ---
-title: Send Azure Activity log to Log Analytics workspace using Azure resource manager template
+title: Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template
 description: Use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.date: 06/25/2020
 
 ---
 
-# Send Azure Activity log to Log Analytics workspace using Azure resource manager template
+# Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../log-query/log-query-overview.md) and enable other features such as [log alerts](../platform/alerts-log-query.md) and [workbooks](../platform/workbooks-overview.md). 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
@@ -17,7 +17,7 @@ The Activity log is a platform log in Azure that provides insight into subscript
 ## Create a Log Analytics workspace
 
 ### Review the template
-The following template creates an empty Log Analytics workspace. Save the this template as *CreateWorkspace.json*.
+The following template creates an empty Log Analytics workspace. Save this template as *CreateWorkspace.json*.
 
 ```json
 {
@@ -159,7 +159,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ---
 
 ## Create diagnostic setting
-The following template creates a diagnostic setting that sends the Activity log to a Log Analytics workspace. Save the this template as *CreateDiagnosticSetting.json*.
+The following template creates a diagnostic setting that sends the Activity log to a Log Analytics workspace. Save this template as *CreateDiagnosticSetting.json*.
 
 ```json
 {
@@ -251,18 +251,18 @@ az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-000
 
 
 ## Generate log data
-Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource. You may need to wait a few minutes for the diagnostic setting to be created and for data to initially to be written to the workspace. After this delay, all events written to the Activity log will be sent to the workspace within a few seconds.
+Only new Activity log entries will be sent to the Log Analytics workspace, so perform some actions in your subscription that will be logged such as starting or stopping a virtual machine or creating or modifying another resource. You may need to wait a few minutes for the diagnostic setting to be created and for data to initially be written to the workspace. After this delay, all events written to the Activity log will be sent to the workspace within a few seconds.
 
 ## Retrieve data with a log query
 Use the Azure portal to use Log Analytics to retrieve data from the workspace. In the Azure portal, search for and then select **Monitor**. 
 
 ![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you just created, then click **Select scope** and locate it.
+Select **Logs** in the **Azure Monitor** menu. Close the **Example queries** page. If the scope isn't set to the workspace you created, then click **Select scope** and locate it.
 
 ![Log Analytics scope](media/quick-collect-activity-log/log-analytics-scope.png)
 
-In the query window, type `AzureActivity` and click **Run**. This is a simple query that returns all records in the *AzureActivity* table which contains all the records sent from the Activity log.
+In the query window, type `AzureActivity` and click **Run**. This is a simple query that returns all records in the *AzureActivity* table, which contains all the records sent from the Activity log.
 
 ![Simple query](media/quick-collect-activity-log/query-01.png)
 
