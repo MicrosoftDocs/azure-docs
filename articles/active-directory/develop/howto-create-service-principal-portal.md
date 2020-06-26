@@ -69,7 +69,7 @@ To check your subscription permissions:
 
 ## Register an application with Azure AD and create a service principal
 
-Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#required-permissions) to make sure your account can create the identity.
+Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#permissions-required-for-registering-an-app) to make sure your account can create the identity.
 
 1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory**.
