@@ -55579,18 +55579,22 @@
       "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin"
     },
     {
+      "source_path": "articles/cdn/create-profile-resource-manager-template.md",
+      "redirect_url": "/azure/cdn/create-profile-endpoint-template"
+    },
+    {
       "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects/materials-lighting-effects",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models/view-remote-models",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models/manipulate-models",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
       "redirect_document_id": false
     }
   ]
