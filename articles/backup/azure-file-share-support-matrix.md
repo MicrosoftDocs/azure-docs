@@ -43,6 +43,8 @@ West Central US, Australia South East , Canada Central
 | ------------------------------------------------------------ | ----- |
 | Maximum  number of file shares that can be protected per day per vault | 200   |
 | Maximum  number of storage accounts that can be registered per vault per day | 50    |
+| Maximum  number of file shares that can be protected  per vault | 2000   |
+| Maximum  number of storage accounts that can be registered per vault | 200   |
 
 ## Backup limits
 
