@@ -80,7 +80,7 @@ For example, the name resolution will be:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net
-|cloudservicename.cloudapp.net|A|40.122.110.154|<-- This public IP is not your Private Endpoint, you will recieve a 503 error
+|cloudservicename.cloudapp.net|A|40.122.110.154|<-- This public IP is not your Private Endpoint, you will receive a 503 error
 
 You must setup a private DNS server or an Azure DNS private zone, for tests you can modify the host entry of your test machine.
 The DNS zone that you need to create is: **privatelink.azurewebsites.net**. Register the record for your Web App with a A record and the Private Endpoint IP.
