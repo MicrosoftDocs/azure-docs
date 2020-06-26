@@ -30,7 +30,7 @@ Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- [Two or more prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md).
+- [Two or more prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md) in an [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or different [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - A [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md) to be used as the clustered drive, based on the storage quota of your database for your data files.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 

@@ -43,7 +43,7 @@ The failover cluster feature requires virtual machines to be placed in an [avail
 
 Carefully select the VM availability option that matches your intended cluster configuration. The following VM availability options are available when you plan to configure your SQL Server failover cluster instance with: 
 
- - **Shared Managed Disks** [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) with [Proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
+ - **Shared Managed Disks** [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with Fault Doman and Update Domain set to 1 and inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
  - **Premium File Shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). PFS is the only shared storage option if you choose availability zones as the availability configuration for your VMs. 
  - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 

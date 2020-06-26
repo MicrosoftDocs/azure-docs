@@ -58,15 +58,15 @@ The rest of this section lists the benefits and limitations of each storage opti
 **Supported SQL version**: SQL Server 2019   
 
 **Benefits**: 
-- The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is. 
+- The recommended solution for applications looking to migrate to Azure while keeping their HADR architecture as-is. 
 - Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. 
 - Supports shared Premium SSD for all versions of SQL Server and shared ultra SSD for SQL Server 2019. 
-- Use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
+- Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 
 
 **Limitations**: 
-- Only available for SQL Server 2019 and Windows Server 2019 while in Preview. 
-- Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+- Only available for SQL Server 2019 and Windows Server 2019 while in preview. 
+- Virtual machines must be placed in the same availability set and proximity placement group (PPG).
 - Availability Zones are not supported.
 - Premium SSD Disk caching is not supported.
  
@@ -96,7 +96,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 
 ### Premium file share
 
-[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
+[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
 **Supported OS**: Windows Server 2012 and higher   
 **Supported SQL version**: SQL Server 2012 and higher   
@@ -116,21 +116,25 @@ To get started, see [SQL Server failover cluster instance with Premium File Shar
 
 There are a number of third-party clustering solutions with supported storage. 
 
-One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
-
 **Supported OS**: All   
 **Supported SQL version**: All   
+
+
+One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
+
 
 ### iSCSI and ExpressRoute
 
 You can also expose an iSCSI target shared block storage via ExpressRoute. 
 
+**Supported OS**: All   
+**Supported SQL version**: All   
+
 For example, NetApp Private Storage (NPS) exposes an iSCSI target via ExpressRoute with Equinix to Azure VMs.
 
 For third-party shared storage and data replication solutions, contact the vendor for any issues related to accessing data on failover.
 
-**Supported OS**: All   
-**Supported SQL version**: All   
+
 
 ## Connectivity
 
