@@ -1,5 +1,5 @@
 ---
-title: Share an Azure managed disk across VMs (preview)
+title: Share an Azure managed disk across VMs
 description: Learn about sharing Azure managed disks across multiple VMs.
 author: roygara
 ms.service: virtual-machines

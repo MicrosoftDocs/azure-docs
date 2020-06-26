@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure shared disks (preview) is a new feature for Azure managed disks that enable attaching a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
+Azure shared disks is a new feature for Azure managed disks that enable attaching a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
 
 ## How it works
 
