@@ -68,7 +68,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **vignettes**  folder there.
 
-## <a name="open">Open RStudio
+## <a name="open"></a>Open RStudio
 
 Use RStudio on a compute instance or Notebook VM to run this tutorial.  
 
