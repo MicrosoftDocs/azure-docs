@@ -23,7 +23,7 @@ This article provides steps to resolve issues where Windows fails to start and d
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the virtual machine (VM), you will see that the screenshot displays the error code: `0xC0000017`. Depending upon the version of Windows you are running, you may see this code displayed in either the **Windows Boot Manager** or in the **Recovery screen**.
+When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the virtual machine (VM), you'll see that the screenshot displays the error code: `0xC0000017`. Depending upon the version of Windows you're running, you may see this code displayed in either the **Windows Boot Manager** or in the **Recovery screen**.
 
    **Windows Boot Manager**
 
@@ -35,7 +35,7 @@ When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machine
 
 ## Cause
 
-The operating system’s disk is either full, too fragmented, or the operating system (OS) is not able to access the memory and/or page file.
+The operating system’s disk is either full, too fragmented, or the operating system (OS) isn't able to access the memory or page file, or both.
 
 ## Solution
 
@@ -49,22 +49,22 @@ Process Overview:
 1. Rebuild the VM
 
 > [!NOTE]
-> When encountering this error, the Guest OS is not operational. You will be troubleshooting in offline mode to resolve this issue.
+> When encountering this error, the Guest OS isn't operational. You'll be troubleshooting in offline mode to resolve this issue.
 
-Create and Access a Repair VM
+### Create and Access a Repair VM
 
 1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
 For Generation 2 VMs, assign a letter to the Extensible Firmware Interface (EFI) partition:
 
-If you are using a Generation 2 VM, the EFI partition of the attached disk may not have a letter assigned to it. You will need to follow the steps below to assign a letter to the partition before proceeding with this troubleshooting guide.
+If you're using a Generation 2 VM, the EFI partition of the attached disk may not have a letter assigned to it. You'll need to follow the steps below to assign a letter to the partition before proceeding with this troubleshooting guide.
 
 1. In Windows search, enter `diskmgmt` and open the **Disk Management console**.
-1. Identify the broken disk attached to the repair VM. Typically, this is disk listed last in the console, and has the highest numerical value.
-1. Note if in that disk there is a partition that holds the **EFI System Partition** which also doesn’t have a letter value assigned to it (such as drive *F:*). If all partitions are assigned, you may skip ahead to free up space on the disk. Otherwise, continue to assign a letter to this disk.
+1. Identify the broken disk attached to the repair VM. Typically, this disk is listed last in the console, and has the highest numerical value.
+1. Note if in that disk there's a partition that holds the **EFI System Partition**, which also doesn’t have a letter value assigned to it (such as drive *F:*). If all partitions are assigned, you may skip ahead to free up space on the disk. Otherwise, continue to assign a letter to this disk.
 
-   ![The Disk Management console, with the attached disk “Disk 2”, as well as the unassigned partition that is 100MB and is the “EFI System Partition”.](./media/troubleshoot-windows-stop-error/3.png)
+   ![The Disk Management console, with the attached disk “Disk 2”, as well as the unassigned partition that is 100 MB and is the “EFI System Partition”.](./media/troubleshoot-windows-stop-error/3.png)
 
 1. Open an elevated command prompt as an administrator and enter `diskpart` to launch the **DISKPART** tool.
 1. Enter the following commands:
@@ -85,23 +85,23 @@ If you are using a Generation 2 VM, the EFI partition of the attached disk may n
 
 1. Close the command prompt window.
 
-## Free Up Space on the Disk
+### Free Up Space on the Disk
 
 Now that the broken disk is attached to the repair VM, you should verify that the OS on that disk has enough space to function properly. 
 
 1. Check if the disk is full by right-clicking on the drive of the attached disk and selecting **Properties**.
 1. If the disk has **less than 300 Mb of free space**, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
-1. Once the disk size is **1 Tb**, you will need to perform a disk cleanup. You can use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
-1. Open an elevated command prompt (run as administrator) instance and perform a defragmentation on the drive:
+1. Once the disk size is **1 Tb**, you'll need to perform a disk cleanup. You can use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up space.
+1. Open an elevated command prompt (run as administrator) instance and perform a de-fragmentation on the drive:
 
    ``
    defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g
    ``
    
-   - Depending upon the level of fragmentation, this could take hours.
+   - Depending upon the level of fragmentation, de-fragmentation could take hours.
    - In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS disk’s letter (such as drive *F:*).
 
-Clean out bad memory from the Boot Configuration Data (BCD) Store
+### Clean out bad memory from the Boot Configuration Data (BCD) Store
 
 1. Open an elevated command prompt (run as administrator).
 1. Query the boot configuration file for bad memory flags with the following command:
@@ -113,7 +113,7 @@ Clean out bad memory from the Boot Configuration Data (BCD) Store
    - In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS disk’s letter (such as drive *F:*).
 
 1. If the query shows no bad memory blocks, skip ahead to the next task. Otherwise, continue to step 4.
-1. If bad memory blocks were identified, these are preventing the creation of a ramdisk and should be deleted with the following command:
+1. If bad memory blocks are identified, these blocks are preventing the creation of a ramdisk and should be deleted with the following command:
 
    ``
    bcdedit /store <LETTER ASSIGNED TO THE OS DISK>:\boot\bcd /deletevalue {badmemory} badmemorylist
@@ -121,11 +121,11 @@ Clean out bad memory from the Boot Configuration Data (BCD) Store
    
    - In the command, replace `<LETTER ASSIGNED TO THE OS DISK>` with the OS disk’s letter (such as drive *F:*).
 
-Restore the Page File to its Default Location
+### Restore the Page File to its Default Location
 
-The page file stores data that cannot be held by your computer’s random-access memory (RAM) as a form of overflow/backup. It is possible that that the file is hosted in a VHD rather than the temp drive, which is the default Azure location. If this is the case, it may not be accessible, and should be restored to the default location.
+The page file stores data that cannot be held by your computer’s random-access memory (RAM) as a form of overflow/backup. It is possible that the file is hosted in a VHD rather than the temp drive, which is the default Azure location. If true, the file may not be accessible, and should be restored to the default location.
 
-Before taking any steps, you should create a copy of the \windows\system32\config folder on a healthy disk. This is in case you need to undo any changes you make. You will be working on important system files, so this precaution is highly recommended.
+Before taking any steps, you should create a copy of the \windows\system32\config folder on a healthy disk. This step ensures that can undo any unwanted changes. You'll be working on important system files, so this precaution is highly recommended.
 
 1. In Windows search, enter **regedit** and open the Registry Editor application.
 1. In the Registry Editor, highlight the key **HKEY_LOCAL_MACHINE** and select **File > Load Hive...** from the menu.
@@ -133,25 +133,25 @@ Before taking any steps, you should create a copy of the \windows\system32\confi
    ![The load Hive menu of the registry editor.](./media/troubleshoot-windows-stop-error/4.png)
 
 1. In the Load Hive dialog, select **\windows\system32\config\SYSTEM** and click Open.
-   1. You will be prompted for a name, which you should enter **BROKENSYSTEM**. This name will help differentiate the affected hives while you are troubleshooting.
+   1. You'll be prompted for a name, which you should enter **BROKENSYSTEM**. This name will help differentiate the affected hives while you're troubleshooting.
    1. Expand **HKEY_LOCAL_MACHINE** to see the new BROKENSYSTEM key you have added.
 1. Using the Registry Editor, determine which ControlSet the machine is booting from.
    1. Navigate to **HKEY_LOCAL_MACHINE >> BROKENSYSTEM >> Select**.
    1. In the keys listed, note the data value of Current. For example, if this value is **1** or **0x00000001 (1)**, then the control set would be ControlSet001.
-1. Check where the PageFile is configured to be created.
-   1. While in HKEY_LOCAL_MACHINE\BROKENSYSTEM, expand the directory matching the ControlSet number you just identified in step 4, such as **ControlSet001**.
+1. Check the location where the PageFile creation is configured.
+   1. While in HKEY_LOCAL_MACHINE\BROKENSYSTEM, expand the directory matching the ControlSet number you identified in step 4, such as **ControlSet001**.
    1. Navigate to **Control >> Session Manager >> Memory Management** and note the location of the **ExistingPageFiles** key.
-   1. This key should be in the default Azure location of the Temp drive. If it isn’t there and is in a VHD in another location like data disk drive, OS drive, etc., then it will need to be deleted.
+   1. This key should be in the default Azure location of the Temp drive. If it isn’t there and is in a VHD in another location, such as the data disk drive or OS drive, then it will need to be deleted.
    1. Browse to that location in File Explorer and then delete the **pagefile.sys** file.
 
-## Enable the Serial Console and memory dump collection
+### Enable the Serial Console and memory dump collection
 
 **Recommended**: Before you rebuild the VM, enable the Serial Console and memory dump collection by running the following script:
 
 To enable memory dump collection and Serial Console, run the following script:
 
 1. Open an elevated command prompt session as an Administrator.
-1. List the BCD store data and determine the boot loader identifier, which you will use in the next step.
+1. List the BCD store data and determine the boot loader identifier, which you'll use in the next step.
 
    1. For a Generation 1 VM, enter the following command and note the identifier listed:
    
