@@ -44,7 +44,7 @@ One Azure resource is defined in the template:
 **Azure CLI**
 
 ```azurecli-interactive
-read -p "Enter the location (i.e. westcentralus): " location
+read -p "Enter the location (i.e. eastus): " location
 resourceGroupName="myResourceGroupCDN"
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json" 
 
@@ -60,7 +60,7 @@ az group deployment create \
 **Azure PowerShell**
 
 ```azurepowershell-interactive
-$location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
+$location = Read-Host -Prompt "Enter the location (i.e. eastus)"
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json"
 
 $resourceGroupName = "myResourceGroupCDN"
