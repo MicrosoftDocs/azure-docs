@@ -150,7 +150,11 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         clientInit.forward = RR::Axis::Z_Neg;
         clientInit.right = RR::Axis::X;
         clientInit.up = RR::Axis::Y;
-        RR::StartupRemoteRendering(clientInit);
+        if (RR::StartupRemoteRendering(clientInit) != RR::Result::Success)
+        {
+            // something fundamental went wrong with the initialization
+            throw std::exception("Failed to start remote rendering. Invalid client init data.");
+        }
     }
 
 
