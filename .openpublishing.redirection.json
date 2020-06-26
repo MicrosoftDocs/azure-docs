@@ -18852,6 +18852,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/databox-family/index.md",
+      "redirect_url": "/azure/databox/index.yml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storsimple/storsimple-battery-replacement.md",
       "redirect_url": "/azure/storsimple/storsimple-8000-battery-replacement",
       "redirect_document_id": false
