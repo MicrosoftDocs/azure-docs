@@ -36,7 +36,7 @@ The template defines one resource:
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open the template. This template creates an Synapse SQL pool.
+1. Select the following image to sign in to Azure and open the template. This template creates a Synapse SQL pool.
    
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -102,7 +102,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Synapse Analytics SQL pool using an ARM template and validated the deployment. To learn more about Azure Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure Synapse Analytics SQL pool using an ARM template and validated the deployment. To learn more about Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
