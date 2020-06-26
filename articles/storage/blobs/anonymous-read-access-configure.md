@@ -14,12 +14,16 @@ ms.reviewer: fryu
 
 # Configure anonymous public read access for containers and blobs
 
-Azure Storage supports anonymous public read access for containers and blobs. By default, all requests to a container and its blobs must be authorized by using either Azure Active Directory (Azure AD) or Shared Key authorization. You can configure a container's public access level setting to permit anonymous access, so that clients can read data in that container without authorizing the request. To configure public access for a container, you must perform two steps:
+Azure Storage supports anonymous public read access for containers and blobs. By default, all requests to a container and its blobs must be authorized by using either Azure Active Directory (Azure AD) or Shared Key authorization. When you configure a container's public access level setting to permit anonymous access, clients can read data in that container without authorizing the request.
+
+When a container is configured for public access, any client can read data in that container. Public access presents a potential security risk, so if your scenario does not require it, then you can disable it for the storage account.
+
+To configure public access for a container, you must perform two steps:
 
 1. Enable public access for the storage account
-1. Configure the container's public access setting.
+1. Configure the container's public access setting
 
-This article describes how to configure anonymous public read access for a container. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md).
+This article describes how to configure anonymous public read access for a container and its blobs. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md).
 
 ## Enable or disable public read access for a storage account
 
@@ -73,13 +77,13 @@ Disabling public access for a storage account does not affect any static website
 
 ## Set the public access level for a container
 
-To grant anonymous users read access to a container and its blobs, set the container's public access level. You can configure a container with the following permissions:
+To grant anonymous users read access to a container and its blobs, first enable public access for the storage account, then set the container's public access level. You can configure a container with the following permissions:
 
-- **No public read access:** The container and its blobs can be accessed only by the storage account owner. This option is the default for all new containers.
-- **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available. Anonymous clients cannot enumerate the blobs within the container.
-- **Public read access for container and its blobs:** All container and blob data can be read by anonymous request. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
+- **No public read access:** The container and its blobs can be accessed only with an authorized request. This option is the default for all new containers.
+- **Public read access for blobs only:** Blobs within the container can be read by anonymous request, but container data is not available anonymously. Anonymous clients cannot enumerate the blobs within the container.
+- **Public read access for container and its blobs:** Container and blob data can be read by anonymous request, except for container permission settings and container metadata. Clients can enumerate blobs within the container by anonymous request, but cannot enumerate containers within the storage account.
 
-You can set a container's public access level only if public access is enabled for the storage account. If public access is disabled for the storage account, changing the public access level for a container is not permitted. For more information, see [Enable or disable public read access for a storage account](#enable-or-disable-public-read-access-for-a-storage-account).
+You can set a container's public access level only if public access is enabled for the storage account. If public access is disabled for the storage account, changing the public access level for a container is not permitted.
 
 You cannot change the public access level for an individual blob. Public access level is set only at the container level.
 
@@ -124,6 +128,8 @@ az storage container show-permission \
     --account-key <account-key>
     --auth-mode key
 ```
+
+When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs.
 
 ---
 
