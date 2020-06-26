@@ -1,18 +1,8 @@
 ---
 title: Use Azure managed identities to create environments in DevTest Labs | Microsoft Docs
 description: Learn how to use managed identities in Azure to deploy environments in a lab in Azure DevTest Labs. 
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Use Azure managed identities to deploy environments in a lab 
