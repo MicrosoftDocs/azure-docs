@@ -130,7 +130,7 @@ az storage container show-permission \
     --auth-mode key
 ```
 
-When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs.
+When public access is disabled for the storage account, a container's public access level cannot be set. If you attempt to set the container's public access level, an error occurs indicating that public access is not permitted on the storage account.
 
 ---
 
