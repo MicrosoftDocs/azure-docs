@@ -4,7 +4,7 @@ description: Security baseline for Azure Private Link
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 06/25/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -22,125 +22,23 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required.
-
-You can completely lock down your workloads from accessing public endpoints to connect to a supported Azure service. This control provides an additional network security layer to your resources by providing a built-in exfiltration protection that prevents access to other resources hosted on the same Azure service.
-
-* [Understand network security of private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#network-security-of-private-endpoints)
+**Guidance**: Not applicable; This control is intended for standalone Azure services that can be deployed or integrated into virtual networks. Private Link is a core Azure networking service for providing access to other Azure services over private networks, and it is not intended to be secured as a standalone resource.
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Not Applicable
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
-**Guidance**: For your subnets with private endpoint configured, enable network security group (NSG) flow logs and send logs into a Storage Account for traffic audit. You may also send NSG flow logs to a Log Analytics Workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
-
-While NSG rules and user defined routes do not apply to private endpoint, NSG flow logs and monitoring information for outbound connections are still supported and can be used.
-
-* [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-
-* [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
-
-* [Understand the limitations of private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+**Guidance**: Not applicable; This control is intended for standalone Azure services that can be deployed or integrated into virtual networks. Private Link is a core Azure networking service for providing access to other Azure services over private networks, and it is not intended to be secured as a standalone resource.
 
 **Azure Security Center monitoring**: Yes
 
-**Responsibility**: Customer
-
-### 1.4: Deny communications with known malicious IP addresses
-
-**Guidance**: Deploy your resources using private endpoints into a DMZ protected by Azure Firewall with Threat Intelligence enabled and configured to "Alert and deny" for malicious network traffic. For the Azure Virtual Network(s) associated with your private endpoints, enable DDoS Standard protection to guard against DDoS attacks.
-
-* [Understand DMZ architecture in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
-
-* [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
-
-* [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 1.5: Record network packets
-
-**Guidance**: For Azure Virtual Machines that have access to your Azure resources using private endpoints, you may enable Network Watcher packet capture so that network traffic can be reviewed for unusual or unexpected activity.
-
-* [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
-
-**Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 1.6: Deploy network based intrusion detection/intrusion prevention systems (IDS/IPS)
-
-**Guidance**: When using private endpoints to protect your Azure resources, consider an N-tier architecture with an Azure web application firewall (WAF) between the front end and the Internet to authenticate all incoming requests and filter out malicious traffic. Azure WAF can help secure your line of business web apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks.
-
-* [N-tier architecture best practice](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier)
-
-* [Understand Azure Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
-### 1.7: Manage traffic to web applications
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
-### 1.8: Minimize complexity and administrative overhead of network security rules
-
-**Guidance**: For outbound traffic on source clients that may access an Azure service through a private endpoint network security groups and flow logs are still supported and may be used. Deploy individual routes with /32 prefix to override private endpoint routes. While subnets actually containing the private endpoint can have a network security group associated with it, the rules will not be effective on traffic processed by the private endpoint.
-
-* [Understand and use Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
-
-* [Understand current limitaions for network security groups and private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations)
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
-### 1.9: Maintain standard security configurations for network devices
-
-**Guidance**: Define and implement standard security configurations for network resources with Azure Policy.
-
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
-
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-
-* [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)
-
-* [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 1.10: Document traffic configuration rules
-
-**Guidance**: Use Tags for NSGs and other resources related to network security and traffic flow. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
-
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
-
-You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
-
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
-
-* [How to create a Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
-
-* [How to create an NSG with a Security Config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
+**Responsibility**: Not Applicable
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
-**Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
+**Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources related to Private Link. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
 * [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
 
@@ -156,7 +54,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ### 2.2: Configure central security log management
 
-**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by network resources like Private Link endpoints, Virtual Networks, and network security groups. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
+**Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by network resources like Private Link endpoints, virtual networks, and network security groups. Within Azure Monitor, use Log Analytics Workspace(s) to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM.
 
@@ -176,11 +74,13 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
+**Guidance**: Enable Azure Monitor activity logs which log operations taken on Private Link resources, who started the operation, when the operation occurred, the status of the operation and other useful audit information. Additional logging information that is available in Azure Monitor is: Data processed by the Private Endpoint, service, and NAT port availability.
 
 * [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
 
 * [View and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+
+* [Logging and Monitoring for Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
 
 **Azure Security Center monitoring**: Yes
 
@@ -188,7 +88,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 ### 2.5: Configure security log storage retention
 
-**Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
+**Guidance**: For logs related to Private Link, set your Log Analytics Workspace retention period according to your organization's compliance regulations within Azure Monitor. Use Azure Storage Accounts for any long-term/archival storage of logs.
 
 * [Change the data retention period in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
@@ -251,14 +151,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 * [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 3.2: Change default passwords where applicable
-
-**Guidance**: Azure Private Link does not have the concept of default passwords. Customers are responsible for third party applications and marketplace services that may use default passwords.
-
-**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -382,14 +274,6 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 
 **Responsibility**: Customer
 
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
-
-**Guidance**: Not applicable; Azure Private Link does not store data, Microsoft support can access platform resource metadata during an open support case without usage of another tool.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
 ## Data protection
 
 *For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
@@ -460,14 +344,6 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-### 4.7: Use host-based data loss prevention to enforce access control
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
 ### 4.8: Encrypt sensitive information at rest
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources and resources which uses stores data.
@@ -478,7 +354,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
-**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to critical Azure resources like Private Link services and endpoints.
+**Guidance**: Use Azure Monitor activity log alerts to create alerts for when changes take place to critical Azure resources like Private Link services and endpoints.
 
 * [Diagnostic logging for a network security group](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
 
@@ -566,7 +442,7 @@ Additionally, use a third-party solution for performing vulnerability assessment
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintainan inventory of approved Azure resources
+### 6.4: Define and Maintain an inventory of approved Azure resources
 
 **Guidance**: You will need to create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
@@ -864,7 +740,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 *For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of allcritical security findings
+### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
