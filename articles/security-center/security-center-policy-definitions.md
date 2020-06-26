@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.author: memildin
 ---
 # Azure security policies monitored by Security Center

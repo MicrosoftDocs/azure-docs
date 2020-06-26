@@ -3,7 +3,7 @@ title: Configure customer-managed keys for your Azure Cosmos DB account
 description: Learn how to configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: thweiss
 ---

@@ -5,8 +5,8 @@ description: Get answers to frequently asked questions about Conditional Access 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -51,6 +51,12 @@ Microsoft Teams also is supported separately as a cloud app in Conditional Acces
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.
 
 For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+
+## Why are some tabs not working in Microsoft Teams after enabling Conditional Access policies?
+
+After enabling some Conditional Access policies on the tenant in Microsoft Teams, certain tabs may no longer function in the desktop client as expected. However, the affected tabs function when using the Microsoft Teams web client. The tabs affected may include Power BI, Forms, VSTS, PowerApps, and SharePoint List.
+
+To see the affected tabs you must use the Teams web client in Edge, Internet Explorer, or Chrome with the Windows 10 Accounts extension installed. Some tabs depend on web authentication, which doesn't work in the Microsoft Teams desktop client when Conditional Access is enabled. Microsoft is working with partners to enable these scenarios. To date, we have enabled scenrarios involving Planner, OneNote, and Stream.
 
 ## Next steps
 

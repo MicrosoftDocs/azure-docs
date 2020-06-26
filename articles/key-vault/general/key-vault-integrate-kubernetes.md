@@ -339,4 +339,4 @@ Verify that the contents of the secret are displayed.
 
 To help ensure that your key vault is recoverable, see:
 > [!div class="nextstepaction"]
-> [Turn on soft delete](https://docs.microsoft.com/azure/key-vault/general/soft-delete-clid)
+> [Turn on soft delete](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)

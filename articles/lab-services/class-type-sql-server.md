@@ -98,7 +98,7 @@ Visual Studio supports several workloads including **Web & cloud** and **Desktop
 6. On the **Ready to Install**, click **Next**.
 7. Wait for the installer to run.  Click **Finish**.
 
-Now that we have Azure Data Studio installed, let’s setup the connection to the Azure SQL Database.
+Now that we have Azure Data Studio installed, let’s setup the connection to Azure SQL Database.
 
 1. On the **Welcome** page for Azure Data Studio, click the **New Connection** link.
 2. In the **Connection Details** box, fill in necessary information.

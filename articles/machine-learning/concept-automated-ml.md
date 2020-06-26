@@ -94,6 +94,10 @@ You can also inspect the logged run information, which [contains metrics](how-to
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
 
+Learn how to use a [remote compute target](how-to-auto-train-remote.md).
+
+
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 
@@ -266,19 +270,32 @@ The ONNX runtime also supports C#, so you can use the model built automatically 
 
 ## Next steps
 
-See examples and learn how to build models using automated machine learning:
+There are multiple resources to get you up and running with AutoML. 
 
-+ Configure the settings for automatic training experiment:
-  + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md).
-  + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
+### Tutorials/ how-tos
+Tutorials are end-to-end introductory examples of AutoML scenarios.
++ **For a code first experience**, follow the [Tutorial: Automatically train a regression model with Azure Machine Learning Python SDK](tutorial-auto-train-models.md).
 
-+ Learn how to use a [remote compute target](how-to-auto-train-remote.md)
+ + **For a low or no-code experience**, see the [Tutorial: Create automated ML classification models with Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md).
 
-+ Follow the [Tutorial: Automatically train a regression model with Azure Machine Learning](tutorial-auto-train-models.md) 
+How to articles provide additional detail into what functionality AutoML offers. For example, 
 
-+ Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
++ Configure the settings for automatic training experiments
+    + In Azure Machine Learning studio, [use these steps](how-to-use-automated-ml-for-ml-models.md). 
+    + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
-+ Try out [Jupyter Notebook samples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-* Automated ML is also available in other Microsoft solutions such as, 
++  Learn how to auto train using time series data, [with these steps](how-to-auto-train-forecast.md).
+
+### Jupyter notebook samples 
+
+Review detailed code examples and use cases in the [Github notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+
+### Python SDK reference 
+
+Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+
+> [!Note]
+> Automated machine learning capabilities are also available in other Microsoft solutions such as, 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), 
 [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) and [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+

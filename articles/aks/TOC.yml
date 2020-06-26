@@ -132,6 +132,8 @@
       href: upgrade-cluster.md
     - name: Use Uptime SLA
       href: uptime-sla.md
+    - name: Use proximity placement groups (preview)
+      href: reduce-latency-ppg.md
     - name: Upgrade the node image (preview)
       href: node-image-upgrade.md
     - name: Process node OS updates
