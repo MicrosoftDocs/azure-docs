@@ -1336,8 +1336,7 @@ Azure service: Classic deployment model storage
 
 ### Microsoft.DataBox
 
-Azure service: [Azure Data Box](../databox/index)
-.yml
+Azure service: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
