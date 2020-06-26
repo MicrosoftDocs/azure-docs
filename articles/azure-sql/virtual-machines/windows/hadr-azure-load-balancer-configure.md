@@ -1,6 +1,6 @@
 ---
-title: Configure Virtual Network Name with Azure Load Balancer for HADR
-description: Learn to configure an Azure load balancer to route traffic to your availability group or failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+title: Configure VNN with Azure Load Balancer for HADR
+description: Learn to configure an Azure load balancer to route traffic to the virtual network name (VNN) for your availability group or failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure Azure Load Balancer (SQL Server on Azure VMs)
+# Configure VNN with Azure Load Balancer (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the clustered resource in Azure. 
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by clustered resource in Azure. 
 
 This article teaches you to configure an Azure load balancer to route traffic to your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
@@ -207,8 +207,6 @@ Take the following steps:
 Failover succeeds when the replicas switch roles and are both synchronized. 
 
 ---
-
-
 
 ## Test connectivity
 

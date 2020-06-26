@@ -22,133 +22,126 @@ ms.author: mathoma
 
 This article explains how to create a failover cluster instance (FCI) using Azure Shared Disks with SQL Server on Azure Virtual Machines. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported configurations](hadr-cluster-best-practices.md). 
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
 
 ## Prerequisites 
 
 Before you complete the steps in this article, you should already have:
 
-- A Microsoft Azure subscription.
-- [Two or more prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md).
-- Both VMs should be part of the same Proximity Placement Group and Avialability Set
-- The Availbility Set should be created by setting both Fault Domain and Update Domain to 1.
-- Only West Central US region supports shared disks in preview.
+- A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
+- [Two or more West Central US prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md), with the availability set created with Fault Domain and Update Domain set to `1`. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-
-
 ## Add Azure Shared Disk
-Deploy a managed Premium SSD disk with the shared disk feature enabled, use the new property maxShares set to 2; this will make the disk shareable across both FCI nodes.
+Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to `2` to make the disk shareable across both FCI nodes. 
 
-```JSON
-{ 
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "dataDiskName": {
-      "type": "string",
-      "defaultValue": "mySharedDisk"
-    },
-    "dataDiskSizeGB": {
-      "type": "int",
-      "defaultValue": 1024
-    },
-    "maxShares": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Compute/disks",
-      "name": "[parameters('dataDiskName')]",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2019-07-01",
-      "sku": {
-        "name": "Premium_LRS"
-      },
-      "properties": {
-        "creationData": {
-          "createOption": "Empty"
-        },
-        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-        "maxShares": "[parameters('maxShares')]"
-      }
-    }
-  ] 
-}
-```
-
-```powershell
-$rgName = < specify your resource group name>
-			$location = 'westcentralus'
-			New-AzResourceGroupDeployment -ResourceGroupName $rgName `
--TemplateFile "SharedDiskConfig.json"
-
-```
-
-Attach shared disk both VMs seperatly by executing the commands below.
+Add an Azure Shared Disk by following these steps: 
 
 
-```powershell
-$resourceGroup = "<your resource group name>"
-		$location = "WestCentralUS"
-		$ppgName = "< your proximity placement groups name >"
-		$vm = Get-AzVM -ResourceGroupName "<your resource group name>" 
--Name "<your VM node name>"
-		$dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup -DiskName "<your shared disk name>"
-		$vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <available LUN  check disk setting of the VM>
-		update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+1. Save the following script as `SharedDiskConfig.json`: 
 
-```
+   ```JSON
+   { 
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+       "dataDiskName": {
+         "type": "string",
+         "defaultValue": "mySharedDisk"
+       },
+       "dataDiskSizeGB": {
+         "type": "int",
+         "defaultValue": 1024
+       },
+       "maxShares": {
+         "type": "int",
+         "defaultValue": 2
+       }
+     },
+     "resources": [
+       {
+         "type": "Microsoft.Compute/disks",
+         "name": "[parameters('dataDiskName')]",
+         "location": "[resourceGroup().location]",
+         "apiVersion": "2019-07-01",
+         "sku": {
+           "name": "Premium_LRS"
+         },
+         "properties": {
+           "creationData": {
+             "createOption": "Empty"
+           },
+           "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+           "maxShares": "[parameters('maxShares')]"
+         }
+       }
+     ] 
+   }
+   ```
 
-For each VM, initialize  attached shared disks as GBT and format as NTFS.
 
+2. Run the `SharedDiskConfig.json` file using PowerShell: 
+
+   ```powershell
+   $rgName = < specify your resource group name>
+       $location = 'westcentralus'
+       New-AzResourceGroupDeployment -ResourceGroupName $rgName `
+   -TemplateFile "SharedDiskConfig.json"
+   ```
+
+3. For each VM, initialize the attached shared disks as GBT and format as NTFS by running this command: 
+
+  ```powershell
+  $resourceGroup = "<your resource group name>"
+      $location = "WestCentralUS"
+      $ppgName = "< your proximity placement groups name >"
+      $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
+          -Name "<your VM node name>"
+      $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
+          -DiskName "<your shared disk name>"
+      $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
+          -CreateOption Attach -ManagedDiskId $dataDisk.Id `
+          -Lun <available LUN  check disk setting of the VM>
+   update-AzVm -VM $vm -ResourceGroupName $resourceGroup
+  ```
 
 
 ## Create the failover cluster
 
 To create the failover cluster, you need:
 
-- The names of the virtual machines that will become the cluster nodes
-- A name for the failover cluster
-- An IP address for the failover cluster <br/>
-  You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
+- The names of the virtual machines that will become the cluster nodes.
+- A name for the failover cluster.
+- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
-#### Windows Server 2008 through Windows Server 2016
 
-The following PowerShell script creates a failover cluster for Windows Server 2008 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
+# [Windows Server 2012 - 2016](#tab/windows2012)
+
+The following PowerShell script creates a failover cluster for Windows Server 2012 through Windows Server 2016. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
-#### Windows Server 2019
+# [Windows Server 2019](#tab/windows2019)
 
-The following PowerShell script creates a failover cluster for Windows Server 2019. For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97). Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
+The following PowerShell script creates a failover cluster for Windows Server 2019.  Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
 ```
 
+For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
 
-   Shared disk will be visible as "Avialable Storage" on Failover Cluster Manager, Disks section.
-   On Failover Cluster Manager, right click on the Storage/Disks/"Your Shared Disk" and select "Add to Cluster Shared Volumes" to present the shared disk as CSV.
-   
-   
-   This screenshot shows a Cluster Shared Volume on Windows Failover Cluster:
-
-   ![Cluster Shared Volume](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/15-cluster-shared-volume.png)
-
-
+---
 
 
 ## Configure quorum
 
-Configure the quorum solution that best suits your business needs. You can configure a [disk witness], a [cloud witness], or a [file share witness]. For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
+Configure the quorum solution that best suits your business needs. You can configure a [Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), a [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
 
 ## Validate the cluster
 Validate the cluster in the UI or by using PowerShell.
@@ -156,15 +149,10 @@ Validate the cluster in the UI or by using PowerShell.
 To validate the cluster by using the UI, take the following steps on one of the virtual machines:
 
 1. Under Server Manager, select Tools, and then select Failover Cluster Manager.
-
 2. Under Failover Cluster Manager, select Action, and then select Validate Configuration.
-
 3. Select Next.
-
 4. Under Select Servers or a Cluster, enter the names of both virtual machines.
-
 5. Under Testing options, select Run only tests I select. Select Next.
-
 6. Under Test Selection, select all tests except for Storage Spaces Direct.
 
 ## Test cluster failover
@@ -172,8 +160,6 @@ To validate the cluster by using the UI, take the following steps on one of the 
 Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
 
 :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
-
-
 
 ## Create SQL Server FCI
 
@@ -232,12 +218,11 @@ To route traffic appropriately to the current primary node, configure the connec
 
 ## Next steps
 
-If you haven't already, configure connectivity to your FCI with an [Azure Load Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+If you haven't already, configure connectivity to your FCI with a [virtual network name and an Azure Load Balancer](hadr-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
 
 If Azure Shared Disks are not the appropriate FCI storage solution for you, consider creating your FCI using [Premium File Shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-cluster-best-practices.md). 
-
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-cluster-best-practices.md).
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   

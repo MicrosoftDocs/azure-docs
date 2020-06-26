@@ -38,7 +38,17 @@ To learn more, see [Quorum best practices with SQL Server VMs in Azure](hadr-clu
 
 ## Storage
 
-In traditional on-premises clustered environments, the Windows Failover Cluster uses a Storage Area Network (SAN) that is accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage and only the active node can access the files at one time. SQL Server on Azure VMs offers various options as a shard storage solution for a SQL Server failover cluster instance deployment. The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
+In traditional on-premises clustered environments, the Windows Failover Cluster uses a Storage Area Network (SAN) that is accessible by both nodes as the shared storage. SQL Server files are hosted on the shared storage and only the active node can access the files at one time. SQL Server on Azure VMs offers various options as a shard storage solution for a SQL Server failover cluster instance deployment. 
+
+||[Azure Shared Disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage spaces direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+|---------|---------|---------|---------|
+|Min OS Version| Windows Server 2019|Windows Server 2012|Windows Server 2016|
+|Min SQL Server version|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|Supported VM availability |Availability sets & proximity placement groups |Availability sets & availability zones|Availability sets & availability zones |
+|Supports filestream|No|No|Yes |
+|Azure Blob Cache|No|No|Yes|
+
+The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
 
 ### Azure Shared Disks
 
@@ -47,15 +57,18 @@ In traditional on-premises clustered environments, the Windows Failover Cluster 
 **Supported OS**: Windows Server 2019   
 **Supported SQL version**: SQL Server 2019   
 
+**Benefits**: 
+- The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is. 
+- Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. 
+- Supports both Premium SSD and Ultra Disks. 
+- Use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 
 
-|**Benefits** |**Limitations**|
-|---------|---------|
-|The recommended solutions for applications looking to migrate to Azure while keeping the HADR architecture as-is.  |Only available for SQL Server 2019 and Windows Server 2019 in Preview. |
-|Can migrate clustered applications to Azure as-is due to SCSI Persistent Reservations (SCSI PR) support. |Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).|
-|Supports both Premium SSD and Ultra Disks. | Availability Zones are not supported. |
-|Use a single shared disk or stripe multiple shared disks to create a shared storage pool.|Premium SSD Disk caching is not supported.| 
-
+**Limitations**: 
+- Only available for SQL Server 2019 and Windows Server 2019 while in Preview. 
+- Virtual machines must be placed in the same availability Set and [Proximity placement group (PPG)](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+- Availability Zones are not supported.
+- Premium SSD Disk caching is not supported.
  
 To get started, see [SQL Server failover cluster instance with Azure Shared Disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
@@ -67,16 +80,19 @@ To get started, see [SQL Server failover cluster instance with Azure Shared Disk
 **Supported SQL version**: SQL Server 2016 and higher   
 
 
-|**Benefits** |**Limitations**|
-|---------|---------|
-|Sufficient network bandwidth enables a robust and highly performant shared storage solution. |Only available for Windows Server 2016 and later. |
-|Supports Azure Blob Cache, so reads can be served locally from the cache (updates are replicated simultaneously to both nodes). |Availability zones are not supported.|
-|Supports filestream. |Requires the same disk capacity attached to both virtual machines, which doubles storage costs. |
-| |High network bandwidth is required to achieve high performance due to on-going disk replication.|
-| |Requires a larger VM size.| 
-   
-To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+**Benefits:** 
+- Sufficient network bandwidth enables a robust and highly performant shared storage solution. 
+- Supports Azure Blob Cache, so reads can be served locally from the cache (updates are replicated simultaneously to both nodes). 
+- Supports filestream. 
 
+**Limitations:**
+- Only available for Windows Server 2016 and later. 
+- Availability zones are not supported.
+- Requires the same disk capacity attached to both virtual machines. 
+- High network bandwidth is required to achieve high performance due to on-going disk replication. 
+- Requires a larger VM size and double pay for storage, since storage is attached to each VM. 
+
+To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
 ### Premium file share
 
@@ -85,10 +101,14 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported OS**: Windows Server 2012 and higher   
 **Supported SQL version**: SQL Server 2012 and higher   
 
-|**Benefits** |**Limitations**|
-|---------|---------|
-|Only shared storage solution for virtual machines spread over mulitple availablity zones. |Only available for Windows Server 2012 and later. |
-|Fully managed file system with single digit latencies and burstable IO performance. |Filestream is not supported |
+**Benefits:** 
+- Only shared storage solution for virtual machines spread over mulitple availablity zones. 
+- Fully managed file system with single digit latencies and burstable IO performance. 
+
+**Limitations:**
+- Only available for Windows Server 2012 and later. 
+- Filestream is not supported 
+
 
 To get started, see [SQL Server failover cluster instance with Premium File Share](failover-cluster-instance-premium-file-share-manually-configure.md). 
 
@@ -114,13 +134,13 @@ For third-party shared storage and data replication solutions, contact the vendo
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines support using a [virtual network name (VNN)](hadr-azure-load-balancer-configure.md) with an Azure Load Balancer or a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) to route traffic to the SQL Server instance regardless of which node currently owns the clustered resources. 
+Failover cluster instances with SQL Server on Azure Virtual Machines use a [virtual network name (VNN) with an Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) to route traffic to the SQL Server instance regardless of which node currently owns the clustered resources. 
 
 To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
 
 Using the DNN with FCI has additional considerations when used with other SQL Server features: 
 
-### DNN Feature interoperability 
+### DNN feature interoperability 
 
 Consider the following when using the distributed network name (DNN) resource with SQL Server FCI and these features: 
 
@@ -138,14 +158,12 @@ Replication has three components: Publisher, Distributor, Subscriber. Any of the
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-| Replication component (FCI w/ DNN) | Remote component | Network alias map| Server with network map| 
-|---------|---------|---------|-------- | 
-|Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
-|Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
-|Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
-|Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
-
 For example, if you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN. 
+
+- If publisher is an FCI using DNN and the distributor is remote, define a network alias to map the publisher's VNN name to the publisher's DNN name on the distributor SQL Server.
+- If distributor is an FCI using DNN and the publisher is remote, define a network alias to map the distributor's VNN name to distributor's DNN name on the publisher SQL Server.
+- If subscriber is an FCI using DNN and the distributor is remote, define a network alias to map the subscriber's VNN to subscriber's DNN name on the distributor SQL server.
+- If distributor is an FCI using DNN and the subscriber is remote, define a network alias to map the distributor's VNN name to distributor's DNN name in the subscriber SQL Server.
 
 **Database mirroring**   
 Database mirroring can be configured with an FCI as either database mirroring partner. Configure database mirroring using [Transact-SQL (T-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) rather than the SSMS GUI to ensure the database mirroring endpoint is created using the DNN instead of the VNN. 
@@ -179,9 +197,9 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 ## Next steps
 
-Be sure to review [supported cluster configurations](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
+Be sure to review [cluster configurations best practices](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
 For additional information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
