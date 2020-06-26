@@ -3,13 +3,13 @@ title: Use system node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage system node pools in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/28/2020
-
+ms.date: 06/18/2020
+ms.author: mlearned
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node. 
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node.
 
 > [!Important]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
@@ -25,7 +25,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * See [Quotas, virtual machine size restrictions, and region availability in Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * The AKS cluster must be built with virtual machine scale sets as the VM type.
 * The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools, the length must be between 1 and 12 characters. For Windows node pools, the length must be between 1 and 6 characters.
-* An API version of 2020-03-01 or greater must be used to set a node pool mode.
+* An API version of 2020-03-01 or greater must be used to set a node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools, but can be migrated to contain system node pools by following [update pool mode steps](#update-existing-cluster-system-and-user-node-pools).
 * The mode of a node pool is a required property and must be explicitly set when using ARM templates or direct API calls.
 
 ## System and user node pools
@@ -46,6 +46,7 @@ You can do the following operations with node pools:
 * Delete user node pools.
 * You can delete system node pools, provided you have another system node pool to take its place in the AKS cluster.
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
+* If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
 
 ## Create a new AKS cluster with a system node pool
 
@@ -110,7 +111,10 @@ A mode of type **System** is defined for system node pools, and a mode of type *
 }
 ```
 
-## Update system and user node pools
+## Update existing cluster system and user node pools
+
+> [!NOTE]
+> An API version of 2020-03-01 or greater must be used to set a system node pool mode. Clusters created on API versions older than 2020-03-01 contain only user node pools as a result. To receive system node pool functionality and benefits on older clusters, update the mode of existing node pools with the following commands on the latest Azure CLI version.
 
 You can change modes for both system and user node pools. You can change a system node pool to a user pool only if another system node pool already exists on the AKS cluster.
 

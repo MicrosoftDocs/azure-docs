@@ -244,7 +244,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Add the following code to `MyFirebaseMessagingService.cs` to process messages that are received. 
+18. Add the following code inside `MyFirebaseMessagingService` class, to process messages that are received. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -288,7 +288,7 @@ Your notification hub is configured to work with FCM, and you have the connectio
         }
     ```
 
-19. Add the following methods to the MyFirebaseMessagingService class to receive the FCM registration token and send it to the Notification Hubs instance (hub). 
+19. Add the following methods to the MyFirebaseMessagingService class (right below the code added in the previous step) to receive the FCM registration token and send it to the Notification Hubs instance (hub). 
 
     ```csharp
         public override void OnNewToken(string token)

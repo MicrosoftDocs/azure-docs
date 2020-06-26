@@ -5,8 +5,8 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
-ms.date: 02/03/2020
+ms.topic: how-to
+ms.date: 05/21/2020
 ms.author: charwen
 
 ---
@@ -27,9 +27,6 @@ Once the Bastion service is provisioned and deployed in your virtual network, yo
 
    ![refresh](./media/session-monitoring/refresh.png)
 
->[!IMPORTANT]
-> Enable port 4443 for inbound traffic from Gateway Manager for session monitoring to work.
->
 
 ## <a name="view"></a>Delete or force-disconnect an ongoing remote session
 

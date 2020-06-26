@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/11/2020
 ---
 
 # Connectors for Azure Logic Apps
@@ -105,7 +105,7 @@ Logic Apps provides built-in actions for running your own code in your logic app
 
 |   |   |   |   |
 |---|---|---|---|
-| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][azure-functions-doc] | Add and run JavaScript code snippets from your logic apps. |
+| [![API icon][azure-functions-icon]<br>**Azure Functions**][azure-functions-doc] | Call Azure functions that run custom code snippets (C# or Node.js) from your logic apps. | [![API icon][inline-code-icon]<br>**Inline code**][inline-code-doc] | Add and run JavaScript code snippets from your logic apps. |
 |||||
 
 ### Control workflow
@@ -247,6 +247,12 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 > need the data gateway when communicating with those resources.
 >
 > For more information about creating ISEs, see [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+<a name="block-connections"></a>
+
+## Block creating connections
+
+If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can [block the capability to create those connections](../logic-apps/block-connections-connectors.md) for specific connectors in logic app workflows by using [Azure Policy](../governance/policy/overview.md). For more information, see [Block connections created by specific connectors in Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
 ## Next steps
 
@@ -392,6 +398,7 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic apps"
 [http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
+[inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic apps"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
 [schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Run logic apps based a schedule"
@@ -479,4 +486,3 @@ To call APIs that run custom code or aren't available as connectors, you can ext
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
-

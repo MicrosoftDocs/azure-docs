@@ -1,9 +1,8 @@
 ---
 title: Task runtime environment variables
 description: Task runtime environment variable guidance and reference for Azure Batch Analytics.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: labrenne
 ---
 
 # Azure Batch runtime environment variables
@@ -44,7 +43,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | AZ_BATCH_JOB_ID                 | The ID of the job that the task belongs to. | All tasks except start task. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | The full path of the job preparation [task directory][files_dirs] on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | The full path of the job preparation [task working directory][files_dirs] on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | The IP address and port of the compute node on which the primary task of a [multi-instance task][multi_instance] runs. | Multi-instance primary and subtasks. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | The IP address and port of the compute node on which the primary task of a [multi-instance task][multi_instance] runs. Do not use the port specified here for MPI or NCCL communication - it is reserved for the Azure Batch service. Use the variable MASTER_PORT instead, either by setting it with a value passed in through command line argument (port 6105 is a good default choice), or using the value AML sets if it does so. | Multi-instance primary and subtasks. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | The ID of the node that the task is assigned to. | All tasks. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | If `true`, the current node is a dedicated node. If `false`, it is a [low-priority node](batch-low-pri-vms.md). | All tasks. | `true` |
 | AZ_BATCH_NODE_LIST              | The list of nodes that are allocated to a [multi-instance task][multi_instance] in the format `nodeIP;nodeIP`. | Multi-instance primary and subtasks. | `10.0.0.4;10.0.0.5` |

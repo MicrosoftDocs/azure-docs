@@ -19,7 +19,7 @@ Just a few examples of what you can do with Azure Monitor include:
 - Correlate infrastructure issues with [Azure Monitor for VMs](insights/vminsights-overview.md) and [Azure Monitor for Containers](insights/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](log-query/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](platform/alerts-smartgroups-overview.md) and [automated actions](platform/alerts-action-rules.md).
-- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](app/usage-workbooks.md).
+- Create visualizations with Azure [dashboards](learn/tutorial-logs-dashboards.md) and [workbooks](platform/workbooks-overview.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 
@@ -28,7 +28,7 @@ Just a few examples of what you can do with Azure Monitor include:
 
 ## Overview
 
-The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data use by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](platform/data-sources.md) that populate these [data stores](platform/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data such as analysis, alerting, and streaming to external systems.
 
 ![Azure Monitor overview](media/overview/overview.png)
 

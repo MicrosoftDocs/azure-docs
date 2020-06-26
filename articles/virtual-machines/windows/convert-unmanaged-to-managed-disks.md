@@ -4,7 +4,7 @@ description: How to convert a Windows VM from unmanaged disks to managed disks b
 author: roygara
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ---

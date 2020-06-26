@@ -18,6 +18,11 @@ Azure HDInsight's free Autoscale feature can automatically increase or decrease 
 
 The Autoscale feature uses two types of conditions to trigger scaling events: thresholds for various cluster performance metrics (called *load-based scaling*) and time-based triggers (called *schedule-based scaling*). Load-based scaling changes the number of nodes in your cluster, within a range that you set, to ensure optimal CPU usage and minimize running cost. Schedule-based scaling changes the number of nodes in your cluster based on operations that you associate with specific dates and times.
 
+The following video provides an overview of the challenges which Autoscale solves and how it can help you to control costs with HDInsight.
+
+
+> [!VIDEO https://www.youtube.com/embed/UlZcDGGFlZ0?WT.mc_id=dataexposed-c9-niner]
+
 ### Choosing load-based or schedule-based scaling
 
 Consider the following factors when choosing a scaling type:
@@ -172,12 +177,12 @@ You can create an HDInsight cluster with schedule-based Autoscaling an Azure Res
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -200,7 +205,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 See the previous section on [enabling load-based autoscale](#load-based-autoscaling) for a full description of all payload parameters.

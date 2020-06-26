@@ -18,7 +18,7 @@ The retirement of OS Family 1 was first announced on June 1, 2013.
 
 **November 3, 2014** Extended support for Guest OS Family 1 ended and it is fully retired. All services still on Family 1 will be impacted. We may stop those services at any time. There is no guarantee your services will continue to run unless you manually upgrade them yourself.
 
-If you have additional questions, visit the [Cloud Services Forums](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) or [contact Azure support](https://azure.microsoft.com/support/options/).
+If you have additional questions, visit the [Microsoft Q&A question page for Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) or [contact Azure support](https://azure.microsoft.com/support/options/).
 
 ## Are you affected?
 Your Cloud Services are affected if any one of the following applies:

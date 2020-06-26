@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
-ms.custom: seo-python-october2019
+ms.custom: seo-python-october2019, tracking-python
 ---
 
 # Quickstart: Create a data factory and pipeline using Python

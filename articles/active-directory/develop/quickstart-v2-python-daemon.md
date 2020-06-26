@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
+ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 

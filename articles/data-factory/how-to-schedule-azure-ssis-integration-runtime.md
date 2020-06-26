@@ -128,7 +128,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
     
 2. To test the third pipeline, launch SQL Server Management Studio (SSMS). In **Connect to Server** window, do the following actions. 
 
-    1. For **Server name**, enter **&lt;your Azure SQL Database server name&gt;.database.windows.net**.
+    1. For **Server name**, enter **&lt;your server name&gt;.database.windows.net**.
     2. Select **Options >>**.
     3. For **Connect to database**, select **SSISDB**.
     4. Select **Connect**. 

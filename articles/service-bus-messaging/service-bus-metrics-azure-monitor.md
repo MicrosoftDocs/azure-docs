@@ -1,17 +1,10 @@
 ---
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Azure Service Bus metrics in Azure Monitor
 
 Service Bus metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
@@ -95,6 +88,8 @@ The following two types of errors are classified as user errors:
 | Metric Name | Description |
 | ------------------- | ----------------- |
 |ActiveConnections|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 
 ## Resource usage metrics
 

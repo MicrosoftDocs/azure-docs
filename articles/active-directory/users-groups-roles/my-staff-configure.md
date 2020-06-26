@@ -5,11 +5,11 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 05/01/2020
+ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;

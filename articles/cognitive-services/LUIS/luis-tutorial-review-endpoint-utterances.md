@@ -3,7 +3,7 @@ title: "Tutorial: Reviewing endpoint utterances - LUIS"
 description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
 ms.topic: tutorial
-ms.date: 04/01/2020
+ms.date: 06/22/2020
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
 ---
@@ -30,11 +30,11 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Import example app
+## Download JSON file for app
 
-Use the following steps to import an app.
+Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## Import JSON file for app
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 

@@ -25,7 +25,7 @@ Within a Conditional Access policy, an administrator can make use of access cont
 
 Block takes into account any assignments and prevents access based on the Conditional Access policy configuration.
 
-Block is a powerful control that should be wielded with appropriate knowledge. It is something administrators should use [Report-only mode](concept-conditional-access-report-only.md) to test before enabling.
+Block is a powerful control that should be wielded with appropriate knowledge. Policies with block statements can have unintended side effects. Proper testing and validation are vital before enabling at scale. Administrators should utilize tools such as [Conditional Access report-only mode](concept-conditional-access-report-only.md) and [the What If tool in Conditional Access](what-if-tool.md) when making changes.
 
 ## Grant access
 
@@ -59,6 +59,8 @@ Devices must be registered in Azure AD before they can be marked as compliant. M
 ### Require hybrid Azure AD joined device
 
 Organizations can choose to use the device identity as part of their Conditional Access policy. Organizations can require that devices are hybrid Azure AD joined using this checkbox. For more information about device identities, see the article [What is a device identity?](../devices/overview.md).
+
+When using the [device-code OAuth flow](../develop/v2-oauth2-device-code.md), the require managed device grant control or a device state condition are not supported. This is because the device performing authentication cannot provide its device state to the device providing a code and the device state in the token is locked to the device performing authentication. Use the require multi-factor authentication grant control instead.
 
 ### Require approved client app
 

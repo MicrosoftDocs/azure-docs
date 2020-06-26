@@ -1,6 +1,6 @@
 ---
 title: Manage credentials in Azure Automation
-description: Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook or DSC configuration. This article describes how to create credential assets and use them in a runbook or DSC configuration.
+description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -17,9 +17,6 @@ An Automation credential asset holds an object that contains security credential
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -136,7 +133,7 @@ You can add an activity for the internal `Get-AutomationPSCredential` cmdlet to 
 
 ![Add credential to canvas](../media/credentials/credential-add-canvas.png)
 
-The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#links-and-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
+The following image shows an example of using a credential in a graphical runbook. In this case, the credential provides authentication for a runbook to Azure resources, as described in [Use Azure AD in Azure Automation to authenticate to Azure](../automation-use-azure-ad.md). The first activity retrieves the credential that has access to the Azure subscription. The account connection activity then uses this credential to provide authentication for any activities that come after it. A [pipeline link](../automation-graphical-authoring-intro.md#use-links-for-workflow) is used here since `Get-AutomationPSCredential` is expecting a single object.  
 
 ![Add credential to canvas](../media/credentials/get-credential.png)
 
@@ -161,6 +158,6 @@ print cred["password"]
 
 ## Next steps
 
-* To learn more about the cmdlets used to access credentials, see [Manage modules in Azure Automation](modules.md).
+* To learn more about the cmdlets used to access certificates, see [Manage modules in Azure Automation](modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md). 

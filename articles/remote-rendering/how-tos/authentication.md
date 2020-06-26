@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2019
 ms.topic: how-to
+ms.custom: has-adal-ref
 ---
 
 # Configure authentication

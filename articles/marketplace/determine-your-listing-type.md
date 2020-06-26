@@ -1,6 +1,6 @@
 ---
-title: Determine your publishing option in the Microsoft commercial marketplace storefronts 
-description: This article describes the eligibility criteria and publishing requirements for partners trying to understand how to publish apps to Microsoft AppSource and Azure Marketplace.
+title: Determine your publishing option - Microsoft commercial marketplace
+description: This article describes eligibility criteria and requirements for publishing offers to Microsoft AppSource and Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher

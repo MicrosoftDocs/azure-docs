@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/09/2020
+ms.date: 05/11/2020
 ms.topic: troubleshooting
 
 ms.service: azure-portal
@@ -14,7 +14,7 @@ manager:  mtillman
 
 # Capture a browser trace for troubleshooting
 
-If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the developer tools in the browser you use: Google Chrome or Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), or Apple Safari.
+If you're troubleshooting an issue with the Azure portal, and you need to contact Microsoft support, we recommend you first capture a browser trace and some additional information. The information you collect can provide important details about the portal at the time the issue occurs. Follow the steps in this article for the developer tools in the browser you use: Google Chrome or Microsoft Edge (Chromium), Microsoft Edge (EdgeHTML), Apple Safari, or Firefox.
 
 ## Google Chrome and Microsoft Edge (Chromium)
 
@@ -54,9 +54,9 @@ Google Chrome and Microsoft Edge (Chromium) are both based on the [Chromium open
 
     ![Screenshot of "Export HAR"](media/capture-browser-trace/chromium-network-export-har.png)
 
-1. Stop Steps Recorder, and save the file.
+1. Stop Steps Recorder, and save the recording.
 
-1. Back in the browser developer tools pane, select the **Console** tab. Right-click, then select **Save as...**, and save the console output to a text file.
+1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Save as...**, and save the console output to a text file.
 
     ![Screenshot of console output](media/capture-browser-trace/chromium-console-select.png)
 
@@ -100,7 +100,7 @@ The following steps show how to use the developer tools in Microsoft Edge (EdgeH
 
     ![Screenshot of "Export as HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
-1. Stop Steps Recorder, and save the file.
+1. Stop Steps Recorder, and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Right-click, then select **Copy**, and save the console output to a text file.
 
@@ -154,11 +154,53 @@ The following steps show how to use the developer tools in Apple Safari. For mor
 
     ![Screenshot of "Export"](media/capture-browser-trace/safari-network-export-har.png)
 
-1. Stop the screen recorder, and save the file.
+1. Stop the screen recorder, and save the recording.
 
 1. Back in the browser developer tools pane, select the **Console** tab, and expand the window. Place your cursor at the start of the console output then drag and select the entire contents of the output. Use Command-C to copy the output and save it to a text file.
 
     ![Screenshot of console output](media/capture-browser-trace/safari-console-select.png)
+
+1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
+
+## Firefox
+
+The following steps show how to use the developer tools in Firefox. For more information, see [Firefox Developer Tools](https://developer.mozilla.org/docs/Tools).
+
+1. Sign in to the [Azure portal](https://portal.azure.com). It's important to sign in _before_ you start the trace so that the trace doesn't contain sensitive information related to your sign-in. 
+
+1. Start recording the steps you take in the portal. Use [Steps Recorder](https://support.microsoft.com/help/22878/windows-10-record-steps) on Windows, or see [How to record the screen on your Mac](https://support.apple.com/HT208721).
+
+1. In the portal, navigate to the step just prior to where the issue occurs.
+
+1. Press F12 or select ![Screenshot of browser settings icon](media/capture-browser-trace/firefox-icon-settings.png) > **Web Developer** > **Toggle Tools**.
+
+1. By default, the browser keeps trace information only for the page that's currently loaded. Set the following options so the browser keeps all trace information, even if your repro requires going to more than one page:
+
+    1. Select the **Network** tab, then select **Persist Logs**.
+
+          ![Screenshot of "Persist Logs"](media/capture-browser-trace/firefox-network-persist-logs.png)
+
+    1. Select the **Console** tab, select **Console settings**, then select **Persist Logs**.
+
+          ![Screenshot of "Persist Logs"](media/capture-browser-trace/firefox-console-persist-logs.png)
+
+1. Select the **Network** tab, then select **Clear**.
+
+    ![Screenshot of "Clear"](media/capture-browser-trace/firefox-clear-session.png)
+
+1. Reproduce the issue in the portal. You will see session output similar to the following image.
+
+    ![Screenshot of browser trace results](media/capture-browser-trace/firefox-browser-trace-results.png)
+
+1. After you have reproduced the unexpected portal behavior, select **HAR Export/Import** then **Save All As HAR**.
+
+    ![Screenshot of "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
+
+1. Stop Steps Recorder on Windows or the screen recording on Mac, and save the recording.
+
+1. Back in the browser developer tools pane, select the **Console** tab. Right-click one of the messages, then select **Export Visible Message To**, and save the console output to a text file.
+
+    ![Screenshot of console output](media/capture-browser-trace/firefox-console-select.png)
 
 1. Package the HAR file, console output, and screen recording in a compressed format like .zip, and share that with Microsoft support.
 

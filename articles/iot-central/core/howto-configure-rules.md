@@ -48,7 +48,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
-
-> [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.

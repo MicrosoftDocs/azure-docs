@@ -8,12 +8,12 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
 
-# How to run Jupyter Notebooks in your workspace
+# How to run Jupyter Notebooks in your workspace (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to run your Jupyter Notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
@@ -58,7 +58,7 @@ Your workspace contains a **Samples** folder with notebooks designed to help you
 
 For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="terminal"> Use files from Git and version my files
+### <a name="terminal"></a> Use files from Git and version my files
 
 You can access all Git operations by using a terminal window. All Git files and folders will be stored in your workspace file system.
 

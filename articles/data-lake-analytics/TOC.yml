@@ -151,7 +151,7 @@
     href: /rest/api/datalakeanalytics/
   - name: Resource Manager template
     href: /azure/templates/microsoft.datalakeanalytics/allversions
-  - name: CLI
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/dla
 - name: Resources
   items:
@@ -161,8 +161,8 @@
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Request changes
     href: https://feedback.azure.com/forums/327234-data-lake
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-lake-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-lake-analytics/
   - name: Pricing calculator

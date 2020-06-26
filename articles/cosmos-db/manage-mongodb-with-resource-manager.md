@@ -3,8 +3,8 @@ title: Resource Manager templates for Azure Cosmos DB API for MongoDB
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB API for MongoDB. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 

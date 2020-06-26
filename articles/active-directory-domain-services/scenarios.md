@@ -24,19 +24,19 @@ This article outlines some common business scenarios where Azure AD DS provides 
 
 To let you use a single set of AD credentials, Azure virtual machines (VMs) can be joined to an Azure AD DS managed domain. This approach reduces credential management issues such as maintaining local administrator accounts on each VM or separate accounts and passwords between environments.
 
-VMs that are joined to an Azure AD DS managed domain can also be managed and secured using group policy. Required security baselines can be applied to VMs to lock them down in accordance with corporate security guidelines. For example, you can use group policy management capabilities to restrict the types of applications that can be launched on the VM.
+VMs that are joined to a managed domain can also be managed and secured using group policy. Required security baselines can be applied to VMs to lock them down in accordance with corporate security guidelines. For example, you can use group policy management capabilities to restrict the types of applications that can be launched on the VM.
 
 ![Streamlined administration of Azure virtual machines](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
 Let's look at a common example scenario. As servers and other infrastructure reaches end-of-life, Contoso wants to move applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using group policy. Contoso's IT administrator would prefer to domain join VMs deployed in Azure to make administration easier as users can then sign in using their corporate credentials. When domain-joined, VMs can also be configured to comply with required security baselines using group policy objects (GPOs). Contoso would prefer not to deploy, monitor, and manage their own domain controllers in Azure.
 
-Azure AD DS is a great fit for this use-case. An Azure AD DS managed domain lets you domain-join VMs, use a single set of credentials, and apply group policy. As a managed domain, you don't have to configure and maintain the domain controllers yourself.
+Azure AD DS is a great fit for this use-case. A managed domain lets you domain-join VMs, use a single set of credentials, and apply group policy. As a managed domain, you don't have to configure and maintain the domain controllers yourself.
 
 ### Deployment notes
 
 The following deployment considerations apply to this example use case:
 
-* Azure AD DS managed domains use a single, flat Organizational Unit (OU) structure by default. All domain-joined VMs are in a single OU. If desired, you can create custom OUs.
+* Managed domains use a single, flat Organizational Unit (OU) structure by default. All domain-joined VMs are in a single OU. If desired, you can create custom OUs.
 * Azure AD DS uses a built-in GPO each for the users and computers containers. For additional control, you can create custom GPOs and target them to custom OUs.
 * Azure AD DS supports the base AD computer object schema. You can't extend the computer object's schema.
 
@@ -54,8 +54,8 @@ For this scenario, Azure AD DS lets applications perform LDAP binds as part of t
 
 The following deployment considerations apply to this example use case:
 
-* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to an Azure AD DS managed domain isn't supported.
-* You can't change passwords directly against an Azure AD DS managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the Azure AD DS managed domain.
+* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to a managed domain isn't supported.
+* You can't change passwords directly against a managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the managed domain.
 
 ## Lift-and-shift on-premises applications that use LDAP read to access the directory
 
@@ -69,7 +69,7 @@ To help with this scenario, Azure AD DS lets applications perform LDAP reads aga
 
 The following deployment considerations apply to this example use case:
 
-* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to an Azure AD DS managed domain isn't supported.
+* Make sure that the application doesn't need to modify/write to the directory. LDAP write access to a managed domain isn't supported.
 * Make sure that the application doesn't need a custom/extended Active Directory schema. Schema extensions aren't supported in Azure AD DS.
 
 ## Migrate an on-premises service or daemon application to Azure
@@ -80,14 +80,14 @@ Some applications include multiple tiers, where one of the tiers needs to perfor
 
 In this example scenario, Contoso has a custom-built software vault application that includes a web front end, a SQL server, and a backend FTP server. Windows-integrated authentication using service accounts authenticates the web front end to the FTP server. The web front end is set up to run as a service account. The backend server is configured to authorize access from the service account for the web front end. Contoso doesn't want to deploy and manage their own domain controller VMs in the cloud to move this application to Azure.
 
-For this scenario, the servers hosting the web front end, SQL server, and the FTP server can be migrated to Azure VMs and joined to an Azure AD DS managed domain. The VMs can then use the same service account in their on-premises directory for the app’s authentication purposes, which is synchronized through Azure AD using Azure AD Connect.
+For this scenario, the servers hosting the web front end, SQL server, and the FTP server can be migrated to Azure VMs and joined to a managed domain. The VMs can then use the same service account in their on-premises directory for the app’s authentication purposes, which is synchronized through Azure AD using Azure AD Connect.
 
 ### Deployment notes
 
 The following deployment considerations apply to this example use case:
 
 * Make sure that the applications use a username and password for authentication. Certificate or smartcard-based authentication isn't supported by Azure AD DS.
-* You can't change passwords directly against an Azure AD DS managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the Azure AD DS managed domain.
+* You can't change passwords directly against a managed domain. End users can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are then automatically synchronized and available in the managed domain.
 
 ## Windows Server remote desktop services deployments in Azure
 
@@ -95,13 +95,13 @@ You can use Azure AD DS to provide managed domain services to remote desktop ser
 
 ## Domain-joined HDInsight clusters
 
-You can set up an Azure HDInsight cluster that is joined to an Azure AD DS managed domain with Apache Ranger enabled. You can create and apply Hive policies through Apache Ranger, and allow users, such as data scientists, to connect to Hive using ODBC-based tools like Excel or Tableau. We continue to work to add other workloads, such as HBase, Spark, and Storm to domain-joined HDInsight.
+You can set up an Azure HDInsight cluster that is joined to a managed domain with Apache Ranger enabled. You can create and apply Hive policies through Apache Ranger, and allow users, such as data scientists, to connect to Hive using ODBC-based tools like Excel or Tableau. We continue to work to add other workloads, such as HBase, Spark, and Storm to domain-joined HDInsight.
 
 For more information about this deployment scenario, see [how to configure domain-joined HDInsight clusters][hdinsight]
 
 ## Next steps
 
-To get started, [Create and configure an Azure Active Directory Domain Services instance][tutorial-create-instance]
+To get started, [Create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance]
 
 <!-- INTERNAL LINKS -->
 [hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md

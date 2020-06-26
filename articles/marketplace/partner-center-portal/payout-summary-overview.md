@@ -1,6 +1,6 @@
 ---
 title: Payout summary overview - Azure Marketplace
-description: The Payout summary shows you details about the money you’ve earned with your offer. It also lets you know when you’ll receive payments and how much you'll be paid.
+description: The Payout summary shows you details about the money you've earned with your offer. It also lets you know when you'll receive payments and how much you'll be paid.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace 
@@ -65,7 +65,7 @@ This option provides a download of each earning line item you see on the Transac
 | participantId | The primary identity of the partner earning under the program |
 | participantIdType | Program ID for Incentive programs and Seller if the program is for Store programs and Azure Marketplace |
 | participantName | Name of the earning partner |
-| partnerCountryCode | Location/country of the earning partner |
+| partnerCountryCode | Location/country/region of the earning partner |
 | programName | Incentive/store program name |
 | transactionId | Unique identifier for the transaction |
 | transactionCurrency | Currency in which the original customer transaction occurred (it is not the partner location currency) |
@@ -108,15 +108,15 @@ This option provides a download of each earning line item you see on the Transac
 | storeFee | The amount retained by Microsoft as a fee for making the app or add-on available in the commercial marketplace. |
 | transactionPaymentMethod | Customer payment instrument used for the transaction (such as Card, Mobile Carrier Billing, and PayPal) |
 | tpan | Third-party ad network |
-| customerCountry | Customer country |
+| customerCountry | Customer country/region |
 | customerCity | Customer city |
 | customerState | Customer state |
 | customerZip | Customer zip/postal code |
 | TenantID | The ID of the Tenant |
 | externalReferenceId | Unique identifier for the program |
 | externalReferenceIdLabel | Unique identifier label |
-| transactionCountryCode | Country code in which the transaction happened |
-| taxCountry | Customer's country |
+| transactionCountryCode | Country/region code in which the transaction happened |
+| taxCountry | Customer's country/region |
 | taxState | Customer's state |
 | taxCity | Customer's city |
 | taxZipCode | Customer's zip/postal code |
@@ -127,7 +127,7 @@ This option provides a download of each earning line item you see on the Transac
 | AssetId | The unique identifier for the customer orders for your marketplace service. It represents the purchase line items. There can be multiple assets. |
 | OrderId | Relates to a customer's invoice |
 | LineItemId | Individual line in a customer's invoice |
-| Customer Country | The country name provided by the customer. This could be different than the country in a customer's Azure Subscription. |
+| Customer Country/Region | The country/region name provided by the customer. This could be different than the country/region in a customer's Azure Subscription. |
 | Customer EmailAddress | The e-mail address provided by the customer. This could be different from the e-mail address in a customer's Azure Subscription. |
 | SkuId | SKU ID as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer. |
 

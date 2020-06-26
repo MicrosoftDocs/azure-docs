@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
  Azure Synapse has four components:
 
-- SQL Analytics: Complete T-SQL based analytics
+- Synapse SQL: Complete T-SQL based analytics
 
   - SQL pool (pay per DWU provisioned) – Generally Available
   - SQL on-demand (pay per TB processed) – (Preview)
@@ -34,7 +34,7 @@ Azure Synapse is a limitless analytics service that brings together enterprise d
 
 ![Synapse SQL architecture](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for SQL Analytics. The Control node runs the MPP engine, which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel.
+Synapse SQL uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for Synapse SQL. The Control node runs the MPP engine, which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel.
 
 The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results.
 
@@ -69,7 +69,7 @@ Data Movement Service (DMS) is the data transport technology that coordinates da
 
 ## Distributions
 
-A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel.
+A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When Synapse SQL runs a query, the work is divided into 60 smaller queries that run in parallel.
 
 Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.  
 
@@ -114,6 +114,6 @@ Now that you know a bit about Azure Synapse, learn how to quickly [create a SQL 
 - [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

@@ -6,7 +6,7 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -46,11 +46,11 @@ The rows in a downloaded CSV template are as follows:
 1. In Azure AD, select **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
-   ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
+    ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
 
 1. Open the CSV template and add a line for each user you want to restore. The only required value is **ObjectID**. Then save the file.
 
-   ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Select a local CSV file in which you list the users you want to add":::
 
 1. On the **Bulk restore** page, under **Upload your csv file**, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.

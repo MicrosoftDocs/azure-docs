@@ -8,6 +8,7 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 
 # Azure Storage metrics migration

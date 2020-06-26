@@ -1,29 +1,17 @@
 ---
 title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
 description: This article describes how to use Azure Service Bus from a .NET application using AMQP (Advanced Messaging Queuing Protocol).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Use Service Bus from .NET with AMQP 1.0
 
 AMQP 1.0 support is available in the Service Bus package version 2.1 or later. You can ensure you have the latest version by downloading the Service Bus bits from [NuGet][NuGet].
 
 ## Configure .NET applications to use AMQP 1.0
 
-By default, the Service Bus .NET client library communicates with the Service Bus service using a dedicated SOAP-based protocol. To use AMQP 1.0 instead of the default protocol requires explicit configuration on the Service Bus connection string, as described in the next section. Other than this change, application code remains unchanged when using AMQP 1.0.
+By default, the Service Bus .NET client library communicates with the Service Bus service using AMQP protocol. You can also explicitly specify AMQP as the transport type as shown in the following section. 
 
 In the current release, there are a few API features that are not supported when using AMQP. These unsupported features are listed in the section [Behavioral differences](#behavioral-differences). Some of the advanced configuration settings also have a different meaning when using AMQP.
 

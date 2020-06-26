@@ -5,8 +5,8 @@ services: virtual-desktop
 author: HeidiLohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -26,7 +26,7 @@ Automatic assignment is the default assignment type for new personal desktop hos
 
 To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, they will claim an available session host if they have not already connected to the host pool, which completes the assignment process.
 
-Before you start, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) if you haven't already. 
+Before you start, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) if you haven't already.
 
 > [!NOTE]
 > Make sure you've installed Windows Virtual Desktop PowerShell module version 1.0.1534.2001 or later before following these instructions.
@@ -70,6 +70,18 @@ To assign a user to a specific session host, run the following PowerShell cmdlet
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## Remove a user assignment
+
+You may want to remove a user assignment because the user no longer needs the personal desktop, the user has left the company, or you want to reuse the desktop for someone else.
+
+Currently, the only way you can remove the user assignment for a personal desktop is to fully remove the session host. To remove the session host, run this cmdlet:
+
+```powershell
+Remove-RdsSessionHost
+```
+
+If you need to add the session host back into the personal desktop host pool, uninstall Windows Virtual Desktop on that machine, then follow the steps in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to re-register the session host.
 
 ## Next steps
 

@@ -24,7 +24,7 @@ There are a few programmatic assets that you need in order to use the Partner Ce
 
 Before you start writing code to call the Partner Center submission API, make sure that you have completed the following prerequisites.
 
-- You (or your organization) must have an Azure AD directory and you must have [Global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permission for the directory. If you already use Office 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD in Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) at no additional charge.
+- You (or your organization) must have an Azure AD directory and you must have [Global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permission for the directory. If you already use Microsoft 365 or other business services from Microsoft, you already have Azure AD directory. Otherwise, you can [create a new Azure AD in Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) at no additional charge.
 
 - You must [associate an Azure AD application with your Partner Center account](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) and obtain your tenant ID, client ID and key. You need these values to obtain an Azure AD access token, which you will use in calls to the Microsoft Store submission API.
 
@@ -69,4 +69,4 @@ https://apidocs.microsoft.com/services/partneringestion/
 ## Next steps
 
 * Learn how to create an [Create an Azure VM technical asset](create-azure-container-technical-assets.md)
-* Learn hoe to Create an [Azure Container offer](create-azure-container-offer.md)
+* Learn how to Create an [Azure Container offer](create-azure-container-offer.md)

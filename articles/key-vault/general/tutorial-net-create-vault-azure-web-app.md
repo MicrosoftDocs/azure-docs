@@ -101,7 +101,7 @@ FTP and local Git can deploy to an Azure web app by using a *deployment user*. O
 
 To configure the deployment user, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) command. Choose a username and password that adheres to these guidelines: 
 
-- The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
+- The username must be unique within Azure, and for local Git pushes, must not contain the â€˜@â€™ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 
 
 ```azurecli-interactive
@@ -278,12 +278,23 @@ Add these two lines to the header:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
-Add these three lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault.
+Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
 
 ```csharp
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+SecretClientOptions options = new SecretClientOptions()
+    {
+        Retry =
+        {
+            Delay= TimeSpan.FromSeconds(2),
+            MaxDelay = TimeSpan.FromSeconds(16),
+            MaxRetries = 5,
+            Mode = RetryMode.Exponential
+         }
+    };
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
 KeyVaultSecret secret = client.GetSecret("mySecret");
 

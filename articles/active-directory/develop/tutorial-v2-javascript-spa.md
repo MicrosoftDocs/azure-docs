@@ -52,13 +52,26 @@ This guide uses the following library:
 
 * Instructions in this guide are based on a web server built in Node.js. We recommend using [Visual Studio Code](https://code.visualstudio.com/download) as your integrated development environment (IDE).
 
+* A modern web browser. This JavaScript sample uses [ES6](http://www.ecma-international.org/ecma-262/6.0/) conventions, and as such, it does **not** support **Internet Explorer**.
+
 ## Create your project
 
 Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and then create a folder to host your application. There, we will implement a simple [Express](https://expressjs.com/) web server to serve your `index.html` file.
 
-1. First, using Visual Studio Code integrated terminal, locate your project folder, and then install Express using NPM.
+1. Using a terminal (such as Visual Studio Code integrated terminal), locate your project folder, then type:
 
-1. Next, create a .js file named `server.js`, and then add the following code:
+   ```console
+   npm init
+   ```
+
+2. Next, install the required dependencies:
+
+   ```console
+   npm install express --save
+   npm install morgan --save
+   ```
+
+1. Now, create a .js file named `index.js`, and then add the following code:
 
    ```JavaScript
    const express = require('express');
@@ -265,7 +278,7 @@ Before proceeding further with authentication, register your application on **Az
 
 > ### Set a redirect URL for Node.js
 >
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
+> For Node.js, you can set the web server port in the *index.js* file. This tutorial uses port 3000, but you can use any other available port.
 >
 > To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane, and do either of the following:
 >
@@ -493,7 +506,5 @@ The Microsoft Graph API requires the *user.read* scope to read a user's profile.
 
 > [!NOTE]
 > The user might be prompted for additional consents as you increase the number of scopes.
-
-If a back-end API doesn't require a scope (not recommended), you can use *clientId* as the scope in the calls to acquire tokens.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

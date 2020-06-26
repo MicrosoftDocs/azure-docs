@@ -1,11 +1,11 @@
 ---
 title: Create a Python runbook in Azure Automation
-description: Tutorial showing how to create, test, and publish a simple Python runbook.
+description: This article teaches you to create, test, and publish a simple Python runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ---
 
 # Tutorial: Create a Python runbook
@@ -74,13 +74,11 @@ Before you publish the runbook to make it available in production, you want to t
 
 ## Publish and start the runbook
 
-The runbook that you created is still in Draft mode. You need to publish it before you can run it in production.
-When you publish a runbook, you overwrite the existing published version with the draft version.
-In this case, you don't have a published version yet because you just created the runbook.
+The runbook that you created is still in Draft mode. You need to publish it before you can run it in production. When you publish a runbook, you overwrite the existing published version with the draft version. In this case, you don't have a published version yet because you just created the runbook.
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 
-2. If you scroll left to view the runbook on the **Runbooks** page, you should see an **Authoring Status** of **Published**.
+2. If you scroll left to view the runbook on the Runbooks page, you should see an **Authoring Status** of **Published**.
 
 3. Scroll back to the right to view the pane for **MyFirstRunbook-Python**.
 

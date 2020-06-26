@@ -80,7 +80,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 
 Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1).
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport).
 
 ## Next step
 

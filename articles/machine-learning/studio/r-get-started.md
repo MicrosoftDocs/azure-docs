@@ -4,7 +4,7 @@ description: Use this R programming tutorial to get started with Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,32 +13,26 @@ ms.date: 03/01/2019
 ---
 # Get started with Azure Machine Learning Studio (classic) in R
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 <!-- Stephen F Elston, Ph.D. -->
-This tutorial helps you start extending Azure Machine Learning Studio (classic) by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio (classic). As you work through tutorial, you will create a complete forecasting solution by using the R language in Studio (classic).  
+In this tutorial, you learn how to use ML Studio (classic) to create, test and execute R code. In the end, you will have a complete forecasting solution.  
 
-Azure Machine Learning Studio (classic) contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Studio (classic) can be extended by using R. This combination provides the scalability and ease of deployment of Studio (classic) with the flexibility and deep analytics of R.
+> [!div class="checklist"]
+> * Create code for data cleaning and transformation.
+> * Analyze the correlations between several of the variables in our dataset.
+> * Create a seasonal time series forecasting model for milk production.
 
-### Forecasting and the dataset
 
-Forecasting is a widely employed and quite useful analytical method. Common uses range from predicting sales of seasonal items, determining optimal inventory levels, to predicting macroeconomic variables. Forecasting is typically done with time series models.
+Azure Machine Learning Studio (classic) contains many powerful machine learning and data manipulation modules. And with the R programming language, this combination provides the scalability and ease of deployment of Studio (classic) with the flexibility and deep analytics of R.
 
-Time series data is data in which the values have a time index. The time index can be regular, e.g. every month or every minute, or irregular. A time series model is based on time series data. The R programming language contains a flexible framework and extensive analytics for time series data.
+Forecasting is a widely employed and quite useful analytical method. Common uses range from predicting sales of seasonal items, determining optimal inventory levels, to predicting macroeconomic variables. Forecasting is typically done with time series models. Time series data is data in which the values have a time index. The time index can be regular, e.g. every month or every minute, or irregular. A time series model is based on time series data. The R programming language contains a flexible framework and extensive analytics for time series data.
 
-In this guide we will be working with California dairy production and pricing data. This data includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
+## Get the data
+
+In this tutorial, you use the California dairy production and pricing data, which includes monthly information on the production of several dairy products and the price of milk fat, a benchmark commodity.
 
 The data used in this article, along with R scripts, can be downloaded from [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Data in the file `cadairydata.csv` was originally synthesized from information available from the University of Wisconsin at [https://dairymarkets.com](https://dairymarkets.com).
 
-### Organization
 
-We will progress through several steps as you learn how to create, test and execute analytics and data manipulation R code in the Azure Machine Learning Studio (classic) environment.  
-
-* First we will explore the basics of using the R language in the Azure Machine Learning Studio (classic) environment.
-* Then we progress to discussing various aspects of I/O for data, R code and graphics in the Azure Machine Learning Studio (classic) environment.
-* We will then construct the first part of our forecasting solution by creating code for data cleaning and transformation.
-* With our data prepared we will perform an analysis of the correlations between several of the variables in our dataset.
-* Finally, we will create a seasonal time series forecasting model for milk production.
 
 ## <a id="mlstudio"></a>Interact with R language in Machine Learning Studio (classic)
 
@@ -138,7 +132,7 @@ In this section we will discuss how you get data into and out of the [Execute R 
 
 The complete code for this section is in [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### Load and check data in Machine Learning Studio (classic)
+### Load and check data 
 
 #### <a id="loading"></a>Load the dataset
 

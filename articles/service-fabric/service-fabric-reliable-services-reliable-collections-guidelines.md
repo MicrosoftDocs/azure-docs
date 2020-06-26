@@ -34,7 +34,8 @@ Here are some things to keep in mind:
 * Read operations on the secondary may read versions that are not quorum committed.
   This means that a version of data that is read from a single secondary might be false progressed.
   Reads from Primary are always stable: can never be false progressed.
-* Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.  
+* Security/Privacy of the data persisted by your application in a reliable collection is your decision and subject to the protections provided by your storage management; I.E. Operating System disk encryption could be used to protect your data at rest.
+* `ReliableDictionary` enumeration uses a sorted data structure ordered by key. To make enumeration efficient, commits are added to a temporary hashtable and later moved into the main sorted data structure post checkpoint. Adds/Updates/Deletes have best case runtime of O(1) and worst case runtime of O(log n), in the case of validation checks on the presence of the key. Gets might be O(1) or O(log n) depending on whether you are reading from a recent commit or from an older commit.
 
 ## Volatile Reliable Collections
 When deciding to use volatile reliable collections, consider the following:

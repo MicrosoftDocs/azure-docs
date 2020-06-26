@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 11/25/2019
+ms.date: 06/16/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -214,6 +214,10 @@ tutorial:
 The Azure Policy extension for VS Code extension makes it easy to browse your resources and
 [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
+
 ### Azure CLI
 
 In Azure CLI, the `az provider` command group is used to search for resource aliases. We'll filter
@@ -379,7 +383,7 @@ evaluate in the first place. Each possible response to a non-compliant resource 
 blocked, has data appended, or has a deployment associated to it for putting the resource back into
 a compliant state.
 
-For our example, Deny is the effect we want as we do not want non-compliant resources created in our
+For our example, Deny is the effect we want as we don't want non-compliant resources created in our
 Azure environment. Audit is a good first choice for a policy effect to determine what the impact of
 a policy is before setting it to Deny. One way to make changing the effect per assignment easier is
 to parameterize the effect. See [parameters](#parameters) below for the details on how.

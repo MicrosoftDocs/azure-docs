@@ -176,7 +176,7 @@ When you are ready to merge the changes from your feature branch to your collabo
 
 ### Configure publishing settings
 
-By default, data factory generates the Resource Manager templates of the published factory and saves them into a branch called `adf_public`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, ADF reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
+By default, data factory generates the Resource Manager templates of the published factory and saves them into a branch called `adf_publish`. To configure a custom publish branch, add a `publish_config.json` file to the root folder in the collaboration branch. When publishing, ADF reads this file, looks for the field `publishBranch`, and saves all Resource Manager templates to the specified location. If the branch doesn't exist, data factory will automatically create it. And example of what this file looks like is below:
 
 ```json
 {

@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
+ms.date: 06/02/2020
 ---
 
 # Data flow script (DFS)
@@ -187,6 +187,16 @@ This code will act like the T-SQL ```string_agg()``` function and will aggregate
 source1 aggregate(groupBy(year),
 	string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### Count number of updates, upserts, inserts, deletes
+When using an Alter Row transformation, you may want to count the number of updates, upserts, inserts, deletes that result from your Alter Row policies. Add an Aggregate transformation after your alter row and paste this Data Flow Script into the aggregate definition for those counts:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+		inserts = countIf(isInsert(), 1),
+		upserts = countIf(isUpsert(), 1),
+		deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## Next steps

@@ -1,6 +1,6 @@
 ---
-author: jasonwhowell
-ms.author: jasonh
+author: joshuapartlow
+ms.author: joshuapa
 ms.service: azure-notebooks
 ms.topic: include
 ms.date: 01/02/2020

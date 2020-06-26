@@ -3,8 +3,8 @@ title: Resource Manager templates for Azure Cosmos DB Table API
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB Table API. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 05/19/2020
 ms.author: mjbrown
 ---
 
@@ -37,7 +37,7 @@ This template will create an Azure Cosmos account for Table API with one table w
 
 <a id="create-manual"></a>
 
-## Azure Cosmos account for Table with standard (manual) throughput
+## Azure Cosmos account for Table with standard provisioned throughput
 
 This template will create an Azure Cosmos account for Table API with one table with standard throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 

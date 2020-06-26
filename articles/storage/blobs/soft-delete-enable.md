@@ -1,20 +1,26 @@
 ---
-title: Enable soft delete for blobs
+title: Enable and manage soft delete for blobs
 titleSuffix: Azure Storage 
 description: Enable soft delete for blob objects to more easily recover your data when it is erroneously modified or deleted.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Enable soft delete for blobs
+# Enable and manage soft delete for blobs
 
-The following steps show how to get started with soft delete.
+Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete.
+
+This article shows how to get started with soft delete.
+
+## Enable soft delete
 
 # [Portal](#tab/azure-portal)
 
@@ -67,6 +73,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 You can verify that soft delete was turned on by using the following command:
 
 ```powershell
@@ -126,7 +133,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# [.NET](#tab/net)
+# [.NET v12 SDK](#tab/dotnet)
+
+To enable soft delete, update a blob client's service properties:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+To recover to a specific blob version, first call Undelete on a blob, then copy the desired snapshot over the blob. The following example recovers a block blob to its most recently generated snapshot:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -142,7 +163,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
+To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
 
 ```csharp
 // Recover all blobs in a container
@@ -166,7 +187,11 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 
+## Next steps
+
+- [Soft delete for Blob storage](soft-delete-overview.md)
+- [Blob versioning (preview)](versioning-overview.md)

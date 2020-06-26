@@ -24,8 +24,8 @@ Property | Description | Required
 name | Name of the activity in pipeline | yes
 description | Text describing what the activity does | no
 type | Must be set to **SetVariable** | yes
-value | String literal or expression object value that the variable will be assigned to | yes
-variableName | Name of the variable that will be set by this activity | yes
+value | String literal or expression object value that the variable is assigned to | yes
+variableName | Name of the variable that is set by this activity | yes
 
 ## Incrementing a variable
 

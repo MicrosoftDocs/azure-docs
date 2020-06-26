@@ -5,36 +5,24 @@ description: Use an isolated Azure Virtual Network with Azure Machine Learning t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
-ms.custom: contperfq4 
+ms.date: 06/22/2020
+ms.custom: contperfq4, tracking-python
 
 ---
 
-# Secure your machine learning lifecycles with private virtual networks
+# Network isolation during training & inference with private virtual networks
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you'll learn how to isolate experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). You'll also learn about some *advanced security settings*, information that isn't necessary for basic or experimental use cases.
-
-> [!WARNING]
-> If your underlying storage is in a virtual network, users will not be able to use Azure Machine Learning's studio web experience, including:
-> - drag-n-drop designer
-> - UI for automated machine learning
-> - UI for data labeling
-> - UI for data sets
-> 
->  If you try, you will receive an error when visualizing data from a storage account inside a virtual network similar to: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## What is a VNET?
+In this article, you'll learn how to secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure Virtual Network (vnet). Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
 
 A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
-Azure Machine Learning relies on other Azure services for compute resources, also known as [compute targets](concept-compute-target.md), to train and deploy models. The targets can be created within a virtual network. For example, you can use Azure Machine Learning compute to train a model and then deploy the model to Azure Kubernetes Service (AKS). 
-
+If your **underlying storage is in a virtual network, users won't be able to use Azure Machine Learning's studio web experience**, including drag-n-drop designer or the UI for automated machine learning, data labeling, and data sets, or integrated notebooks.  If you try, you will receive a message similar to the following error: `__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## Prerequisites
 
@@ -73,7 +61,7 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 <a id="amlcompute"></a>
 
-## <a name="compute-instance"></a>Compute clusters & instances
+## <a name="compute-instance"></a>Compute clusters & instances 
 
 To use either a [managed Azure Machine Learning **compute target**](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute **instance**](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
 
@@ -83,6 +71,7 @@ To use either a [managed Azure Machine Learning **compute target**](concept-comp
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
 > * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
 > * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
+> * For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled.
 
 > [!TIP]
 > The Machine Learning compute instance or cluster automatically allocates additional networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
@@ -97,7 +86,9 @@ To use either a [managed Azure Machine Learning **compute target**](concept-comp
 
 ### <a id="mlcports"></a> Required ports
 
-Machine Learning Compute currently uses the Azure Batch service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service. You use this communication to schedule runs on the Machine Learning Compute nodes and to communicate with Azure Storage and other resources. The Batch service adds network security groups (NSGs) at the level of network interfaces (NICs) that are attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
+If you plan on securing the virtual network by restricting network traffic to/from the public internet, you must allow inbound communications from the Azure Batch service.
+
+The Batch service adds network security groups (NSGs) at the level of network interfaces (NICs) that are attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
 - Inbound TCP traffic on ports 29876 and 29877 from a __Service Tag__ of __BatchNodeManagement__.
 
@@ -111,9 +102,10 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 
 - For compute instance inbound TCP traffic on port 44224 from a __Service Tag__ of __AzureMachineLearning__.
 
-Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
-
-You don't need to specify NSGs at the subnet level, because the Azure Batch service configures its own NSGs. However, if the specified subnet has associated NSGs or a firewall, configure the inbound and outbound security rules as mentioned earlier.
+> [!IMPORTANT]
+> Exercise caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, the compute service sets the state of the compute nodes to unusable.
+>
+> You don't need to specify NSGs at the subnet level, because the Azure Batch service configures its own NSGs. However, if the subnet that contains the Azure Machine Learning compute has associated NSGs or a firewall, you must also allow the traffic listed earlier.
 
 The NSG rule configuration in the Azure portal is shown in the following images:
 
@@ -141,7 +133,10 @@ The NSG rule configuration in the Azure portal is shown in the following image:
 [![The outbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use a __Service Tag__ of __MicrosoftContainerRegistry.Region_Name__ (For example, MicrosoftContainerRegistry.EastUS).
+> If you plan on using default Docker images provided by Microsoft, and enabling user managed dependencies, you must also use the following __Service Tags__:
+>
+> * __MicrosoftContainerRegistry__
+> * __AzureFrontDoor.FirstParty__
 >
 > This configuration is needed when you have code similar to the following snippets as part of your training scripts:
 >
@@ -288,6 +283,11 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 >
 > For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
+## Machine learning studio
+
+When accessing the studio from a resource inside a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+
+For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
 
 <a id="aksvnet"></a>
 
@@ -401,7 +401,7 @@ except:
 __Azure CLI__
 
 ```azurecli-interactive
-az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
+az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
 ```
 
 The contents of the `body.json` file referenced by the command are similar to the following JSON document:
@@ -410,7 +410,7 @@ The contents of the `body.json` file referenced by the command are similar to th
 { 
     "location": "<region>", 
     "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>", 
+        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
         "computeType": "AKS", 
         "provisioningState": "Succeeded", 
         "properties": { 
@@ -431,6 +431,9 @@ For more information on using the internal load balancer with AKS, see [Use inte
 ## Use Azure Container Instances (ACI)
 
 Azure Container Instances are dynamically created when deploying a model. To enable Azure Machine Learning to create ACI inside the virtual network, you must enable __subnet delegation__ for the subnet used by the deployment.
+
+> [!WARNING]
+> To use Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace cannot also be in the virtual network.
 
 To use ACI in a virtual network to your workspace, use the following steps:
 

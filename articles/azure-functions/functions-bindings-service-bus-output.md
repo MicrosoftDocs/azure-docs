@@ -7,6 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.custom: tracking-python
 
 ---
 # Azure Service Bus output binding for Azure Functions
@@ -300,7 +301,7 @@ Use the following parameter types for the output binding:
 * `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
 * `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
+* `ICollector<T>` or `IAsyncCollector<T>` (for async methods) - For creating multiple messages. A message is created when you call the `Add` method.
 
 When working with C# functions:
 

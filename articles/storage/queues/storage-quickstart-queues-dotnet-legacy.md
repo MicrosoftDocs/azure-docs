@@ -8,7 +8,7 @@ ms.date: 02/06/2018
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue

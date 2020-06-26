@@ -88,7 +88,11 @@
     - name: Security overview
       href: azure-stack-edge-security.md
     - name: Review specifications
-      href: azure-stack-edge-technical-specifications-compliance.md
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
   - name: How to
     items:
     - name: Develop C# module

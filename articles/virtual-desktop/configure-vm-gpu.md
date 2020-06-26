@@ -5,7 +5,7 @@ services: virtual-desktop
 author: gundarev
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ---
@@ -15,7 +15,7 @@ ms.author: denisgun
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 >
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Windows Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
@@ -92,5 +92,5 @@ To verify that Remote Desktop is using GPU-accelerated encoding:
 
 These instructions should have you up and running with GPU acceleration on one session host (one VM). Some additional considerations for enabling GPU acceleration across a larger host pool:
 
-* Consider using a [VM extension](/azure/virtual-machines/extensions/overview) to simplify driver installation and updates across a number of VMs. Use the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for VMs with NVIDIA GPUs, and use the AMD GPU Driver Extension (coming soon) for VMs with AMD GPUs.
+* Consider using a [VM extension](/azure/virtual-machines/extensions/overview) to simplify driver installation and updates across a number of VMs. Use the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) for VMs with NVIDIA GPUs, and use the [AMD GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-amd-gpu-windows) for VMs with AMD GPUs.
 * Consider using Active Directory Group Policy to simplify group policy configuration across a number of VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](https://go.microsoft.com/fwlink/p/?LinkId=620889).

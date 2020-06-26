@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
+ms.custom: designer
 ---
 
 # Retrain models with Azure Machine Learning designer (preview)
@@ -33,7 +34,7 @@ This article also assumes that you have basic knowledge of building pipelines in
 
 ### Sample pipeline
 
-The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification-samples). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
+The pipeline used in this article is an altered version of [Sample 3: Income prediction](samples-designer.md#classification). The pipeline uses the [Import Data](algorithm-module-reference/import-data.md) module instead of the sample dataset to show you how to train models using your own data.
 
 ![Screenshot that shows the modified sample pipeline with a box highlighting the Import Data module](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
 
@@ -143,10 +143,10 @@ The VNet-to-VNet secured transit enables VNets to connect to each other via the 
 
 ### VNet-to-Internet or third-party Security Service (i)
 
-The VNet-to-Internet or third-party secured transit enables VNets to connect to the internet or a supported third-party security services via the Azure Firewall in the virtual WAN hub.
+The VNet-to-Internet enables VNets to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services does not flow through the Azure Firewall. You can configure Vnet-to-Internet path via supported third-party security service using Azure Firewall Manager.  
 
 ### Branch-to-Internet or third-party Security Service (j)
-The branch-to-Internet or third-party Secure transit enables branches to connect to the internet or a supported third-party security services via the Azure Firewall in the virtual WAN hub.
+The Branch-to-Internet enables branches to connect to the internet via the Azure Firewall in the virtual WAN hub. Traffic to internet via supported third-party security services does not flow through the Azure Firewall. You can configure Branch-to-Internet path via supported third-party security service using Azure Firewall Manager. 
 
 ### How do I enable default route (0.0.0.0/0) in a Secured Virtual Hub
 

@@ -1,15 +1,21 @@
 ---
-title: Create a watcher task in the Azure Automation account
-description: Learn how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
+title: Track updated files with an Azure Automation watcher task
+description: This article tells how to create a watcher task in the Azure Automation account to watch for new files created in a folder.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ---
 
-# Create an Azure Automation watcher tasks to track file changes on a local machine
+# Track updated files with a watcher task
 
 Azure Automation uses a watcher task to look for events and trigger actions with PowerShell runbooks. The watcher task contains two parts, the watcher and the action. A watcher runbook runs at an interval defined in the watcher task, and outputs data to an action runbook. 
+
+> [!NOTE]
+> Watcher tasks are not supported in Azure China Vianet 21.
+
+> [!IMPORTANT]
+> Starting in May 2020, using Azure Logic Apps is the supported way to monitor for events, schedule recurring tasks, and trigger actions. See [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 This tutorial walks you through creating a watcher task to monitor when a new file is added to a directory. You learn how to:
 
@@ -29,9 +35,6 @@ To complete this tutorial, the following are required:
 * [Automation account](automation-offering-get-started.md) to hold the watcher and action runbooks and the Watcher Task.
 * A [hybrid runbook worker](automation-hybrid-runbook-worker.md) where the watcher task runs.
 * PowerShell runbooks. PowerShell Workflow runbooks aren't supported by watcher tasks.
-
-> [!NOTE]
-> Watcher tasks are not supported in Azure China.
 
 ## Import a watcher runbook
 
@@ -161,5 +164,4 @@ In this tutorial, you learned how to:
 Follow this link to learn more about authoring your own runbook.
 
 > [!div class="nextstepaction"]
-> [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
-
+> [Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md)

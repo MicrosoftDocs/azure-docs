@@ -1,7 +1,7 @@
 ---
 title: Securely access Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2020
 ---
 

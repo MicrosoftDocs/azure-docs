@@ -1,6 +1,6 @@
 ---
 title: Manage variables in Azure Automation
-description: Variable assets are values that are available to all runbooks and DSC configurations in Azure Automation.  This article explains the details of variables and how to work with them in both textual and graphical authoring.
+description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -28,9 +28,6 @@ Azure Automation stores each encrypted variable securely. When creating a variab
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 ## Variable types
 
@@ -185,7 +182,7 @@ In a graphical runbook, you can add activities for the internal cmdlets `Get-Aut
 
 ![Add variable to canvas](../media/variables/runbook-variable-add-canvas.png)
 
-The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#links-and-workflow) since the code only expects a single object in the output.
+The following image shows example activities to update a variable with a simple value in a graphical runbook. In this example, the activity for `Get-AzVM`  retrieves a single Azure virtual machine and saves the computer name to an existing Automation string variable. It doesn't matter whether the [link is a pipeline or sequence](../automation-graphical-authoring-intro.md#use-links-for-workflow) since the code only expects a single object in the output.
 
 ![Set simple variable](../media/variables/runbook-set-simple-variable.png)
 
@@ -193,4 +190,4 @@ The following image shows example activities to update a variable with a simple 
 
 * To learn more about the cmdlets used to access variables, see [Manage modules in Azure Automation](modules.md).
 * For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).
-* For details of DSC configurations, see [State Configuration overview](../automation-dsc-overview.md).
+* For details of DSC configurations, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).

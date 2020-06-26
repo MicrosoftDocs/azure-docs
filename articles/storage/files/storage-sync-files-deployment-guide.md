@@ -18,7 +18,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 * An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server, see [Interoperability with Windows Server](storage-sync-files-planning.md#windows-file-server-considerations).
+* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
 * The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell

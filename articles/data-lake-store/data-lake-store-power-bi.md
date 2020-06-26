@@ -77,10 +77,10 @@ Before you begin this tutorial, you must have the following:
         ![Pie chart](./media/data-lake-store-power-bi/pie-chart.png "Create visualizations")
 16. By selecting a specific country/region from the page level filters, you can now see the number of drivers in each city of the selected country/region. For example, under the **Visualizations** tab, under **Page level filters**, select **Brazil**.
     
-    ![Select a country](./media/data-lake-store-power-bi/select-country.png "Select a country/region")
+    ![Select a country/region](./media/data-lake-store-power-bi/select-country.png "Select a country/region")
 17. The pie chart is automatically updated to display the drivers in the cities of Brazil.
     
-    ![Drivers in a country](./media/data-lake-store-power-bi/driver-per-country.png "Drivers per country/region")
+    ![Drivers in a country/region](./media/data-lake-store-power-bi/driver-per-country.png "Drivers per country/region")
 18. From the **File** menu, click **Save** to save the visualization as a Power BI Desktop file.
 
 ## Publish report to Power BI service
