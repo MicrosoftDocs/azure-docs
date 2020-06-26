@@ -1,22 +1,10 @@
 ---
 title: Add owners and users in Azure DevTest Labs| Microsoft Docs
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add owners and users in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
