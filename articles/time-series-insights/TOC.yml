@@ -140,7 +140,7 @@
   - name: Azure Time Series Insights Gen 2
     items:
     - name: Adding support for long data type
-    href: breaking-changes-long-data-type.md
+      href: breaking-changes-long-data-type.md
 - name: Reference
   items:
   - name: Time Series Insights 
