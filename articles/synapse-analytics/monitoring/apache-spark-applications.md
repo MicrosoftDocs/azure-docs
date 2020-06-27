@@ -21,7 +21,7 @@ This tutorial covers the following tasks:
 
 * Monitor running Apache Spark Application
 * View completed Apache Spark Application
-* View cancelled Apache Spark Application
+* View canceled Apache Spark Application
 * Debug failed Apache Spark Application
 
 ## Prerequisites
@@ -72,7 +72,7 @@ Open **Monitor**, then select **Spark applications**. To view the details about 
 
 7. By default, the **Progress** display is selected. You can check the data flow by selecting **Read** or **Written** in the **Display** dropdown list.
 
-8. To playback the job, select **Playback**. You can select **Stop** at any time to stop.
+8. To play back the job, select **Playback**. You can select **Stop** at any time to stop.
 
 9. Use your mouse scroll to zoom in and out on the job graph, or select **Zoom to fit** to make it fit to screen.
 
@@ -100,11 +100,11 @@ Open **Monitor**, then select **Spark applications**. To view the details about 
 
    ![details for stage](./media/how-to-monitor-spark-applications/details-for-stage.png)
 
-## View cancelled Apache Spark Application
+## View canceled Apache Spark Application
 
-Open **Monitor**, then select **Spark applications**. To view the details about the cancelled Apache Spark applications, select the Apache Spark application and view the details.
+Open **Monitor**, then select **Spark applications**. To view the details about the canceled Apache Spark applications, select the Apache Spark application and view the details.
 
- ![select cancelled job](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
+ ![select canceled job](./media/how-to-monitor-spark-applications/select-canceled-job.png) 
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
@@ -118,7 +118,7 @@ Open **Monitor**, then select **Spark applications**. To view the details about 
 
 6. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**.
 
-   ![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
+   ![view canceled job](./media/how-to-monitor-spark-applications/view-canceled-job.png)
 
 ## Debug failed Apache Spark Application
 
