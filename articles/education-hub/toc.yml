@@ -23,6 +23,7 @@
   - name: Service desk
     href: includes/educator-service-desk.md
 - name: Azure Dev Tools for Teaching
+  items:
   - name: Overview    
     items:
     - name: What is Azure Dev Tools for Teaching?
