@@ -29,7 +29,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 1. [Install Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) in your application.
 2. In addition to the standard Application Insights packages [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is required to enable Live Metrics stream.
-3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
+3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage NuGet packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.
 
@@ -93,7 +93,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## Secure the control channel
 
 > [!NOTE]
-> Can only set up an authenticated channel using code base monitoring. Cannot authenticate servers using codeless attach.
+> Currently, you can only set up an authenticated channel using code base monitoring and cannot authenticate servers using codeless attach.
 
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
