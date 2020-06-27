@@ -18,14 +18,14 @@ This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
->Note : If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+>Note : If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ## Prerequisites
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 This article requires that you're running the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
-You'll need to login to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **id** property from the command output for the corresponding subscription name.
+You'll need to login to your account using the [az login](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login)command. Note the **id** property from the command output for the corresponding subscription name.
 
 ```azurecli-interactive
 az login
@@ -38,7 +38,7 @@ az account set --subscription <subscription id>
 ```
 ## Create an Azure Database for PostgreSQL server
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -61,7 +61,7 @@ sku-name|GP_Gen5_2|The default sku-name is "GP_Gen5_2" is not provided in the co
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11 . 
->- To view all the arguments for **az postgres server create** command, see this [reference document](/cli/azure/postgresql/server?view=azure-cli-latest#az-postgres-server-create).
+>- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
 >- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./howto-configure-ssl).
 
 ## Configure a server-level firewall rule 
