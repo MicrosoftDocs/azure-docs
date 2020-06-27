@@ -134,7 +134,7 @@ Define marketplace details for each language/market here, such as offer name, de
 > [!NOTE]
 > Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-azure-marketplace-d365-customer-engagement.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
@@ -146,8 +146,8 @@ Here's an example of how offer information appears in Microsoft AppSource:
 4. Support address (link)
 5. Terms of use address (link)
 6. Offer name
-7. Screenshots/videos
-8. Description
+7. Description
+8. Screenshots/videos
 
 ### Name
 
@@ -208,10 +208,6 @@ Provide your offer's logo in three pixel sizes:
 - **Small** (required; 48 x 48)
 - **Large** (required; 216 x 216)
 - **Wide** (optional; 255 x 115)
-
-#### Hero
-
-The hero image is optional. If you provide one, it must measure 815 x 290 pixels.
 
 #### Screenshots
 
@@ -403,7 +399,7 @@ If it's your first time publishing this offer, you can:
     - **Incomplete** - The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - **Complete** - The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish to the public (or if a private offer, to the private audience).
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish to the public.
 
 ## Next step
 

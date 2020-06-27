@@ -2,7 +2,7 @@
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
 ms.date: 06/04/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure

@@ -79,7 +79,7 @@ With SaaS solutions running in the publisher's Azure subscription, license fees 
 
 SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-This is a sample breakdown of costs and payouts to demonstrate the agency model:
+This is a sample breakdown of costs and payouts to demonstrate the agency model (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 |**Your license cost**|**$100 per month**|
 |:---|:---|
@@ -282,7 +282,6 @@ This field is required.
     - **Medium** (90 x 90, required)
     - **Large** (216 x 216, required)
     - **Wide** (255 x 115)
-    - **Hero** (815 x 290)
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.

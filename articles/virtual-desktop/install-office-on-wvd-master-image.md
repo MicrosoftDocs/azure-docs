@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
@@ -156,7 +156,7 @@ Here's how to install OneDrive in per-machine mode:
 
 Windows Virtual Desktop doesn't support Skype for Business.
 
-For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview. 
+For help with installing Microsoft Teams, see [Use Microsoft Teams on Windows Virtual desktop](teams-on-wvd.md). Media optimization for Microsoft Teams on Windows Virtual Desktop is available in preview.
 
 ## Next steps
 

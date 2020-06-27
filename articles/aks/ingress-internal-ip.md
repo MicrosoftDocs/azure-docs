@@ -64,7 +64,13 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned, as shown in the following example output:
+When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned. To get the public IP address, use the `kubectl get service` command.
+
+```console
+kubectl get service -l app=nginx-ingress --namespace ingress-basic
+```
+
+It takes a few minutes for the IP address to be assigned to the service, as shown in the following example output:
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -197,6 +203,12 @@ spec:
 
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
 
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+The following example output shows the ingress resource is created.
+
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
@@ -263,7 +275,13 @@ kubectl delete namespace ingress-basic
 
 ### Delete resources individually
 
-Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
+Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
 
 ```
 $ helm list --namespace ingress-basic
@@ -272,7 +290,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-Uninstall the releases with the `helm uninstall` command. The following example uninstalls the NGINX ingress deployment.
+Uninstall the releases with the `helm uninstall` command.
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+The following example uninstalls the NGINX ingress deployment.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

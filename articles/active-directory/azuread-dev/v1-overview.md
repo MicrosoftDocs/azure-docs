@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi

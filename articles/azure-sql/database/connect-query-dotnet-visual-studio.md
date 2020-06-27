@@ -23,7 +23,7 @@ This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/
 To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+- A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
   || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
@@ -43,7 +43,7 @@ To complete this quickstart, you need:
 
 ## Get server connection information
 
-Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+Get the connection information you need to connect to the database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

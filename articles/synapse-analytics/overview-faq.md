@@ -44,6 +44,10 @@ A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an a
 
 ## Use cases
 
+### Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Azure Synapse?
+
+A: To rename a published artifact file, first clone the file and rename the new file to name that you prefer. You will need to manually update all the references of the artifact to the new file name and delete the old one.
+
 ### Q: What is a good use case for Synapse SQL pool
 
 A: SQL pool is the heart of your data warehouse needs. It's the leading data warehouse solution in [price/performance](https://azure.microsoft.com/services/sql-data-warehouse/compare/). SQL pool is the industry-leading cloud data warehouse solution because you can:

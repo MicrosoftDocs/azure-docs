@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 06/09/2020
+ms.date: 06/23/2020
 
 ---
 
@@ -26,52 +26,72 @@ The following sample creates a diagnostic setting for an Activity log by adding 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
     "parameters": {
         "settingName": {
-            "type": "String"
+          "type": "String"
         },
         "workspaceId": {
-            "type": "String"
+          "type": "String"
         },
         "storageAccountId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubAuthorizationRuleId": {
-            "type": "String"
+          "type": "String"
         },
         "eventHubName": {
-            "type": "String"
+          "type": "String"
         }
-
     },
-    "resources": [
-        {
-          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
-          "apiVersion": "2017-05-01-preview",
-          "name": "[(parameters('settingName')]",
-          "dependsOn": [],
-          "properties": {
-            "workspaceId": "[parameters('workspaceId')]",
-            "storageAccountId": "[parameters('storageAccountId')]",
-            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
-            "eventHubName": "[parameters('eventHubName')]",
-            "logs": [
-              {
-                "category": "AuditEvent",
-                "enabled": true
-              }
-            ],
-            "metrics": [
-              {
-                "category": "AllMetrics",
-                "enabled": true
-              }
-            ]
-          }
-        }
-    ]
+	"resources": [
+		{
+			"type": "Microsoft.Insights/diagnosticSettings",
+			"apiVersion": "2017-05-01-preview",
+			"name": "[parameters('settingName')]",
+			"properties": {
+				"workspaceId": "[parameters('workspaceId')]",
+				"storageAccountId": "[parameters('storageAccountId')]",
+				"eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+				"eventHubName": "[parameters('eventHubName')]",
+				"logs": [
+					{
+						"category": "Administrative",
+						"enabled": true
+					},
+					{
+						"category": "Security",
+						"enabled": true
+					},
+					{
+						"category": "ServiceHealth",
+						"enabled": true
+					},
+					{
+						"category": "Alert",
+						"enabled": true
+					},
+					{
+						"category": "Recommendation",
+						"enabled": true
+					},
+					{
+						"category": "Policy",
+						"enabled": true
+					},
+					{
+						"category": "Autoscale",
+						"enabled": true
+					},
+					{
+						"category": "ResourceHealth",
+						"enabled": true
+					}
+				]
+			}
+		}
+	]
 }
 ```
 
@@ -83,7 +103,7 @@ The following sample creates a diagnostic setting for an Activity log by adding 
   "contentVersion": "1.0.0.0",
   "parameters": {
       "settingName": {
-          "value": "Send to all locations"
+        "value": "Send to all locations"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"

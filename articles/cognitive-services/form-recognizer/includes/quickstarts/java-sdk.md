@@ -11,7 +11,7 @@ ms.date: 06/15/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer) | [Library source code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the above method to get the URL of a receipt image as well.
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/java/api/overview/azure/formrecognizer).
 
 ```java
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";

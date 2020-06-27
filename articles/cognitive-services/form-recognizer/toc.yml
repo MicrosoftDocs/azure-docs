@@ -71,13 +71,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview
+      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview
+      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer
     - name: JavaScript
-      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview
+      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer
 - name: Resources
   items:
   - name: Pricing and limits
