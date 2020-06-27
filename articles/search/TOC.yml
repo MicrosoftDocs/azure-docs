@@ -388,10 +388,10 @@
       href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: REST
     items:
-    - name: Search 2019-05-06
+    - name: Search 2020-06-30
       href: /rest/api/searchservice
-    - name: Search 2019-05-06-Preview
-      href: /rest/api/searchservice/index-2019-05-06-preview
+    - name: Search 2020-06-30-Preview
+      href: /rest/api/searchservice/index-preview
     - name: Management 2020-03-13
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview

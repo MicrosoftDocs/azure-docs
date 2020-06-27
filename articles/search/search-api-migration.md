@@ -8,21 +8,19 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/30/2020
 ---
 
 # Upgrade to the latest Azure Cognitive Search service REST API version
 
-If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
+If you're using a previous version of the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2020-06-30.
 
-Version 2019-05-06 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
+Version 2020-06-30 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
 
 > [!NOTE]
 > An Azure Cognitive Search service instance supports a range of REST API versions, including earlier ones. You can continue to use those API versions, but we recommend migrating your code to the newest version so that you can access new capabilities.
 
-<a name="WhatsNew"></a>
-
-## What's new in version 2019-05-06
+## Upgrade to 2019-05-06
 Version 2019-05-06 is the newest generally available release of the REST API. Features that have transitioned to generally available status in this API version include:
 
 * [Autocomplete](index-add-suggesters.md) is a typeahead feature that completes a partially specified term input.
@@ -140,7 +138,7 @@ You can update "flat" indexes to the new format with the following steps using A
 
 ## Next steps
 
-Review the Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Search REST API reference documentation. If you encounter problems, ask us for help on [Stack Overflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)

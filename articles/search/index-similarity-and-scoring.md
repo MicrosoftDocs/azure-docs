@@ -68,6 +68,12 @@ The following video segment fast-forwards to an explanation of the ranking algor
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
+<a name="featuresMode-param"></a>
+
+## featuresMode parameter (preview)
+
+A value that specifies whether the results should include query result features - information that's used to compute the relevance score of a document in relation to the query, such as per field similarity. The default is 'disabled'. Use 'enabled' to expose additional query result features. Those additional query result features include: per field similarity score, per field term frequency, and per field number of unique tokens matched. 
+
 ## See also
 
  [Scoring Profiles](index-add-scoring-profiles.md)
