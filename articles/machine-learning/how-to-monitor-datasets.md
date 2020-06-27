@@ -240,7 +240,7 @@ Start with the top-level insights into the magnitude of data drift and a highlig
 | ------ | ----------- | 
 | Data drift magnitude | A percentage of drift between the baseline and target dataset over time. Ranging from 0 to 100, 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift model can completely tell the two datasets apart. Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
 | Top drifting features | Shows the features from the dataset that have drifted the most and are therefore contributing the most to the Drift Magnitude metric. Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. |
-| Threshold \ Data Drift magnitude beyond the set threshold will trigger alerts. This can be configured in the monitor settings. | 
+| Threshold | Data Drift magnitude beyond the set threshold will trigger alerts. This can be configured in the monitor settings. | 
 
 ### Drift magnitude trend
 
