@@ -55,7 +55,7 @@ The supported data types are:
 |---|---|
 | **bool** | A data type having one of two states: `true` or `false`. |
 | **dateTime** | Represents an instant in time, typically expressed as a date and time of day. Expressed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. |
-| **long** | A signed 64-bit integer  | "value" : 31 | value_long |
+| **long** | A signed 64-bit integer  |
 | **double** | A double-precision 64-bit [IEEE 754](https://ieeexplore.ieee.org/document/8766229) floating point. |
 | **string** | Text values, comprised of Unicode characters.          |
 
