@@ -49,6 +49,13 @@ An association relates a virtual machine to a DCR. You can create and associatio
 ## Create and assign a DCR
 
 ### Azure portal
+In the **Settings** section of the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules**.
+
+Click **Add** to create a new DCR.
+
+Click **Add virtual machines**. Select a scope.
+
+
 
 ### REST API
 

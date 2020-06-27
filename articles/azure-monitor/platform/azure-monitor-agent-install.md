@@ -37,14 +37,14 @@ Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publ
 
 ## Linux
 
-# [CLI](#tab/CLI1)
+# [CLI](#tab/CLI2)
 
 ```azurecli
 az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --version 0.9 --ids {resource ID of the VM}
 
 ```
 
-# [PowerShell](#tab/PowerShell1)
+# [PowerShell](#tab/PowerShell2)
 
 ```powershell
 Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -Version 0.9 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
