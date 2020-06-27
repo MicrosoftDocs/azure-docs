@@ -73,6 +73,7 @@ If you dont have any postgresql client installed , using [Azure Cloud Shell](htt
 - Launch Azure Cloud Shell in the portal by clicking in this icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 > Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-time step and will be automatically attached for all sessions. 
 
+![Run psql in Azure Cloud Shell](./media/quickstart-create-database-portal/use-in-cloud-shell.png)
 
 There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 - Azure cloud shell has **psql** available to use to connect to your server and perform database operations , so you can run this command directly . Replace values with your actual server name and admin user login name . Use the empty database 'postgres' with admin username in this format '<user>@<servername> as shown below for Azure Database for PostgreSQL.  
@@ -92,14 +93,12 @@ Type "az" to use Azure CLI
 Type "help" to learn about Cloud Shell
 
 user@Azure:~$psql --host=mydbserver.postgres.database.azure.com  --username=pgazadmin@mydbserver --dbname=postgres 
-Enter password:
-   psql (9.5.7, server 9.6.2)
-   WARNING: psql major version 9.5, server major version 9.6.
-    Some psql features might not work.
-    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-SHA384, bits: 256, compression: off)
-   Type "help" for help.
+Password for user user@mydbserver.postgres.database.azure.com:
+psql (12.2 (Ubuntu 12.2-2.pgdg16.04+1), server 11.6)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
 
-   postgres=>
+postgres=>
 ```
 
 > **Manage your database from local machine**
