@@ -104,7 +104,7 @@ Open **Monitor**, then select **Spark applications**. To view the details about 
 
 Open **Monitor**, then select **Spark applications**. To view the details about the canceled Apache Spark applications, select the Apache Spark application and view the details.
 
- ![select cancelled job](./media/how-to-monitor-spark-applications/select-canceled-job.png) 
+ ![select cancelled job](./media/how-to-monitor-spark-applications/select-cancelled-job.png) 
 
 1. Check the **Completed tasks**, **Status**, and **Total duration**.
 
@@ -118,7 +118,7 @@ Open **Monitor**, then select **Spark applications**. To view the details about 
 
 6. Check the **Logs**. You can select different type of logs from the drop-down list, and you can download the log info by clicking **Download logs**.
 
-   ![view cancelled job](./media/how-to-monitor-spark-applications/view-canceled-job.png)
+   ![view cancelled job](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
 ## Debug failed Apache Spark Application
 
