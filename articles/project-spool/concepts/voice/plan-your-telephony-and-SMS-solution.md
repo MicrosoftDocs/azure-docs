@@ -68,3 +68,12 @@ A Mobile phone number in the UK
 Now as we understand the numbers types, let look at specific number types available in Azure Communication Services.
 
 ### Phone number types in Microsoft direct offer
+
+
+Microsoft offers Regional, Toll-Free, and plans to offer the Short codes and Mobile numbers (in countries where applicable).
+The table below summarizes the types of offers. 
+
+| Phone number type | Example | Country availability | Common use case |
+| ----------------- | ------- | -------------------- | --------------- |
+| Regional | +1 (geographic area code) XXX XX XX | US, Canada, Puerto Rico | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots|
+| Toll-Free | +1 (toll-free area code) XXX XX XX | US, Canada, Puerto Rico | Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications |
