@@ -41,27 +41,14 @@ A centralized identity system solves this problem by providing a single place to
 
 Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it's more critical than ever to use a cloud-based solution to manage user access to all applications.
 
+> [!TIP]
+> The Azure AD app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
+
 ## How does Azure AD work with applications?
 
 Azure AD simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md). You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
 
 ![Diagram that shows apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
-
-
-
-
-
-
-
-
-
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
-
-
 
 ## What types of applications can I integrate with Azure AD?
 
@@ -93,28 +80,9 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
-## Start using Azure AD with an applications
-
-Integrating an application with Azure AD can be simple or advanced depending on the type of application. Many applications are already setup and ready to go in the Azure AD application gallery. 
-
-Check to see if the application you want to use is already part of the app gallery, see [Add a gallery app to your Azure AD organization](add-gallery-app).
-
-> [!TIP]
-> The app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
-
-If the application you want to use is not already part of the app gallery then check to see if it supports SAML 
-To use Azure AD as the identity system for an application:
-1. Let Azure AD know about the application you want to use. ADD AN APPLICATION
-1. Configure the way Azure AD works with the application. 
-1. Allow Azure AD users access to the application. APP PROVISIONING
-1. Maintain the way Azure AD works with the application.
-
-
-You can also configure apps deployed on-premises to use Azure AD using Application proxy.
-
 ## Next steps
 
+- [View all applications already configured in your Azure AD tenant](view-applications-portal.md)
 - [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
-- [Setup single sign-on]()
-- [Provision users to the app]()
-- [Get started with app intgration](plan-an-application-integration.md)
+- [Add a gallery app to your Azure AD organization](add-gallery-app.md)
+- [Get started with app integration](plan-an-application-integration.md)
