@@ -215,6 +215,16 @@ The VS Code extension allows you to manage your Azure Machine Learning experimen
 
 ### Run experiment
 
+Using the Run Experiment Button:
+
+1. Select the **Azure** icon in the activity bar.
+1. Select the **Run Experiment** icon in the activity bar.
+1. Choose your subscription.
+1. Choose the Azure ML Workspace to run the experiment under.
+1. Choose your experiment.
+1. Choose or create a compute to run the experiment on.
+1. Choose or create a run configuration for your experiment.
+
 ### View experiment
 
 To view your experiment and its progress in Azure Machine Learning Studio:
@@ -352,7 +362,7 @@ In the VS Code extension, you can:
 ### Create deployment
 
 > [!NOTE]
-> Deployment creation cuurrently only works with Conda environments.
+> Deployment creation currently only works with Conda environments.
 
 1. Expand your workspace node.
 1. Right-click the **Endpoints** node and select **Deploy Service**.
