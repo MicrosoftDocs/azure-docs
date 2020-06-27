@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/27/2020
+ms.date: 06/26/2020
 ms.author: alzam
 
 ---
@@ -202,6 +202,26 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 	<includeroutes>
 		<route>
 			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+### How do I direct all traffic to the VPN tunnel (force tunnel)?
+
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<includeroutes>
+		<route>
+			<destination>0.0.0.0</destination><mask>1</mask>
+		</route>
+		<route>
+			<destination>128.0.0.0</destination><mask>1</mask>
 		</route>
 	</includeroutes>
     
