@@ -22,7 +22,7 @@ This article provides an overview of the options available to enable Azure Monit
 
 To set up Azure Monitor for VMs:
 
-* Enable a single Azure VM, Azure VMSS, or zure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
+* Enable a single Azure VM, Azure VMSS, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
 * Enable multiple Azure VMs, Azure VMSS, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
 * Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
 * Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
@@ -75,6 +75,9 @@ To set up an at-scale scenario that uses Azure Policy, Azure PowerShell, or Azur
 
 * Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * On the Azure Monitor for VMs [**Policy Coverage**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) page, select **Configure Workspace**. 
+
+### Azure Arc machines
+Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. Users must be running version 0.9 or above of the Arc Agent to enable Azure Monitor for VMs on their Arc enabled servers.
 
 ### Supported operating systems
 
