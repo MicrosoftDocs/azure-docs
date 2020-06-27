@@ -68,7 +68,7 @@ In the Azure portal, locate the route table of your virtual hub. Click **"…"**
 
 :::image type="content" source="./media/how-to-virtual-hub-routing/effective.png" alt-text="View Effective Routes" lightbox="./media/how-to-virtual-hub-routing/effective-expand.png":::
 
-## <a name="routing-configuration"></a>To set up routing configuration for a virtual hub connection
+## <a name="routing-configuration"></a>To set up routing configuration for a virtual network connection
 
 1. In the Azure portal, navigate to your virtual WAN and, under **Connectivity**, select **Virtual Network Connections**.
 1. Select **+Add connection**.
