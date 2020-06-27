@@ -26,6 +26,9 @@
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
     href: ./first-query-python.md
+  - name: Create a shared query - Azure CLI
+    displayName: extension, docker, queries
+    href: ./shared-query-azurecli.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
