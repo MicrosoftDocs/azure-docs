@@ -196,7 +196,7 @@ After the effective utilization value is determined, the storage, network, and c
 
 **Compute sizing**: After it calculates storage requirements, Server Assessment considers CPU and memory requirements to determine the number of nodes required for AVS based on the node type.
 
-- Azure Migrate looks at either the performance-based VM data or average of the CPU used for virtual machines. The confidence setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes will have 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There is currently no override available to change the oversubscription values and we may have this in future versions.
+- Based on the sizing criteria, Server Assessment looks at either the performance-based VM data or the on-premises VM configuration. The comfort factor setting allows for specifying growth factor of the cluster. Currently by default, hyperthreading is enabled and thus a 36 core nodes will have 72 vCores. 4 vCores per physical is used to determine CPU thresholds per cluster using the VMware standard of not exceeding 80% utilization to allow for maintenance or failures to be handled without compromising cluster availability. There is currently no override available to change the oversubscription values and we may have this in future versions.
 
 ### As on-premises sizing
 
