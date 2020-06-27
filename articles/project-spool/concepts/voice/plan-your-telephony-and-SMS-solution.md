@@ -87,5 +87,13 @@ Microsoft offers the following capabilities
 - Two-way inbound and outbound SMS, a predefined package which allows the SMS to be sent and received as part of one plan
 - PSTN calling, you can select an inbound calling and use the Caller ID to place outbound calls         
 
-Next : Quickstart Search and aquire a phne number on ACS portal
+Next steps:
 
+Quickstarts
+-	Use quick start to Search and aqcuire a phone number	
+- Use quick start to make your first call or send an SMS
+
+More related concept documents
+-	Familiarize with call types available in ACS
+-	Review call flows and SMS flows
+-	Understand for what you will and will not be charged 
