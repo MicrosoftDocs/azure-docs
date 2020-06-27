@@ -1,6 +1,6 @@
 ---
-title: Pricing for virtual machine offers | Azure Marketplace
-description: Explains the three methods of specifying the pricing of virtual machine offers.
+title: Pricing for virtual machine offers - Azure Marketplace
+description: Explains the three methods to specify the pricing of virtual machine offers.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -14,7 +14,7 @@ Pricing for virtual machine offers
 ==================================
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
 
 There are three ways to specify pricing for virtual machine offers: customized core pricing, per-core pricing, and spreadsheet pricing.
 

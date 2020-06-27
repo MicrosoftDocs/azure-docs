@@ -121,11 +121,11 @@ After the operation runs successfully, copy the output.
 "se=2020-01-01&sp=***"
 ```
 
-This output will be the passed to the `--template-id` parameter in the next step.
+This output will be the passed to the `--template-uri` parameter in the next step.
 
 ### Generate a shared access signature definition
 
-Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) command, passing the output from the previous step to the `--template-id` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
+Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) command, passing the output from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
