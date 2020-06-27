@@ -82,6 +82,10 @@ The **Enriched Data Structure** pane shows the document's enrichments through th
 
 This window displays all of the errors and warnings the skillset produces as it is executed against the document in the debug session.
 
+## Limitations
+
+Debug sesisons work with all generally available data sources amd most preview data sources. The MongoDB API(preview) and Cassandra API(preview) of Cosmos DB are currently not supported.
+
 ## Next steps
 
 Now that you understand the elements of Debug sessions try the tutorial for a hands-on experience.
