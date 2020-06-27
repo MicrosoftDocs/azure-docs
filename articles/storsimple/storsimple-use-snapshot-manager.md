@@ -424,7 +424,7 @@ The following tables show the shortcut key combinations for each node in the **S
 | V |Opens the **View** menu. |
 | W |Opens a new StorSimple Snapshot Manager console focused on the **Volume Groups** node. |
 | F |Updates the StorSimple Snapshot Manager console. |
-| L |Opens the **Export List **page. |
+| L |Opens the **Export List** page. |
 | H |Opens online Help. |
 
 #### Backup Catalog node shortcut keys
