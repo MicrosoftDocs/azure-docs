@@ -4,21 +4,21 @@ description: Use a simulated TPM on a Linux VM to test Azure Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 6/24/2020
+ms.date: 6/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 # Create and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
-Azure IoT Edge devices can be automatically provisioned using the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+This article shows how to test auto-provisioning on a simulated (or physical) IoT Edge device using a virtual Trusted Platform Module (TPM). You can automatically provisioned Azure IoT Edge devices the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
-This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
+The tasks are as follows:
 
-* Create a Linux virtual machine (VM) in Hyper-V with a simulated Trusted Platform Module (TPM) for hardware security.
-* Create an instance of IoT Hub Device Provisioning Service (DPS).
-* Create an individual enrollment for the device
-* Install the IoT Edge runtime and connect the device to IoT Hub
+1. Create a Linux virtual machine (VM) in Hyper-V with a simulated Trusted Platform Module (TPM) for hardware security.
+1. Create an instance of IoT Hub Device Provisioning Service (DPS).
+1. Create an individual enrollment for the device.
+1. Install the IoT Edge runtime and connect the device to IoT Hub.
 
 > [!TIP]
 > This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
@@ -36,7 +36,7 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 
 ## Create a Linux virtual machine with a virtual TPM
 
-In this section, you create a new Linux virtual machine on Hyper-V. You configure this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge.
+In this section, you create a new Linux virtual machine on Hyper-V. You configure this virtual machine with a simulated TPM for testing how automatic provisioning works with IoT Edge.
 
 ### Create a virtual switch
 
@@ -62,7 +62,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 3. Complete the **New Virtual Machine Wizard** with the following specific configurations:
 
-   1. **Specify Generation**: Select **Generation 2**. Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
+   1. **Specify Generation**: Select **Generation 2**. Generation two virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
    2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section.
    3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
@@ -95,35 +95,23 @@ In the virtual machine, build a tool that you can use to retrieve the device's *
 1. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
    >[!TIP]
-   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address. First run `sudo apt install net-tools` and then `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address. First run `sudo apt install net-tools` and then `hostname -I`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
 1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM simulator.
 
    ```bash
    cd azure-iot-sdk-c/cmake
-   cmake -Duse_prov_client:BOOL=ON
+   cmake -Duse_prov_client:BOOL=ON ..
    cd provisioning_client/tools/tpm_device_provision
    make
    sudo ./tpm_device_provision
    ```
 
-1. From a command window, navigate to the `azure-iot-sdk-c` directory and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running.
-
-   From the `azure-iot-sdk-c` directory, run the following command to start the simulator:
-
-   ```bash
-   ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
-   ```
-
-1. Using Visual Studio, open the solution generated in the `cmake` directory named `azure_iot_sdks.sln`, and build it using the **Build solution** command on the **Build** menu.
-
-1. In the **Solution Explorer** pane in Visual Studio, navigate to the folder **Provision\_Tools**. Right-click the **tpm_device_provision** project and select **Set as Startup Project**.
-
-1. Run the solution using either of the **Start** commands on the **Debug** menu. The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
+The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
 
 ## Retrieve provisioning information from a physical device
 
-On your device, build a tool that you can use to retrieve the device's provisioning information.
+If you are using a physical IoT Edge device instead of a VM, build a tool that you can use to retrieve the device's provisioning information.
 
 1. Follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
@@ -169,11 +157,13 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
    3. Select **True** to declare that this virtual machine is an IoT Edge device.
 
-   4. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
+   4. Select **Link to new IoT Hub** to add IoT hubs the **Select how you want to assign devices to hubs** dropdown list. Then select the IoT Hubs you want to assign in the list. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
 
-   5. Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
+   5. Set the **Access Policy** to `iothubowner`.
 
-   6. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. For example:
+   6. Provide an ID for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
+
+   7. Add a tag value to the **Initial Device Twin State** if you'd like. You can use tags to target groups of devices for module deployment. For example:
 
       ```json
       {
@@ -186,7 +176,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
       }
       ```
 
-   7. Select **Save**.
+   8. Select **Save**.
 
 Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation.
 
@@ -196,11 +186,13 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in 
 
 Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
+When you get to the step to configure the security daemon, be sure and choose [Option 2 Automatic Provisioning](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) and configure for TPM attestation.
+
 [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## Give IoT Edge access to the TPM
 
-In order for the IoT Edge runtime to automatically provision your device, it needs access to the TPM.
+The IoT Edge runtime needs to access the TPM to automatically provision your device.
 
 You can give TPM access to the IoT Edge runtime by overriding the systemd settings so that the `iotedge` service has root privileges. If you don't want to elevate the service privileges, you can also use the following steps to manually provide TPM access.
 
@@ -243,7 +235,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
    ls -l /dev/tpm0
    ```
 
-   Successful output looks like the following:
+   Successful output appears as follows:
 
    ```output
    crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
@@ -299,4 +291,4 @@ You can verify that the individual enrollment that you created in Device Provisi
 
 ## Next steps
 
-The Device Provisioning Service enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-at-scale.md) or [using Azure CLI](how-to-deploy-cli-at-scale.md).
+The DPS enrollment process lets you set the device ID and device twin tags at the same time as you provision the new device. You can use those values to target individual devices or groups of devices using automatic device management. Learn how to [Deploy and monitor IoT Edge modules at scale using the Azure portal](how-to-deploy-at-scale.md) or [using Azure CLI](how-to-deploy-cli-at-scale.md).
