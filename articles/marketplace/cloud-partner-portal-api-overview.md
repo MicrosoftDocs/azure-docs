@@ -1,5 +1,5 @@
 ---
-title: Cloud Partner Portal API Reference | Azure Marketplace
+title: Cloud Partner Portal API Reference - Microsoft commercial marketplace
 description: Description of, prerequisites to use, and list of marketplace API operations.
 author: dsindona
 ms.service: marketplace
@@ -15,13 +15,9 @@ ms.author: dsindona
 > [!NOTE]
 > The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the [Changes to CPP APIs](#changes-to-cpp-apis-after-the-migration-to-partner-center) listed in this document to ensure your code continues to work after the migration to Partner Center.
 
-The Cloud Partner Portal REST APIs allow the programmatic retrieval and
-manipulation of workloads, offers, and publisher profiles. The APIs use
-role-based access control (RBAC) to enforce correct permissions at processing time.
+The Cloud Partner Portal REST APIs allow the programmatic retrieval and manipulation of workloads, offers, and publisher profiles. The APIs use role-based access control (RBAC) to enforce correct permissions at processing time.
 
-This reference provides the technical details for the Cloud Partner
-Portal REST APIs. The payload samples in this document are for reference
-only and are subject to change as new functionality is added.
+This reference provides the technical details for the Cloud Partner Portal REST APIs. The payload samples in this document are for reference only and are subject to change as new functionality is added.
 
 ## Prerequisites and considerations
 
