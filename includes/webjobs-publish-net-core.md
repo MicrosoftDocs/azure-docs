@@ -5,15 +5,15 @@ services: app-service
 author: ggailey777
 ms.service: app-service
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 06/26/2020
 ms.author: glenga
 ms.custom: include file
 ---
 1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-1. In the **Publish** dialog box, select **Azure**, and then select **Next**. 
+1. In the **Publish** dialog box, select **Azure** for **Target**, and then select **Next**. 
 
-1. Select **Azure WebJobs**, and then select **Next**.
+1. Select **Azure WebJobs** for **Specific target**, and then select **Next**.
 
 1. Select **Create a new Azure WebJob**.
 

@@ -5,25 +5,25 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.custom: vs-azure
-ms.date: 06/25/2020
+ms.date: 06/26/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Develop and deploy WebJobs using Visual Studio - Azure App Service
 
-This article explains how to use Visual Studio to deploy a console app project to a web app in [Azure App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [run background tasks with WebJobs](webjobs-create.md).
+This article explains how to use Visual Studio to deploy a console app project to a web app in [Azure App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run background tasks with WebJobs in Azure App Service](webjobs-create.md).
+
+You can choose to develop a WebJob that runs as either a [.NET Core app](#webjobs-as-net-core-console-apps) or a [.NET Framework app](#webjobs-as-net-framework-console-apps). Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as either .NET Core apps or .NET Framework apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different for .NET Core projects than for .NET Framework projects.
 
 You can publish multiple WebJobs to a single web app, provided that each WebJob in a web app has a unique name.
 
-Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as either .NET Core apps or .NET Framework apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different for .NET Core projects versus .NET Framework ones.
-
 ## WebJobs as .NET Core console apps
 
-With version 3.x of the WebJobs, you create and publish a WebJob as a .NET Core console app. For step-by-step instructions to create and publish a .NET Core console app to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
+With version 3.x of the Azure WebJobs SDK, you can create and publish WebJobs as .NET Core console apps. For step-by-step instructions to create and publish a .NET Core console app to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET Core WebJobs cannot be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJobs as .NET Framework console apps](#webjobs-as-net-framework-console-apps).  
+> .NET Core WebJobs can't be linked with web projects. If you need to deploy your WebJob with a web app, [create your WebJobs as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
 
 ### Deploy to Azure App Service
 
@@ -33,17 +33,50 @@ Publishing a .NET Core WebJob to Azure App Service from Visual Studio uses the s
 
 ### WebJob types
 
-By default, a WebJob published from a .NET Core console project runs only when triggered or on demand. You can also update the project to [run on a schedule](#scheduled-execution) or [run continuously](#continuous-execution).
+The type of a WebJob can be either *triggered* or *continuous*: 
+
+- Triggered (default): A triggered WebJob starts only if you trigger it manually (on demand) or on a [schedule](#scheduling-a-triggered-webjob). It runs on all instances that the web app runs on, but you can optionally restrict the WebJob to a single instance. 
+
+- Continuous: A [continuous](#continuous-execution) WebJob starts immediately when the WebJob is created. To keep the job from ending, the program or script typically does its work inside an endless loop. If the job does end, you can restart it. 
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
-#### Scheduled execution
+### Scheduling a triggered WebJob
 
-When you publish a .NET Core console app to Azure, Visual Studio adds a new *settings.job* file to the project. Use this file to set an execution schedule for your WebJob. For more information, see [Scheduling a triggered WebJob](#scheduling-a-triggered-webjob).
+When you publish a .NET Core console app to Azure, Visual Studio sets the type of WebJob to **Triggered** by default, and adds a new *settings.job* file to the project. For triggered WebJob types, you can use this file to set an execution schedule for your WebJob.
 
-#### Continuous execution
+Use the *settings.job* file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
 
-When you enable **Always on** in Azure, you can use Visual Studio to change the WebJob to run continuously.
+```json
+{
+    "schedule": "0 0 9-17 * * *"
+}
+```
+
+This file is located at the root of the WebJobs folder with your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your *settings.job* file properties in Visual Studio as **Copy if newer**. 
+
+When you [create a WebJob from the Azure portal](webjobs-create.md), the *settings.job* file is created for you.
+
+#### CRON expressions
+
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
+
+#### settings.job reference
+
+The following settings are supported by WebJobs:
+
+| **Setting** | **Type**  | **Description** |
+| ----------- | --------- | --------------- |
+| `is_in_place` | All | Allows the job to run in place without first being copied to a temp folder. For more information, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. For more information, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. For more information, see the [timer trigger reference](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
+| `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+
+### Continuous execution
+
+If you enable **Always on** in Azure, you can use Visual Studio to change the WebJob to run continuously:
 
 1. If you haven't already done so, [publish the project to Azure](#deploy-to-azure-app-service).
 
@@ -59,7 +92,7 @@ When you enable **Always on** in Azure, you can use Visual Studio to change the 
 
 ## WebJobs as .NET Framework console apps  
 
-When Visual Studio deploys a WebJobs-enabled .NET Framework console app project, it copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
+If you use Visual Studio to deploy a WebJobs-enabled .NET Framework console app project, it copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
 
 Visual Studio adds the following items to a WebJobs-enabled project:
 
@@ -143,7 +176,7 @@ To create a new WebJobs-enabled project, use the console app project template an
 2. Complete the [Add Azure WebJob](#configure) dialog box, and then select **OK**.
 
 
-### <a id="publishsettings"></a>webjob-publish-settings.json
+### <a id="publishsettings"></a>webjob-publish-settings.json file
 When you configure a console app for WebJobs deployment, Visual Studio installs the [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet package 
 and stores scheduling information in a *webjob-publish-settings.json* file in the project *Properties* folder of the WebJobs project. Here is an example of that file:
 
@@ -159,7 +192,7 @@ and stores scheduling information in a *webjob-publish-settings.json* file in th
 
 You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
-### <a id="webjobslist"></a>webjobs-list.json
+### <a id="webjobslist"></a>webjobs-list.json file
 When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list might contain multiple WebJobs projects, as shown in the following example:
 
         {
@@ -174,10 +207,10 @@ When you link a WebJobs-enabled project to a web project, Visual Studio stores t
           ]
         }
 
-You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
+You can edit this file directly in Visual Studio, with IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json).
 
 ### <a id="deploy"></a>Deploy a WebJobs project
-A WebJobs project that you've linked to a web project deploys automatically with the web project. For information about web project deployment, see **How-to guides** > **Deploy app** in the left navigation.
+A WebJobs project that you've linked to a web project deploys automatically with the web project. For information about web project deployment, see **How-to guides** > **Deploy the app** in the left navigation.
 
 To deploy a WebJobs project by itself, right-click the project in **Solution Explorer** and select **Publish as Azure WebJob**. 
 
@@ -185,7 +218,7 @@ To deploy a WebJobs project by itself, right-click the project in **Solution Exp
 
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
 
-### <a id="configure"></a>The Add Azure WebJob dialog
+### <a id="configure"></a>Add Azure WebJob dialog box
 The **Add Azure WebJob** dialog box lets you enter the WebJob name and the run mode setting for your WebJob. 
 
 ![Add Azure WebJob dialog box](./media/webjobs-dotnet-deploy-vs/aaw2.png)
@@ -200,7 +233,7 @@ WebJob deployment information:
 
 * If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy. If you change other scheduling settings, but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job instead of creating a new one.
 
-## Scheduling a triggered WebJob
+#### Scheduling a triggered WebJob
 
 WebJobs uses a *settings.job* file to determine when a WebJob is run. Use this file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
 
@@ -210,11 +243,9 @@ WebJobs uses a *settings.job* file to determine when a WebJob is run. Use this f
 }
 ```
 
-This file must be located at the root of the WebJobs folder, along side your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your `settings.job` file properties as **Copy if newer**. 
+This file is located at the root of the WebJobs folder with your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your *settings.job* file properties in Visual Studio as **Copy if newer**. 
 
-When you [create a WebJob from the Azure portal](webjobs-create.md), the settings.job file is created for you.
-
-[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
+When you [create a WebJob from the Azure portal](webjobs-create.md), the *settings.job* file is created for you.
 
 ### CRON expressions
 
@@ -228,9 +259,9 @@ The following settings are supported by WebJobs:
 
 | **Setting** | **Type**  | **Description** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | All | Allows the job to run in place without being first copied to a temp folder. To learn more, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. To learn more, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
+| `is_in_place` | All | Allows the job to run in place without first being copied to a temp folder. For more information, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. For more information, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. For more information, see the [timer trigger reference](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## Next steps
