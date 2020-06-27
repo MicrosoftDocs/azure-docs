@@ -1,7 +1,7 @@
 # Plan your Telephony and SMS solution
 
 This document describes the telephony numbers and plans in Azure Communication Services and guides you to select the appropriate offer. Regardless of whether you are new to the telephony world or a seasoned professional, the information will help you make the right decision for your solution.
-We will walk you through the decision flows on selecting a voice service provider, phone number types, plans (or capabilities) available from Microsoft, and review the Azure COmmunications Services phone number acquisition portal.
+We will walk you through the decision flows on selecting a voice service provider, phone number types, plans (or capabilities) available from Microsoft, and review the Azure Communications Services phone number acquisition portal.
 
 ## About phone numbers in Azure Communications Services
 
