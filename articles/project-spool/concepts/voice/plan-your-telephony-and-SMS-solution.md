@@ -85,7 +85,7 @@ Microsoft offers multiple options to select capabilities that you can enable for
 Microsoft offers the following capabilities
 - One-way outbound SMS, useful for notification and two-factor authentication scenarios
 - Two-way inbound and outbound SMS, a predefined package which allows the SMS to be sent and received as part of one plan
-- PSTN calling, you can selects an inbound calling and use the Caller ID to place outbound calls         
+- PSTN calling, you can select an inbound calling and use the Caller ID to place outbound calls         
 
 Next : Quickstart Search and aquire a phne number on ACS portal
 
