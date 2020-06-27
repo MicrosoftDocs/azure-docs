@@ -139,6 +139,15 @@ For Azure Database for PostgreSQL, the support for encryption of data at rest us
 
 * Encryption is only supported with RSA 2048 cryptographic key.
 
+## Infrastructure Double encryption
+Azure Database for PostgreSQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption. 
+
+Infrastructure double encryption adds a second layer of encryption using a FIPS 140-2 validated cryptographic module and a different encryption algorithm which gives additional layer of protection for your data at rest. The key used in Infrastructure Double encryption is also managed by service. This is not *On* by default since it will have performance impact due to the additional layer of encryption. 
+
+   > [!NOTE]
+   > - This functionality is still not available globally. 
+   > - Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
+
 ## Next steps
 
 Learn how to [set up data encryption with a customer-managed key for your Azure database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md).
