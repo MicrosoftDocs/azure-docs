@@ -240,7 +240,7 @@ Here are a few reasons why an assessment could get a low confidence rating:
 ## Monthly cost estimation
 
 After sizing recommendations are complete, Azure Migrate calculates the total cost of running the on-premises workloads in AVS by multiplying the number of AVS nodes required by the node price. The cost per VM cost is calculated by dividing the total cost by the number of VMs in the assessment. 
-    - The calculation takes the node type, location, and FTT settings into account.
+    - The calculation takes the number of nodes required, node type and location into account.
     - It aggregates the cost across all nodes to calculate the total monthly cost.
     - Costs are displayed in the currency specified in the assessment settings.
 
