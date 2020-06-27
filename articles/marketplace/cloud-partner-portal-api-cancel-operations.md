@@ -1,18 +1,18 @@
 ---
-title: Cancel operation API | Azure Marketplace
-description: Cancel operations .
-author: dsindona
+title: Cancel operation API - Microsoft commercial marketplace
+description: The API to cancel an operation currently in progress on the offer
+author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.author: dsindona
+ms.date: 06/16/2020
+ms.author: mingshen
 ---
 
 # Cancel operation
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
 
 This API cancels an operation currently in progress on the offer. Use the [Retrieve operations
 API](./cloud-partner-portal-api-retrieve-operations.md) to get an
