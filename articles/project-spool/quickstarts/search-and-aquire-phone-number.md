@@ -1,4 +1,4 @@
-# How to Search and aquire a phone number on Azure Communication Services portal
+# How to search and aquire a phone number on Azure Communication Services portal
 
 Before proceed, please review the [Plan you Tellephony and SMS solution] (https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/plan-your-telephony-and-sms-solution/) concept document
 
