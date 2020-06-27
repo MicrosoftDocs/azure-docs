@@ -15,10 +15,6 @@ ms.author: cherylmc
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA (Network Virtual Appliance) scenario, the goal is to route traffic through an NVA for VNet <-> Branch, and use a different NVA for Internet-bound traffic. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
->[!NOTE]
->This scenario is in Preview.
->
-
 ## <a name="architecture"></a>Scenario architecture
 
 In **Figure 1**, there is one hub, **Hub 1**.
