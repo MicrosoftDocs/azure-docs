@@ -256,35 +256,38 @@ The target dataset is also profiled over time. The statistical distance between 
 
 In the Azure Machine Learning studio, click on a bar in the graph to see the the feature level details for that date. By default, you see the baseline dataset's distribution and the most recent run's distribution of the same feature.
 
-:::image type="content" source="media/how-to-monitor-datasets/feature_contribution.gif" alt-text="Feature details":::
+:::image type="content" source="media/how-to-monitor-datasets/feature_contribution.gif" alt-text="Drift magnitude by features":::
 
 These metrics can also be retrieved in the Python SDK through the `get_metrics()` method on a `DataDriftDetector` object.
 
-#### Numeric features 
+### Feature details
 
-Numeric features are profiled in each dataset monitor run. The following are exposed in the Azure Machine Learning studio. Probability density is shown for the distribution.
+Finally, scroll down to view details for each individual feature.  Use the dropdowns above the chart to select the feature, and additionally select the metric you want to view.
 
-| Metric | Description |  
-| ------ | ----------- |  
-| Min value | Minimum value of the feature. |
-| Max value | Maximum value of the feature. |
-| Mean value | Average value of the feature. |
-| Wasserstein distance | Minimum amount of work to transform baseline distribution into the target distribution. |
+:::image type="content" source="media/how-to-monitor-datasets/numeric-feature.gif" alt-text="Numeric feature graph and comparison":::
 
-![Feature details numeric](./media/how-to-monitor-datasets/feature-details.png)
+Metrics in the chart depend on the type of feature.
 
-#### Categorical features 
+* Numeric features
 
-Categorical features are profiled in each dataset monitor run. The number of unique values are tracked over time, and a bar chart compares the baseline and target datasets.
+    | Metric | Description |  
+    | ------ | ----------- |  
+    | Wasserstein distance | Minimum amount of work to transform baseline distribution into the target distribution. |
+    | Mean value | Average value of the feature. |
+    | Min value | Minimum value of the feature. |
+    | Max value | Maximum value of the feature. |
 
-| Metric | Description |  
-| ------ | ----------- |  
-| Unique values | Number of unique values (cardinality) of the feature. |
-| Euclidian distance     |  Computed for categorical columns. Euclidean distance is computed on two vectors, generated from empirical distribution of the same categorical column from two datasets. 0 indicates there is no difference in the empirical distributions.  The more it deviates from 0, the more this column has drifted. Trends can be observed from a time series plot of this metric and can be helpful in uncovering a drifting feature.  |
+* Categorical features
+    
+    | Metric | Description |  
+    | ------ | ----------- |  
 
+    | Euclidian distance     |  Computed for categorical columns. Euclidean distance is computed on two vectors, generated from empirical distribution of the same categorical column from two datasets. 0 indicates there is no difference in the empirical distributions.  The more it deviates from 0, the more this column has drifted. Trends can be observed from a time series plot of this metric and can be helpful in uncovering a drifting feature.  |
+    | Unique values | Number of unique values (cardinality) of the feature. |
 
+On this chart, select a single date to compare the feature distribution between the target and this date for the displayed feature. For numeric features, this shows two probability distributions.  If the feature is numeric, a bar chart is shown.
 
-![Feature details categorical](./media/how-to-monitor-datasets/feature-details2.png)
+:::image type="content" source="media/how-to-monitor-datasets/select-date-to-compare.gif" alt-text="Select a date to compare to target":::
 
 ## Metrics, alerts, and events
 
