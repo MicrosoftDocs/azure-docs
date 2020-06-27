@@ -227,9 +227,11 @@ Time Series Insights Preview stores copies of your data as follows:
 
 * The second, repartitioned copy is grouped by Time Series IDs and resides in the `PT=TsId` folder:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
 
-In both cases, the time property of the Parquet file corresponds to blob creation time. Data in the `PT=Time` folder is preserved with no changes once it's written to the file. Data in the `PT=TsId` folder will be optimized for query over time and is not static.
+Timestamp in the blobs names in `PT=Time` folder corresponds to the arrival time of the data to TSI (not the timestamp of the events).
+
+Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, same events might be present in multiple blobs. Also, naming of the blobs might change in the future.
 
 > [!NOTE]
 >
