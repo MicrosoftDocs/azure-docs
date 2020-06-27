@@ -5,10 +5,9 @@ titleSuffix: Azure Digital Twins
 description: See how to interpret different event types and their different notification messages.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Understand event data
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -40,7 +37,11 @@ Some notifications conform to the CloudEvents standard. CloudEvents conformance 
 * Notifications emitted from [digital twins](concepts-twins-graph.md) with a [model](concepts-models.md) conform to CloudEvents
 * Notifications processed and emitted by Azure Digital Twins conform to CloudEvents
 
-Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. Notifications emitted by Azure Digital Twins to Event Grid are formatted into the Event Grid schema, until Event Grid supports CloudEvents on input. Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
+Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. 
+
+Notifications emitted by Azure Digital Twins to Event Grid will be automatically formatted to either the CloudEvents schema or EventGridEvent schema, depending on the schema type defined in the event grid topic. 
+
+Extension attributes on headers will be added as properties on the Event Grid schema inside of the payload. 
 
 ### Event notification bodies
 
@@ -51,43 +52,39 @@ The set of fields that the body contains vary with different notification types.
 Telemetry message:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.iot.telemetry", 
-    "source": "myhub.westus2.azuredigitaltwins.net", 
-    "subject": "thermostat.vav-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a",
-    "dataschema": "dtmi:com:contoso:DigitalTwins:VAV;1",
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "data":  
-      {
-          "temp": 70,
-          "humidity": 40 
-      }
+{
+  "specversion": "1.0",
+  "id": "df5a5992-817b-4e8a-b12c-e0b18d4bf8fb",
+  "type": "microsoft.iot.telemetry",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net/digitaltwins/room1",
+  "data": {
+    "Temperature": 10
+  },
+  "dataschema": "dtmi:example:com:floor4;2",
+  "datacontenttype": "application/json",
+  "traceparent": "00-7e3081c6d3edfb4eaf7d3244b2036baa-23d762f4d9f81741-01"
 }
 ```
 
 Life-cycle notification message:
 
 ```json
-{ 
-    "specversion": "1.0", 
-    "type": "microsoft.digitaltwins.twin.create", 
-    "source": "mydigitaltwins.westus2.azuredigitaltwins.net", 
-    "subject": "device-123", 
-    "id": "c1b53246-19f2-40c6-bc9e-4666fa590d1a", 
-    "time": "2018-04-05T17:31:00Z", 
-    "datacontenttype" : "application/json", 
-    "dataschema": "dtmi:com:contoso:DigitalTwins:Device;1",           
-    "data":  
-      { 
-        "$dtId": "room-123", 
-        "property": "value",
-        "$metadata": { 
-                //...
-        } 
-      } 
+{
+  "specversion": "1.0",
+  "id": "d047e992-dddc-4a5a-b0af-fa79832235f8",
+  "type": "Microsoft.DigitalTwins.Twin.Create",
+  "source": "contoso-adt.api.wus2.digitaltwins.azure.net",
+  "data": {
+    "$dtId": "floor1",
+    "$etag": "W/\"e398dbf4-8214-4483-9d52-880b61e491ec\"",
+    "$metadata": {
+      "$model": "dtmi:example:Floor;1"
+    }
+  },
+  "subject": "floor1",
+  "time": "2020-06-23T19:03:48.9700792Z",
+  "datacontenttype": "application/json",
+  "traceparent": "00-18f4e34b3e4a784aadf5913917537e7d-691a71e0a220d642-01"
 }
 ```
 
@@ -112,12 +109,11 @@ Here are the fields in the body of a life-cycle notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Create`<br>`Microsoft.DigitalTwins.TwinProxy.Delete`<br>`Microsoft.DigitalTwins.TwinProxy.Attach`<br>`Microsoft.DigitalTwins.TwinProxy.Detach` |
-| `datacontenttype` | application/json |
+| `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
+| `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |
 | `time` | Timestamp for when the operation occurred on the twin |
-| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `traceparent` | A W3C trace context for the event |
 
 #### Body details
 
@@ -166,7 +162,6 @@ Here is another example of a digital twin. This one is based on a [model](concep
   "comfortIndex": 85,
   "$metadata": {
     "$model": "dtmi:com:contoso:Building;1",
-    "$kind": "DigitalTwin",
     "avgTemperature": {
       "desiredValue": 72,
       "desiredVersion": 5,
@@ -198,11 +193,11 @@ Here are the fields in the body of an edge change notification.
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
 | `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`<br>`datacontenttype    application/json for Relationship.Create`<br>`application/json-patch+json for Relationship.Update` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>/<edgeID>` |
+| `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
+|`datacontenttype`| `application/json` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
-| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `traceparent` | A W3C trace context for the event |
 
 #### Body details
 
@@ -213,13 +208,16 @@ The body is the payload of a relationship, also in JSON format. It uses the same
 Here is an example of an update relationship notification to update a property:
 
 ```json
-[
-  {
-    "op": "replace",
-    "path": "ownershipUser",
-    "value": "user3"
+{
+    "modelId": "dtmi:example:Floor;1",
+    "patch": [
+      {
+        "value": "user3",
+        "path": "/ownershipUser",
+        "op": "replace"
+      }
+    ]
   }
-]
 ```
 
 For `Relationship.Delete`, the body is the same as the `GET` request, and it gets the latest state before deletion.
@@ -228,8 +226,8 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipId": "EdgeId1",
-    "$sourceId": "building11",
+    "$relationshipId": "building_to_floor",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
     "ownershipUser": "user1",
@@ -253,11 +251,10 @@ Here are the fields in the body of a digital twin change notification.
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
-| `datacontenttype` | application/json-patch+json |
+| `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |
 | `time` | Timestamp for when the operation occurred on the digital twin |
-| `sequence` | Value expressing the event's position in the larger ordered sequence of events. Services have to add a sequence number on all the notifications to indicate their order, or maintain their own ordering in some other way. The sequence number increments with each message. It will be reset to 1 if the object is deleted and recreated with the same ID. |
-| `sequencetype` | More detail about how the sequence field is used. For example, this property may specify that the value must be a signed 32-bit integer, which starts at 1 and increases by 1 each time. |
+| `traceparent` | A W3C trace context for the event |
 
 #### Body details
 
@@ -267,28 +264,37 @@ For example, say that a digital twin was updated using the following Patch.
 
 ```json
 [
-  {
-    "op": "replace",
-    "path": "/mycomp/prop1",
-    "value": {"a":3}
-  }
+    {
+        "op": "replace",
+        "value": 40,
+        "path": "/Temperature"
+    },
+    {
+        "op": "add",
+        "value": 30,
+        "path": "/comp1/prop1"
+    }
 ]
 ```
 
 The corresponding notification (if synchronously executed by the service, such as Azure Digital Twins updating a digital twin) would have a body like:
 
 ```json
-[
-    { "op": "replace", "path": "/myComp/prop1", "value": {"a": 3}},
-    { "op": "replace", "path": "/myComp/$metadata/prop1",
-        "value": {
-            "desiredValue": { "a": 3 },
-            "desiredVersion": 2,
-                "ackCode": 200,
-            "ackVersion": 2 
-        }
-    }
-]
+{
+    "modelId": "dtmi:example:com:floor4;2",
+    "patch": [
+      {
+        "value": 40,
+        "path": "/Temperature",
+        "op": "replace"
+      },
+      {
+        "value": 30,
+        "path": "/comp1/prop1",
+        "op": "add"
+      }
+    ]
+  }
 ```
 
 ## Next steps
