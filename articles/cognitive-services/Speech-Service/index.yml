@@ -212,6 +212,8 @@ additionalContent:
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
+        - text: What's new in docs?
+          url: whats-new.md
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions

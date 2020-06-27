@@ -100,7 +100,7 @@ Azure Migrate Server Assessment currently considers the operating system license
 
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
-## Why is my assessment showing a warning that it was created with an invalid combintion of Reserved Instances, VM uptime and Discount (%)?
+## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
 When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## Dependency visualization in Azure Government
@@ -127,15 +127,14 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Visualize dependencies for > hour
 
-Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
+With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
 
-For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only.
-
-However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ## Visualized dependencies for > 10 machines
 
-In Azure Migrate Server Assessment, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+
 
 ## Machines show "Install agent"
 
@@ -146,6 +145,9 @@ After migrating machines with dependency visualization enabled to Azure, machine
 - Machines might also have a different IP address, based on whether you've retained the on-premises IP address or not.
 - If both MAC and IP addresses are different from on-premises, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. In this case, it will show the option to install the agent rather than to view dependencies.
 - After a test migration to Azure, on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless you block outgoing Azure Monitor log traffic from these machines, Azure Migrate won't associate the on-premises machines with any Service Map dependency data, and thus will show the option to install agents, rather than to view dependencies.
+
+## Dependencies export CSV shows "Unknown process"
+In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
 
 
 ## Capture network traffic

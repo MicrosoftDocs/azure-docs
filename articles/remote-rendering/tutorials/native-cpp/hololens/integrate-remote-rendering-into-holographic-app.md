@@ -143,7 +143,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
     // 1. One time initialization
     {
         RR::RemoteRenderingInitialization clientInit;
-        memset(&clientInit, 0, sizeof(RR::RemoteRenderingInitialization));
         clientInit.connectionType = RR::ConnectionType::General;
         clientInit.graphicsApi = RR::GraphicsApiType::WmrD3D11;
         clientInit.toolId = "<sample name goes here>"; // <put your sample name here>
@@ -151,7 +150,11 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         clientInit.forward = RR::Axis::Z_Neg;
         clientInit.right = RR::Axis::X;
         clientInit.up = RR::Axis::Y;
-        RR::StartupRemoteRendering(clientInit);
+        if (RR::StartupRemoteRendering(clientInit) != RR::Result::Success)
+        {
+            // something fundamental went wrong with the initialization
+            throw std::exception("Failed to start remote rendering. Invalid client init data.");
+        }
     }
 
 
@@ -187,7 +190,6 @@ HolographicAppMain::HolographicAppMain(std::shared_ptr<DX::DeviceResources> cons
         {
             // create a new session
             RR::RenderingSessionCreationParams init;
-            memset(&init, 0, sizeof(RR::RenderingSessionCreationParams));
             init.MaxLease.minute = 10; // session is leased for 10 minutes
             init.Size = RR::RenderingSessionVmSize::Standard;
             auto createSessionAsync = *m_frontEnd->CreateNewRenderingSessionAsync(init);
@@ -486,16 +488,22 @@ HolographicFrame HolographicAppMain::Update()
 
 ### Rendering
 
-The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
+The last thing to do is invoking the rendering of the remote content. We have to do this call in the exact right position within the rendering pipeline, after the render target clear and setting the viewport. Insert the following snippet into the `UseHolographicCameraResources` lock inside function `HolographicAppMain::Render`:
 
 ```cpp
         ...
         // Existing clear function:
         context->ClearDepthStencilView(depthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+        
+        // ...
+
+        // Exiting check to test for valid camera:
+        bool cameraActive = pCameraResources->AttachViewProjectionBuffer(m_deviceResources);
+
 
         // Inject remote rendering: as soon as we are connected, start blitting the remote frame.
         // We do the blitting after the Clear, and before cube rendering.
-        if (m_isConnected)
+        if (m_isConnected && cameraActive)
         {
             m_graphicsBinding->BlitRemoteFrame();
         }

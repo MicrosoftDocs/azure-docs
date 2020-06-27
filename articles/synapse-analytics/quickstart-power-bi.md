@@ -11,7 +11,7 @@ ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Linking a Power BI workspace to a Synapse Analytics workspace (preview)
+# Quickstart: Linking a Power BI workspace to a Synapse workspace
 
 In this quickstart, you will learn how to connect a Power BI workspace to a Synapse Analytics workspace to create new Power BI reports and datasets from Synapse Studio (preview).
 

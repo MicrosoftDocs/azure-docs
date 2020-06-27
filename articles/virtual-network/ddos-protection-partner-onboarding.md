@@ -5,7 +5,7 @@ ms.service: virtual-network
 documentationcenter: na
 author: anupamvi
 mms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: kumud
 ---

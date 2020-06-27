@@ -2,12 +2,12 @@
 title: Azure Event Grid partner topics
 description: Send events from third-party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
+ms.author: femila
 ---
 
 # Partner topics in Azure Event Grid (preview)

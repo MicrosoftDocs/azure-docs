@@ -48,12 +48,18 @@
       href: tutorial-assess-physical.md
     - name: Migrate physical servers
       href: tutorial-migrate-physical-virtual-machines.md
+  - name: Assess and migrate AWS VMs
+    items:
+    - name: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+      href: tutorial-migrate-aws-virtual-machines.md
   - name: Assess imported servers for migration
     items:
     - name: Assess imported servers for migration
       href: tutorial-assess-import.md
 - name: Concepts
   items:
+  - name: Build migration plan with Azure Migrate
+    href: concepts-migration-planning.md
   - name: Support matrices
     items:
     - name: General support 

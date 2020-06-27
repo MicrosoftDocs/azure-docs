@@ -4,7 +4,6 @@ description: This article covers application patterns for SQL Server on Azure Vi
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

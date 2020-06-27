@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
+  ms.date: 06/16/2020
 
 landingContent:
   - title: About Azure Policy
@@ -132,9 +132,9 @@ landingContent:
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
           - text: Azure SDK for .NET (Policy Definitions)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-          - text: Azure SDK for Node (Policy)
+          - text: Azure SDK for JavaScript (Policy)
             url: /javascript/api/@azure/arm-policy
-          - text: Azure SDK for Node (Policy Insights)
+          - text: Azure SDK for JavaScript (Policy Insights)
             url: /javascript/api/@azure/arm-policyinsights
           - text: Azure SDK for Python (Policy)
             url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy

@@ -5,7 +5,7 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: daperlov
 ---
 
@@ -25,7 +25,7 @@ The Common Data Model is available as an [inline dataset](data-flow-source.md#in
 
 ### Source properties
 
-The below table lists the properties supported by a CDM source.
+The below table lists the properties supported by a CDM source. You can edit these properties in the **Source options** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -44,40 +44,38 @@ The below table lists the properties supported by a CDM source.
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
-#### CDM source example
+#### Import schema
 
-The below image is an example of a CDM source configuration in mapping data flows.
+CDM is only available as an inline dataset and, by default, doesn't have an associated schema. To get column metadata, click the **Import schema** button in the **Projection** tab. This will allow you to reference the column names and data types specified by the corpus. To import the schema, a [data flow debug session](concepts-data-flow-debug-mode.md) must be active.
 
-![CDM source](media/format-common-data-model/data-flow-source.png)
 
-The associated data flow script is:
+### CDM source data flow script example
 
 ```
 source(output(
-		ServingSizeId as integer,
-		ServingSize as integer,
-		ServingSizeUomId as string,
-		ServingSizeNote as string,
+		ProductSizeId as integer,
+		ProductColor as integer,
+		CustomerId as string,
+		Note as string,
 		LastModifiedDate as timestamp
 	),
 	allowSchemaDrift: true,
 	validateSchema: false,
-	entity: 'ServingSize.cdm.json/ServingSize',
+	entity: 'Product.cdm.json/Product',
 	format: 'cdm',
 	manifestType: 'manifest',
-	manifestName: 'ServingSizeManifest',
-	entityPath: 'ServingSize',
-	corpusPath: 'ProductAhold_Updated',
+	manifestName: 'ProductManifest',
+	entityPath: 'Product',
+	corpusPath: 'Products',
 	corpusStore: 'adlsgen2',
 	adlsgen2_fileSystem: 'models',
-	folderPath: 'ServingSizeData',
+	folderPath: 'ProductData',
 	fileSystem: 'data') ~> CDMSource
 ```
 
-
 ### Sink properties
 
-The below table lists the properties supported by a CDM sink.
+The below table lists the properties supported by a CDM sink. You can edit these properties in the **Settings** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -98,24 +96,20 @@ The below table lists the properties supported by a CDM sink.
 | Column delimiter | If writing to DelimitedText, how to delimit columns | yes, if writing to DelimitedText | String | columnDelimiter |
 | First row as header | If using DelimitedText, whether the column names are added as a header | no | `true` or `false` | columnNamesAsHeader |
 
-#### CDM sink example
-
-The below image is an example of a CDM sink configuration in mapping data flows.
-
-![CDM source](media/format-common-data-model/data-flow-sink.png)
+### CDM sink data flow script example
 
 The associated data flow script is:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
 	validateSchema: false,
-	entity: 'ServingSize.cdm.json/ServingSize',
+	entity: 'Product.cdm.json/Product',
 	format: 'cdm',
-	entityPath: 'ServingSize',
-	manifestName: 'ServingSizeManifest',
-	corpusPath: 'ProductAhold_Updated',
+	entityPath: 'ProductSize',
+	manifestName: 'ProductSizeManifest',
+	corpusPath: 'Products',
 	partitionPath: 'adf',
-	folderPath: 'ServingSizeData',
+	folderPath: 'ProductSizeData',
 	fileSystem: 'cdm',
 	subformat: 'parquet',
 	corpusStore: 'adlsgen2',

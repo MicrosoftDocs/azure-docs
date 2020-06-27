@@ -5,7 +5,7 @@ description: Azure AD sign in to an Azure VM running Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
 
 ms.author: joflore

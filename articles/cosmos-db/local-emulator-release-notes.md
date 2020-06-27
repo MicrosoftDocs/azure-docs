@@ -21,6 +21,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
+### 2.11.1
+
+- This release fixes couple bugs related to emulator Data Explorer. In certain cases when using the emulator Data Explorer through a web browser, it fails to connect to the Cosmos emulator endpoint and all the related actions such as creating a database or a container will error. The second issue fixed is related to creating an item from a JSON file using Data Explorer upload action.
+
 ### 2.11.0
 
 - This release introduces support for autoscale provisioned throughput. These new features include the ability to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and programmatic support through Azure Cosmos DB SDKs.

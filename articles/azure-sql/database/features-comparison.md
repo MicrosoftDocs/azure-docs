@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 05/10/2019
+ms.date: 06/25/2020
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -123,7 +123,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | Backup retention | Yes. 7 days default, max 35 days. | Yes. 7 days default, max 35 days. |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Yes | Yes |
 | File system access | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
-| [Geo-restore](recovery-using-backups.md#geo-restore) | Yes - all service tiers other than hyperscale | Yes - all service tiers other than hyperscale |
+| [Geo-restore](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Hyperscale architecture](service-tier-hyperscale.md) | Yes | No |
 | [Long-term backup retention - LTR](long-term-retention-overview.md) | Yes, keep automatically taken backups up to 10 years. | Not yet. Use `COPY_ONLY` [manual backups](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) as a temporary workaround. |
 | Pause/resume | Yes, in [serverless model](serverless-tier-overview.md) | No |

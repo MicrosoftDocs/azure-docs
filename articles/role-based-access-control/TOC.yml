@@ -92,6 +92,9 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
   - name: Elevate access

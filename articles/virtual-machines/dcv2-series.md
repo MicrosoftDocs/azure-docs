@@ -1,12 +1,12 @@
 ---
- title: DC-series - Azure Virtual Machines
- description: Specifications for the DC-series VMs.
- services: virtual-machines
- author: susaxen
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/20/2020
- ms.author: lahugh
+title: DC-series - Azure Virtual Machines
+description: Specifications for the DC-series VMs.
+author: susaxen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/20/2020
+ms.author: jushiman
 ---
 
 # DCsv2-series

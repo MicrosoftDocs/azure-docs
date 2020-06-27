@@ -1,5 +1,5 @@
 ---
-title: Incremental enrichment (preview)
+title: Incremental enrichment concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Cache intermediate content and incremental changes from AI enrichment pipeline in Azure Storage to preserve investments in existing processed documents. This feature is currently in public preview.
 
@@ -8,16 +8,28 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 06/18/2020
 ---
 
-# Introduction to incremental enrichment and caching in Azure Cognitive Search
+# Incremental enrichment and caching in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
 
-Incremental enrichment adds caching and statefulness to an enrichment pipeline, preserving your investment in existing output, while changing only those documents impacted by particular modification. Not only does this preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+*Incremental enrichment* is a feature that targets [skillsets](cognitive-search-working-with-skillsets.md). It leverages Azure Storage to save the processing output emitted by an enrichment pipeline for reuse in future indexer runs. Wherever possible, the indexer reuses any cached output that is still valid. 
+
+Not only does incremental enrichment preserve your monetary investment in processing (in particular, OCR and image processing) but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
+
+A workflow that uses incremental caching includes the following steps:
+
+1. [Create or identify an Azure storage account](../storage/common/storage-account-create.md) to store the cache.
+1. [Enable incremental enrichment](search-howto-incremental-index.md) in the indexer.
+1. [Create an indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) - plus a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) - to invoke the pipeline. During processing, stages of enrichment are saved for each document in Blob storage for future use.
+1. Test your code, and after making changes, use [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) to modify a definition.
+1. [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) to invoke the pipeline, retrieving cached output for faster and more cost-effective processing.
+
+For more information about steps and considerations when working with an existing indexer, see [Set up incremental enrichment](search-howto-incremental-index.md).
 
 ## Indexer cache
 

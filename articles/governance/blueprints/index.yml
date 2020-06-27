@@ -37,6 +37,8 @@ landingContent:
             url: ./create-blueprint-portal.md
           - text: Create a new blueprint (PowerShell)
             url: ./create-blueprint-powershell.md
+          - text: Create a new blueprint (Azure CLI)
+            url: ./create-blueprint-azurecli.md
           - text: Create a new blueprint (REST API)
             url: ./create-blueprint-rest-api.md
       - linkListType: tutorial

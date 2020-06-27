@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/12/2020
 ms.author: jingwang
 
 ---
@@ -95,7 +95,8 @@ Supported **binary read settings** under `formatSettings`:
                 "type": "BinarySource",
                 "storeSettings": {
                     "type": "AzureBlobStorageReadSettings",
-                    "recursive": true
+                    "recursive": true,
+                    "deleteFilesAfterCompletion": true
                 },
                 "formatSettings": {
                     "type": "BinaryReadSettings",

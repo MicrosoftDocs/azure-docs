@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 
 ---
 

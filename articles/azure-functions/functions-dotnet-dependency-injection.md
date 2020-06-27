@@ -31,11 +31,8 @@ To register services, create a method to configure and add components to an `IFu
 To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
 
 ```csharp
-using System;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Http;
-using Microsoft.Extensions.Logging;
 
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
 
@@ -47,7 +44,7 @@ namespace MyNamespace
         {
             builder.Services.AddHttpClient();
 
-            builder.Services.AddSingleton((s) => {
+            builder.Services.AddSingleton<IMyService>((s) => {
                 return new MyService();
             });
 
@@ -56,6 +53,8 @@ namespace MyNamespace
     }
 }
 ```
+
+This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
 
 ### Caveats
 
@@ -67,48 +66,47 @@ A series of registration steps run before and after the runtime processes the st
 
 ## Use injected dependencies
 
-Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes.
+Constructor injection is used to make your dependencies available in a function. The use of constructor injection requires that you do not use static classes for injected services or for your function classes.
 
-The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function. This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
+The following sample demonstrates how the `IMyService` and `HttpClient` dependencies are injected into an HTTP-triggered function.
 
 ```csharp
-using System;
-using System.IO;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace MyNamespace
 {
-    public class HttpTrigger
+    public class MyHttpTrigger
     {
-        private readonly IMyService _service;
         private readonly HttpClient _client;
+        private readonly IMyService _service;
 
-        public HttpTrigger(IMyService service, HttpClient httpClient)
+        public MyHttpTrigger(HttpClient httpClient, MyService service)
         {
-            _service = service;
-            _client = httpClient;
+            this._client = httpClient;
+            this._service = service;
         }
 
-        [FunctionName("GetPosts")]
-        public async Task<IActionResult> Get(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "posts")] HttpRequest req,
+        [FunctionName("MyHttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var res = await _client.GetAsync("https://microsoft.com");
-            await _service.AddResponse(res);
+            var response = await _client.GetAsync("https://microsoft.com");
+            var message = _service.GetMessage();
 
-            return new OkResult();
+            return new OkObjectResult("Response from function with injected dependencies.");
         }
     }
 }
 ```
+
+This example uses the [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) package required to register an `HttpClient` at startup.
 
 ## Service lifetimes
 
@@ -122,7 +120,9 @@ View or download a [sample of different service lifetimes](https://aka.ms/functi
 
 ## Logging services
 
-If you need your own logging provider, register a custom type as an `ILoggerProvider` instance. Application Insights is added by Azure Functions automatically.
+If you need your own logging provider, register a custom type as an instance of [`ILoggerProvider`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.iloggerfactory), which is available through the [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/) NuGet package.
+
+Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
 > - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
@@ -130,7 +130,9 @@ If you need your own logging provider, register a custom type as an `ILoggerProv
 
 ### ILogger<T> and ILoggerFactory
 
-The host will inject `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters will be filtered out of the function logs.  You will need to modify the `host.json` file to opt into additional filters and categories.  The following sample demonstrates adding an `ILogger<HttpTrigger>` with logs that will be exposed by the host.
+The host injects `ILogger<T>` and `ILoggerFactory` services into constructors.  However, by default these new logging filters are filtered out of the function logs.  You need to modify the `host.json` file to opt-in to additional filters and categories.
+
+The following example demonstrates how to add an `ILogger<HttpTrigger>` with logs that are exposed to the host.
 
 ```csharp
 namespace MyNamespace
@@ -155,7 +157,7 @@ namespace MyNamespace
 }
 ```
 
-And a `host.json` file that adds the log filter.
+The following example `host.json` file adds the log filter.
 
 ```json
 {

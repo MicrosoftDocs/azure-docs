@@ -134,7 +134,7 @@ Set-AzVMExtension
 
 ### Azure CLI
 
-The following example mirrors the above Azure Resource Manager and PowerShell examples and also adds custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel and installs a specific CUDA toolkit version driver.
+The following example mirrors the above Azure Resource Manager and PowerShell examples.
 
 ```azurecli
 az vm extension set \
@@ -142,10 +142,21 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 
+```
+
+The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA tolkit version may not always be compatible with newer kernels.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -163,7 +174,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Extension execution output is logged to the following file:
+Extension execution output is logged to the following file. Refer to this file to track the status of (any long running) installation as well as for troubleshooting any failures.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

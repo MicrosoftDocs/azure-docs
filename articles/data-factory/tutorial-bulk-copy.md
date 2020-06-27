@@ -1,5 +1,5 @@
 ---
-title: Copy data in bulk
+title: Copy data in bulk with PowerShell
 description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
 author: linda33wj
@@ -13,7 +13,7 @@ ms.custom: seo-lt-2019
 ms.date: 01/22/2018
 ---
 
-# Copy multiple tables in bulk by using Azure Data Factory
+# Copy multiple tables in bulk by using Azure Data Factory using PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -54,7 +54,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 **Prepare the source Azure SQL Database**:
 
-Create an Azure SQL Database with Adventure Works LT sample data following [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
+Create a database with the Adventure Works LT sample data in SQL Database by following [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) article. This tutorial copies all the tables from this sample database to a SQL data warehouse.
 
 **Prepare the sink Azure SQL Data Warehouse**:
 
@@ -329,7 +329,7 @@ This pipeline takes a list of tables as a parameter. For each table in the list,
                         "activities": [
                             {
                                 "name": "CopyData",
-                                "description": "Copy data from SQL database to SQL DW",
+                                "description": "Copy data from Azure SQL Database to SQL DW",
                                 "type": "Copy",
                                 "inputs": [
                                     {

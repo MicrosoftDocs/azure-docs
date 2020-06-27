@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
-ms.custom: seodec18, contperfq4
+ms.custom: seodec18, contperfq4, tracking-python
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy

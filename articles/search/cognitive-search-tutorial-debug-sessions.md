@@ -170,12 +170,12 @@ Once the debug session execution completes, click the Errors/Warnings tab and it
 ## Fix missing skill output values
 
 > [!div class="mx-imgBorder"]
-> ![Errors and warnings](media/cognitive-search-debug/warnings-missing-value-locs-orgs.png)
+> ![Errors and warnings](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
 
 There are missing output values from a skill. To identify the skill with the error go to the Enriched Data Structure, find the value name and look at its Originating Source. In the case of the missing organizations and locations values, they are outputs from skill #1. Opening the Expression Evaluator </> for each path, will display the expressions listed as '/document/content/organizations' and '/document/content/locations', respectively.
 
 > [!div class="mx-imgBorder"]
-> ![Expression evaluator organizations entity](media/cognitive-search-debug/expression-eval-missing-value-locs-orgs.png)
+> ![Expression evaluator organizations entity](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
 
 The output for these entities is empty and it should not be empty. What are the inputs producing this result?
 
@@ -184,7 +184,7 @@ The output for these entities is empty and it should not be empty. What are the 
 1. Open the Expression Evaluator **</>** for the INPUT "text."
 
 > [!div class="mx-imgBorder"]
-> ![Input for text skill](media/cognitive-search-debug/input-skill-missing-value-locs-orgs.png)
+> ![Input for text skill](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
 
 The displayed result for this input doesn’t look like a text input. It looks like an image that is surrounded by new lines. The lack of text means that no entities can be identified. Looking at the hierarchy of the skillset displays the content is first processed by the #6 (OCR) skill and then passed to the #5 (Merge) skill. 
 
@@ -192,7 +192,7 @@ The displayed result for this input doesn’t look like a text input. It looks l
 1. Select the **Executions** tab in the right skill details pane and open the Expression Evaluator **</>** for the OUTPUTS "mergedText".
 
 > [!div class="mx-imgBorder"]
-> ![Output for Merge skill](media/cognitive-search-debug/merge-output-detail-missing-value-locs-orgs.png)
+> ![Output for Merge skill](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
 
 Here the text is paired with the image. Looking at the expression '/document/merged_content' the error in the "organizations" and "locations" paths for the #1 skill is visible. Instead of using '/document/content' it should use '/document/merged_content' for the "text" inputs.
 
@@ -213,7 +213,7 @@ After the indexer has finished running, the errors are still there. Go back to s
 1. Open the Expression Evaluator **</>** for the "organizations" entity.
 
 > [!div class="mx-imgBorder"]
-> ![Output for organizations entity](media/cognitive-search-debug/skill-output-detail-missing-value-locs-orgs.png)
+> ![Output for organizations entity](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
 
 Evaluating the result of the expression gives the correct result. The skill is working to identify the correct value for the entity, "organizations." However, the output mapping in the entity's path is still throwing an error. In comparing the output path in the skill to the output path in the error, the skill that is parenting the outputs, organizations and locations under the /document/content node. While the output field mapping is expecting the results to be parented under the /document/merged_content node. In the previous step, the input changed from '/document/content' to '/document/merged_content'. The context in the skill settings needs to be changed in order to ensure the output is generated with the right context.
 
@@ -225,7 +225,7 @@ Evaluating the result of the expression gives the correct result. The skill is w
 1. Click **Run** in the sessions window menu. This will kick off another execution of the skillset using the document.
 
 > [!div class="mx-imgBorder"]
-> ![Context correction in skill setting](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locs-orgs.png)
+> ![Context correction in skill setting](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
 
 All of the errors have been resolved.
 
