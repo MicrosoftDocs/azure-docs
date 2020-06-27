@@ -9,7 +9,7 @@ ms.reviewer: sdash
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../azure-monitor/app/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Monitor your live, in-production web application by using Live Metrics Stream from [Application Insights](../../azure-monitor/app/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../azure-monitor/app/profiler.md) and [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -27,7 +27,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ## Get started
 
-1. If you haven't yet [install Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) in your web app, do that now.
+1. [Install Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) in your application.
 2. In addition to the standard Application Insights packages [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is required to enable Live Metrics stream.
 3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
 
@@ -47,7 +47,7 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 |---|---|---|
 |Latency|Data displayed within one second|Aggregated over minutes|
 |No retention|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
-|On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
+|On demand|Data is only streamed while the Live Metrics pane is open |Data is sent whenever the SDK is installed and enabled|
 |Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
 |Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
@@ -77,7 +77,8 @@ As with metrics, you can specify any arbitrary criteria to any of the Applicatio
 
 ![Query Builder](./media/live-stream/query-builder.png)
 
-Note: Currently, for Exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with inner exception message (follows the "<--" delimiter) "The client disconnected." use a message not-contains "Error reading request content" criteria.
+> [!NOTE]
+> Currently, for Exception message-based criteria, use the outermost exception message. In the preceding example, to filter out the benign exception with inner exception message (follows the "<--" delimiter) "The client disconnected." use a message not-contains "Error reading request content" criteria.
 
 See the details of an item in the live feed by clicking it. You can pause the feed either by clicking **Pause** or simply scrolling down, or clicking an item. Live feed will resume after you scroll back to the top, or by clicking the counter of items collected while it was paused.
 
@@ -90,6 +91,10 @@ If you want to monitor a particular server role instance, you can filter by serv
 ![Sampled live failures](./media/live-stream/filter-by-server.png)
 
 ## Secure the control channel
+
+> [!NOTE]
+> Can only set up an authenticated channel using code base monitoring. Cannot authenticate servers using codeless attach.
+
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
