@@ -14,7 +14,7 @@ ms.custom: mvc
 > [!TIP]
 > Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
-This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for MySQL server in five minutes.  If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL server in five minutes.  If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -52,7 +52,7 @@ Here are the details for arguments above :
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Choose a unique name that identifies your Azure Database for MySQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+name | mydemoserver | Choose a unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 resource-group | myresourcegroup | Provide the name of the Azure resource group.
 location | westus | The Azure location for the server.
 admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
@@ -61,7 +61,7 @@ sku-name|GP_Gen5_2|The default sku-name is "GP_Gen5_2" is not provided in the co
 
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11 . 
->- To view all the arguments for **az postgmysql server create** command, see this [reference document](/cli/azure/postgresql/server?view=azure-cli-latest#az-postgres-server-create).
+>- To view all the arguments for **az postgres server create** command, see this [reference document](/cli/azure/postgresql/server?view=azure-cli-latest#az-postgres-server-create).
 >- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./howto-configure-ssl).
 
 ## Configure a server-level firewall rule 
