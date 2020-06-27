@@ -42,7 +42,7 @@ VM with required cores and memory not found | Azure couldn't find a suitable VM 
 Could not determine VM suitability because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
-No VM size found for offer currency Reserved Instance | Machine marked Not suitable because the VM size was not found for the selected combination of RI, offer and currency. Edit the assessment properties to choose the valid combinations and recalculate teh assessment. 
+No VM size found for offer currency Reserved Instance | Machine marked Not suitable because the VM size was not found for the selected combination of RI, offer and currency. Edit the assessment properties to choose the valid combinations and recalculate the assessment. 
 Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution (AVS) assessments. AVS does not support IPv6 internet addresses factor. Contact the AVS team for remediation guidance if your machine is detected with IPv6.
 
 ## Suggested migration tool in import-based AVS assessment marked as unknown

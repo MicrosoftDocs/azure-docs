@@ -42,7 +42,7 @@ If you want to create a group manually outside of creating an assessment, do the
 
     ![Create group](./media/how-to-create-a-group/create-group.png)
 
-You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-avs-assessment.md). Note that you can create an AVS assessment on groups with only VMware VMs. 
+You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md). Note that you can create an AVS assessment on groups with only VMware VMs. 
 
 ## Refine a group with dependency mapping
 

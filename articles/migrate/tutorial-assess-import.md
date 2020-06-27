@@ -178,7 +178,7 @@ You can create two types of assessments by using Server Assessment.
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.(concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-avs-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 ### Sizing criteria
 
@@ -217,7 +217,7 @@ To run an assessment:
 9. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
 10. Select **Export assessment** to download it as a Microsoft Excel file.
 
-To know more details about **Azure VMware Solution (AVS)** assessment, please refer [here](how-to-create-avs-assessment.md). 
+To know more details about **Azure VMware Solution (AVS)** assessment, please refer [here](how-to-create-azure-vmware-solution-assessment.md). 
 
 ## Review an Azure VM assessment
 

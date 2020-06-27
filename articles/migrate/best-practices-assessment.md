@@ -21,7 +21,7 @@ Assessments you create with Azure Migrate Server Assessment are a point-in-time 
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type. [Learn more](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-avs-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 
 ### Sizing criteria
@@ -110,7 +110,7 @@ If there are on-premises changes to VMs that are in a group that's been assessed
 - Number of disks
 - Number of network adaptor
 - Disk size change(GB Allocated)
-- Update to Nic properties. Example: Mac address changes, IP address addition etc.
+- Nic properties update. Example: Mac address changes, IP address addition etc.
 
 Run the assessment again (**Recalculate**) to reflect the changes.
 

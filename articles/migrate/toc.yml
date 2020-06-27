@@ -89,7 +89,7 @@
   - name: Azure VM Assessments overview
     href: concepts-assessment-calculation.md
   - name: AVS Assessments overview
-    href: concepts-avs-assessment-calculation.md
+    href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
   - name: Dependency analysis overview
@@ -129,7 +129,7 @@
   - name: Create an Azure VM assessment
     href: how-to-create-assessment.md
   - name: Create an AVS assessment
-    href: how-to-create-avs-assessment.md
+    href: how-to-create-azure-vmware-solution-assessment.md
   - name: Assess a SQL Server database
     href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment

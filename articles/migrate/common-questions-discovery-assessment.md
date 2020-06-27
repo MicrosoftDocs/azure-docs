@@ -25,11 +25,11 @@ Review the supported geographies for [public](migrate-support-matrix.md#supporte
 
 You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 1000 physical servers by using a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
-## How I choose between Azure VM assessment and Azure VMware Solution (AVS) assessment?
+## How do I choose the assessment type?
 
 - Use **Azure VM assessments** when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs. [Learn More](concepts-assessment-calculation.md)
 
-- Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) using this assessment type. [Learn more](concepts-avs-assessment-calculation.md)
+- Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - You can use a common group with VMware machines only to run both types of assessments. Note that if you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
 
@@ -67,7 +67,7 @@ The Azure Migrate appliance continuously collects information about the on-premi
 
 Yes, Azure Migrate requires vCenter Server in a VMware environment to perform discovery. Azure Migrate doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
-## What are the sizing options in an Azure VM assessments?
+## What are the sizing options in an Azure VM assessment?
 
 With as-on-premises sizing, Azure Migrate doesn't consider VM performance data for assessment. Azure Migrate assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
@@ -100,15 +100,15 @@ For example, if you set the performance duration to one day and the percentile v
 
 Using the 95th percentile value ensures that outliers are ignored. Outliers might be included if your Azure Migrate uses the 99th percentile. To pick the peak usage for the period without missing any outliers, set Azure Migrate to use the 99th percentile.
 
-## How are import-based Azure VM assessments different from Azure VM assessments with discovery source as appliance?
+## How are import-based assessments different from assessments with discovery source as appliance?
 
-Import-based assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note: 
+Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note: 
  - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it is assumed the machine has BIOS boot type and the machine is not marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users may not have all information on the machines in the early stages of migration planning when import-based assessments are done. 
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
 
 ## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
 
-For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
 
 
 ## What is dependency visualization?
