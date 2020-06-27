@@ -63,7 +63,7 @@ By default the server created is not publicly accessible and you need to give pe
 
 ![Connection security - Firewall rules](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
   
-Now click on **Add current client IP address** and then click on **Save** . You can add additional IPs or provide an IP range to give access to your server. For more information, see [How to manage firewall rules on Azure Database for MySQL server](./concepts-firewall-rules.md)
+Now click on **Add current client IP address** and then click on **Save** . You can add additional IPs or provide an IP range to give access to your server. For more information, see [How to manage firewall rules on Azure Database for postgreSQL server](./concepts-firewall-rules.md)
    
     > [!IMPORTANT]
     > Check if you network allows outbound traffc over port 5432 that is used by Azure database for PostgreSQL to avoid connectivity issues.  
@@ -75,7 +75,7 @@ If you dont have any postgresql client installed , using [Azure Cloud Shell](htt
 
 
 There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
-- Azure cloud shell has **MySQL command-line tool** available to use to connect to your server and perform database operations , so you can run this command directly . Replace values with your actual server name and admin user login name . Admin username requires '@<servername> as shown below for Azure Database for MySQL  
+- Azure cloud shell has **psql** available to use to connect to your server and perform database operations , so you can run this command directly . Replace values with your actual server name and admin user login name . Use the empty database 'postgres' with admin username in this format '<user>@<servername> as shown below for Azure Database for PostgreSQL.  
     
  ```azurecli-interactive
    psql --host=<servername> --username=<user@servername> --dbname=postgres
@@ -107,9 +107,9 @@ Enter password:
 
 - In the same Azure Cloud Shell terminal , create a database **myproject** 
 ```
-mysql> CREATE DATABASE myproject;
-Query OK, 1 row affected (0.27 sec)
+postgres=> CREATE DATABASE myproject;
 ```
+
 - Now to switch connections to the newly created database **mypgsqldb**
 ```bash
  \c mypgsqldb
