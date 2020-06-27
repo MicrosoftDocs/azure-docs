@@ -11,7 +11,7 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
-# Quickstart: Assign a telephone number to ACS telephony bot using ACS Audio/Video SDK
+# Quickstart: Assign a phone number to ACS telephony bot using ACS Audio/Video SDK
 Azure Communication Services lets you aquire and assign a telephone (PSTN) number to your bot built using the ACS Audio/Video SDK. This allows you to leverage [IVR capabilities of MS Graph](https://docs.microsoft.com/en-us/graph/api/resources/calls-api-ivr-overview?view=graph-rest-1.0) to build your own IVR scenarios over public switched telephone network (PSTN).
 
 ## Prerequisites
