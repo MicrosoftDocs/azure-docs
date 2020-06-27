@@ -93,35 +93,28 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
-## <Top task>
+## Start using Azure AD with an applications
 
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [Content + Learning content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+Integrating an application with Azure AD can be simple or advanced depending on the type of application. Many applications are already setup and ready to go in the Azure AD application gallery. 
 
-To use Azure AD as the identity system for an application you must:
-1. Let Azure AD know about the application you want to use.
-1. Configure the way Azure AD works with the application.
+Check to see if the application you want to use is already part of the app gallery, see [Add a gallery app to your Azure AD organization](add-gallery-app).
+
+> [!TIP]
+> The app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
+
+If the application you want to use is not already part of the app gallery then check to see if it supports SAML 
+To use Azure AD as the identity system for an application:
+1. Let Azure AD know about the application you want to use. ADD AN APPLICATION
+1. Configure the way Azure AD works with the application. 
 1. Allow Azure AD users access to the application. APP PROVISIONING
 1. Maintain the way Azure AD works with the application.
 
 
 You can also configure apps deployed on-premises to use Azure AD using Application proxy.
 
-
-
 ## Next steps
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
-
-- [What is Application Proxy?](what-is-application-proxy.md)
 - [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
+- [Setup single sign-on]()
+- [Provision users to the app]()
+- [Get started with app intgration](plan-an-application-integration.md)
