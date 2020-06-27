@@ -51,3 +51,20 @@ Here are some examples to better understand the numbering plan
 
 A regional phone number in the US
 
+![Example a regional phne number in the US](../media/regional-us.png)
+
+A regional phone number in Canada
+
+![Example a regional phne number in Canada](../media/regional-canada.png)
+
+A Toll- free number in North America region
+
+![Example a toll free number in North America](../media/tollfree-us.png)
+
+A Mobile phone number in the UK
+
+![Example a mobile number in the UK](../media/mobile-uk.png)
+
+Now as we understand the numbers types, let look at specific number types available in Azure Communication Services.
+
+### Phone number types in Microsoft direct offer
