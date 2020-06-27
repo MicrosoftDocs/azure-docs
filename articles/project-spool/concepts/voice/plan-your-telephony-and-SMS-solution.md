@@ -21,3 +21,9 @@ The following diagram helps you to navigate through the available options, based
 
 Now let look at the phone number types and plans (capabilities) available in the Microsoft direct offer. If you want to interconnect your carrier, the phone number types and plans might or might not match the Microsoft offers. Note you cannot interconnect your carrier for SMS, you can only interconnect for making or receiving voice calls. Please consult your carrier on the phone number types and offers.
 For the guide on how to interconnect your carrier, please proceed here [LINK]
+
+## Microsoft direct offer of phone numbers and capabilities
+
+Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an inbound calling plan; some might opt for inbound calling and outbound SMS plans. When you purchase numbers from or port your number to Microsoft, you can select plans that best suit your project.
+The available plans depend on the country and phone number type. The diagram below represents the decision flow.
+
