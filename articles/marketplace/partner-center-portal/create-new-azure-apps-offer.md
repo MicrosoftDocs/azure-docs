@@ -34,7 +34,7 @@ Review the following resources as you prepare your Azure application offer for t
 * Quickstarts:
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
-    * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
+    * [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
