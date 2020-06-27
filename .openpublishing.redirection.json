@@ -4104,7 +4104,7 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-key-rotation-log-monitoring.md",
-      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_url": "/azure/key-vault/secrets/key-rotation-log-monitoring",
       "redirect_document_id": false
     },
     {
@@ -16974,6 +16974,21 @@
     {
       "source_path": "articles/remoteapp/index.md",
       "redirect_url": "/azure/remoteapp/remoteapp-whatis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
       "redirect_document_id": false
     },
     {
@@ -55667,21 +55682,6 @@
     {
       "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
       "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
-      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
       "redirect_document_id": false
     }
   ]

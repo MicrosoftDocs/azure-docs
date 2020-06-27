@@ -5,7 +5,7 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
