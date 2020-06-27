@@ -28,3 +28,22 @@ Azure Communication Services provides excellent flexibility for developers. On m
 The available plans depend on the country and phone number type. The diagram below represents the decision flow.
 
 ![Example for the decision flow](../media/example-decision-flow.png)
+
+Let now dig deeper into the number types, plans, and countries where the numbers are available. Before you can select a phone number type, let’s review the international numbering plan.
+
+### Optional reading. International public telecommunication numbering plan (E.164)
+
+> [!NOTE]
+> We recommend reviewing this information even if you are familiar with the E.164 phone numbering plan to better understand the number types and capabilities, offered in the Azure Communication Services direct offer.
+
+The international public telecommunication numbering plan is defined in The International Telecommunication Union (ITU) recommendation E.164. Conforming numbers are limited to a maximum of 15 digits.
+The phone number consists of
+-	Prefix “+”
+-	International dialing prefix or country/region code (one, two or three digits) 
+-	(Optional) National destination code or Numbering plan, commonly referred to as area code. The length depends on the country. In the US, it is three digits. In Australia and New Zealand, one.  Germany, Japan, Mexico, and some other countries have variable lengths of the area codes. For example, in Germany, the area code can be 2 to 5 digits, in Japan 1 to 5
+-	Subscriber number
+Note. The classification above does not fully conform to the ITU E.164 standard and intended to provide a simplified description. For example, the Subscriber number is future subdivided in the standard. If you are interested in learning about the international numbering plan more deeply, the ITU E.164 standard is an excellent place to start  
+Here are some examples to better understand the numbering plan
+
+A regional phone number in the US
+
