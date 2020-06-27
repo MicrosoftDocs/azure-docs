@@ -281,7 +281,6 @@ Metrics in the chart depend on the type of feature.
     
     | Metric | Description |  
     | ------ | ----------- |  
-
     | Euclidian distance     |  Computed for categorical columns. Euclidean distance is computed on two vectors, generated from empirical distribution of the same categorical column from two datasets. 0 indicates there is no difference in the empirical distributions.  The more it deviates from 0, the more this column has drifted. Trends can be observed from a time series plot of this metric and can be helpful in uncovering a drifting feature.  |
     | Unique values | Number of unique values (cardinality) of the feature. |
 
