@@ -77,3 +77,15 @@ The table below summarizes the types of offers.
 | ----------------- | ------- | -------------------- | --------------- |
 | Regional | +1 (geographic area code) XXX XX XX | US, Canada, Puerto Rico | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots|
 | Toll-Free | +1 (toll-free area code) XXX XX XX | US, Canada, Puerto Rico | Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications |
+
+### Plans 
+
+Let’s look at the plans or capabilities you can enable.
+Microsoft offers multiple options to select capabilities that you can enable for the selected number. The capabilities vary by country due to different regulations.
+Microsoft offers the following capabilities
+- One-way outbound SMS, useful for notification and two-factor authentication scenarios
+- Two-way inbound and outbound SMS, a predefined package which allows the SMS to be sent and received as part of one plan
+- PSTN calling, you can selects an inbound calling and use the Caller ID to place outbound calls         
+
+Next : Quickstart Search and aquire a phne number on ACS portal
+
