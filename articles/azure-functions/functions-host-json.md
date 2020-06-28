@@ -237,11 +237,16 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
+Indicates the timeout duration for all functions. It follows the timespan string format. 
 
-In the Premium plan, the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+| Plan type | Default (min) | Maximum (min) |
+| -- | -- | -- |
+| Consumption | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
+| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
 
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
+<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {

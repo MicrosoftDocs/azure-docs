@@ -1,7 +1,7 @@
 ---
 title: Search over Azure SQL data
 titleSuffix: Azure Cognitive Search
-description: Import data from Azure SQL Database using indexers, for full text search in Azure Cognitive Search. This article covers connections, indexer configuration, and data ingestion.
+description: Import data from Azure SQL Database or SQL Managed Instance using indexers, for full text search in Azure Cognitive Search. This article covers connections, indexer configuration, and data ingestion.
 
 manager: nitinme
 author: mgottein 
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Connect to and index Azure SQL Database content using an Azure Cognitive Search indexer
+# Connect to and index Azure SQL content using an Azure Cognitive Search indexer
 
-Before you can query an [Azure Cognitive Search index](search-what-is-an-index.md), you must populate it with your data. If the data lives in an Azure SQL database, an **Azure Cognitive Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process, which means less code to write and less infrastructure to care about.
+Before you can query an [Azure Cognitive Search index](search-what-is-an-index.md), you must populate it with your data. If the data lives in Azure SQL Database or SQL Managed Instance, an **Azure Cognitive Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) can automate the indexing process, which means less code to write and less infrastructure to care about.
 
-This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL databases (for example, integrated change tracking). 
+This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL Database or SQL Managed Instance (for example, integrated change tracking). 
 
-In addition to Azure SQL databases, Azure Cognitive Search provides indexers for [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), and [Azure table storage](search-howto-indexing-azure-tables.md). To request support for other data sources, provide your feedback on the [Azure Cognitive Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
+In addition to Azure SQL Database and SQL Managed Instance, Azure Cognitive Search provides indexers for [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob storage](search-howto-indexing-azure-blob-storage.md), and [Azure table storage](search-howto-indexing-azure-tables.md). To request support for other data sources, provide your feedback on the [Azure Cognitive Search feedback forum](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## Indexers and data sources
 
@@ -136,7 +136,7 @@ The response should look similar to the following:
     }
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Additional information about the response can be found in [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
@@ -168,7 +168,7 @@ If your SQL database supports [change tracking](https://docs.microsoft.com/sql/r
 
 + Database version requirements:
   * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
-  * Azure SQL Database V12, if you're using Azure SQL Database.
+  * Azure SQL Database or SQL Managed Instance.
 + Tables only (no views). 
 + On the database, [enable change tracking](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table. 
 + No composite primary key (a primary key containing more than one column) on the table.  
@@ -228,6 +228,27 @@ To use a high water mark policy, create or update your data source like this:
 >
 >
 
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### convertHighWaterMarkToRowVersion
+
+If you're using a [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column, consider using the `convertHighWaterMarkToRowVersion` indexer configuration setting. `convertHighWaterMarkToRowVersion` does two things:
+
+* Use the rowversion data type for the high water mark column in the indexer sql query. Using the correct data type improves indexer query performance.
+* Subtract 1 from the rowversion value before the indexer query runs. Views with 1 to many joins may have rows with duplicate rowversion values. Subtracting 1 ensures the indexer query doesn't miss these rows.
+
+To enable this feature, create or update the indexer with the following configuration:
+
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+
+<a name="queryTimeout"></a>
+
+##### queryTimeout
+
 If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
 
     {
@@ -235,6 +256,10 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### disableOrderByHighWaterMarkColumn
 
 You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
@@ -325,7 +350,7 @@ For incremental indexing, Azure Cognitive Search supports two change detection p
 
 On read-only replicas, SQL database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
 
-Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on SQL Database's `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
+Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on the `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
 
 If you attempt to use rowversion on a read-only replica, you will see the following error: 
 

@@ -13,7 +13,7 @@ Is your application and cluster ready to take production traffic? Running and te
 
 ## Prerequisites for production
 1. Azure Service Fabric best practices: [Application Design](./service-fabric-best-practices-applications.md), [Security](./service-fabric-best-practices-security.md), [Networking](./service-fabric-best-practices-networking.md), [Capacity planning and scaling](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as Code](./service-fabric-best-practices-infrastructure-as-code.md), and [Monitoring and Diagnostics](./service-fabric-best-practices-monitoring.md). 
-1. Implement the Reliable Actors security configuration if using the Actors programming model
+1. [Configure FabricTransport settings](./service-fabric-reliable-actors-fabrictransportsettings.md) if you're using the Reliable Actors programming model and require secure inter-service communication.
 1. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
 1. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.
 1. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.

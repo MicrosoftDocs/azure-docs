@@ -169,7 +169,7 @@ For more information about available filters, see [Seccomp security profiles for
 
 ## Regularly update to the latest version of Kubernetes
 
-**Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade to the Kubernetes version in your AKS cluster.
+**Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade the Kubernetes version in your AKS cluster.
 
 Kubernetes releases new features at a quicker pace than more traditional infrastructure platforms. Kubernetes updates include new features, and bug or security fixes. New features typically move through an *alpha* and then *beta* status before they become *stable* and are generally available and recommended for production use. This release cycle should allow you to update Kubernetes without regularly encountering breaking changes or adjusting your deployments and templates.
 

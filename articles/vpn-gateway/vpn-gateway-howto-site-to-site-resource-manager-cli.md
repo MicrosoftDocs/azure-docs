@@ -6,7 +6,7 @@ services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/18/2018
 ms.author: cherylmc
 

@@ -61,7 +61,7 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Quickstart](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
+| Python | https://pypi.org/project/azure-eventhub/ | [Quickstart](quickstart-send-telemetry-python.md) |
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 

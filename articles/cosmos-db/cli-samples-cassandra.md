@@ -4,7 +4,7 @@ description: Azure CLI samples for Azure Cosmos DB Cassandra API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: sample
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
 ---
