@@ -187,7 +187,7 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 To determine whether an uploaded file is suspicious, threat protection for Azure Storage uses hash reputation analysis supported by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). The threat protection tools don’t scan the uploaded files, rather they examine the storage logs and compare the hashes of newly uploaded files with those of known viruses, trojans, spyware, and ransomware. 
 
-When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file. To set up this automatic removal of files that hash reputation analysis indicates contain malware, deploy the [Ask-Remove-MalwareBlob playbook](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Ask-Remove-MalwareBlob) from the Azure Security Center community repository.
+When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file. To set up this automatic removal of files that hash reputation analysis indicates contain malware, deploy a [workflow automation to trigger on alerts that contain "Potential malware uploaded to a storage account”](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-respond-to-potential-malware-uploaded-to-azure-storage/ba-p/1452005).
 
 
 
