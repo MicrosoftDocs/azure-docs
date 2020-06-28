@@ -155,6 +155,9 @@ When deployed to Azure, requests to the API are automatically routed to the Func
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
+> [!TIP]
+> Restart Visual Studio Code to ensure that the proxy settings are saved before proceeding.
+
 #### Update HTML files to access the API
 
 1. Next, update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen:
