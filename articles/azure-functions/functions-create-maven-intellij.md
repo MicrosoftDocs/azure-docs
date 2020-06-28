@@ -37,23 +37,23 @@ To develop a function with Java and IntelliJ, install the following software:
     ![Azure Toolkit for IntelliJ plugin in Marketplace][marketplace]
 
 2. To sign in to your Azure account, open sidebar **Azure Explorer**, and then click the **Azure Sign In** icon in the bar on top (or from IDEA menu **Tools/Azure/Azure Sign in**).
-    ![The IntelliJ Azure Sign In command][I01]
+    ![The IntelliJ Azure Sign In command][intellij-azure-login]
 
 3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
-   ![The Azure Sign In window with device login selected][I02]
+   ![The Azure Sign In window with device login selected][intellij-azure-popup]
 
 4. Click **Copy&Open** in **Azure Device Login** dialog .
 
-   ![The Azure Login Dialog window][I03]
+   ![The Azure Login Dialog window][intellij-azure-copycode]
 
 5. In the browser, paste your device code (which has been copied when you click **Copy&Open** in last step) and then click **Next**.
 
-   ![The device login browser][I04]
+   ![The device login browser][intellij-azure-link-ms-account]
 
 6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
 
-   ![The Select Subscriptions dialog box][I05]
+   ![The Select Subscriptions dialog box][intellij-azure-login-select-subs]
    
 ## Create your local project
 
