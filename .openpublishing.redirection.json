@@ -661,6 +661,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
+      "redirect_url": "/azure/databricks/administration-guide/users-groups/scim/aad",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": false
@@ -18499,6 +18504,11 @@
     {
       "source_path": "articles/sql-database/sql-database-works-in-your-environment.md",
       "redirect_url": "/azure/sql-database/sql-database-develop-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-family/index.md",
+      "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
     },
     {
@@ -37267,6 +37277,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/b2b/get-support.md",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
@@ -50468,6 +50483,76 @@
     {
       "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-cancel-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-concurrency-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-creating-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-go-live",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offer-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-specific-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-specific-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-setting-price",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-troubleshooting-authentication-errors",
       "redirect_document_id": false
     },
     {

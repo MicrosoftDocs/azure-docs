@@ -4,7 +4,7 @@ description: Understand the software and hardware requirements for Azure Import/
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
