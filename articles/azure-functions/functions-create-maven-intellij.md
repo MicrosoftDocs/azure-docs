@@ -158,5 +158,5 @@ You've created a Java functions project with an HTTP triggered function, run it 
 [intellij-azure-login]: media/functions-create-first-java-intellij/intellij-azure-login.png
 [intellij-azure-popup]: media/functions-create-first-java-intellij/intellij-azure-login-popup.png
 [intellij-azure-copycode]: media/functions-create-first-java-intellij/intellij-azure-login-copyopen.png
-[intellij-azure-link-ms-account]: media/functions-create-first-java-intellij/intellij-azure-login-linkmsaccount.png
+[intellij-azure-link-ms-account]: media/functions-create-first-java-intellij/intellij-azure-login-linkms-account.png
 [intellij-azure-login-select-subs]: media/functions-create-first-java-intellij/intellij-azure-login-selectsubs.png
