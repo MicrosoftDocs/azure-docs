@@ -178,7 +178,8 @@ This layer of protection allows you to address threats *without* requiring you t
 Security alerts are triggered when there are:
 
 - **Suspicious activities on your storage account** - for example, a file is uploaded that's suspected to contain malware. When threat protection for Azure Storage detects uploaded malware, it generates an alert and can email the storage owner for approval to delete the suspicious files.
-- **Anomalous behavior** - for example, changes in the access pattern to a storage account.
+
+- **Anomalous behaviors** - for example, changes in the access pattern to a storage account.
 
 Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats.
 
