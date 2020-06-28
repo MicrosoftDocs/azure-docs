@@ -61,7 +61,7 @@ When you add an account update a subscription, you grant Cloudyn access to your 
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    For more information, see [Get tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    For more information, see [Get tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.
