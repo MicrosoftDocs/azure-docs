@@ -3,14 +3,14 @@ title: "Recipe: Using Cognitive Services on Spark for Predictive Maintenance"
 titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to create a searchable art database using Azure Search and MMLSpark.
 services: cognitive-services
-author: v-jawe
+author: mhamilton723
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: recipe
 ms.date: 6/10/2020
-ms.author: v-jawe
+ms.author: marhamil
 ms.custom: tracking-python
 ---
 
@@ -25,11 +25,12 @@ There could be outliers in the data in random frequency. In those situations, RP
 
 ## Prerequisites
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* [Azure Synapse workspace](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-workspace) configured with a [Spark pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Azure Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configured with a [Spark pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## Setup
 ### Create an Anomaly Detector Resource
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the  [Azure portal](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account)  or  [Azure CLI](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli)  on your local machine. You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Translator using the  [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  
+or  [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)  on your local machine. You can also:
 
 -   Get a  [trial key](https://azure.microsoft.com/try/cognitive-services)  valid for 7 days for free. After signing up, it will be available on the Azure website.
 -   View an existing resource in the  [Azure portal](https://portal.azure.com/).

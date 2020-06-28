@@ -23,7 +23,7 @@ The samples use these Cognitive Services:
 
 ## Prerequisites
 
-1. Follow the steps in [Getting started](getting-started-big-data.md) to set up your Azure Databricks and Cognitive Services environment. 
+1. Follow the steps in [Getting started](getting-started.md) to set up your Azure Databricks and Cognitive Services environment. 
 This tutorial will include how to install MMLSpark and how to create your Spark cluster in Databricks.
 1. Once you have a new notebook created in Azure Databricks, copy the **Shared code** below and paste into a new cell in your notebook.
 1. Choose a service sample, below, and copy paste it into a second new cell in your notebook.
@@ -125,7 +125,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## Bing Image Search
 
-[Bing Image Search](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/overview) 
+[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) 
 searches the web to retrieve images related to a user's natural language query. 
 In this sample, we use a text query that looks for images with quotes. 
 It returns a list of image URLs that contain photos related to our query.
@@ -173,7 +173,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## Speech-to-Text
-The [Speech-to-text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. 
+The [Speech-to-text](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) service converts streams or files of spoken audio to text. 
 In this sample, we transcribe two audio files. The first file is easy to understand, and the second is more challenging.
 
 ```python
@@ -207,7 +207,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 
 ## Anomaly Detector
-[Anomaly Detector](https://docs.microsoft.com/en-us/azure/cognitive-services/anomaly-detector/) 
+[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) 
 is great for detecting irregularities in your time series data. 
 In this sample, we use the service to find anomalies in the entire time series.
 

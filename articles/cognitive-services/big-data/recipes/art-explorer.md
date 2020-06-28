@@ -3,14 +3,14 @@ title: "Recipe: Intelligent Art Exploration with Cognitive Services on Spark"
 titleSuffix: Azure Cognitive Services
 description: This recipe shows how to create a searchable art database using Azure Search and MMLSpark.
 services: cognitive-services
-author: v-jawe
+author: mhamilton723
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: recipe
 ms.date: 6/10/2020
-ms.author: v-jawe
+ms.author: marhamil
 ms.custom: tracking-python
 ---
 
@@ -22,7 +22,7 @@ In this example, we'll use Cognitive Services and write to an Azure Search Index
 
 * You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
-* You must have a subscription key for Azure Cognitive Search. For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/en-ca/services/search/#pricing).
+* You must have a subscription key for Azure Cognitive Search. For pricing information, see [Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
 <a name="ImportLibraries"></a>
 

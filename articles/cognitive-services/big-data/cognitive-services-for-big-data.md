@@ -158,7 +158,7 @@ With HTTP on Spark, you can pass terabytes of data through any web service. Unde
 4. [Microsoft Research Podcast: MMLSpark, empowering AI for Good with Mark Hamilton](https://blubrry.com/microsoftresearch/49485070/092-mmlspark-empowering-ai-for-good-with-mark-hamilton/)
 
 ## Developer samples
-- [Recipe: Predictive Maintenance](recipes/anamoly-detection.md)
+- [Recipe: Predictive Maintenance](recipes/anomaly-detection.md)
 - [Recipe: Intelligent Art Exploration](recipes/art-explorer.md)
 
 

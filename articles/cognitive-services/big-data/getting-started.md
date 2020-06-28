@@ -120,12 +120,12 @@ First, we can create a notebook in Azure Databricks. For other Spark cluster pro
 
 1. Create a new Databricks notebook, by choosing **New notebook** from the **Azure Databricks** menu.
 
-    <img src="assets/new-notebook.png" alt="Create a new notebook" width="50%"/>
+    <img src="media/new-notebook.png" alt="Create a new notebook" width="50%"/>
 
 1. In the **Create Notebook** dialog box, enter a name, select **Python** as the language,
  and select the Spark cluster that you created earlier.
    
-    <img src="assets/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
+    <img src="media/databricks-notebook-details.jpg" alt="New notebook details" width="50%"/>
 
     Select **Create**.
 1. Copy/paste the code snippet below into your new notebook.
@@ -175,7 +175,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 - [Short Python Examples](samples-python.md)
 - [Short Scala Examples](samples-scala.md)
-- [Recipe: Predictive Maintenance](recipes/anamoly-detection.md)
+- [Recipe: Predictive Maintenance](recipes/anamaly-detection.md)
 - [Recipe: Intelligent Art Exploration](recipes/art-explorer.md)
 
 
