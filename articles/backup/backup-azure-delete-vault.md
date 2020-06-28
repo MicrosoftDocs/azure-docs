@@ -112,6 +112,9 @@ After this process finishes, you can delete the backup items from management con
 
 ### Delete backup items from the MARS management console
 
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
+
 1. Open the MARS management console, go to the **Actions** pane, and select **Schedule Backup**.
 2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**. Then, select **Next**.
 
@@ -134,6 +137,9 @@ After this process finishes, you can delete the backup items from management con
 After you delete the on-premises backup items, follow the next steps from the portal.
 
 ### Delete backup items from the MABS management console
+
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
 
 There are two methods you can use to delete backup items from the MABS management console.
 
