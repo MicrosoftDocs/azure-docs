@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: roygara
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
