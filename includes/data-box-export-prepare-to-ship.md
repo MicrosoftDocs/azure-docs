@@ -32,11 +32,13 @@ Final step is to prepare the device to ship. In this step, all the device shares
 
 4. After the prepare to ship and the device cleanup (if selected) is complete, the E-ink display on your device will also display the return the shipping label. 
 
-    You also see a completion reference number. You can use this number to download the return shipping label. You can also view the instructions for return shipment. Depending on the type of shipping you chose, Microsoft managed or self managed, the instructions will vary. 
+    You also see a completion reference number which is used for different things depending on the country in which you are located. You can also view the instructions for return shipment. Depending on the type of shipping you chose, Microsoft managed or self managed, the instructions will vary. 
         
     ![Prepare to ship 5](media/data-box-export-prepare-to-ship/prepare-to-ship5.png)
 
 
-5. Shut down the device. Go to **Shut down or restart** page and select **Shut down**. When prompted for confirmation, select **OK** to continue.
+5. Shut down the device. Locate the power button on the front operating panel of the device. Turn off the device.
+
+    ![Data Box power button](media/data-box-export-prepare-to-ship/data-box-powered-door-open.png)
 
 6. Remove the cables. The next step is to ship the device to Microsoft.

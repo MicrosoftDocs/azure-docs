@@ -53,7 +53,11 @@
       - name: Read safety guidelines
         href: data-box-safety.md
       - name: Review tracking and logging
-        href: data-box-logs.md
+        items:
+        - name: For import orders
+          href: data-box-logs.md
+        - name: For export orders
+          href: data-box-export-logs.md
       - name: Review requirements
         items:
         - name: For Data Box
