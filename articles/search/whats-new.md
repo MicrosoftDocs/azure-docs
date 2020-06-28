@@ -1,6 +1,5 @@
 ---
-title: New feature announcements
-titleSuffix: Azure Cognitive Search
+title: What's new in Azure Cognitive Search
 description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure Cognitive Search.
 
 manager: nitinme
@@ -34,7 +33,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + Change the basis for how search scores are computed, from per-shard to all-shards, using [sessionId](index-similarity-and-scoring.md)  and the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics)query parameters. These parameters are generally available.
 
-+ Add a [featuresMode (preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/search-documents#featuresmode) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
++ Add a [featuresMode (preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### March 2020
 

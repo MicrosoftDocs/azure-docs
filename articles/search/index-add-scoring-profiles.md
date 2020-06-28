@@ -56,7 +56,7 @@ ms.date: 05/06/2020
  To use this scoring profile, your query is formulated to specify the profile on the query string. In the query below, notice the query parameter `scoringProfile=geo` in the request.  
 
 ```  
-GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2019-05-06 
+GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
  This query searches on the term ‘inn’ and passes in the current location. Notice that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  

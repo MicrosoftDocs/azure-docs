@@ -100,7 +100,7 @@ The following table is a partial list of fields common to resource logging.
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
-| operationVersion |string |"2019-05-06" |The api-version used |
+| operationVersion |string |"2020-06-30" |The api-version used |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Possible values: Success or Failure |
 | resultSignature |int |200 |HTTP result code |
@@ -116,7 +116,7 @@ The properties below are specific to Azure Cognitive Search.
 | Description_s |string |"GET /indexes('content')/docs" |The operation's endpoint |
 | Documents_d |int |42 |Number of documents processed |
 | IndexName_s |string |"test-index" |Name of the index associated with the operation |
-| Query_s |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
+| Query_s |string |"?search=AzureSearch&$count=true&api-version=2020-06-30" |The query parameters |
 
 ## Metrics schema
 

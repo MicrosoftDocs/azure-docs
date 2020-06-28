@@ -39,7 +39,7 @@ If any of these situations apply to you, then you may need to change your code a
 Version 2020-06-30 is the new generally available release of the REST API. There are no breaking changes, but there are a few behavioral differences. Features are now generally available in this API version include:
 
 * [Knowledge store](knowledge-store-concept-intro.md), persistent storage of enriched content created through skillsets, created for downstream analysis and processing through other applications. With this capability, an indexer-driven AI enrichment pipeline can populate a knowledge store in addition to a search index.
-* [BM25 ranking algorithm](index-ranking-similarity.md) substitutes the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
+* [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 * Ordered results for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, be aware of this change.
 
 ## Upgrade to 2019-05-06
