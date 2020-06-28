@@ -1,14 +1,14 @@
 ---
-title: Azure Cognitive Services for big data
-description: The  Azure Cognitive Services for Big Data allows users to channel 
-terabytes of data through Cognitive Services 
-using [Apache Spark™](https://docs.microsoft.com/dotnet/spark/what-is-spark). With the 
-Cognitive Services for Big Data, it is easy to create large-scale 
-intelligent applications no matter where your data is stored. 
+title: "Azure Cognitive Services for big data"
+description: Overiview page for the Cognitive Services for Big Data
+services: cognitive-services
 author: mhamilton723
-ms.author: marhamil
-ms.date: 06/20/2020
+manager: nitinme
+
+ms.service: cognitive-services
 ms.topic: overview
+ms.date: 6/10/2020
+ms.author: marhamil
 ---
 
 # Azure Cognitive Services for Big Data

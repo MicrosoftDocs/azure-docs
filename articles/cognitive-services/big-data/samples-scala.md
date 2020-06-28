@@ -1,10 +1,14 @@
 ---
-title: Samples in Scala
-description: Try Cognitive Services samples in Scala for Azure Databricks to run your MMLSpark pipeline for big data.
+title: "Cognitive Services for Big Data Scala Samples"
+description: Try Cognitive Services samples in Python for Azure Databricks to run your MMLSpark pipeline for big data.
+services: cognitive-services
 author: mhamilton723
+manager: nitinme
+
+ms.service: cognitive-services
+ms.topic: sample
+ms.date: 6/10/2020
 ms.author: marhamil
-ms.date: 06/20/2020
-ms.topic: samples
 ---
 
 # Quick Examples

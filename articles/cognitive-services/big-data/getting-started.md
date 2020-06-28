@@ -1,11 +1,16 @@
 ---
-title: Getting started
+title: "Getting started"
 description: Set up your MMLSpark pipeline with Cognitive Services in Azure Databricks and run a sample.
+services: cognitive-services
 author: mhamilton723
+manager: nitinme
+
+ms.service: cognitive-services
+ms.topic: quickstart
+ms.date: 6/10/2020
 ms.author: marhamil
-ms.date: 06/20/2020
-ms.topic: getting-started
 ---
+
 
 # Getting started 
 
@@ -175,7 +180,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 - [Short Python Examples](samples-python.md)
 - [Short Scala Examples](samples-scala.md)
-- [Recipe: Predictive Maintenance](recipes/anamaly-detection.md)
+- [Recipe: Predictive Maintenance](recipes/anomaly-detection.md)
 - [Recipe: Intelligent Art Exploration](recipes/art-explorer.md)
 
 
