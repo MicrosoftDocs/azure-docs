@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -85,42 +85,24 @@ For migrating Azure API Management APIs protected by Azure AD B2C, see the [Migr
 
 ## Microsoft Authentication Library (MSAL)
 
-### MSAL.NET ValidateAuthority property
+### ValidateAuthority property
 
-If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` is not required for MSAL.NET v3 and above.
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-### MSAL for JavaScript validateAuthority property
-
-If you're using [MSAL for JavaScript][msal-js] v1.2.2 or earlier, set the **validateAuthority** property to `false`.
+If you're using [MSAL for JavaScript][msal-js]:
 
 ```JavaScript
-// MSAL.js v1.2.2 and earlier
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
   this.authCallback.bind(this),
   {
-    validateAuthority: false // Required in MSAL.js v1.2.2 and earlier **ONLY**
-  }
-);
-```
-
-If you set `validateAuthority: true` in MSAL.js 1.3.0+ (the default), you must also specify a valid token issuer with `knownAuthorities`:
-
-```JavaScript
-// MSAL.js v1.3.0+
-this.clientApplication = new UserAgentApplication(
-  env.auth.clientId,
-  env.auth.loginAuthority,
-  this.authCallback.bind(this),
-  {
-    validateAuthority: true, // Supported in MSAL.js v1.3.0+
-    knownAuthorities: ['tenant-name.b2clogin.com'] // Required if validateAuthority: true
+    validateAuthority: false
   }
 );
 ```
