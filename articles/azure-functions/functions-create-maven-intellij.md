@@ -155,8 +155,8 @@ You've created a Java functions project with an HTTP triggered function, run it 
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png
-[I01]: media/functions-create-first-java-intellij/I01.png
-[I02]: media/functions-create-first-java-intellij/I02.png
-[I03]: media/functions-create-first-java-intellij/I03.png
-[I04]: media/functions-create-first-java-intellij/I04.png
-[I05]: media/functions-create-first-java-intellij/I05.png
+[intellij-azure-login]: media/functions-create-first-java-intellij/intellij-azure-login.png
+[intellij-azure-popup]: media/functions-create-first-java-intellij/intellij-azure-login-popup.png
+[intellij-azure-copycode]: media/functions-create-first-java-intellij/intellij-azure-login-copyopen.png
+[intellij-azure-link-ms-account]: media/functions-create-first-java-intellij/intellij-azure-login-linkmsaccount.png
+[intellij-azure-login-select-subs]: media/functions-create-first-java-intellij/intellij-azure-login-selectsubs.png
