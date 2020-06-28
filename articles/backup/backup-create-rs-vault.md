@@ -1,7 +1,6 @@
 ---
 title: Create Recovery Services vaults
 description: In this article, learn how to create Recovery Services vaults that store the backups and recovery points.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ---
@@ -62,11 +61,14 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
      ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
-   - If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs.
+   - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
    - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**.
+> Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
+>
+>- If you haven't yet configured the backup, then follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
+>- If you've already configured the backup and must move from GRS to LRS, then review [these](backup-azure-backup-faq.md#can-i-change-from-grs-to-lrs-after-a-backup) workarounds.
 
 ## Set Cross Region Restore
 
@@ -87,7 +89,7 @@ For this process, there are pricing implications as it is at the storage level.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
->- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time. 
+>- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time.
 
 ### Configure Cross Region Restore
 
@@ -112,7 +114,9 @@ Learn how to [monitor secondary region restore jobs](backup-azure-arm-restore-vm
 
 We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault.
 
-- **Storage Replication type** by default is set to **Geo-redundant**. Once you configure the backup, the option to modify is disabled. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
+- **Storage Replication type** by default is set to **Geo-redundant** (GRS). Once you configure the backup, the option to modify is disabled.
+  - If you haven't yet configured the backup, then follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
+  - If you've already configured the backup and must move from GRS to LRS, then review [these](backup-azure-backup-faq.md#can-i-change-from-grs-to-lrs-after-a-backup) workarounds.
 
 - **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) to review and modify the settings.
 
