@@ -72,7 +72,32 @@ The following video segment fast-forwards to an explanation of the ranking algor
 
 ## featuresMode parameter (preview)
 
-A value that specifies whether the results should include query result features - information that's used to compute the relevance score of a document in relation to the query, such as per field similarity. The default is 'disabled'. Use 'enabled' to expose additional query result features. Those additional query result features include: per field similarity score, per field term frequency, and per field number of unique tokens matched. 
+[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) requests have a new [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) parameter that can provide additional detail about relevance at the field level. Whereas the `@searchScore` is calculated for the document all-up (how relevant is this document in the context of this query), through featuresMode you can get information about individual fields, as expressed in `@search.features`:
+
++ Number of unique tokens found in the field
++ Similarity score, or a measure of how similar the content of the field is, relative to the query term
++ Term frequency, or the number of times the query term was found in the field
+
+For a query that targets the "description" and "title" fields, a response that includes `@search.features` might look like this:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
 
 ## See also
 

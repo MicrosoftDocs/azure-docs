@@ -21,6 +21,10 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + [Search Service REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) is the new stable version of the REST APIs. In addition to knowledge store, this generally available version includes enhancements to search relevance and scoring.
 
++ New relevance ranking algorithm is now [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) for any new service you create. For existing services, you can opt in by setting the `similarity` property on index fields. This property is provided in the generally available version of the REST API.
+
++ New indexer `executionEnvironment` can be explicitly set to `private`. This capability supports indexer access to external data over private endpoints, and it is generally available.
+
 + [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) is a new skill type to integrate an inferencing endpoint from Azure Machine Learning. The portal experience supports discovery and integration of your Azure Machine Learning endpoint within a Cognitive Search skillset. The discovery requires your Cognitive Search and Azure ML services be deployed in the same subscription. This skill is generally available. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### May 2020 (Microsoft Build)
@@ -33,7 +37,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 + Change the basis for how search scores are computed, from per-shard to all-shards, using [sessionId](index-similarity-and-scoring.md)  and the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics)query parameters. These parameters are generally available.
 
-+ Add a [featuresMode (preview)](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
++ Add a [featuresMode (preview)](index-similarity-and-scoring.md) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
 
 ### March 2020
 
