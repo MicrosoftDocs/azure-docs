@@ -577,7 +577,7 @@ supports:
   - os-family: windows
 ```
 
-Save this file named `inspec.yml` in a folder named `wmi_service` in your project directory.
+Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
@@ -596,7 +596,7 @@ end
 
 ```
 
-Save this file in a new folder named `controls` inside the `wmi_service` directory.
+Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
 
 Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
 `gcInSpec` resource to set the name of the InSpec profile.
