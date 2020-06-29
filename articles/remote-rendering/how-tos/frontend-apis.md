@@ -26,8 +26,8 @@ public class AzureFrontendAccountInfo
 
     // Can use one of:
     // 1) ID and Key.
-    // 2) AuthenticationToken.
-    // 3) AccessToken.
+    // 2) ID and AuthenticationToken.
+    // 3) ID and AccessToken.
     public string AccountId = Guid.Empty.ToString();
     public string AccountKey = string.Empty;
     public string AuthenticationToken = string.Empty;

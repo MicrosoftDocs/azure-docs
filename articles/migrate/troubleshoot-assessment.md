@@ -42,8 +42,14 @@ VM with required cores and memory not found | Azure couldn't find a suitable VM 
 Could not determine VM suitability because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
+No VM size found for offer currency Reserved Instance | Machine marked Not suitable because the VM size was not found for the selected combination of RI, offer and currency. Edit the assessment properties to choose the valid combinations and recalculate the assessment. 
+Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution (AVS) assessments. AVS does not support IPv6 internet addresses factor. Contact the AVS team for remediation guidance if your machine is detected with IPv6.
 
-## Linux VMs are "conditionally ready"
+## Suggested migration tool in import-based AVS assessment marked as unknown
+
+For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
+## Linux VMs are "conditionally ready" in an Azure VM assessment
 
 In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Conditionally ready" due to a known gap in Server Assessment. 
 
@@ -56,7 +62,7 @@ In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Con
 This gap can be addressed by enabling [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
 
 
-## Azure SKUs bigger than on-premises
+## Azure SKUs bigger than on-premises in an Azure VM assessment
 
 Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores and memory than current on-premises allocation based on the type of assessment:
 
@@ -74,7 +80,7 @@ We have an on-premises VM with four cores and eight GB of memory, with 50% CPU u
 - If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
 
-## Azure disk SKUs bigger than on-premises
+## Azure disk SKUs bigger than on-premises in an Azure VM assessment
 
 Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
 - Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
@@ -92,11 +98,11 @@ Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMem
 - If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
 - If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) and [physical](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) server assessment.
 
-## Is the operating system license included?
+## Is the operating system license included in an Azure VM assessment?
 
 Azure Migrate Server Assessment currently considers the operating system license cost only for Windows machines. License costs for Linux machines aren't currently considered.
 
-## How does performance-based sizing work?
+## How does performance-based sizing work in an Azure VM assessment?
 
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
