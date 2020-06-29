@@ -126,13 +126,13 @@ nets/<cache_subnet_name>"``
 
   Some options for cache size are incompatible with some SKUs. This chart shows which combinations are valid, based on the options available when this document was prepared (July 2020).
 
-  |          | Standard_2G | Standard_4G | Standard_8G |
-  |----------|-------------|-------------|-------------|
-  |  3072 GB | yes         | no          | no          |
-  |  6144 GB | yes         | yes         | no          |
-  | 12288 GB | yes         | yes         | yes         |
-  | 24576 GB | no          | yes         | yes         |
-  | 49152 GB | no          | no          | yes         |
+  | Cache size | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | yes         | no          | no          |
+  | 6144 GB    | yes         | yes         | no          |
+  | 12288 GB   | yes         | yes         | yes         |
+  | 24576 GB   | no          | yes         | yes         |
+  | 49152 GB   | no          | no          | yes         |
 
   Read the <!--[Set cache capacity](#set-cache-capacity)--> **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
 
