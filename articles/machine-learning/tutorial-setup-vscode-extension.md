@@ -66,7 +66,7 @@ Now that you have signed into Azure with your account credentials, Use the steps
 1. When the command palette expands, follow the prompts.
 
     > [!NOTE]
-    > If you already have existing Azure Machine Learning resources provisioned, see [how to run experiments in VS Code guide](./how-to-manage-resources-vscode.md#run-experiments).
+    > If you already have existing Azure Machine Learning resources provisioned, see [how to run experiments in VS Code guide](./how-to-manage-resources-vscode.md#run-experiment).
 
     1. Select your Azure subscription.
     1. From the list of environments, select **Conda dependencies file**.

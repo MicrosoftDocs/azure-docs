@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 06/29/2020
 ms.custom: tracking-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
@@ -49,7 +49,7 @@ You can select one of the curated environments to start with:
 
 * The _AzureML-Tutorial_ environment contains common data science packages. These packages include Scikit-Learn, Pandas, Matplotlib, and a larger set of azureml-sdk packages.
 
-For a list of curated environments, see the [curated environments article](resouruce-cuurated-environments.md)
+For a list of curated environments, see the [curated environments article](resource-curated-environments.md)
 
 Curated environments are backed by cached Docker images. This backing reduces the run preparation cost.
 
