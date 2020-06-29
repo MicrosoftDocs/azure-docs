@@ -8,7 +8,7 @@ manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020

@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
+ms.date: 6/24/2020
 ---
 
 # Audit Logs in Azure Database for MySQL
 
 In Azure Database for MySQL, the audit log is available to users. The audit log can be used to track database-level activity and is commonly used for compliance.
 
-> [!IMPORTANT]
-> Audit log functionality is currently in preview.
-
 ## Configure audit logging
+
+>[!IMPORTANT]
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 By default the audit log is disabled. To enable it, set `audit_log_enabled` to ON.
 
@@ -23,12 +23,10 @@ Other parameters you can adjust include:
 
 - `audit_log_events`: controls the events to be logged. See below table for specific audit events.
 - `audit_log_include_users`: MySQL users to be included for logging. The default value for this parameter is empty, which will include all the users for logging. This has higher priority over `audit_log_exclude_users`. Max length of the parameter is 512 characters.
-> [!Note]
-> `audit_log_include_users` has higher priority over `audit_log_exclude_users`. For example, if `audit_log_include_users` = `demouser` and `audit_log_exclude_users` = `demouser`, the user will be included in the audit logs because `audit_log_include_users` has higher priority.
 - `audit_log_exclude_users`: MySQL users to be excluded from logging. Max length of the parameter is 512 characters.
 
-> [!Note]
-> For `sql_text`, log will be truncated if it exceeds 2048 characters.
+> [!NOTE]
+> `audit_log_include_users` has higher priority over `audit_log_exclude_users`. For example, if `audit_log_include_users` = `demouser` and `audit_log_exclude_users` = `demouser`, the user will be included in the audit logs because `audit_log_include_users` has higher priority.
 
 | **Event** | **Description** |
 |---|---|
@@ -80,6 +78,9 @@ The following sections describe what's output by MySQL audit logs based on the e
 
 Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and ADMIN event types.
 
+> [!NOTE]
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
+
 | **Property** | **Description** |
 |---|---|
 | `TenantId` | Your tenant ID |
@@ -109,7 +110,7 @@ Schema below applies to GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL, and A
 ### Table access
 
 > [!NOTE]
-> Table access logs are only output for MySQL 5.7.
+> Table access logs are only output for MySQL 5.7.<br>For `sql_text`, log will be truncated if it exceeds 2048 characters.
 
 | **Property** | **Description** |
 |---|---|

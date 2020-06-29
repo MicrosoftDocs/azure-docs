@@ -50,7 +50,7 @@ If you want to set the resource group or the location where your data is stored,
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
-> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/monitor-performance-live-website-now.md).
+> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/status-monitor-v2-overview.md).
 
 ## <a name="run"></a> Step 2: Run your app
 Run your app with F5. Open different pages to generate some telemetry.

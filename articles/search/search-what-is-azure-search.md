@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/06/2020
+ms.date: 06/23/2020
 ---
 # What is Azure Cognitive Search?
 

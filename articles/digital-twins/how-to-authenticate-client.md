@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Authenticate a client application with Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 After you [create an Azure Digital Twins instance](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to properly authenticate that client application with the Azure Digital Twins instance.
 
@@ -176,7 +173,7 @@ To authenticate a .NET app with Azure services, you can use the following minima
 You will need your *Application (client) ID* and *Directory (tenant) ID* from earlier, as well as the URL of your Azure Digital Twins instance.
 
 > [!TIP]
-> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
+> The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the *hostName*, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`. You can use the `az account show --query tenantId` command to see your *Directory (tenant) ID*. 
 
 ```javascript
 import * as Msal from "msal";
@@ -260,4 +257,4 @@ Read more about how security works in Azure Digital Twins:
 * [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
 
 Or, now that authentication is set up, move on to creating models in your instance:
-* [How-to: Manage a twin model](how-to-manage-model.md)
+* [How-to: Manage custom models](how-to-manage-model.md)

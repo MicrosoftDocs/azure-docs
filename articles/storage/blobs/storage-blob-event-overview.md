@@ -7,7 +7,7 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Reacting to Blob storage events

@@ -1,22 +1,8 @@
 ---
 title: Automatically scale up throughput units - Azure Event Hubs | Microsoft Docs
 description: Enable Auto-inflate on a namespace to automatically scale up throughput units.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/06/2018
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Automatically scale up Azure Event Hubs throughput units

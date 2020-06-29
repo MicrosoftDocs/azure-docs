@@ -69,7 +69,7 @@ We recommend creating a datastore for an [Azure Blob container](https://docs.mic
 
 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) is built on top of Azure Blob storage and designed for enterprise big data analytics. A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) to Blob storage. The hierarchical namespace organizes objects/files into a hierarchy of directories for efficient data access.
 
-When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. `workspaceblobstore` is used to store workspace artifacts and your machine learning experiment logs. `workspacefilestore` is used to store notebooks and R scripts authorized via [compute instance](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). The `workspaceblobstore` container is set as the default datastore.
+When you create a workspace, an Azure blob container and an Azure file share are automatically registered to the workspace. They're named `workspaceblobstore` and `workspacefilestore`, respectively. `workspaceblobstore` is used to store workspace artifacts and your machine learning experiment logs. `workspacefilestore` is used to store notebooks and R scripts authorized via [compute instance](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). The `workspaceblobstore` container is set as the default datastore and can't be deleted from the workspace.
 
 > [!IMPORTANT]
 > Azure Machine Learning designer (preview) will create a datastore named **azureml_globaldatasets** automatically when you open a sample in the designer homepage. This datastore only contains sample datasets. Please **do not** use this datastore for any confidential data access.
@@ -94,12 +94,14 @@ All the register methods are on the [`Datastore`](https://docs.microsoft.com/pyt
 
 You can find the information that you need to populate the `register_azure_*()` method on the [Azure portal](https://portal.azure.com).
 
+* Datastore name should only consist of lowercase letters, digits and underscores. 
+
 * If you plan to use an account key or SAS token for authentication, select **Storage Accounts** on the left pane, and choose the storage account that you want to register. 
   * The **Overview** page provides information such as the account name, container, and file share name. 
       1. For account keys, go to **Access keys** on the **Settings** pane. 
       1. For SAS tokens, go to **Shared access signatures** on the **Settings** pane.
 
-* If you plan to use a service principle for authentication, go to your **App registrations** and select which app you want to use. 
+* If you plan to use a service principal for authentication, go to your **App registrations** and select which app you want to use. 
     * Its corresponding **Overview** page will contain required information like tenant ID and client ID.
 
 > [!IMPORTANT]
@@ -152,8 +154,6 @@ If your file share is in virtual network, include the parameter  `skip_validatio
 #### Azure Data Lake Storage Generation 2
 
 For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). In order to utilize your service principal you need to [register your application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) and grant the service principal with *Storage Blob Data Reader* access. Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
-In order to utilize your service principal you need to [register your application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) and grant the service principal with the right data access. Learn more about [access control set up for ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 The following code creates and registers the `adlsgen2_datastore_name` datastore to the `ws` workspace. This datastore accesses the file system `test` in the `account_name` storage account, by using the provided service principal credentials.
 
@@ -232,6 +232,7 @@ You can also change the default datastore with the following code. This ability 
 ```Python
  ws.set_default_datastore(new_default_datastore)
 ```
+
 <a name="up-and-down"></a>
 ## Upload and download data
 

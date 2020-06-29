@@ -272,9 +272,6 @@ Specify your preview audience using Azure subscription ID GUIDs, along with an o
 
 Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you define who can preview your offer before it's published live. If your offer is already live, you can define a preview audience to test changes or updates to your offer.
 
-> [!NOTE]
-> The preview audience differs from a private audience. A **preview** audience can see and confirm all offer plans before they are live in the marketplace, including those that will be published only to a **private** audience (set on the Availability tab).
-
 Select **Save draft** before proceeding to the next section, Plan overview.
 
 ### Plan overview
@@ -311,18 +308,18 @@ Select **Create**.
 
 This tab lets you configure which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
-#### Cloud availability
+#### Azure regions
 
 All plans for IoT Edge module offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option is only visible if **Azure Government Cloud** is selected under **Cloud availability**.
+This option is only visible if **Azure Government** is selected under **Cloud availability**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe your certifications. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
@@ -346,7 +343,7 @@ Select **Save draft** after completing these fields.
 
 #### Plan examples
 
-Here's an example of Azure Marketplace plan details:
+Here's an example of Azure Marketplace plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
@@ -356,7 +353,7 @@ Here's an example of Azure Marketplace plan details:
 2. Plan name
 3. Plan description
 
-<br>Here's an example of the Azure portal plan details:
+<br>Here's an example of the Azure portal plan details (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
 
@@ -474,7 +471,7 @@ On the review page you can see the publishing status:
 
 To submit the offer for publishing, select **Publish**.
 
-We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public, go to Partner Center and select **Go-live**.
 
 ## Next steps
 
