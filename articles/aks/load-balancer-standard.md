@@ -350,6 +350,7 @@ The following limitations apply when you create and manage AKS clusters that sup
     * Provide your own public IPs.
     * Provide your own public IP prefixes.
     * Specify a number up to 100 to allow the AKS cluster to create that many *Standard* SKU public IPs in the same resource group created as the AKS cluster, which is usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. By default, one public IP will automatically be created in the same resource group as the AKS cluster, if no public IP, public IP prefix, or number of IPs is specified. You also must allow public addresses and avoid creating any Azure Policy that bans IP creation.
+* A public IP created by AKS cannot be reused as a custom bring your own public IP address. All custom IP addresses must be created and managed by the user.
 * Defining the load balancer SKU can only be done when you create an AKS cluster. You can't change the load balancer SKU after an AKS cluster has been created.
 * You can only use one type of load balancer SKU (Basic or Standard) in a single cluster.
 * *Standard* SKU Load Balancers only support *Standard* SKU IP Addresses.
