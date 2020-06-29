@@ -113,6 +113,9 @@ or
   - from the displayed services pick the Speech service you want the concurrency increased for,
   - display the `Properties` for this service,
   - copy the complete `Resource ID`.
+  
+>[!NOTE]
+>[Containers](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) do not require increases to concurrency limits, as containers are constrained only by the CPUs of the hardware they are hosted on.
 
 ## Importing data
 
