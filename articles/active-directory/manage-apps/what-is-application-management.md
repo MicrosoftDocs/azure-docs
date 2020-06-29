@@ -62,7 +62,7 @@ There are four main types of applications that you can add to your **Enterprise 
 - **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
 
 >[!TIP]
->If an application is not already pre-configured and in the Azure AD app gallery, you can still integrate it. You can **integrate Azure AD with any** of the following
+>You can integrate Azure AD with an application even if it is not already pre-configured and in the app gallery. You can **integrate Azure AD with any** of the following
 > - Any web link, or application, that renders a **username and password field**.
 > - Any application that supports **SAML or OpenID Connect protocols**.
 > - Any application that supports the **System for Cross-domain Identity Management (SCIM)** standard.
