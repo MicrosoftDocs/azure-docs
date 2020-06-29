@@ -11,7 +11,7 @@ ms.date: 06/30/2020
 # We couldn't find an account with that username
 This article describes how to troubleshoot login issues for a user.
 
-![Sign in error message](../media/error-login-message.png)
+:::image type="content" source="../media/troubleshooting-login/error-login-message.png" alt-text="Sign in error message." border="false":::
 
 ## Solution for university email logins
 If you are logging in with a university email address (example: John.Smith@university.edu) you will need to create a Microsoft Account with that email address. Creating an account is free and takes just a few minutes. Having a Microsoft Account will allow you to automatically log into all your Microsoft products with a single username and password.

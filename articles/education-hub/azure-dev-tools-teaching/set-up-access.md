@@ -16,7 +16,7 @@ There are two ways to access your subscription to deploy software to your studen
 For more information, please visit (Azure for Education website)[https://azureforeducation.microsoft.com].
 
 ## Pre-requisites
-NEED CONTENT?
+DO WE NEED CONTENT FOR THIS?
 
 ## For Administrators only	
 Access through (Visual Studio Subscription Portal)[https://my.visualstudio.com/].
@@ -30,5 +30,4 @@ Access through the [Education Hub](https://aka.ms/devtoolsforteaching).
 Students and faculty alike can get access to all the software download benefits through the Education Hub. The Education Hub is built within the Azure portal and it provides your students easy access to the entire catalog of software, as well as access to the entire [Microsoft Learn](https://docs.microsoft.com/learn/) catalog.
 
 ## Next steps
-
 [CONTENT NEEDED](content)
