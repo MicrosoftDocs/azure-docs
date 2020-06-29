@@ -4,7 +4,7 @@ description: Learn how to log support request for issues related to your Import/
 services: storsimple
 author: alkohli
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
