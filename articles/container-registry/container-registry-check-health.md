@@ -10,7 +10,7 @@ When using an Azure container registry, you might occasionally encounter problem
 
 As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostic-audit-logs.md).
+To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md).
 
 ## Run az acr check-health
 
@@ -72,7 +72,7 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 * For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-* To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostic-audit-logs.md).
+* To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md).
 
 * See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
