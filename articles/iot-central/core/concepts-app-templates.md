@@ -54,7 +54,7 @@ Azure IoT Central is an industry agnostic application platform. Application temp
 
 ## Application versions
 
-If you create an IoT Central application using the **Custom application (legacy)** application template, you create a *version 2* IoT Central application, all other templates create a *version 3* IoT Central application. You can [find the version of an existing application](./howto-find-app-version.md) from the **Help** link in any application.
+Templates are associated with specific IoT Central application versions. You can find the version of an application on the [About your app](./howto-get-app-info.md) page from the **Help** link.
 
 ## Next steps
 
