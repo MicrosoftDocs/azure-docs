@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
-This article shows how to test auto-provisioning on a simulated (or physical) IoT Edge device using a virtual Trusted Platform Module (TPM). You can automatically provisioned Azure IoT Edge devices the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+This article shows how to test auto-provisioning on a simulated (or physical) IoT Edge device using a virtual Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
 The tasks are as follows:
 
@@ -62,7 +62,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 3. Complete the **New Virtual Machine Wizard** with the following specific configurations:
 
-   1. **Specify Generation**: Select **Generation 2**. Generation two virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
+   1. **Specify Generation**: Select **Generation 2**. Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
    2. **Configure Networking**: Set the value of **Connection** to the virtual switch that you created in the previous section.
    3. **Installation Options**: Select **Install an operating system from a bootable image file** and browse to the disk image file that you saved locally.
 
