@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 09/09/2019
 ---
 
-# Create Azure Advisor alerts on new using the Azure portal 
+# Create Azure Advisor alerts on new recommendations using the Azure portal 
 
 This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal. 
 
@@ -194,3 +194,6 @@ From Azure Advisor, you can edit, delete, or disable and enable your recommendat
 4. To delete, enable, or disable an alert, click on the ellipse at the end of the row and then select the action you would like to take.
  
 
+## Next steps
+- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
+- Learn more about [action groups](../azure-monitor/platform/action-groups.md).

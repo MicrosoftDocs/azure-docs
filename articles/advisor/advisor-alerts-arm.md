@@ -7,7 +7,7 @@ ms.date: 09/09/2019
 
 # Create Azure Advisor alerts on new recommendations use Resource Manager template
 
-This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal and Azure Resource Manager templates. 
+This article shows you how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -43,7 +43,7 @@ The following template creates an action group with an email target and enables 
       "type": "string"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "AdvisorAlertsTest2",
+      "defaultValue": "AdvisorAlertsTest",
       "type": "string"
     },
     "emailAddress": {
@@ -128,7 +128,7 @@ The following template creates an action group with an email target and enables 
 }
 ```
 
-### Deploy the template
+## Deploy the template
 Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, and **emailAddress** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI1)
@@ -148,7 +148,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ---
 
-### Verify the deployment
+## Verify the deployment
 Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** with the value you used above.
 
 # [CLI](#tab/CLI2)
@@ -160,9 +160,31 @@ az monitor activity-log alert show --resource-group my-resource-group --name Adv
 # [PowerShell](#tab/PowerShell2)
 
 ```powershell
-Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
+Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsTest
 ```
 
 ---
- 
 
+
+## Clean up resources
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell
+
+
+ 
+# [CLI](#tab/CLI2)
+
+```azurecli
+az group delete --name my-resource-group
+```
+
+# [PowerShell](#tab/PowerShell2)
+
+```powershell
+Remove-AzResourceGroup -Name my-resource-group
+```
+
+---
+
+## Next steps
+- Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
+- Learn more about [action groups](../azure-monitor/platform/action-groups.md).
