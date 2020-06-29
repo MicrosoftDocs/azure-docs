@@ -22,7 +22,7 @@ To be able to assign a telephone number to your bot, you also **need to assign y
 
 This quickstart also requires:
 - **Deployed Azure Communication Service resource.** Please follow a quickstart to [create an Azure Communication Resource](./create-a-communication-resource).
-- **An ACS configured telephone number.** Check out the quick start for telephone number management for more information on how to aquire a telephone number. NOTE: For private preview, please contact Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+- **An ACS configured telephone number.** Check out the [telephone number management quickstart](./search-and-aquire-phone-number.mdsearch-and-aquire-phone-number) for more information on how to aquire a telephone number.
 
 ## Assign a telephone number to your bot programmatically
 
