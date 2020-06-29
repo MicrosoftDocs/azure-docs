@@ -522,8 +522,8 @@ New-GuestConfigurationPolicy
 
 > [!Note]
 > This feature is in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-> In version 1.20.1, this feature is only available for policy definitions that audit Windows machines
+> version 1.20.3, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+> In version 1.20.3, this feature is only available for policy definitions that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
 Extending Guest Configuration requires development of two components.
@@ -559,7 +559,14 @@ community module is maintained as an
 Install required modules in your development environment:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 First, create the YaML file used by InSpec. The file provides basic information about the
