@@ -65,7 +65,7 @@ There are four main types of applications that you can add to your **Enterprise 
 >If an application is not already pre-configured and in the Azure AD app gallery, you can still integrate it. You can **integrate Azure AD with any** of the following
 > - Any web link, or application, that renders a **username and password field**.
 > - Any application that supports **SAML or OpenID Connect protocols**.
-> - Any application that supports the System for **Cross-domain Identity Management (SCIM)** standard.
+> - Any application that supports the **System for Cross-domain Identity Management (SCIM)** standard.
 
 ## Manage risk with Conditional Access policies
 
