@@ -171,11 +171,9 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
 ## Use datastores and datasets
 
-This section covers datastore and dataset usage for the SDK. For more information on using datastores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
+This section covers datastore and dataset usage for the SDK experience. For more information on the studio experience, see the section [Machine Learning studio](#machine-learning-studio).
 
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
-
-To avoid this with the SDK, you must create datastores and datasets that skip validation.
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks. To avoid this, you must create datastores and datasets that skip validation.
 
 ### Use a datastore
 
