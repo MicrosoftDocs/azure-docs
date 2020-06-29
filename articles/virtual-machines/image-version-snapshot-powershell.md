@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
-ms.date: 06/17/2020
+ms.date: 06/29/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ---
@@ -49,11 +49,11 @@ $gallery = Get-AzGallery `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
 
-When making your image definition, make sure is has all of the correct information. If the VHD or snapshot was take of a generalized OS (after running Sysprep for Windows or  `-OsState generalized`. 
+When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or VHD are from a VM that is in use, and hasn't been generalized. If the VHD or snapshot was take of a generalized OS (after running Sysprep for Windows or  then change the `-OsState` to `generalized`. 
 
 For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
+Create the image definition using [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a specialized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -61,31 +61,38 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -Name 'myImageDefinition' `
-   -OsState generalized `
+   -OsState specialized `
    -OsType Windows `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
 
-## Get the managed image
+## Get the snapshot
 
-You can see a list of images that are available in a resource group using [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage). Once you know the image name and what resource group it is in, you can use `Get-AzImage` again to get the image object and store it in a variable to use later. This example gets an image named *myImage* from the "myResourceGroup" resource group and assigns it to the variable *$managedImage*. 
+You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). Once you know the snapshot name and what resource group it is in, you can use `Get-AzSnapshot` again to get the snapshot object and store it in a variable to use later. This example gets an snapshot named *mySnapshot* from the "myResourceGroup" resource group and assigns it to the variable *$snapshot*. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzImage `
-   -ImageName myImage `
+$source = Get-AzSnapshot `
+   -SnapshotName mySnapshot
    -ResourceGroupName myResourceGroup
 ```
 
+You can also use a VHD. To get a VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
+
+```azurepowershell-interactive
+$source = Get-AzSnapshot `
+   -SnapshotName mySnapshot
+   -ResourceGroupName myResourceGroup
+```
 
 ## Create an image version
 
-Create an image version from the managed image using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+Create an image version from the snapshot using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication. 
+In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 
 ```azurepowershell-interactive
@@ -93,41 +100,34 @@ $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
 $job = $imageVersion = New-AzGalleryImageVersion `
-   -GalleryImageDefinitionName $imageDefinition.Name `
+   -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-12-31' `
+   -Source $source.Id.ToString() `
+   -PublishingProfileEndOfLifeDate '2020-01-01' `
    -asJob 
 ```
 
-It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress, type `$job.State`.
+It can take a while to replicate the image to all of the target regions, so we have created a job so we can track the progress. To see the progress of the job, type `$job.State`.
 
 ```azurepowershell-interactive
 $job.State
 ```
 
-
 > [!NOTE]
-> You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version. 
+> You need to wait for the image version to completely finish being built and replicated before you can use the same snapshot to create another image version. 
 >
-> You can also store your image in Premiun storage by a adding `-StorageAccountType Premium_LRS`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
+> You can also store your image version in [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `-StorageAccountType Standard_ZRS` when you create the image version.
 >
 
-## Delete the managed image
+## Delete the source
 
-Once you have verified that you new image version is working correctly, you can delete the managed image.
+Once you have verified that you new image version is working correctly, you can delete the source for the image with eitber [Remove-AzSnapshot](/powershell/module/Az.Compute/Remove-AzSnapshot) or [Remove-AzDisk](/powershell/module/az.compute/remove-azdisk).
 
-```azurepowershell-interactive
-Remove-AzImage `
-   -ImageName $managedImage.Name `
-   -ResourceGroupName $managedImage.ResourceGroupName
-```
 
 ## Next steps
 
-Once you have verified that replication is complete, you can create a VM from the [generalized image](vm-generalized-image-version-powershell.md).
-
+Once you have verified that replication is complete, you can create a VM from the [specialized image](vm-specialized-image-version-powershell.md).
