@@ -169,7 +169,7 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
 ## Use datastores and datasets with the SDK
 
-This section covers datastore and dataset usage for the SDK. For more information on using datatores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
+This section covers datastore and dataset usage for the SDK. For more information on using datastores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
 
 By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
 
@@ -403,7 +403,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 ### Access data in a Compute Instance notebook
 
-If you're using notebooks on an Azure Comptue instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
+If you're using notebooks on an Azure Compute instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
 
 You must configure your Compute Instance to be in the same virtual network during creation under **Advanced settings** > **Configure virtual network**. You cannot add an existing Compute Instance to a virtual network.
 
