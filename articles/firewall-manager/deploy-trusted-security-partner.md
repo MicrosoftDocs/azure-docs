@@ -18,21 +18,6 @@ To learn more about supported scenarios and best practice guidelines, see [What 
 
 Integrated third-party Security as a service (SECaaS) partners are now available in all Azure public cloud regions. **Zscaler** integration will be generally available July 3, 2020. **Check Point** is a supported SECaaS partner and will be in preview on July 3, 2020. **iboss** integration will be generally available on July 31, 2020.
 
-## Prerequisites
-
-> [!IMPORTANT]
-> Azure Firewall Manager must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
-
-From a PowerShell command prompt, run the following commands:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
 ## Deploy a third-party security provider in a new hub
 
 Skip this section if you are deploying a third-party provider into an existing hub.
