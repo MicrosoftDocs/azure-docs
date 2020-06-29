@@ -14,7 +14,7 @@ ms.author: andrela
 
 There are various scenarios for moving an existing Azure Database for MySQL server from one region to another. For example, you might want to move a production server to another region as part of your disaster recovery planning.
 
-You can use an Azure Database for MySQL [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. You can do this by first creating a read replica in the target region. Next, stopping replication to the read replica server allows it to become a standalone server that accepts both read and write traffic. 
+You can use an Azure Database for MySQL [cross-region read replica](concepts-read-replicas.md#cross-region-replication) to complete the move to another region. To do so, first create a read replica in the target region. Next, stop replication to the read replica server to make it a standalone server that accepts both read and write traffic. 
 
 > [!NOTE]
 > This article focuses on moving your server to a different region. If you are looking to move your server to a different resource group or subscription, refer to the [move](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) article. 
