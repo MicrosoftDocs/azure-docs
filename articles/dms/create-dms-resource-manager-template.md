@@ -1,127 +1,81 @@
 ---
-title: Create DMS (Azure Resource Manager template)
+title: Create instance of DMS (Azure Resource Manager template)
 description: Learn how to create  Database Migration Service by using Azure Resource Manager template.
 services: azure-resource-manager
 author: MashaMSFT
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: your-msft-alias
-ms.date: 03/17/22
+ms.author: mathoma
+ms.date: 06/29/20
 ---
 
-<!-- ms.topic and ms.custom in the metadata section are required -->
+# Create instance of Azure Database Migration Service (Azure Resource Manager template)
 
-# Create DMS (Azure Resource Manager template)
-
-<!-- The second paragraph must be the following include file. You might need to change the file path of the include file depending on your content structure. This include is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content.-->
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
-
-<!-- If your service has prerequisites you can include the free account link in that section. -->
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-<!-- If there aren't any prerequisites, just place "None" in the section. -->
+The Azure Database Migration Service ARM template requires the following: 
 
-## Create a ...
+- The latest version of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and/or [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
+## Review the template
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-<!-- The first sentence must be the following sentence. Use a link to the quickstart gallery that begins with https://azure.microsoft.com/resources/templates/.  -->
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" range="000-000" highlight="30-71":::
 
-The template used in this quickstart is from [Azure Quickstart Templates]().
+Three Azure resources are defined in the template: 
 
-<!-- After the first sentence, add a JSON code fence that links to the quickstart template. Customers have provided feedback that they prefer to see the whole template. We recommend you include the entire template in your article. If your template is too long to show in the quickstart (more than 250 lines), you can instead add a sentence that says - `The template for this article is too long to show here. To view the template, see [azuredeploy.json](link to template's raw output)`.
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks):
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets):
+- [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services):
 
-The syntax for the code fence is: -->
+More Azure Database Migration Services templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
 
-:::code language="json" source="~/quickstart-templates/<TEMPLATE NAME>/azuredeploy.json" range="000-000" highlight="000-000":::
 
-<!-- For visibility, use highlight for the template's "resources": section. -->
+## Deploy the template
 
-<!-- After the JSON code fence, a list of each resourceType from the JSON must exist with a link to the template reference starting with /azure/templates. List the resourceType links in the same order as in the template.
+1. Select the following image to sign in to Azure and open a template. The template creates an instance of the Azure Database Migration Service. 
 
-For example:
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
-* [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.KeyVault/vaults/secrets**](/azure/templates/microsoft.keyvault/vaults/secrets): create an key vault secret.
+2. Select or enter the following values.
 
-The URL usually appears as, for example, https://docs.microsoft.com/en-us/azure/templates/Microsoft.Network/2019-11-01/loadBalancers for loadbalancer of Microsoft.Network. Remove the API version from the URL so that the URL redirects to the latest version.
--->
+    * **Subscription**: select an Azure subscription.
+    * **Resource group**: Enter an existing resource group for your Azure Database Migration Service, or choose to create a new resource group by selecting **Create new**. 
+    * **Region**: select a region.  For example, **Central US**.
+    * **Virtual Machine Name**: enter a name for SQL Server virtual machine. 
+    * **Virtual Machine Size**: Choose the appropriate size for your virtual machine from the drop-down.
+    * **Existing Virtual Network Name**: The primary replica region for the Azure Cosmos account.
+    * **Existing Vnet Resource Group**: The secondary replica region for the Azure Cosmos account.
+    * **Existing Subnet Name**: The default consistency level for the Azure Cosmos account.
 
-* [Azure resource type](link to the template reference)
-* [Azure resource type](link to the template reference)
 
-<!-- List additional quickstart templates. For example: [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
-Notice the resourceType and sort elements in the URL.
--->
+3. Select **Review + create **. After the instance of Azure Database Migration Service has been deployed successfully, you get a notification. 
 
-### Deploy the template
 
-<!--
- One of the following options must be included:
-
-  - **CLI**: In an Azure CLI Interactive code fence must contain **az deployment group create**. For example:
-
-    ```azurecli-interactive
-    read -p "Enter a project name that is used for generating resource names:" projectName &&
-    read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" &&
-    resourceGroupName="${projectName}rg" &&
-    az group create --name $resourceGroupName --location "$location" &&
-    az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri
-    echo "Press [ENTER] to continue ..." &&
-    read
-    ```
-
-  - **PowerShell**: In an Azure PowerShell Interactive code fence must contain **New-AzResourceGroupDeployment**. For example:
-
-    ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
-
-    $resourceGroupName = "${projectName}rg"
-
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
-
-    Read-Host -Prompt "Press [ENTER] to continue ..."
-    ```
-
-  - **Portal**: Use a button with description **Deploy to Azure**, and the shared image ../media/template-deployments/deploy-to-azure.svg. The template link starts with https://portal.azure.com/#create/Microsoft.Template/uri/.
-  
-    ```markdown
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
-    ```
-
-    The shared button image is in [GitHub](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/media/template-deployments/deploy-to-azure.svg). To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
- -->
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
-<!-- You can also use the title "Validate the deployment". -->
+You can either use the Azure CLI to check deployed resources. 
 
-<!-- Include a portal screenshot of the resources or use interactive Azure CLI and Azure PowerShell commands to show the deployed resources. -->
 
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+```azurecli-interactive
+echo "Enter the resource group where your SQL Server VM exists:" &&
+read resourcegroupName &&
+az resource list --resource-group $resourcegroupName 
+```
+
 
 ## Clean up resources
 
-<!-- Include a paragraph that explains how to delete unneeded resources. Add a portal screenshot or use interactive Azure CLI and Azure PowerShell commands to clean up the resources. -->
+When no longer needed, delete the resource group by using Azure CLI or Azure PowerShell:
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
-
-<!--
-
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
-
-Here are the samples for Azure CLI and Azure PowerShell:
+# [CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -130,22 +84,24 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
+# [PowerShell](#tab/PowerShell)
+
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
--->
+---
 
 ## Next steps
-
-<!-- You can either make the next steps similar to the next steps in your other quickstarts, or point users to the following tutorial.
-
-If you want to include links to more information about the service, it's acceptable to use a paragraph and bullet points.
--->
 
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
 > [ Tutorial: Create and deploy your first Azure Resource Manager template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+
+For other ways to deploy Azure Database Migration Service, see: 
+- [Azure portal](quickstart-create-data-migration-service-portal.md)
+
+To learn more, see [an overview of Azure Database Migration Service](dms-overview.md)
