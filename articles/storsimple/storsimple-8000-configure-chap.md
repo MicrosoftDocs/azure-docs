@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 05/09/2018
