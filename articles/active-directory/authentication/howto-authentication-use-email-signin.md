@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/22/2020
+ms.date: 06/24/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -42,6 +42,19 @@ However, in some organizations the on-premises UPN isn't used as a sign-in name.
 The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premise AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
 A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
+
+## Preview limitations
+
+In the current preview state, the following limitations apply when a user signs in with a non-UPN email as an alternate login ID:
+
+* Users may see their UPN, even when the signed in with their non-UPN email. The following example behavior may be seen:
+    * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
+    * When a user signs in with a non-UPN email and enters an incorrect password, the *"Enter your password"* page changes to display the UPN.
+    * On some Microsoft sites and apps, such as [https://portal.azure.com](https://portal.azure.com) and Microsoft Office, the **Account Manager** control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
+
+* Some flows are currently not compatible with the non-UPN email, such as the following:
+    * Identity protection currently doesn't match email alternate login IDs with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
+    * B2B invites sent to an alternate login ID email aren't fully supported. After accepting an invite sent to an email as an alternate login ID, sign in with the alternate email may not work for the user on the tenanted endpoint.
 
 ## Synchronize sign-in email addresses to Azure AD
 
@@ -174,6 +187,7 @@ For more information on hybrid identity operations, see [how password hash sync]
 [hybrid-overview]: ../hybrid/cloud-governed-management-for-on-premises.md
 [phs-overview]: ../hybrid/how-to-connect-password-hash-synchronization.md
 [pta-overview]: ../hybrid/how-to-connect-pta-how-it-works.md
+[identity-protection]: ../identity-protection/overview-identity-protection.md#risk-detection-and-remediation
 
 <!-- EXTERNAL LINKS -->
 [Install-Module]: /powershell/module/powershellget/install-module
