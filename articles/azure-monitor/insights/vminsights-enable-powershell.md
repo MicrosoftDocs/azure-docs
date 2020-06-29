@@ -9,10 +9,8 @@ ms.date: 10/14/2019
 
 ---
 
-# Enable Azure Monitor for VMs using Azure PowerShell or Resource Manager templates
-
-
-This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
+# Enable Azure Monitor for VMs using Resource Manager templates
+This article describes how to enable Azure Monitor for VMs for Azure virtual machines, Azure virtual machine scale sets, or Azure Arc machines by using Azure Resource Manager templates. 
 
 ## Set up a Log Analytics workspace
 
@@ -78,33 +76,24 @@ To use the Azure CLI, you first need to install and use the CLI locally. You mus
 
 1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
-1. You're ready to deploy this template.
 
-    * Use the following PowerShell commands in the folder that contains the template:
+# [CLI](#tab/CLI1)
 
-        ```powershell
-        New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
-        ```
+```azurecli
+az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+```
 
-        The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
+# [PowerShell](#tab/PowerShell1)
 
-        ```output
-        provisioningState       : Succeeded
-        ```
+```powershell
+New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName <ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+```
 
-    * To run the following command by using the Azure CLI:
+---
 
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
-        ```
 
-        The configuration change can take a few minutes to finish. When it's finished, a message is displayed that's similar to the following and includes the result:
 
-        ```output
-        provisioningState       : Succeeded
-        ```
+
 
 ## Enable with Azure Resource Manager templates
 
@@ -134,34 +123,22 @@ The download file contains the following templates for different scenarios:
 >[!NOTE]
 >If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
 
-### Deploy by using Azure PowerShell
 
-The following step enables monitoring by using Azure PowerShell.
+
+# [CLI](#tab/CLI2)
+
+```azurecli
+az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
+```
+
+# [PowerShell](#tab/PowerShell2)
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
 ```
-The configuration change can take a few minutes to finish. When it's finished, a message displays that's similar to the following and includes the result:
 
-```output
-provisioningState       : Succeeded
-```
+---
 
-### Deploy by using the Azure CLI
-
-The following step enables monitoring by using the Azure CLI.
-
-```azurecli
-az login
-az account set --subscription "Subscription Name"
-az group deployment create --resource-group <ResourceGroupName> --template-file <Template.json> --parameters <Parameters.json>
-```
-
-The output resembles the following:
-
-```output
-provisioningState       : Succeeded
-```
 
 ## Enable with PowerShell
 

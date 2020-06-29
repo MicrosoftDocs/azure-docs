@@ -126,11 +126,11 @@ This is where you define details for your offer such as name, description, and i
 > [!NOTE]
 > You can provide offer listing details in one language only. It is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Help link URL* to offer content in a language other than the one used in the Offer listing content.
 
-Here's an example of how offer information appears in Microsoft AppSource:
+Here's an example of how offer information appears in Microsoft AppSource (any listed prices are for example purposes only and not intended to reflect actual costs):
 
 :::image type="content" source="media/example-d365-business-central.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
 
-## Call-out descriptions
+#### Call-out descriptions
 
 1. Logo
 2. Products
@@ -140,8 +140,8 @@ Here's an example of how offer information appears in Microsoft AppSource:
 6. Privacy policy
 7. Offer name
 8. Summary
-9. Screenshots/videos
-10. Description
+9. Description
+10. Screenshots/videos
 
 ### Name
 
@@ -411,7 +411,7 @@ If it's your first time publishing this offer, you can:
     - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
+- Submit the offer for publishing by selecting **Submit**. We will send you an email when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
 ## Next steps
 

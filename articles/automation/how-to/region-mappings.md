@@ -25,7 +25,7 @@ The following table shows the supported mappings:
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
-|WestCentralUS2|WestCentralUS|
+|WestCentralUS|WestCentralUS|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asia Pacific**||

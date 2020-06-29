@@ -11,7 +11,7 @@ ms.date: 05/14/2020
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
 
-# Create and explore Azure Machine Learning dataset with labels
+# Create and explore Azure Machine Learning dataset with labels (preview)
 
 In this article, you'll learn how to export the data labels from an Azure Machine Learning data labeling project and load them into popular formats such as, a pandas dataframe for data exploration or a Torchvision dataset for image transformation. 
 

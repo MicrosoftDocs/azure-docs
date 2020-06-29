@@ -4,7 +4,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/15/2020
+ ms.date: 06/26/2020
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -16,9 +16,17 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. For virtual machines, the eviction policy is set to *Deallocate* which moves your evicted VMs to the stopped-deallocated state, allowing you to redeploy the evicted VMs at a later time. However, reallocating Spot VMs will be dependent on there being available Spot capacity. The deallocated VMs will count against your spot vCPU quota and you will be charged for your underlying disks. 
+VMs can be evicted based on capacity or the max price you set. When creating a Spot VM, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
-Users can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
+The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
+
+If you would like your VM to be deleted when it is evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you will not continue to be charged for the storage. 
+
+> [!NOTE]
+>
+> The portal does not currently support `Delete` as an eviction option, you can only set `Delete` using PowerShell, CLI, and templates.
+
+You can opt-in to receive in-VM notifications through [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). This will notify you if your VMs are being evicted and you will have 30 seconds to finish any jobs and perform shutdown tasks prior to the eviction. 
 
 
 | Option | Outcome |
@@ -31,6 +39,7 @@ Users can opt-in to receive in-VM notifications through [Azure Scheduled Events]
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You will never be charged above the standard price.| 
 | Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
+
 
 ## Limitations
 
@@ -50,7 +59,7 @@ Some subscription channels are not supported:
 | Pay As You Go                | Yes                               |
 | Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
+| Sponsored                    | Yes                               |
 | Free Trial                   | Not available                     |
 
 
