@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.hubplanner.com`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hubplanner.com/sso/metadata`
+    `https://app.hubplanner.com/sso/metadata`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
@@ -133,9 +133,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Hub Planner** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hub Planner support team](mailto:hello@hubplanner.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
+### Install Extension on Hub Planner.
+To enable the SSO functionality you need to first enable the extension. As the account owner or someone with rights follow these steps.
+
+1. Navigate to Settings
+1. Choose Manage Extensions - > Add/Remove Extensions from the sidebar.
+1. Find the extension for Single Sign On and Add or Try Free.
+1. Agree to T&C in the pop up that appears and click Add Now.
+
+### Enable SSO.
+Once the extension is enabled you now need to enable SSO for your account. 
+
+1. Navigate to Settings
+1. Choose "Authentication" from the sidebar.
+1. Enable SSO
+1. Add the 3 required fields and click save.
+
+![SSO Settings Link](https://hubplanner-static.s3-eu-west-1.amazonaws.com/img/extensions/sso/hub_planner_sso_config.png)
+
 ### Create Hub Planner test user
 
-In this section, you create a user called Britta Simon in Hub Planner. Work with [Hub Planner support team](mailto:hello@hubplanner.com) to add the users in the Hub Planner platform. Users must be created and activated before you use single sign-on.
+If you want to add other users go to settings -> Manage resoures and add users from here. Make sure to add their email address and invite them. Once invited they will receive an email and be able to enter via SSO. 
 
 ## Test SSO 
 
