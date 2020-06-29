@@ -18972,6 +18972,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storsimple/storsimple-safety.md",
+      "redirect_url": "/azure/storsimple/storsimple-8000-safety",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storsimple/storsimple-security.md",
       "redirect_url": "/azure/storsimple/storsimple-8000-security",
       "redirect_document_id": false
