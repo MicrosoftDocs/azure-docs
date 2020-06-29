@@ -223,18 +223,17 @@ The VS Code extension allows you to manage your Azure Machine Learning experimen
 
 ### Run experiment
 
-Using the Run Experiment Button:
-
 1. Expand the subscription node that contains your workspace.
-1. Expand the Experiments node inside your workspace.
+1. Expand the **Experiments** node inside your workspace.
 1. Right-click the experiment you want to run.
-
 1. Select the **Run Experiment** icon in the activity bar.
 1. Choose your subscription.
 1. Choose the Azure ML Workspace to run the experiment under.
 1. Choose your experiment.
 1. Choose or create a compute to run the experiment on.
 1. Choose or create a run configuration for your experiment.
+
+Alternatively, you can select the **Run Experiment** button at the top of the extension and configure your experiment run in the prompt.
 
 ### View experiment
 
