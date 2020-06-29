@@ -27,7 +27,7 @@ To build enterprise integration solutions with Azure Logic Apps, you can choose 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-## How does Logic Apps work? 
+## How do Logic Apps work? 
 
 Every logic app workflow starts with a trigger, which fires when a specific event happens, or when new available data meets specific criteria. Many triggers provided by the connectors in Logic Apps include basic scheduling capabilities so that you can set up how regularly your workloads run. For more complex scheduling or advanced recurrences, you can use a Recurrence trigger as the first step in any workflow. Learn more about [schedule-based workflows](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 

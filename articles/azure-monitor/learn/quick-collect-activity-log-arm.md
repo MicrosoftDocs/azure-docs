@@ -117,7 +117,7 @@ The following template creates an empty Log Analytics workspace. Save this templ
 ```
 
 ### Deploy the template
-Deploy the template using any standard method for [deploying an ARM template](/azure-resource-manager/templates/deploy-portal) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, **workspaceName**, and **location** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+Deploy the template using any standard method for [deploying an ARM template](../../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, **workspaceName**, and **location** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI1)
 

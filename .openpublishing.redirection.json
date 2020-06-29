@@ -16977,6 +16977,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-azure-cli.md",
       "redirect_url": "/cli/azure/mysql",
       "redirect_document_id": false
