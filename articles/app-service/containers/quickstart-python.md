@@ -3,10 +3,8 @@ title: 'Quickstart: Create a Linux Python app'
 description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
 ms.date: 04/03/2020
-ms.custom: seo-python-october2019, cli-validate
+ms.custom: seo-python-october2019, cli-validate, tracking-python
 
-experimental: true
-experiment_id: 01a9132f-eaab-4c
 ---
 
 # Quickstart: Create a Python app in Azure App Service on Linux
@@ -105,25 +103,25 @@ The `--sku F1` argument creates the web app on the Free pricing tier. You can om
 
 You can optionally include the argument `-l <location-name>` where `<location_name>` is an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.
 
-The `az webapp up` command may take a few minutes to completely run. While running, it displays information similar to the following example, where `<app_name>` will be the name you provided earlier:
+The `az webapp up` command may take a few minutes to completely run. While running, it displays information similar to the following example, where `<app-name>` will be the name you provided earlier:
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
-Creating app '<app-name>' ....
+Creating app '&lt;app-name&gt;' ....
 Configuring default logging for the app, if not already enabled
 Creating zip with contents of dir D:\Examples\python-docs-hello-world ...
 Getting scm site credentials for zip deployment
 Starting zip deployment. This operation can take a while to complete ...
 Deployment endpoint responded with status code 202
-You can launch the app at http://<app-name>.azurewebsites.net
+You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 {
-  "URL": "http://<app-name>.net",
+  "URL": "http://&lt;app-name&gt;.net",
   "appserviceplan": "appsvc_asp_Linux_centralus",
   "location": "eastus",
-  "name": "<app-name>",
+  "name": "&lt;app-name&gt;",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_centralus",
   "runtime_version": "python|3.7",

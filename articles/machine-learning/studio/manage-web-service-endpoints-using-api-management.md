@@ -5,7 +5,7 @@ description: A guide showing how to manage AzureML web services using API Manage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,8 +13,6 @@ ms.custom: seodec18
 ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 ## Overview
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.

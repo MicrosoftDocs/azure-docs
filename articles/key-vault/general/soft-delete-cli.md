@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault - How to use soft delete with CLI
+title: Azure Key Vault - How to use soft-delete with CLI
 description: Use case examples of soft-delete with CLI code snips
 services: key-vault
 author: msmbaldwin
@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with CLI
 
-Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
+Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
 
 - Support for recoverable deletion of a key vault
 - Support for recoverable deletion of key vault objects; keys, secrets, and, certificates
@@ -41,7 +41,7 @@ For more information on permissions and access control, see [Secure your key vau
 You enable "soft-delete" to allow recovery of a deleted key vault, or objects stored in a key vault.
 
 > [!IMPORTANT]
-> Enabling 'soft delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
+> Enabling 'soft-delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
 
 ### Existing key vault
 
@@ -226,13 +226,13 @@ When purge protection is turned on, a vault or an object in deleted state cannot
 
 You can enable purge protection only if soft-delete is also enabled. 
 
-To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
+To turn on both soft-delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
 
 ```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command:
+To add purge protection to an existing vault (that already has soft-delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command:
 
 ```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true

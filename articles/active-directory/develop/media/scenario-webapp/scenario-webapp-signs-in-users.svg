@@ -77,8 +77,8 @@
 			</g>
 		</g>
 		<g id="group1872-17" transform="translate(47.1467,-20.0036)" v:mID="1872" v:groupContext="group" v:layerMember="0">
-			<title>Web App (Was Websites).1872</title>
-			<desc>Web App</desc>
+			<title>Web app (Was Websites).1872</title>
+			<desc>Web app</desc>
 			<g id="group1873-18" v:mID="1873" v:groupContext="group" v:layerMember="0">
 				<title>Sheet.1873</title>
 				<g id="shape1874-19" v:mID="1874" v:groupContext="shape" v:layerMember="0">
@@ -209,7 +209,7 @@
 			<g id="shape1872-59" v:mID="1872" v:groupContext="groupContent" v:layerMember="0">
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="15.5906" cy="58.7918" width="52.14" height="20.0036"/>
-				<text x="-5.11" y="61.79" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web App</text>			</g>
+				<text x="-5.11" y="61.79" class="st4" v:langID="1033"><v:paragraph v:horizAlign="1"/><v:tabList/>Web app</text>			</g>
 		</g>
 	</g>
 </svg>

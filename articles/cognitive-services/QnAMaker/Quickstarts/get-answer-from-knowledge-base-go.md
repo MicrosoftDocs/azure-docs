@@ -4,7 +4,7 @@ description: This Go REST-based quickstart walks you through getting an answer f
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Go.
 ---
 

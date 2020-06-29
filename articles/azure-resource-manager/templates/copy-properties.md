@@ -10,7 +10,7 @@ This article shows you how to create more than one instance of a property in you
 
 You can also use copy with [resources](copy-resources.md), [variables](copy-variables.md), and [outputs](copy-outputs.md).
 
-## Property iteration
+## Syntax
 
 The copy element has the following general format:
 
@@ -30,11 +30,26 @@ The **count** property specifies the number of iterations you want for the prope
 
 The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property.
 
+## Copy limits
+
+The count can't exceed 800.
+
+The count can't be a negative number. It can be zero if you deploy the template with a recent version of Azure CLI, PowerShell, or REST API. Specifically, you must use:
+
+* Azure PowerShell **2.6** or later
+* Azure CLI **2.0.74** or later
+* REST API version **2019-05-10** or later
+* [Linked deployments](linked-templates.md) must use API version **2019-05-10** or later for the deployment resource type
+
+Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
+
+## Property iteration
+
 The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "numberOfDataDisks": {
@@ -226,12 +241,6 @@ You can use resource and property iteration together. Reference the property ite
   }
 }
 ```
-
-## Copy limits
-
-The count can't exceed 800.
-
-The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
 ## Example templates
 

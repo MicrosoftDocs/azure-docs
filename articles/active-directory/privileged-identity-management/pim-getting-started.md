@@ -9,18 +9,18 @@ editor: ''
 
 ms.service: active-directory
 ms.subservice: pim
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/13/2020
+ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim  
 ms.collection: M365-identity-device-management
 ---
 # Start using Privileged Identity Management
 
-With Privileged Identity Management (PIM), you can manage, control, and monitor access within your Azure Active Directory (Azure AD) organization. This scope includes access to Azure resources, Azure AD, and other Microsoft online services like Office 365 or Microsoft Intune.
+This article describes how to enable Privileged Identity Management (PIM) and get started using it.
 
-This article describes how to enable and get started using Privileged Identity Management.
+Use Privileged Identity Management (PIM) to manage, control, and monitor access within your Azure Active Directory (Azure AD) organization. With PIM you can provide as-needed and just-in-time access to Azure resources, Azure AD resources, and other Microsoft online services like Office 365 or Microsoft Intune.
 
 ## Prerequisites
 
@@ -31,29 +31,30 @@ To use Privileged Identity Management, you must have one of the following licens
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 
-## Sign up PIM for Azure AD roles
+## Prepare PIM for Azure AD roles
 
-Once you have enabled Privileged Identity Management for your directory, you'll need to sign up Privileged Identity Management to manage Azure AD roles.
+Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure AD roles.
 
-1. Open **Azure AD Privileged Identity Management**.
+Here are the tasks we recommend for you to prepare for Azure AD roles, in order:
 
-1. Select **Azure AD roles**.
+1. [Configure Azure AD role settings](pim-how-to-change-default-settings.md).
+1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
+1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md).
 
-    ![Sign up Privileged Identity Management for Azure AD roles](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
+## Prepare PIM for Azure roles
 
-1. Select **Sign up**.
+Once you have enabled Privileged Identity Management for your directory, you can prepare Privileged Identity Management to manage Azure roles for Azure resource access on a subscription.
 
-1. In the message that appears, click **Yes** to sign up Privileged Identity Management to manage Azure AD roles.
+Here are the tasks we recommend for you to prepare for Azure roles, in order:
 
-    ![Sign up Privileged Identity Management for Azure AD roles message](./media/pim-getting-started/sign-up-pim-message.png)
-
-    When sign up completes, the Azure AD options will be enabled. You might need to refresh the portal.
-
-    For information about how to discover and select the Azure resources to protect with Privileged Identity Management, see [Discover Azure resources to manage in Privileged Identity Management](pim-resource-roles-discover-resources.md).
+1. [Discover Azure resources](pim-resource-roles-discover-resources.md)
+1. [Configure Azure role settings](pim-resource-roles-configure-role-settings.md).
+1. [Give eligible assignments](pim-resource-roles-assign-roles.md).
+1. [Allow eligible users to activate their Azure roles just-in-time](pim-resource-roles-activate-your-roles.md).
 
 ## Navigate to your tasks
 
-Once Privileged Identity Management is set up, you can start your identity management tasks.
+Once Privileged Identity Management is set up, you can learn your way around.
 
 ![Navigation window in Privileged Identity Management showing Tasks and Manage options](./media/pim-getting-started/pim-quickstart-tasks.png)
 
@@ -63,12 +64,12 @@ Once Privileged Identity Management is set up, you can start your identity manag
 | **My requests** | Displays your pending requests to activate eligible role assignments. |
 | **Approve requests** | Displays a list of requests to activate eligible roles by users in your directory that you are designated to approve. |
 | **Review access** | Lists active access reviews you are assigned to complete, whether you're reviewing access for yourself or someone else. |
-| **Azure AD roles** | Displays a dashboard and settings for privileged role administrators to manage Azure AD role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire tenant. |
-| **Azure resources** | Displays a dashboard and settings for privileged role administrators to manage Azure resource role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire tenant. |
+| **Azure AD roles** | Displays a dashboard and settings for Privileged role administrators to manage Azure AD role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
+| **Azure resources** | Displays a dashboard and settings for Privileged role administrators to manage Azure resource role assignments. This dashboard is disabled for anyone who isn't a privileged role administrator. These users have access to a special dashboard titled My view. The My view dashboard only displays information about the user accessing the dashboard, not the entire organization. |
 
 ## Add a PIM tile to the dashboard
 
-To make it easier to open Privileged Identity Management, add a Privileged Identity Management tile to your Azure portal dashboard.
+To make it easier to open Privileged Identity Management, add a PIM tile to your Azure portal dashboard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -89,4 +90,4 @@ To make it easier to open Privileged Identity Management, add a Privileged Ident
 ## Next steps
 
 - [Assign Azure AD roles in Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Discover Azure resources to manage in Privileged Identity Management](pim-resource-roles-discover-resources.md)
+- [Manage Azure resource access in Privileged Identity Management](pim-resource-roles-discover-resources.md)

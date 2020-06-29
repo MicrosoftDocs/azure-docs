@@ -4,8 +4,8 @@ description: Read answers to frequently asked questions about Azure Import Expor
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: conceptual
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -148,7 +148,7 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 
 ### Does Azure Import/Export support AES-256 encryption?
 
-No. Azure Import/Export service uses AES-128 BitLocker encryption.
+Yes. Azure Import/Export service uses AES-256 BitLocker encryption.
 
 ## Next steps
 

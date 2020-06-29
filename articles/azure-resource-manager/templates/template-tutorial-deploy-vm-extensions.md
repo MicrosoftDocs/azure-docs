@@ -2,7 +2,7 @@
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
 author: mumian
-ms.date: 03/31/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -18,7 +18,6 @@ This tutorial covers the following tasks:
 > * Open a quickstart template
 > * Edit the template
 > * Deploy the template
-> * Verify the deployment
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -37,29 +36,34 @@ To complete this article, you need:
 
 ## Prepare a PowerShell script
 
-A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+You can use inline PowerShell script or a script file.  This tutorial shows how to use a script file. A PowerShell script with the following content is shared from [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-If you choose to publish the file to your own location, you must update the `fileUri` element in the template later in the tutorial.
+If you choose to publish the file to your own location, update the `fileUri` element in the template later in the tutorial.
 
 ## Open a quickstart template
 
 Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. In Visual Studio Code, select **File** > **Open File**.
-1. In the **File name** box, paste the following URL: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+1. In the **File name** box, paste the following URL:
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    ```
 
 1. To open the file, select **Open**.
     The template defines five resources:
 
-   * **Microsoft.Storage/storageAccounts**. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-   * **Microsoft.Network/publicIPAddresses**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts).
+   * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses).
+   * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups).
+   * [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks).
+   * [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces).
+   * [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines).
 
      It's helpful to get some basic understanding of the template before you customize it.
 
@@ -72,7 +76,7 @@ Add a virtual machine extension resource to the existing template with the follo
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "apiVersion": "2018-06-01",
+  "apiVersion": "2019-12-01",
   "name": "[concat(variables('vmName'),'/', 'InstallWebServer')]",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -100,6 +104,14 @@ For more information about this resource definition, see the [extension referenc
 * **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
 * **commandToExecute**: This command invokes the script.
 
+To use inline script, remove **fileUris**, and update **commandToExecute** to:
+
+```powershell
+powershell.exe Install-WindowsFeature -name Web-Server -IncludeManagementTools && powershell.exe remove-item 'C:\\inetpub\\wwwroot\\iisstart.htm' && powershell.exe Add-Content -Path 'C:\\inetpub\\wwwroot\\iisstart.htm' -Value $('Hello World from ' + $env:computername)
+```
+
+This inline script also update the iisstart.html content.
+
 You must also open the HTTP port so that you would be able to access the web server.
 
 1. Find **securityRules** in the template.
@@ -125,11 +137,13 @@ You must also open the HTTP port so that you would be able to access the web ser
 
 For the deployment procedure, see the "Deploy the template" section of [Tutorial: Create ARM templates with dependent resources](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). We recommended that you use a generated password for the virtual machine administrator account. See this article's [Prerequisites](#prerequisites) section.
 
-## Verify the deployment
+From the Cloud Shell, run the following command to retrieve the public IP address of the VM:
 
-1. In the Azure portal, select the VM.
-1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab.
-   The default Internet Information Services (IIS) welcome page opens:
+```azurepowershell
+(Get-AzPublicIpAddress -ResourceGroupName $resourceGroupName).IpAddress
+```
+
+Paste the IP address into a Web browser. The default Internet Information Services (IIS) welcome page opens:
 
 ![The Internet Information Services welcome page](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

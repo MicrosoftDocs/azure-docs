@@ -5,9 +5,9 @@ services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -33,7 +33,7 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Workload groups operate based on percentage of overall system resources.  
 
-Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 9.6% of the overall system resources.  At DW2000c, 19.2% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
+Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 19.2% of the overall system resources.  At DW2000c, 9.6% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
 
 ## Create Workload Group
 

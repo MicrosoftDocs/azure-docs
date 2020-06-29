@@ -49,7 +49,7 @@ To recreate an index, you must re-index data from external sources. For this rea
 
 As an alternative, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up an index definition and index snapshot to a series of JSON files. Later, you can use the tool and files to restore the index, if needed.  
 
-### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+### Can I index from SQL Database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
 
@@ -78,6 +78,14 @@ Most wildcard search queries, like prefix, fuzzy and regex, are rewritten intern
 By default, search results are scored based on the [statistical properties of matching terms](search-lucene-query-architecture.md#stage-4-scoring), and ordered high to low in the result set. However, some query types (wildcard, prefix, regex) always contribute a constant score to the overall document score. This behavior is by design. Azure Cognitive Search imposes a constant score to allow matches found through query expansion to be included in the results, without affecting the ranking.
 
 For example, suppose an input of "tour*" in a wildcard search produces matches on "tours", "tourettes", and "tourmaline". Given the nature of these results, there is no way to reasonably infer which terms are more valuable than others. For this reason, we ignore term frequencies when scoring results in queries of types wildcard, prefix, and regex. Search results based on a partial input are given a constant score to avoid bias towards potentially unexpected matches.
+
+## Skillset Operations
+
+### Are there any tips or tricks to reduce cognitive services charges on ingestion?
+
+It is understandable that you don't want to execute built-in skills or custom skills more than is absolutely necessary, especially if you are dealing with millions of documents to process. With that in mind, we have added "incremental enrichment" capabilities to skillset execution. In essence, you can provide a cache location (a blob storage connection string) that will be used to store the output of "intermediate" enrichment steps.  That allows the enrichment pipeline to be smart and apply only enrichments that are necessary when you modify your skillset. This will naturally also save indexing time as the pipeline will be more efficient.
+
+Learn more about [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md)
 
 ## Design patterns
 

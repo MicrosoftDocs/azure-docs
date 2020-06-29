@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: 
 
@@ -53,9 +53,10 @@ Below are the results for another category of source content, where the encoder 
 
 You can create transforms that use this preset as follows. 
 
-> [!TIP]
-> See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
+> [!NOTE]
+> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -75,7 +76,7 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
-
+  
 ## Next steps
 
 * [Tutorial: Upload, encode, and stream videos with Media Services v3](stream-files-tutorial-with-api.md)

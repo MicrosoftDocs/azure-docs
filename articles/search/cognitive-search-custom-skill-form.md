@@ -7,7 +7,7 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
 ---
 
@@ -160,8 +160,8 @@ To use this skill in a Cognitive Search pipeline, you'll need to add a skill def
 
 In this guide, you created a custom skill from the Azure Form Recognizer service. To learn more about custom skills, see the following resources. 
 
-* [Azure Search Power Skills: a repository of custom skills](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 * [Define a skillset](cognitive-search-defining-skillset.md)
-* [Create a skillset (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Create a skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Map enriched fields](cognitive-search-output-field-mapping.md)

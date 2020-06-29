@@ -11,19 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2019
+ms.date: 04/28/2020
 ms.author: memildin
 ---
+
 # Upgrade to Standard tier for enhanced security
+
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
 
 ## Pricing tiers
 Security Center is offered in two tiers:
 
-- The **Free** tier is enabled on all your Azure subscriptions once you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. The free tier provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
-- The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The standard tier also adds threat protection capabilities, which use built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. In addition, standard tier adds vulnerability scanning for your virtual machines. You can try the standard tier for free. Security Center standard supports Azure resources including VMs, Virtual machine scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center standard, you can opt out of support based on resource type. 
+- The **Free** tier is enabled on all your Azure subscriptions when you visit the Azure Security Center dashboard in the Azure portal for the first time, or if enabled programmatically via API. The free tier provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
 
-Most of the free tier security assessments for VMs, as well many of the standard tier security alerts, require the installation of the Log Analytics agent capability. You can enable Auto Provision on Security Center to automatically deploy the agent for your Azure VMs.
+- The **Standard** tier extends the capabilities of the free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The standard tier also adds threat protection capabilities, which use built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. In addition, standard tier adds vulnerability scanning for your virtual machines. You can try the standard tier for free. Security Center standard supports Azure resources including VMs, Virtual machine scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center standard, you can opt out of support based on resource type. 
+
+Most of the free tier security assessments for VMs, as well many of the standard tier security alerts, require the installation of the Log Analytics agent. You can enable auto provisioning on Security Center to automatically deploy the agent on your Azure VMs.
 
 ## Try standard tier free for 30 days
 The standard tier is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we will automatically start charging for usage.
@@ -41,8 +44,12 @@ To get the standard tier:
 [![Security Center Pricing](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> To enable all Security Center features, you must apply the standard pricing tier to the subscription containing the applicable virtual machines. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources.
+> To enable all Security Center features including threat protection capabilities, you must apply the standard pricing tier to the subscription containing the applicable workloads. Configuring pricing for a workspace does not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. 
 >
+> You can enable threat protection for **Azure Storage accounts** at either the subscription level or resource level.
+> You can enable threat protection for **Azure SQL Database SQL servers** at either the subscription level or resource level.
+> You can enable threat protection for **Azure Database for MariaDB/ MySQL/ PostgreSQL** at the resource level only.
+
 
 ## Why upgrade to standard?
 Security Center offers enhanced security and threat protection for your hybrid cloud workloads, including:

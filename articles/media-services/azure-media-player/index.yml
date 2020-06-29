@@ -1,0 +1,83 @@
+### YamlMime:Landing
+
+title: Azure Media Player
+summary: Learn more about using the Azure Media Player
+
+metadata:
+  title: Azure Media Player landing page 
+  description: Learn more about using the Azure Media Player on your web pages. 
+  ms.service: media-services
+  ms.topic: landing-page
+  author: IngridAtMicrosoft
+  ms.author: inhenkel
+  ms.date: 04/20/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: Azure Media Player
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview
+            url: azure-media-player-overview.md
+          - text: Release notes
+            url: azure-media-player-release-notes.md
+          - text: Changelog
+            url: azure-media-player-changelog.md    
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure Media Player quickstart
+            url: azure-media-player-quickstart.md
+          - text:  Azure Media Player full setup
+            url: azure-media-player-full-setup.md
+          - text: Azure Media Player Samples
+            url: https://github.com/Azure-Samples/azure-media-player-samples
+
+# Card
+  - title: Concepts
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Playback technology
+            url: azure-media-player-playback-technology.md 
+          - text: Protected content
+            url: azure-media-player-protected-content.md
+          - text: Feature list
+            url: azure-media-player-feature-list.md
+          - text: URL rewriter
+            url: azure-media-player-url-rewriter.md
+          - text: Accessibility
+            url: azure-media-player-accessibility.md
+          - text: Writing plugins
+            url: azure-media-player-writing-plugins.md
+          - text: Plugin gallery
+            url: azure-media-player-plugin-gallery.md
+          - text: Localization
+            url: azure-media-player-localization.md
+
+# Card
+  - title: Reference
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Samples
+            url: https://github.com/Azure-Samples/azure-media-player-samples
+          - text: API
+            url: https://docs.microsoft.com/javascript/api/azuremediaplayer/?view=azure-node-latest
+          - text: API methods
+            url: azure-media-player-api-methods.md
+          - text: Options
+            url: azure-media-player-options.md
+          - text: Error codes
+            url: azure-media-player-error-codes.md
+          - text: Known Issues
+            url: azure-media-player-known-issues.md

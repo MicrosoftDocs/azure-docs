@@ -242,9 +242,9 @@ In this section, you configure your VPN server to use RADIUS authentication. The
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
     c. In the **Time-out (seconds)** box, enter a value of **30**.  
-    The timeout value is necessary to allow enough time to complete the second authentication factor.
+    The timeout value is necessary to allow enough time to complete the second authentication factor. Some VPNs or regions require time-out settings greater than 30 seconds to prevent users from receiving multiple phone calls. If users do experience this issue, increase the **Time-out (seconds)** value in increments of 30 seconds until the issue doesn't reoccur.
 
-    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Select **OK**.
 
@@ -363,7 +363,7 @@ The script performs the following actions:
 
 If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Azure AD, and so on.
 
-To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. Run the script on each NPS server where you install the NPS extension.
+To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. The account must be in the same Azure AD tenant as you wish to enable the extension for. Run the script on each NPS server where you install the NPS extension.
 
 1. Run Windows PowerShell as an administrator.
 
@@ -373,6 +373,8 @@ To use the script, provide the extension with your Azure Active Directory admini
 
     ![Running the AzureMfsNpsExtnConfigSetup.ps1 configuration script](./media/howto-mfa-nps-extension-vpn/image38.png)
 
+    If you get a security error due to TLS, enable TLS 1.2 using the `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` command from your PowerShell prompt.
+    
     After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module sign-in window.
 
 4. Enter your Azure AD administrator credentials and password, and then select **Sign in**.

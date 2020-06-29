@@ -59,7 +59,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
   
 5.  Submit the pipeline. If you have a lot of data, this can take a while.
 
-## <a name="bkmk_results"></a> Results
+## Results
 
 After the model is trained:
 

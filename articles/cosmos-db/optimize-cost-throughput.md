@@ -113,7 +113,7 @@ By default, Azure Cosmos DB automatically indexes every property of every record
 
 You can monitor the total number of RUs provisioned, number of rate-limited requests as well as the number of RUs you’ve consumed in the Azure portal. The following image shows an example usage metric:
 
-![Monitor request units in the Azure portal](./media/optimize-cost-throughput/monitoring.png)
+:::image type="content" source="./media/optimize-cost-throughput/monitoring.png" alt-text="Monitor request units in the Azure portal":::
 
 You can also set alerts to check if the number of rate-limited requests exceeds a specific threshold. See [How to monitor Azure Cosmos DB](use-metrics.md) article for more details. These alerts can send an email to the account administrators or call a custom HTTP Webhook or an Azure Function to automatically increase provisioned throughput. 
 

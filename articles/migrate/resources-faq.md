@@ -1,11 +1,8 @@
 ---
 title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
-author: snehaamicrosoft
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: snehaa
+ms.date: 04/15/2020
 ---
 
 # Azure Migrate: Common questions
@@ -51,8 +48,7 @@ Choose your tool based on what you want to do:
 
 ## Which geographies are supported?
 
-- **VMware VMs**: Review the Azure Migrate [supported geographies](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) for VMware VMs.
-- **Hyper-V VMs**: Review the Azure Migrate [supported geographies](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) for Hyper-V VMs.
+Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## How do I get started?
 

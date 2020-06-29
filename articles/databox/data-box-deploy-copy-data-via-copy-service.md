@@ -46,7 +46,8 @@ After you're connected to the NAS device, the next step is to copy your data. Be
 
 * If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
 
-* Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 To copy data by using the data copy service, you need to create a job:
 
@@ -146,4 +147,3 @@ Advance to the next tutorial to learn how to ship your Data Box device back to M
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box device to Microsoft](./data-box-deploy-picked-up.md)
-

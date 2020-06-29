@@ -46,4 +46,4 @@ As with all of the Cognitive Services, developers using the Custom Vision servic
 
 ## Next steps
 
-Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](csharp-tutorial.md) to implement a basic scenario in code.
+Follow the [Build a classifier](getting-started-build-a-classifier.md) guide to get started using Custom Vision on the web, or complete an [Image classification tutorial](quickstarts/image-classification.md) to implement a basic scenario in code.

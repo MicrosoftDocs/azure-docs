@@ -40,23 +40,23 @@
     items: 
     - name: Create users 
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Bulk create users (preview)
+    - name: Bulk create users
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: My Staff delegation
       href: my-staff-configure.md
-    - name: Download user info (preview)
+    - name: Download user info
       href: users-bulk-download.md
-    - name: Share user accounts  
+    - name: Share user accounts
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
       href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Bulk delete users (preview)
+    - name: Bulk delete users
       href: users-bulk-delete.md
     - name: Restore a deleted user    
       href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Bulk restore users (preview)
+    - name: Bulk restore users
       href: users-bulk-restore.md
     - name: Close an account in an unmanaged directory
       href: users-close-account.md
@@ -68,7 +68,7 @@
       href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage your directory
     items:
-    - name: Administer your directory    
+    - name: Azure AD organizations    
       href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage domain names
       href: domains-manage.md
@@ -84,7 +84,7 @@
       href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage groups
     items: 
-    - name: Manage access with Azure AD groups
+    - name: Manage access with groups
       href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context  
     - name: Create a group (Azure portal)    
       href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -92,7 +92,7 @@
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups with PowerShell MSOnline    
       href: groups-settings-cmdlets.md
-    - name: Search group and member lists (preview)    
+    - name: Search group and member lists   
       href: groups-members-owners-search.md
     - name: Add or remove group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -106,13 +106,13 @@
         href: groups-dynamic-rule-validation.md
       - name: Change group membership type  
         href: groups-change-type.md
-    - name: Bulk add members (preview)
+    - name: Bulk add members
       href: groups-bulk-import-members.md
-    - name: Bulk remove members (preview)
+    - name: Bulk remove members
       href: groups-bulk-remove-members.md
-    - name: Bulk download member list (preview)
+    - name: Bulk download member list
       href: groups-bulk-download-members.md
-    - name: Bulk download groups list (preview)
+    - name: Bulk download groups list
       href: groups-bulk-download.md
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
@@ -130,10 +130,12 @@
       href: groups-lifecycle.md
     - name: Set up group self-service    
       href: groups-self-service-management.md
-    - name: Assign sensitivity labels (preview)
+    - name: Assign sensitivity labels
       href: groups-assign-sensitivity-labels.md
   - name: Assign licenses
     items:
+    - name: Assign licenses to users    
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Assign licenses to a group    
       href: licensing-groups-assign.md
     - name: Resolve group license problems   
@@ -155,11 +157,11 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
-    - name: Custom roles preview
+    - name: Custom roles
       items:
-      - name: Custom roles preview
+      - name: Custom roles        
         href: roles-custom-overview.md
-      - name: Create custom role
+      - name: Create a custom role
         href: roles-create-custom.md
       - name: View custom role assignments
         href: roles-view-assignments.md
@@ -167,7 +169,7 @@
         href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
-      - name: Custom role preview permissions
+      - name: Custom role permissions
         href: roles-custom-available-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
@@ -181,7 +183,7 @@
         href: directory-admin-roles-secure.md  
       - name: Create emergency accounts    
         href: directory-emergency-access.md
-    - name: Administrative units preview
+    - name: Administrative units     
       items:
       - name: Administrative units overview  
         href: directory-administrative-units.md

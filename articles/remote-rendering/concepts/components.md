@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Azure Remote Rendering uses the [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) pattern. While [entities](entities.md) represent the position and the hierarchical composition of objects, components are responsible for implementing behavior.
 
-The most frequently used types of components are [mesh components](meshes.md), which add meshes into the rendering pipeline. Similarly, [light components](../overview/features/lights.md) are used to add lighting and [cut plane components](../overview/features/cut-planes.md) are used to cut open meshes.
+The most frequently used types of components are [:::no-loc text="mesh components":::](meshes.md), which add meshes into the rendering pipeline. Similarly, [light components](../overview/features/lights.md) are used to add lighting and [cut plane components](../overview/features/cut-planes.md) are used to cut open meshes.
 
 All these components use the transform (position, rotation, scale) of the entity they are attached to, as their reference point.
 
@@ -33,6 +33,20 @@ lightComponent.Intensity = 11;
 lightComponent.Destroy();
 lightComponent = null;
 ```
+
+```cpp
+// create a point light component
+ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+
+ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+
+// ...
+
+// destroy the component
+lightComponent->Destroy();
+lightComponent = nullptr;
+```
+
 
 A component is attached to an entity at creation time. It cannot be moved to another entity afterwards. Components are explicitly deleted with `Component.Destroy()` or automatically when the component's owner entity is destroyed.
 

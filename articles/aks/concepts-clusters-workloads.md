@@ -84,7 +84,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 - **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
 
-| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
@@ -101,9 +101,9 @@ To maintain node performance and functionality, resources are reserved on each n
 
 The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
-For example, if a node offers 7 GB, it will report 34% of memory not allocatable on top of the 750Mi hard eviction threshold.
+For example, if a node offers 7 GB, it will report 34% of memory not allocatable including the 750Mi hard eviction threshold.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 In addition to reservations for Kubernetes itself, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
 
@@ -122,7 +122,7 @@ For more information about how to use multiple node pools in AKS, see [Create an
 
 ### Node selectors
 
-In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes. Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
 
 The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
 
@@ -200,11 +200,7 @@ For more information, see [Kubernetes deployments][kubernetes-deployments].
 
 A common approach to managing applications in Kubernetes is with [Helm][helm]. You can build and use existing public Helm *charts* that contain a packaged version of application code and Kubernetes YAML manifests to deploy resources. These Helm charts can be stored locally, or often in a remote repository, such as an [Azure Container Registry Helm chart repo][acr-helm].
 
-To use Helm, a server component called *Tiller* is installed in your Kubernetes cluster. The Tiller manages the installation of charts within the cluster. The Helm client itself is installed locally on your computer, or can be used within the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster.
-
-![Helm includes a client component and a server-side Tiller component that creates resources inside the Kubernetes cluster](media/concepts-clusters-workloads/use-helm.png)
-
-For more information, see [Install applications with Helm in Azure Kubernetes Service (AKS)][aks-helm].
+To use Helm, install the Helm client on your computer, or use the Helm client in the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster. For more information, see [Install existing applications with Helm in AKS][aks-helm].
 
 ## StatefulSets and DaemonSets
 

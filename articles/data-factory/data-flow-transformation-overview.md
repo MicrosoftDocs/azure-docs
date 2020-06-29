@@ -11,7 +11,7 @@ ms.date: 03/10/2020
 
 # Mapping data flow transformation overview
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 

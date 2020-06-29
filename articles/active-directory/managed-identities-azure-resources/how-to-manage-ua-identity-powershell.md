@@ -1,6 +1,6 @@
 ---
 title: Create, list & delete user-assigned managed identity using Azure PowerShell - Azure AD
-description: Step by step instructions on how to create, list and delete user-assigned managed identity using Azure PowerShell.
+description: Step-by-step instructions on how to create, list, and delete user-assigned managed identity using Azure PowerShell.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -18,19 +18,19 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# Create, list or delete a user-assigned managed identity using Azure PowerShell
+# Create, list, or delete a user-assigned managed identity using Azure PowerShell
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Managed identities for Azure resources provides Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
+Managed identities for Azure resources provide Azure services with a managed identity in Azure Active Directory. You can use this identity to authenticate to services that support Azure AD authentication, without needing credentials in your code. 
 
-In this article, you learn how to create, list and delete a user-assigned managed identity using Azure PowerShell.
+In this article, you learn how to create, list, and delete a user-assigned managed identity using Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
 - If you are running PowerShell locally, you also need to: 

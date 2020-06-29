@@ -120,17 +120,17 @@ You can back up your data over Azure ExpressRoute with public peering (available
 
 With public peering: Ensure access to the following domains/addresses:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
 
 With Microsoft peering, please select the following services/regions and relevant community values:
 
-* Azure Active Directory (12076:5060)
-* Microsoft Azure Region (according to the location of your Recovery Services vault)
-* Azure Storage (according to the location of your Recovery Services vault)
+- Azure Active Directory (12076:5060)
+- Microsoft Azure Region (according to the location of your Recovery Services vault)
+- Azure Storage (according to the location of your Recovery Services vault)
 
 For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 

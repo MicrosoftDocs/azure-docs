@@ -1,110 +1,119 @@
 ---
 title: Configure Azure Backup reports
-description: Configure and view reports for Azure Backup using Log Analytics and Azure Workbooks
+description: Configure and view reports for Azure Backup by using Log Analytics and Azure workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
 ---
 # Configure Azure Backup reports
 
-A common requirement for backup admins is to obtain insights on backups, based on data spanning a long period of time. There could be multiple use cases for such a solution - allocating and forecasting of cloud storage consumed, auditing of backups and restores, and identifying key trends at different levels of granularity.
+A common requirement for backup admins is to obtain insights on backups based on data that spans a long period of time. Use cases for such a solution include:
 
-Today, Azure Backup provides a reporting solution that leverages [Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and [Azure Workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks), helping you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Backup Reports.
+- Allocating and forecasting of cloud storage consumed.
+- Auditing of backups and restores.
+- Identifying key trends at different levels of granularity.
+
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 
-* Backup Reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA/ASE in Azure VMs, Azure Backup Agent (MARS), Azure Backup Server (MABS) and System Center DPM.
-* For DPM workloads, Backup Reports are supported for DPM Version 5.1.363.0 and above, and Agent Version 2.0.9127.0 and above.
-* For MABS workloads, Backup Reports are supported for MABS Version 13.0.415.0 and above, and Agent Version 2.0.9170.0 and above.
-* Backup Reports can be viewed across all backup items, vaults, subscriptions and regions as long as their data is being sent to a Log Analytics (LA) Workspace that the user has access to. Note that to view reports for a set of vaults, you only need to have **reader access to the LA Workspace** to which the vaults are sending their data. You **need not** have access to the individual vaults.
-* If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
-* Data for log backup jobs is currently not displayed in the reports.
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File Share backup, data is displayed for all records created on or after Jun 1, 2020.
+- For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
+- For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
+- Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
+- If you're an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
+- Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
+- Data for log backup jobs currently isn't displayed in the reports.
 
-## Getting started
+## Get started
 
-To get started with using the reports, follow the three steps detailed below:
+Follow these steps to start using the reports.
 
-1. **Create a Log Analytics (LA) workspace (or use an existing one):**
+### 1. Create a Log Analytics workspace or use an existing one
 
-You need to set up one or more LA Workspaces to store your backup reporting data. The location and subscription where this LA workspace can be created is independent of the location and subscription where your vaults exist. 
+Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription where this Log Analytics workspace can be created is independent of the location and subscription where your vaults exist.
 
-Refer to the following article: [Create a Log Analytics Workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) to set up an LA Workspace.
+To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-By default, the data in an LA Workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the LA Workspace. To change the retention period, refer to the following article: [Manage usage and costs with Azure Monitor Logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
 
-2. **Configure diagnostics settings for your vaults:**
+### 2. Configure diagnostics settings for your vaults
 
-Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data. 
+Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data.
 
-In the monitoring section of your Recovery Services vault, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data. [Learn more about using diagnostic events](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
-![Diagnostics Settings Blade](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
+![Diagnostics settings pane](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup also provides a built-in Azure Policy, which automates the configuration of diagnostic settings for all vaults in a given scope. Refer to the following article to learn how to use this policy: [Configure Vault Diagnostics Settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
-
-> [!NOTE]
-> Once you configure diagnostics, it may take upto 24 hours for the initial data push to complete. Once data starts flowing into the LA Workspace, you may not be able to see data in the reports immediately, since data for the current partial day are not shown in the reports (more details [here](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Hence, it is recommended to start viewing the reports 2 days after you configure your vaults to send data to Log Analytics.
-
-3. **View reports on the Azure portal:**
-
-Once you have configured your vaults to send data to LA, view your backup reports by navigating to any vault's blade and clicking on the **Backup Reports** menu item. 
-
-![Vault Dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
-
-Clicking this link opens up the Backup Report Workbook.
+Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
 
 > [!NOTE]
-> * Currently, the initial load of the report may take up to 1 minute.
-> * The Recovery Services vault is merely an entry point for Backup Reports. Once the Backup Reports Workbook opens up from a vault's blade, you will be able to see data aggregated across all your vaults (by selecting the appropriate set of LA Workspaces).
+> After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
-Below is a description of the various tabs that the report contains:
+#### 3. View reports in the Azure portal
 
-* **Summary** - The Summary tab provides a high-level overview of your backup estate. Under the Summary tab, you can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances and the job success rate per workload type. For more detailed information around a specific backup artifact type, navigate to the respective tabs.
+After you've configured your vaults to send data to Log Analytics, view your Backup reports by going to any vault's pane and selecting **Backup Reports**.
 
-![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
+![Vault dashboard](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-* **Backup Items** - The Backup Items tab allows you to see information and trends on cloud storage consumed at a Backup Item level. For example, if you are using SQL in Azure VM backup, you can see the cloud storage consumed for each SQL database being backed up. You can also choose to see data for backup items of a particular protection status. For example, clicking on the **Protection Stopped** tile at the top of the tab, filters all the below widgets to show data only for Backup Items in Protection Stopped state.
+Select this link to open up the Backup report workbook.
 
-![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
+> [!NOTE]
+>
+> - Currently, the initial load of the report might take up to 1 minute.
+> - The Recovery Services vault is merely an entry point for Backup reports. After the Backup report workbook opens up from a vault's pane, select the appropriate set of Log Analytics workspaces to see data aggregated across all your vaults.
 
-* **Usage** - The Usage tab helps you view key billing parameters for your backups. The information shown in this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you are using SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine that these databases are contained in.
+The report contains various tabs:
 
-![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
+- **Summary**: Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
 
-* **Jobs** - The Jobs tab lets you view long running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a backup item level. Clicking on a particular backup item in a grid lets you view detailed information on each job that was triggered on that backup item in the selected time range.
+   ![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
 
-![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
+- **Backup Items**: Use this tab to see information and trends on cloud storage consumed at a Backup-item level. For example, if you use SQL in an Azure VM backup, you can see the cloud storage consumed for each SQL database that's being backed up. You can also choose to see data for backup items of a particular protection status. For example, selecting the **Protection Stopped** tile at the top of the tab filters all the widgets underneath to show data only for Backup items in the Protection Stopped state.
 
-* **Policies** - The Policies tab lets you view information on all of your active policies, such as the number of associated items, and the total cloud storage consumed by items backed up under a given policy. Clicking on a particular policy lets you view information on each of its associated backup items.
+   ![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-![Policies tab](./media/backup-azure-configure-backup-reports/policies.png)
+- **Usage**: Use this tab to view key billing parameters for your backups. The information shown on this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you use SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine in which these databases are contained.
 
-## Exporting to Excel
+   ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
-Clicking on the down arrow button at the top right of any widget (table/chart) exports the contents of that widget as an Excel sheet, as-is with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by using the **Rows Per Page** dropdown at the top of each grid.
+> [!NOTE]
+> For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery services vault overview tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which is not surfaced as an artifact for reporting.
 
-## Pinning to Dashboard
+- **Jobs**: Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
-Click the Pin Icon at the top of each widget to pin the widget to your Azure portal dashboard. This helps you create customized dashboards tailored to display the most important information that you need.
+   ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
 
-## Cross-tenant Reports
+- **Policies**: Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. Select a particular policy to view information on each of its associated Backup items.
 
-If you are an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter (by clicking on the filter icon in the top right of the Azure portal) to choose all the subscriptions you wish to see data for. Doing so will let you select LA Workspaces across your tenants to view multi-tenanted reports.
+   ![Policies tab](./media/backup-azure-configure-backup-reports/policies.png)
 
-## Conventions used in Backup Reports
+## Export to Excel
 
-* Filters work from left to right and top to bottom on each tab, that is, any filter only applies to all those widgets that are positioned either to the right of that filter or below that filter. 
-* Clicking on a colored tile filters the widgets below the tile for records pertaining to the value of that tile. For example, clicking on the *Protection Stopped* tile in the Backup Items tab filters the grids and charts below to show data for backup items in 'Protection Stopped' state.
-* Tiles that are not colored are not clickable.
-* Data for the current partial day is not shown in the reports. Thus, when the selected value of **Time Range** is, ***Last 7 days***, the report shows records for the last 7 completed days (which does not include the current day).
-* The report shows details of Jobs (apart from log jobs) that were **triggered** in the selected time range. 
-* The values shown for Cloud Storage and Protected Instances, are at the **end** of the selected time range.
-* The Backup Items displayed in the reports are those items that exist at the **end** of the selected time range. Backup Items which were deleted in the middle of the selected time range are not displayed. The same convention applies for Backup Policies as well.
+Select the down arrow button in the upper right of any widget, like a table or chart, to export the contents of that widget as an Excel sheet as-is with existing filters applied. To export more rows of a table to Excel, you can increase the number of rows displayed on the page by using the **Rows Per Page** drop-down arrow at the top of each grid.
+
+## Pin to dashboard
+
+Select the pin button at the top of each widget to pin the widget to your Azure portal dashboard. This feature helps you create customized dashboards tailored to display the most important information that you need.
+
+## Cross-tenant reports
+
+If you use [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multitenanted reports.
+
+## Conventions used in Backup reports
+
+- Filters work from left to right and top to bottom on each tab. That is, any filter only applies to all those widgets that are positioned either to the right of that filter or below that filter.
+- Selecting a colored tile filters the widgets below the tile for records that pertain to the value of that tile. For example, selecting the **Protection Stopped** tile on the **Backup Items** tab filters the grids and charts below to show data for backup items in the Protection Stopped state.
+- Tiles that aren't colored aren't clickable.
+- Data for the current partial day isn't shown in the reports. So, when the selected value of **Time Range** is **Last 7 days**, the report shows records for the last seven completed days. The current day isn't included.
+- The report shows details of jobs (apart from log jobs) that were *triggered* in the selected time range.
+- The values shown for **Cloud Storage** and **Protected Instances** are at the *end* of the selected time range.
+- The Backup items displayed in the reports are those items that exist at the *end* of the selected time range. Backup items that were deleted in the middle of the selected time range aren't displayed. The same convention applies for Backup policies as well.
 
 ## Query load times
 
-The widgets in the Backup Report are powered by Kusto queries, which run on the user's LA Workspaces. As these queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights, the widgets may not load instantaneously when the user is viewing reports across a large backup estate. The table below provides a rough estimate of the time that different widgets can take to load, based on the number of backup items and the time range for which the report is being viewed:
+The widgets in the Backup report are powered by Kusto queries, which run on the user's Log Analytics workspaces. These queries typically involve the processing of large amounts of data, with multiple joins to enable richer insights. As a result, the widgets might not load instantaneously when the user views reports across a large backup estate. This table provides a rough estimate of the time that different widgets can take to load, based on the number of Backup items and the time range for which the report is being viewed.
 
-| **# Datasources**                         | **Time Horizon** | **Load Times (approx.)**                                              |
+| **# Data sources**                         | **Time horizon** | **Approximate load times**                                              |
 | --------------------------------- | ------------- | ------------------------------------------------------------ |
 | ~5 K                       | 1 month          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
 | ~5 K                       | 3 months          | Tiles: 5-10 secs <br> Grids: 5-10 secs <br> Charts: 5-10 secs <br> Report-level filters: 5-10 secs|
@@ -112,10 +121,12 @@ The widgets in the Backup Report are powered by Kusto queries, which run on the 
 | ~15 K                       | 1 month          | Tiles: 15-20 secs <br> Grids: 15-20 secs <br> Charts: 50-60 secs <br> Report-level filters: 20-25 secs|
 | ~15 K                       | 3 months          | Tiles: 20-30 secs <br> Grids: 20-30 secs <br> Charts: 2-3 mins <br> Report-level filters: 50-60 secs |
 
-## What happened to the Power BI Reports?
-* Our earlier Power BI template app for reporting (which sourced data from an Azure Storage Account) is on a deprecation path. It is recommended to start sending vault diagnostic data to Log Analytics as described above, to view reports.
+## What happened to the Power BI reports?
 
-* In addition, the V1 schema of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
+- The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
+
+- In addition, the [V1 schema](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
+
 [Learn more about monitoring and reporting with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)

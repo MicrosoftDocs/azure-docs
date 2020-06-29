@@ -105,7 +105,7 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
         RentalAndLeaseKeyType =
                 ContentKeyPolicyFairPlayRentalAndLeaseKeyType
                 .PersistentUnlimited,
-        RentalDuration = 2249
+        RentalDuration = 2249 // in seconds
     };
 
     return fairPlayConfiguration;

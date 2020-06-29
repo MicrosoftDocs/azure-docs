@@ -150,7 +150,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use tags for network service groups (NSGs) and other resources related to network security and traffic flow that are associated with your Azure batch pools. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
@@ -713,7 +713,7 @@ Optionally, if you have a Rapid7, Qualys, or any other vulnerability management 
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager (ARM) resources going forward.
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -772,7 +772,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### 6.5: Monitor for Unapproved Azure Resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 - Allowed resource types
@@ -817,7 +817,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### 6.9: Use only approved Azure Services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 - Allowed resource types
@@ -879,7 +879,7 @@ Benchmark is intended for web applications running on Azure App Service or IaaS 
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Batch" namespace to create custom policies to audit or enforce the configuration of your Azure Batch accounts and pools.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -901,7 +901,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### 7.3: Maintain Secure Configurations for all Azure Resources
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your Batch account and pools (such as virtual networks, subnets, Azure Firewalls, Azure Storage Accounts, etc.). You may use Azure Policy Aliases from the following namespaces to create custom policies:
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings for the Azure resources related to your Batch account and pools (such as virtual networks, subnets, Azure Firewalls, Azure Storage Accounts, etc.). You may use Azure Policy aliases from the following namespaces to create custom policies:
 
 - Microsoft.Batch
 
@@ -928,7 +928,7 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely Store Configuration of Azure Resources
 
-**Guidance**: If using custom Azure policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Azure Batch accounts, pools, or related resources, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:
 
@@ -989,7 +989,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 - Diagnostic logs in Batch accounts should be enabled
 
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

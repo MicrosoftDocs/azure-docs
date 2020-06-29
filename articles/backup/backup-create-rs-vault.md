@@ -54,6 +54,9 @@ To create a Recovery Services vault:
 
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
+>[!NOTE]
+>The Storage Replication settings for the vault are not relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
+
 1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
 2. In **Properties**, under **Backup Configuration**, click **Update**.
 
@@ -85,11 +88,9 @@ For this process, there are pricing implications as it is at the storage level.
 >- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
 >- The Cross Region Restore (CRR) feature is now previewed in all Azure public regions.
 >- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
->- Please use the following command to onboard your subscription for this feature:<br>
->  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
->- If you are onboarded to this feature during public limited preview, the review approval email will include pricing policy details.
 >- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
 >- Currently CRR is supported only for Backup Management Type - ARM Azure VM (classic Azure VM will not be supported).  When additional management types support CRR, then they will be **automatically** enrolled.
+>- Cross Region Restore currently cannot be reverted back to GRS or LRS once the protection is initiated for the first time. 
 
 ### Configure Cross Region Restore
 
@@ -116,7 +117,7 @@ We highly recommend you review the default settings for **Storage Replication ty
 
 - **Storage Replication type** by default is set to **Geo-redundant**. Once you configure the backup, the option to modify is disabled. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
 
-- **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) to review and modify the settings.
+- **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) to review and modify the settings.
 
 ## Next steps
 

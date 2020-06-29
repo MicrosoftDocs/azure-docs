@@ -3,7 +3,7 @@ title: Use Azure Files with Linux | Microsoft Docs
 description: Learn how to mount an Azure file share over SMB on Linux.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
@@ -314,11 +314,6 @@ You can verify that this has worked by loading the SMB module:
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
-
-## Feedback
-Linux users, we want to hear from you!
-
-The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefiles@microsoft.com) to join the users' group.
 
 ## Next steps
 See these links for more information about Azure Files:

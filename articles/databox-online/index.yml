@@ -28,7 +28,7 @@ landingContent:
           - text: What is Data Box Gateway?
             url: data-box-gateway-overview.md
           - text: What is Azure Stack Edge?
-            url: data-box-edge-overview.md  
+            url: azure-stack-edge-overview.md  
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
@@ -48,11 +48,11 @@ landingContent:
           - text: Data Box Gateway requirements
             url: data-box-gateway-system-requirements.md
           - text: Azure Stack Edge requirements
-            url: data-box-edge-system-requirements.md
+            url: azure-stack-edge-system-requirements.md
           - text: Data Box Gateway limits
             url: data-box-gateway-limits.md
           - text: Azure Stack Edge limits
-            url: data-box-edge-limits.md
+            url: azure-stack-edge-limits.md
 
   # Card
   - title: "Deploy"
@@ -62,7 +62,7 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-deploy-prep.md
           - text: Azure Stack Edge
-            url: data-box-edge-deploy-prep.md
+            url: azure-stack-edge-deploy-prep.md
 
   # Card
   - title: Develop
@@ -70,7 +70,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: C# Edge compute module
-            url: data-box-edge-create-iot-edge-module.md
+            url: azure-stack-edge-create-iot-edge-module.md
       - linkListType: download
         links:
           - text: "Samples - C# for Azure Stack Edge"
@@ -84,11 +84,11 @@ landingContent:
           - text: Data Box Gateway shares
             url: data-box-gateway-manage-shares.md
           - text: Azure Stack Edge shares
-            url: data-box-edge-manage-shares.md
+            url: azure-stack-edge-manage-shares.md
           - text: Edge compute
-            url: data-box-edge-manage-compute.md
+            url: azure-stack-edge-manage-compute.md
           - text: Edge compute network
-            url: data-box-edge-extend-compute-access-modules.md
+            url: azure-stack-edge-extend-compute-access-modules.md
 
   # Card
   - title: Troubleshoot
@@ -98,10 +98,10 @@ landingContent:
           - text: Data Box Gateway
             url: data-box-gateway-troubleshoot.md
           - text: Azure Stack Edge
-            url: data-box-edge-troubleshoot.md
+            url: azure-stack-edge-troubleshoot.md
           - text: Edge compute modules
-            url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
+            url: azure-stack-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules            
           - text: Return or replace Azure Stack Edge
-            url: data-box-edge-return-device.md
+            url: azure-stack-edge-return-device.md
           - text: Open Support ticket
-            url: data-box-edge-contact-microsoft-support.md
+            url: azure-stack-edge-contact-microsoft-support.md

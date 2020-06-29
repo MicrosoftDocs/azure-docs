@@ -3,7 +3,7 @@ title: Transfer data to or from Azure Files by using AzCopy v10 | Microsoft Docs
 description: Transfer data with AzCopy and file storage.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
@@ -142,7 +142,7 @@ This section contains the following examples:
 > |---|---|
 > |Copy access control lists (ACLs) along with the files.|**--preserve-smb-permissions**=\[true\|false\]|
 > |Copy SMB property information along with the files.|**--preserve-smb-info**=\[true\|false\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> |Automatically decompress files.|**--decompress**|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 

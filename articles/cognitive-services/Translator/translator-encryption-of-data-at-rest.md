@@ -8,7 +8,7 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
 #Customer intent: As a user of the Translator service, I want to learn how encryption at rest works.
 ---
@@ -19,7 +19,7 @@ Translator automatically encrypts your data, which you upload to build custom tr
 
 ## About Cognitive Services encryption
 
-Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don’t need to modify your code or applications to take advantage of encryption.
+Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
 
@@ -38,11 +38,11 @@ There is also an option to manage your subscription with your own keys. Customer
 
 Follow these steps to enable customer-managed keys for Translator:
 
-1. Create your new regional Translator Text or regional Cognitive Services resource. This will not work with a global resource.
+1. Create your new regional Translator or regional Cognitive Services resource. This will not work with a global resource.
 2. Enabled Managed Identity in the Azure portal, and add your customer-managed key information.
 3. Create a new workspace in Custom Translator and associate this subscription information.
 
-[!INCLUDE [cognitive-services-cmk](../../../includes/cognitive-services-cmk-regions.md)]
+[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### Enable customer-managed keys
 

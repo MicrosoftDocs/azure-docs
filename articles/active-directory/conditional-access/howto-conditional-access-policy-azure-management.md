@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy to require multi-factor a
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,7 +36,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
+The following steps will help create a Conditional Access policy to require those with access to the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) app to perform multi-factor authentication.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.

@@ -1,19 +1,8 @@
 ---
 title: Azure Event Hubs - Resource Manager exceptions | Microsoft Docs
 description: List of Azure Event Hubs exceptions surfaced by Azure Resource Manager and suggested actions.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/08/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Azure Event Hubs - Resource Manager exceptions

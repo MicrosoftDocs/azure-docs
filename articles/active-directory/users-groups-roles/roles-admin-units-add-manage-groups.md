@@ -6,10 +6,10 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 06/23/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add groups to an administrative unit (AU) for more granular administrative scope of control.
 
-For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Getting started](roles-admin-units-manage.md#getting-started).
+For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](roles-admin-units-manage.md#get-started).
 
 ## Add groups to an AU
 
@@ -61,7 +61,7 @@ In this example, the cmdlet Add-AzureADAdministrativeUnitMember is used to add t
 Example:
 
     {
-      "@odata.id":"https://graph.microsoft.com/beta/users/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
+      "@odata.id":"https://graph.microsoft.com/beta/groups/ 871d21ab-6b4e-4d56-b257-ba27827628f3"
     }
 
 ## List groups in an AU
@@ -70,7 +70,7 @@ Example:
 
 Go to **Azure AD > Administrative units** in the portal. Select the administrative unit for which you want to list the users. By default, **All users** is selected already on the left panel. Select **All groups** and on the right you will find the list of groups that are members of the selected administrative unit.
 
-![Select an administrative unit to delete](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### PowerShell
 

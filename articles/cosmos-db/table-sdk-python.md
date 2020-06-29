@@ -33,10 +33,10 @@ ms.author: akshanka
 
 ## Release notes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
-### <a name="0.37.1"/>0.37.1
+### <a name="0.37.1"></a>0.37.1
 * Pre-release SDK
 
 ## Release and retirement dates
