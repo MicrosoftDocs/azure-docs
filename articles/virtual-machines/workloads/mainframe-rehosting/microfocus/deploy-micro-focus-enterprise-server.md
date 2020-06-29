@@ -46,7 +46,7 @@ After the registry has been deployed, select **Go to Resource**. This takes you 
 
 3.  **Log in to your container registry** – You need to do this from the virtual machine (VM). Copy the command to the clipboard or Notepad.
 
->   For the registry I created, the command is: **docker login acrmf50.azurecr.io**
+    For the registry I created, the command is: **docker login acrmf50.azurecr.io**
 
 4.  **Push to your registry** – You need to do this for the Micro Focus image as well once you have logged into the VM.
 
