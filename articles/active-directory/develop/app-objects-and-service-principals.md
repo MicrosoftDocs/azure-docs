@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 06/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
@@ -35,25 +35,34 @@ An [OAuth 2.0 Authorization Grant flow](developer-glossary.md#authorization-gran
 In the following sections, you'll see how the Azure AD application model represents an application at design-time and run-time.
 
 ## Application registration
+In order to integrate an application with and delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](developer-glossary.md#tenant). When you register your application with Azure AD, you are creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the [Azure portal][AZURE-Portal], you choose whether it's single tenant (only accessible in your tenant) or multi-tenant (accessible to in other tenants) and can optionally set a redirect URI (where the access token is sent to).
 
-When you register an Azure AD application in the [Azure portal][AZURE-Portal], two objects are created in your Azure AD tenant:
+When you've completed the app registration, you have a globally unique instance of the app (the application object) which lives within your home tenant or directory.  You also have a globally unique ID for your app, the app or client ID.  In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
-- An application object, and
-- A service principal object
+If you register an application in the [Azure portal][AZURE-Portal], an application object as well as a service principal object are automatically created in your home tenant.  If you register/create an application using the Microsoft Graph APIs, creating the service principal object is a separate step.
 
-### Application object
+## Application object
 
-An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered, known as the application's "home" tenant. The Microsoft Graph [Application entity][MS-Graph-App-Entity] defines the schema for an application object's properties.
+An Azure AD application is defined by its one and only application object, which resides in the Azure AD tenant where the application was registered, known as the application's "home" tenant. Similar to a class in object oriented programming, it has some static properties which are applied to all the created service principals (or application instances). The application object describes three aspects of an application: how the service can issue tokens in order to access the application, resources that the application might need to access, and the actions that the application can take. There is one application object per application registered with Azure AD, and it is used as a template or blueprint to create one or more service principal objects.  An application object is registered in your home directory or tenant.
 
-### Service principal object
+The **App registrations** blade in the Azure portal is used to list and manage the application objects in your home tenant.
+
+The Microsoft Graph [Application entity][MS-Graph-App-Entity] defines the schema for an application object's properties.
+
+## Service principal object
+A service principal is the local representation of a global application object.  It's used for management, scope configuration, and consent tracking (remembers what the user has consented to). A service principal references the globally unique app object.
 
 To access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This is true for both users (user principal) and applications (service principal).
 
 The security principal defines the access policy and permissions for the user/application in the Azure AD tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
 
-When an application is given permission to access resources in a tenant (upon registration or [consent](developer-glossary.md#consent)), a service principal object is created. The Microsoft Graph  [ServicePrincipal entity][MS-Graph-Sp-Entity] defines the schema for a service principal object's properties.
+When an application is given permission to access resources in a tenant (upon registration or [consent](developer-glossary.md#consent)), a service principal object is created. 
 
-### Application and service principal relationship
+The **Enterprise applications** blade in the portal is used to list and manage the service principals in a tenant.
+
+The Microsoft Graph [ServicePrincipal entity][MS-Graph-Sp-Entity] defines the schema for a service principal object's properties.
+
+## Relationship between application objects and service principals
 
 Consider the application object as the *global* representation of your application for use across all tenants, and the service principal as the *local* representation for use in a specific tenant.
 
