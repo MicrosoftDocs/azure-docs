@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up an Azure Digital Twins instance
 
-Next, run the following commands to create a new Azure resource group for use in this how-to, and then create a new instance of Azure Digital Twins in this resource group.
+Next, run the following commands to create a new Azure resource group for use in this how-to, and then create a new instance of Azure Digital Twins in this resource group. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll have to pick a different name).
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
