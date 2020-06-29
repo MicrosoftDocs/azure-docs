@@ -151,7 +151,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 ### Call the API from the application
 
-When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have you configure the application settings to proxy requests to the local API.
+When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have to configure the application settings to proxy requests to the local API.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
