@@ -3,7 +3,7 @@ title: Automatic, geo-redundant backups
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Azure SQL Database and Azure SQL Managed Instance automatically create a local database backup every few minutes and use Azure read-access geo-redundant storage for geo-redundancy. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
 ms.topic: conceptual
