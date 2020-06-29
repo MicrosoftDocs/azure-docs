@@ -9,12 +9,22 @@ ms.reviewer: luquinta
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: resource
-ms.date: 06/23/2020
+ms.date: 06/29/2020
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension
 
+Learn how to manage Azure Machine Learning resources with the VS Code extension.
+
 ![AML VS Code Extension](media/how-to-manage-resources-vscode/aml-vscode-extension.png)
+
+## Prerequisites
+
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
+- VS Code Azure Machine Learning Extension. Follow the [AML VS Code extension installation guide](tutorial-setup-vscode-extension.md#install-the-extension) install the extension.
+
+All of the processes below assume that you are in the Azure Machine Learning view in Visual Studio Code. To launch the extension, select the **Azure** icon in the VS Code activity bar.
 
 ## Workspaces
 
@@ -27,8 +37,7 @@ Learn more about [workspaces](concept-workspace.md)
 
 ### Create a workspace
 
-1. Select the **Azure** icon in the activity bar.
-1. Then, select the `+` icon.
+1. In the Azure Machine Learning view, right-click your subscription node in the Azure Machine Learning view and select **Create workspace**.
 1. In the prompt:
     1. Provide a name for your workspace
     1. Choose your Azure subscription
@@ -36,12 +45,13 @@ Learn more about [workspaces](concept-workspace.md)
     1. Select the location where to provision the workspace.
     1. Choose between the basic and enterprise edition. Learn more about the different [AML editions](concept-editions.md).
 
-> [!NOTE]
-> Alternatively, you can create a workspace when provisioning other resources within the extension. When prompted to select a workspace, you can instead choose to create a new one.
+Alternative methods to create a workspace include:
+
+- Click the `+` icon at the top of the Azure Machine Learning view.
+- Create a new workspace when prompted to select a workspace during the provisioning of other resources.
 
 ### Remove a workspace
 
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Right-click the workspace you want to remove.
 1. Select whether you want to remove:
@@ -49,6 +59,11 @@ Learn more about [workspaces](concept-workspace.md)
     1. *with associated resources*:. This option deletes the workspace **and** all resources associated with it.
 
 ## Datastores
+
+Using the VS Code extension, you can:
+
+- Create a datastore
+- Manage a datastore
 
 The VS Code extension currently supports datastores of the following types:
 
@@ -61,36 +76,22 @@ Learn more about [datastores](concept-data.md#datastores)
 
 ### Create a datastore
 
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Datastores** node and select **Register datastore**.
 1. In the prompt:
-    1. Provide a name for your datastore
+    1. Provide a name for your datastore.
     1. Choose the datastore type.
     1. Select your storage resource. You can either choose a storage resource that's associated with your workspace or select from any valid storage resource in your Azure subscriptions.
     1. Choose the container where your data is inside the previously selected storage resource.
-1. A configuration file appears in VS Code with content similar to that below
+1. A configuration file appears in VS Code. If you're satisfied with your configuration file, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
-    ```json
-    {
-        "datastore": {
-            "datastoreName": "my_datastore",
-            "authenticationType": "AccountKey",
-            "authenticationCredential": "<CREDENTIAL>"
-        }
-    }
-    ```
+### Manage a datastore
 
-    If you're satisfied with your configuration file, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
-
-### Manage datastore
-
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Then, expand your workspace node.
 1. Expand the **Datastores** node inside your workspace.
-1. Select the datastore you want to
+1. Select the datastore you want to:
     1. Set as default. Whenever you run experiments, this is the datastore that will be used.
     1. Inspect read-only settings.
     1. Modify. Change the authentication type and credentials. Supported authentication types include account key and SAS token.
@@ -113,7 +114,6 @@ Learn more about [datasets](concept-data.md#datasets)
 
 ### Create dataset
 
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Datasets** node and select **Create dataset**.
@@ -128,6 +128,7 @@ Learn more about [datasets](concept-data.md#datasets)
 
 When building machine learning models, as data changes, you may want to version your dataset. To do so in the VS Code extension:
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Datasets** node.
 1. Right-click the dataset you want to version and select **Create New Version**.
@@ -163,13 +164,12 @@ In the VS Code extension, you can:
 
 - Create environments
 - View environment configurations
-- Edit environment configrations
+- Edit environment configurations
 
 Learn more about [environments](concept-environments.md).
 
 ### Create environment
 
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the datastore under.
 1. Right-click the **Environments** node and select **Create Environment**.
@@ -189,6 +189,7 @@ Learn more about [environments](concept-environments.md).
 
 To view the dependencies and configurations for a specific environment in the extension:
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Expand the **Environments** node.
 1. Right-click the environment you want to view and select **View Environment**.
@@ -197,8 +198,8 @@ To view the dependencies and configurations for a specific environment in the ex
 
 To edit the dependencies and configurations for a specific environment in the extension:
 
-1. Expand your workspace node.
-1. Expand the **Environments** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Environments** node inside your workspace.
 1. Right-click the environment you want to view and select **Edit Environment**.
 1. After making the modifications, if you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
@@ -209,15 +210,25 @@ The VS Code extension allows you to manage your Azure Machine Learning experimen
 - Create experiments
 - Run experiments
 - View experiments
-- Manage runs
+- Track run progress
+- Download run logs and output
+- View run metadata
 
 ### Create experiment
+
+1. Expand the subscription node that contains your workspace.
+1. Expand your workspace node.
+1. Right-click the **Experiments** node in your workspace and select **Create experiment**.
+1. In the prompt, provide a name for your experiment.
 
 ### Run experiment
 
 Using the Run Experiment Button:
 
-1. Select the **Azure** icon in the activity bar.
+1. Expand the subscription node that contains your workspace.
+1. Expand the Experiments node inside your workspace.
+1. Right-click the experiment you want to run.
+
 1. Select the **Run Experiment** icon in the activity bar.
 1. Choose your subscription.
 1. Choose the Azure ML Workspace to run the experiment under.
@@ -227,17 +238,43 @@ Using the Run Experiment Button:
 
 ### View experiment
 
-To view your experiment and its progress in Azure Machine Learning Studio:
+To view your experiment in Azure Machine Learning Studio:
 
-1. Expand your workspace node.
-1. Expand the **Experiments** node.
-1. Right-click the experiment you want to view and select **View Experiment**.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Experiments** node inside your workspace.
+1. Right-click the experiment you want to view and select **View Experiment**. 
+1. A prompt appears asking you to open the experiment URL in Azure Machine Learning studio. Select **Open**.
+
+### Track run progress
+
+As you're running your experiment, you may want to see its progress. To track the progress of a run in Azure Machine Learning studio from the extension:
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Experiments** node inside your workspace.
+1. Expand the experiment node you want to track progress for.
+1. Right-click the run and select **View Run in Azure Portal**.
+1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
+
+### Download run logs & outputs
+
+Once a run is complete, you may want to download the logs and assets such as the model generated as part of an experiment run.
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Experiments** node inside your workspace.
+1. Expand the experiment node you want to track progress for.
+1. Right-click the run:
+    1. To download the outputs, select **Download outputs**.
+    1. To download the logs, select **Download logs**.
+
+### View run metadata
+
+In the extension, you can inspect metadata such as the run configuration used for the run as well as run details.
 
 ## Compute clusters
 
 With the VS Code extension, you can:
 
-- Create comput
+- Create compute clusters
 - View compute configuration
 - Edit compute scale settings
 - Delete compute
@@ -254,7 +291,6 @@ Learn more about [compute targets](concept-compute-target.md#train).
 
 ### Create compute
 
-1. Select the **Azure** icon in the activity bar.
 1. Expand the subscription node that contains your workspace.
 1. Expand the workspace node you want to create the compute cluster under.
 1. Right-click the **Compute clusters** node and select **Create Compute**.
@@ -265,52 +301,54 @@ Learn more about [compute targets](concept-compute-target.md#train).
 
 ### View compute configuration
 
-1. Expand your workspace node.
-1. Expand the **Compute clusters** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute you want to view and select **View Compute Properties**.
 
 ### Edit compute scale settings
 
-1. Expand your workspace node.
-1. Expand the **Compute clusters** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute you want to edit and select **Edit Compute**.
 1. A configuration file for your compute opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ### Delete compute
 
-1. Expand your workspace node.
-1. Expand the **Compute clusters** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute you want to delete and select **Delete Compute**.
 
 ### Create run configuration
 
 To create a run configuration in the extension:
 
-1. Expand your workspace node.
-1. Expand the **Compute clusters** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute clusters** node inside your workspace.
 1. Right-click the compute target you want create the run configuration under and select **Create Run Configuration**.
 1. In the prompt:
     1. Provide a name for your compute target
     1. Choose or create a new environment.
     1. Type the name of the script you want to run or press **Enter** to browser for the script on your local computer.
-    1. Chose whether you want to create a data reference for your training run.
-    1. Select from one of your registered datasets to link to the run configuration
+    1. (Optional) Chose whether you want to create a data reference for your training run. Doing so will prompt you to define a dataset in your run configuration.
 
-        A configuration file for your dataset opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+        1. Select from one of your registered datasets to link to the run configuration
+
+            A configuration file for your dataset opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
     1. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ### Edit run configuration
 
-1. Expand your workspace node.
-1. Expand the compute cluster node in the **Compute clusters** node.
+1. Expand the subscription node that contains your workspace.
+1. Expand your compute cluster node in the **Compute clusters** node of your workspace.
 1. Right-click the run configuration you want to edit and select **Edit Run Configuration**.
 1. A configuration file for your run configuration opens in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 ### Delete run configuration
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
-1. Expand the compute cluster node in the **Compute clusters** node.
+1. Expand the compute cluster node of interest inside the **Compute clusters** node.
 1. Right-click the run configuration you want to edit and select **Delete Run Configuration**.
 
 ## Models
@@ -322,6 +360,7 @@ To create a run configuration in the extension:
 
 ### Register model
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Right-click the **Models** node and select **Register Model**.
 1. In the prompt:
@@ -332,38 +371,41 @@ To create a run configuration in the extension:
 
 ### View model properties
 
-1. Expand your workspace node.
-1. Expand the compute cluster node in the **Models** node.
-1. Right-click the the model whose properties you want to see and select **View Model Properties**. A file opens in the editor containing your model properties.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Models** node inside your workspace.
+1. Right-click the model whose properties you want to see and select **View Model Properties**. A file opens in the editor containing your model properties.
 
 ### Download model
 
-1. Expand your workspace node.
-1. Expand the compute cluster node in the **Models** node.
-1. Right-click the the model you want to download and select **Download Model File**.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Models** node inside your workspace.
+1. Right-click the model you want to download and select **Download Model File**.
 
 ### Delete a model
 
-1. Expand your workspace node.
-1. Expand the compute cluster node in the **Models** node.
-1. Right-click the the model you want to delete and select **Remove Model**.
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Models** node inside your workspace.
+1. Right-click the model you want to delete and select **Remove Model**.
 
 ## Endpoints
+
+In the VS Code extension, you can:
+
+- Create deployments
+- Delete deployments
+- Manage deployments
 
 You can deploy your model as a web service to the following deployment targets:
 
 - Azure Container Instances
 - Azure Kubernetes Service
 
-In the VS Code extension, you can:
-
-- Create deployment
-
-### Create deployment
+### Create deployments
 
 > [!NOTE]
 > Deployment creation currently only works with Conda environments.
 
+1. Expand the subscription node that contains your workspace.
 1. Expand your workspace node.
 1. Right-click the **Endpoints** node and select **Deploy Service**.
 1. In the prompt:
@@ -373,10 +415,28 @@ In the VS Code extension, you can:
     1. Provide a name for your model.
     1. Provide the script to run when scoring the model.
     1. Provide a Conda dependencies file.
-    1. A configuration file for your deployment in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+    1. A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
 
 > [!NOTE]
-> Alternatively, you can right-click a registered model in the *Models* node and select **Deploy Service From Registered Model**. 
+> Alternatively, you can right-click a registered model in the *Models* node and select **Deploy Service From Registered Model**.
+
+### Delete deployments
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Endpoints** node inside your workspace.
+1. Right-click the deployment you want to remove and select **Remove service**.
+1. A prompt appears confirming you want to remove the service. Select **Ok**.
+
+### Manage deployments
+
+In addition to creating and deleting deployments, you can view and edit settings associated with the deployment.
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Endpoints** node inside your workspace.
+1. Right-click the deployment you want to manage:
+    1. To edit settings, select **Edit service**.
+        1. A configuration file for your deployment appears in the editor. If you're satisfied with your configuration, select **Save and continue** or open the VS Code command palette (**View > Command Palette**) and type **Azure ML: Save and Continue**.
+    1. To view deployment configuration settings, select **View service properties**.
 
 ## Next steps
 
