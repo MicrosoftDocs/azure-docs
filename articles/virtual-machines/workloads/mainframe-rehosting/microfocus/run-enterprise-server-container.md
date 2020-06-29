@@ -173,7 +173,3 @@ That's it! Now you're running and managing a CICS application in a Docker contai
 -   [Install Micro Focus Enterprise Server 5.0 and Enterprise Developer 5.0 on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/set-up-micro-focus-azure)
 
 -   [Mainframe application migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
-
-## Feedback
-
-Submit and view feedback for This Product \| This Page
