@@ -38,13 +38,10 @@ Before getting started, check out these prerequisites:
 
     > [!Note]
     > There are a few options for controlling access to your VMs:
-
--   A best practice is to set up [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-
--   A [site-to-site virtual private network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell)
+    > -   A best practice is to set up [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
+    > -   A [site-to-site virtual private network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell)
     tunnel.
-
--   A jumpbox VM.
+    > -   A jumpbox VM.
 
 ## Install Enterprise Server
 
@@ -78,7 +75,7 @@ Before getting started, check out these prerequisites:
 
     ![Micro Focus Enterprise Server Setup screen](media/install-img1.png)
 
->   When Setup is complete, the following message appears:
+    When Setup is complete, the following message appears:
 
     ![Micro Focus Enterprise Server Setup screen](media/install-img2.png)
 
@@ -134,7 +131,3 @@ When Enterprise Developer loads, your deployment of a Micro Focus development an
 -   [Run Enterprise Server in Docker containers](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
 
 -   [Mainframe application migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
-
-**Feedback**
-
-Submit and view feedback for \<buttons\>
