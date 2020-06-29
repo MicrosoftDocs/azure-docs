@@ -3,7 +3,7 @@ title: Create a StorSimple 8000 series support package
 description: Learn how to create, decrypt, and edit a support package for your StorSimple 8000 series device.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 

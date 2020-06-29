@@ -49,7 +49,7 @@ You can analyze images to provide insights about their visual features and chara
 
 You can use the Computer Vision [Read](concept-recognizing-text.md#read-api) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses the latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. It currently works for seven different languages (see [Language support](./language-support.md)).
 
-You can also use the [optical character recognition (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API to extract printed text in several languages. If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
+You can also use the [optical character recognition (OCR)](concept-recognizing-text.md) API to extract printed text in several languages. If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
 
 ## Moderate content in images
 

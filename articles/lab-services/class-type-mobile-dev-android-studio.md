@@ -2,14 +2,12 @@
 title: Set up a lab to teach mobile application development with Android Studio
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab to teach data mobile application development class that uses Android Studio.  Article will also discuss adjustments to make when using Android Studio on a virtual machine in Azure.
-services: lab-services
 author: emaher
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 06/26/2020
 ms.author: enewman
 ---
+
 # Set up a lab to teach data mobile application development with Android Studio
 
 This article will show you how to set up an introductory mobile application development class.  This class focuses on Android mobile applications that can be published to the [Google Play Store](https://play.google.com/store/apps).  Students learn how to use [Android Studio](https://developer.android.com/studio) to build applications.  [Visual Studio Emulator for Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) is used to test the application locally.

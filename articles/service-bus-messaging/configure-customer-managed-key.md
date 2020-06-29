@@ -88,7 +88,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 ## Rotate your encryption keys
 
-You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. For more information, see [Set up key rotation and auditing](../key-vault/secrets/key-rotation-log-monitoring.md). Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
+You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
 
 ## Revoke access to keys
 

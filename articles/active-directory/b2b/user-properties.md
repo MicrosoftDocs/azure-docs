@@ -5,7 +5,7 @@ description: Azure Active Directory B2B guest user properties and states before 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2020
 
 ms.author: mimart
