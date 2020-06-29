@@ -25,10 +25,34 @@ Review the supported geographies for [public](migrate-support-matrix.md#supporte
 
 You can discover up to 10,000 VMware VMs, up to 5,000 Hyper-V VMs, and up to 1000 physical servers by using a single appliance. If you have more machines, read about [scaling a Hyper-V assessment](scale-hyper-v-assessment.md), [scaling a VMware assessment](scale-vmware-assessment.md), or [scaling a physical server assessment](scale-physical-assessment.md).
 
+## How do I choose the assessment type?
+
+- Use **Azure VM assessments** when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs. [Learn More](concepts-assessment-calculation.md)
+
+- Use **Azure VMware Solution (AVS)** assessments when you want to assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+- You can use a common group with VMware machines only to run both types of assessments. Note that if you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
+
+## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
+
+- AVS assessment can be done on groups that have only VMware machines. Please remove any non-VMware machine from the group if you intend to perform an AVS assessment.
+- If you are running AVS assessments in Azure Migrate for the first time, it is advisable to create a new group of VMware machines.
+
+## How do I select FTT-RAID level in AVS assessment?
+
+The storage engine used in AVS is vSAN. vSAN storage polices define storage requirements for your virtual machines. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. These are the available FTT-Raid Combinations: 
+
+**Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration**
+--- | --- | --- | --- 
+1 | RAID-1 (Mirroring) | 3 | A 100GB VM would consume 200GB.
+1 | RAID-5 (Erasure Coding) | 4 | A 100GB VM would consume 133.33GB
+2 | RAID-1 (Mirroring) | 5 | A 100GB VM would consume 300GB.
+2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
+3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
+
 ## I can't see some VM types in Azure Government
 
 VM types supported for assessment and migration depend on availability in Azure Government location. You can [review and compare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM types in Azure Government.
-
 
 ## The size of my VM changed. Can I run an assessment again?
 
@@ -43,7 +67,7 @@ The Azure Migrate appliance continuously collects information about the on-premi
 
 Yes, Azure Migrate requires vCenter Server in a VMware environment to perform discovery. Azure Migrate doesn't support discovery of ESXi hosts that aren't managed by vCenter Server.
 
-## What are the sizing options?
+## What are the sizing options in an Azure VM assessment?
 
 With as-on-premises sizing, Azure Migrate doesn't consider VM performance data for assessment. Azure Migrate assesses VM sizes based on the on-premises configuration. With performance-based sizing, sizing is based on utilization data.
 
@@ -55,18 +79,18 @@ Similarly, disk sizing depends on sizing criteria and storage type:
 - If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes the IOPS and throughput values of the disk into account when it identifies the target disk type (Standard or Premium).
 - If the sizing criteria is performance-based and the storage type is Premium, Azure Migrate recommends a Premium disk SKU based on the size of the on-premises disk. The same logic is applied to disk sizing when the sizing is as-on-premises and the storage type is Standard or Premium.
 
-## Does performance history and utilization affect sizing?
+## Does performance history and utilization affect sizing in an Azure VM assessment?
 
-Yes, performance history and utilization affect sizing in Azure Migrate.
+Yes, performance history and utilization affect sizing in an Azure VM assessment.
 
 ### Performance history
 
 For performance-based sizing only, Azure Migrate collects the performance history of on-premises machines, and then uses it to recommend the VM size and disk type in Azure:
 
 1. The appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds.
-1. The appliance rolls up the collected 20-second samples and uses them to create a single data point every 15 minutes.
-1. To create the data point, the appliance selects the peak value from all 20-second samples.
-1. The appliance sends the data point to Azure.
+2. The appliance rolls up the collected 20-second samples and uses them to create a single data point every 15 minutes.
+3. To create the data point, the appliance selects the peak value from all 20-second samples.
+4. The appliance sends the data point to Azure.
 
 ### Utilization
 
@@ -78,9 +102,14 @@ Using the 95th percentile value ensures that outliers are ignored. Outliers migh
 
 ## How are import-based assessments different from assessments with discovery source as appliance?
 
-Import-based assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note: 
+Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note: 
  - The readiness criteria is less stringent in import-based assessments on the boot type parameter. If the boot type isn't provided, it is assumed the machine has BIOS boot type and the machine is not marked as **Conditionally Ready**. In assessments with discovery source as appliance, the readiness is marked as **Conditionally Ready** if the boot type is missing. This difference in readiness calculation is because users may not have all information on the machines in the early stages of migration planning when import-based assessments are done. 
  - Performance-based import assessments use the utilization value provided by the user for right-sizing calculations. Since the utilization value is provided by the user, the **Performance history** and **Percentile utilization** options are disabled in the assessment properties. In assessments with discovery source as appliance, the chosen percentile value is picked from the performance data collected by the appliance.
+
+## Why is the suggested migration tool in import-based AVS assessment marked as unknown?
+
+For machines imported via a CSV file, the default migration tool in an AVS assessment is unknown. Though, for VMware machines, it is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+
 
 ## What is dependency visualization?
 
