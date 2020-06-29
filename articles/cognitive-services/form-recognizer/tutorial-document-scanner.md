@@ -20,7 +20,7 @@ ms.author: pafarley
 > - Some features in AI Builder have not yet released for general availability (GA), and remain in preview status. See the **Release status** section for more information.
 > - [!INCLUDE[cc_preview_features_definition](./includes/cc-preview-features-definition.md)]
 > - Administrators can control preview feature availability for their environment using the Power Platform Admin center. More information: [Enable or disable AI Builder feature](administer.md#enable-or-disable-ai-builder-preview-features)
-
+''
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
