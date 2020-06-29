@@ -77,7 +77,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 4. Once you have saved your enrollment, the **Primary Key** and **Secondary Key** will be generated and added to the enrollment entry. Your symmetric key device enrollment appears as **symm-key-python-device-008** under the *Registration ID* column in the *Individual Enrollments* tab. 
 
-    Open the enrollment and copy the value of your generated **Primary Key**. You will use this key value and the **Registration ID** later when you add environment variables for use with the device provisioning sample code.
+5. Open the enrollment and copy the value of your generated **Primary Key**. You will use this key value and the **Registration ID** later when you add environment variables for use with the device provisioning sample code.
 
 
 
@@ -163,7 +163,7 @@ The provisioning code will contact the DPS instance based on these variables in 
     
 6. In the Azure portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade. After successfully provisioning the symmetric key device to the hub, the device ID is shown with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the device sample code. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-device-symm-key-python/hubregistration-python.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-device-symm-key-python/hub-registration-python.png) 
 
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
