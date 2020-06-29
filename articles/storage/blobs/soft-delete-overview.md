@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 06/29/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -16,13 +16,13 @@ ms.subservice: blobs
 
 Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
-If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete.
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. For more information about enabling soft delete, see [Enable and manage soft delete for blobs](soft-delete-enable.md).
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## About soft delete
 
-When soft delete is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to all blob data (block blobs, append blobs, and page blobs) that is erased as the result of an overwrite.
+When soft delete is enabled on a storage account, you can recover objects after they have been deleted, within the specified data retention period. This protection extends to any blobs (block blobs, append blobs, or page blobs) that are erased as the result of an overwrite.
 
 If data in an existing blob or snapshot is deleted while soft delete is enabled but blob versioning (preview) is not enabled, then a soft deleted snapshot is generated to save the state of the overwritten data. After the specified retention period has expired, the object is permanently deleted.
 
@@ -75,8 +75,8 @@ When **Delete Blob** is called on a base blob (any blob that is not itself a sna
 > [!NOTE]  
 > When a soft deleted blob is overwritten, a soft deleted snapshot of the blob's state prior to the write operation is automatically generated. The new blob inherits the tier of the overwritten blob.
 
-Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. Please see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
-Changes](../../azure-resource-manager/management/lock-resources.md) to learn more.
+Soft delete does not save your data in cases of container or account deletes, nor when blob metadata and blob properties are overwritten. To protect a storage account from erroneous deletion, you can configure a lock using the Azure Resource Manager. For more information, see the Azure Resource Manager article [Lock Resources to Prevent Unexpected
+Changes](../../azure-resource-manager/management/lock-resources.md).
 
 The following table details expected behavior when soft delete is turned on:
 
@@ -146,7 +146,7 @@ See the [Next steps](#next-steps) section for a pointer to the application that 
 
 ## Pricing and billing
 
-All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the configured retention period. For a deeper dive into snapshots and how they accrue charges, please see [Understanding how snapshots accrue charges](storage-blob-snapshots.md).
+All soft deleted data is billed at the same rate as active data. You will not be charged for data that is permanently deleted after the configured retention period. For a deeper dive into snapshots and how they accrue charges, see [Understanding how snapshots accrue charges](storage-blob-snapshots.md).
 
 You will not be billed for the transactions related to the automatic generation of snapshots. You will be billed for **Undelete Blob** transactions at the rate for write operations.
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/15/2020
+ms.date: 06/29/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -16,9 +16,7 @@ ms.subservice: blobs
 
 Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
-If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete.
-
-This article shows how to get started with soft delete.
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. This article shows how to enable soft delete.
 
 ## Enable soft delete
 
