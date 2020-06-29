@@ -161,7 +161,7 @@ sudo systemctl restart iotedge
 
 ### Option 2: Automatic provisioning
 
-IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Currently, IoT Edge supports two attestation mechanisms when using automatic provisioning, but your hardware requirements may impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default. For more information, see the following articles:
+IoT Edge devices can be automatically provisioned using the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Currently, IoT Edge supports three attestation mechanisms when using automatic provisioning, but your hardware requirements may impact your choices. For example, Raspberry Pi devices do not come with a Trusted Platform Module (TPM) chip by default. For more information, see the following articles:
 
 * [Create and provision an IoT Edge device with a virtual TPM on a Linux VM](how-to-auto-provision-simulated-device-linux.md)
 * [Create and provision an IoT Edge device using X.509 certificates](how-to-auto-provision-x509-certs.md)

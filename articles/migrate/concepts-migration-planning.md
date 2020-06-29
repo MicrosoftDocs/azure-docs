@@ -65,7 +65,7 @@ Once you’ve discovered your servers, use agentless dependency mapping to visua
 
 As Azure provides flexibility to resize your cloud capacity over time, migration is an opportunity for you to optimize the CPU and memory resources allocated to your servers. Create an assessment on the group identified before to understand the performance history of the workloads, which will be very crucial in rightsized VM SKUs and disks recommendations on Azure.
 
-## Asses your readiness for migration
+## Assess your readiness for migration
 
 ### Readiness and suitability analysis for Azure
 Export the Azure VM assessment report and filter by the following readiness categories to understand VM readiness for Azure:

@@ -258,36 +258,6 @@
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
     - name: Virtual machine offer
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-  - name: API Reference
-    items:
-    - name: Overview
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-    - name: Prerequisites
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-    - name: Considerations
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-    - name: Concurrency control
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-    - name: Retrieve offers
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-    - name: Retrieve specific offer
-      href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-    - name: Add or modify an offer
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-    - name: Retrieve offer status
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-    - name: Publish an offer
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-    - name: Retrieve operations
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-    - name: Cancel operations
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-    - name: Go live
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-    - name: Pricing for virtual machine offers
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-    - name: Troubleshooting authentication errors
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
   - name: Getting support
     href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Commercial marketplace in Partner Center
@@ -433,8 +403,6 @@
     href: ./partner-center-portal/update-existing-offer.md
   - name: Activate benefits
     href: ./partner-center-portal/marketplace-rewards.md
-  - name: Support options
-    href: ./partner-center-portal/support.md
   - name: Partner Center Analytics
     items:
     - name: Analytics for the commercial marketplace
@@ -471,3 +439,35 @@
       href: ./partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: ./partner-center-portal/tax-details-paid-transactions.md
+  - name: CPP API Reference
+    items:
+    - name: Overview
+      href: ./cloud-partner-portal-api-overview.md
+    - name: Prerequisites
+      href: ./cloud-partner-portal-api-prerequisites.md
+    - name: Considerations
+      href: ./cloud-partner-portal-api-considerations.md
+    - name: Concurrency control
+      href: ./cloud-partner-portal-api-concurrency-control.md
+    - name: Retrieve offers
+      href: ./cloud-partner-portal-api-retrieve-offers.md
+    - name: Retrieve specific offer
+      href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+    - name: Add or modify an offer
+      href: ./cloud-partner-portal-api-creating-offer.md
+    - name: Retrieve offer status
+      href: ./cloud-partner-portal-api-retrieve-offer-status.md
+    - name: Publish an offer
+      href: ./cloud-partner-portal-api-publish-offer.md
+    - name: Retrieve operations
+      href: ./cloud-partner-portal-api-retrieve-operations.md
+    - name: Cancel operations
+      href: ./cloud-partner-portal-api-cancel-operations.md
+    - name: Go live
+      href: ./cloud-partner-portal-api-go-live.md
+    - name: Pricing for virtual machine offers
+      href: ./cloud-partner-portal-api-setting-price.md
+    - name: Troubleshooting authentication errors
+      href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+  - name: Support options
+    href: ./partner-center-portal/support.md

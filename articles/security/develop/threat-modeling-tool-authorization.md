@@ -143,7 +143,7 @@ Now an possible attacker can not tamper and change the application operation sin
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/library/ms191465), [SQL database securables](https://msdn.microsoft.com/library/ms190401) |
+| **References**              | [SQL permissions hierarchy](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL securables](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Steps** | Least-privileged accounts should be used to connect to the database. Application login should be restricted in the database and should only execute selected stored procedures. Application's login should have no direct table access. |
 
 ## <a id="rls-tenants"></a>Implement Row Level Security RLS to prevent tenants from accessing each other's data
@@ -157,7 +157,7 @@ Now an possible attacker can not tamper and change the application operation sin
 | **References**              | [SQL Server Row-Level Security (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Steps** | <p>Row-Level Security enables customers to control access to rows in a database table based on the characteristics of the user executing a query (e.g., group membership or execution context).</p><p>Row-Level Security (RLS) simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example ensuring that workers can access only those data rows that are pertinent to their department, or restricting a customer's data access to only the data relevant to their company.</p><p>The access restriction logic is located in the database tier rather than away from the data in another application tier. The database system applies the access restrictions every time that data access is attempted from any tier. This makes the security system more reliable and robust by reducing the surface area of the security system.</p><p>|
 
-Please note that RLS as an out-of-the-box database feature is applicable only to SQL Server starting 2016 and Azure SQL database. If the out-of-the-box RLS feature is not implemented, it should be ensured that data access is restricted Using Views and Procedures
+Please note that RLS as an out-of-the-box database feature is applicable only to SQL Server starting 2016, Azure SQL Database, and SQL Managed Instance. If the out-of-the-box RLS feature is not implemented, it should be ensured that data access is restricted Using Views and Procedures
 
 ## <a id="sysadmin-users"></a>Sysadmin role should only have valid necessary users
 
@@ -167,7 +167,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [SQL Database permissions hierarchy](https://msdn.microsoft.com/library/ms191465), [SQL database securables](https://msdn.microsoft.com/library/ms190401) |
+| **References**              | [SQL permissions hierarchy](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL securables](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Steps** | Members of the SysAdmin fixed server role should be very limited and never contain accounts used by applications.  Please review the list of users in the role and remove any unnecessary accounts|
 
 ## <a id="cloud-least-privileged"></a>Connect to Cloud Gateway using least-privileged tokens

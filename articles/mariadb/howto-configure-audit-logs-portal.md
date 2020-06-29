@@ -5,15 +5,12 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
+ms.date: 6/24/2020
 ---
 
 # Configure and access audit logs in the Azure portal
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) and diagnostic settings from the Azure portal.
-
-> [!IMPORTANT]
-> Audit log functionality is currently in preview.
 
 ## Prerequisites
 
@@ -23,7 +20,7 @@ To step through this how-to guide, you need:
 
 ## Configure audit logging
 
->[!NOTE]
+>[!IMPORTANT]
 > It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
 
 Enable and configure audit logging.
