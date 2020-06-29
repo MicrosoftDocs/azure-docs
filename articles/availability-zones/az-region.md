@@ -55,7 +55,7 @@ Azure also offers Availability Zones support in the following regions:
 
 - US Gov Virginia
 - Australia East
-- South Africa
+- South Africa North
 - South Central US
 - Canada Central
 
