@@ -67,8 +67,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Expose covid tracking project dataset and ecdc covid cases dataset
     + Expose covid19 open research dataset
     + Expose Bing COVID-19 dataset
-  + **azureml-parallel-run**
-    +  Added support in ParallelRunConfig's `load_yaml()` for users to define Environments inline with the rest of the config or in a separate file
   + **azureml-pipeline-core**
     + Log out warning when "azureml-defaults" is not included as part of pip-dependency
     + Improve Note rendering.
