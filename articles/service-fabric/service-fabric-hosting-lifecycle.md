@@ -39,18 +39,18 @@ Once blocklisted, you should see an error "'System.Hosting' reported Error for p
 ServiceType will be enabled back on the node 
 - If activation operation succeeds or reaches **ActivationMaxFailureCount** retries upon failure.
 - If download operation succeeds or reaches **DeploymentMaxFailureCount** retries upon failure.
-- If a CodePackage that has crashed starts back up and and successfully registers the ServiceType.
+- If a CodePackage that has crashed starts back up and successfully registers the ServiceType.
 
-The reason for enabling the ServiceType again after **ActivationMaxFailureCount**/**DeploymentMaxFailureCount** retries is, they are the max attempts Service Fabric will make to activate/download an application on a node. If it doesn't succeed, the current operation is not retried and since Service Fabric wants to give the service another opportunity for activation which might succeed, resulting in the issue automatically healing, it is tied to the lifecycle of the activation/download operation. A new activation/download operation triggered by placement of a Replica can trigger the ServiceType blocklisting again or can succeed.
+The reason for enabling the ServiceType again after **ActivationMaxFailureCount**/**DeploymentMaxFailureCount** retries is, they are the max attempts Service Fabric will perform to activate/download an application on a node. If it doesn't succeed, the current operation is not retried and since Service Fabric wants to give the service another opportunity for activation, which might succeed, resulting in the issue automatically healing, it is tied to the lifecycle of the activation/download operation. A new activation/download operation triggered by placement of a Replica can trigger the ServiceType blocklisting again or can succeed.
 
 > [!NOTE]
 > If your CodePackage which does not register a ServiceType is crashing, then it doesn't impact the ServiceType. Only the CodePackage hosting a Replica crash will impact the ServiceType.
 >
 
 ### CodePackage crash
-When a CodePackage crashes, Service Fabric uses a back-off to start it again and the back-off is independent of whether the code package has registered a type with us or not.
+When a CodePackage crash, Service Fabric uses a back-off to start it again and the back-off is independent of whether the code package has registered a type with us or not.
 
-Back-off value is always Min(RetryTime, **ActivationMaxRetryInterval**) and this value can be constant, linear or exponential based on **ActivationRetryBackoffExponentiationBase** config.
+Back-off value is always Min(RetryTime, **ActivationMaxRetryInterval**) and this value can be constant, linear, or exponential based on **ActivationRetryBackoffExponentiationBase** config.
 
 - Constant: If **ActivationRetryBackoffExponentiationBase** == 0 then RetryTime = **ActivationRetryBackoffInterval**;
 - Linear:  If  **ActivationRetryBackoffExponentiationBase** == 0  then RetryTime = ContinuousFailureCount* **ActivationRetryBackoffInterval** where ContinousFailureCount is the number of times a CodePackage crashes or fails to activate.
@@ -66,7 +66,7 @@ If your CodePackage crashes and comes back up, it needs to stay up for **CodePac
 If a CodePackage stays alive and is expected to register a ServiceType with us but never does, in that case Service Fabric will generate a warning HealthReport after **ServiceTypeRegistrationTimeout** saying that ServiceType has not being configured within the timeout.
 
 ### Activation Failure
-Service Fabric always uses a linear back-off (same as CodePackage crash) when it finds error during activation. It means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried.
+Service Fabric always uses a linear back-off (same as CodePackage crash) when it finds error during activation. This means that the activation operation will give up after (0+ 10 + 20 + 30 + 40) = 100 sec (first retry is immediate). After this activation is not retried.
 	
 Max Activation backoff can be **ActivationMaxRetryInterval** and retry **ActivationMaxFailureCount**.
 
@@ -89,14 +89,14 @@ The Deactivator works in two ways:
 1.	Periodically:  At every **DeactivationScanInterval**, it checks for ServicePackages, which have NEVER hosted a Replica and marks them as candidates for deactivation.
 2.	ReplicaClose: If a Replica is closed, Deactivator gets a DecrementUsageCount. If the count goes to 0 that means the ServicePackage is not hosting any Replica and hence is a candidate for deactivation.
 
- Based on the activation mode [Exclusive/Shared][a2], the candidates for deactivation are scheduled after **DeactivationGraceInterval** for SharedMode / **ExclusiveModeDeactivationGraceInterval** for ExclusiveMode. If in between this time a new replica placement comes in then the deactivation is cancelled.
+ Based on the activation mode [Exclusive/Shared][a2], the candidates for deactivation are scheduled after **DeactivationGraceInterval** for SharedMode / **ExclusiveModeDeactivationGraceInterval** for ExclusiveMode. If in between this time a new replica placement comes in then the deactivation is canceled.
 
 ### Periodically:
 Example 1: Let’s say the Deactivator does a scan at Time T(**DeactivationScanInterval**). Its next scan will be at 2T. Assume a ServicePackage activation happened at T+1. This ServicePackage is not hosting a Replica and hence needs to be deactivated. For the ServicePackage to be a candidate for deactivation, it needs to be in the state of no Replica for atleast T time. That means, it will be eligible for deactivation at 2T+1. So, the scan at 2T won’t find this ServicePackage as a candidate for deactivation. The next deactivation cycle 3T will schedule this ServicePackage for deactivation because now it has been in no Replica state for time T.  
 
 Example 2: Let’s say a ServicePackage gets activated at time T-1 and Deactivator does a scan at T. The ServicePackage doesn’t host a Replica. Then at next scan 2T this ServicePackage will be found as a candidate for deactivation and hence will be scheduled for deactivation.  
 
-Example 3: Let’s say a ServicePackage gets activated at T–1 and Deactivator does a scan at T. The ServicePackage doesn’t host a Replica yet. Now at T+1 a Replica get’s placed, i.e Hosting gets an IncrementUsageCount, which means a Replica is created. Now at 2T this ServicePackage will not be scheduled for deactivation. Now, the deactivation will move to the ReplicaClose logic explained below.
+Example 3: Let’s say a ServicePackage gets activated at T–1 and Deactivator does a scan at T. The ServicePackage doesn’t host a Replica yet. Now at T+1 a Replica gets placed, i.e Hosting gets an IncrementUsageCount, which means a Replica is created. Now at 2T this ServicePackage will not be scheduled for deactivation. Now, the deactivation will move to the ReplicaClose logic explained below.
 
 Example 4: Let's say your ServicePackage is large, like 10 GB, then it can take a bit of time to download on the node. Once an application is activated, the Deactivator tracks its lifecycle. Now, if you have the **DeactivationScanInterval** config small then you may run into issues where your ServicePackage is not getting time to activate on the node because all the time went into downloading. To overcome the problem, you can [pre-download the ServicePackage on the node][p1]. 
 
