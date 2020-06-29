@@ -24,7 +24,7 @@ articles to learn about the control mapping and how to deploy this sample:
 > [DoD Impact Level 4 blueprint - Control mapping](./control-mapping.md)
 > [DoD Impact Level 4 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
