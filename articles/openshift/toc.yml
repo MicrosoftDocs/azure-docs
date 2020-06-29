@@ -18,6 +18,8 @@
   items:
     - name: Create a private Azure Red Hat OpenShift 4 cluster 
       href: howto-create-private-cluster-4x.md
+    - name: Add or update your pull secret for an Azure Red Hat OpenShift 4 cluster
+      href: howto-add-or-update-your-pull-secret.md
     - name: Configure DNS forwarding for an Azure Red Hat OpenShift 4 cluster
       href: dns-forwarding.md
     - name: Configure Azure Active Directory authentication for an Azure Red Hat OpenShift 4 cluster
