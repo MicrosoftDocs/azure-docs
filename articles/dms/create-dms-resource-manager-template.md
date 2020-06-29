@@ -29,9 +29,9 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 Three Azure resources are defined in the template: 
 
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks):
-- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets):
-- [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services):
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks): Creates the virtual network. 
+- [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Creates the subnet. 
+- [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): Deploys an instance of the Azure Database Migration Service. 
 
 More Azure Database Migration Services templates can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
 
