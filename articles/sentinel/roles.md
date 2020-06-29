@@ -21,16 +21,18 @@ ms.author: yelevin
 
 # Permissions in Azure Sentinel
 
-Azure Sentinel uses [Role-Based Access Control(RBAC)](../role-based-access-control/role-assignments-portal.md),
+Azure Sentinel uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md),
 to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to.
 
-There are three specific built-in Azure Sentinel roles.  
-**All Azure Sentinel built-in roles grant read access to the data in your Azure Sentinel workspace.**
+There are three specific built-in Azure Sentinel roles:
 - [Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
 - [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
 - [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+
+> [!NOTE]
+> All Azure Sentinel built-in roles grant read access to the data in your Azure Sentinel workspace.
 
 In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Analytics RBAC roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:
 
@@ -54,7 +56,7 @@ For example, a user who is assigned with **Azure Sentinel Reader** and **Azure C
 
 The following table displays roles and allowed actions in Azure Sentinel. An X indicates that the action is allowed for that role.
 
-| Role | Create and run playbooks| Create and edit dashboards, analytic rules, and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, dashboards and other Azure Sentinel resources |
+| Role | Create and run playbooks| Create and edit workbooks, analytic rules, and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, workbooks and other Azure Sentinel resources |
 |--- |---|---|---|---|
 | Azure Sentinel Reader | -- | -- | -- | X |
 | Azure Sentinel Responder|--|--| X | X |
@@ -63,7 +65,7 @@ The following table displays roles and allowed actions in Azure Sentinel. An X i
 
 
 > [!NOTE]
-> - We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Azure Sentinel contributor role only to users who need to create rules or dashboards.
+> - We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Azure Sentinel contributor role only to users who need to create analytic rules or workbooks.
 > - We recommend that you set permissions for Azure Sentinel in the resource group scope, so the user can have access to all Azure Sentinel workspaces in the same resource group.
 >
 ## Building custom RBAC roles
