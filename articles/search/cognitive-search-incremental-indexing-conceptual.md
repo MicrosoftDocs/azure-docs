@@ -15,7 +15,7 @@ ms.date: 06/18/2020
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API versions 2019-05-06-Preview and 2020-06-30](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
+> The [REST API versions 2019-05-06-Preview and 2020-06-30-Preview](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
 
 *Incremental enrichment* is a feature that targets [skillsets](cognitive-search-working-with-skillsets.md). It leverages Azure Storage to save the processing output emitted by an enrichment pipeline for reuse in future indexer runs. Wherever possible, the indexer reuses any cached output that is still valid. 
 
