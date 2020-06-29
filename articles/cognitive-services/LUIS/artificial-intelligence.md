@@ -1,7 +1,7 @@
 ---
 title: Artificial intelligence
 description: LUIS uses artificial intelligence to provide language understanding to your data, based on the schema you defined.
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/29/2020
 ---
 
@@ -41,4 +41,4 @@ Some aspects of NLP are configurable in LUIS using settings, and others you need
 
 ## Next steps
 
-* Learn about the [development lifecycle](luis-concept-app-iteration.mp) for a LUIS app
+* Learn about the [development lifecycle](luis-concept-app-iteration.md) for a LUIS app
