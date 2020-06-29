@@ -33,7 +33,7 @@ If each application kept track of users separately then the result would be a si
 A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
 >[!TIP]
-> An IAM system provides a single place to keep track of user identities.
+> An IAM system provides a single place, one source of truth, to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
 
 
 ## Why manage applications with a cloud solution?
@@ -55,7 +55,7 @@ There are four main types of applications that you can add to your **Enterprise 
 
 - **Azure AD Gallery applications** – Azure AD has a gallery that contains thousands of applications that have been pre-integrated for single sign-on with Azure AD. Some of the applications your organization uses are probably in the gallery. [Learn about planning your app integration](plan-an-application-integration.md), or get detailed integration steps for individual apps in the [SaaS application tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps, see [Remote access to on-premises applications through Azure Active Directory's Application Proxy](application-proxy.md).
+- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](application-proxy.md).
 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
@@ -79,12 +79,12 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
-For Human Resources focused applications, or other applications with a large set of users, you can leverage App provisioning to automate the process of provisioning and deprovisioning users, see [What is Application provisioning?](../app-provisioning/user-provisioning.md).
+For Human Resources focused applications, or other applications with a large set of users, you can leverage App provisioning to automate the process of provisioning and deprovisioning users, see [What is application provisioning?](../app-provisioning/user-provisioning.md).
 
 ## Next steps
 
-- [View all applications already configured in your Azure AD tenant](view-applications-portal.md)
+- [View applications already configured in your Azure AD tenant](view-applications-portal.md)
 - [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
 - [Add a gallery app to your Azure AD organization](add-gallery-app.md)
-- [Get started with app integration](plan-an-application-integration.md)
+- [Get started with application integration](plan-an-application-integration.md)
 - [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)
