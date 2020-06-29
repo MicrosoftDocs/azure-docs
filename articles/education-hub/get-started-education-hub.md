@@ -15,7 +15,7 @@ you want to set up your course, learn about different services through Microsoft
 your first services through Quickstart Templates.
 
 After your first login, by default you will be taken to the Overview page.
-          :::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Azure Education Get Started page." border="false":::
+:::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Azure Education Get Started page." border="false":::
 
 ## Next steps
 
