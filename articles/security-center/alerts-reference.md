@@ -33,7 +33,7 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 |Alert|Description|Intent ([Learn more](#intentions))|Severity|
 |----|----|:----:|--|
-|**A logon from a malicious IP has been detected**|A successful remote authentication for the account [account] and process [procee] occurred, however the logon IP address (x.x.x.x) has previously been reported as malicious or highly unusual. A successful attack has probably occurred.|-|High|
+|**A logon from a malicious IP has been detected**|A successful remote authentication for the account [account] and process [process] occurred, however the logon IP address (x.x.x.x) has previously been reported as malicious or highly unusual. A successful attack has probably occurred.|-|High|
 |**A logon from a malicious IP has been detected. [seen multiple times]**|A successful remote authentication for the account [account] and process [process] occurred, however the logon IP address (x.x.x.x) has previously been reported as malicious or highly unusual. A successful attack has probably occurred. Files with the .scr extensions are screen saver files and are normally reside and execute from the Windows system directory.|-|High|
 |**Addition of Guest account to Local Administrators group**|Analysis of host data has detected the addition of the built-in Guest account to the Local Administrators group on %{Compromised Host}, which is strongly associated with attacker activity.|-|Medium|
 |**An event log was cleared**|Machine logs indicate a suspicious event log clearing operation by user: '%{user name}' in Machine: '%{CompromisedEntity}'. The %{log channel} log was cleared.|-|Informational|
