@@ -1,22 +1,10 @@
 ---
 title: Manage formulas in Azure DevTest Labs to create VMs | Microsoft Docs
 description: This article illustrates how to create a formula from either a base (custom image, Marketplace image, or another formula) or an existing VM.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Manage Azure DevTest Labs formulas
 
 [!INCLUDE [devtest-lab-formula-definition](../../includes/devtest-lab-formula-definition.md)]
