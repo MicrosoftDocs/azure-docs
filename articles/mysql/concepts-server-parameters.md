@@ -30,9 +30,9 @@ MySQL traditionally assigns a thread for every client connection. As the number 
 Thread pools maximize performance by introducing a dynamic thread pool that can be used to limit the number of connections actively running on the server. This helps with ensuring that the burst of connections will not cause the server to run out of resources or crash with an out of memory error. Thread pools are most efficient for short queries and CPU intensive OLTP workloads.
 
 ### Configuring the thread pool
-To enable the thread pool, update the `thread_handling` server parameter to "pool-of-threads". By default, this parameter is set to `one-thread-per-connection`, which means MySQL will create a new thread for each new connections. Please note that this parameter is a static parameter and requires a server restart in order to apply.
+To enable the thread pool, update the `thread_handling` server parameter to "pool-of-threads". By default, this parameter is set to `one-thread-per-connection`, which means MySQL will create a new thread for each new connections. Please note that this parameter is a static parameter and requires a server restart to apply.
 
-You can also configure the maximum and minumum number of threads in the pool by setting the following server parameters: 
+You can also configure the maximum and minimum number of threads in the pool by setting the following server parameters: 
 - `thread_pool_max_threads`: this value ensures that there will not be more than this number of threads in the pool
 - `thread_pool_min_threads`: this value sets the number of threads that will be reserved even after connections are closed 
 
