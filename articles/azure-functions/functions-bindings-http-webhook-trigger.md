@@ -748,9 +748,6 @@ The authenticated user is available via [HTTP Headers](../app-service/app-servic
 
 ## <a name="authorization-keys"></a>Function access keys
 
-> [!IMPORTANT]
-> While keys may help obfuscate your HTTP endpoints during development, they are not intended as a way to secure an HTTP trigger in production. To learn more, see [Secure an HTTP endpoint in production](#secure-an-http-endpoint-in-production).
-
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
 
 ## Obtaining keys

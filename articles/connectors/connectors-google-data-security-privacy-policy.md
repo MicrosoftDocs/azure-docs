@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
 
-Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors). 
+Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors).
 
 > [!NOTE]
 > If your logic apps use the Gmail connector with a G-Suite business account (email address with a custom domain), your logic apps aren't affected and have no restrictions on using the Gmail connector.
@@ -31,6 +31,8 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Logic Apps built-in triggers and actions: Batch, Control, Data Operations, Date Time, Flat File, Liquid, Request, Schedule, Variables, and XML
 
+  Built-in triggers and actions that aren't approved by Google, such as HTTP, Azure Functions, Azure Logic Apps, and others, make a logic app non-compliant with the Gmail connector because the app can send or receive data from anywhere.
+
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
 * Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
@@ -44,6 +46,8 @@ Here are some examples that use the Gmail connector with built-in triggers and a
 * This logic app uses the Gmail connector with the HTTP built-in trigger:
 
   ![Non-compliant logic app - Example 1](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-1.png)
+  
+  The logic app also uses the Google Calendar connector, which is approved.
 
 * This logic app uses the Gmail connector with the Azure Blob Storage connector:
 

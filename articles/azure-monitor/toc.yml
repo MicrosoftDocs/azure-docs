@@ -12,6 +12,12 @@
   items:
   - name: Monitor Azure resource
     href: learn/quick-monitor-azure-resource.md
+  - name: Send Activity log to a workspace
+    items: 
+    - name: Azure portal
+      href: learn/quick-collect-activity-log-portal.md
+    - name: ARM template
+      href: learn/quick-collect-activity-log-arm.md
   - name: Monitor virtual machines
     items:
     - name: Azure VMs
@@ -455,7 +461,7 @@
       - name: Webhook actions
         href: platform/alerts-log-webhook.md
       - name: Troubleshoot log alerts
-        href: platform/alert-log-troubleshoot.md
+        href: platform/alerts-troubleshoot-log.md
     - name:  Activity log alert rules
       items:
       - name: Alert on an activity log event
@@ -506,6 +512,8 @@
       href: platform/api-alerts.md
     - name: Troubleshoot alerts
       href: platform/alerts-troubleshoot.md
+    - name: Alerts and region moves
+      href: platform/alerts-resource-move.md
     - name: IT Service Management
       items:
       - name: IT Service Management Connector
@@ -555,12 +563,12 @@
       - name: ASP.NET
         displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
         href: app/asp-net.md
+      - name: ASP.NET Console
+        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
+        href: app/console.md
       - name: Non-HTTP apps/Background apps
         displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
         href: app/worker-service.md  
-      - name: .NET Console
-        displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
-        href: app/console.md
       - name: Java
         items:
           - name: Web apps
@@ -615,6 +623,8 @@
         href: app/remove-application-insights.md
     - name: Codeless monitoring
       items: 
+      - name: Overview
+        href: app/codeless-overview.md
       - name: Azure VM and scale set
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service

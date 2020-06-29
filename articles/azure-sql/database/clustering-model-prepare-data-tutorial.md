@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Prepare data to perform clustering in R"
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: In part one of this three-part tutorial series, you'll prepare the data from an Azure SQL database to perform clustering in R with Azure SQL Database Machine Learning Services (preview).
+description: In part one of this three-part tutorial series, you'll prepare the data from a database in Azure SQL Database to perform clustering in R with Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 # Tutorial: Prepare data to perform clustering in R with Azure SQL Database Machine Learning Services (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In part one of this three-part tutorial series, you'll import and prepare the data from an Azure SQL database using R. Later in this series, you'll use this data to train and deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
+In part one of this three-part tutorial series, you'll import and prepare the data from a database in Azure SQL Database using R. Later in this series, you'll use this data to train and deploy a clustering model in R with Azure SQL Database Machine Learning Services (preview).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -27,7 +27,7 @@ In part one of this three-part tutorial series, you'll import and prepare the da
 You'll use the **K-Means** algorithm to perform the clustering of customers in a dataset of product purchases and returns. By clustering customers, you can focus your marketing efforts more effectively by targeting specific groups.
 K-Means clustering is an *unsupervised learning* algorithm that looks for patterns in data based on similarities.
 
-In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside a SQL database using stored procedures.
+In parts one and two of this series, you'll develop some R scripts in RStudio to prepare your data and train a machine learning model. Then, in part three, you'll run those R scripts inside the database using stored procedures.
 
 In this article, you'll learn how to:
 
@@ -35,11 +35,11 @@ In this article, you'll learn how to:
 >
 > * Import a sample database into Azure SQL Database
 > * Separate customers along different dimensions using R
-> * Load the data from the Azure SQL database into an R data frame
+> * Load the data from the database into an R data frame
 
 In [part two](clustering-model-build-tutorial.md), you'll learn how to create and train a K-Means clustering model in R.
 
-In [part three](clustering-model-deploy-tutorial.md), you'll learn how to create a stored procedure in an Azure SQL database that can perform clustering in R based on new data.
+In [part three](clustering-model-deploy-tutorial.md), you'll learn how to create a stored procedure that can perform clustering in R based on new data.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ The sample dataset used in this tutorial has been saved to a **.bacpac** databas
 
 1. Download the file [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Follow the directions in [Import a BACPAC file to create an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-import), using these details:
+1. Follow the directions in [Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance](../../azure-sql/database/database-import.md), using these details:
 
    * Import from the **tpcxbb_1gb.bacpac** file you downloaded
    * During the public preview, choose the **Gen5/vCore** configuration for the new database
@@ -206,9 +206,9 @@ From the Azure portal, follow these steps:
 
 In part one of this tutorial series, you completed these steps:
 
-* Import a sample database into an Azure SQL database
+* Import a sample database into a database in Azure SQL Database
 * Separate customers along different dimensions using R
-* Load the data from the Azure SQL database into an R data frame
+* Load the data from the database into an R data frame
 
 To create a machine learning model that uses this customer data, follow part two of this tutorial series:
 

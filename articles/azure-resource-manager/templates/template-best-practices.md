@@ -2,19 +2,15 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 06/09/2020
 ---
 # ARM template best practices
 
-This article gives recommendations about how to construct your Azure Resource Manager (ARM) template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
-
-For recommendations about how to govern your Azure subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+This article shows you how to use recommended practices when constructing your ARM template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
 
 ## Template limits
 
-Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.
 
 You're also limited to:
 
@@ -269,7 +265,12 @@ The following information can be helpful when you work with [resources](template
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the **protectedSettings** property of the relevant extensions.
    > 
-   > 
+
+## Use test toolkit
+
+The ARM template test toolkit is a script that checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with suggested changes. The test toolkit can help you learn how to implement best practices in your template.
+
+After you've completed your template, run the test toolkit to see if there are ways you can improve it implementation. For more information, see [ARM template test toolkit](test-toolkit.md).
 
 ## Next steps
 

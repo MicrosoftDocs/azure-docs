@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
+ms.date: 06/25/2020
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -108,7 +108,7 @@ To see deployment error codes and messages with PowerShell, use:
 To see deployment error codes and messages with Azure CLI, use:
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 In the portal, select the notification.
@@ -166,7 +166,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 Examine the deployment operations with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -174,7 +174,7 @@ az deployment group operation list \
 Examine the request content with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -183,7 +183,7 @@ az deployment group operation list \
 Examine the response content with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response

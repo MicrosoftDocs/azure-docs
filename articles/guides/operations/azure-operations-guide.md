@@ -221,7 +221,7 @@ The pricing for each service in Azure is different. Many Azure services provide 
 
 Azure Resource Manager is a deployment, management, and organization mechanism for Azure resources. By using Resource Manager, you can put many individual resources together in a resource group.
 
-Resource Manager also includes deployment capabilities that allow for customizable deployment and configuration of related resources. For instance, by using Resource Manager, you can deploy an application that consists of multiple virtual machines, a load balancer, and a SQL database as a single unit. You develop these deployments by using a Resource Manager template.
+Resource Manager also includes deployment capabilities that allow for customizable deployment and configuration of related resources. For instance, by using Resource Manager, you can deploy an application that consists of multiple virtual machines, a load balancer, and a database in Azure SQL Database as a single unit. You develop these deployments by using a Resource Manager template.
 
 Resource Manager provides several benefits:
 

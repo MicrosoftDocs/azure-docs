@@ -71,7 +71,7 @@ Choose a syslog daemon to see the appropriate description.
 
         Contents of the `security-config-omsagent.conf` file:
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
 1. **Restarting the Syslog daemon**

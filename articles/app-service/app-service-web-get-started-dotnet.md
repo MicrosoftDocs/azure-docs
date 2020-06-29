@@ -104,7 +104,7 @@ Follow these steps to update and redeploy your web app:
 
 1. Replace the entire `<div>` tag with the following code:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>

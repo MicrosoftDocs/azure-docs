@@ -1,22 +1,10 @@
 ---
 title: Grant user permissions to specific lab policies | Microsoft Docs
 description: Learn how to grant user permissions to specific lab policies in DevTest Labs based on each user's needs
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Grant user permissions to specific lab policies
 ## Overview
 This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
