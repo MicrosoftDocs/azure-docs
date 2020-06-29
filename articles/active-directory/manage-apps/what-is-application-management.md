@@ -79,6 +79,8 @@ With Azure AD, you can monitor application sign-ins through reports that leverag
 
 By migrating to Azure AD, you can save costs and remove the hassle of managing your on-premises infrastructure. Azure AD also provides self-service access to applications, which saves time for both administrators and users. Single sign-on eliminates application-specific passwords. This ability to sign on once saves costs related to password reset for applications, and lost productivity while retrieving passwords.
 
+For Human Resources focused applications, or other applications with a large set of users, you can leverage App provisioning to automate the process of provisioning and deprovisioning users, see [What is Application provisioning?](../app-provisioning/user-provisioning.md).
+
 ## Next steps
 
 - [View all applications already configured in your Azure AD tenant](view-applications-portal.md)
