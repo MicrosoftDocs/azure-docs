@@ -1,13 +1,12 @@
 ---
 title: Azure Table storage | Azure Marketplace
 description: Configure lead management in Azure Table storage.
-services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 # Lead-management instructions for Table storage
@@ -94,7 +93,7 @@ In the next set of steps, you connect to your storage table and set up the proce
 
    - **Filter Query**: When you select this field, the **Get past time** icon is displayed in a pop-up window. Select **Past time** to use this value as a timestamp to filter the query. Or, you can paste the following function into the field:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Set up the filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 

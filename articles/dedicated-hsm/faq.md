@@ -11,7 +11,6 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
 ms.date: 02/05/2020
 ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
@@ -37,7 +36,7 @@ Microsoft has partnered with Gemalto to deliver the Azure Dedicated HSM service.
 
 ### Q: What is an HSM used for?
 
-HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as SSL (secure socket layer), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
+HSMs are used for storing cryptographic keys that are used for cryptographic functionality such as TLS (transport layer security), encrypting data, PKI (public key infrastructure), DRM (digital rights management), and signing documents.
 
 ### Q: How does Dedicated HSM work?
 
@@ -66,6 +65,7 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * East US
 * East US 2
 * West US
+* West US 2
 * South Central US
 * Southeast Asia
 * East Asia
@@ -81,6 +81,10 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * Canada East
 * Australia East
 * Australia Southeast
+* Switzerland North
+* Switzerland West
+* US Gov Virginia
+* US Gov Texas
 
 ## Interoperability
 
@@ -107,7 +111,7 @@ Yes, if you have on-premises Gemalto SafeNet HSMs. There are multiple methods. R
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Virtual: VMware, hyperv, Xen, KVM
+* Virtual: VMware, Hyper-V, Xen, KVM
 
 ### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
 
@@ -129,13 +133,13 @@ Yes. Refer to the Gemalto migration guide.
 
 ### Q: How do I decide whether to use Azure Key Vault or Azure Dedicated HSM?
 
-Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless SSL, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for “born-in-cloud” applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
+Azure Dedicated HSM is the appropriate choice for enterprises migrating to Azure on-premises applications that use HSMs. Dedicated HSMs present an option to migrate an application with minimal changes. If cryptographic operations are performed in the application's code running in an Azure VM or Web App, they can use Dedicated HSM. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as Application gateway or traffic manager for keyless TLS, ADCS (Active Directory Certificate Services), or similar PKI tools, tools/applications used for document signing, code signing, or a SQL Server (IaaS) configured with TDE (transparent database encryption) with master key in an HSM using an EKM (extensible key management) provider. Azure Key Vault is suitable for "born-in-cloud" applications or for encryption at rest scenarios where customer data is processed by PaaS (platform as a service) or SaaS (Software as a service) scenarios such as Office 365 Customer Key, Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store encryption with customer-managed key, Azure Storage encryption with customer managed key, and Azure SQL with customer managed key.
 
 ### Q: What usage scenarios best suit Azure Dedicated HSM?
 
 Azure Dedicated HSM is most suitable for migration scenarios. This means that if you are migrating on-premises applications to Azure that are already using HSMs. This provides a low-friction option to migrate to Azure with minimal changes to the application. If cryptographic operations are performed in the application's code running in Azure VM or Web App, Dedicated HSM may be used. In general, shrink-wrapped software running in IaaS (infrastructure as a service) models, that support HSMs as a key store can use Dedicate HSM, such as:
 
-* Application gateway or traffic manager for keyless SSL
+* Application gateway or traffic manager for keyless TLS
 * ADCS (Active Directory Certificate Services)
 * Similar PKI tools
 * Tools/applications used for document signing
@@ -144,7 +148,7 @@ Azure Dedicated HSM is most suitable for migration scenarios. This means that if
 
 ### Q: Can Dedicated HSM be used with Office 365 Customer Key, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage encryption, Azure SQL TDE?
 
-No. Dedicated HSM is provisioned directly into a customer’s private IP Address space so it does not accessible by other Azure or Microsoft services.
+No. Dedicated HSM is provisioned directly into a customer's private IP Address space so it does not accessible by other Azure or Microsoft services.
 
 ## Administration, access, and control
 
@@ -234,7 +238,7 @@ Microsoft does not have the ability to connect to HSMs allocated to customers. C
 
 ### Q: What if I need to reboot my HSM?
 
-The HSM has a command-line reboot option, however, we are experiencing reboot hang issues intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
+The HSM has a command-line reboot option, however, we are experiencing issues where the reboot stops responding intermittently and for this reason it is recommended for the safest reboot that you raise a support request with Microsoft to have the device physically rebooted. 
 
 ## Cryptography and standards
 

@@ -45,7 +45,7 @@ There may be Azure Monitor costs associated with the following. See [Azure Monit
 - Accessing metrics through API.
 
 ## Monitoring data
-Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
+Resources in Azure generate [logs](../platform/data-platform-logs.md) and [metrics](../platform/data-platform-metrics.md) shown in the following diagram. Refer to the documentation for each Azure services for the specific data they generate and any additional solutions or insights they provide.
 
 ![Overview](media/monitor-azure-resource/logs-metrics.png)
 
@@ -86,7 +86,7 @@ Follow the procedure in [Create diagnostic setting to collect platform logs and 
  You can access monitoring data for most Azure resources from the resource's menu in the Azure portal. This will give you access to a single resource's data using standard Azure Monitor tools. Some Azure services will provide different options, so you should reference the documentation for that service for additional information. Use the **Azure Monitor** menu to analyze data from all monitored resources. 
 
 ### Overview
-Many services will include monitoring data on their **Overview** page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics. Other monitoring options will typically be available in a **Monitoring** section of the services. menu.
+Many services will include monitoring data on their **Overview** page as a quick glance to their operation. This will typically be based on a subset of platform metrics stored in Azure Monitor Metrics. Other monitoring options will typically be available in a **Monitoring** section of the service's menu.
 
 ![Overview page](media/monitor-azure-resource/overview-page.png)
 

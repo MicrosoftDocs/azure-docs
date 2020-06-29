@@ -34,7 +34,7 @@ Windows 10 Enterprise multi-session can't run in on-premises production environm
 
 You can start a virtual machine (VM) in Azure with Windows 10 Windows 10 Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.  
  
-To get started, create a VM in Azure with Windows 10 Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
+To get started, create a VM in Azure with Windows 10 Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows 10 PC with Hyper-V enabled.
 
 Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Windows Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
  
@@ -48,7 +48,7 @@ Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD
  
 ## Where can I find the Windows 10 Enterprise multi-session image?
 
-Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Office Pro Plus, go to the Azure portal and search for Microsoft Windows 10 + Office 365 ProPlus.
+Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**.
 
 ## Which Windows 10 Enterprise multi-session image should I use?
 
@@ -99,4 +99,4 @@ To learn more about Windows Virtual Desktop and Windows 10 Enterprise multi-sess
 
 - Read our [Windows Virtual Desktop Preview documentation](overview.md)
 - Visit our [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Set up your Windows Virtual Desktop deployment with the [Windows Virtual Desktop tutorials](tenant-setup-azure-active-directory.md)
+- Set up your Windows Virtual Desktop deployment with the [Windows Virtual Desktop tutorials](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

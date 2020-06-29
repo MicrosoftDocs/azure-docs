@@ -25,7 +25,7 @@ Azure Functions requires an Azure Storage account when you create a function app
 
 When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Some storage accounts don't support queues and tables. These accounts include blob-only storage accounts, Azure Premium Storage, and general-purpose storage accounts with ZRS replication. These unsupported accounts are filtered out of from the Storage Account blade when creating a function app.
 
-To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#azure-storage-services). 
+To learn more about storage account types, see [Introducing the Azure Storage Services](../storage/common/storage-introduction.md#core-storage-services). 
 
 While you can use an existing storage account with your function app, you must make sure that it meets these requirements. Storage accounts created as part of the function app create flow are guaranteed to meet these storage account requirements.  
 
@@ -49,9 +49,7 @@ It's possible for multiple function apps to share the same storage account witho
 
 ## Storage data encryption
 
-Azure Storage encrypts all data in a storage account at rest. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
-
-By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of blob and file data. These keys must be present in Azure Key Vault for Functions to be able to access the storage account. To learn more, see [Configure customer-managed keys with Azure Key Vault by using the Azure portal](../storage/common/storage-encryption-keys-portal.md).  
+[!INCLUDE [functions-storage-encryption](../../includes/functions-storage-encryption.md)]
 
 ## Mount file shares (Linux)
 

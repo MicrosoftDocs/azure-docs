@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.custom: seodec18
 ---
 
@@ -50,8 +50,8 @@ A rich operational analytics platform combined with our interactive data explora
 
 * Multi-layered storage solution with warm and cold analytics support providing customers the option to route data between warm and cold for interactive analytics over warm data as well as operational intelligence over decades of historical data. 
 
-    *	A highly interactive warm analytics solution to perform frequent, and large number of queries over shorter time span data 
-    *	A scalable, performant, and cost optimized time series data lake based on Azure Storage allowing customers to trend years’ worth of time series data in seconds. 
+    *    A highly interactive warm analytics solution to perform frequent, and large number of queries over shorter time span data 
+    *    A scalable, performant, and cost optimized time series data lake based on Azure Storage allowing customers to trend years' worth of time series data in seconds. 
 
 * Semantic model support that describes the domain and metadata associated with the derived and raw signals from assets and devices.
 
@@ -59,7 +59,7 @@ A rich operational analytics platform combined with our interactive data explora
 
 * Rich analytics with enhanced query APIs and user experience that combines asset-based data insights with rich, ad hoc data analytics with support for interpolation, scalar and aggregate functions, categorical variables, scatter plots, and time shifting time series signals for in-depth analysis.
 
-*	Enterprise grade platform to support the scale, performance, security, and reliability needs of our enterprise IoT customers.
+*    Enterprise grade platform to support the scale, performance, security, and reliability needs of our enterprise IoT customers.
 
 * Extensibility and integration support for end-to-end analytics. Time Series Insights provides an extensible analytics platform for a variety of data scenarios. Time Series Insights Power BI connector enables customers to take the queries they do in Time Series Insights directly into Power BI to get unified view of their BI and time series analytics in a single pane of glass.
 

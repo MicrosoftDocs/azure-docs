@@ -1,10 +1,10 @@
 ---
-title: Review Azure service resource usage with REST API | Microsoft Docs
+title: Review Azure service resource usage with REST API
 description: Learn how to use Azure REST APIs to review Azure service resource usage.
 author: lleonard-msft
 ms.service: cost-management-billing
-ms.topic: article
-ms.date: 02/12/2020
+ms.topic: reference
+ms.date: 03/31/2020
 ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review resource and service usage data under my control.
@@ -30,7 +30,9 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provided in the API token. The `{reportName}`
+The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provided in the API token. 
+
+The `{reportName}` parameter specifies the name of the report. To get a list of report names, you can use the Reports_List operation to get a list: `/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/reports`. View example output on [GitHub](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/cost-management/resource-manager/Microsoft.CostManagement/preview/2018-08-01-preview/examples/ReportList.json).
 
 The following headers are required:
 

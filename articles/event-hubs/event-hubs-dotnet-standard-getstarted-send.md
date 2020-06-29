@@ -1,27 +1,15 @@
 ---
 title: Send and receive events from Azure Event Hubs using .NET (old)
 description: This article provides a walkthrough for creating a .NET Core app that sends/receives events to/from Azure Event Hubs by using the old Microsoft.Azure.EventHubs package. 
-services: event-hubs
-documentationcenter: na
-author: spelluru
-editor: ''
-
-ms.assetid:
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/11/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Send events to or receive events from Azure Event Hubs using .NET Core (Microsoft.Azure.EventHubs)
 This quickstart shows how to send events to and receive events from an event hub using the **Microsoft.Azure.EventHubs** .NET Core library.
 
 > [!WARNING]
-> This quickstart uses the old **Microsoft.Azure.EventHubs** package. For a quickstart that uses the latest  **Azure.Messaging.EventHubs** library, see [Send and receive events using Azure.Messaging.EventHubs library](get-started-dotnet-standard-send-v2.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+> This quickstart uses the old **Microsoft.Azure.EventHubs** package. For a quickstart that uses the latest  **Azure.Messaging.EventHubs** library, see [Send and receive events using Azure.Messaging.EventHubs library](get-started-dotnet-standard-send-v2.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 
 ## Prerequisites
 If you are new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
@@ -370,7 +358,7 @@ Read the following articles:
 
 - [Role-based access control (RBAC) samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    These samples use the old **Microsoft.Azure.EventHubs** library, but you can easily update it to using the latest **Azure.Messaging.EventHubs** library. To move the sample from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).)
+    These samples use the old **Microsoft.Azure.EventHubs** library, but you can easily update it to using the latest **Azure.Messaging.EventHubs** library. To move the sample from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.EventHubs to Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

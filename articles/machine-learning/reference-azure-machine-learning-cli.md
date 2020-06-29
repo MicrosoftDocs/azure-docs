@@ -1,20 +1,19 @@
 ---
-title: CLI extension
-titleSuffix: Azure Machine Learning
-description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with Azure Machine Learning. The ML CLI creates and manages resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
+title: 'Install & use Azure Machine Learning CLI'
+description: Learn how to install and use the Azure Machine Learning CLI extension to create and manage resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
 ---
 
-# Use the CLI extension for Azure Machine Learning
+# Install & use the CLI extension for Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
@@ -31,11 +30,30 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 
 * To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+    If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
 ## Full reference docs
 
 Find the [full reference docs for the azure-cli-ml extension of Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
+
+## Connect the CLI to your Azure subscription
+
+> [!IMPORTANT]
+> If you are using the Azure Cloud Shell, you can skip this section. The cloud shell automatically authenticates you using the account you log into your Azure subscription.
+
+There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
+
+```azurecli-interactive
+az login
+```
+
+If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser and follow the instructions on the command line. The instructions involve browsing to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and entering an authorization code.
+
+[!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
+
+For other methods of authenticating, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ## Install the extension
 
@@ -173,23 +191,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
 
     For information on the format of the JSON file used to define the dataset, use `az ml dataset register --show-template`.
 
-    For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Archive an active or deprecated dataset:
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    For more information, see [az ml dataset archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Deprecate a dataset:
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    For more information, see [az ml dataset deprecate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    For more information, see [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
 + List all datasets in a workspace:
 
@@ -197,7 +199,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset list
     ```
 
-    For more information, see [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    For more information, see [az ml dataset list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Get details of a dataset:
 
@@ -205,15 +207,7 @@ The following commands demonstrate how to work with datasets in Azure Machine Le
     az ml dataset show -n dataset-name
     ```
 
-    For more information, see [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Reactivate an archived or deprecated dataset:
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    For more information, see [az ml dataset reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    For more information, see [az ml dataset show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Unregister a dataset:
 

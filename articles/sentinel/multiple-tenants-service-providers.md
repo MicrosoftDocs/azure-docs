@@ -19,18 +19,18 @@ ms.author: yelevin
 ---
 # Work with multiple tenants in Azure Sentinel 
 
-If you’re a managed security service provider (MSSP) and you’re using [Azure Lighthouse](../lighthouse/overview.md) to manage your customers’ security operations centers (SOC), you will be able to manage your customers’ Azure Sentinel resources without connecting directly to the customer’s tenant, from your own Azure tenant. 
+If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](../lighthouse/overview.md) to manage your customers' security operations centers (SOC), you will be able to manage your customers' Azure Sentinel resources without connecting directly to the customer's tenant, from your own Azure tenant. 
 
 ## Prerequisites
 - [Onboard Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- For this to work properly, your tenant must be registered to the Azure Sentinel Resource Provider on at least one subscription. If you have a registered Azure Sentinel in your tenant, you are ready to get started. If not, in the Azure portal, select **Subscriptions** followed by **Resource providers** and then search for `Microsoft.Security.Insights` and select **Register**.
+- For this to work properly, your tenant must be registered to the Azure Sentinel Resource Provider on at least one subscription. If you have a registered Azure Sentinel in your tenant, you are ready to get started. If not, select **Subscriptions** from the Azure portal, followed by **Resource providers**.  Then, from the **SOC - Resource providers** screen, search for and select `Microsoft.OperationalInsights` and `Microsoft.SecurityInsights`, and select **Register**.
    ![Check resource providers](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## How to access Azure Sentinel from other tenants
-1. Under **Directory + subscription**, select the delegated directories, and the subscriptions where your customer’s Azure Sentinel workspaces are located.
+1. Under **Directory + subscription**, select the delegated directories, and the subscriptions where your customer's Azure Sentinel workspaces are located.
 
    ![Generate security incidents](media/multiple-tenants-service-providers/directory-subscription.png)
 
-1. Open Azure Sentinel. You will see all the workspaces in the selected subscriptions, and you’ll be able to work with them seamlessly, like any workspace in your own tenant.
+1. Open Azure Sentinel. You will see all the workspaces in the selected subscriptions, and you'll be able to work with them seamlessly, like any workspace in your own tenant.
 
 > [!NOTE]
 > You will not be able to deploy connectors in Azure Sentinel from within a managed workspace. To deploy a connector, you must directly sign into the tenant on which you want to deploy a connector and authenticate there with the required permissions.

@@ -4,7 +4,7 @@ description: This article provides information on how to obtain a certificate fr
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---

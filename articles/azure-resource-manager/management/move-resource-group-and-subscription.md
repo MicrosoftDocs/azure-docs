@@ -102,7 +102,7 @@ For illustration purposes, we have only one dependent resource.
 
 * Step 1: If dependent resources are distributed across different resource groups, first move them into one resource group.
 * Step 2: Move the resource and dependent resources together from the source subscription to the target subscription.
-* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription. 
+* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription.
 
 ## Validate move
 
@@ -255,8 +255,9 @@ When moving a resource, its dependent resources must either exist in the destina
 For example, moving a virtual machine could require moving seven resource types with three different resource providers. Those resource providers and types are:
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses
@@ -267,7 +268,7 @@ For example, moving a virtual machine could require moving seven resource types 
 
 Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
 
-**Question: Why can’t I move some resources in Azure?**
+**Question: Why can't I move some resources in Azure?**
 
 Currently, not all resources in Azure support move. For a list of resources that support move, see [Move operation support for resources](move-support-resources.md).
 

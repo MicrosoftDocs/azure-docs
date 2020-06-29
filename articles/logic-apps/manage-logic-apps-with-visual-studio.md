@@ -3,15 +3,17 @@ title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
 description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps with Visual Studio
 
 Although you can create, edit, manage, and deploy logic apps in the [Azure portal](https://portal.azure.com), you can also use Visual Studio when you want to add your logic apps to source control, publish different versions, and create [Azure Resource Manager](../azure-resource-manager/management/overview.md) templates for various deployment environments. With Visual Studio Cloud Explorer, you can find and manage your logic apps along with other Azure resources. For example, you can open, download, edit, run, view run history, disable, and enable logic apps that are already deployed in the Azure portal. If you're new to working with Azure Logic Apps in Visual Studio, learn [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+You can also [manage your logic apps in the Azure portal](manage-logic-apps-with-azure-portal.md).
 
 > [!IMPORTANT]
 > Deploying or publishing a logic app from Visual Studio overwrites the version of that app in the Azure portal. 
@@ -260,7 +262,11 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might take significant time to complete. 
+> If you have thousands of runs, cancellation might take significant time to complete.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Troubleshooting
 

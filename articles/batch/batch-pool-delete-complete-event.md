@@ -1,17 +1,8 @@
 ---
 title: Azure Batch pool delete complete event
 description: Reference for Batch pool delete complete event. This event is emitted when a pool delete operation has completed.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
 ---
 
 # Pool delete complete event

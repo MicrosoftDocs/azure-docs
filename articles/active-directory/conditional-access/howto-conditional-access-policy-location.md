@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy to block access to resour
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/12/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Block access by location
 
-With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries where your organization knows traffic should not come from.
+With the location condition in Conditional Access, you can control access to your cloud apps based on the network location of a user. The location condition is commonly used to block access from countries/regions where your organization knows traffic should not come from.
 
 ## Define locations
 
@@ -48,6 +48,7 @@ More information about the location condition in Conditional Access can be found
    1. **Include** select **Selected locations**
    1. Select the blocked location you created for your organization.
    1. Click **Select** > **Done** > **Done**.
+1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
 1. Under **Access controls** > **Block**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.

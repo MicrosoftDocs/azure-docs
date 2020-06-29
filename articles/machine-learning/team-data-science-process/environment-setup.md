@@ -5,7 +5,6 @@ services: machine-learning
 author: marktab
 manager: marktab
 editor: marktab
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article

@@ -91,8 +91,8 @@ To migrate smaller Azure SQL Database workloads, use the export function to crea
 
 For more information:
 
-- Learn how to [export a database to a BACPAC file](../sql-database/sql-database-export.md).
-- Learn how to [import a BACPAC file to a database](../sql-database/sql-database-import.md).
+- Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
+- Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
 - Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
 
 ## Analysis Services

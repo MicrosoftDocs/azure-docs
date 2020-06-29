@@ -124,7 +124,7 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 2. Select **POST**.
 3. Enter the URL that includes your tenant name using the following format: the tenant name should end with **.onmicrosoft.com** and the URL should end with **oauth2/token**: 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Select the **Headers** tab.
 5. Enter the **Headers** information using the "Key/Value" data grid. 

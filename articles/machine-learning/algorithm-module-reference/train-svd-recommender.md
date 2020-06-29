@@ -64,7 +64,7 @@ From this sample, you can see that a single user has rated several movies.
 
     The learning rate determines the size of the step at each iteration. If the step size is too large, you might overshoot the optimal solution. If the step size is too small, training takes longer to find the best solution. 
   
-5.  Run the pipeline.  
+5.  Submit the pipeline.  
 
 
 ## Next steps

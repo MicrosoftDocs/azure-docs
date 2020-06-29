@@ -7,8 +7,7 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-
-ms.custom: 
+ms.custom: tracking-python
 
 ---
 # Timer trigger for Azure Functions 
@@ -17,6 +16,8 @@ This article explains how to work with timer triggers in Azure Functions.
 A timer trigger lets you run a function on a schedule. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+For information on how to manually run a timer-triggered function, see [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md).
 
 ## Packages - Functions 1.x
 
@@ -314,7 +315,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |---------|---------|
 |"01:00:00" | every hour        |
 |"00:01:00"|every minute         |
-|"24:00:00" | every 24 hours        |
+|"24:00:00" | every 24 days        |
 |"1.00:00:00" | every day        |
 
 ## Scale-out

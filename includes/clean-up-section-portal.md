@@ -2,7 +2,7 @@
 author: cephalin
 ms.service: app-service-web
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 04/14/2020
 ms.author: cephalin
 ---
 ## Clean up resources
@@ -13,4 +13,4 @@ From the Azure portal menu or **Home** page, select **Resource groups**, and on 
 
 On the **myResourceGroup** page, make sure that the listed resources are the ones you want to delete.
 
-Select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.
+Select **Delete resource group**, type **myResourceGroup** in the text box to confirm, and then select **Delete**.

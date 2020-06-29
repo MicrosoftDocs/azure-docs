@@ -15,7 +15,7 @@ ms.author: sutalasi
 This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
-> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows and Linux operating systems.  For machines running ADE 1.1 (without AAD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
+> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without AAD. Moreover, for machines running ADE 1.1 (without AAD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
 
 
 ## <a id="required-user-permissions"></a> Required user permissions

@@ -7,7 +7,7 @@ author: rohinkoul
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: rohink
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Import and export a DNS zone file using the Azure CLI
@@ -168,7 +168,7 @@ As with the zone import, you first need to sign in, choose your subscription, an
 
 To export the existing Azure DNS zone **contoso.com** in resource group **myresourcegroup** to the file **contoso.com.txt** (in the current folder), run `azure network dns zone export`. This command  calls the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
 
-```
+```azurecli
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
 

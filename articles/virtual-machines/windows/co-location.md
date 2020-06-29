@@ -1,14 +1,9 @@
 ---
-title: Co-locate Windows Azure VMs 
+title: Co-locate VMs for improved latency
 description: Learn about how co-locating Azure VM resources can improve latency.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr

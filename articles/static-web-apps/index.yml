@@ -1,0 +1,77 @@
+### YamlMime:Landing
+
+title: Azure Static Web Apps documentation 
+summary: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+
+metadata:
+  title: Azure Static Web Apps documentation
+  description: Azure Static Web Apps allows you to build JavaScript web applications that automatically publish from changes made in GitHub.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+
+landingContent:
+  - title: About Static Web Apps
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Static Web Apps?
+            url: overview.md
+      # - linkListType: video
+      #   links:
+      #     - text:  Intro to Static Web Apps?
+      #       url: https://azure.microsoft.com/resources/videos/
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create your first Angular app
+            url: /azure/static-web-apps/getting-started?tabs=angular
+          - text: Create your first React app
+            url: /azure/static-web-apps/getting-started?tabs=react
+          - text: Create your first Vue app
+            url: /azure/static-web-apps/getting-started?tabs=vue
+          - text: Create your first app (no framework)
+            url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+      - linkListType: learn
+        links:
+          - text: Publish an Angular, React, Svelte, or Vue JavaScript app and API
+            url: /learn/modules/publish-app-service-static-web-app-api
+      - linkListType: video
+        links:
+          - text: Build and deploy a static web app
+            url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+  - title: Publish scenarios
+    linkLists: 
+      - linkListType: tutorial
+        links: 
+          - text: Publish from Gatsby
+            url:  publish-gatsby.md
+          - text: Publish from Hugo
+            url:  publish-hugo.md
+          - text: Publish from VuePress
+            url:  publish-vuepress.md
+          - text: Publish from Jekyll
+            url:  publish-jekyll.md
+          - text: Deploy from Next.js
+            url:  deploy-nextjs.md
+          - text: Deploy from Nuxt.js
+            url:  deploy-nuxtjs.md
+      - linkListType: learn
+        links:
+          - text: Publish a static web app with Gatsby 
+            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+  - title: Key concepts
+    linkLists: 
+      - linkListType: concept
+        links:
+          - text: Routes
+            url: routes.md
+          - text: Public APIs  
+            url: apis.md
+          - text: Staging 
+            url: review-publish-pull-requests.md
+          - text: Restrict access
+            url: authentication-authorization.md 

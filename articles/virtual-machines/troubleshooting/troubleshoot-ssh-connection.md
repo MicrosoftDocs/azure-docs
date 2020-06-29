@@ -76,18 +76,24 @@ The [Azure VM Serial Console](./serial-console-linux.md) provides access to a te
 
 ### Check that SSH is running
 You can use the following command to verify whether SSH is running on your VM:
+
+```console
+ps -aux | grep ssh
 ```
-$ ps -aux | grep ssh
-```
+
 If there is any output, SSH is up and running.
 
 ### Check which port SSH is running on
+
 You can use the following command to check which port SSH is running on:
+
+```console
+sudo grep Port /etc/ssh/sshd_config
 ```
-$ sudo grep Port /etc/ssh/sshd_config
-```
+
 Your output will look something like:
-```
+
+```output
 Port 22
 ```
 
@@ -217,7 +223,7 @@ az vm restart --resource-group myResourceGroup --name myVM
 
 The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
-```azurecli
+```console
 azure vm restart --resource-group myResourceGroup --name myVM
 ```
 
@@ -245,7 +251,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
-```azurecli
+```console
 azure vm redeploy --resource-group myResourceGroup --name myVM
 ```
 

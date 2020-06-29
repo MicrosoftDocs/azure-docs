@@ -36,11 +36,14 @@ Azure Backup Server inherits much of the workload backup functionality from Data
 
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
+* To protect on-premises workloads, the MABS server must be located on-premises.
+* To protect workloads running on Azure VMs, the MABS server must be located in Azure, running as an Azure VM.
+
 ### Using a server in Azure
 
 When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2016 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
-Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12)), helps explain these nuances. Before deploying the machine, read this article completely.
+Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) helps explain these nuances. Before deploying the machine, read this article completely.
 
 ### Using an on-premises server
 
@@ -166,7 +169,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
+    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL according to the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
    **Manual configuration**
 
@@ -191,7 +194,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Configure storage pools and disk storage](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12)).
+    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 5. Provide a strong password for restricted local user accounts and click **Next**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -304,8 +307,8 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 If you are using ExpressRoute Microsoft peering, please select the following services/regions:
 
 * Azure Active Directory (12076:5060)
-* Microsoft Azure Region (as per the location of your Recovery Services vault)
-* Azure Storage (as per the location of your Recovery Services vault)
+* Microsoft Azure Region (according to the location of your Recovery Services vault)
+* Azure Storage (according to the location of your Recovery Services vault)
 
 For more details, visit [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
@@ -336,7 +339,7 @@ Use the following steps to upgrade MABS:
 
    > [!NOTE]
    >
-   > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
+   > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and so an attempt to re-upgrade MABS will fail.
 
    > [!IMPORTANT]
    >

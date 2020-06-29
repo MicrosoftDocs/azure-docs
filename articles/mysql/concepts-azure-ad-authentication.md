@@ -1,6 +1,6 @@
 ---
-title: Active Directory authentication - Azure Database for MySQL - Single Server
-description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL - Single Server
+title: Active Directory authentication - Azure Database for MySQL
+description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
@@ -12,11 +12,6 @@ ms.date: 01/22/2019
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for MySQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.
-
-> [!IMPORTANT]
-> Azure AD authentication for Azure Database for MySQL is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Benefits of using Azure AD include:
 
@@ -74,6 +69,7 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 
 ## Additional considerations
 
+- Azure Active Directory authentication is only available for MySQL 5.7 and newer.
 - Only one Azure AD administrator can be configured for a Azure Database for MySQL server at any time.
 - Only an Azure AD administrator for MySQL can initially connect to the Azure Database for MySQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 - If a user is deleted from Azure AD, that user will no longer be able to authenticate with Azure AD, and therefore it will no longer be possible to acquire an access token for that user. In this case, although the matching user will still be in the database, it will not be possible to connect to the server with that user.
@@ -85,7 +81,7 @@ Once you have authenticated against the Active Directory, you then retrieve a to
 ## Next steps
 
 - To learn how to create and populate Azure AD, and then configure Azure AD with Azure Database for MySQL, see [Configure and sign in with Azure AD for Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL - Single Server](howto-create-users.md).
+- For an overview of logins, and database users for Azure Database for MySQL, see [Create users in Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 

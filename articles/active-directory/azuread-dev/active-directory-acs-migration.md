@@ -5,15 +5,15 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev 
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
+ROBOTS: NOINDEX
 ---
 
 # How to: Migrate from the Azure Access Control Service

@@ -1,12 +1,8 @@
 ---
-title: Assess large numbers of VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/12/2019
-ms.author: hamusa
+title: Assess large numbers of VMware VMs for migration to Azure with Azure Migrate 
+description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.e
+ms.topic: how-to
+ms.date: 03/23/2020
 ---
 
 # Assess large numbers of VMware VMs for migration to Azure
@@ -64,7 +60,7 @@ If you're planning for a multi-tenant environment, you can scope the discovery o
 
 - You can set the appliance discovery scope to a vCenter Server datacenters, clusters or folder of clusters, hosts or folder of hosts, or individual VMs.
 - If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
-    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level. Learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level. [Learn more](set-discovery-scope.md).
 
 ## Prepare for assessment
 

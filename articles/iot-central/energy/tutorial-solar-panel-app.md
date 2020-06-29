@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a solar penal monitoring app with IoT Central'
+title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
 description: 'Tutorial: Learn how to create a solar panel application using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
@@ -105,4 +105,3 @@ If you decide to not continue using this application, delete your application wi
 * Learn about solar panel app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Create solar panel application templates for free: [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
-

@@ -84,8 +84,12 @@ There are multiple methods to install the Log Analytics agent and connect your m
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
-* Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise (including multi-session) and Pro
+* Windows 8 Enterprise and Pro 
+* Windows 7 SP1
 
 >[!NOTE]
 >While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
@@ -106,12 +110,30 @@ Starting with versions released after August 2018, we are making the following c
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
+
+### Python 2 requirement
+ The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to "python" using the following command:
+
+```
+alternatives --set python /usr/sbin/python2
+```
+
+### Supported distros
+
+The following versions of the Linux operating system are officially supported for the Linux agent:
+
 * Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x86/x64) and 7 (x64)  
-* Oracle Linux 6 and 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) and 7 (x64)
-* Debian GNU/Linux 8 and 9 (x86/x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64)
+* CentOS Linux 6 (x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
+* Debian GNU/Linux 8 and 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
 
 >[!NOTE]
@@ -124,8 +146,8 @@ The following table highlights the packages required for supported Linux distros
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|
-|Glibc |	GNU C Library | 2.5-12 
-|Openssl	| OpenSSL Libraries | 1.0.x or 1.1.x |
+|Glibc |    GNU C Library | 2.5-12 
+|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
 |Curl | cURL web client | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
@@ -138,24 +160,40 @@ The following table highlights the packages required for supported Linux distros
 To ensure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 
+## SHA-2 Code Signing Support Requirement for Windows
+The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+
+1. Install the latest Service Pack for your OS. The required service pack versions are:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 Code Signing Support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
+3. Update to the latest version of the Windows agent (version 10.20.18029).
+4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
+
+
 ## Network requirements
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace.
 
 ![Log Analytics agent communication diagram](./media/log-analytics-agent/log-analytics-agent-01.png)
 
+The following table lists the proxy and firewall configuration information that's required for the Linux and Windows agents to communicate with Azure Monitor logs.
 
-## Network firewall requirements
-The information below list the proxy and firewall configuration information required for the Linux and Windows agent to communicate with Azure Monitor logs.  
+### Firewall requirements
 
 |Agent Resource|Ports |Direction |Bypass HTTPS inspection|
 |------|---------|--------|--------|   
 |*.ods.opinsights.azure.com |Port 443 |Outbound|Yes |  
 |*.oms.opinsights.azure.com |Port 443 |Outbound|Yes |  
-|*.blob.core.windows.net |Port 443 |Outbound|Yes |  
+|*.blob.core.windows.net |Port 443 |Outbound|Yes |
+|*.azure-automation.net |Port 443 |Outbound|Yes |
 
 For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+### Proxy configuration
 
 The Windows and Linux agent supports communicating either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol.  Both anonymous and basic authentication (username/password) are supported.  For the Windows agent connected directly to the service, the proxy configuration is specified during installation or [after deployment](agent-manage.md#update-proxy-settings) from Control Panel or with PowerShell.  
 
@@ -178,7 +216,7 @@ For example:
 `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> If you use special characters such as “\@” in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
+> If you use special characters such as "\@" in your password, you receive a proxy connection error because value is parsed incorrectly.  To work around this issue, encode the password in the URL using a tool such as [URLDecode](https://www.urldecoder.org/).  
 
 
 
@@ -187,4 +225,3 @@ For example:
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
-

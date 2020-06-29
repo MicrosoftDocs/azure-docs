@@ -36,3 +36,14 @@ sb_host = "https://#{Azure.sb_namespace}.servicebus.windows.net"
 ```
 
 Set the namespace value to the value you created rather than the entire URL. For example, use **"yourexamplenamespace"**, not "yourexamplenamespace.servicebus.windows.net".
+
+When working with multiple namespaces, you can pass the key and its name to the constructor while creating `SharedAccessSigner` objects
+
+```ruby
+sb_namespace = '<your azure service bus namespace>'
+sb_sas_key_name = '<your azure service bus access keyname>'
+sb_sas_key = '<your azure service bus access key>'
+
+signer = Azure::ServiceBus::Auth::SharedAccessSigner.new(sb_sas_key_name, sb_sas_key)
+sb_host = "https://#{sb_namespace}.servicebus.windows.net"
+```

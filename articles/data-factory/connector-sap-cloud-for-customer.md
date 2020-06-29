@@ -11,10 +11,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
+ms.date: 06/12/2020
 ---
 
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -118,6 +119,7 @@ To copy data from SAP Cloud for Customer, set the source type in the copy activi
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSource**  | Yes |
 | query | Specify the custom OData query to read data. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 Sample query to get data for a specific day:
 `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`

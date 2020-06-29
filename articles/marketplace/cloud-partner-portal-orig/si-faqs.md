@@ -1,21 +1,12 @@
-﻿---
+---
 title: Seller Insights FAQ 
 description: Frequently Asked Questions about the Seller Insights feature of the Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal, 
-
-author: v-miclar
-
-
-
-
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-
-
-
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pabutler
+ms.author: dsindona
 ---
 
 Seller Insights FAQ
@@ -53,10 +44,10 @@ Calculate revenue by customer usage period
 ------------------------------------------
 
 After downloading your transactions from the Payout module, locate the column
-labeled **Transaction Status**, and filter the value "Paid".   For each
+labeled **Transaction Status**, and filter the value "Paid".   For each
 transaction listed, the column labeled **Payout Amount (PC)** represents the
-amount you were paid.  To estimate the usage period associated with the
-transaction, use the column **Charge Date**, which is a close approximation of the
+amount you were paid.  To estimate the usage period associated with the
+transaction, use the column **Charge Date**, which is a close approximation of the
 last day of usage for the period to which the transaction applies.
 
 

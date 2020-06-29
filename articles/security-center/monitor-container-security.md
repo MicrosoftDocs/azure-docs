@@ -128,7 +128,9 @@ To view Azure Security Center's security recommendations for your containers' Do
 
     [![Log Analytics action](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Tweak the query parameters and select **Run** when you're sure it's ready for your host. 
+1. Tweak the query parameters if necessary.
+
+1. When you're sure the command is appropriate and ready for your host, select **Run**.
 
 
 

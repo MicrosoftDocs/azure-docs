@@ -1,0 +1,33 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/sql-database/
+    topicHref: /azure/synapse-analytics/sql-data-warehouse/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/azure-databricks/
+    topicHref: /azure/synapse-analytics/sql-data-warehouse/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /azure/data-factory/
+    topicHref: /azure/synapse-analytics/sql-data-warehouse/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Synapse Analytics
+    tocHref: /sql/t-sql/
+    topicHref: /azure/synapse-analytics/sql-data-warehouse/index
+
+
