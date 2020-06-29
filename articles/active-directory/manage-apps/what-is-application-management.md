@@ -17,10 +17,9 @@ ms.collection: M365-identity-device-management
 
 # What is application management?
 
-Azure AD is a centralized identity system, known as an Identity and Authorization Management (IAM) system, that provides a single place to store information about users. You can configure your applications to use Azure AD as the place where user information is stored. 
+Azure AD is an Identity and Authorization Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
 
-Azure AD must be configured to integrate with an application. In other words, it needs to know what applications are using it as an identity system. The process of keeping Azure AD aware of these applications is known as application management.
-
+Azure AD must be configured to integrate with an application. In other words, it needs to know what applications are using it as an identity system. The process of keeping Azure AD aware of these applications, and how it should handle them, is known as application management.
 
 You manage applications on the **Enterprise applications** blade located in the Manage section of the Azure Active Directory portal.
 
