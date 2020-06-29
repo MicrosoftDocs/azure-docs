@@ -4,7 +4,7 @@ description: Use Azure Stream Analytics to stream data into Azure Data Lake Stor
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 
