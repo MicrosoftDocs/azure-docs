@@ -21,6 +21,9 @@ Learn how to apply differential privacy best practices to Azure Machine Learning
 
 Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about how [differential privacy works](./concept-differential-privacy.md).
 
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.

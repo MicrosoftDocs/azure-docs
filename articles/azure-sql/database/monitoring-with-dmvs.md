@@ -358,7 +358,7 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### Identity high memory-consuming statements
+### Identify high memory-consuming statements
 
 Use the following query to identify high memory-consuming statements:
 
