@@ -76,9 +76,9 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
 1. Create Azure Active Directory (AD) service principal: You can skip the redirect URL. 
 
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Add access rights and scope for the service principal.
-   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > You can limit access to only your resource group for more granular control.

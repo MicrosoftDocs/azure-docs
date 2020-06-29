@@ -37,7 +37,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-events-routing.md",
-      "redirect_url": "/azure/digital-twins/concepts-route-events",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-events-routing",
       "redirect_document_id": false
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "source_path": "articles/digital-twins/concepts-service-limits.md",
-      "redirect_url": "/azure/digital-twins/reference-service-limits",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-service-limits",
       "redirect_document_id": false
     },
     {
@@ -658,6 +658,11 @@
     {
       "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/azure-databricks-scim-connector-provisioning-tutorial.md",
+      "redirect_url": "/azure/databricks/administration-guide/users-groups/scim/aad",
       "redirect_document_id": false
     },
     {
@@ -16972,6 +16977,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/remote-rendering/tutorials/unity/changing-environment-and-materials.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/materials-lighting-effects",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/project-setup.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/view-remote-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/remote-rendering/tutorials/unity/working-with-remote-entities.md",
+      "redirect_url": "/azure/remote-rendering/tutorials/unity/manipulate-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-azure-cli.md",
       "redirect_url": "/cli/azure/mysql",
       "redirect_document_id": false
@@ -18499,6 +18519,11 @@
     {
       "source_path": "articles/sql-database/sql-database-works-in-your-environment.md",
       "redirect_url": "/azure/sql-database/sql-database-develop-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-family/index.md",
+      "redirect_url": "/azure/databox/index",
       "redirect_document_id": false
     },
     {
@@ -20159,6 +20184,41 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-to-partner-center.md",
       "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-overview#migration-from-cloud-partner-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/what-is-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md",
+      "redirect_url": "/azure/marketplace/azure-resource-manager-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/hosted-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices.md",
+      "redirect_url": "/azure/marketplace/what-is-test-drive",
       "redirect_document_id": false
     },
     {
@@ -37267,6 +37327,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/b2b/get-support.md",
+      "redirect_url": "/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
@@ -38151,8 +38216,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/application-proxy-connectivity-ports-how-to.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to",
+      "source_path": "articles/active-directory/manage-apps/application-proxy-connectivity-ports-how-to.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
       "redirect_document_id": true
     },
     {
@@ -38283,7 +38348,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-proxy-enable.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
@@ -39098,6 +39163,11 @@
     {
       "source_path": "articles/active-directory-b2c/page-contract.md",
       "redirect_url": "/azure/active-directory-b2c/page-layout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/custom-email.md",
+      "redirect_url": "/azure/active-directory-b2c/custom-email-sendgrid",
       "redirect_document_id": true
     },
     {
@@ -44247,6 +44317,101 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-databricks/connect-databricks-excel-python-r.md",
+      "redirect_url": "/azure/databricks/scenarios/connect-databricks-excel-python-r",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/azure-databricks/databricks-cli-from-azure-cloud-shell.md",
+      "redirect_url": "/azure/databricks/scenarios/databricks-cli-from-azure-cloud-shell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/databricks-connect-to-data-sources.md",
+      "redirect_url": "/azure/databricks/scenarios/databricks-connect-to-data-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/databricks-extract-load-sql-data-warehouse.md",
+      "redirect_url": "/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/databricks-sentiment-analysis-cognitive-services.md",
+      "redirect_url": "/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/databricks-stream-from-eventhubs.md",
+      "redirect_url": "/azure/databricks/scenarios/databricks-stream-from-eventhubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/frequently-asked-questions-databricks.md",
+      "redirect_url": "/azure/databricks/scenarios/frequently-asked-questions-databricks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/howto-regional-disaster-recovery.md",
+      "redirect_url": "/azure/databricks/scenarios/howto-regional-disaster-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/index.yml",
+      "redirect_url": "/azure/databricks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/mysql-ip-address.md",
+      "redirect_url": "/azure/databricks/scenarios/mysql-ip-address",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/quickstart-create-databricks-workspace-portal.md",
+      "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/quickstart-create-databricks-workspace-powershell.md",
+      "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template.md",
+      "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/quickstart-create-databricks-workspace-vnet-injection.md",
+      "redirect_url": "/azure/databricks/scenarios/quickstart-create-databricks-workspace-vnet-injection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/security-baseline.md",
+      "redirect_url": "/azure/databricks/scenarios/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/service-endpoint-cosmosdb.md",
+      "redirect_url": "/azure/databricks/scenarios/service-endpoint-cosmosdb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/store-secrets-azure-key-vault.md",
+      "redirect_url": "/azure/databricks/scenarios/store-secrets-azure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/vnet-injection-sql-server.md",
+      "redirect_url": "/azure/databricks/scenarios/vnet-injection-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-databricks/what-is-azure-databricks.md",
+      "redirect_url": "/azure/databricks/scenarios/what-is-azure-databricks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/blueprints/gdpr-analytics-overview.md",
       "redirect_url": "https://aka.ms/azureblueprint",
       "redirect_document_id": false
@@ -44699,6 +44864,11 @@
     {
       "source_path": "articles/analysis-services/analysis-services-compat-level.md",
       "redirect_url": "https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/analysis-services/analysis-services-data-providers.md",
+      "redirect_url": "https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current",
       "redirect_document_id": false
     },
     {
@@ -50364,6 +50534,76 @@
       "source_path": "articles/cognitive-services/speech-service/how-to-voice-tuning.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-audio-content-creation",
       "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-cancel-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-concurrency-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-considerations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-creating-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-go-live",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-offer-status",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-operations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-specific-offer.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-retrieve-specific-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-setting-price",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md",
+      "redirect_url": "/marketplace/cloud-partner-portal-api-troubleshooting-authentication-errors",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/msal-acquire-token-interactively.md",
@@ -55466,12 +55706,23 @@
     },
     {
       "source_path": "articles/aks/azure-ad-integration.md",
-      "redirect_url": "/azure/aks/managed-aad",
+      "redirect_url": "/azure/aks/azure-ad-integration-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/blobs/storage-xamarin-blob-storage.md",
-      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin"
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/create-profile-resource-manager-template.md",
+      "redirect_url": "/azure/cdn/create-profile-endpoint-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
+      "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
     }
   ]
 }
