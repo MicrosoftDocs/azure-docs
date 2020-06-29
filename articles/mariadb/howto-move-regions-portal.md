@@ -46,7 +46,7 @@ To create a cross-region read replica server in the target region using the Azur
 > The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
-Stopping replication to the replica server, causes it to become a standalone server. To stop replication to the replica, use the following steps:
+Stopping replication to the replica server, causes it to become a standalone server. To stop replication to the replica from the Azure portal, use the following steps:
 
 1. Once the replica has been created, locate and select your Azure Database for MariaDB source server. 
 1. Select **Replication** from the menu, under **SETTINGS**.
@@ -57,6 +57,7 @@ Stopping replication to the replica server, causes it to become a standalone ser
 ## Clean up source server
 
 You may want to delete the source Azure Database for MariaDB server. To do so, use the following steps:
+
 1. Once the replica has been created, locate and select your Azure Database for MariaDB source server.
 1. In the **Overview** window, select **Delete**.
 1. Type in the name of the source server to confirm you want to delete.

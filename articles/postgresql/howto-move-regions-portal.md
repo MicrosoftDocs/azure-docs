@@ -30,7 +30,7 @@ You can use an Azure Database for PostgreSQL [cross-region read replica](concept
 To prepare the source server for replication using the Azure portal, use the following steps: 
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select the existing Azure Database for PostgreSQL server that you want to use as the source server. 
+1. Select the existing Azure Database for PostgreSQL server that you want to use as the source server. This action opens the **Overview** page.
 1. From the server's menu, select **Replication**. If Azure replication support is set to at least **Replica**, you can create read replicas. 
 1. If Azure replication support is not set to at least **Replica**, set it. Select **Save**.
 1. Restart the server to apply the change by selecting **Yes**.
@@ -39,8 +39,7 @@ To prepare the source server for replication using the Azure portal, use the fol
 
 To create a cross-region read replica server in the target region using the Azure portal, use the following steps:
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
-1. Select the existing Azure Database for PostgreSQL server that you want to use as the source server. This action opens the **Overview** page.
+1. Select the existing Azure Database for PostgreSQL server that you want to use as the source server.
 1. Select **Replication** from the menu, under **SETTINGS**.
 1. Select **Add Replica**.
 1. Enter a name for the replica server.
@@ -56,7 +55,7 @@ To create a cross-region read replica server in the target region using the Azur
 > The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
-To stop replication to the replica, use the following steps:
+To stop replication to the replica from the Azure portal, use the following steps:
 
 1. Once the replica has been created, locate and select your Azure Database for PostgreSQL source server. 
 1. Select **Replication** from the menu, under **SETTINGS**.
@@ -67,6 +66,7 @@ To stop replication to the replica, use the following steps:
 ## Clean up source server
 
 You may want to delete the source Azure Database for PostgreSQL server. To do so, use the following steps:
+
 1. Once the replica has been created, locate and select your Azure Database for PostgreSQL source server.
 1. In the **Overview** window, select **Delete**.
 1. Type in the name of the source server to confirm you want to delete.
