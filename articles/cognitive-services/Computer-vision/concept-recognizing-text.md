@@ -24,7 +24,7 @@ Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com
 
 ### How it works
 
-The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports text-heavy documents upto 2000 pages, and therefore executes asynchronously. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation ID. 
+The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports text-heavy documents up to 2000 pages, and therefore executes asynchronously. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation ID. 
 
 The second step is to call the [Get Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) operation. This operation takes in the operation ID that was created by the Read operation. It then returns the extracted text content from your image or document in the form of JSON. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and a confidence scores.
 
@@ -85,7 +85,7 @@ Read is also available as a Docker container (preview) to enable you to deploy t
 
 ## OCR API
 
-The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immidiately with the detected text. It supports [more languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than Read API.
+The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. It supports [more languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than Read API.
 
 ## Next steps
 
