@@ -10,9 +10,14 @@
  ms.custom: include file
 ---
 
-Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired.
 
-Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.  The current Isolated virtual machine offerings include:
+Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements.  Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance. 
+
+
+Additionally, as the Isolated size VMs are large, customers may choose to subdivide the resources of these VMs by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
+
+The current Isolated virtual machine offerings include:
 * Standard_E64is_v3
 * Standard_E64i_v3
 * Standard_M128ms
@@ -21,21 +26,15 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 * Standard_F72s_v2
 
 > [!NOTE]
-> Isolated VM Sizes has a shelf life. Please see below for details
+> Isolated VM Sizes have a hardware limited lifespan. Please see below for details
 
-## Decommissioning of Isolated VM Sizes
-Isolated VM sizes are hardware bound sizes. They live and operate on specific hardware generation only and will retire with the hardware generation. We will provide reminders 12 months in advance of the official decommissioning of the sizes and offer an updated isolated size on our next hardware version. 
+## Deprecation of Isolated VM Sizes
+As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 months in advance of the official deprecation of the sizes.  Azure will also offer an updated isolated size on our next hardware version that the customer could consider moving their workload onto.
 
 | Size | Isolation Retirement Date | 
 | --- | --- |
 | Standard_DS15_v2<sup>1</sup> | May 15, 2020 |
 | Standard_D15_v2<sup>1</sup>  | May 15, 2020 |
-| Standard_E64is_v3	| Dec 31, 2021  |
-| Standard_E64i_v3	| Dec 31, 2021 | 
-| Standard_M128ms	 | Dec 31, 2022 | 
-| Standard_GS5	| Dec 31, 2021 | 
-| Standard_G5	 | Dec 31, 2021 | 
-| Standard_F72s_v2 | Dec 31, 2021 |
 
 <sup>1</sup>  For details on Standard_DS15_v2 and Standard_D15_v2 isolation retirment program please see FAQs
 
