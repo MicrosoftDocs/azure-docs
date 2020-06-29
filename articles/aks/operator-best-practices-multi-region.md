@@ -118,7 +118,7 @@ The typical strategy is to provide a common storage point where applications can
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
 * [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Kasten](https://blog.kasten.io/posts/backup-and-recovery-in-microsoft-azure-with-kasten-k10/)
 
 ### Application-based asynchronous replication
 
