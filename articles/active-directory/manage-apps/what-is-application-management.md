@@ -26,9 +26,9 @@ You manage applications on the **Enterprise applications** blade located in the 
 ![The Enterprise applications option under the Manage section of the Azure AD portal.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
 ## What is an Identity and Authorization Management (IAM) system?
-An application is a piece of software that is used for some purpose. Most applications require users to sign in so that the application can provide a tailored experience for that particular user. In other words, the application needs to know the identity of the user using the application so that it knows what functionality to offer, or remove, for the user.
+An application is a piece of software that is used for some purpose. Most applications require users to sign in so that the application can provide a tailored experience for that particular user. In other words, the application needs to know the identity of the user using the application. Because it knows what functionality to offer, or remove, for the user.
 
-If each application kept track of users separately then the result would be a silo of a different usernames and logins for every application. One application wouldn't know anything about the users in other applications.
+If each application kept track of users separately then the result would be a silo of different usernames and logins for every application. One application wouldn't know anything about the users in other applications.
 
 A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
@@ -59,7 +59,10 @@ There are four main types of applications that you can add to your **Enterprise 
 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
-- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. You can integrate any web link you want, or any application that renders a username and password field, supports SAML or OpenID Connect protocols, or supports SCIM. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
+- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
+    - Integrate with any web link, or application, that renders a username and password field.
+    - Integrate with any application that supports SAML or OpenID Connect protocols.
+    - Integrate with any application that supports SCIM.
 
 ## Manage risk with Conditional Access policies
 
