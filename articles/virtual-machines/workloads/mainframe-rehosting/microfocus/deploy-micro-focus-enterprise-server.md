@@ -44,13 +44,13 @@ After the registry has been deployed, select **Go to Resource**. This takes you 
 
 2.  **Run the “hello – world” base image** – Again, it’s not necessary, but feel free to try it out.
 
-3.  **Log in to your container registry** – You need to do from the virtual machine (VM). Copy the command to the clipboard or Notepad.
+3.  **Log in to your container registry** – You need to do this from the virtual machine (VM). Copy the command to the clipboard or Notepad.
 
 >   For the registry I created, the command is: **docker login acrmf50.azurecr.io**
 
-1.  **Push to your registry** – You need to do this for the Micro Focus image as well once you have logged into the VM.
+4.  **Push to your registry** – You need to do this for the Micro Focus image as well once you have logged into the VM.
 
-2.  **Pull from your registry** – It’s not relevant for this walk-through, but good to know if you need to run another Docker image.
+5.  **Pull from your registry** – It’s not relevant for this walk-through, but good to know if you need to run another Docker image.
 
 Before you leave the portal, you need to get the credentials for the registry so you can log in. Exit out of the **Quick Start** blade and select **Access Keys** from the Registry Menu. Copy the **Username** and one of the **Passwords** (there are two) to the clipboard or Notepad. You will need them later to log in.
 
