@@ -4,7 +4,7 @@ description: Use a simulated TPM on a Linux VM to test Azure Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 6/26/2020
+ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -218,7 +218,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 
    ```input
    # allow iotedge access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0660"
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", GROUP="iotedge", MODE="0600"
    ```
 
 5. Save and exit the file.
