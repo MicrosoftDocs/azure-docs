@@ -6,7 +6,7 @@ services: data-lake-store
 author: twooley
 
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
 
