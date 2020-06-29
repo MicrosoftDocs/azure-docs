@@ -5,7 +5,7 @@ description: Learn how to collect Azure Machine Learning input model data in Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: laobri
 ms.author: copeters
 author: lostmygithubaccount
@@ -16,9 +16,6 @@ ms.custom: seodec18
 # Collect data for models in production
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
->[!IMPORTANT]
-> The Azure Machine Learning Monitoring SDK will be retired soon. The SDK is still appropriate for developers who currently use the SDK to monitor data drift in models. But for new customers, we recommend using the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights).
 
 This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into an Azure Kubernetes Service (AKS) cluster and store the output data in Azure Blob storage.
 

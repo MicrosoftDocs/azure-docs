@@ -211,7 +211,7 @@ This checklist is a starting point for firewall rules:
 
    | URL (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft container registry |
+   | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
    | \*.azurecr.io | 443 | Personal and third-party container registries |
    | \*.blob.core.windows.net | 443 | Download Azure Container Registry image deltas from blob storage |
@@ -219,6 +219,10 @@ This checklist is a starting point for firewall rules:
    | \*.docker.io  | 443 | Docker Hub access (optional) |
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
 
 If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
 

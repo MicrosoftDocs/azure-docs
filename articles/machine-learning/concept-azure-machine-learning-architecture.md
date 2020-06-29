@@ -41,9 +41,9 @@ The machine learning model workflow generally follows this sequence:
 Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code. (An [Enterprise workspace](concept-workspace.md#upgrade)) is required to use designer.)
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 > [!NOTE]

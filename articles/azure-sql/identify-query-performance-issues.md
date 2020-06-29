@@ -148,11 +148,11 @@ Slow query performance not related to suboptimal query plans and missing indexes
 - Detecting resource limits using [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Detecting resource issues using [DMVs](database/monitoring-with-dmvs.md):
 
-  - The [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU, I/O, and memory consumption for an SQL database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
+  - The [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU, I/O, and memory consumption for the database. One row exists for every 15-second interval, even if there's no activity in the database. Historical data is maintained for one hour.
   - The [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV returns CPU usage and storage data for Azure SQL Database. The data is collected and aggregated in five-minute intervals.
   - [Many individual queries that cumulatively consume high CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your SQL database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](database/single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](database/elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](managed-instance/resource-limits.md#service-tier-characteristics)
+If you identify the problem as insufficient resource, you can upgrade resources to increase the capacity of your database to absorb the CPU requirements. For more information, see [Scale single database resources in Azure SQL Database](database/single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](database/elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](managed-instance/resource-limits.md#service-tier-characteristics)
 
 ## Performance problems caused by increased workload volume
 

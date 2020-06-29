@@ -119,7 +119,7 @@ ServiceFabricOperationalEvent
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
+
 Returns Health Reports with HealthState == 3 (Error) and extract additional properties from the EventMessage field:
 
 ```kusto

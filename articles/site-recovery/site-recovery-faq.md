@@ -123,7 +123,7 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 
 ### Is disaster recovery supported for Azure VMs?
 
-Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery.
+Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure DR offering. No need to set up configuration server/process server and ExpressRoute connections.
 
 ### Is disaster recovery supported for VMware VMs?
 
@@ -221,6 +221,9 @@ Yes. Azure Site Recovery for Linux Operation System supports application custom 
 ```
 
 5. Add the freeze and unfreeze input/output commands in pre and post-steps for the applications requiring app-consistency. You can choose to add another script specifying those and invoke it from "customscript.sh" with pre and post-options.
+
+>[!Note]
+>The Site Recovery agent version should be 9.24 or above to support custom scripts.
 
 ## Failover
 ### If I'm failing over to Azure, how do I access the Azure VMs after failover?

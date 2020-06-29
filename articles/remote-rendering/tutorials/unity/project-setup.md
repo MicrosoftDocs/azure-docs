@@ -103,6 +103,7 @@ Select the **Main Camera** node.
 
 1. Open *Edit > Project Settings...*
 1. In the list on the left select Quality.
+1. Change the **Active Quality Level** to *Low* by selecting it
 1. Change the **Default Quality Level** to *Low*
 
     ![change project quality settings](media/settings-quality.png)

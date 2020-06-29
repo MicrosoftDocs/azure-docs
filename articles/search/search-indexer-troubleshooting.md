@@ -107,6 +107,7 @@ api-key: [admin key]
 Indexers find documents from a [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Sometimes a document from the data source that should have been indexed appears to be missing from an index. There are a couple of common reasons these errors may happen:
 
 * The document hasn't been indexed. Check the portal for a successful indexer run.
+* Check your [change tracking](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) value. If your high watermark value is a date set to a future time, then any documents that have a date less than this will be skipped by the indexer. You can understand your indexer's change tracking state using the 'initialTrackingState' and 'finalTrackingState' fields in the [indexer status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status#indexer-execution-result).
 * The document was updated after the indexer run. If your indexer is on a [schedule](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), it will eventually rerun and pick up the document.
 * The [query](/rest/api/searchservice/create-data-source) specified in the data source excludes the document. Indexers can't index documents that aren't part of the data source.
 * [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [AI enrichment](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.

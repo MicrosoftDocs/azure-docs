@@ -82,7 +82,7 @@ After the image is created, you can find it as an **Image** resource in the list
 
 
 
-## Create an image of a VM using Powershell
+## Create an image of a VM using PowerShell
 
  
 
@@ -173,7 +173,7 @@ If you want to create an image of only the OS disk, specify the managed disk ID 
     ```	
 
 
-## Create an image from a snapshot using Powershell
+## Create an image from a snapshot using PowerShell
 
 You can create a managed image from a snapshot of a generalized VM by following these steps:
 

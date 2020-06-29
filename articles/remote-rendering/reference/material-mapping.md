@@ -49,7 +49,6 @@ Textures embedded in *\*.bin* or *\*.glb* files are supported.
 Additionally to the base feature set, Azure Remote Rendering supports the following glTF extensions:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): Corresponds to [color materials](../overview/features/color-materials.md). For *emissive* materials, it's recommended to use this extension.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): Instead of metallic-roughness textures, you can provide diffuse-specular-glossiness textures. The Azure Remote Rendering implementation directly follows the conversion formulas from the extension.
 

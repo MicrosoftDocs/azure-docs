@@ -6,7 +6,7 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow

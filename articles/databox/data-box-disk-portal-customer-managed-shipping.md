@@ -6,7 +6,7 @@ author: priestlg
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-grpr
 ---
@@ -24,6 +24,7 @@ Self-managed shipping is available as an option when you [Order Azure Data Box D
 * Japan
 * Singapore
 * South Korea
+* India (Preview)
 
 ## Use self-managed shipping
 

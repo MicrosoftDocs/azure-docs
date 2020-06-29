@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: alkohli
 ---
@@ -18,6 +18,7 @@ This article describes how to wipe the data and then return your Azure Stack Edg
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Wipe the data off the data disks on the device
 > * Open a Support ticket to return your device
 > * Pack up the device and schedule a pickup

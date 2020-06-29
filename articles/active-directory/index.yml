@@ -45,9 +45,9 @@ conceptualContent:
         - url: ./manage-apps/what-is-single-sign-on.md
           itemType: concept
           text: What is single sign-on (SSO)?
-        - url: ./manage-apps/user-provisioning.md
-          itemType: tutorial
-          text: Automatic user provisioning
+        - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
+          itemType: concept
+          text: Configure SAML-based SSO
         - url: ./manage-apps/application-proxy.md
           itemType: concept
           text: Application Proxy for on-premises apps

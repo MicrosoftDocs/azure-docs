@@ -4,7 +4,7 @@ description: Provides a list of common Azure subscription and service limits, qu
 ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
-ms.date: 04/21/2020
+ms.date: 06/04/2020
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -122,6 +122,8 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
+For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md#hosting-plans-comparison).
+
 ## Azure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
@@ -211,6 +213,13 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Database Migration Service Limits
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## Digital Twins limits
+
+> [!NOTE]
+> Some areas of this service have adjustable limits, and others do not. This is represented in the tables below with the *Adjustable?* column. When the limit can be adjusted, the *Adjustable?* value is *Yes*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
 ## Event Grid limits
 

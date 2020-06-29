@@ -58,7 +58,7 @@ Your engineering team should have a basic understanding and working knowledge of
 2. On the left pane, select **Commercial Marketplace** > **Overview**.
 3. On the **Overview** page, select **New offer** > **Azure Virtual Machine**.
 
-    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/new-offer-azure-vm.png)
+    ![Screenshot showing the left pane menu options and the "New offer" button.](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > After your offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after making changes to it.
@@ -232,8 +232,8 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
->[!Note]
->If you have an issue uploading files, ensure that your local network doesn't block the *https://upload.xboxlive.com* service that's used by Partner Center.
+>[!NOTE]
+>If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
 #### Azure Marketplace logos
 
@@ -395,10 +395,14 @@ You can design each plan to be visible to everyone or only to a preselected audi
 
 **Private audience**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
-**Restricted audience (Azure subscription IDs)**: Assign the audience that will have access to this private plan by using Azure subscription IDs. Optionally, include a description of each Azure subscription ID that you've assigned. Add up to 10 subscription IDs manually or up to 20,000 IDs if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs, and all letters must be lowercase.
-
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer _before_ it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
+
+**Restricted audience (Azure subscription IDs)**: Assign the audience that will have access to this private plan by using Azure subscription IDs. Optionally, include a description of each Azure subscription ID that you've assigned. Add up to 10 subscription IDs manually or up to 20,000 IDs if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs, and all letters must be lowercase.
+
+>[!Note]
+>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
 
 #### Hide a plan
 
@@ -509,32 +513,73 @@ This page also includes links to help you work with the offer, depending on its 
 
 ## Marketplace examples
 
-The following examples illustrate how the offer appears on Azure Marketplace.
+Here's an example of how offer information appears in Azure Marketplace:
 
-### Azure Marketplace offer details
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in Azure Marketplace.":::
 
-![Azure Marketplace offer details page example](media/avm-create1.png)
+#### Call-out descriptions
 
-### Azure Marketplace search results
+1. Large logo
+2. Price
+3. Categories
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Offer name
+7. Description
+8. Useful links
+9. Screenshots/videos
 
-![Azure Marketplace search details page example](media/avm-create2.png)
+<br>Here's an example of how offer information appears in Azure Marketplace search results:
 
-### Azure Marketplace plan details
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
 
-![Azure Marketplace plan details page example](media/avm-create3.png)
+#### Call-out descriptions
 
-### Azure portal offer details
+1. Small logo
+2. Offer name
+3. Search results summary
+4. Trial
 
-![Azure portal offer details page example](media/avm-create4.png)
+<br>Here's an example of Azure Marketplace plan details:
 
-### Azure portal search results
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustrates Azure Marketplace plan details.":::
 
-![Azure portal search results page example](media/avm-create5.png)
+#### Call-out descriptions
 
-### Azure portal plan details
+1. Plan name and summary
+2. Recommend VM sizes
+3. Plan pricing
 
-![Azure portal plan details page example](media/avm-create6.png)
+<br>Here's an example of how offer information appears in the Azure portal:
 
-## Next steps
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots/videos
+
+<br>Here's an example of how offer information appears in the Azure portal search results:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+
+#### Call-out descriptions
+
+1. Small logo
+2. Offer name
+3. Search results summary
+
+<br>Here's an example of the Azure portal plan details:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
+
+#### Call-out descriptions
+
+1. Plan name
+2. Plan description
+
+## Next step
 
 - [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

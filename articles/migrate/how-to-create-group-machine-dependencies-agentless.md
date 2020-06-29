@@ -2,41 +2,40 @@
 title: Set up agentless dependency analysis in Azure Migrate Server Assessment
 description:  Set up agentless dependency analysis in Azure Migrate Server Assessment.
 ms.topic: how-to
-ms.date: 2/24/2020
+ms.date: 6/08/2020
 ---
 
 
-# Set up agentless dependency visualization 
+# Analyze machine dependencies (agentless)
 
-This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines for assessment and migration to Azure.
 
 
 > [!IMPORTANT]
-> Agentless dependency visualization is currently in preview for VMware VMs only, discovered with the Azure Migrate:Server Assessment tool.
+> Agentless dependency visualization is currently in preview for VMware VMs discovered with the Azure Migrate:Server Assessment tool.
 > Features might be limited or incomplete.
 > This preview is covered by customer support and can be used for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Current limitations
 
+- In the dependency analysis view, you can't currently add or remove a server from a group.
+- A dependency map for a group of servers isn't currently available.
+- The dependency data can't be downloaded in tabular format.
 
 ## Before you start
 
-- [Learn about](concepts-dependency-visualization.md#agentless-analysis) agentless dependency analysis.
-- [Review](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) the prerequisites and support requirements for setting up agentless dependency visualization for VMware VMs
-- Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
-- If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool.
-- Make sure you've set up an [Azure Migrate appliance](migrate-appliance.md) to discover your on-premises machines. Learn how to set up an appliance for [VMware](how-to-set-up-appliance-vmware.md) VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+- [Review](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) supported operating systems, and required permissions.
+- Make sure you:
+    - Have an Azure Migrate project. If you don't, [create](how-to-add-tool-first-time.md) one now.
+    - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
+    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. [Set up an appliance](how-to-set-up-appliance-vmware.md) for VMware VMs. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment.
+- Check that VMware Tools (later than 10.2) is installed on each VM you want to analyze.
 
-
-## Current limitations
-
-- Right now you can't add or remove a server from a group, in the dependency analysis view.
-- A dependency map for a group of servers isn't currently not available.
-- Currently, the dependency data can't be downloaded in tabular format.
 
 ## Create a user account for discovery
 
-Set up a user account so that Server Assessment can access the VM for discovery. [Learn](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) about account requirements.
+Set up a user account so that Server Assessment can access the VM to discover dependencies. [Learn](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) about account requirements for Windows and Linux VMs.
 
 
 ## Add the user account to the appliance
@@ -59,9 +58,9 @@ Choose the machines on which you want to enable dependency discovery.
 1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
 2. Click the **Dependency analysis** icon.
 3. Click **Add servers**.
-3. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
-4. From the machine list, select the machines.
-5. Click **Add servers**.
+4. In the **Add servers** page, choose the appliance that's discovering the relevant machines.
+5. From the machine list, select the machines.
+6. Click **Add servers**.
 
     ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -88,6 +87,38 @@ You can visualize dependencies around six hours after starting dependency discov
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
 
+## Export dependency data
+
+1. In **Azure Migrate: Server Assessment**, click **Discovered servers**.
+2. Click the **Dependency analysis** icon.
+3. Click **Export Application Dependencies**.
+4. In the **Export Application Dependencies** page, choose the appliance that's discovering the relevant machines.
+5. Select the start time and end time. Note that you can download the data only for the last 30 days.
+6. Click **Export dependency**.
+
+The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all machines enabled for dependency analysis. 
+
+![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
+### Dependency information
+
+Each row in the exported CSV corresponds to a dependency observed in the specified time slot. 
+
+The following table summarizes the fields in the exported CSV. Note that server name, application and process fields are populated only for servers that have agentless dependency analysis enabled.
+
+**Field name** | **Details**
+--- | --- 
+Timeslot | The timeslot during which the dependency was observed. <br/> Dependency data is captured over 6-hour slots currently.
+Source server name | Name of the source machine 
+Source application | Name of the application on the source machine 
+Source process | Name of the process on the source machine 
+Destination server name | Name of the destination machine
+Destination IP | IP address of the destination machine
+Destination application | Name of the application on the destination machine
+Destination process | Name of the process on the destination machine 
+Destination port | Port number on the destination machine
+
+
 ## Stop dependency discovery
 
 Choose the machines on which you want to stop dependency discovery.
@@ -102,4 +133,4 @@ Choose the machines on which you want to stop dependency discovery.
 
 ## Next steps
 
-[Group the machines](how-to-create-a-group.md) for assessment.
+[Group machines](how-to-create-a-group.md) for assessment.

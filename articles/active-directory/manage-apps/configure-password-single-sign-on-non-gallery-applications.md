@@ -2,15 +2,14 @@
 title: How to configure password single sign-on for Azure AD apps | Microsoft Docs
 description: How to configure password single sign-on (SSO) to your Azure AD enterprise applications in Microsoft identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
-
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 

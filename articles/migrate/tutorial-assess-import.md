@@ -106,6 +106,7 @@ The following table summarizes the file fields to fill in:
 **Memory** | Yes | Total RAM, in MB, allocated to the server.
 **OS name** | Yes | Server operating system. <br/> Operating system names that match or contain the names in [this](#supported-operating-system-names) list are recognized by the assessment.
 **OS version** | No | Server operating system version.
+**OS architecture** | No | Server OS architecture <br/> Valid values are: x64, x86, amd64, 32-bit or 64-bit
 **Number of disks** | No | Not needed if individual disk details are provided.
 **Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to eight disks.
 **Disk 1 read ops** | No | Disk read operations per second.

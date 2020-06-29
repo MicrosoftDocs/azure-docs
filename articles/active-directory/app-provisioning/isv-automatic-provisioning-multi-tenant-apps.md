@@ -2,14 +2,14 @@
 title: Enable automatic user provisioning for multi-tenant applications - Azure AD
 description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
-author: BarbaraSelden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/23/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: zhchia
 ---
 
