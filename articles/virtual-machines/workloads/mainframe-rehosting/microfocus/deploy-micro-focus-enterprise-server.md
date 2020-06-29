@@ -36,7 +36,7 @@ Ready? Let’s get started!
 
 From the Azure portal, select **Create a Resource** in the top-left corner. From the Marketplace Dashboard, select **Containers,** then **Container Registry**. This takes you to the **Create container registry** pane where you need to fill in the **Registry name**, **Azure Subscription**, **Resource group**, and **Location**. The **Registry Name** needs to resolve, so it must be unique. Select the **Resource group** you used from the previous blog post and the same corresponding **Location**. Select **Enable** for **Admin user** and **Basic** for the **SKU**. Once you have everything filled in, select **Create**.
 
-![Create container registry interface](media/deploy-img1.png)
+![Create container registry interface](media/deploy-image-1.png)
 
 After the registry has been deployed, select **Go to Resource**. This takes you to the main blade for the Azure Container Registry. A nice feature here is the **Quick Start** menu option. Select it and you will see instructions for what needs to be done to push and pull images to and from the registry. Let’s go though these:
 
@@ -70,15 +70,15 @@ Once you have logged in, open a command prompt and initiate the following Docker
 
     -   You will need the **Username** and **Password** that you copied from the Azure portal. You should see something like the following image.
 
-![Screenshot of a Administrator Command Prompt](media/deploy-img2.png)
+    ![Screenshot of a Administrator Command Prompt](media/deploy-image-2.png)
 
 -   **docker tag microfocus/es-acctdemo acrmf50.azurecr.io/es-acctdemo** – This tags the appropriate image with the name of the repository. **NOTE**: If the name \<microfocus/es-acctdemo\> does not work, try using the full Image ID. After you have executed the command, type **docker images –no-trunc**. You should see something like the next image. Notice that the image is properly tagged.
 
-![Select Administrator Command Prompt screen](media/deploy-img3.png)
+    ![Select Administrator Command Prompt screen](media/deploy-image-3.png)
 
 -   **docker push acrmf50.azurecr.io/es-acctdemo** – This kicks off the actual push to your repository. Because the size is 15 GB, it takes a couple of  minutes to run. If everything goes right, you should see something like the  following image.
 
-![Administrator Command Prompt screen](media/deploy-img4.png)
+    ![Administrator Command Prompt screen](media/deploy-image-4.png)
 
 Now go back to the Azure portal, specifically to the **Repository**. In the menu for the **Repository**, select **Repositories**, and you should see **es-acctdemo** listed. Now create the AKS cluster.
 
@@ -86,17 +86,17 @@ Now go back to the Azure portal, specifically to the **Repository**. In the menu
 
 From the Azure portal, select **Create a resource** and then **Containers / Kubernetes Service** from the **Marketplace** menu. Next, you need to fill out the **Create Kubernetes cluster** blade. Be sure to keep the cluster in the same region and resource group you have been using. You can accept the rest of the defaults except for the **Node count,** which only needs to be 1. When you are done, select **Review + create**.
 
-![Create Kubernetes cluster screen](media/deploy-img5.png)
+![Create Kubernetes cluster screen](media/deploy-image-5.png)
 
 When complete, the deployment will place the **Kubernetes Service** artifacts in the **Resource group** you selected on the blade. However, the actual cluster will have its own resource group created during the deployment. If you select **Resource groups** from the menu on the left, you can find it based on the naming convention. Here’s an image of mine – it’s the last one in the list.
 
-![Screenshot of Resource groups](media/deploy-img6.png)
+![Screenshot of Resource groups](media/deploy-image-6.png)
 
 **Run the image**
 
 Now it’s time to pull the image and run it in AKS. The easiest way to do this from the Azure portal is to use the Cloud Shell. You will find the icon at the top right of the Azure portal. Note that for this walkthrough, I am using the Bash Shell.
 
-![Screenshot of the Cloud Shell icon](media/deploy-img7.png)
+![Screenshot of the Cloud Shell icon](media/deploy-image-7.png)
 
 Once the shell has loaded, type the following command:
 
@@ -106,12 +106,12 @@ This pulls the image from the **acrmf50.azurecr.io** Repository and loads it int
 
 Kubernetes should respond with a message that the deployment was created.
 
-![Screenshot of a deployment message](media/deploy-img8.jpg)
+![Screenshot of a deployment message](media/deploy-image-8.jpg)
 
 To see if the container is actually running, type: **kubectl get pods**.
 
 You should see es-acctdemo as a running pod, as in the following image.
 
-![Screenshot es-acctdemo as a running pod](media/deploy-img9.png)
+![Screenshot es-acctdemo as a running pod](media/deploy-image-9.png)
 
 Congratulations! You are now running Enterprise Server in Azure Kubernetes Service. In the next article, I’ll show you how to access the Enterprise Server Administrative Console and also how to leverage Kubernetes to scale out your deployment.
