@@ -55,7 +55,7 @@ There are four main types of applications that you can add to your **Enterprise 
 
 - **Azure AD Gallery applications** – Azure AD has a gallery that contains thousands of applications that have been pre-integrated for single sign-on with Azure AD. Some of the applications your organization uses are probably in the gallery. [Learn about planning your app integration](plan-an-application-integration.md), or get detailed integration steps for individual apps in the [SaaS application tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps. [Learn why to use Application Proxy and how it works](what-is-application-proxy.md).
+- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps, see [Remote access to on-premises applications through Azure Active Directory's Application Proxy](application-proxy.md).
 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
@@ -85,3 +85,4 @@ By migrating to Azure AD, you can save costs and remove the hassle of managing y
 - [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
 - [Add a gallery app to your Azure AD organization](add-gallery-app.md)
 - [Get started with app integration](plan-an-application-integration.md)
+- [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)
