@@ -1,15 +1,15 @@
 ---
-title: Common questions about the migration to Partner Center - Microsoft commercial marketplace
-description: Answers to commonly asked questions about the migration of offers from Cloud Partner Portal to Partner Center.
+title: Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center - Microsoft commercial marketplace
+description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/26/2020
 ms.author: mingshen
 ---
 
-# Common questions about migrating from the Cloud Partner Portal to Partner Center
+# Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
 
 The Cloud Partner Portal has transitioned to Partner Center. Partner Center offers a streamlined, integrated experience for publishing new offers on [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/) and for managing existing offers that were migrated from the Cloud Partner Portal. All the functions of the Cloud Partner Portal are available in Partner Center. This article addresses commonly asked questions about this.
 
