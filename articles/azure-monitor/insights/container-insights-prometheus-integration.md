@@ -64,7 +64,7 @@ Perform the following steps to configure your ConfigMap configuration file for t
 * Azure Stack or on-premises
 * Azure Red Hat OpenShift version 4.x and Red Hat OpenShift version 4.x
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
+1. [Download](https://aka.ms/container-azm-ms-agentconfig) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.
 
    >[!NOTE]
    >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
