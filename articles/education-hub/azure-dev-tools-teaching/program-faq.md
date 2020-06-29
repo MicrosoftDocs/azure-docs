@@ -10,7 +10,7 @@ ms.date:  06/30/2020
 
 # Frequently asked questions about Azure Dev Tools for Teaching
 
-This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
+This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching. 
 
 ## Azure for Students
 
