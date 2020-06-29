@@ -32,11 +32,13 @@ Open the *\.asaql* script file and select **Run locally**. Then, select **Use lo
 
 1. All the job outputs are displayed in the result window at the bottom-right side of the Visual Studio Code window.
 
-   ![Job output results](./media/debug-locally-using-job-diagram-vs-code/job-output-results.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Job output results](./media/debug-locally-using-job-diagram-vs-code/job-output-results.png)
 
 2. Select the query step to navigate to the script. You're automatically directed to the corresponding script in the editor on the left. The intermediate result appears in the result window at the bottom-right side of the Visual Studio Code window.
 
-   ![Job diagram preview result](./media/debug-locally-using-job-diagram-vs-code/preview-result.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Job diagram preview result](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 ### View metrics
 
@@ -46,40 +48,48 @@ In this section, you explore the metrics available for each part of the diagram.
 
 2. Select **Job** from the dropdown. You can select any empty space in a graph node to navigate to job level metrics. This view contains all the metrics, which are updated every 10 seconds when the job is running. You can select or unselect the metrics on the right side to view them in the charts.
 
-   ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
 3. Select the name of the input data source from the dropdown to see input metrics. The input source in the screenshot below is called *quotes*. For more information about input metrics, see [Understand Stream Analytics job monitoring and how to monitor queries](stream-analytics-monitoring.md).
 
-   ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Job diagram metrics](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
 4. Select a query step from the job diagram or select the step name from the dropdown to see step level metrics. Watermark delay is the only available step metric.
 
-   ![Step metrics](./media/debug-locally-using-job-diagram-vs-code/step-metrics.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Step metrics](./media/debug-locally-using-job-diagram-vs-code/step-metrics.png)
 
 5. Select an output in the diagram or from the dropdown to see output-related metrics. For more information about output metrics, see [Understand Stream Analytics job monitoring and how to monitor queries](stream-analytics-monitoring.md). Live output sinks aren't supported.
 
-   ![Output metrics](./media/debug-locally-using-job-diagram-vs-code/output-metrics.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Output metrics](./media/debug-locally-using-job-diagram-vs-code/output-metrics.png)
 
 ### View diagnostic logs
 
 Job level diagnostic logs contain diagnostic information for input data sources and output sinks. When you select an input node or output node, only the corresponding logs are shown. There are no logs shown if you select a query step. You can find all logs at the job level, and you can filter the logs by severity and time.
 
-   ![Diagnostic logs](./media/debug-locally-using-job-diagram-vs-code/diagnostic-logs.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Diagnostic logs](./media/debug-locally-using-job-diagram-vs-code/diagnostic-logs.png)
 
    Select a log entry to see the entire message.
 
-   ![Diagnostic logs message](./media/debug-locally-using-job-diagram-vs-code/diagnostic-logs-message.png#lightbox)
+   > [!div class="mx-imgBorder"]
+   > ![Diagnostic logs message](./media/debug-locally-using-job-diagram-vs-code/diagnostic-logs-message.png)
 
 
 ## Other job diagram features
 
 You can select **Stop** or **Pause** from the tool bar as needed. Once the job is paused, you can resume it from last output.
 
-![Stop or pause job](./media/debug-locally-using-job-diagram-vs-code/stop-pause-job.png#lightbox)
+> [!div class="mx-imgBorder"]
+> ![Stop or pause job](./media/debug-locally-using-job-diagram-vs-code/stop-pause-job.png)
 
 Select **Job Summary** at the top-right of the job diagram to see properties and configurations for your local job.
 
-![Local job summary](./media/debug-locally-using-job-diagram-vs-code/job-summary.png#lightbox)
+> [!div class="mx-imgBorder"]
+> ![Local job summary](./media/debug-locally-using-job-diagram-vs-code/job-summary.png)
 
 ## Limitations
 
