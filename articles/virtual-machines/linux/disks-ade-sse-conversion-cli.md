@@ -4,7 +4,7 @@ description: How to migrate your managed disks using Azure Disk Encryption to se
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -18,7 +18,7 @@ This article covers how to migrate managed disks from Azure Disk Encryption (ADE
 
 ## Prerequisites
 
-In order to convert to SSE with customer-managed keys, you must create a Key Vault and Disk Encryption Set. Both the Key Vault and the Disk Encryption Set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
+In order to convert to SSE with customer-managed keys, you must create an Azure Key Vault and a disk encryption set. Both the key vault and disk encryption set must be in the same subscription and region as the VMs you want to migrate, they can be the same key vault and key that you used with ADE.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
