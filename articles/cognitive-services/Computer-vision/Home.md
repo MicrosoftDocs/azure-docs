@@ -45,11 +45,9 @@ You can analyze images to provide insights about their visual features and chara
 |**[Generate a thumbnail](concept-generating-thumbnails.md)**|Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.|
 |**[Get the area of interest](concept-generating-thumbnails.md#area-of-interest)**|Analyze the contents of an image to return the coordinates of the *area of interest*. Instead of cropping the image and generating a thumbnail, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired.|
 
-## Extract text from images
+## Detect text from images
 
-You can use the Computer Vision [Read](concept-recognizing-text.md#read-api) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses the latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. It currently works for seven different languages (see [Language support](./language-support.md)).
-
-You can also use the [optical character recognition (OCR)](concept-recognizing-text.md) API to extract printed text in several languages. If needed, OCR corrects the rotation of the recognized text and provides the frame coordinates of each word. OCR supports 25 languages and automatically detects the language of the recognized text.
+You can use the Computer Vision [text detection APIs](concept-recognizing-text.md) API to extract printed and handwritten text from images into a machine-readable character stream. The Read API uses the latest models and works with text on a variety of surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. The two text detection APIs support extracting printed text in [several languages](./language-support.md).
 
 ## Moderate content in images
 
