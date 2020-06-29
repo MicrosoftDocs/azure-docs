@@ -115,6 +115,33 @@ Learn more in the [Network recommendations](recommendations-reference.md#recs-ne
 
 
 
+
+### New policies for enabling threat protection and advanced data security
+
+The new policies below were added to the ASC Default initiative and are designed to assist with enabling thread protection or advanced data security for the relevant resource types.
+
+To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
+
+The policies can be found in Azure policy:
+
+
+| Policy                                                                                                                                                                                                                                                                | Policy ID                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [Advanced data security should be enabled on Azure SQL Database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)     | cdfcce10-4578-4ecd-9703-530938e4abcb |
+| [Advanced data security should be enabled on SQL server on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9) | ffb6f416-7bd2-4488-8828-56585fef2be9 |
+| [Advanced threat protection should be enabled on Storage accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)           | f1525828-9a90-4fcf-be48-268cdd02361e |
+| [Advanced threat protection should be enabled on App Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)                | f1525828-9a90-4fcf-be48-268cdd02361e |
+| [Advanced threat protection should be enabled on Azure Container Registry](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)   | f1525828-9a90-4fcf-be48-268cdd02361e |
+| [Advanced threat protection should be enabled on Azure Kubernetes Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)   | f1525828-9a90-4fcf-be48-268cdd02361e |
+| [Advanced threat protection should be enabled on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)           | f1525828-9a90-4fcf-be48-268cdd02361e |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+Learn more about [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
+
+
+
 ## May 2020
 
 Updates in May include:
