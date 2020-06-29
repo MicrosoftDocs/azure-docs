@@ -111,7 +111,7 @@ For example, if you would like Remote Desktop Protocol (RDP) or Secure Shell (SS
 
 *Figure: Inbound NAT rules*
 
-Inbound NAT rules in the context of Virtual Machine Scale Sets (virtual machine scale set) are inbound NAT pools. Learn more about [Load Balancer components and virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+Inbound NAT rules in the context of Virtual Machine Scale Sets are inbound NAT pools. Learn more about [Load Balancer components and virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## Outbound rules
 
