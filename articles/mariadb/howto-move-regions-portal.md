@@ -27,9 +27,7 @@ You can use an Azure Database for MariaDB [cross-region read replica](concepts-r
 
 ## Prepare to move
 
-In this section, you create a cross-region read replica server in the target region using the Azure portal. You then stop replication to the replica server, which causes it to become a standalone server. 
-
-To create a read replica using the Azure portal, use the following steps:
+To create a cross-region read replica server in the target region using the Azure portal, use the following steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 1. Select the existing Azure Database for MariaDB server that you want to use as the source server. This action opens the **Overview** page.
@@ -48,7 +46,7 @@ To create a read replica using the Azure portal, use the following steps:
 > The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
-To stop replication to the replica, use the following steps:
+Stopping replication to the replica server, causes it to become a standalone server. To stop replication to the replica, use the following steps:
 
 1. Once the replica has been created, locate and select your Azure Database for MariaDB source server. 
 1. Select **Replication** from the menu, under **SETTINGS**.
