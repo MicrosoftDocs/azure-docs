@@ -20,13 +20,13 @@ To access the Azure Education Hub, you should have already received an email not
 ## How to access the Azure Education hub
 
 1. In a browser, open a private browsing tab such as Chrome's Incognito or Microsoft Edge's InPrivate. 
-1. Sign in to the [Azure portal](http://portal.azure.com) using your Microsoft credentials.
+1. Sign in to the [Azure portal](https://portal.azure.com) using your Microsoft credentials.
 
-          :::image type="content" source="media/access-education-hub/browsing-in-private.png" alt-text="Open a private browser window." border="false":::
+:::image type="content" source="media/access-education-hub/browsing-in-private.png" alt-text="Open a private browser window." border="false":::
 > [!IMPORTANT]
 > Confirm that you are signing-in with an Organizational/Work Account (like your institution's @domain.edu) If so, select this option on the left-side of the window first. This will take you to a different login screen.
 
-          :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Sign in dialog box." border="false":::
+:::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Sign in dialog box." border="false":::
 1. Once signed in, you will be directed to the Azure portal. To find the Education Hub, you can search for **Education** under the **All Services** menu.
    For your first login, you'll see the Education Hub Get Started page.
 

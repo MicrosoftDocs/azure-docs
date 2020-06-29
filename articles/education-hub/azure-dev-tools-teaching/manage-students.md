@@ -17,4 +17,4 @@ You can currently manage access for students based on the domain they use to log
 :::image type="content" source="media/manage-students/manage-student-access.png" alt-text="Manage student access." border="false":::
 
 ## Next steps	
-- NEED CONTENT [link to next logical step for the customer](global-quickstart-template.md)	
+- NEED CONTENT 
