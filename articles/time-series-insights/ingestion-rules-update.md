@@ -12,7 +12,7 @@ ms.date: 06/16/2020
 ms.custom: lyhughes
 ---
 
-# Upcoming changes to JSON data storage and flattening
+# Upcoming changes to the JSON flattening and escaping rules
 
 These changes will be applied to new Azure Time Series Insights pay-as-you-go (PAYG) environments only. If you have a Standard (S) SKU TSI environment, you may disregard these changes.
 
