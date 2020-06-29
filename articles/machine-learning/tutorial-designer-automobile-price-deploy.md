@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 06/28/2020
 ms.custom: designer
 ---
 
@@ -36,7 +36,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Above the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
-    ![Screenshot showing where to find the create pipeline button](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot showing where to find the create pipeline button":::
 
     Your pipeline should now look like this: 
 
@@ -68,7 +68,7 @@ In the dialog box that appears, you can select from any existing Azure Kubernete
 1. On the navigation ribbon, select **Inference Clusters** > **+ New**.
 
     ![Screenshot showing how to get to the new inference cluster pane](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
-
+   
 1. In the inference cluster pane, configure a new Kubernetes Service.
 
 1. Enter *aks-compute* for the **Compute name**.
@@ -92,8 +92,8 @@ After your AKS service has finished provisioning, return to the real-time infere
 1. Select the AKS cluster you created.
 
 1. Select **Deploy**.
-
-    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot showing how to set up a new real-time endpoint":::
 
     A success notification above the canvas appears after deployment finishes. It might take a few minutes.
 
