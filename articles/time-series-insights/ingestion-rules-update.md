@@ -16,14 +16,14 @@ ms.custom: lyhughes
 
 These changes will be applied to new Azure Time Series Insights pay-as-you-go (PAYG) environments only. If you have a Standard (S) SKU TSI environment, you may disregard these changes.
 
-Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
+Your Azure Time Series Insights environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
 
 1. If your JSON payload contains nested objects. 
 1. If your JSON payload contains arrays.
 1. If you use any of the following four special characters in a JSON property name: [ \ . '
 1. If one or more of your TS ID properties are within a nested object.
 
-If your telemetry payload has one or more of the above cases and you create a new environment, you will see see your data flattened and stored differently. Below is a summary of the changes:
+If you create a new environment and one or more of the cases above applies to your event payload, you will see your data flattened and stored differently. Below is a summary of the changes:
 
 | Current Rule | New Rule | Example JSON | Previous Column Name | New Column Name
 |---|---| ---| ---|  ---|
