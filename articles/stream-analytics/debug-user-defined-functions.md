@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 06/24/2020
 ---
 
-## Debug user-defined functions in Azure Stream Analytics 
+# Debug user-defined functions in Azure Stream Analytics 
 
 When user-defined functions (UDF) don't work as you expect, you need to debug them to find the problem. You can debug UDFs for your Stream Analytics jobs when you run your jobs locally using [Visual Studio Code](visual-studio-code-local-run-live-input.md) or [Visual Studio](stream-analytics-vs-tools-local-run.md). 
 
@@ -57,13 +57,13 @@ Before you begin, be sure your Azure Stream Analytics project has the following 
 
 In the following image, the *.asaql* query file includes only the call to the UDF, *fxcharCount*. This change ensures you're still able to compile the project after changes are made.
 
-![Stream Analytics test query file](./media/debug-user-defined-functions/asaql-file.png)
+![Stream Analytics test query file](./media/debug-user-defined-functions/asaql-file#lightbox)
 
 Create an additional folder in **Tests** to host the test file, which is called to execute the test with the JavaScript function. In this example, the name of the folder is *fxcharCount* and the name of the test is *Test_UDF.js*. 
 
 The image below shows the code in the test file, which loads the function file and executes the function. This example is simple, but you could load additional test data files and loop through though additional tests to get the output. The notation of the function call is little different from the common calls because the file is referenced and not loaded into the runtime, making it possible to debug. 
 
-![Stream Analytics test file](./media/debug-user-defined-functions/test-file.png)
+![Stream Analytics test file](./media/debug-user-defined-functions/test-file#lightbox)
 
 In the function, add the following lines of code to the file to expose the methods. They don't affect the ability to compile the code in Visual Studio Code.
 
@@ -73,7 +73,7 @@ methods.fxchartCount = fxchartCount;
 exports.data = methods;
 ``` 
 
-![Stream Analytics JavaScript UDF](./media/debug-user-defined-functions/udf-file.png)
+![Stream Analytics JavaScript UDF](./media/debug-user-defined-functions/udf-file#lightbox)
   
 ## Install debug support
 
@@ -81,7 +81,7 @@ To debug, you must [download](https://nodejs.org/en/download/) and install **nod
 
 Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11. 
 
-![Stream Analytics run and debug udf](./media/debug-user-defined-functions/run-debug-udf.png)
+![Stream Analytics run and debug udf](./media/debug-user-defined-functions/run-debug-udf#lightbox)
 
 ### Debug user-defined aggregates 
 
@@ -89,11 +89,11 @@ You can use the debug method for JavaScript UDFs to debug user-defined aggregate
 
 As with the UDF, you include a call to the UDA to ensure that the project will compile after changes are made. 
 
-![Add uda to asaql](./media/debug-user-defined-functions/asaql-uda.png)
+![Add uda to asaql](./media/debug-user-defined-functions/asaql-uda#lightbox)
 
 In the *Test_UDA.js* file, you reference the UDA file as you did with the UDF. Additionally, you call `main()`, `init()`, and `accumulate()`. The `accumulate()` method is called in a loop to put the values to the state stack. The `computeresult()` method is called to compose the final query. 
 
-![UDA test file](./media/debug-user-defined-functions/uda-test.png)
+![UDA test file](./media/debug-user-defined-functions/uda-test#lightbox)
 
 As in the UDF example, some code needs to be added to the UDA itself to expose the relevant methods.
 
@@ -106,11 +106,11 @@ methods.computeResult = main.computeResult;
 exports.data = methods;
 ``` 
 
-![Code added to UDA](./media/debug-user-defined-functions/uda-expose-methods.png)
+![Code added to UDA](./media/debug-user-defined-functions/uda-expose-methods#lightbox)
 
 Select **Run and Debug** or press **CTRL + SHIFT + D** to start debugging. A combo box appears where you can select **node.js** as the runtime. If you only have node.js installed, it is used by default. You should be able to step through the code and into the satellite file if needed with F11.
 
-![Stream Analytics run and debug uda](./media/debug-user-defined-functions/run-debug-uda.png)
+![Stream Analytics run and debug uda](./media/debug-user-defined-functions/run-debug-uda#lightbox)
 
 
 ## Next steps
