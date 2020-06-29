@@ -89,7 +89,7 @@ To assign role-based access control (RBAC) permissions:
 
 2. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-3. Click on File shares and selcet the target file share.
+3. Select **File shares**, then select the name of the file share you plan to use.
 
 4. Select **Access Control (IAM)**.
 
