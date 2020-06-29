@@ -26,6 +26,7 @@ There are two main reasons why your rules might stop working after moving the ta
 When you move a resource, its resource ID changes in most cases. Behind the scenes, the system replicates the resource into the new region before deleting it from the old region. This process requires that two resources and thus two different resource IDs exist simultaneously for a small period of time. Since resource IDs must be unique, a new ID must be created during the process. 
 
 **How does moving the resource affect existing rules?**
+
 Alert rules and action rules have a scope of resources they apply to. The scope could be an entire subscription, a resource group, or one or more specific resources.
 For example, here is a rule with a scope with two resources (two virtual machines):
 
@@ -97,8 +98,12 @@ Navigate to Alerts > Manage actions > Action rules (preview) > filter by the con
 2. Modify the scope. If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
 3. Redeploy the rule ([metric alerts](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [activity log alerts](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [action rules](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
 
-### Changing the scope of a rule using Azure CLI
+### Change the scope of a rule using Azure CLI
 
 1.	Get the existing rule ([metric alerts](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [activity log alerts](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.	Update the rule scope directly ([metric alerts](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [activity log alerts](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
 3.	If needed, split into two rules (relevant for some cases of metric alerts, as noted above).
+
+## Next steps
+
+Learn about fixing other problems with [alert notifications](alerts-troubleshoot.md), [metric alerts](alerts-troubleshoot-metric.md), and [log alerts](alerts-troubleshoot-log.md). 
