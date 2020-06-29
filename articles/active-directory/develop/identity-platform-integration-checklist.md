@@ -81,7 +81,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) [Understand the consent experience](application-consent-experience.md) and configure the pieces of your app’s consent prompt so that end users and admins have enough information to determine if they trust your app.
 
-![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimize the number of times a user needs to enter login credentials while using your app by attempting silent authentication (silent token acquisition) before interactive flows.
+![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Minimize the number of times a user needs to enter login credentials while using your app by attempting silent authentication (silent token acquisition) before interactive flows.
 
 ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) Don't use “prompt=consent” for every sign-in. Only use prompt=consent if you’ve determined that you need to ask for consent for additional permissions (for example, if you’ve changed your app’s required permissions).
 
