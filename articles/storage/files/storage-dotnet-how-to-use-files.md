@@ -81,6 +81,12 @@ You can use NuGet to obtain both packages. Follow these steps:
 
 Next, save your credentials in your project's `App.config` file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
@@ -122,7 +128,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 The following method creates a file share if doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier.
 
-:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 
 # [\.NET v11](#tab/dotnetv11)
 
