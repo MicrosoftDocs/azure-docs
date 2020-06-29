@@ -10,20 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2020
+ms.date: 06/28/2020
 ms.author: memildin
 
 ---
 
 # Container security in Security Center
 
-Azure Security Center is the Azure-native solution for container security. Security Center is also the optimal single pane of glass experience for the security of your cloud workloads, VMs, servers, and containers.
+Azure Security Center is the Azure-native solution for securing your containers. Security Center provides two optional bundles for standard tier users to gain Azure-native protection of the following two Azure container services:
 
-This article describes how Security Center helps you improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
+- [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) - Microsoft's managed, private Docker registry service (based on the open-source Docker Registry 2.0) that stores and manages your container images for Azure deployments in a central registry. Security Center's ACR bundle brings deeper visibility into the vulnerabilities of the images in your ARM-based registries.
 
-* Vulnerability management
-* Hardening of the container's environment
-* Runtime protection
+- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) - Microsoft's managed service for developing, deploying, and managing containerized applications. Security Center's AKS bundle provides deeper visibility to your AKS nodes, cloud traffic, and security controls.
+
+This article describes how you can use these bundles to improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
+
+- [Vulnerability management - scanning container images](#vulnerability-management---scanning-container-images)
+- [Environment hardening - continuous monitoring of your Docker configuration and Kubernetes clusters](#environment-hardening)
+- [Run-time protection - Real-time threat detection](#run-time-protection---real-time-threat-detection)
 
 [![Azure Security Center's container security tab](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
@@ -66,24 +70,6 @@ Security Center provides real-time threat detection for your containerized envir
 We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](threat-protection.md#azure-containers).
 
 
-## Container security FAQ
-
-### What types of images can Azure Security Center scan?
-Security Center scans Linux OS based images that provide shell access. 
-
-The Qualys scanner doesn't support super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain your application and its runtime dependencies without a package manager, shell, or OS.
-
-### How does Azure Security Center scan an image?
-The image is pulled from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.
-
-Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
-
-### How often does Azure Security Center scan my images?
-Image scans are triggered on every push.
-
-### Can I get the scan results via REST API?
-Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
- 
 
 ## Next steps
 
