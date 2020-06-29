@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     In the **Identifier** text box, type a URL using the following pattern:
 
-    ```http
+    ```https
     https://<subdomain>.globalview.adp.com/federate
     https://<subdomain>.globalview.adp.com/federate2
     ```
