@@ -1,19 +1,17 @@
 ---
-title: What is Azure Firewall Manager Preview?
+title: What is Azure Firewall Manager?
 description: Learn about Azure Firewall Manager features
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# What is Azure Firewall Manager Preview?
+# What is Azure Firewall Manager?
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Azure Firewall Manager Preview is a security management service that provides central security policy and route management for cloud-based security perimeters. 
+Azure Firewall Manager is a security management service that provides central security policy and route management for cloud-based security perimeters. 
 
 Firewall Manager can provide security management for two network architecture types:
 
@@ -28,9 +26,9 @@ For a detailed comparison of *secured virtual hub* and *hub virtual network* arc
 
 ![firewall-manager](media/overview/trusted-security-partners.png)
 
-## Azure Firewall Manager Preview features
+## Azure Firewall Manager features
 
-Azure Firewall Manager Preview offers the following features:
+Azure Firewall Manager offers the following features:
 
 ### Central Azure Firewall deployment and configuration​
 
@@ -38,7 +36,7 @@ You can centrally deploy and configure multiple Azure Firewall instances that sp
 
 ### Hierarchical policies (global and local)​
 
-You can use Azure Firewall Manager Preview to centrally manage Azure Firewall policies across multiple secured virtual hubs. Your central IT teams can author global firewall policies to enforce organization wide firewall policy across teams. Locally authored firewall policies allow a DevOps self-service model for better agility.
+You can use Azure Firewall Manager to centrally manage Azure Firewall policies across multiple secured virtual hubs. Your central IT teams can author global firewall policies to enforce organization wide firewall policy across teams. Locally authored firewall policies allow a DevOps self-service model for better agility.
 
 ### Integrated with third-party security-as-a-service for advanced security
 
@@ -55,7 +53,7 @@ This feature is available only with secured virtual hub deployments.
 
    Leverage your Azure connectivity and global distribution to easily add third-party filtering for branch to Internet scenarios.
 
-For more information about trusted security providers, see [What are Azure Firewall Manager trusted security partners (preview)?](trusted-security-partners.md)
+For more information about security partner providers, see [What are Azure Firewall Manager security partner providers?](trusted-security-partners.md)
 
 ### Centralized route management
 
@@ -71,20 +69,17 @@ Azure Firewall Policies can be used across regions. For example, you can create 
 
 ## Known issues
 
-Azure Firewall Manager Preview has the following known issues:
+Azure Firewall Manager has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|Third-party filtering limitations.|V2I traffic filtering with third-party providers is not supported with Azure Firewall B2V and V2V.|Investigating|
 |Traffic splitting not currently supported.|Office 365 and Azure Public PaaS traffic splitting is not currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Office 365 traffic via the partner service.|Investigating traffic splitting at the hub.
 |One secured virtual hub per region.|You can't have more than one secured virtual hub per region.|Create multiple virtual WANs in a region.|
 |Base policies must be in same region as local policy.|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
 |Inter-hub communication not working with Secured Virtual Hub|Secured Virtual Hub to Secured Virtual Hub communication is not yet supported.|Investigating|
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
-|IP Groups are not supported in Firewall Policy.|IP Groups are in public preview and currently only supported with traditional firewall rules.|Fix in progress.
-|Cloud Solution Provider (CSP) subscriptions not supported.|Currently, [CSP subscriptions](https://azure.microsoft.com/offers/ms-azr-0145p/) are not supported.|Investigating
 
 ## Next steps
 
-- Review [Azure Firewall Manager Preview deployment overview](deployment-overview.md)
+- Review [Azure Firewall Manager deployment overview](deployment-overview.md)
 - Learn about [secured Virtual Hubs](secured-virtual-hub.md).
