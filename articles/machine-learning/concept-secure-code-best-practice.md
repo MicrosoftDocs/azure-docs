@@ -29,16 +29,6 @@ Development with Azure Machine Learning often involves web-based development env
 
 * [Cross site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf): This attack may replace the URL of an image or link with the URL of a malicious script or API. When the image is loaded, or link clicked, a call is made to the URL.
 
-The following table provides a matrix of the threats and attack surfaces that apply with Azure Machine Learning:
-
-| Attack surface | XSS</br>Dom injection | XSS</br>Theft of tokens/cookies | CSRF |
-| ---- | ---- | ---- | ---- |
-| __[Azure ML studio notebooks]__ | Possible threat | Possible threat | Possible threat |
-| __Jupyter/JupyterLab on compute instance__ | Possible threat | Possible threat | Possible threat |
-| __RStudio on compute instance__ | | | |
-| __Compute cluster__ | | | |
-| __SDK on local computer__ | | | |
-
 ## Azure ML studio notebooks
 
 Azure Machine Learning studio provides a hosted notebook experience in your browser. Cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
@@ -58,7 +48,7 @@ __Recommended actions__:
 
 ## Azure ML compute instance
 
-Azure Machine Learning compute instance hosts Jupyter and Jupyter Lab. When using either, cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
+Azure Machine Learning compute instance hosts __Jupyter__ and __Jupyter Lab__. When using either, cells in a notebook or code in can output HTML documents or fragments that contain malicious code. When the output is rendered, the code can be executed. The same threats also apply when using __RStudio__ hosted on a compute instance.
 
 __Possible threats__:
 * Cross site scripting (XSS)
