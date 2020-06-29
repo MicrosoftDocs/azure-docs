@@ -1,7 +1,7 @@
 ---
 title: Secure code best practices
 titleSuffix: Azure Machine Learning
-description: Learn about potential security threats that may exist when developing for Azure Machine Learning. Learn about the mitigations that Azure ML provides, as well as best practices to ensure that your development environments remain secure.
+description: Learn about potential security threats that may exist when developing for Azure Machine Learning. Learn about the mitigations that Azure ML provides, and best practices to ensure that your development environments remain secure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,7 +24,7 @@ Development with Azure Machine Learning often involves web-based development env
 
 * [Cross site scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 
-    * __Dom injection__: This type of attack can modify the UI displayed in the browser. For example, by changing how the run button behaves in a Jupyter Notebook.
+    * __DOM injection__: This type of attack can modify the UI displayed in the browser. For example, by changing how the run button behaves in a Jupyter Notebook.
     * __Access token/cookies__: XSS attacks can also access local storage and browser cookies. Your Azure Active Directory (AAD) authentication token is stored in local storage. An XSS attack could use this token to make API calls on your behalf, and then send the data to an external system or API.
 
 * [Cross site request forgery (CSRF)](https://owasp.org/www-community/attacks/csrf): This attack may replace the URL of an image or link with the URL of a malicious script or API. When the image is loaded, or link clicked, a call is made to the URL.
@@ -38,9 +38,9 @@ __Possible threats__:
 * Cross site request forgery (CSRF)
 
 __Mitigations provided by Azure Machine Learning__:
-* __Coode cell output__ is sandboxed in an iframe. The iframe prevents the script from accessing the parent DOM, cookies, or session storage.
+* __Code cell output__ is sandboxed in an iframe. The iframe prevents the script from accessing the parent DOM, cookies, or session storage.
 * __Markdown cell__ contents are cleaned using the dompurify library. This blocks malicious scripts from executing with markdown cells are rendered.
-* __Image URL__ and __Markdown links__ are not directly requested. Instead, the URL for the image or link is sent to a Microsoft owned endpoint which checks for malicious values. If a malicious value is detected, the endpoint rejects the request.
+* __Image URL__ and __Markdown links__ are sent to a Microsoft owned endpoint, which checks for malicious values. If a malicious value is detected, the endpoint rejects the request.
 
 __Recommended actions__:
 * Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
@@ -55,7 +55,7 @@ __Possible threats__:
 * Cross site request forgery (CSRF)
 
 __Mitigations provided by Azure Machine Learning__:
-* None. Jupyter and Jupyter Lab are open source applications hosted on the Azure Machine Learning compute instance.
+* None. Jupyter and Jupyter Lab are open-source applications hosted on the Azure Machine Learning compute instance.
 
 __Recommended actions__:
 * Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
