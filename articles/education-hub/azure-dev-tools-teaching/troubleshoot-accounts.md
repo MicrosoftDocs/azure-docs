@@ -9,33 +9,8 @@ ms.date: 06/30/2020
 
 ---	
 
-# We couldn't find an account with that username
-
-CONTENT NEEDED
-
-Summary paragraph.
-<!---Required:	
-The summary describes the symptom that the customer is experiencing. This summary should also include any prerequisite actions that should be performed before resolving the problem.
---->
-
-## Symptoms	
-
-<!---Required:	
-Precisely describe what the customer should be experiencing when encountering the problem. If the title can't contain the complete message, expand on it here. If there is relevant general troubleshooting information available, link to it from here.
---->
-
-## Cause	
-<!---Required:	
-Describe the cause of the symptoms. It is possible that there could be several causes for a problem. List each one as an H3 with **Cause #** where **#** is a successive number of possible causes.	
---->	
-### Cause #	
-<!---Optional:	
-Most common cause.	
---->	
-### Cause #	
-<!---Optional:	
-Next most common cause.	
---->	
+# Error message: We couldn't find an account with that username
+This article describes the steps a user can using an existing Microsoft account to access Azure for Education tools.
 
 ## Solution	
 Connect an existing Microsoft account (for example, XBOX) to an Azure Dev Tools account.
@@ -44,13 +19,15 @@ Connect an existing Microsoft account (for example, XBOX) to an Azure Dev Tools 
 1. Log in with your Microsoft account credentials.
 1. Select **Your info** from the top ribbon menu.
 
-<!-- IMAGE>	
-1. Click **Manage how you sign into Microsoft** – you will be asked to verify your identity with an emailed code. Check your personal email inbox for a code from Microsoft Account Team.	
-<!-- IMAGE>	
+1. Click **Manage how you sign into Microsoft** – you will be asked to verify your identity with an emailed code. Check your personal email inbox for a code from Microsoft Account Team.
+:::image type="content" source="media/troubleshoot-accounts/manage-sign-in.png" alt-text="Manage sign in." border="false":::
+
 1. Enter the emailed code.
-<!-- IMAGE>	
-1. Click **Add email** to your account and enter your university email address.	
+:::image type="content" source="media/troubleshoot-accounts/sign-in-enter-code.png" alt-text="Enter sign-in code." border="false":::!
+
+1. Click **Add email** to your account and enter your university email address.
 The next time you sign in, you can use your university email address to access your Azure Dev Tools for Teaching.
+:::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Manage how you sign in to Microsoft." border="false":::
 
 ## Next steps
 > NEED CONTENT

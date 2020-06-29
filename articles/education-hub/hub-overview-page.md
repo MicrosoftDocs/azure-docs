@@ -10,21 +10,17 @@ ms.date: 06/30/2020
 
 # Manage your Academic Grant
 
-Your main landing page in the Education Hub is the Overview page. This page contains all relevant information on your Academic Grant, such as the number of classes you have established and your total running credit allocated and used from those classes. It also displays shortcuts to
-other benefits provided by the Education Hub: Software, Learning and Quickstart Templates.
+Your main landing page in the Education Hub is the Overview page. This page contains all relevant information on your Academic Grant, such as the number of classes you have established and your total running credit allocated and used from those classes. It also displays shortcuts to other benefits provided by the Education Hub: Software, Learning, and Quickstart templates.
 
 ## Overview page
+:::image type="content" source="media/hub-overview-page/overview.png" alt-text="Sign in error message." border="false":::
 
-<!-- IMAGE>
-
-1. **Courses** shows the total number of active courses on the Instructor's account
-1. **Labs** shows the total number of active labs that have been passed out to students
-1. **Action needed** lists any actions you need to complete, such as accepting a Lab invitation
-1. **Software** lists free software available to download as an Educator
-1. **Learning** links to free Azure learning pathways to access through Microsoft Learn
-1. **Quickstart Templates** includes Azure templates to help speed up and simplify deployment for common tasks
-
-<!-- VERIFY NUMBERING ONCE A SCREENSHOT IS ADDED>
+1. **Courses** shows the total number of active courses on the Instructor's account.
+1. **Labs** shows the total number of active labs that have been passed out to students.
+1. **Action needed** lists any actions you need to complete, such as accepting a Lab invitation.
+1. **Software** lists free software available to download as an Educator.
+1. **Learning** links to free Azure learning pathways to access through Microsoft Learn.
+1. **Quickstart Templates** includes Azure templates to help speed up and simplify deployment for common tasks.
 
 ## Next steps
 
