@@ -5,9 +5,9 @@ ms.topic: article
 ms.date: 09/09/2019
 ---
 
-# Create Azure Advisor alerts on new recommendations 
+# Create Azure Advisor alerts on new using the Azure portal 
 
-This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal and Azure Resource Manager templates. 
+This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal. 
 
 Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. 
 
@@ -27,7 +27,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 > [!NOTE] 
 > Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
 
-## In the Azure portal
+## Create alert rule
 1. In the **portal**, select **Azure Advisor**.
 
     ![Azure Advisor in portal](./media/advisor-alerts/create1.png)
@@ -61,104 +61,6 @@ To learn more about action groups, see [Create and manage action groups](../azur
     ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
 
 
-## With an Azure Resource Manager template
-
-This Resource Manager template creates an recommendation alert and a new action group.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "actionGroups_name": {
-      "defaultValue": "advisorAlert",
-      "type": "string"
-    },
-    "activityLogAlerts_name": {
-      "defaultValue": "AdvisorAlertsTest2",
-      "type": "string"
-    },
-    "emailAddress": {
-      "defaultValue": "<email address>",
-      "type": "string"
-    }
-  },
-  "variables": {
-    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
-  },
-  "resources": [
-    {
-      "comments": "Action Group",
-      "type": "microsoft.insights/actionGroups",
-      "name": "[parameters('actionGroups_name')]",
-      "apiVersion": "2017-04-01",
-      "location": "Global",
-      "tags": {},
-      "scale": null,
-      "properties": {
-        "groupShortName": "[parameters('actionGroups_name')]",
-        "enabled": true,
-        "emailReceivers": [
-          {
-            "name": "[parameters('actionGroups_name')]",
-            "emailAddress": "[parameters('emailAddress')]"
-          }
-        ],
-        "smsReceivers": [],
-        "webhookReceivers": []
-      },
-      "dependsOn": []
-    },
-    {
-      "comments": "Azure Advisor Activity Log Alert",
-      "type": "microsoft.insights/activityLogAlerts",
-      "name": "[parameters('activityLogAlerts_name')]",
-      "apiVersion": "2017-04-01",
-      "location": "Global",
-      "tags": {},
-      "scale": null,
-      "properties": {
-        "scopes": [
-          "[variables('alertScope')]"
-        ],
-        "condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "Recommendation"
-            },
-            {
-              "field": "properties.recommendationCategory",
-              "equals": "Cost"
-            },
-            {
-              "field": "properties.recommendationImpact",
-              "equals": "Medium"
-            },
-            {
-              "field": "operationName",
-              "equals": "Microsoft.Advisor/recommendations/available/action"
-            }
-          ]
-        },
-        "actions": {
-          "actionGroups": [
-            {
-              "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]",
-              "webhookProperties": {}
-            }
-          ]
-        },
-        "enabled": true,
-        "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
-    }
-  ]
-}
-  ```
 
 ## Configure recommendation alerts to use a webhook
 This section shows you how to configure Azure Advisor alerts to send recommendation data through webhooks to your existing systems. 

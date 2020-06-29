@@ -142,12 +142,12 @@ New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName 
 ---
 
 ### Verify the deployment
-Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** and **workspaceName** with the values you used above.
+Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** with the value you used above.
 
 # [CLI](#tab/CLI2)
 
 ```azurecli
-az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
+az monitor activity-log alert show --resource-group my-resource-group --name ServiceHealthActivityLogAlert
 ```
 
 # [PowerShell](#tab/PowerShell2)
@@ -157,14 +157,6 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ```
 
 ---
-
-## Manage your alerts
-
-After you create an alert, it's visible in the **Alerts** section of **Monitor**. Select the alert you want to manage to:
-
-* Edit it.
-* Delete it.
-* Disable or enable it, if you want to temporarily stop or resume receiving notifications for the alert.
 
 ## Next steps
 - Learn about [best practices for setting up Azure Service Health alerts](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
