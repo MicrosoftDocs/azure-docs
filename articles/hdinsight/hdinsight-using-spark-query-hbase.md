@@ -108,11 +108,17 @@ exit
 
 ## Run Spark Shell referencing the Spark HBase Connector
 
+After completion of above step, you should be able to run spark shell referencing to the appropriate version of Spark HBase Connector. To find the most recent appropriate version of SHC core version for your cluster scenario, please reference to [SHC Core Repository](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+As an example, below table lists two versions and its corresponding commands HDInsight team used and verified at the time this documentation is prepared. You may use the same versions for your clusters if the versions of HBase and Spark are same as below. 
+
+
 1. From your open SSH session to the Spark cluster, enter the command below to start a spark shell:
 
-    ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+|Spark Version| HDI HBase Version  | SHC Version    |  Command  |
+| :-----------:| :----------: | :-----------: |:----------- |
+|      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | ```spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/``` |
+|      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | ```spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/``` |
 
 2. Keep this Spark Shell instance open and continue to the next step.
 
