@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: recipe
+ms.topic: sample
 ms.date: 6/10/2020
 ms.author: marhamil
 ms.custom: tracking-python
