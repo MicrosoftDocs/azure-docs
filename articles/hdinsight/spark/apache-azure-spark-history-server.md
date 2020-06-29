@@ -323,6 +323,6 @@ If you want to upgrade with a hotfix, use the following script, which will upgra
 + [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
 + [Configure Apache Spark settings](apache-spark-settings.md)
 
-## Feedback
+## Suggestions
 
 If you have any feedback or come across any issues when using this tool, send an email to ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

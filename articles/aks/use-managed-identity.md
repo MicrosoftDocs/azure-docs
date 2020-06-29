@@ -10,7 +10,7 @@ ms.author: mlearned
 
 # Use managed identities in Azure Kubernetes Service
 
-Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernetes cloud provider) requires an identity to create additional resources like load balancers and managed disks in Azure, this identity can be either a *managed identity* or a *service principal*. If you use a [service principal](kubernetes-service-principal.md), you must either provide one or AKS creates one on your behalf. If you use managed identity, this will be created for you by AKS automatically. Clusters using service principals eventually reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, which is why it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
+Currently, an Azure Kubernetes Service (AKS) cluster (specifically, the Kubernetes cloud provider) requires an identity to create additional resources like load balancers and managed disks in Azure. This identity can be either a *managed identity* or a *service principal*. If you use a [service principal](kubernetes-service-principal.md), you must either provide one or AKS creates one on your behalf. If you use managed identity, this will be created for you by AKS automatically. Clusters using service principals eventually reach a state in which the service principal must be renewed to keep the cluster working. Managing service principals adds complexity, which is why it's easier to use managed identities instead. The same permission requirements apply for both service principals and managed identities.
 
 *Managed identities* are essentially a wrapper around service principals, and make their management simpler. Credential rotation for MI happens automatically every 46 days according to Azure Active Directory default. AKS uses both system-assigned and user-assigned managed identity types. These identities are currently immutable. To learn more, read about [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -61,7 +61,7 @@ az group create --name myResourceGroup --location westus2
 Then, create an AKS cluster:
 
 ```azurecli-interactive
-az aks create -g myResourceGroup -n MyManagedCluster --enable-managed-identity
+az aks create -g myResourceGroup -n myManagedCluster --enable-managed-identity
 ```
 
 A successful cluster creation using managed identities contains this service principal profile information:
@@ -70,6 +70,22 @@ A successful cluster creation using managed identities contains this service pri
 "servicePrincipalProfile": {
     "clientId": "msi"
   }
+```
+
+Use the following command to query objectid of your control plane managed identity:
+
+```azurecli-interactive
+az aks show -g myResourceGroup -n MyManagedCluster --query "identity"
+```
+
+The result should look like:
+
+```json
+{
+  "principalId": "<object_id>",   
+  "tenantId": "<tenant_id>",      
+  "type": "SystemAssigned"                                 
+}
 ```
 
 > [!NOTE]

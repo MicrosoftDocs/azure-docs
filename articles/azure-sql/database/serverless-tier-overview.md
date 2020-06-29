@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/10/2020
+ms.date: 6/26/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -341,7 +341,7 @@ Azure Hybrid Benefit (AHB) and reserved capacity discounts do not apply to the s
 
 ## Available regions
 
-The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
+The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, and US Gov Central (Iowa).
 
 ## Next steps
 

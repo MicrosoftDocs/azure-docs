@@ -55,7 +55,7 @@ The SparkContext can connect to the cluster manager, which allocates resources a
 
 The SparkContext runs the user's main function and executes the various parallel operations on the nodes. Then, the SparkContext collects the results of the operations. The nodes read and write data from and to the file system. The nodes also cache transformed data in-memory as Resilient Distributed Datasets (RDDs).
 
-The SparkContext connects to the Spark pool and is responsible for converting an application to a directed graph (DAG). The graph consists of individual tasks that get executed within an executor process on the nodes. Each application gets its own executor processes, which stay up for the duration of the whole application and run tasks in multiple threads.
+The SparkContext connects to the Spark pool and is responsible for converting an application to a directed acyclic graph (DAG). The graph consists of individual tasks that get executed within an executor process on the nodes. Each application gets its own executor processes, which stay up for the duration of the whole application and run tasks in multiple threads.
 
 ## Apache Spark in Synapse Analytics use cases
 

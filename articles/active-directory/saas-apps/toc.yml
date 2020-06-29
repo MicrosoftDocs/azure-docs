@@ -240,7 +240,9 @@
       - name: Brightspace by Desire2Learn
         href: brightspace-desire2learn-tutorial.md
       - name: Britive
-        href: britive-tutorial.md      
+        href: britive-tutorial.md
+      - name: BrowserStack Single Sign-on
+        href: browserstack-single-sign-on-tutorial.md      
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
@@ -459,7 +461,7 @@
         href: darwinbox-tutorial.md
       - name: Drift
         href: drift-tutorial.md
-      - name: Dropbox for Business
+      - name: Dropbox Business
         href: dropboxforbusiness-tutorial.md
       - name: Druva
         href: druva-tutorial.md
@@ -694,8 +696,6 @@
         href: helpshift-tutorial.md
       - name: Health Support System
         href: health-support-system-tutorial.md
-      - name: Helix Core- Helix Authentication Service
-        href: perforce-helix-core-tutorial.md
       - name: Heroku
         href: heroku-tutorial.md
       - name: HeyBuddy
@@ -1202,6 +1202,8 @@
         href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
+      - name: Perforce Helix Core - Helix Authentication Service
+        href: perforce-helix-core-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -1576,7 +1578,7 @@
         href: teamviewer-tutorial.md
       - name: Teamwork.com
         href: teamwork-tutorial.md
-      - name: Templafy
+      - name: Templafy SAML2
         href: templafy-tutorial.md
       - name: Terraform Enterprise
         href: terraform-enterprise-tutorial.md
@@ -1828,7 +1830,7 @@
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
-        href: azure-databricks-scim-connector-provisioning-tutorial.md
+        href: https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json 
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -1853,7 +1855,7 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
-      - name: Dropbox for Business
+      - name: Dropbox Business
         href: dropboxforbusiness-provisioning-tutorial.md
       - name: Dynamic Signal
         href: dynamic-signal-provisioning-tutorial.md

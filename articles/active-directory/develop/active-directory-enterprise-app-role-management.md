@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
 ---

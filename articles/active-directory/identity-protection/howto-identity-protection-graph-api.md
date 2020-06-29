@@ -19,10 +19,9 @@ ms.collection: M365-identity-device-management
 
 Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. The identityRiskEvents API will be deprecated on January 10, 2020; we suggest you use the **riskDetections** API instead. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
-* [riskDetection API](/graph/api/resources/riskdetection?view=graph-rest-beta)
-* [riskyUsers API](/graph/api/resources/riskyuser?view=graph-rest-beta)
-* [signIn API](/graph/api/resources/signin?view=graph-rest-beta)
-* [identityRiskEvents API](/graph/api/resources/identityriskevent?view=graph-rest-beta) *Will be deprecated January 10, 2020*
+* [riskDetection API](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
+* [riskyUsers API](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
+* [signIn API](/graph/api/resources/signin?view=graph-rest-v1.0)
 
 ## Connect to Microsoft graph
 
@@ -198,7 +197,7 @@ These three APIs provide a multitude of opportunities to retrieve information ab
 With Identity Protection sign-in risk policies, you can apply conditions when risk is detected in real time. But what about detections that are discovered offline? To understand what detections occurred offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
 
 ```
-GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
 ### Get all of the users who successfully passed an MFA challenge triggered by risky sign-ins policy (riskyUsers API)
@@ -206,16 +205,9 @@ GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType 
 To understand the impact Identity Protection risk-based policies have on your organization, you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. This information can help you understand which users Identity Protection may have falsely detected at as risk and which of your legitimate users may be performing actions that the AI deems risky.
 
 ```
-GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-### Get all the risky sign-ins for a specific user (signIn API)
-
-When you believe a user may have been compromised, you can better understand the state of their risk by retrieving all of their risky sign-ins. 
-
-```
-https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
-```
 ## Next steps
 
 Congratulations, you just made your first call to Microsoft Graph!  
@@ -229,4 +221,4 @@ For related information, see:
 - [Types of risk detections detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection Service Root](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD Identity Protection Service Root](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
