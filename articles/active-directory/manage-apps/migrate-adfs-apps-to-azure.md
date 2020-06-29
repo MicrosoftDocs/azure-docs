@@ -393,7 +393,7 @@ To implement built-in policies in Azure AD, you can use a [new conditional acces
 In this table, we've listed some useful Permit and Except options and how they map to Azure AD. 
 
 
-| | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
+| Option | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
 | - | - | - |
 | From specific network| Maps to [Named Location](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) in Azure AD| Use the **Exclude** option for [trusted locations](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | From specific groups| [Set a User/Groups Assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Use the **Exclude** option in Users and Groups |
