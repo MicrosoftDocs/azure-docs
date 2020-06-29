@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/7/2019
+ms.date: 06/26/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -100,16 +100,31 @@ Next, save your credentials in your project's `App.config` file. In **Solution E
 
 In **Solution Explorer**, open the `Program.cs` file, and add the following using directives to the top of the file.
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.Azure.Storage; // Namespace for Storage Client Library
 using Microsoft.Azure.Storage.Blob; // Namespace for Azure Blobs
 using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 ```
+---
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## Access the file share programmatically
+
+# [\.NET v12](#tab/dotnet)
+
+The following method creates a file share if doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier.
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 Next, add the following content to the `Main()` method, after the code shown above, to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents.
 
@@ -146,6 +161,7 @@ if (share.Exists())
 ```
 
 Run the console application to see the output.
+---
 
 ## Set the maximum size for a file share
 
@@ -154,6 +170,12 @@ Beginning with version 5.x of the Azure Storage Client Library, you can set the 
 Setting the quota for a share limits the total size of the files stored on the share. If the total size of files on the share exceeds the quota set on the share, clients can't increase the size of existing files. Clients can't create new files, unless those files are empty.
 
 The example below shows how to check the current usage for a share and how to set the quota for the share.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_SetMaxShareSize":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -184,12 +206,21 @@ if (share.Exists())
     Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
 }
 ```
+---
 
 ### Generate a shared access signature for a file or file share
 
-Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file. You can also create a stored access policy on a file share to manage shared access signatures. We recommend creating a stored access policy because it lets you revoke the SAS if it becomes compromised.
+Beginning with version 5.x of the Azure Storage Client Library, you can generate a shared access signature (SAS) for a file share or for an individual file.
 
-The following example creates a stored access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
+# [\.NET v12](#tab/dotnet)
+
+The following example returns a SAS on a file in the share.
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
+
+# [\.NET v11](#tab/dotnetv11)
+
+You can also create a stored access policy on a file share to manage shared access signatures. We recommend creating a stored access policy because it lets you revoke the SAS if it becomes compromised. The following example creates a stored access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -234,6 +265,7 @@ if (share.Exists())
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
+---
 
 For more information about creating and using shared access signatures, see [How a shared access signature works](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
 
@@ -250,6 +282,12 @@ You can also use AzCopy to copy one file to another or to copy a blob to a file 
 ### Copy a file to another file
 
 The following example copies a file to another file in the same share. Because this copy operation copies between files in the same storage account, you can use Shared Key authentication to do the copy.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFile":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -292,10 +330,17 @@ if (share.Exists())
     }
 }
 ```
+---
 
 ### Copy a file to a blob
 
 The following example creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFileToBlob":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -340,6 +385,7 @@ destBlob.StartCopy(fileSasUri);
 Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
+---
 
 You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authorize access to that blob during the copy operation.
 
@@ -351,6 +397,12 @@ Beginning with version 8.5 of the Azure Storage Client Library, you can create a
 
 The following example creates a file share snapshot.
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShareSnapshot":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
 fClient = storageAccount.CreateCloudFileClient(); 
@@ -359,14 +411,22 @@ CloudFileShare myShare = fClient.GetShareReference(baseShareName);
 var snapshotShare = myShare.Snapshot();
 
 ```
+---
 
 ### List share snapshots
 
 The following example lists the share snapshots on a share.
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListShareSnapshots":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
+---
 
 ### Browse files and directories within share snapshots
 
