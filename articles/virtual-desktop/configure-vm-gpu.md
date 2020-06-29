@@ -58,7 +58,7 @@ By default, apps and desktops running in multi-session configurations are render
 
 Remote Desktop encodes all graphics rendered by apps and desktops (whether rendered with GPU or with CPU) for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop does not leverage available GPUs for this encoding. Configure Group Policy for the session host to enable GPU-accelerated frame encoding. Continuing the steps above:
  
- >[!NOTE]
+    >[!NOTE]
     >GPU-accelerated frame encoding is not available in NVv4-series VMs.
 
 1. Select policy **Configure H.264/AVC hardware encoding for Remote Desktop connections** and set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
@@ -74,7 +74,7 @@ Remote Desktop encodes all graphics rendered by apps and desktops (whether rende
 
 3. Sign out from the Remote Desktop session.
 
-## Configure GPU-accelerated frame encoding
+## Configure fullscreen video encoding
 
 If you often use applications that produce a high-frame rate content, such as 3D modelling, CAD/CAM and video applications, you may choose to enable a fullscreen video encoding for a remote session. Fullscreen video profile provides a higher frame rate and better user experince for such applications at expense of network bandwidth and both session host and client resources. It is recomended to use GPU-accelerated frame encoding for a full-screen video encoding. Configure Group Policy for the session host to enable fullscreen video encoding encoding. Continuing the steps above:
 
