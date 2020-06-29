@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 06/30/2020
 ---
 
 # Monitor operations and activity of Azure Cognitive Search
@@ -17,11 +17,14 @@ This article introduces monitoring at the service (resource) level, at the workl
 
 Across the spectrum, you'll use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities can help you construct a feedback loop so that you can address problems as they emerge.
 
-## Use Azure Monitor
+## Built-in monitoring
 
-Many services, including Azure Cognitive Search, leverage [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for alerts, metrics, and logging diagnostic data. For Azure Cognitive Search, the built-in monitoring infrastructure is used primarily for resource-level monitoring (service health) and [query monitoring](search-monitor-queries.md).
+Azure Cognitive Search reports out storage metrics and service health information to the portal. Mid-page links in the main Overview page include **Usage** and **Monitoring** tabs, which provide system information at a glance:
 
-The following screenshot helps you locate Azure Monitor features in the portal.
+* In **Usage**, you can monitor storage consumed, along with the quota for each content type, relative to the pricing tier of your service.
+* In **Monitoring**, you can check query volumes, latency, and whether the service had to drop queries due to pressure. No configuration steps are required for this level of monitoring. The data used for these metrics is internal to your service, with service health metrics for up to 30 days.
+
+The following screenshot helps you locate Azure Monitor features in the portal. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
 
 + **Monitoring** tab, located in the main overview page, shows key metrics at a glance.
 + **Activity log**, just below Overview, reports on resource-level actions: service health and API key request notifications.
@@ -30,25 +33,20 @@ The following screenshot helps you locate Azure Monitor features in the portal.
 ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
 
-### Precision of reported numbers
+> [!NOTE]
+> Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
 
-Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
+### Activity logs and service health
 
-## Activity logs and service health
-
-The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
+The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
 For in-service tasks - such as queries, indexing, or creating objects - you'll see generic informational notifications like *Get Admin Key* and *Get Query keys* for each request, but not the specific action itself. For information of this grain, you must configure diagnostic logging.
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-## Monitor storage
-
-Tabbed pages built into the Overview page report out on resource usage. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
+### Monitor storage in the Usage tab
 
 If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
-
-Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. You would need to [build a custom solution](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) that emits resource-related notifications, where your code checks for storage size and handles the response. For more information about storage metrics, see [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. 
 
@@ -57,11 +55,18 @@ The following illustration is for the free service, which is capped at 3 objects
 ![Usage status relative to tier limits](./media/search-monitor-usage/usage-tab.png
  "Usage status relative to tier limits")
 
-## Monitor workloads
+> [!NOTE]
+> Storage monitoring is limited to visuals in the portal and diagnostic logging. Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) that emits resource-related notifications, where your code checks for storage size and handles the response. For more information about storage metrics, see [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-Logged events include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+## Add-on monitoring with Azure Monitor
 
-Most of the logged data is for read-only operations. For other create-update-delete operations not captured in the log, you can query the search service for system information.
+Many services, including Azure Cognitive Search, add [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
+
+### Monitor query and indexing workloads
+
+Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+
+Most of the logged data is for read-only operations ([query monitoring](search-monitor-queries.md)). For other create-update-delete operations not captured in the log, you can query the search service for system information.
 
 | OperationName | Description |
 |---------------|-------------|
@@ -77,7 +82,7 @@ Most of the logged data is for read-only operations. For other create-update-del
 
 ### Kusto queries about workloads
 
-If you enabled logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
+If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
 
 #### Example: List operations 
 
