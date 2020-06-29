@@ -128,6 +128,8 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Security best practices
     href: security-guide.md
   - name: Linux support
