@@ -74,6 +74,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + The PipelineDataset class is deprecated. For more information, see https://aka.ms/dataset-deprecation. Learn how to use dataset with pipeline, see https://aka.ms/pipeline-with-dataset.
   + **azureml-pipeline-steps**
     + Doc updates to azureml-pipeline-steps.
+    +  Added support in ParallelRunConfig's `load_yaml()` for users to define Environments inline with the rest of the config or in a separate file
   + **azureml-train-automl-client**
     + Documentation improvements to azureml.train.automl.automlconfig.AutoMLConfig class.
     + Removed the ability to specify `enable_cache` as part of AutoMLConfig
