@@ -19,14 +19,11 @@ Across the spectrum, you'll use a combination of built-in infrastructure and fou
 
 ## Built-in monitoring
 
-Azure Cognitive Search reports out storage metrics and service health information to the portal. Mid-page links in the main Overview page include **Usage** and **Monitoring** tabs, which provide system information at a glance:
-
-* In **Usage**, you can monitor storage consumed, along with the quota for each content type, relative to the pricing tier of your service.
-* In **Monitoring**, you can check query volumes, latency, and whether the service had to drop queries due to pressure. No configuration steps are required for this level of monitoring. The data used for these metrics is internal to your service, with service health metrics for up to 30 days.
+Azure Cognitive Search reports out storage metrics and service health information to the portal. Links in the main Overview provide system information at a glance.
 
 The following screenshot helps you locate Azure Monitor features in the portal. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
 
-+ **Monitoring** tab, located in the main overview page, shows key metrics at a glance.
++ **Monitoring** tab, located in the main overview page, you can check query volumes, latency, and whether the service had to drop queries due to pressure. No configuration steps are required for this level of monitoring. The data used for these metrics is internal to your service, with service health metrics for up to 30 days.
 + **Activity log**, just below Overview, reports on resource-level actions: service health and API key request notifications.
 + **Monitoring**, further down the list, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
@@ -46,9 +43,7 @@ You can access the **Activity log** from the left-navigation pane, or from Notif
 
 ### Monitor storage in the Usage tab
 
-If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
-
-For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. 
+For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
 The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
@@ -60,7 +55,7 @@ The following illustration is for the free service, which is capped at 3 objects
 
 ## Add-on monitoring with Azure Monitor
 
-Many services, including Azure Cognitive Search, add [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
+Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. Azure Monitor has its own billing structure. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
 
 ### Monitor query and indexing workloads
 
