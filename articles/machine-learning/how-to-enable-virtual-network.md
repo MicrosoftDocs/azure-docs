@@ -355,7 +355,7 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-## Use datastores and datasets in a virtual network
+## Use datastores and datasets
 
 By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
 
