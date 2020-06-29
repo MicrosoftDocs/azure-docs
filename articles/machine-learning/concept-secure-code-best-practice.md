@@ -1,7 +1,7 @@
 ---
 title: Secure code best practices
 titleSuffix: Azure Machine Learning
-description: Learn about potential security vulnerabilities that may exist when developing for Azure Machine Learning. Learn about the mitigations that Azure ML provides, as well as best practices to ensure that your development environments remain secure.
+description: Learn about potential security threats that may exist when developing for Azure Machine Learning. Learn about the mitigations that Azure ML provides, as well as best practices to ensure that your development environments remain secure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,9 +18,9 @@ In Azure Machine Learning, you can upload files and content from any source. Con
 > [!IMPORTANT]
 > Only run notebooks or scripts from trusted sources. For example, where you or your security team have reviewed the notebook or script.
 
-## Potential vulnerabilities
+## Potential threats
 
-Development with Azure Machine Learning often involves web-based development environments (Notebooks & Azure ML studio). When using web-based development environments, the potential vulnerabilities are:
+Development with Azure Machine Learning often involves web-based development environments (Notebooks & Azure ML studio). When using web-based development environments, the potential threats are:
 
 * [Cross site scripting (XSS)](https://owasp.org/www-community/attacks/xss/)
 
@@ -33,30 +33,42 @@ The following table provides a matrix of the threats and attack surfaces that ap
 
 | Attack surface | XSS</br>Dom injection | XSS</br>Theft of tokens/cookies | CSRF |
 | ---- | ---- | ---- | ---- |
-| __Azure ML studio notebooks__ | | |
-| __Jupyter/JupyterLab on compute instance__ | | |
-| __RStudio on compute instance__ | | |
-| __Compute cluster__ | | |
-| __SDK on local computer__ | | |
+| __[Azure ML studio notebooks]__ | Possible threat | Possible threat | Possible threat |
+| __Jupyter/JupyterLab on compute instance__ | Possible threat | Possible threat | Possible threat |
+| __RStudio on compute instance__ | | | |
+| __Compute cluster__ | | | |
+| __SDK on local computer__ | | | |
 
 ## Azure ML studio notebooks
 
-__Possible vulnerabilities__:
+Azure Machine Learning studio provides a hosted notebook experience in your browser. Cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
+
+__Possible threats__:
 * Cross site scripting (XSS)
 * Cross site request forgery (CSRF)
-
-Azure Machine Learning studio provides a hosted notebook experience in your browser. Cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
 
 __Mitigations provided by Azure Machine Learning__:
 * __Coode cell output__ is sandboxed in an iframe. The iframe prevents the script from accessing the parent DOM, cookies, or session storage.
 * __Markdown cell__ contents are cleaned using the dompurify library. This blocks malicious scripts from executing with markdown cells are rendered.
 * __Image URL__ and __Markdown links__ are not directly requested. Instead, the URL for the image or link is sent to a Microsoft owned endpoint which checks for malicious values. If a malicious value is detected, the endpoint rejects the request.
 
-__Required actions__:
+__Recommended actions__:
 * Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
 * When selecting a link to open an external application, you will be prompted to trust the application.
 
-## Azure ML Compute instance
+## Azure ML compute instance
+
+Azure Machine Learning compute instance hosts Jupyter and Jupyter Lab. When using either, cells in a notebook can output HTML documents or fragments that contain malicious code.  When the output is rendered, the code can be executed.
+
+__Possible threats__:
+* Cross site scripting (XSS)
+* Cross site request forgery (CSRF)
+
+__Mitigations provided by Azure Machine Learning__:
+* None. Jupyter and Jupyter Lab are open source applications hosted on the Azure Machine Learning compute instance.
+
+__Recommended actions__:
+* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
 
 ## Report security issues or concerns 
 
