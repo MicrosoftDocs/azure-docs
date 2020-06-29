@@ -36,7 +36,7 @@ First, you'll need a set of training data in an Azure Storage blob. You should h
 > [!NOTE]
 > You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
@@ -50,7 +50,7 @@ You'll receive a `201 (Success)` response with a **Location** header. The value 
 
 ## Get training results
 
-After you've started the train operation, you use a new operation, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetCustomModel)** to check the training status. Pass the model ID into this API call to check the training status:
+After you've started the train operation, you use a new operation, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** to check the training status. Pass the model ID into this API call to check the training status:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key.
 1. Replace `<subscription key>` with your subscription key
@@ -132,7 +132,7 @@ The `"modelId"` field contains the ID of the model you're training. You'll need 
 
 ## Analyze forms for key-value pairs and tables
 
-Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)** API by running the following cURL command. Before you run the command, make these changes:
+Next, you'll use your newly trained model to analyze a document and extract key-value pairs and tables from it. Call the **[Analyze Form](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<model ID>` with the model ID that you received in the previous section.
@@ -419,4 +419,4 @@ The main key/value pair associations and tables are in the `"pageResults"` node.
 In this quickstart, you used the Form Recognizer REST API with cURL to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
