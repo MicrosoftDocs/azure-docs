@@ -5,7 +5,7 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -85,9 +85,8 @@ Configuring customer-managed key for your Import/Export service is optional. By 
 
 In the **Encryption** blade, you can see the key vault and the key selected for your customer managed key.
 
-## Disable keys
-
-You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
+> [!IMPORTANT]
+> You can only disable Microsoft managed keys and move to customer managed keys at any stage of the import/export job. However, you cannot disable the customer managed key once you have created it.
 
 ## Troubleshoot customer managed key errors
 
@@ -95,9 +94,10 @@ If you receive any errors related to your customer managed key, use the followin
 
 | Error code     |Details     | Recoverable?    |
 |----------------|------------|-----------------|
-| CmkErrorAccessRevoked | Applied a customer managed key but the key access is currently revoked. For more information, see how to [Enable the key access](https://docs.microsoft.com/rest/api/keyvault/vaults/updateaccesspolicy).                                                      | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy provides permissions to Get, Wrap, Unwrap.</li><li>If key vault is in a vNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li></ol>                                                                                            |
-| CmkErrorKeyDisabled      | Applied a customer managed key but the key is disabled. For more information, see how to [Enable the key](https://docs.microsoft.com/rest/api/keyvault/vaults/createorupdate).                                                                             | Yes, by enabling the key version     |
-| CmkErrorKeyNotFound      | Applied a customer managed key but can't find the key vault associated with the key.<br>If you deleted the key vault, you can't recover the customer managed key.  If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](https://docs.microsoft.com/azure/key-vault/key-vault-subscription-move-fix). |   If you deleted the key vault:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault underwent a tenant migration, yes, it can be recovered using one of the below steps: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|
+| CmkErrorAccessRevoked | Access to the customer managed key is revoked.                                                       | Yes, check if: <ol><li>Key vault still has the MSI in the access policy.</li><li>Access policy has Get, Wrap, and Unwrap permissions enabled.</li><li>If key vault is in a VNet behind the firewall, check if **Allow Microsoft Trusted Services** is enabled.</li><li>Check if the MSI of the job resource was reset to `None` using APIs.<br>If yes, then Set the value back to `Identity = SystemAssigned`. This recreates the identity for the job resource.<br>Once the new identity has been created, enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's access policy</li></ol>                                                                                            |
+| CmkErrorKeyDisabled      | The customer managed key is disabled.                                         | Yes, by enabling the key version     |
+| CmkErrorKeyNotFound      | Cannot find the customer managed key. | Yes, if the key has been deleted but it is still within the purge duration, using [Undo Key vault key removal](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Else, <ol><li>Yes, if the customer has the key backed-up and restores it.</li><li>No, otherwise.</li></ol>
+| CmkErrorVaultNotFound |Cannot find the key vault of the customer managed key. |   If the key vault has been deleted:<ol><li>Yes, if it is in the purge-protection duration, using the steps at [Recover a key vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>No, if it is beyond the purge-protection duration.</li></ol><br>Else if the key vault was migrated to a different tenant, yes, it can be recovered using one of the below steps:<ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity = None` and then set the value back to `Identity = SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `Wrap`, and `Unwrap` permissions to the new identity in the key vault's Access policy.</li></ol>|
 
 ## Next steps
 

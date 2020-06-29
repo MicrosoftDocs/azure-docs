@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -521,7 +521,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
     ConsoleKeyInfo keyinfo;
     try
     {
-        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, true, null, context, cancellationSource.Token);
+        task = TransferManager.CopyAsync(sourceBlob, destinationBlob, CopyMethod.ServiceSideAsyncCopy, null, context, cancellationSource.Token);
         while(!task.IsCompleted)
         {
             if(Console.KeyAvailable)

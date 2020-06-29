@@ -10,6 +10,7 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
+ms.custom: designer, tracking-python
 ---
 
 # Execute Python code in Azure Machine Learning designer

@@ -8,9 +8,10 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2020
@@ -139,7 +140,7 @@ Virtual Network NAT and the NAT gateway resource are available in all Azure publ
 
 NAT is supported through normal support channels.
 
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 

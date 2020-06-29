@@ -5,7 +5,7 @@ description: You can export and delete your in-product user data from Azure AI G
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

@@ -13,7 +13,7 @@ ms.date: 02/07/2019
 
 # Access Azure API for FHIR with Postman
 
-A client application would access an FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access an FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
+A client application would access an FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access a FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
 
 ## Prerequisites
 
@@ -103,9 +103,9 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 }
 ```
 
-In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. The managed Azure API for FHIR uses [identity object IDs](find-identity-object-ids.md) to restrict access to the service. Make sure that `oid` claim of the token contains an object ID from the list of allowed object IDs.
+In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) does not have access to the FHIR data plane. We recommend you [use Azure Role Based Access Control](configure-azure-rbac.md) to assign data plane roles to users. If you are using an external, secondary Azure Active directory tenant for your data plane, you will need to [configure local RBAC assignments](configure-local-rbac.md).
 
-It is also possible to [get a token for the Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+It is also possible to [get a token for the Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md). If you are using a token obtained with the Azure CLI, you should use Authorization type "Bearer Token" and paste the token in directly.
 
 ## Inserting a patient
 

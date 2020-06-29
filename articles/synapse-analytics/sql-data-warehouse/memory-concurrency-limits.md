@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -73,7 +73,7 @@ With the introduction of [workload groups](sql-data-warehouse-workload-isolation
 
 ## Concurrency maximums for resource classes
 
-To ensure each query has enough resources to execute efficiently, SQL Analytics in Azure Synapse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](sql-data-warehouse-workload-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, Synapse SQL tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](sql-data-warehouse-workload-importance.md) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
 

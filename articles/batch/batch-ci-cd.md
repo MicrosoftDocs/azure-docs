@@ -4,7 +4,7 @@ description: Learn how to deploy a build/release pipeline for an HPC application
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Use Azure Pipelines to build and deploy HPC solutions

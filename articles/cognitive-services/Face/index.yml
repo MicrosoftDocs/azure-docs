@@ -72,8 +72,6 @@ landingContent:
         links:
           - text: Display face data in a WPF app
             url: Tutorials/FaceAPIinCSharpTutorial.md
-          - text: Display face data in an Android app
-            url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
       - linkListType: how-to-guide
         links:
           - text: Use the HeadPose attribute

@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus - message deferral
 description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it is set aside.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message deferral

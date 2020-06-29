@@ -1,12 +1,12 @@
 ---
- title: Mv2-series - Azure Virtual Machines
- description: Specifications for the Mv2-series VMs.
- services: virtual-machines
- author: ayshakeen
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 04/07/2020
- ms.author: lahugh
+title: Mv2-series - Azure Virtual Machines
+description: Specifications for the Mv2-series VMs.
+author: ayshakeen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 04/07/2020
+ms.author: jushiman
 ---
 
 # Mv2-series

@@ -29,7 +29,7 @@ The following versions of Windows support Storage Explorer:
 * Windows 8
 * Windows 7
 
-For all versions of Windows, Storage Explorer requires .NET Framework 4.6.2 or later.
+For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a minimum.
 
 # [macOS](#tab/macos)
 
@@ -51,9 +51,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Storage Explorer is also available as a *.tar.gz* download. You have to install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 The *.tar.gz* installation might work on other distributions, but only these listed ones are officially supported.
 

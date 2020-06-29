@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 > [!IMPORTANT]
 > This deployment plan offers guidance and best practices for deploying Azure AD self-service password reset (SSPR).
 >
-> **If you're and end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
+> **If you're an end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 [Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
@@ -106,7 +106,7 @@ Note: For users who have [Password hash synchronization (PHS)](https://docs.micr
 
 You can help users register quickly by deploying SSPR alongside another popular application or service in the organization. This action will generate a large volume of sign-ins and will drive registration.
 
-Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. YOU can use this data post deployment to show the value SSPR is bringing to the organization.
+Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
 #### Enable combined registration for SSPR and MFA
 

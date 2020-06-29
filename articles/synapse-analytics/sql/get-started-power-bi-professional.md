@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
@@ -66,10 +66,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### Create credentials
 
-We need to create credentials before you can run queries. The credentials will be used by SQL on-demand service to access files in storage.
+We need to create credentials before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
 > [!NOTE]
-> You need to create credential for access to the storage account. Although SQL on-demand can access storage from different regions, having storage and Azure Synapse workspace in the same region will provide better performance experience.
+> You need to create credentials for storage account access. Although SQL on-demand can access storage from different regions, having storage and Azure Synapse workspace in the same region will provide a better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
@@ -88,7 +88,8 @@ GO
 
 ## Creating Power BI desktop report
 
-Open Power BI desktop application and select **Get data** option.
+Open the Power BI desktop application and select the **Get data** option.
+
 ![Open Power BI desktop application and select get data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### Step 1 - Select data source

@@ -569,7 +569,7 @@ The following functionality was new in the November release of the SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN Forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Azure Media Services REST API reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Input metadata]: https://msdn.microsoft.com/library/azure/dn783120.aspx

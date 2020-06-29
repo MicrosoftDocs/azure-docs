@@ -48,7 +48,7 @@ To enable access, a parent must do the following steps:
 
 ## Work or school accounts
 
-A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Office 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
+A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Microsoft 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
 
 Signing into Azure Notebooks with a work or school account may require administrator consent because Azure Notebooks collects or uses (but does not disclose) information such as the account's email address and the user's browser information. (Browser data is used to optimize features according to popular usage.)
 

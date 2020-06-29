@@ -56,10 +56,15 @@
       href: use-key-vault-references-spring-boot.md      
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
+    - name: Integrate with Kubernetes deployment using Helm
+      href: integrate-kubernetes-deployment-helm.md
 - name: Samples
   items:
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Key-value store

@@ -1,7 +1,7 @@
 ---
 title: Azure Batch task complete event
 description: Reference for Batch task complete event. This event is emitted once a task is completed, regardless of the exit code.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
 ---
 

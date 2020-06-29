@@ -12,6 +12,8 @@ ms.reviewer: maghan
 
 # Open and save files on premises and in Azure with SSIS packages deployed in Azure
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to open and save files on premises and in Azure when you lift and shift SSIS packages that use local file systems into SSIS in Azure.
 
 ## Save temporary files

@@ -55,8 +55,13 @@ The supported data types are:
 |---|---|
 | **bool** | A data type having one of two states: `true` or `false`. |
 | **dateTime** | Represents an instant in time, typically expressed as a date and time of day. Expressed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. |
+| **long** | A signed 64-bit integer  |
 | **double** | A double-precision 64-bit [IEEE 754](https://ieeexplore.ieee.org/document/8766229) floating point. |
 | **string** | Text values, comprised of Unicode characters.          |
+
+> [!IMPORTANT]
+>
+> * Your TSI environment is strongly typed. If devices or tags send both integral and nonintegral data, the device property values will be stored in two separated double and long columns and the [coalesce() function](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) should be used when making API calls and defining your Time Series Model Variable expressions.
 
 #### Objects and arrays
 
@@ -73,6 +78,17 @@ We recommend that you employ the following best practices:
 * [Plan for your scale needs](time-series-insights-update-plan.md) by calculating your anticipated ingestion rate and verifying that it falls within the supported rate listed below.
 
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
+
+* Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
+
+#### Historical Data Ingestion
+
+Using the streaming pipeline to import historical data is not currently supported in Azure Time Series Insights Preview. If you need to import past data into your environment, follow the guidelines below:
+
+* Do not stream live and historical data in parallel. Ingesting out of order data will result in degraded query performance.
+* Ingest historical data in time-ordered fashion for best performance.
+* Stay within the ingestion throughput rate limits below.
+* Disable Warm Store if the data is older than your Warm Store retention period.
 
 ### Ingress scale and Preview limitations
 
@@ -96,7 +112,7 @@ By default, Time Series Insights preview can ingest incoming data at a rate of *
  
 * **Example 1:**
 
-    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an Iot Hub with four partitions as the Time Series Insights event source.
+    Contoso Shipping has 100,000 devices that emit an event three times per minute. The size of an event is 200 bytes. They’re using an IoT Hub with four partitions as the Time Series Insights event source.
 
     * The ingestion rate for their Time Series Insights environment would be: **100,000 devices * 200 bytes/event * (3/60 event/sec) = 1 MBps**.
     * The ingestion rate per partition would be 0.25 MBps.
@@ -216,9 +232,11 @@ Time Series Insights Preview stores copies of your data as follows:
 
 * The second, repartitioned copy is grouped by Time Series IDs and resides in the `PT=TsId` folder:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
 
-In both cases, the time property of the Parquet file corresponds to blob creation time. Data in the `PT=Time` folder is preserved with no changes once it's written to the file. Data in the `PT=TsId` folder will be optimized for query over time and is not static.
+Timestamp in the blobs names in `PT=Time` folder corresponds to the arrival time of the data to TSI (not the timestamp of the events).
+
+Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, same events might be present in multiple blobs. Also, naming of the blobs might change in the future.
 
 > [!NOTE]
 >

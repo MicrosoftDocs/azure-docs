@@ -48,7 +48,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 ## Define geo-filtering match condition
 
 Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) on parameters when creating a match condition. 
-Two letter country codes to country mapping are provided [here](front-door-geo-filtering.md).
+Two letter country/region codes to country/region mapping are provided [here](front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

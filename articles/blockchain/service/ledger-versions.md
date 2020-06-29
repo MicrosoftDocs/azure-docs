@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service ledger versions, patching, & upgrade
 description: Overview of the supported ledgers versions in Azure Blockchain Service, including policies regarding systems patching and system-managed and user-managed upgrades.
-ms.date: 11/20/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.reviewer: janders
 #Customer intent: As an operator, I want to understand supported upgrades and versions for Azure Blockchain Service.
@@ -11,7 +11,7 @@ ms.reviewer: janders
 
 Azure Blockchain Service uses the Ethereum-based [Quorum](https://www.goquorum.com/developers) ledger designed for the processing of private transactions within a group of known participants, identified as a consortium in Azure Blockchain Service.
 
-Currently, Azure Blockchain Service supports [Quorum version 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
+Currently, Azure Blockchain Service supports [Quorum version 2.5.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.5.0) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
 
 ## Managing updates and upgrades
 

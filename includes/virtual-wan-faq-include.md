@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 03/24/2020
+ ms.date: 06/23/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -23,9 +23,34 @@ Each gateway has two instances, the split happens so that each gateway instance 
 
 ### How do I add DNS servers for P2S clients?
 
-There are two options to add DNS servers for the P2S clients.
+There are two options to add DNS servers for the P2S clients. The first method is preferred as it adds the custom DNS servers to the gateway instead of the client.
 
-1. Open a support ticket with Microsoft and have them add your DNS servers to the hub
+1. Use the following powershell script to add the custom DNS servers. Please replace the values for your environment.
+```
+// Define variables
+$rgName = "testRG1"
+$virtualHubName = "virtualHub1"
+$P2SvpnGatewayName = "testP2SVpnGateway1"
+$vpnClientAddressSpaces = 
+$vpnServerConfiguration1Name = "vpnServerConfig1"
+$vpnClientAddressSpaces = New-Object string[] 2
+$vpnClientAddressSpaces[0] = "192.168.2.0/24"
+$vpnClientAddressSpaces[1] = "192.168.3.0/24"
+$customDnsServers = New-Object string[] 2
+$customDnsServers[0] = "7.7.7.7"
+$customDnsServers[1] = "8.8.8.8"
+$virtualHub = $virtualHub = Get-AzVirtualHub -ResourceGroupName $rgName -Name $virtualHubName
+$vpnServerConfig1 = Get-AzVpnServerConfiguration -ResourceGroupName $rgName -Name $vpnServerConfiguration1Name
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while creating gateway
+createdP2SVpnGateway = New-AzP2sVpnGateway -ResourceGroupName $rgname -Name $P2SvpnGatewayName -VirtualHub $virtualHub -VpnGatewayScaleUnit 1 -VpnClientAddressPool $vpnClientAddressSpaces -VpnServerConfiguration $vpnServerConfig1 -CustomDnsServer $customDnsServers
+
+// Specify custom dns servers for P2SVpnGateway VirtualHub while updating existing gateway
+$P2SVpnGateway = Get-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName
+$updatedP2SVpnGateway = Update-AzP2sVpnGateway -ResourceGroupName $rgName -Name $P2SvpnGatewayName  -CustomDnsServer $customDnsServers 
+
+// Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
+```
 2. Or, if you are using the Azure VPN Client for Windows 10, you can modify the downloaded profile XML file and add the **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** tags before importing it.
 
 ```
@@ -43,7 +68,7 @@ There are two options to add DNS servers for the P2S clients.
 
 ### For User VPN (Point-to-site)- how many clients are supported?
 
-Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-20 supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count.
+Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-20 supports upto 10,000 connections. As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support upto 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean you plan for 1000 instead of  the 500 for this scale unit as instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count. Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit or change the point-to-site configuration on the VPN gateway.
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
@@ -66,12 +91,19 @@ For partner automation steps, see [Virtual WAN partner automation](../articles/v
 
 ### Am I required to use a preferred partner device?
 
-No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
+No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support. Virtual WAN also has CPE partner solutions that automate connectivity to Azure Virtual WAN making it easier to set up IPsec VPN connections at scale.
 
 ### How do Virtual WAN partners automate connectivity with Azure Virtual WAN?
 
 Software-defined connectivity solutions typically manage their branch devices using a controller, or a device provisioning center. The controller can use Azure APIs to automate connectivity to the Azure Virtual WAN. The automation includes uploading branch information, downloading the Azure configuration, setting up IPSec tunnels into Azure Virtual hubs, and automatically setting up connectivity form the branch device to Azure Virtual WAN. When you have hundreds of branches, connecting using Virtual WAN CPE Partners is easy because the onboarding experience takes away the need to set up, configure, and manage large-scale IPsec connectivity. For more information, see [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
+### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
+
+Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
+
+### How do new partners that are not listed in your launch partner list get onboarded?
+
+All virtual WAN APIs are open API. You can go over the documentation [Virtual WAN partner automation](../articles/virtual-wan/virtual-wan-configure-automation-providers.md) to assess technical feasibility. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity. Once the company has completed the automation work for their CPE device based on the automation guidelines provides above, you can reach out to azurevirtualwan@microsoft.com to be listed here [Connectivity through partners]( ../articles/virtual-wan/virtual-wan-locations-partners.md#partners). If you are a customer that would like a certain company solution to be listed as a Virtual WAN partner, please have the company contact the Virtual WAN by sending an email to azurevirtualwan@microsoft.com.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -127,14 +159,6 @@ Yes. See the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/)
 
 * If you had Spoke VNETs connected to the hub, peering charges at the Spoke VNETs still apply. 
 
-### How do new partners that are not listed in your launch partner list get onboarded?
-
-All virtual WAN APIs are open API. You can go over the documentation to assess technical feasibility. If you have any question, send an email to azurevirtualwan@microsoft.com. An ideal partner is one that has a device that can be provisioned for IKEv1 or IKEv2 IPsec connectivity.
-
-### What if a device I am using is not in the Virtual WAN partner list? Can I still use it to connect to Azure Virtual WAN VPN?
-
-Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners automate connectivity from the device to Azure VPN end points. This implies automating steps such as 'branch information upload', 'IPsec and configuration' and 'connectivity'.Since your device is not from a Virtual WAN partner ecosystem, you will need to do the heavy lifting of manually taking the Azure configuration and updating your device to set up IPsec connectivity.
-
 ### Is it possible to construct Azure Virtual WAN with a Resource Manager template?
 
 A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or portal driven service.
@@ -186,8 +210,8 @@ The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale uni
 Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel, or is it always a single VPN tunnel?
+On-premises device solutions can apply traffic policies to steer traffic across multiple tunnels into Azure.
 
-A connection coming into a virtual WAN VPN is always an active-active tunnel (for resiliency within the same hub/region) using a link available at the branch. This link may be an ISP link at the on-premises branch. Virtual WAN 'VPNSite' provides the ability to add link information to the site. If you have multiple ISPs at the branch and each of the ISPs provided a link, that information can be set up in the VPN site info in Azure. However, managing failover across ISPs at the branch is completely a branch-centric routing operation.
 
 ### What is global transit architecture?
 
@@ -208,13 +232,14 @@ A virtual hub can propagate a learned default route to a virtual network/site-to
 ### How does the virtual hub in a Virtual WAN select the best path for a route from multiple hubs
 
 If a Virtual Hub learns the same route from multiple remote hubs,  the order in which it decides is as follows
-1) Route Origin 
-	a) Network routes – VNET prefixes directly learnt by the Virtual Hub gateways
-	b) Hub RouteTable (statically configured routes)
-	c) BGP
-	d) InterHub routes
-2)	Route metric : Virtual WAN prefers ExpressRoute over VPN. ExpressRoute peer have a higher weightage compared to the VPN peer
-3)	AS path length
+1. Longest prefix match
+2. Local routes over interhub
+3. Static routes over BGP
+4. ExpressRoute (ER) over VPN
+5. AS path length
+
+Transit between ER to ER is always via Global reach due to which if the request comes in via ER in one hub and there is a VPN and ER in a remote hub, VPN will be preferred over ER from a remote hub to reach an end point connected via VPN or ER in the remote hub
+
 
 ### Is there support for IPv6 in Virtual WAN?
 

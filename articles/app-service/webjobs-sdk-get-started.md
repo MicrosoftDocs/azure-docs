@@ -86,14 +86,13 @@ In this section, you set up console logging that uses the [ASP.NET Core logging 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version <3_X_VERSION>
    ```
+   In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
 
 1. In *Program.cs*, add a `using` statement:
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
-
-    In this command, replace `<3_X_VERSION>` with a supported 3.x version of the package.
 
 1. Call the [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) method on [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). The [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) method adds console logging to the configuration.
 

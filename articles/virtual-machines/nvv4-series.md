@@ -1,12 +1,13 @@
 ---
- title: NVv4-series - Azure Virtual Machines
- description: Specifications for the NVv4-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NVv4-series 
+description: Specifications for the NVv4-series VMs.
+services: virtual-machines
+ms.subservice: sizes
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NVv4-series 

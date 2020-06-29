@@ -11,11 +11,11 @@ ms.topic: conceptual
 
 There are many reasons why the performance of Azure Remote Rendering may not be as good as desired. Apart from pure rendering performance on the cloud server, especially the quality of the network connection has a significant influence on the experience. To profile the server's performance, refer to chapter [Server-side performance queries](../overview/features/performance-queries.md).
 
-This chapter focuses on how to identify potential client-side bottlenecks through *performance traces*.
+This chapter focuses on how to identify potential client-side bottlenecks through *:::no-loc text="performance traces":::*.
 
 ## Getting started
 
-If you are new to the Windows performance tracing functionality, this section will mention the most fundamental terms and applications to get you started.
+If you are new to the Windows :::no-loc text="performance tracing"::: functionality, this section will mention the most fundamental terms and applications to get you started.
 
 ### Installation
 
@@ -46,7 +46,7 @@ To identify ARR performance issues you should prefer to do a trace directly on a
 
 ### WPR configuration
 
-1. Launch the [Windows Performance Recorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) from the *start menu*.
+1. Launch the [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) from the *start menu*.
 1. Expand **More Options**
 1. Click **Add Profiles...**
 1. Select the file *AzureRemoteRenderingNetworkProfiling.wprp*. You can find this file in the ARR SDK under *Tools/ETLProfiles*.
@@ -76,7 +76,7 @@ To record a trace on a HoloLens, boot up your device and enter its IP address in
 
 1. On the left, navigate to *Performance > Performance Tracing*.
 1. Select **Custom profiles**
-1. Click **Browse...**
+1. Click **:::no-loc text="Browse...":::**
 1. Select the file *AzureRemoteRenderingNetworkProfiling.wprp*. You can find this file in the ARR SDK under *Tools/ETLProfiles*.
 1. Click **Start Trace**
 1. The HoloLens is now recording a trace. Make sure to trigger the performance issues that you want to investigate. Then click **Stop Trace**.

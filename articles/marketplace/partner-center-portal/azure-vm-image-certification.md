@@ -11,9 +11,6 @@ ms.date: 04/09/2020
 
 # Azure virtual machine (VM) image certification
 
-> [!NOTE]
-> We're moving the management of your Azure VM offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please continue to follow the instructions in [Create certificates for Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) in Cloud Partner Portal to manage your offers.
-
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
 Complete these steps before submitting your VM offer:

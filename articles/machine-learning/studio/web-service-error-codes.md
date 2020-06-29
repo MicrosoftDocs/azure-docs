@@ -17,8 +17,6 @@ ms.date: 11/16/2016
  
 # Azure Machine Learning Studio (classic) REST API Error Codes
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
- 
 The following error codes could be returned by an operation on an Azure Machine Learning Studio (classic) web service.
  
 ## BadArgument (HTTP status code 400)

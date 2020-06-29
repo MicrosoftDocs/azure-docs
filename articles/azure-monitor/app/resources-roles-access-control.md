@@ -37,11 +37,6 @@ First, some definitions:
 
 It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your Application Insights resource. You might also have put other Azure services in there, such as websites or storage.
 
-To control access to these resources it's therefore recommended to:
-
-* Control access at the **resource group or subscription** level.
-* Assign the **Application Insights Component contributor** role to users. This allows them to edit web tests, alerts, and Application Insights resources, without providing access to any other services in the group.
-
 ## To provide access to another user
 
 You must have Owner rights to the subscription or the resource group.

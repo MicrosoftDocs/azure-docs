@@ -5,7 +5,7 @@ description: To use Azure Machine Learning Studio (classic), you need to have a 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -14,8 +14,6 @@ ms.date: 12/07/2017
 ---
 
 # Create and share an Azure Machine Learning Studio (classic) workspace
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 

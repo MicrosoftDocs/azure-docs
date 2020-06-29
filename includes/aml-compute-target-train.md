@@ -16,6 +16,7 @@ ms.date: 12/04/2019
 |----|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/how-to-set-up-training-targets.md#local)| yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-set-up-training-targets.md#amlcompute)| yes & <br/>hyperparameter&nbsp;tuning | yes | yes |
+|[Azure Machine Learning compute instance](../articles/machine-learning/concept-compute-instance.md) | yes & <br/>hyperparameter tuning | yes |  |
 |[Remote VM](../articles/machine-learning/how-to-set-up-training-targets.md#vm) | yes & <br/>hyperparameter tuning | yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-create-your-first-pipeline.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-create-your-first-pipeline.md#adla) | &nbsp; | yes | &nbsp; |

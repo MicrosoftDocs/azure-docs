@@ -33,6 +33,9 @@ If your chat bot receives the text `How do I get to the Human Resources building
 |QnA Maker|**Returns the answer to the question** from a custom knowledge base. For example, this text is determined as a question with the static text answer of  `Get on the #9 bus and get off at Franklin street`.|
 |||
 
+> [!div class="mx-imgBorder"]
+> ![Infographic to determine when to use LUIS and when to use QnA Maker](./luis-qna-maker-together-decision.png)
+
 ## When do you use LUIS?
 
 Use LUIS when you need to know the intention of the utterance as part of a process in the chat bot. Continuing with the example text, `How do I get to the Human Resources building on the Seattle North campus?`, once you know the user's intention is to find a location, you can pass details about the utterance (pulled out with entities) to another service, such as a transportation server, to get the answer.
@@ -65,7 +68,7 @@ You can present this third-party answer to the user for validation. Once you hav
 
 If your chat bot needs more information than either service provides, to continue through a decision tree, use both services and process both responses in the client application.
 
-Use the Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** tool to help build a process to work with both services. This tool builds a top LUIS app of intents that dispatches between LUIS and QnA Maker as child apps.
+Use the Bot framework **[Dispatch CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** tool to help build a process to work with both services. This tool builds a top LUIS app of intents that dispatches between LUIS and QnA Maker as child apps. [Learn more](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) about integrating with LUIS, QnA Maker, and Bot framework.
 
 Use the Bot builder sample, **NLP with dispatch**, in [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) or [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), to implement this type of chat bot.
 

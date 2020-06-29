@@ -77,7 +77,7 @@ public class MySQLConnectionPool {
 		// For Azure Database for MySQL, if there is no action on one connection for some
 		// time, the connection is lost. By this, make sure the connection is
 		// active. Otherwise reconnect it.
-		makeAvailable(conn);
+		conn = makeAvailable(conn);
 		return conn;
 	}
 
@@ -134,12 +134,7 @@ public class MySQLConnectionPool {
 	 */
 	private Connection createNewConnection() throws SQLException {
 		Connection conn = null;
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(databaseUrl, userName, password);
-		} catch (ClassNotFoundException cnfe) {
-			throw new SQLException(cnfe);
-		}
+		conn = DriverManager.getConnection(databaseUrl, userName, password);
 		return conn;
 	}
 

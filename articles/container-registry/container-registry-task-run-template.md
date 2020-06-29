@@ -134,7 +134,7 @@ For demonstration purposes, create a separate container registry as your base re
 
 ### Create new Dockerfile
 
-Create a Dockerfile that pulls the base image from your base registry. Perform the following steps in your local fork of the GitHub repo, for example, https://github.com/myGitHubID/acr-build-helloworld-node.git*.
+Create a Dockerfile that pulls the base image from your base registry. Perform the following steps in your local fork of the GitHub repo, for example, `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. In the GitHub UI, select **Create new file**.
 1. Name your file *Dockerfile-test* and paste the following contents. Substitute your registry name for *mybaseregistry*.

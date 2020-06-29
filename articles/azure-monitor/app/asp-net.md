@@ -50,7 +50,7 @@ If you want to set the resource group or the location where your data is stored,
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
-> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/monitor-performance-live-website-now.md).
+> If you don't want to send telemetry to the portal while you're debugging, just add the Application Insights SDK to your app but don't configure a resource in the portal. You are able to see telemetry in Visual Studio while you are debugging. Later, you can return to this configuration page, or you could wait until after you have deployed your app and [switch on telemetry at run time](../../azure-monitor/app/status-monitor-v2-overview.md).
 
 ## <a name="run"></a> Step 2: Run your app
 Run your app with F5. Open different pages to generate some telemetry.
@@ -135,7 +135,7 @@ There are alternative topics to look at if you are interested in:
 
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../../azure-monitor/platform/alerts-log.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 

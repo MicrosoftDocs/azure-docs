@@ -3,11 +3,11 @@ title: include file
 titleSuffix: Azure
 description: include file
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: include
-ms.date: 11/27/2019
-ms.author: prmitiki
+ms.date: 5/22/2020
+ms.author: derekol
 ---
 
 1. Select **Create a resource** > **See all**.

@@ -5,6 +5,7 @@ services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
@@ -22,7 +23,7 @@ SQL on-demand is a distributed data processing system, built for large scale of 
 
 SQL on-demand is serverless, hence there is no infrastructure to setup or clusters to maintain. A default endpoint for this service is provided within every Azure Synapse workspace, so you can start querying data as soon as the workspace is created. There is no charge for resources reserved, you are only being charged for the data scanned by queries you run, hence this model is a true pay-per-use model.  
 
-If you use Spark in your data pipeline, for data preparation, cleansing or enrichment, you can [query any Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your SQL on-demand endpoint into your [managed workspace VNet](../security/synapse-workspace-managed-vnet.md).  
+If you use Apache Spark for Azure Synapse in your data pipeline, for data preparation, cleansing or enrichment, you can [query external Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your SQL on-demand endpoint into your [managed workspace VNet](../security/synapse-workspace-managed-vnet.md).  
 
 ## Who is SQL on-demand for
 
@@ -36,7 +37,7 @@ Different professional roles can benefit from SQL on-demand:
 
 - Data Engineers can explore the lake, transform and prepare data using this service, and simplify their data transformation pipelines. For more information, check this [tutorial](tutorial-data-analyst.md).
 - Data Scientists can quickly reason about the contents and structure of the data in the lake, thanks to features such as OPENROWSET and automatic schema inference.
-- Data Analysts can [explore data and Spark tables](develop-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools, which can connect to SQL on-demand.
+- Data Analysts can [explore data and Spark external tables](develop-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools, which can connect to SQL on-demand.
 - BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-connect-power-bi-desktop.md) and Spark tables.
 
 ## What do I need to do to start using it?
@@ -82,21 +83,21 @@ SQL on-demand has no local storage, only metadata objects are stored in database
 
 In order to enable smooth experience for in place querying of data residing in files in data lake, SQL on-demand extends the existing [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function by adding following capabilities:
 
-[Query multiple files or folders](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Query multiple files or folders](query-data-storage.md#query-multiple-files-or-folders)
 
-[PARQUET file format](develop-storage-files-overview.md#parquet-file-format)
+[PARQUET file format](query-data-storage.md#query-parquet-files)
 
-[Additional options for working with delimited text (field terminator, row terminator, escape char)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Additional options for working with delimited text (field terminator, row terminator, escape char)](query-data-storage.md#query-csv-files)
 
-[Read a chosen subset of columns](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Read a chosen subset of columns](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Schema inference](develop-storage-files-overview.md#schema-inference)
+[Schema inference](query-data-storage.md#schema-inference)
 
-[filename function](develop-storage-files-overview.md#filename-function)
+[filename function](query-data-storage.md#filename-function)
 
-[filepath function](develop-storage-files-overview.md#filepath-function)
+[filepath function](query-data-storage.md#filepath-function)
 
-[Work with complex types and nested or repeated data structures](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Work with complex types and nested or repeated data structures](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## Security
 
@@ -104,7 +105,7 @@ SQL on-demand offers mechanisms to secure access to your data.
 
 ### Azure Active Directory integration and multi-factor authentication
 
-SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
+SQL on-demand enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). This capability simplifies permission management and enhances security. Azure Active Directory (Azure AD) supports [multi-factor authentication](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) to increase data and application security while supporting a single sign-on process.
 
 #### Authentication
 

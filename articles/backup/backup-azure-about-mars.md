@@ -44,11 +44,11 @@ The MARS agent supports the following restore scenarios:
 
 ### Additional information
 
-- The **Initial Backup** (first backup) runs according to your backup settings.  The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup. The agent only uses Windows system write operations to capture the snapshot. It doesn't use any application VSS writers, and it doesn't capture app-consistent snapshots. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
+- The **Initial Backup** (first backup) runs according to your backup settings.  The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup. The agent only uses the Windows System Writer operation to capture the snapshot. It doesn't use any application VSS writers, and doesn't capture app-consistent snapshots. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
 
 - **Incremental backups** (subsequent backups) run according to the schedule you specify. During incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
 
-- The MARS agent can run the backup job in **optimized mode** using a USN (update sequence number) change journal, or **unoptimized mode** by checking for changes in directories or files via scanning the entire volume. Unoptimized mode is slow because the agent has to scan each file on the volume and compare it against the metadata to determine the changed files.  The **Initial backup** will always run in unoptimized mode. If the previous backup failed, then the next scheduled backup job will run in optimized mode.
+- The MARS agent can run the backup job in **optimized mode** using the USN (Update Sequence Number) change journal, or in **unoptimized mode** by checking for changes in directories or files via scanning the entire volume. Unoptimized mode is slower because the agent has to scan each file on the volume and compare it against the metadata to determine the changed files.  The **Initial backup** will always run in unoptimized mode. If the previous backup failed, then the next scheduled backup job will run in unoptimized mode.
 
 ### Additional scenarios
 

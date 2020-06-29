@@ -16,7 +16,7 @@ ms.author: pafarley
 
 # Learn image moderation concepts
 
-Use Content Moderator's machine-assisted image moderation and [human-in-the-loop Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
+Use Content Moderator's machine-assisted image moderation and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
 
 ## Evaluating for adult and racy content
 
@@ -144,4 +144,4 @@ For more nuanced cases, use the Content Moderator [Review tool](Review-Tool-User
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the Image moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.

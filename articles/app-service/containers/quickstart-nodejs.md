@@ -150,7 +150,7 @@ In this section, you learn how to view (or "tail") the logs from the running App
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
+The VS Code output window opens with a connection to the log stream.
 
 ![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 

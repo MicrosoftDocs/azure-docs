@@ -1,12 +1,15 @@
 ---
 title: 'Use Azure autoscale with guest metrics in a Linux scale set template'
 description: Learn how to autoscale using guest metrics in a Linux Virtual Machine Scale Set template
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/26/2019
-ms.author: mimckitt
+ms.reviewer: avverma
+ms.custom: avverma
+
 ---
 
 # Autoscale using guest metrics in a Linux scale set template

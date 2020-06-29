@@ -27,7 +27,7 @@ Creating and configuring a key vault for use with Azure Disk Encryption involves
 These steps are illustrated in the following quickstarts:
 
 - [Create and encrypt a Windows VM with Azure CLI](disk-encryption-cli-quickstart.md)
-- [Create and encrypt a Windows VM with Azure PowerShell](disk-encryption-cli-quickstart.md)
+- [Create and encrypt a Windows VM with Azure PowerShell](disk-encryption-powershell-quickstart.md)
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 

@@ -4,7 +4,7 @@ title: Azure Security Center for IoT documentation
 summary: Azure Security Center for IoT is an Azure based cloud security service providing comprehensive IoT device threat protection.
 
 metadata:
-  title: Documentation
+  title: Azure Security Center for IoT documentation
   description: Learn how Azure Security Center for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
   services: service
   ms.service: asc-for-iot

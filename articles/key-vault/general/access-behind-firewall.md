@@ -60,8 +60,14 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 ## IP address ranges
 
-The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document. Authentication and Identity (Azure Active Directory) is a global service and may fail over to other regions or move traffic without notice. In this scenario, all of the IP ranges listed in [Authentication and Identity IP Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) should be added to the firewall.
+The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to  Microsoft Azure Datacenter IP Ranges documents available at:
+* [Public](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [China](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+Authentication and Identity (Azure Active Directory) is a global service and may fail over to other regions or move traffic without notice. In this scenario, all of the IP ranges listed in [Authentication and Identity IP Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) should be added to the firewall.
 
 ## Next steps
 
-If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

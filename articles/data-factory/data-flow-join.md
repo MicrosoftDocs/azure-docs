@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
+ms.date:  05/15/2020
 ---
 
 # Join transformation in mapping data flow
@@ -57,6 +57,12 @@ If you would like to explicitly produce a full cartesian product, use the Derive
 1. Choose which key columns you want to match on for you join condition. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
 ![Join Transformation](media/data-flow/join.png "Join")
+
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your join conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi join](media/data-flow/non-equi-join.png "Non-equi join")
 
 ## Optimizing join performance
 

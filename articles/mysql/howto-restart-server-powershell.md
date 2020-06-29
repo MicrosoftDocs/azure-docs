@@ -46,3 +46,8 @@ Restart the server with the following command:
 ```azurepowershell-interactive
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an Azure Database for MySQL server using PowerShell](quickstart-create-mysql-server-database-using-azure-powershell.md)

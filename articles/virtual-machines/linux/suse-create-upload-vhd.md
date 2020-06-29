@@ -23,7 +23,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. See [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
 
 ## Use SUSE Studio
-[SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
+[SUSE Studio](https://studioexpress.opensuse.org/) can easily create and manage your SLES and openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SLES and openSUSE images.
 
 As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -34,7 +34,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 4. Update the system with the latest patches:
    
         # sudo zypper update
-5. Install the Azure Linux Agent from the SLES repository:
+5. Install the Azure Linux Agent from the SLES repository (SLE11-Public-Cloud-Module):
    
         # sudo zypper install python-azure-agent
 6. Check if waagent is set to "on" in chkconfig, and if not, enable it for autostart:

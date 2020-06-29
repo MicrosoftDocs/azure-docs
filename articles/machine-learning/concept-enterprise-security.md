@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
+ms.date: 05/19/2020
 ---
 
 # Enterprise security for Azure Machine Learning
@@ -100,29 +100,9 @@ Azure Machine Learning creates an additional application (the name starts with `
 
 Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS.  
 
-For more information, see [How to run experiments and inference in a virtual network](how-to-enable-virtual-network.md).
+For more information, see [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md).
 
 You can also enable Azure Private Link for your workspace. Private Link allows you to restrict communications to your workspace from an Azure Virtual Network. For more information, see [How to configure Private Link](how-to-configure-private-link.md).
-
-> [!TIP]
-> You can combine virtual network and Private Link together to protect communication between your workspace and other Azure resources. However, some combinations require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | No virtual network or Private Link | ✔ | ✔ |
-> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without Private Link. Other resources with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace and any other resource with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
-> | Azure Container Registry in a virtual network | ✔ | |
-> | Customer Managed Keys for workspace | ✔ | |
-> 
-
-> [!WARNING]
-> Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
-> 
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
 ## Data encryption
 
@@ -161,9 +141,7 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
-* Enable customer-managed key capabilities for Cosmos DB. At this time, you must request access to use this capability. To do so, please contact [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
-
-* Register the Azure Machine Learning and Azure Cosmos DB resource providers in your subscription, if not done already.
+* Register the Microsoft.MachineLearning and Microsoft.DocumentDB resource providers in your subscription, if not done already.
 
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 
@@ -193,6 +171,11 @@ For more information on customer-managed keys with Cosmos DB, see [Configure cus
 All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
 
 To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace or encrypt the default instance that gets created at the time of workspace provisioning.
+
+> [!IMPORTANT]
+> Azure Machine Learning requires the admin account be enabled on your Azure Container Registry. By default, this setting is disabled when you create a container registry. For information on enabling the admin account, see [Admin account](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
 
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 
@@ -260,7 +243,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 Microsoft may collect non-user identifying information like resource names (for example the dataset name, or the machine learning experiment name), or job environment variables for diagnostic purposes. All such data is stored using Microsoft-managed keys in storage hosted in Microsoft owned subscriptions and follows [Microsoft's standard Privacy policy and data handling standards](https://privacy.microsoft.com/privacystatement).
 
-Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
+Microsoft also recommends not storing sensitive information (such as account key secrets) in environment variables. Environment variables are logged, encrypted, and stored by us. Similarly when naming [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), avoid including sensitive information such as user names or secret project names. This information may appear in telemetry logs accessible to Microsoft Support engineers.
 
 You may opt out from diagnostic data being collected by setting the `hbi_workspace` parameter to `TRUE` while provisioning the workspace. This functionality is supported when using the AzureML Python SDK, CLI, REST APIs, or Azure Resource Manager templates.
 

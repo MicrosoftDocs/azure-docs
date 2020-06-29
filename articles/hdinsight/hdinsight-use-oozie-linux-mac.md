@@ -30,7 +30,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
+* **An Azure SQL Database**.  See [Create a database in Azure SQL Database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named **oozietest**.
 
 * The URI scheme for your clusters primary storage. `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -227,7 +227,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
+2. Edit the code below to replace `<serverName>` with your [logical SQL server](../azure-sql/database/logical-servers.md) name, and `<sqlLogin>` with the server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -296,9 +296,9 @@ The job definition describes where to find the workflow.xml. It also describes w
     |---|---|
     |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
-    |serverName| Azure SQL database server name.|
-    |sqlLogin| Azure SQL database server login.|
-    |sqlPassword| Azure SQL database server login password.|
+    |serverName| Azure SQL Database server name.|
+    |sqlLogin| Azure SQL Database server login.|
+    |sqlPassword| Azure SQL Database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -444,7 +444,7 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
+6. Edit the code below to replace `<serverName>` with your server name, and `<sqlLogin>` with the server login.  *After the task finishes* successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
