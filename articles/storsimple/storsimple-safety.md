@@ -3,7 +3,7 @@ title: Safely install and operate StorSimple device
 description: Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device.
 services: storsimple
 documentationcenter: ''
-author: alkohli
+author: priestlg
 manager: carmonm
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
-ms.author: alkohli
+ms.author: v-grpr
 
 ---
 # Safely install and operate your StorSimple device
