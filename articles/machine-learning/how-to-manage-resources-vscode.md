@@ -440,4 +440,4 @@ In addition to creating and deleting deployments, you can view and edit settings
 
 ## Next steps
 
-[Train an image classification model](tuutorial-train-deploy-image-classification-model-vscode.md) with the VS Code extension.
+[Train an image classification model](tutorial-train-deploy-image-classification-model-vscode.md) with the VS Code extension.
