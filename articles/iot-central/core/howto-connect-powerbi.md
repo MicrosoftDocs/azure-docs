@@ -15,7 +15,7 @@ ms.topic: conceptual
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI solution pipeline":::
 
-Use the Power BI Solution for Azure IoT Central to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
+Use the Power BI Solution for Azure IoT Central V3 to create a powerful Power BI dashboard to monitor the performance of your IoT devices. In your Power BI dashboard, you can:
 
 - Track how much data your devices are sending over time
 - Compare data volumes between different telemetry streams
@@ -39,7 +39,7 @@ Setting up the solution requires the following resources:
 
 ## Install
 
-To set up the pipeline, navigate to the [Power BI solution for Azure IoT Central](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the **Microsoft AppSource** site. Select **Get it now**, and follow the instructions.
+To set up the pipeline, navigate to the [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the **Microsoft AppSource** site. Select **Get it now**, and follow the instructions.
 
 When you open the PBIX file, be sure the read and follow the instructions on the cover page. These instructions describe how to connect your report to your SQL database.
 
@@ -73,7 +73,13 @@ Azure Data Factory generates a set of analysis tables for Power BI. You can expl
 
 ## Estimated costs
 
-The [Power BI solution for Azure IoT Central](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the Microsoft AppSource site includes a link to a cost estimator for the resources you deploy.
+The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the Microsoft AppSource site includes a link to a cost estimator for the resources you deploy.
+
+## Difference between V2 and V3
+
+The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) solution works with Azure IoT Central V3 apps. 
+
+If you are using an Azure IoT Central V2 app, use the [Power BI Solution for Azure IoT Central V2](https://appsource.microsoft.com/product/web-apps/iot-central.powerbi-solution-for-azure-iot-central?tab=Overview) instead.
 
 ## Next steps
 
