@@ -24,7 +24,7 @@ Remove all the comments from this template before your article is pushed to GitH
 First paragraph: Include a sentence that uses Azure Resource Manager template (ARM template) for the first occurrence about the template. For example:
 -->
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create <service>.
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create \<service>.
 
 
 <!--
