@@ -15,17 +15,17 @@ ms.date: 06/30/2020
 
 This article introduces monitoring at the service (resource) level, at the workload level (queries and indexing), and suggests a framework for monitoring user access.
 
-Across the spectrum, you'll use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities can help you construct a feedback loop so that you can address problems as they emerge.
+You can use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as service APIs that return statistics, counts, and status. Understanding the range of capabilities can help you construct a feedback loop so that you can address problems as they emerge.
 
 ## Built-in monitoring
 
-Azure Cognitive Search reports out storage metrics and service health information to the portal. Links in the main Overview provide system information at a glance.
+Azure Cognitive Search uses internal data for reporting on storage consumption, query metrics, and service health information in the portal. Links in the main Overview page provide system information at a glance.
 
 The following screenshot helps you locate Azure Monitor features in the portal. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes. 
 
 + **Monitoring** tab, located in the main overview page, you can check query volumes, latency, and whether the service had to drop queries due to pressure. No configuration steps are required for this level of monitoring. The data used for these metrics is internal to your service, with service health metrics for up to 30 days.
-+ **Activity log**, just below Overview, reports on resource-level actions: service health and API key request notifications.
-+ **Monitoring**, further down the list, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
++ **Activity log**, just below Overview, is connected to Azure Resource Manager. The activity log reports on resource-level actions: service health, service provisioning and decommissioning, capacity adjustments, and API key request notifications.
++ **Monitoring** settings, further down the left navigation pane, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
 ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png
  "Azure Monitor integration in a search service")
@@ -37,7 +37,7 @@ The following screenshot helps you locate Azure Monitor features in the portal. 
 
 The [**Activity log**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
-For in-service tasks - such as queries, indexing, or creating objects - you'll see generic informational notifications like *Get Admin Key* and *Get Query keys* for each request, but not the specific action itself. For information of this grain, you must configure diagnostic logging.
+One of the more common activities are references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests using the admin key (create or delete objects) and queries, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 

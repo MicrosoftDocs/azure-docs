@@ -15,7 +15,9 @@ ms.date: 06/30/2020
 
 Diagnostic or operational logs provide insight into the detailed operations of Azure Cognitive Search and are useful for monitoring service and workload processes. Internally, some system information exists on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. However, if you want self-direction over operational data, you should configure a diagnostic setting to specify where logging information is collected.
 
-Diagnostic logging is enabled through integration with Azure Monitor. When you set up diagnostic logging, you will be asked to specify a storage mechanism. The following table enumerates options for collecting and persisting data.
+Diagnostic logging is enabled through integration with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+
+When you set up diagnostic logging, you will be asked to specify a storage mechanism. The following table enumerates options for collecting and persisting data.
 
 | Resource | Used for |
 |----------|----------|
@@ -27,9 +29,11 @@ Diagnostic logging is enabled through integration with Azure Monitor. When you s
 
 Create resources in advance so that you can select one when configuring diagnostic logging.
 
-+ [Create a log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
++ [Create a log analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Create a storage account](../storage/common/storage-quickstart-create-account.md)
+
++ [Create an Event Hub](../event-hubs/event-hubs-create.md)
 
 ## Enable data collection
 
