@@ -36,7 +36,7 @@ You can use an existing Azure AD service principal that meets the following requ
 * **Client secret**: Must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!IMPORTANT]
-> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+> To create a service principal, you must have permissions to register an application with your Azure AD tenant, and to assign the application to a role in your subscription. To see if you have the required permissions, [check in the Portal](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 >
 
 ## Option 1: Create a service principal in Azure AD

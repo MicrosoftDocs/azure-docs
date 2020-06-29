@@ -3,7 +3,7 @@ title: Avere vFXT prerequisites - Azure
 description: Prerequisites for Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
 ---

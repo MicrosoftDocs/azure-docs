@@ -12,15 +12,15 @@ ms.date: 06/10/2020
 
 # Tutorial: Build and deploy a custom skill with Azure Machine Learning 
 
-In this tutorial, you will use the [hotel reviews dataset](https://www.kaggle.com/datafiniti/hotel-reviews) (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a [custom skill](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
+In this tutorial, you will use the [hotel reviews dataset](https://www.kaggle.com/datafiniti/hotel-reviews) (distributed under the Creative Commons license [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) to create a [custom skill](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) using Azure Machine Learning to extract aspect-based sentiment from the reviews. This allows for the assignment of positive and negative sentiment within the same review to be correctly ascribed to identified entities like staff, room, lobby, or pool.
 
-To train the aspect-based sentiment model, you will be using the [nlp recipes repository](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). The model will then be deployed as an endpoint on an Azure Kubernetes cluster. Once deployed, the model is added to the enrichment pipeline as a custom skill for use by the Cognitive Search service.
+To train the aspect-based sentiment model in Azure Machine Learning, you will be using the [nlp recipes repository](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). The model will then be deployed as an endpoint on an Azure Kubernetes cluster. Once deployed, the endpoint is added to the enrichment pipeline as an AML skill for use by the Cognitive Search service.
 
 There are two datasets provided. If you wish to train the model yourself, the hotel_reviews_1000.csv file is required. Prefer to skip the training step? Download the hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Create an Azure Cognitive Search instance
-> * Create an Azure Machine Learning workspace
+> * Create an Azure Machine Learning workspace (the search service and workspace should be in the same subscription)
 > * Train and deploy a model to an Azure Kubernetes cluster
 > * Link an AI enrichment pipeline to the deployed model
 > * Ingest output from deployed model as a custom skill

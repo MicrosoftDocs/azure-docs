@@ -395,10 +395,14 @@ You can design each plan to be visible to everyone or only to a preselected audi
 
 **Private audience**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
-**Restricted audience (Azure subscription IDs)**: Assign the audience that will have access to this private plan by using Azure subscription IDs. Optionally, include a description of each Azure subscription ID that you've assigned. Add up to 10 subscription IDs manually or up to 20,000 IDs if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs, and all letters must be lowercase.
-
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer _before_ it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
+
+**Restricted audience (Azure subscription IDs)**: Assign the audience that will have access to this private plan by using Azure subscription IDs. Optionally, include a description of each Azure subscription ID that you've assigned. Add up to 10 subscription IDs manually or up to 20,000 IDs if you're importing a CSV spreadsheet. Azure subscription IDs are represented as GUIDs, and all letters must be lowercase.
+
+>[!Note]
+>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
 
 #### Hide a plan
 
