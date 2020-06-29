@@ -23,6 +23,8 @@
           href: quick-create-simulated-device-symm-key.md
         - name: Java
           href: quick-create-simulated-device-symmetric-key-java.md
+        - name: Python
+          href: quick-create-device-symmetric-key-python.md
     - name: X.509 Certificate attestation
       items:
         - name: C
