@@ -577,7 +577,7 @@ supports:
   - os-family: windows
 ```
 
-Save this file to a folder named `wmi_service` in your project directory.
+Save this file named `inspec.yml` in a folder named `wmi_service` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
