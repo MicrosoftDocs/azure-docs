@@ -51,6 +51,8 @@ The CloudAdmin role in AVS has the following privileges on vCenter. Refer to the
 
 ## Next steps
 
+Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
+
 <!-- LINKS - internal -->
 
 <!-- LINKS - external-->
