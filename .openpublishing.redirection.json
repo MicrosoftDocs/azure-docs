@@ -971,6 +971,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-keys.md",
+      "redirect_url": "/azure/cognitive-services/luis/luis-how-to-azure-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-migration-authoring-steps.md",
       "redirect_url": "/azure/cognitive-services/luis/luis-migration-authoring",
       "redirect_document_id": false
@@ -13089,6 +13094,21 @@
     {
       "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
       "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/global-peering-vnet.md",
+      "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table-portal.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/virtual-wan-route-table.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-through-nva",
       "redirect_document_id": false
     },
     {
@@ -49124,7 +49144,7 @@
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-powershell",
       "redirect_document_id": true
-    },                    
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-upload-vhd-using-storage-explorer.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-upload-vhd-using-storage-explorer",
@@ -49149,7 +49169,7 @@
       "source_path": "articles/lab-services/devtest-lab-vm-powershell.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vm-powershell",
       "redirect_document_id": true
-    },                       
+    },
     {
       "source_path": "articles/lab-services/devtest-lab-vmcli.md",
       "redirect_url": "/azure/devtest-labs/devtest-lab-vmcli",
@@ -49279,12 +49299,12 @@
       "source_path": "articles/lab-services/use-paas-services.md",
       "redirect_url": "/azure/devtest-labs/use-paas-services",
       "redirect_document_id": true
-    },                                                        
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/index.yml",
       "redirect_url": "/azure/lab-services/",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/account-setup-guide.md",
       "redirect_url": "/azure/lab-services/account-setup-guide",
@@ -55722,6 +55742,11 @@
     {
       "source_path": "articles/key-vault/secrets/key-rotation-log-monitoring.md",
       "redirect_url": "/azure/key-vault/secrets/tutorial-rotation-dual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-arc/kubernetes/index.yml",
+      "redirect_url": "/azure/azure-arc/kubernetes/overview",
       "redirect_document_id": false
     }
   ]
