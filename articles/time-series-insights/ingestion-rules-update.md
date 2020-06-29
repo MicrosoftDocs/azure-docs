@@ -28,7 +28,7 @@ If your telemetry payload has one or more of the above cases and you create a ne
 | Current Rule | New Rule | Example JSON | Previous Column Name | New Column Name
 |---|---| ---| ---|  ---|
 | Nested JSON is flattened using an underscore as the delineator |Nested JSON is flattened using an period as the delineator  | ``{"series" : { "value" : 19.338 }}`` | `series_value_double` |`series.value_double` |
-| Special characters are not escaped | JSON property names that include the special characters . [  \ and ' are escaped using [' and ']. Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \' and a backslash will be written as \\\  | ```"Foo's Law Value": "17.139999389648"``` | `Foo\'s Law Value_double` | `['Foo\'s Law Value']_double` | 
+| Special characters are not escaped | JSON property names that include the special characters . [  \ and ' are escaped using [' and ']. Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \' and a backslash will be written as \\\  | ```"Foo's Law Value": "17.139999389648"``` | `Foo's Law Value_double` | `['Foo\'s Law Value']_double` | 
 | Arrays of primitives are stored as a string | Arrays of primitive types are stored as a dynamic type  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
 Arrays of objects are always flattened, producing multiple events | If the objects within an array do not have either the TS ID or timestamp propert(ies) the array of objects is stored whole as a dynamic type | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
 
@@ -36,9 +36,9 @@ Arrays of objects are always flattened, producing multiple events | If the objec
 
 #### If your TS ID and/or timestamp property is nested within an object:
 
-1. Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you will need to update any ARM templates or automated deploy scripts or ARM templates to configure `telemetry.tagId` as the environment TS ID. This applies to the event source time stamp as well.
+1. Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you will need to update any ARM templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This applies to event source timestamps as well.
 
- #### If have nested JSON or special characters and automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
+ #### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
 1. Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous tsx expression of `"value": {"tsx": "$event.series.value.Double"}` should be updated to `"value": {"tsx": "$event.['series.value'].Double"}`
 
