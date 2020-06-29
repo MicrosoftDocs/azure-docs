@@ -27,6 +27,7 @@ ms.author: alkohli
 Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](https://www.microsoft.com/download/details.aspx?id=44233) is also available.
 
 ## Safety icon conventions
+
 Here are the icons that you will find when you review the safety precautions to be observed when setting up and running your Microsoft Azure StorSimple device.
 
 | Icon | Description |
@@ -42,6 +43,7 @@ Here are the icons that you will find when you review the safety precautions to 
 | ![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **Tip Hazard** | |
 
 ## Handling precautions
+
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **WARNING!** 
 
 To reduce the risk of injury:
@@ -51,6 +53,7 @@ To reduce the risk of injury:
 * Do not lift the enclosure by the handles on the Power and Cooling Modules (PCMs) located at the rear of the unit. These are not designed to take the weight.
 
 ## Connection precautions
+
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
 
 To reduce the likelihood of injury, electrical shock, or death:
@@ -79,6 +82,7 @@ For the proper operation of your equipment and to prevent product damage:
 * All plug-in modules and blank plates are part of the system enclosure. These must only be removed when a replacement can be immediately added. The system must not be run without all modules or blanks in place.
 
 ## Rack system precautions
+
 The following safety requirements must be considered when you mount the device in a rack cabinet.
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **WARNING!**
@@ -102,10 +106,11 @@ To reduce the likelihood of injury, electrical shock, or death:
 
 For the proper cooling of your rack system:
 
-* Ensure that the rack design takes into consideration the maximum enclosure operating ambient temperature of 35 degrees Celsius (95 degrees Fahrenheit).
+* Ensure that the rack design takes into consideration the maximum enclosure operating ambient temperature of 35 degrees Celsius (95 degrees Fahrenheit). Keep the room where the rack system is cool and check that there is adequate airflow from the AC vent in the datacenter.
 * The system is operated with low-pressure, rear-exhaust installation (back pressure created by rack doors and obstacles not to exceed 5 Pascal [0.5 mm water gauge]).
 
 ## Power Cooling Module (PCM) precautions
+
 The device is designed to operate with two PCMs. Each of the PCMs has a power supply and a dual-axis fan. During a critical condition, the system allows for a failure of one power supply while continuing normal operations. Two PCMs (and hence power supplies) must always be installed. A single PCM does not provide redundant power. Therefore, the failure of even one PCM can result in downtime or possible data loss.
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
@@ -122,6 +127,7 @@ For the proper operation of your equipment and to prevent product damage:
 * Do not remove a PCM unless a replacement can be installed immediately. The enclosure must not be operated without all modules in place.
 
 ## Electrostatic discharge (ESD) precautions
+
 ![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
 
 Observe the following ESD-related precautions.
@@ -132,6 +138,7 @@ Observe the following ESD-related precautions.
 * ESD damage is not covered by warranty.
 
 ## Battery disposal precautions
+
 The power supply uses a special battery to protect the contents of memory during temporary, short-term power outages. The battery is seated in the PCM. Keep the following information in mind about the battery.
 
 ![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**
@@ -149,6 +156,6 @@ When shipping or otherwise transporting the batteries by air, follow the IATA Li
 After you have reviewed these safety notices, the next steps are to unpack, rack and cable your device.
 
 ## Next steps
+
 * For an 8100 device, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md).
 * For an 8600 device, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
-
