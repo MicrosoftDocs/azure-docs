@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 06/24/2020
 ms.author: pafarley
 ---
 
 # Tutorial: Create a document scanner app with AI Builder
 
-AI Builder is a new Power Platform capability that allows you to easily automate processes and predict outcomes to help improve business performance. AI Builder is a turnkey solution that brings the power of AI through a point-and-click experience. Using AI Builder, you can add intelligence to your apps even if you have no coding or data science skills.
+[AI Builder](https://docs.microsoft.com/en-us/ai-builder/overview) is a Power Platform capability that allows you to easily automate processes and predict outcomes to help improve business performance. AI Builder is a turnkey solution that brings the power of AI through a point-and-click experience. Using AI Builder, you can add intelligence to your apps even if you have no coding or data science skills.
 
 > [!IMPORTANT]
 > - Some features in AI Builder have not yet released for general availability (GA), and remain in preview status. See the **Release status** section for more information.
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Each of these bullet points align to a key H2
 > * Use these green checkboxes in a tutorial
 
-If you don’t have a Form Recognizer subscription, create a free trial account...
+If you don't have a Form Recognizer subscription, create a free trial account...
 
 ## Prerequisites
 
@@ -116,9 +116,9 @@ If you have trouble training your model, try the following:
 
 ## Publish your model
 
-If you’re happy with your model, you can select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used. For more information about publishing your model, go to [Publish your model](publish-model.md) section.
+If you're happy with your model, you can select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used. For more information about publishing your model, go to [Publish your model](publish-model.md) section.
 
-After you’ve published your form processing model, you can use it in a [PowerApps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Microsoft Flow](/ai-builder/form-processing-model-in-flow).
+After you've published your form processing model, you can use it in a [PowerApps canvas app](/ai-builder/form-processor-component-in-powerapps) or in [Microsoft Flow](/ai-builder/form-processing-model-in-flow).
 
 ## Clean up resources
 
@@ -144,6 +144,6 @@ Tutorials should always have a Next steps H2 that points to the next
 logical tutorial in a series, or, if there are no other tutorials, to
 some other cool thing the customer can do. A single link in the blue box
 format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
+shorten the title in the boxes if the original one doesn't fit.
 Do not use a "More info section" or a "Resources section" or a "See also
 section". --->
