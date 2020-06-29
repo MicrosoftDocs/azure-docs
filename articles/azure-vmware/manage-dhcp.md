@@ -1,6 +1,6 @@
 ---
 title: How to manage DHCP
-description: This article explains how to manage DHCP in Azure VMWare Solution (AVS)
+description: This article explains how to manage DHCP in Azure VMware Solution (AVS)
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---

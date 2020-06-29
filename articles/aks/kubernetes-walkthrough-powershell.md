@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 05/12/2020
+ms.date: 05/26/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -35,13 +35,6 @@ module and connect to your Azure account using the
 about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
 
-> [!IMPORTANT]
-> This article uses a preview version of the Az.AKS PowerShell module. You must install it
-> separately from the Az PowerShell module using the following command:
-> `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview`. Once the preview
-> version the Az.AKS PowerShell module is generally available, it becomes part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
-
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
@@ -69,7 +62,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 The following example output shows the resource group created successfully:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -125,7 +118,7 @@ list of the cluster nodes.
 The following example output shows the single node created in the previous steps. Make sure that the
 status of the node is **Ready**:
 
-```Output
+```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ```
@@ -243,7 +236,7 @@ YAML manifest:
 
 The following example output shows the Deployments and Services created successfully:
 
-```Output
+```plaintext
 deployment.apps/azure-vote-back created
 service/azure-vote-back created
 deployment.apps/azure-vote-front created
@@ -263,7 +256,7 @@ To monitor progress, use the [kubectl get service][kubectl-get] command with the
 
 Initially the **EXTERNAL-IP** for the **azure-vote-front** service is shown as **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
@@ -272,7 +265,7 @@ When the **EXTERNAL-IP** address changes from **pending** to an actual public IP
 to stop the `kubectl` watch process. The following example output shows a valid public IP address
 assigned to the service:
 
-```Output
+```plaintext
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

@@ -388,7 +388,7 @@
         href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
-  - name: Site Recovery support for Proximity Placement Groups
+  - name: Site Recovery for Proximity Placement Groups
     href: how-to-enable-replication-proximity-placement-groups.md 
   - name: Disaster recovery for apps
     items:

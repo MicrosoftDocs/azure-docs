@@ -2,11 +2,11 @@
 title: GitHub Actions workflows for Azure Static Web Apps
 description: Learn how to use GitHub repositories to set up continuous deployment to Azure Static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
+ms.author: cshoe
 ---
 
 # GitHub Actions workflows for Azure Static Web Apps Preview
@@ -45,7 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Build And Deploy
       id: builddeploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
@@ -100,7 +102,7 @@ In the Static Web Apps workflow file, there are two available jobs.
 | Name  | Description |
 |---------|---------|
 |`build_and_deploy_job` | Executes when you push commits or open a pull request against the branch listed in the `on` property. |
-|`close_pull_request_job` | Executes ONLY when you close a pull request. |
+|`close_pull_request_job` | Executes ONLY when you close a pull request which removes the staging environment created from pull requests. |
 
 ## Steps
 

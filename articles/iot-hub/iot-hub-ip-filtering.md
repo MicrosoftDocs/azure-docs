@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: robinsh
 ---
 
@@ -34,17 +34,19 @@ Any connection attempt from an IP address that matches a rejecting IP rule in yo
 
 By default, the **IP Filter** grid in the portal for an IoT hub is empty. This default setting means that your hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
 
-![IoT Hub default IP filter settings](./media/iot-hub-ip-filtering/ip-filter-default.png)
+To get to the IP Filter settings page, select **Networking**, **Public access**, then choose **Selected IP Ranges**:
+
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub default IP filter settings":::
 
 ## Add or edit an IP filter rule
 
 To add an IP filter rule, select **+ Add IP Filter Rule**.
 
-![Add an IP filter rule to an IoT hub](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
 
 After selecting **Add IP Filter Rule**, fill in the fields.
 
-![After selecting Add an IP Filter rule](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
 
 * Provide a **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 
@@ -54,7 +56,7 @@ After selecting **Add IP Filter Rule**, fill in the fields.
 
 After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
 
-![Notification about saving an IP filter rule](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule":::
 
 The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
 
@@ -64,7 +66,7 @@ To edit an existing rule, select the data you want to change, make the change, t
 
 To delete an IP filter rule, select the trash can icon on that row and then select **Save**. The rule is removed and the change is saved.
 
-![Delete an IoT Hub IP filter rule](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT Hub IP filter rule":::
 
 ## Retrieve and update IP filters using Azure CLI
 
@@ -154,11 +156,10 @@ You can change the order of your IP filter rules in the grid by clicking the thr
 
 To save your new IP filter rule order, click **Save**.
 
-![Change the order of your IoT Hub IP filter rules](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Change the order of your IoT HUb IP filter rules":::
 
 ## Next steps
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Operations monitoring](iot-hub-operations-monitoring.md)
 * [IoT Hub metrics](iot-hub-metrics.md)

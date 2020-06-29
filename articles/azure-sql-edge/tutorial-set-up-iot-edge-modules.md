@@ -2,8 +2,8 @@
 title: Set up IoT Edge modules in Azure SQL Edge
 description: In part two of this three-part Azure SQL Edge tutorial for predicting iron ore impurities, you'll set up IoT Edge modules and connections.
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
@@ -20,7 +20,7 @@ In part two of this three-part tutorial for predicting iron ore impurities in Az
 
 ## Create Azure Stream Analytics module
 
-Create an Azure Stream Analytics module that will be used in this tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Database Edge](https://docs.microsoft.com/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+Create an Azure Stream Analytics module that will be used in this tutorial. To learn more about using streaming jobs with SQL Edge, see [Using streaming jobs with SQL Edge](stream-analytics.md).
 
 Once the Azure Stream Analytics job is created with the hosting environment set as Edge, set up the inputs and outputs for the tutorial.
 
@@ -96,7 +96,7 @@ Now, specify the container credentials in the IoT Edge module.
 
 ## Deploy the Azure SQL Edge module
 
-1. Deploy the Azure SQL Edge module by following the steps listed in [Deploy Azure SQL Database Edge Preview](https://docs.microsoft.com/azure/sql-database-edge/deploy-portal#deploy-sql-database-edge).
+1. Deploy the Azure SQL Edge module by following the steps listed in [Deploy Azure SQL Edge (Preview)](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
 
 2. On the **Specify Route** of the **Set Modules** page, specify the routes for module to IoT Edge hub communication as follows. 
 

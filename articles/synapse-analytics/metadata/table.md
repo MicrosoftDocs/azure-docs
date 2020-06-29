@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: MikeRys 
 ms.service:  synapse-analytics 
 ms.topic: overview 
-ms.subservice: 
+ms.subservice: metadata
 ms.date: 05/01/2020 
 ms.author: mrys 
 ms.reviewer: jrasnick
@@ -188,6 +188,6 @@ id | name | birthdate
 ## Next steps
 
 - [Learn more about Azure Synapse Analytics' shared metadata](overview.md)
-- [Learn more about Azure Synapse Analytics' shared metadata Tables](table.md)
+- [Learn more about Azure Synapse Analytics' shared metadata database](database.md)
 
 

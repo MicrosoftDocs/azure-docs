@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 06/23/2020
 ---
 # What's new in Azure Cognitive Search
 
@@ -16,15 +16,19 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ## Feature announcements
 
+### June 2020
+
+Azure Machine Learning skill is new skill type to integrate an inferencing endpoint from Azure Machine Learning. The portal experience supports discovery and integration of your Azure Machine Learning endpoint within a Cognitive Search skillset. The discovery requires your Cognitive Search and Azure ML services be deployed in the same subscription. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
+
 ### May 2020 (Microsoft Build)
 
-+ [Debug sessions](cognitive-search-debug-session.md) feature is now in preview. [Sign up to request access](https://aka.ms/DebugSessions). Debug sessions provides a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md).
++ [Debug sessions](cognitive-search-debug-session.md) feature is now in preview. Debug sessions provide a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md).
 
 + Security enhancements include the ability to [set up a private search endpoint (preview)](service-create-private-endpoint.md) that is inaccessible on the public internet. You can also [configure IP rules for in-bound firewall support (preview)](service-configure-firewall.md).
 
 + Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
 
-+ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global query parameter](index-similarity-and-scoring.md#scoring-statistics).
++ Change the basis for how search scores are computed, from per-shard to all-shards, using the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics) and sessionId query parameters.
 
 ### March 2020
 

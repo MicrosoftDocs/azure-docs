@@ -1,47 +1,39 @@
 ---
-title: Work with scope configurations for Azure Automation Change Tracking and Inventory
-description: This article tells how to work with scope configurations when you're using Change Tracking and Inventory.
+title: Limit Azure Automation Change Tracking and Inventory deployment scope
+description: This article tells how to work with scope configurations to limit the scope of a Change Tracking and Inventory deployment.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
 
-# Work with scope configurations for Change Tracking and Inventory
+# Limit Change Tracking and Inventory deployment scope
 
-This article describes how you can work with scope configurations when enabling the [Update Management](automation-update-management.md) feature on VMs. 
+This article describes how to work with scope configurations when using the [Change Tracking and Inventory](change-tracking.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## Sign in to Azure
+## About scope configurations
 
-Sign in to the Azure portal at https://portal.azure.com.
+A scope configuration is a group of one or more saved searches (queries) used to limit the scope of Change Tracking and Inventory to specific computers. The scope configuration is used within the Log Analytics workspace to target the computers to enable. When you add a computer to changes from the feature, the computer is also added to a saved search in the workspace.
 
-## <a name="scope-configuration"></a>Check the scope configuration
+## Set the scope limit
 
-Update Management uses a scope configuration within the Log Analytics workspace to target the computers to enable for Update Management. The scope configuration is a group of one or more saved searches that is used to limit the scope of the feature to specific computers. To access the scope configurations:
+To limit the scope for your Change Tracking and Inventory deployment:
 
-1. In your Automation account under **Related resources**, select **Workspace**. 
+1. In your Automation account, select **Linked Workspace** under **Related resources**.
 
-2. Choose the workspace under **Workspace data sources**, and select **Scope Configurations**.
+2. Click **Go to workspace**.
 
-3. If the selected workspace doesn't have the Update Management feature enabled yet, it creates the `MicrosoftDefaultScopeConfig-ChangeTracking` scope configuration. 
+3. Select **Scope Configurations (Preview)** under **Workspace Data Sources**.
 
-4. If the selected workspace already has the feature enabled, it isn't redeployed, and the scope configuration isn't added to it. 
+4. Select the ellipsis to the right of the  `MicrosoftDefaultScopeConfig-ChangeTracking` scope configuration, and click **Edit**. 
 
-5. Select the ellipsis on any of the scope configurations, and then click **Edit**. 
-
-6. In the editing pane, select **Select Computer Groups**. The Computer Groups pane shows the saved searches that are used to create the scope configuration.
-
-## View a saved search
-
-When a computer is added to Change Tracking and Inventory, it's also added to a saved search in your workspace. The saved search is a query that contains the targeted computers.
-
-1. Navigate to your Log Analytics workspace and select **Saved searches** under **General**. The saved search used by Update Management is:
+5. In the editing pane, select **Select Computer Groups**. The Computer Groups pane shows the saved searches that are used to create the scope configuration. The saved search used by Change Tracking and Inventory is:
 
     |Name     |Category  |Alias  |
     |---------|---------|---------|
     |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 
-2. Select the saved search to view the query used to populate the group. The following image shows the query and its results:
+6. Select the saved search to view and edit the query used to populate the group. The following image shows the query and its results:
 
     ![Saved searches](media/automation-scope-configurations-change-tracking/logsearch.png)
 

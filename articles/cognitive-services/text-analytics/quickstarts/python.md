@@ -11,6 +11,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
+ms.custom: tracking-python
 ---
 
 # Quickstart: Using the Python REST API to call the Text Analytics Cognitive Service 

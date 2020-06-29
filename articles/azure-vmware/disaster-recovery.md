@@ -5,11 +5,11 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ---
 
-# Complete a disaster recovery of virtual machines using Azure VMWare Solution
+# Complete a disaster recovery of virtual machines using Azure VMware Solution
 
-This article contains the process to complete a disaster recovery of your virtual machines with VMWare Hybrid Cloud Extension (HCX) solution and using an Azure VMWare Solution private cloud as the recovery or target site.
+This article contains the process to complete a disaster recovery of your virtual machines with VMware Hybrid Cloud Extension (HCX) solution and using an Azure VMware Solution private cloud as the recovery or target site.
 
-VMWare HCX provides various operations that provide fine control and granularity in replication policies. Available Operations include:
+VMware HCX provides various operations that provide fine control and granularity in replication policies. Available Operations include:
 
 - Reverse – After a disaster has occurred. Reverse helps make Site B the source site and Site A where the protected VM now lives.
 
@@ -52,7 +52,7 @@ If needed, select the Default replication options:
 
 - **Enable Quiescence:** Pauses the VM to ensure a consistent copy is synced to the remote site.
 
-- **Destination Storage:** Select the remote datastore for the protected VM(s). In an AVS private cloud, this selection should be the VSAN datastore.
+- **Destination Storage:** Select the remote datastore for the protected VM(s). In an AVS private cloud, this selection should be the vSAN datastore.
 
 - **Compute Container:** The remote vSphere Cluster or Resource Pool.
 
@@ -143,7 +143,7 @@ The replication can be monitored on the details section of each virtual machine.
 
 ## Disaster recovery plan automation
 
-VMWare HCX currently doesn't have a built-in mechanism to create and automate a disaster recovery plan. This capability doesn't exist in HCX. However it provides a set of REST APIs, including APIs for the Disaster Recovery operation.
+VMware HCX currently doesn't have a built-in mechanism to create and automate a disaster recovery plan. This capability doesn't exist in HCX. However it provides a set of REST APIs, including APIs for the Disaster Recovery operation.
 
 The API specification can be accesses within HCX Manager in the URL.
 

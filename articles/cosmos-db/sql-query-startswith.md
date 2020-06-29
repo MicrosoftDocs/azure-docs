@@ -1,5 +1,5 @@
 ---
-title: STARTSWITH in Azure Cosmos DB query language
+title: StartsWith in Azure Cosmos DB query language
 description: Learn about SQL system function STARTSWITH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -35,16 +35,22 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## Examples
   
-  The following example checks if the string "abc" begins with "b" and "a".  
+The following example checks if the string "abc" begins with "b" and "A".  
   
 ```sql
-SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
+SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2, STARTSWITH("abc", "A", true) AS s3
 ```  
   
  Here is the result set.  
   
 ```json
-[{"s1": false, "s2": true}]  
+[
+    {
+        "s1": false,
+        "s2": false,
+        "s3": true
+    }
+]
 ```  
 
 ## Remarks

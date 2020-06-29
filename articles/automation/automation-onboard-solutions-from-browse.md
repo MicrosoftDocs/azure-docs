@@ -1,12 +1,12 @@
 ---
-title: Enable Azure Automation Update Management from Azure portal
+title: Enable Azure Automation Update Management from the Azure portal
 description: This article tells how to enable Update Management from the Azure portal.
 services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ---
-# Enable Update Management from Azure portal
+# Enable Update Management from the Azure portal
 
 This article describes how you can enable the [Update Management](automation-update-management.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
 
@@ -57,9 +57,6 @@ Sign in to Azure at https://portal.azure.com.
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* For scope configurations, see [Work with scope configurations for Update Management](automation-scope-configurations-update-management.md).
-* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
-* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

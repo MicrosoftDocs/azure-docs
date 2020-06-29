@@ -26,10 +26,10 @@ Change detection and details are valuable for the following example scenarios:
 
 This article shows how to gather this information through Resource Graph's SDK. To see this
 information in the Azure portal, see Azure Policy's
-[Change history](../../policy/how-to/determine-non-compliance.md#change-history-preview) or Azure
-Activity Log [Change history](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
-For details about changes to your applications from the infrastructure layer all the way to
-application deployment, see
+[Change history](../../policy/how-to/determine-non-compliance.md#change-history) or Azure Activity
+Log [Change history](../../../azure-monitor/platform/activity-log-view.md#azure-portal). For details
+about changes to your applications from the infrastructure layer all the way to application
+deployment, see
 [Use Application Change Analysis (preview)](../../../azure-monitor/app/change-analysis.md) in Azure
 Monitor.
 

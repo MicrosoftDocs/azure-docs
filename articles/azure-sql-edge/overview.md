@@ -2,8 +2,8 @@
 title: What is Azure SQL Edge (Preview)? 
 description: Learn about Azure SQL Edge (Preview)
 keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha

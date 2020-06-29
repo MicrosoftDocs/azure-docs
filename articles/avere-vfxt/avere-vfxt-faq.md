@@ -6,6 +6,7 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
+ms.custom: references_regions
 ---
 
 # Avere vFXT for Azure FAQ

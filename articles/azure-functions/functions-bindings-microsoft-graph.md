@@ -35,11 +35,11 @@ The auth token input binding is provided in the [Microsoft.Azure.WebJobs.Extensi
 
 Microsoft Graph bindings are available through _binding extensions_. Binding extensions are optional components to the Azure Functions runtime. This section shows how to set up the Microsoft Graph and auth token extensions.
 
-### Enabling Functions 2.0 preview
+### Enabling Functions 2.0
 
-Binding extensions are available only for Azure Functions 2.0 preview. 
+Binding extensions are available only for Azure Functions 2.0. 
 
-For information about how to set a function app to use the preview 2.0 version of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+For information about how to set a function app to use the 2.0 version of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ### Installing the extension
 

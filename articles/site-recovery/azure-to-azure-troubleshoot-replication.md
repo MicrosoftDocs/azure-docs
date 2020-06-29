@@ -101,6 +101,10 @@ Following are some of the most common issues.
 
 **How to fix**: Azure Site Recovery can't create application consistent recovery point for Storage Spaces Direct Configuration. [Configure the replication policy](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
+### App-consistency not enabled on Linux servers
+
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
+
 ### More causes because of VSS-related issues:
 
 To troubleshoot further, check the files on the source machine to get the exact error code for failure:

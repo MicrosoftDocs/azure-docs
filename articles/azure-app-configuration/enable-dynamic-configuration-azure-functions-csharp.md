@@ -64,7 +64,7 @@ In this tutorial, you learn how to:
     }
     ```
 
-3. Update the `Run` method and signal to refresh the configuration using the `Refresh` method at the beginning of the Functions call. This will be no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking.
+3. Update the `Run` method and signal to refresh the configuration using the `TryRefreshAsync` method at the beginning of the Functions call. This will be no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -72,7 +72,7 @@ In this tutorial, you learn how to:
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];

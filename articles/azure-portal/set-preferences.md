@@ -6,7 +6,7 @@ keywords: settings, timeout, language, regional
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.service: azure-portal
 manager:  mtillman
@@ -74,7 +74,7 @@ The theme that you choose affects the background and font colors that appear in 
 
    ![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/theme.png)
 
-You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for vision-impaired users and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
+You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for people who have a visual impairment and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
 
 ### Enable or disable pop-up notifications
 

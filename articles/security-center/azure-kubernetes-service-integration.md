@@ -57,4 +57,4 @@ To learn more about Security Center's container security features, see:
 
 * [Integration with Azure Container Registry](azure-container-registry-integration.md)
 
-* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Office 365), details of Microsoft's data management, and the retention policies that affect your data
+* [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) - Describes the data policies of Microsoft services (including Azure, Intune, and Microsoft 365), details of Microsoft's data management, and the retention policies that affect your data

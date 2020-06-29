@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 03/24/2020
+ms.date: 06/10/2020
 ms.author: victorh
 
 ---
@@ -22,6 +22,7 @@ Azure Application Gateway is updated on an ongoing basis. To stay updated with t
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+| Application Gateway Ingress Controller (AGIC) AKS add-on (Preview) |Application Gateway Ingress Controller can now be deployed as a native AKS add-on in one line through Azure CLI. Being an AKS add-on allows AGIC to become a fully managed service, while still running in the customer's AKS cluster. For more information, see [AGIC add-on differences](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on). |June 2020 |
 | User-Defined Routes (UDR) on v2 (Preview) |User-defined routes are now supported in some scenarios on Application Gateway v2 SKUs. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |March 2020 |
 |Affinity cookie changes |When cookie-based affinity is enabled, Application Gateway injects another identical cookie called *ApplicationGatewayAffinityCORS* in addition to the existing ApplicationGatewayAffinity cookie. *ApplicationGatewayAffinityCORS* has two more attributes added to it (*SameSite=None; Secure*) so that sticky sessions are maintained even for cross-origin requests. See [Application Gateway Cookie based affinity](configuration-overview.md#cookie-based-affinity) for more information. |February 2020 |
 |Probe enhancements |With the custom probe enhancements in Application Gateway v2 SKU, we have simplified [probe configuration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), facilitated [on-demand backend health tests](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) and added [more diagnostic information](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) to help you troubleshoot backend health issues.  |October 2019 |

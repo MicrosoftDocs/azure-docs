@@ -3,7 +3,7 @@ title: Create a Windows Server container on an Azure Kubernetes Service (AKS) cl
 description: Learn how to quickly create a Kubernetes cluster, deploy an application in a Windows Server container in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 05/26/2020
 
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy a Windows Server container so that I can see how to run applications running on a Windows Server container using the managed Kubernetes service in Azure.
@@ -30,13 +30,6 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> This article uses a preview version of the Az.AKS PowerShell module. You must install it
-> separately from the Az PowerShell module using the following command:
-> `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview`. Once the preview
-> version the Az.AKS PowerShell module is generally available, it becomes part of future Az
-> PowerShell module releases and available natively from within Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -81,7 +74,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 The following example output shows the resource group created successfully:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -162,7 +155,7 @@ kubectl get nodes
 The following example output shows all the nodes in the cluster. Make sure that the status of all
 nodes is **Ready**:
 
-```Output
+```plaintext
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.16.7
 aksnpwin987654                      Ready    agent   108s   v1.16.7
@@ -241,7 +234,7 @@ kubectl apply -f sample.yaml
 
 The following example output shows the Deployment and Service created successfully:
 
-```Output
+```plaintext
 deployment.apps/sample created
 service/sample created
 ```
@@ -260,7 +253,7 @@ kubectl get service sample --watch
 
 Initially the **EXTERNAL-IP** for the **sample** service is shown as **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
@@ -269,7 +262,7 @@ When the **EXTERNAL-IP** address changes from **pending** to an actual public IP
 to stop the `kubectl` watch process. The following example output shows a valid public IP address
 assigned to the service:
 
-```Output
+```plaintext
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 

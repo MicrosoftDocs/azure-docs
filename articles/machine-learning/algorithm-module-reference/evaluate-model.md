@@ -45,7 +45,7 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 ## Results
 
-After you run **Evaluate Model**, right-click the module and select **Visualize Evaluation results** to see the results.
+After you run **Evaluate Model**, select the module to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons.   The **Visualize** icon has a bar graph icon, and is a first way to see the results.
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
@@ -118,7 +118,7 @@ The following metrics are reported for evaluating clustering models.
   
      If the number of data points assigned to clusters is less than the total number of data points available, it means that the data points could not be assigned to a cluster.  
   
--   The scores in the column, **Maximal Distance to Cluster Center**, represent the sum of the distances between each point and the centroid of that point's cluster.  
+-   The scores in the column, **Maximal Distance to Cluster Center**, represent the max of the distances between each point and the centroid of that point's cluster.  
   
      If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster's spread.   
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/30/2020
+ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -111,4 +111,4 @@ After you've signed in, make sure everything works by testing a few Windows Virt
 After you've created the service principal and assigned it a role in your Windows Virtual Desktop tenant, you can use it to create a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Create a host pool with Azure Marketplace](../create-host-pools-azure-marketplace.md)
+ > [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace-2019.md)

@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
+ms.date: 06/04/2020
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -121,7 +121,7 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Next**.
 
-## Select task type and settings
+## Select forecast settings
 
 Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 
@@ -226,7 +226,7 @@ See this article for steps on how to create a Power BI supported schema to facil
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
-+ Learn more about [featurization](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
 + Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]

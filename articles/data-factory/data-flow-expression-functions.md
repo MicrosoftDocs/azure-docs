@@ -164,9 +164,7 @@ ___
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Gets all output columns for a stream. You can pass an optional stream name as the second argument.   
 * ``columns()``
-* ````
 * ``columns('DeriveStream')``
-* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>

@@ -59,8 +59,8 @@ Use this quickstart to learn how to request search results from your Bing Custom
 
 3. Create another class named `SearchResults` to contain the response from your Bing Custom Search instance.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

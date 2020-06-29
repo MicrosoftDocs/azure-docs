@@ -56,7 +56,7 @@ The script outputs a JSON object similar to this:
 Copy the JSON output and store it as a GitHub secret within your GitHub repository. See [Prerequisite](#prerequisites) if you don't have a repository yet.
 
 1. From your GitHub repository, select the **Settings** tab.
-1. Select **Secret** from the left menu.
+1. Select **Secrets** from the left menu.
 1. Enter the following values:
 
     - **Name**: AZURE_CREDENTIALS

@@ -98,7 +98,7 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
 If you receive any errors related to your customer-managed key, use the following table to troubleshoot.
 
-| Error   code| Error message| Details|
+| Error   code| Error details| Recoverable?|
 |-------------|--------------|---------|
 | SsemUserErrorEncryptionKeyDisabled| Could not fetch the passkey as the customer managed key is disabled.| Yes, by enabling the key version.|
 | SsemUserErrorEncryptionKeyExpired| Could not fetch the passkey as the customer managed key has expired.| Yes, by enabling the key version.|

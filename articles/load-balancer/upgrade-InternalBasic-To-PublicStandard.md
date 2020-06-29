@@ -4,7 +4,7 @@ description: This article shows you how to upgrade Azure Basic Internal Load Bal
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---

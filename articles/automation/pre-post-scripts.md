@@ -86,6 +86,9 @@ A full example with all properties can be found at: [Get software update configu
 > [!NOTE]
 > The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause pre-scripts and post-scripts to run multiple times on the same machine. To work around this behavior, use `Sort-Object -Unique` to select only unique VM names.
 
+> [!NOTE]
+> Currently only PowerShell runbooks are supported as Pre/Post scripts. Other runbook types like Python, Graphical, PowerShell Workflow, Graphical PowerShell Workflow are currently not supported as Pre/Post scripts.
+
 ## Use a pre-script or post-script in a deployment
 
 To use a pre-script or post-script in an update deployment, start by creating an update deployment. Select **Pre-scripts + Post-Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.
@@ -110,7 +113,6 @@ By selecting the update deployment run, you're shown additional details of pre-s
 
 ![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
-es in your script.
 
 ## Stop a deployment
 
