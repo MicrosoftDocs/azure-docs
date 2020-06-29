@@ -40,7 +40,7 @@ To create a read replica using the Azure portal, use the following steps:
 1. Select **OK** to confirm creation of the replica. During replica creation, data is copied from the source server to the replica. Create time may last several minutes or more, in proportion to the size of the source server.
 
 >[!NOTE]
-> When you create a replica, it doesn't inherit the firewall rules or VNet service endpoints of the master server. These rules must be set up independently for the replica.
+> When you create a replica, it doesn't inherit the VNet service endpoints of the master server. These rules must be set up independently for the replica.
 
 ## Move
 
