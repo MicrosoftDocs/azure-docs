@@ -7,11 +7,9 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 
-
 ---
 
 # Enable Azure Monitor for VMs overview
-
 This article provides an overview of the options available to enable Azure Monitor on your virtual machines (VM) and virtual machines scale sets (VMSS). It also describes application dependencies that run on VMs in Azure, on-premises, or hosted in another cloud environment.  
 
 ## Onboarding options
@@ -19,10 +17,10 @@ The following table describes the Azure Monitor for VMs by using one of the meth
 
 | Method |  Description |
 |:---|:---|
-[Azure portal](vminsights-enable-single-vm.md) | Onboard a single VM or VMSS by selecting **Insights** from the **Virtual machines**, **Virtual machine scale sets**, or **Machines - Azure Arc** menu in the Azure portal. |
+[Azure portal](vminsights-enable-single-vm.md) | Onboard a single VM or VMSS from its menu in the Azure portal. |
 | [Azure Policy](vminsights-enable-at-scale-policy.md) | Automatically onboard VMs or VMMSs as they are created by using Azure Policy and built-in policy definitions. |
 | [Resource Manager template](vminsights-enable-at-scale-powershell.md) | Onboard multiple VMs or VMMSs across a specified subscription or resource group using Azure Resource Manager templates. Deploy the template using the Azure portal, Azure Powershell, or Azure CLI. |
-| Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | Deploy VMs or physical computers that are hosted in your datacenter or other cloud environments. |
+| [Hybrid cloud](vminsights-enable-hybrid-cloud.md) | Onboard VMs or physical computers that are hosted in your datacenter or other cloud environments. |
 
 
 ## Prerequisites
@@ -40,12 +38,11 @@ You can create a Log Analytics workspace using any of the following methods:
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
+Azure Monitor for VMs supports Log Analytics workspaces in the following regions:
 
 >[!NOTE]
 >You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
->
 
-Azure Monitor for VMs supports Log Analytics workspaces in the following regions:
 
 - West Central US
 - West US
@@ -68,88 +65,58 @@ Azure Monitor for VMs supports Log Analytics workspaces in the following regions
 - Australia Southeast
 
 
-### Prepare Log Analytics workspace
-When you create a Log Analytics workspace as part of the process for onboarding a single VM or VMSS using the Azure portal, it will automatically be prepared with the required solutions. If you create the workspace using another method, then you must install the *ServiceMap* and *VMInsights* solutions using one of the following methods before onboarding any agents.
+### Configure Log Analytics workspace
+The workspace requires the *VMInsights* solution to be installed before any agents can be onboarded. You can use any of the the following methods to configure the workspace.
 
+* Onboard a single VM or VMSS using the Azure portal. If the workspace you select doesn't have the VMInsights solution, it will be installed whether you select an exsiting or new workspace.
 * On the Azure Monitor for VMs [**Policy Coverage**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) page, select **Configure Workspace**. 
+* Use the following Resource Manager template.
 
-* Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "WorkspaceName": {
+                "type": "string"
+            },
+            "WorkspaceLocation": {
+                "type": "string"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2017-03-15-preview",
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('WorkspaceName')]",
+                "location": "[parameters('WorkspaceLocation')]",
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "location": "[parameters('WorkspaceLocation')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "dependsOn": [
+                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        ],
+                        "properties": {
+                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                        },
 
-## Supported operating systems
+                        "plan": {
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
+                            "publisher": "Microsoft",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
+                            "promotionCode": ""
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    ```
 
-The following table lists the Windows and Linux operating systems that Azure Monitor for VMs supports. Later in this section, you'll find a full list that details the major and minor Linux OS release and supported kernel versions.
 
-|OS version |Performance |Maps |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18.04, 16.04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
-
-<sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
-
->[!NOTE]
->In the Linux operating system:
-> - Only default and SMP Linux kernel releases are supported.
-> - Nonstandard kernel releases, such as Physical Address Extension (PAE) and Xen, aren't supported for any Linux distribution. For example, a system with the release string of *2.6.16.21-0.8-xen* isn't supported.
-> - Custom kernels, including recompilations of standard kernels, aren't supported.
-> - CentOSPlus kernel is supported.
-> - The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
-
-#### Red Hat Linux 7
-
-| OS version | Kernel version |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### Red Hat Linux 6
-
-| OS version | Kernel version |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### CentOSPlus
-
-| OS version | Kernel version |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### Ubuntu Server
-
-| OS version | Kernel version |
-|:--|:--|
-| 18.04 | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-| 16.04.3 | 4.15.* |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### SUSE Linux 12 Enterprise Server
-
-| OS version | Kernel version |
-|:--|:--|
-|12 SP4 | 4.12.* (includes Azure-tuned kernel) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### Debian 
-
-| OS version | Kernel version |
-|:--|:--|
-| 9 | 4.9 | 
 
 ## Agents
 Azure Monitor for VMs requires the following agents on each virtual machine that it monitors. These agents are both installed 
@@ -160,8 +127,7 @@ Azure Monitor for VMs requires the following agents on each virtual machine that
 
 
 ### Microsoft Dependency agent
-
-The Map feature in Azure Monitor for VMs gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics.
+The Dependency agent discovers details about processes running on the virtual machine and external process dependencies. The Map feature in Azure Monitor for VMs depends on this data. The Dependency agent relies on the Log Analytics agent to deliver this information to Azure Monitor.
 
 Whether you enable Azure Monitor for VMs for a single Azure VM or you use the at-scale deployment method, use the Azure VM Dependency agent extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) or [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) to install the agent as part of the experience.
 
@@ -185,11 +151,7 @@ You can download the Dependency agent from these locations:
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.4.10090 | B4E1FF9C1E5CD254AA709AEF9723A81F04EC0763C327567C582CE99C0C5A0BAE  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.4.10090 | A56E310D297CE3B343AE8F4A6F72980F1C3173862D6169F1C713C2CA09660A9F |
 
-## Role-based access control
 
-To enable and access the features in Azure Monitor for VMs, you must have the *Log Analytics contributor* role. To view performance, health, and map data, you must have the *monitoring reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.
-
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
 
 
 ## Management packs

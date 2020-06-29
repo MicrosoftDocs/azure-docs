@@ -9,7 +9,7 @@ ms.date: 06/22/2020
 
 ---
 
-# Enable Azure Monitor for VMs by using Azure Policy
+# Enable Azure Monitor for VMs using Azure Policy
 This article explains how to use Azure Policy to enable Azure Monitor for VMs at scale. This allows you to onboard large sets of existing virtual machines (VM) and virtual machine scale sets (VMSS) with minimal effort and to automatically onboard new resources as they're created.
 
 ## Manage Policy Coverage feature overview
