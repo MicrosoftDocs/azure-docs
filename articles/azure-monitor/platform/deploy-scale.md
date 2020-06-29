@@ -131,4 +131,3 @@ For details of this process, see [Enable Azure Monitor for VMs by using Azure Po
 
 - Read more about [Azure Policy](../../governance/policy/overview.md).
 - Read more about [diagnostic settings](diagnostic-settings.md).
-- See the [Northstar Playbook repository](https://github.com/Azure/CET-NorthStar) which provides architectural and implementation guidelines for large-scale enterprise Azure adoption.

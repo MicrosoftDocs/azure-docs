@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/16/2020
 ms.author: tomfitz
 ---
 # ARM template deployment what-if operation (Preview)
@@ -94,6 +94,9 @@ Scope: /subscriptions/./resourceGroups/ExampleGroup
 
 Resource changes: 1 to modify.
 ```
+
+> [!NOTE]
+> The what-if operation can't resolve the [reference function](template-functions-resource.md#reference). Every time you set a property to a template expression that includes the reference function, what-if reports the property will change. This behavior happens because what-if compares the current value of the property (such as `true` or `false` for a boolean value) with the unresolved template expression. Obviously, these values will not match. When you deploy the template, the property will only change when the template expression resolves to a different value.
 
 ## What-if commands
 

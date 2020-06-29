@@ -33,7 +33,7 @@ In this tutorial you will:
 
 This solution demonstrates a scenario where a car rental company plans to monitor and log events for its rental cars. Car rental companies usually rent cars to a specific geographic region. They need to track the cars whereabouts while they are rented. Instances of a car leaving the chosen geographic region must be logged. Logging data ensures policies, fees, and other business aspects would be handled properly.
 
-In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). The rental car's device telemetry schema looks like:
+In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). The rental car's device telemetry schema looks like:
 
 ```JSON
 {

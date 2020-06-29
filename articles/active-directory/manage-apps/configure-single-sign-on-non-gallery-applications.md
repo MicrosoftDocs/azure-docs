@@ -6,7 +6,7 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/08/2020
 ms.author: kenwith
@@ -36,6 +36,8 @@ If the application hasn't been added to your Azure AD tenant, see [Add a non-gal
    - To search for the application, in the **Application Type** menu, select **All applications**, and then select **Apply**. Enter the name of the application in the search box, and then select the application from the results.
 
 3. Under the **Manage** section, select **Single sign-on**. 
+
+   - Note that there are some scenarios where the **Single sign-on** option will not be present. For example, if the application was registered using **App registrations** then the single sign-on capability is configured in the **App registration** portal and won't show up in the navigation under **Enterprise applications**. Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 4. Select **SAML**. The **Set up Single Sign-On with SAML - Preview** page appears.
 

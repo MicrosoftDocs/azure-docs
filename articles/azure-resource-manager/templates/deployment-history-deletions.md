@@ -2,20 +2,22 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/25/2020
 ---
 # Automatic deletions from deployment history
 
 Every time you deploy a template, information about the deployment is written to the deployment history. Each resource group is limited to 800 deployments in its deployment history.
 
-Starting in June 2020, Azure Resource Manager automatically deletes deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
+Azure Resource Manager will soon start automatically deleting deployments from your history as you near the limit. Automatic deletion is a change from past behavior. Previously, you had to manually delete deployments from the deployment history to avoid getting an error.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
+>
+> If you have a [CanNotDelete lock](../management/lock-resources.md) on a resource group, the deployments for that resource group can't be deleted. You must remove the lock to take advantage of automatic deletions in the deployment history.
 
 ## When deployments are deleted
 
-Deployments are deleted from your deployment history only when you near the limit of 800. Azure Resource Manager deletes a small set of the oldest deployments to clear space for future deployments. Most of your history remains unchanged. The oldest deployments are always deleted first.
+Deployments are deleted from your deployment history when you reach 790 deployments. Azure Resource Manager deletes a small set of the oldest deployments to clear space for future deployments. Most of your history remains unchanged. The oldest deployments are always deleted first.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Deletions from deployment history":::
 

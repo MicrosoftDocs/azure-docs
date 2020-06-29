@@ -1,18 +1,19 @@
 ---
- title: Ddv4 and Ddsv4-series - Azure Virtual Machines
- description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
- author: brbell
- ms.author: brbell
- ms.reviewer: cynthn
- ms.custom: mimckitt
- ms.service: virtual-machines
- ms.topic: conceptual
- ms.date: 06/01/2020
+title: Ddv4 and Ddsv4-series 
+description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
+author: brbell
+ms.author: brbell
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: conceptual
+ms.date: 06/01/2020
 ---
 
 # Ddv4 and Ddsv4-series
 
-The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Also, they support [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These new VM sizes will have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) sizes with [Gen2 VMs](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
+The Ddv4 and Ddsv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, providing a better value proposition for most general-purpose workloads. It features a sustained all core Turbo clock speed of 3.4 GHz, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). They also support [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These new VM sizes will have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) sizes with [Gen2 VMs](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 

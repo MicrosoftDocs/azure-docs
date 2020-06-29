@@ -20,14 +20,25 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 > [!NOTE]
 > The quickstarts and guides for Form Recognizer always use the latest version of the API, unless specified.
 
+## June 2020
+
+### New features
+* **CopyModel API added to client SDKs** You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
+* **Azure Active Directory integration** You can now use your AAD credentials to authenticate your Form Recognizer client objects in the SDKs.
+* **SDK-specific changes** This includes both minor feature additions and breaking changes. See the SDK changelogs for more information.
+  * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [JavaScript SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
 ## April 2020
 
 ### New features
 * **SDK support for Form Recognizer API v2.0 Public Preview** This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
-   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
+   * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
 
   The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
  

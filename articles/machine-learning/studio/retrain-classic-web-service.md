@@ -5,7 +5,7 @@ description: Learn how to retrain a model and update a classic web service to us
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: peterclu
 ms.author: peterlu

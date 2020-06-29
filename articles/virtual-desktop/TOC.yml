@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Fall 2019 Release documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
@@ -82,6 +84,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts
@@ -138,6 +142,8 @@
   items:
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+  - name: REST API reference
+    href: /rest/api/desktopvirtualization/
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator

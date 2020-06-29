@@ -28,6 +28,25 @@ ms.custom: has-adal-ref
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
+
+### How can you find resources that have a managed identity?
+
+You can find the list of resources that have a system-assigned managed identity by using the following Azure CLI Command: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### Do managed identities have a backing app object?
+
+No. Managed identities and Azure AD App Registrations are not the same thing in the directory. 
+
+App registrations have two components: An Application Object + A Service Principal Object. 
+Managed Identities for Azure resources have only one of those components: A Service Principal Object. 
+
+Managed identities don't have an application object in the directory, which is what is commonly used to grant app permissions for MS graph. Instead, MS graph permissions for managed identities need to be granted directly to the Service Principal.  
+
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 
 No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.

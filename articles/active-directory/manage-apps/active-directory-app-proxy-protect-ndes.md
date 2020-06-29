@@ -3,15 +3,15 @@ title: Integrate with AD Application Proxy on an NDES server
 titleSuffix: Azure Active Directory
 description: Guidance on deploying an Azure Active Directory Application Proxy to protect your NDES server.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ---
 

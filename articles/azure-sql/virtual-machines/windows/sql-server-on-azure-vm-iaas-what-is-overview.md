@@ -4,7 +4,6 @@ description: Learn how to run full editions of SQL Server on Azure Virtual Machi
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql

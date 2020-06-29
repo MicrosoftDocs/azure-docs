@@ -5,10 +5,10 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 06/03/2020
+ms.date: 06/17/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -79,6 +79,7 @@ If your encryption scope is protected with customer-managed keys for Azure Key V
 > It is not possible to delete an encryption scope.
 
 When an encryption scope is disabled, you are no longer billed for it. ???Need more info on pricing/costs???
+For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows VMs or [Server-side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux VMs.
 
 ## Next steps
 

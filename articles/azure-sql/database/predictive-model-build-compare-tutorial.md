@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 # Tutorial: Create a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In part two of this three-part tutorial series, you'll create two predictive models in R and select the most accurate model. In the next part of this series, you'll deploy this model in a SQL database with Azure SQL Database Machine Learning Services (preview).
+In part two of this three-part tutorial series, you'll create two predictive models in R and select the most accurate model. In the next part of this series, you'll deploy this model in a database in Azure SQL Database with Azure SQL Database Machine Learning Services (preview).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -33,7 +33,7 @@ In this article, you'll learn how to:
 
 In [part one](predictive-model-prepare-data-tutorial.md), you learned how to import a sample database and then prepare the data to be used for training a predictive model in R.
 
-In [part three](predictive-model-deploy-tutorial.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed in parts one and two. The stored procedures will run in a SQL database to make predictions based on new data.
+In [part three](predictive-model-deploy-tutorial.md), you'll learn how to store the model in a database, and then create stored procedures from the R scripts you developed in parts one and two. The stored procedures will run in a database to make predictions based on new data.
 
 ## Prerequisites
 

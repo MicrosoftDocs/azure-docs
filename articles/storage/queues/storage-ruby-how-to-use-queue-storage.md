@@ -8,7 +8,7 @@ ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # How to use Queue storage from Ruby

@@ -2,7 +2,7 @@
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
 ms.date: 03/30/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Monitor delegation changes in your managing tenant
@@ -39,7 +39,7 @@ Because this is a broad level of access, we recommend that you assign this role 
 
 - [Create a new service principal account](../../active-directory/develop/howto-create-service-principal-portal.md) to be used only for this function, rather than assigning this role to an existing service principal used for other automation.
 - Be sure that this service principal does not have access to any delegated customer resources.
-- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
+- [Use a certificate to authenticate](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) and [store it securely in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limit the users who have access to act on behalf of the service principal.
 
 Use one of the following methods to make the root scope assignments.

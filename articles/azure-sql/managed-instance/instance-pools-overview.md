@@ -3,7 +3,7 @@ title: "What is an Azure SQL Managed Instance pool?"
 titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance pools (preview), a feature that provides a convenient and cost-efficient way to migrate smaller SQL Server databases to the cloud at scale, and manage multiple managed instances.  
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 

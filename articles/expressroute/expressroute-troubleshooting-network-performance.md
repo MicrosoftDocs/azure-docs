@@ -5,7 +5,7 @@ services: expressroute
 author: tracsman
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18

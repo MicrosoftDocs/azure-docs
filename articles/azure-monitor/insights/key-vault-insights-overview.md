@@ -154,55 +154,51 @@ You can configure the multi-subscription and key vault Overview or Failures work
 
 ## Troubleshooting
 
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Key Vault (preview). Use the list below to locate the information relevant to your specific issue.
 
 ### Resolving performance issues or failures
 
 To help troubleshoot any key vault related issues you identify with Azure Monitor for Key Vault (preview), see the [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/).
 
-### Why can I only see 200 key vaults?
+### Why can I only see 200 key vaults
 
 There is a limit of 200 key vaults that can be selected and viewed. Regardless of the number of selected subscriptions, the number of selected key vaults has a limit of 200.
 
-### What will happen when a pinned item is clicked?
-
-When a pinned item on the dashboard is clicked, it will open one of two things:
-* If the Insights were saved – it will open the insights instance that the pin was saved from.
-* If the insights were unsaved – it will open a new default insights instance.
-
-### Why don't I see all my subscriptions in the subscription picker?
+### Why don't I see all my subscriptions in the subscription picker
 
 We only show subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed", what to do now?
+### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed", what to do now
 
 Currently, there is a limit to 25 regions and 200 workspaces, to view your data, you will need to reduce the number of subscriptions and/or resource groups.
 
-### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so?
+### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so
 
 To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
 
-### What is the time-grain once we pin any part of the Workbooks?
+### What is the time-grain once we pin any part of the Workbooks
 
 We utilize the "Auto" time grain, therefore it depends on what time range is selected.
 
-### What is the time range when any part of the workbook is pinned?
+### What is the time range when any part of the workbook is pinned
 
 The time range will depend on the dashboard settings.
 
-### Why do I not see any data for my Key Vault under the Operations & Latency sections?
+### Why do I not see any data for my Key Vault under the Operations & Latency sections
 
 To view your logs-based data, you will need to enable logs for each of the key vaults you want to monitor. This can be done under the diagnostic settings for each key vault. You will need to send your data to a designated Log Analytics workspace.
 
-### I have already enabled logs for my Key Vault, why am I still unable to see my data under Operations & Latency?
+### I have already enabled logs for my Key Vault, why am I still unable to see my data under Operations & Latency
 
 Currently, diagnostic logs do not work retroactively, so the data will only start appearing once there have been actions taken to your key vaults. Therefore, it may take some time, ranging from hours to a day, depending on how active your key vault is.
 
 In addition, if you have a high number of key vaults and subscriptions selected, you may not be able to view your data due to query limitations. In order to view your data, you may need to reduce the number of selected subscriptions or key vaults. 
 
-### What if I want to see other data or make my own visualizations? How can I make changes to the Key Vault Insights?
+### What if I want to see other data or make my own visualizations? How can I make changes to the Key Vault Insights
 
 You can edit the existing workbook, through the use of the edit mode, and then save your work as a new workbook that will have all your new changes.
 

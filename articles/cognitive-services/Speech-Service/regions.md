@@ -71,6 +71,10 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in the
 | North Europe   | `northeurope`        |
 | Southeast Asia | `southeastasia`      |
 
+### Speaker Recognition
+
+Speaker Recognition is currently only available in the `westus` region.
+
 ## REST APIs
 
 The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
