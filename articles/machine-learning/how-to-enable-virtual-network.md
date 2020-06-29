@@ -428,7 +428,9 @@ When __attaching an existing cluster__ to your workspace, you must wait until af
 For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
 
 > [!IMPORTANT]
-> Before changing the load balancer, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains your Azure virtual network. To add the identity as a 
+> After attaching a cluster, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains your Azure virtual network. This must be done before you try to change the internal load balancer to private IP.
+>
+> To add the identity as network contributor, use the following steps:
 
 1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
 
