@@ -4,19 +4,21 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 06/25/2020
 ms.author: v-erkel
 ---
 
 # Create an Azure HPC Cache
 
-Use the Azure portal to create your cache.
+Use the Azure portal or the Azure CLI to create your cache.
 
 ![screenshot of cache overview in Azure portal, with create button at the bottom](media/hpc-cache-home-page.png)
 
 Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## [Portal](#tab/azure-portal)
 
 ## Define basic details
 
@@ -90,6 +92,95 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 > [!NOTE]
 > If your cache uses customer-managed encryption keys, the cache might appear in the resources list before the deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) to use the key vault.
+
+## [Azure CLI](#tab/azure-cli)
+
+## Create the cache with Azure CLI
+
+> [!TIP]
+> Follow the instructions in [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) to access the command line interface, install the hpc-cache extension, and log in before using the Azure CLI commands in this section.
+
+> [!NOTE]
+> The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.
+
+Use the [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) command to create a new Azure HPC Cache.
+
+Supply these values:
+
+* Cache resource group name
+* Cache name
+* Azure region
+* Cache subnet, in this format:
+
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"``
+
+  The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
+
+* Cache capacity. Two values set the maximum throughput of your Azure HPC Cache:
+
+  * The cache size (in GB)<!-- no way to find the valid values here! -->
+  * The SKU of the virtual machines used in the cache infrastructure
+
+  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) shows the available SKUs.
+
+  Some options for cache size are incompatible with some SKUs. This chart shows which combinations are valid, based on the options available when this document was prepared (July 2020).
+
+  |          | Standard_2G | Standard_4G | Standard_8G |
+  |----------|-------------|-------------|-------------|
+  |  3072 GB | yes         | no          | no          |
+  |  6144 GB | yes         | yes         | no          |
+  | 12288 GB | yes         | yes         | yes         |
+  | 24576 GB | no          | yes         | yes         |
+  | 49152 GB | no          | no          | yes         |
+
+  Read the <!--[Set cache capacity](#set-cache-capacity)--> **Set cache capacity** section in the portal instructions tab for important information about pricing, throughput, and how to size your cache appropriately for your workflow.
+
+Example:
+
+```azurecli
+az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
+    --location "eastus" --cache-size-gb "3072" \
+    --subnet "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default" \
+    --sku-name "Standard_2G"
+```
+
+Cache creation takes several minutes. On success, the create command returns output like this:<!-- need to test this, not sure about formatting -->
+
+```azurecli
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+  "id": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619",
+  "location": "eastus",
+  "mountAddresses": [
+    "10.3.0.17",
+    "10.3.0.18",
+    "10.3.0.19"
+  ],
+  "name": "my-cache-0619",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "doc-demo-rg",
+  "sku": {
+  "name": "Standard_2G"
+  },
+  "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.42",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-04-01T15:19:54.068299+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+```
+
+---
 
 ## Next steps
 
