@@ -45,7 +45,7 @@ Creating an Azure SignalR Service instance with a user-assigned identity require
 
 ## Use a managed identity in serverless scenarios
 
-Azure SignalR Service is a fully managed service, so you can't use a managed identity to get tokens manually. Instead, Azure SignalR Service uses the managed identity that you set to obtain an access token. The service then sets the managed identity into an `Authorization` header in an upstream request in serverless scenarios.
+Azure SignalR Service is a fully managed service, so you can't use a managed identity to get tokens manually. Instead, Azure SignalR Service uses the managed identity that you set to obtain an access token. The service then sets the access token into an `Authorization` header in an upstream request in serverless scenarios.
 
 ### Enable managed identity authentication in upstream settings
 
