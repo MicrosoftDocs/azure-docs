@@ -103,7 +103,8 @@ To make a query control use this data source, use the _Data source_ drop-down to
 
 To avoid automatically making calls to untrusted hosts when using templates, the user needs to mark the used hosts as trusted. This can be done by either clicking on the _Add as trusted_ button, or by adding it as a trusted host in Workbook settings. These settings will be saved in browsers that support IndexDb with web workers, more info [here](https://caniuse.com/#feat=indexeddb).
 
-> [!NOTE] Do not write any secrets in any of the fields (headers, parameters, body, url), since they will be visible to all of the Workbook users.`
+> [!NOTE]
+> Do not write any secrets in any of the fields (`headers`, `parameters`, `body`, `url`), since they will be visible to all of the Workbook users.`
 
 ## Next steps
 
