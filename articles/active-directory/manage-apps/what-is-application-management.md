@@ -33,7 +33,7 @@ If each application kept track of users separately then the result would be a si
 A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
 >[!TIP]
->An IAM system provides a single place, one source of truth, to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
+>An IAM system provides a single place to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
 
 
 ## Why manage applications with a cloud solution?
