@@ -14,7 +14,7 @@ ms.author: v-erkel
 
 You can define up to ten different storage targets for one cache. The cache presents all of the storage targets in one aggregated namespace.
 
-Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prereqs.md#dns-access).
+Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prerequisites.md#dns-access).
 
 Add storage targets after creating your cache. The procedure is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
 
@@ -60,7 +60,7 @@ To define an Azure Blob container, enter this information.
 
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
 
-  For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prereqs.md#blob-storage-requirements).
+  For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prerequisites.md#blob-storage-requirements).
 
 * **Storage container** - Select the Blob container for this target, or click **Create new**.
 
@@ -131,7 +131,7 @@ In addition to the standard resource group and cache name parameters, you must p
 * ``--storage-account`` - The account identifier, in this form:
   /subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group>*/providers/Microsoft.Storage/storageAccounts/*<account_name>*
 
-  For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prereqs.md#blob-storage-requirements).
+  For information about the kind of storage account you can use, read [Blob storage requirements](hpc-cache-prerequisites.md#blob-storage-requirements).
 
 * ``--container-name`` - Specify the name of the container to use for this storage target.
 
@@ -155,7 +155,7 @@ An NFS storage target has more fields than the Blob storage target. These fields
 ![Screenshot of add storage target page with NFS target defined](media/add-nfs-target.png)
 
 > [!NOTE]
-> Before you create an NFS storage target, make sure your storage system is accessible from the Azure HPC Cache and meets permission requirements. Storage target creation will fail if the cache can't access the storage system. Read [NFS storage requirements](hpc-cache-prereqs.md#nfs-storage-requirements) and [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md) for details.
+> Before you create an NFS storage target, make sure your storage system is accessible from the Azure HPC Cache and meets permission requirements. Storage target creation will fail if the cache can't access the storage system. Read [NFS storage requirements](hpc-cache-prerequisites.md#nfs-storage-requirements) and [Troubleshoot NAS configuration and NFS storage target issues](troubleshoot-nas.md) for details.
 
 ### Choose a usage model
 <!-- referenced from GUI - update aka.ms link if you change this heading -->

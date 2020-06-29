@@ -14,7 +14,7 @@
 - name: How-to guides
   items:
   - name: Prerequisites
-    href: hpc-cache-prereqs.md
+    href: hpc-cache-prerequisites.md
   - name: Create the cache
     href: hpc-cache-create.md
   - name: Add storage
