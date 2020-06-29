@@ -1,5 +1,5 @@
 ---
-title: Receive activity log alerts on Azure service notifications
+title: Receive activity log alerts on Azure service notifications using Resource Manager template
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 ms.topic: conceptual
 ms.date: 06/27/2019
@@ -122,7 +122,7 @@ The following template creates an action group with an email target and enables 
 ```
 
 ### Deploy the template
-Deploy the template using any standard method for [deploying an ARM template](../../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, **workspaceName**, and **location** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, **workspaceName**, and **location** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI1)
 

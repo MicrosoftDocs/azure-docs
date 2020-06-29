@@ -1,5 +1,5 @@
 ---
-title: Create Azure Advisor alerts for new recommendations
+title: Create Azure Advisor alerts for new recommendations using Resource Manager template
 description: Create Azure Advisor alerts for new recommendation
 ms.topic: article
 ms.date: 09/09/2019
@@ -9,7 +9,7 @@ ms.date: 09/09/2019
 
 This article shows you how to set up an alert for new recommendations from Azure Advisor using the Azure portal and Azure Resource Manager templates. 
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. 
 
@@ -129,7 +129,7 @@ The following template creates an action group with an email target and enables 
 ```
 
 ### Deploy the template
-Deploy the template using any standard method for [deploying an ARM template](../../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, and **emailAddress** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, and **emailAddress** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
 # [CLI](#tab/CLI1)
 
