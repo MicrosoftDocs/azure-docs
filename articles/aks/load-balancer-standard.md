@@ -324,8 +324,7 @@ Use connection pools to shape your connection volume.
 - Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Wishing to change timers is usually a sign of an underlying design problem. Review following recommendations.
 
 
-The above example updates the rule to only allow inbound external traffic from the *MY_EXTERNAL_IP_RANGE* range. More information about using this method to restrict access to the load balancer service is available in the [Kubernetes documentation][kubernetes-cloud-provider-firewall].
-
+The above example updates the rule to only allow inbound external traffic from the *MY_EXTERNAL_IP_RANGE* range. If you replace *MY_EXTERNAL_IP_RANGE* with the internal subnet IP address, traffic is restricted to cluster internal IPs only. This will not allow clients from outside of your Kubernetes cluster to access the load balancer.
 
 ## Moving from a basic SKU load balancer to standard SKU
 
@@ -356,7 +355,6 @@ Learn more about using Internal Load Balancer for Inbound traffic at the [AKS In
 
 <!-- LINKS - External -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
