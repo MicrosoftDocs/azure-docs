@@ -23,7 +23,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
 
-### thread pools
+### Thread pools
 
 MySQL traditionally assigned a thread for every client connection, and as the number of concurrent users grows this shows performance drops. Many active threads can impact the performance significantly because, increasing a number of threads leads to more context switching, more thread contention and bad locality for CPU caches.
 
