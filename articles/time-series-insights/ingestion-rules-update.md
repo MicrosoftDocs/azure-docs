@@ -40,7 +40,7 @@ Arrays of objects are always flattened, producing multiple events | If the objec
 
  #### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
-1. Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous tsx expression of `"value": {"tsx": "$event.series.value.Double"}` should be updated to `"value": {"tsx": "$event.['series.value'].Double"}`
+1. Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) expression of `"value": {"tsx": "$event.series.value.Double"}` should be updated to `"value": {"tsx": "$event.['series.value'].Double"}`
 
 ## Next steps
 
