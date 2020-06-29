@@ -68,7 +68,7 @@ If you increase provisioned throughput for a container or a set of containers at
 
 * In a month of 720 hours (24 hours * 30 days), if for 500 hours provisioned throughput was 1,200 RU/sec and for the remaining 220 hours provisioned throughput was 22,200 RU/sec, your monthly bill shows: 500 x $0.096/hour + 220 x $1.776/hour = $438.72/month.
 
-![Dedicated throughput bill example](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Dedicated throughput bill example":::
 
 ### Billing example: containers with shared throughput mode
 
@@ -82,7 +82,7 @@ If you increase provisioned throughput for a container or a set of containers at
 
 * In a month of 720 hours, if for 300 hours provisioned throughput was 120-K RU/sec and for the remaining 420 hours provisioned throughput was 155-K RU/sec, your monthly bill will show: 300 x $9.60/hour + 420 x $12.40/hour = $2,880 + $5,208 = $8,088/month. 
 
-![Shared throughput bill example](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Shared throughput bill example":::
 
 ## Billing examples with geo-replication and multi-master  
 
@@ -172,7 +172,7 @@ Let's consider the following example, where we have a multi-region Azure Cosmos 
 
 Visually the changes in total provisioned throughput during 720 hours for the month are shown in the figure below: 
 
-![Real life example](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Real life example":::
 
 The total monthly bill will be (assuming 30 days/720 hours in a month) will be computed as follows:
 

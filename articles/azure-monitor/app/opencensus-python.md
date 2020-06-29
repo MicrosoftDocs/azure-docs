@@ -247,9 +247,9 @@ For details on how to modify tracked telemetry before it is sent to Azure Monito
 
 4. The exporter will send metric data to Azure Monitor at a fixed interval. The default is every 15 seconds. We're tracking a single metric, so this metric data, with whatever value and time stamp it contains, will be sent every interval. You can find the data under `customMetrics`.
 
-#### Standard metrics
+#### Performance counters
 
-By default, the metrics exporter will send a set of standard metrics to Azure Monitor. You can disable this by setting the `enable_standard_metrics` flag to `False` in the constructor of the metrics exporter.
+By default, the metrics exporter will send a set of performance counters to Azure Monitor. You can disable this by setting the `enable_standard_metrics` flag to `False` in the constructor of the metrics exporter.
 
 ```python
 ...
@@ -258,17 +258,16 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
-Below is a list of standard metrics that are currently sent:
+Below is a list of performance counters that are currently sent:
 
 - Available Memory (bytes)
 - CPU Processor Time (percentage)
 - Incoming Request Rate (per second)
 - Incoming Request Average Execution Time (milliseconds)
-- Outgoing Request Rate (per second)
 - Process CPU Usage (percentage)
 - Process Private Bytes (bytes)
 
-You should be able to see these metrics in `performanceCounters`. Incoming request rate would be under `customMetrics`. For more information, see [performance counters](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+You should be able to see these metrics in `performanceCounters`. For more information, see [performance counters](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
 
 #### Modify telemetry
 
@@ -431,6 +430,21 @@ For details on how to enrich your logs with trace context data, see OpenCensus P
 #### Modify telemetry
 
 For details on how to modify tracked telemetry before it is sent to Azure Monitor, see OpenCensus Python [telemetry processors](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors).
+
+## Configure Azure Monitor Exporters
+
+As shown above, there are three different Azure Monitor exporters that support OpenCensus, each sends different types of telemetry to Azure Monitor. To see what types of telemetry each exporter sends, see below.
+
+Each exporter accepts the same arguments for configuration, passed through the constructors. You can see details about each below.
+
+1. `connection_string` - The connection string used to connect to your Azure Monitor resource. Takes priority over `instrumentation_key`.
+2. `enable_standard_metrics` - Used for `AzureMetricsExporter`. Signals the exporter to send [performance counter](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) metrics automatically to Azure Monitor. Defaults to `True`.
+3. `export_interval` - Used to specify the frequency in seconds of exporting.
+4. `instrumentation_key` - The instrumentation key used to connect to your Azure Monitor resource.
+5. `logging_sampling_rate` - Used for `AzureLogHandler`. Provides a sampling rate [0,1.0] for exporting logs. Defaults to 1.0.
+6. `max_batch_size` - Specifies max size of telemetry that are exported at once.
+7. `proxies` - Specifies a sequence of proxies to use for sending data to Azure Monitor. See [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies) for more details.
+8. `storage_path` - A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, default path is the os temp directory + `opencensus-python` + `your-ikey`. For pre v1.0.3, default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
 
 ## View your data with queries
 

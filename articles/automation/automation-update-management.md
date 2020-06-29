@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 06/16/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -219,13 +219,20 @@ The next table defines the supported classifications for Linux updates.
 |Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
 |Other updates     | All other updates that aren't critical in nature or that aren't security updates.        |
 
+>[!NOTE]
+>Update classification for Linux machines are only available when used in the supported Azure public cloud regions. When using Update Management in the following national cloud regions:
+>* Azure US Government
+>* 21Vianet in China
+>
+> there are no classification of Linux updates and they are reported under the **Other updates** category. Update Management uses data published by the supported distributions, specifically their released [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) files. Because internet access is restricted from these national clouds, Update Management cannot access and consume these files.
+
 For Linux, Update Management can distinguish between critical updates and security updates in the cloud while displaying assessment data due to data enrichment in the cloud. For patching, Update Management relies on classification data available on the machine. Unlike other distributions, CentOS does not have this information available in the RTM version. If you have CentOS machines configured to return security data for the following command, Update Management can patch based on classifications.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own. 
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own.
 
 To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 

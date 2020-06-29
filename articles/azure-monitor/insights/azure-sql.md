@@ -55,11 +55,11 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
-### Configure Azure SQL databases to stream diagnostics telemetry
+### Configure Azure SQL Database to stream diagnostics telemetry
 
 Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resource that you want to monitor to stream its diagnostics telemetry to Azure SQL Analytics. Follow detailed instructions on this page:
 
-- Enable Azure Diagnostics for your Azure SQL database to [stream diagnostics telemetry to Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Enable Azure Diagnostics for your database to [stream diagnostics telemetry to Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
