@@ -33,15 +33,15 @@ If each application kept track of users separately then the result would be a si
 A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
 >[!TIP]
-> An IAM system provides a single place, one source of truth, to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
+>An IAM system provides a single place, one source of truth, to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
 
 
 ## Why manage applications with a cloud solution?
 
 Organizations often have hundreds of applications that users depend on to get their work done. Users access these applications from many devices and locations. New applications are added, developed, and sunset every day. With so many applications and access points, it's more critical than ever to use a cloud-based solution to manage user access to all applications.
 
-> [!TIP]
-> The Azure AD app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
+>[!TIP]
+>The Azure AD app gallery contains many popular applications that are already pre-configured to work with Azure AD as an identity provider.
 
 ## How does Azure AD work with applications?
 
@@ -60,9 +60,12 @@ There are four main types of applications that you can add to your **Enterprise 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
 - **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
-    - Integrate with any web link, or application, that renders a username and password field.
-    - Integrate with any application that supports SAML or OpenID Connect protocols.
-    - Integrate with any application that supports SCIM.
+
+>[!TIP]
+>If an application is not already pre-configured and in the Azure AD app gallery, you can still integrate it. You can **integrate Azure AD with any** of the following
+> - Any web link, or application, that renders a **username and password field**.
+> - Any application that supports **SAML or OpenID Connect protocols**.
+> - Any application that supports the System for **Cross-domain Identity Management (SCIM)** standard.
 
 ## Manage risk with Conditional Access policies
 
