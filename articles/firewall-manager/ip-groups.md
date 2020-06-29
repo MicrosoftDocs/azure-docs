@@ -57,11 +57,7 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create a policy with DNAT, application, or network rules.
 
-:::image type="content" source="media/ip-groups/fw-ipgroup.png" alt-text="IP Groups in Firewall":::
-
-## Region availability
-
-TBD
+:::image type="content" source="media/ip-groups/firewall-ip-group.png" alt-text="IP Groups in Firewall":::
 
 ## IP address limits
 
