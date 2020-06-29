@@ -106,7 +106,7 @@ If you are using an Azure Bot Service, configure the setting as part of the bot 
 
 ### Conversation flow in a client application
 
-Conversation flow in a [client application](integration-with-other-applications.md#providing-multi-turn-conversations.md), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
+Conversation flow in a [client application](integration-with-other-applications.md), such as an Azure bot, may require functionality before and after interacting with the knowledge base.
 
 If your client application supports conversation flow, either providing alternate means to handle follow-up prompts or chit-chit, design these early and make sure the query using in the client application is handled correctly, either by another service or sent to your knowledge base.
 
