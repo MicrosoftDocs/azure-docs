@@ -164,7 +164,7 @@ Azure requires that each Azure service has a unique name. The deployment could f
     |**Account Type**|Enter **Standard_LRS** for this quickstart. |
     |**Kind**|Enter **StorageV2** for this quickstart. |
     |**Access Tier**|Enter **Hot** for this quickstart. |
-    |**Mininum Tls Version**|Enter **TLS1_0**. |
+    |**Minimum Tls Version**|Enter **TLS1_0**. |
     |**Supports Https Traffic Only**| Select **true** for this quickstart. |
     |**Allow Blob Public Access**| Select **false** for this quickstart. |
 
