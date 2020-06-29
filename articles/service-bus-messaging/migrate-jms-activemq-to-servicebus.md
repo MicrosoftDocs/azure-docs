@@ -48,9 +48,9 @@ Even so, there are some differences in the two.
 
 The two-tiered nature of Azure Service Bus affords various business continuity capabilities (high availability and disaster recovery). However, there are some considerations when utilizing JMS features.
 
-#### Service restarts
+#### Service upgrades
 
-In the event of Service restarts or timeouts, temporary Queues or Topics will be deleted.
+In the event of Service upgrades and restarts, temporary Queues or Topics will be deleted.
 
 If the application is sensitive to data loss on temporary Queues or Topics, it is recommended to **not** use Temporary Queues or Topics and use durable Queues, Topics and Subscriptions instead.
 
@@ -83,6 +83,9 @@ Below are the components utilized while writing the JMS applications and the spe
 
 Azure Service Bus supports communication over the AMQP protocol. For this purpose, communication over ports 5671 (AMQP) and 443 (TCP) needs to be enabled. Depending on where the client applications are hosted, you may need a support ticket to allow communication over these ports.
 
+> [!IMPORTANT]
+> Azure Service Bus supports **only** AMQP 1.0 protocol.
+
 ### Set up enterprise configurations (VNET, Firewall, private endpoint, etc.)
 
 Azure Service Bus enables various enterprise security and high availability features. To learn more about them, follow the below documentation links.
@@ -101,8 +104,31 @@ Read more about the different metrics and how to setup alerts on them at [Servic
 
 Also, read more about [client side tracing for data operations](service-bus-end-to-end-tracing.md) and [operational/diagnostic logging for management operations](service-bus-diagnostic-logs.md)
 
-#### New-relic metric mapping
-TODO
+### Metrics - NewRelic
+
+Below is a handy guide on which metrics from ActiveMQ map to which metrics in Azure Service Bus. The below are referenced from NewRelic.
+
+  * [ActiveMQ/Amazon MQ NewRelic Metrics](https://docs.newrelic.com/docs/integrations/amazon-integrations/aws-integrations-list/aws-mq-integration)
+  * [Azure Service Bus NewRelic Metrics](https://docs.newrelic.com/docs/integrations/microsoft-azure-integrations/azure-integrations-list/azure-service-bus-monitoring-integration)
+
+> [!NOTE]
+> Currently, NewRelic doesn't have a seamless integration with ActiveMQ directly, but they do have metrics available for Amazon MQ.
+> Since Amazon MQ is derived from ActiveMQ,the below guide maps the NewRelic metrics from AmazonMQ to Azure Service Bus.
+>
+
+|Metric Grouping| AmazonMQ/Active MQ metric | Azure Service Bus metric |
+|------------|---------------------------|--------------------------|
+|Broker|`CpuUtilization`|`CPUXNS`|
+|Broker|`MemoryUsage`|`WSXNS`|
+|Broker|`CurrentConnectionsCount`|`activeConnections`|
+|Broker|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
+|Broker|`InactiveDurableTopicSubscribersCount`|Leverage Subscription metrics|
+|Broker|`TotalMessageCount`|Leverage Queue/Topic/Subscription level `activeMessages`|
+|Queue/Topic|`EnqueueCount`|`incomingMessages`|
+|Queue/Topic|`DequeueCount`|`outgoingMessages`|
+|Queue|`QueueSize`|`sizeBytes`|
+
+
 
 ## Migration
 
@@ -146,7 +172,7 @@ This part is custom to the application server that is hosting your client applic
 
 #### Tomcat
 
-Here, we start with the configuration specific to Active MQ as shown below.
+Here, we start with the configuration specific to Active MQ as shown in the `/META-INF/context.xml` file.
 
 ```XML
 <Context antiJARLocking="true">
@@ -182,20 +208,18 @@ which can be adapted as below to point to Azure Service Bus
         auth="Container"
         type="com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactory"
         description="JMS Connection Factory"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        brokerURL="<INSERT YOUR SERVICE BUS CONNECTION STRING HERE>"
-        brokerName="LocalActiveMQBroker"
-        useEmbeddedBroker="false"/>
+        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
+        connectionString="<INSERT YOUR SERVICE BUS CONNECTION STRING HERE>"/>
 
     <Resource name="jms/topic/MyTopic"
         auth="Container"
         type="org.apache.qpid.jms.JmsTopic"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
         physicalName="MY.TEST.FOO"/>
     <Resource name="jms/queue/MyQueue"
         auth="Container"
         type="org.apache.qpid.jms.JmsQueue"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
         physicalName="MY.TEST.FOO.QUEUE"/>
 </Context>
 ```
