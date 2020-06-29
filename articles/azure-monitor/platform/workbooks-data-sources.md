@@ -48,7 +48,7 @@ To make a query control use this data source, use the Query type drop-down to ch
 
 ## Azure Resource Manager
 
-Workbook supports Azure Resource Manager (`ARM`) REST operations. This allows the ability to query management.azure.com endpoint without the need to provide your own authorization header token.
+Workbook supports Azure Resource Manager REST operations. This allows the ability to query management.azure.com endpoint without the need to provide your own authorization header token.
 
 To make a query control use this data source, use the Data source drop-down to choose Azure Resource Manager. Provide the appropriate parameters such as Http method, url path, headers, url parameters and/or body.
 
