@@ -63,11 +63,11 @@ Use the following source options when defining Azure Table Storage or Table API 
 
 To retrieve the source connection string when importing from Azure Table storage, open the Azure portal and click **Storage accounts** > **Account** > **Access keys**, and then use the copy button to copy the **Connection string**.
 
-![Screenshot of HBase source options](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Screenshot of HBase source options":::
 
 To retrieve the source connection string when importing from an Azure Cosmos DB Table API (preview) account, open the Azure portal, click **Azure Cosmos DB** > **Account** > **Connection String** and use the copy button to copy the **Connection String**.
 
-![Screenshot of HBase source options](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Screenshot of HBase source options":::
 
 [Sample Azure Table Storage command](#azure-table-storage)
 

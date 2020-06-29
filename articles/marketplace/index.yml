@@ -119,17 +119,17 @@ landingContent:
       - text: Marketplace metering service APIs
         url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
       - text: Cloud Partner Portal API Reference
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+        url: ./cloud-partner-portal-api-overview.md
       - text: API prerequisites
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+        url: ./cloud-partner-portal-api-prerequisites.md
       - text: Retrieve offers
-        url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+        url: ./cloud-partner-portal-api-retrieve-offers.md
       - text: Create or modify an offer
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+        url: ./cloud-partner-portal-api-creating-offer.md
       - text: Pricing for virtual machine offers
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+        url: ./cloud-partner-portal-api-setting-price.md
       - text: Go live
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+        url: ./cloud-partner-portal-api-go-live.md
 
   - title: Get support
     linkLists:
@@ -138,7 +138,7 @@ landingContent:
       - text: Support options
         url: ./partner-center-portal/support.md
       - text: Troubleshoot authentication errors
-        url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+        url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: ./marketplace-geo-availability-currencies.md
 

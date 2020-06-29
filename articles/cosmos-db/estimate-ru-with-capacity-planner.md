@@ -3,7 +3,7 @@ title: Estimate costs using the Azure Cosmos DB capacity planner
 description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the new version of the capacity planner to estimate the throughput and cost required. 
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
 
@@ -37,7 +37,7 @@ To get a quick estimate for your workload using the basic mode, navigate to the 
 
 After filling the required details, select **Calculate**. The **Cost Estimate** tab shows the total cost for storage and provisioned throughput. You can expand the **Show Details** link in this tab to get the breakdown of the throughput required for read and write requests. Each time you change the value of any field, select **Calculate** to re-calculate the estimated cost. 
 
-![Capacity planner basic mode](./media/estimate-ru-with-capacity-planner/basic-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Capacity planner basic mode":::
 
 ## Estimate provisioned throughput and cost using advanced mode
 
@@ -58,7 +58,7 @@ After you sign in, you can see additional fields compared to the fields in basic
 
 You can also use the **Save Estimate** button to download a CSV file containing the current estimate. 
 
-![Capacity planner advanced mode](./media/estimate-ru-with-capacity-planner/advanced-mode.png)
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Capacity planner advanced mode":::
 
 The prices shown in the Azure Cosmos DB capacity planner are estimates based on the public pricing rates for throughput and storage. All prices are shown in US dollars. Refer to the [Azure Cosmos DB pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) to see all rates by region.  
 

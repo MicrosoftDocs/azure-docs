@@ -21,21 +21,6 @@ Azure Spring Cloud provides a platform as a service (PaaS) for Spring Cloud deve
 
 Azure Spring Cloud enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 
-### What service plans does Azure Spring Cloud offer?
-
-Azure Spring Cloud offers one service plan during the preview period.  A Spring Cloud deployment contains 16 vCPU cores and 32 gigabytes (GB) of memory.  The upper bound for each microservice instance within a deployment is 4 vCPU cores with 8 GB of memory.
-
-Resource | Amount
-------- | -------
-App instances per Spring application | 20
-Total app instances per Azure Spring Cloud service instance | 500
-Azure Spring Cloud service instances per region per subscription | 10
-Persistent volumes | 10 x 50 GBytes
-
-\* _To raise the limit, open a [support ticket](https://azure.microsoft.com/support/faq/)._
-
-For more information, see [Azure Support FAQ](https://azure.microsoft.com/support/faq/).
-
 ### How secure is Azure Spring Cloud?
 
 Security and privacy are among the top priorities for Azure and Azure Spring Cloud customers. Azure helps ensure that only customers have access to application data, logs, or configurations by securely encrypting all of this data. All the service instances in Azure Spring Cloud are isolated from each other.
@@ -58,7 +43,7 @@ During preview release, Azure Spring Cloud has the following known limitations:
 
 ### What pricing tiers are available? 
 Which one should I use and what are the limits within each tier?
-* Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](placeholder: link to ACOM page) for limits and feature level comparison.
+* Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
 
 ### How can I provide feedback and report issues?
 

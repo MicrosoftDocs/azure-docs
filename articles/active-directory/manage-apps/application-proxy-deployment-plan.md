@@ -14,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.custom: has-adal-ref
 ---
 
 # Plan an Azure AD Application Proxy deployment
@@ -250,7 +249,7 @@ Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to 
 
 ###  Working with other types of applications
 
-Azure AD Application Proxy can also support applications that have been developed to use the Microsoft Authentication Library ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
+Azure AD Application Proxy can also support applications that have been developed to use the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). It supports native client apps by consuming Azure AD issued tokens received in the header information of client request to perform pre-authentication on behalf of the users.
 
 Read [publishing native and mobile client apps](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) and [claims-based applications](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) to learn about available configurations of Application Proxy.
 
@@ -314,7 +313,7 @@ The following articles cover common scenarios that can also be used to create tr
 * [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
 * [Application load is too long](application-proxy-page-load-speed-problem.md)
 * [Links on application page not working](application-proxy-page-links-broken-problem.md)
-* [What ports to open for my app](application-proxy-connectivity-ports-how-to.md)
+* [What ports to open for my app](application-proxy-add-on-premises-application.md)
 * [No working connector in a connector group for my app](application-proxy-connectivity-no-working-connector.md)
 * [Configure in admin portal](application-proxy-config-how-to.md)
 * [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)

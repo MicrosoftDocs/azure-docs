@@ -18,6 +18,11 @@
   - name: Live event with portal and OBS
     displayName: live, event, portal, obs
     href: live-events-obs-quickstart.md
+  - name: Use portal to upload, encode, and stream content 
+    href: manage-assets-quickstart.md
+  - name: Use portal to encrypt content
+    displayName: protect, drm, aes
+    href: encrypt-content-quickstart.md       
 - name: Tutorials
   items:
   - name: Encode remote file and stream video
@@ -378,6 +383,8 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Standard Encoder schemas
     items:
+    - name: Input metadata
+      href: input-metadata-schema.md    
     - name: Output metadata
       href: output-metadata-schema.md      
 - name: Resources

@@ -24,7 +24,7 @@ be the extent of policies involvement with Infrastructure as Code or DevOps.
 The validation step should also be a component of other continuous integration or continuous
 deployment workflows. Examples include deploying an application environment or virtual
 infrastructure. By making Azure Policy validation an early component of the build and deployment
-process the application and operations teams discover if their changes are non-complaint, long
+process the application and operations teams discover if their changes are non-compliant, long
 before it's too late and they're attempting to deploy in production.
 
 ## Workflow overview

@@ -230,7 +230,7 @@ Next, run the app by using the following steps:
 
 1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to `http://localhost:3000`, and there you see our application.
 
-    ![New Azure Cosmos DB account in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png" alt-text="New Azure Cosmos DB account in the Azure portal":::
 
 There are no heroes stored yet in the app. In the next part of this tutorial, we'll add put, push, and delete functionality. Then we can add, update, and delete heroes from the UI by using Mongoose connections to our Azure Cosmos database. 
 

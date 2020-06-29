@@ -58,10 +58,12 @@ TwiML is a set of XML-based instructions based on the Twilio verbs that inform T
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-      <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+  <Response>
+    <Say>Hello World</Say>
+  </Response>
+```
 
 When your application calls the Twilio API, one of the API parameters is the URL that returns the TwiML response. For development purposes, you can use Twilio-provided URLs to provide the TwiML responses used by your applications. You could also host your own URLs to produce the TwiML responses, and another option is to use the `TwiMLResponse` object.
 
@@ -96,17 +98,17 @@ You can configure your application to use the Twilio library for Python in two w
 
 * Install the Twilio library for Python as a Pip package. It can be installed with the following commands:
    
-        $ pip install twilio
+  `$ pip install twilio`
 
     -OR-
 
 * Download the Twilio library for Python from GitHub ([https://github.com/twilio/twilio-python][twilio_python]) and install it like this:
 
-        $ python setup.py install
+  `$ python setup.py install`
 
 Once you have installed the Twilio library for Python, you can then `import` it in your Python files:
 
-        import twilio
+  `import twilio`
 
 For more information, see [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 

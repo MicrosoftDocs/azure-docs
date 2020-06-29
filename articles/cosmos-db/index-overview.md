@@ -36,7 +36,7 @@ As an example, consider this item:
 
 It would be represented by the following tree:
 
-![The previous item represented as a tree](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="The previous item represented as a tree" border="false":::
 
 Note how arrays are encoded in the tree: every entry in an array gets an intermediate node labeled with the index of that entry within the array (0, 1 etc.).
 
@@ -176,7 +176,7 @@ The paths extracted when indexing data make it easy to lookup the index when pro
 
 For example, consider the following query: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. The query predicate (filtering on items, where any location has "France" as its country/region) would match the path highlighted in red below:
 
-![Matching a specific path within a tree](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Matching a specific path within a tree" border="false":::
 
 > [!NOTE]
 > An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, an `ORDER BY` query which orders by multiple properties *always* needs a composite index.

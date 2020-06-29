@@ -24,7 +24,7 @@ This article shows you how to implement [dynamic data masking](dynamic-data-mask
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Navigate to the settings page of the database that includes the sensitive data you want to mask.
-3. Click the **Dynamic Data Masking** blade under the **Security** section of your SQL database.
+3. Click the **Dynamic Data Masking** blade under the **Security** section of your database.
 
    ![Navigation pane](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
