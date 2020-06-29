@@ -64,7 +64,13 @@ A Load Balancer rule is used to define how incoming traffic is distributed to th
 
 For example, if you would like traffic on port 80 (or another port) of your frontend IP to be routed to port 80 of all your backend instances, you would use a Load Balancing rule to achieve this.
 
-### High Availability Ports
+<p align="center">
+  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Load Balancing rules">
+</p>
+
+*Figure: Load Balancing rules*
+
+## High Availability Ports
 
 A Load Balancer rule configured with 'protocol - all and port - 0'. This enables providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
 1. source IP address
@@ -75,13 +81,25 @@ A Load Balancer rule configured with 'protocol - all and port - 0'. This enables
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced.
 
-You can learn more about [HA ports](load-balancer-ha-ports-overview.md).
+<p align="center">
+  <img src="./media/load-balancer-components/harules.svg" width="512" title="HA Ports rules">
+</p>
+
+*Figure: HA Ports rules*
+
+Learn more about [HA ports](load-balancer-ha-ports-overview.md).
 
 ## Inbound NAT rules
 
 An inbound NAT rule forwards incoming traffic sent to a selected Frontend IP address and port combination to a **specific** virtual machine or instance in the backend pool. Port forwarding is done by the same hash-based distribution as load balancing.
 
 For example, if you would like Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to separate VM instances in a backend pool. Multiple internal endpoints can be mapped to ports on the same Frontend IP address. The Frontend IP addresses can be used to remotely administer your VMs without an additional jump box.
+
+<p align="center">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Inbound NAT rules">
+</p>
+
+*Figure: Inbound NAT rules*
 
 Inbound NAT rules in the context of Virtual Machine Scale Sets (VMSS) are inbound NAT pools. Learn more about [Load Balancer components and VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
