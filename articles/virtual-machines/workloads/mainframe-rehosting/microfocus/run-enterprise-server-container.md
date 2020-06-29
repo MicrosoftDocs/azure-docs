@@ -31,13 +31,13 @@ Before getting started, check out these prerequisites:
 -   The Micro Focus software and a valid license (or trial license). If you're an existing Micro Focus customer, contact your Micro Focus representative. Otherwise, [request a trial](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
     > [!Note] 
-    > The Docker demonstration files are included with E terprise Server 5.0. This tutorial uses ent\_server\_dockerfiles\_5.0\_windows.zip. Access it from thesame place that you accessed the Enterprise Server installation file or go to *Micro Focus* to get started.
+    > The Docker demonstration files are included with Enterprise Server 5.0. This tutorial uses ent\_server\_dockerfiles\_5.0\_windows.zip. Access it from the same place that you accessed the Enterprise Server installation file or go to *Micro Focus* to get started.
 
 -   The documentation for [Enterprise Server and Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#%22).
 
 ## Create a VM
 
-1.  Secure the media from the ent\_server\_dockerfiles\_5.0\_windows.zip file.Secure the ES-Docker-Prod-XXXXXXXX.mflic licensing file (required to build the Docker images).
+1.  Secure the media from the ent\_server\_dockerfiles\_5.0\_windows.zip file. Secure the ES-Docker-Prod-XXXXXXXX.mflic licensing file (required to build the Docker images).
 
 2.  Create the VM. To do this, open Azure portal, select **Create a resource** from the top left menu, and filter by *windows server operating system*. In the results, select **Windows Server.** In the next screen, select **Windows Server 2016 Datacenter – with Containers**.
 
@@ -142,27 +142,27 @@ At this point, the VM is running and attached via RDP. You're signed in and read
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
     ~~~
 
-4.  Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
+4. Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
 
     ![Screenshot of Command window showing IP address](./media/run-img5.png)
 
-5.  Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. Here, it’s **172.19.202.52:9040**. Yours will be similar. The **Sign on to CICS** screen opens.
+5. Mount the image using the emulator. Configure the emulator to use the address of the acctdemo image and port 9040. Here, it’s **172.19.202.52:9040**. Yours will be similar. The **Sign on to CICS** screen opens.
 
     ![Screenshot of Signon to CICS](./media/run-img6.png)
 
-6.  Sign in to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
+6. Sign in to the CICS Region by entering **SYSAD** for the **USERID** and **SYSAD** for the **Password**.
 
-7.  Clear the screen using the emulator’s keymap. For x3270, select the **Keymap** menu option.
+7. Clear the screen using the emulator’s keymap. For x3270, select the **Keymap** menu option.
 
-8.  To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
+8. To launch the acctdemo application, type **ACCT**. The initial screen for the application is displayed.
 
      ![Screenshot of Account Demo](./media/run-img7.png)
 
-9.  Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
+9. Experiment with display account types. For example, type **D** for the Request and **11111** for the **ACCOUNT**. Other account numbers to try are 22222, 33333, and so on.
 
     ![Screenshot of Account Demo](./media/run-img8.png)
 
-10.  To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**.
+10. To display the Enterprise Server Administration console, go to the command prompt and type **start http:172.19.202.52:86**.
 
     ![Enterprise Server Administration console](media/run-img9.png)
 
