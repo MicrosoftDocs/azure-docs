@@ -299,6 +299,11 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 <a name="move"></a>
 
+## Access data in a virtual network
+
+If your workspace is in a virtual network, you must perform additional configuration steps to use datastores. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+
+
 ## Move data to supported Azure storage solutions
 
 Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
