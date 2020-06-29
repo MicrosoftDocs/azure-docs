@@ -3,7 +3,7 @@ title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microso
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize directories between local file systems and containers.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
