@@ -5,7 +5,7 @@ author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ms.author: mingshen
 ---
 
@@ -24,15 +24,15 @@ You can continue doing business as usual in Partner Center:
 | Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace it will continue to be live. |
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
 | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](partner-center-portal/get-paid.md). |
-| API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-orig/cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](cloud-partner-portal-orig/cloud-partner-portal-migration-faq.md#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
+| API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
-## Do I need to create a new account in Partner Center?
+## Do I need to create a new account to manage my offers in Partner Center?
 
 No, your account will be preserved. This means that if you're an existing partner, you can use your existing Cloud Partner Portal account credentials to sign in to Partner Center. Don't create a new account or any offers created in Cloud Partner Portal and moved to Partner Center won't be associated with it.
 
-## Will my Cloud Partner Portal bookmarks still work?
+## What pages in Partner Center correspond to pages I used in the Cloud Partner Portal?
 
 Following are Partner Center links for pages commonly used in the Cloud Partner Portal. If you saved the Cloud Partner Portal links as bookmarks, you'll want to update them.
 
