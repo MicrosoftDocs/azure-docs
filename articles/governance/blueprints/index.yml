@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/01/2019
+  ms.date: 06/29/2020
 
 landingContent:
   - title: About Azure Blueprints
@@ -33,13 +33,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a new blueprint (portal)
+          - text: Create a new blueprint (Portal)
             url: ./create-blueprint-portal.md
-          - text: Create a new blueprint (PowerShell)
-            url: ./create-blueprint-powershell.md
           - text: Create a new blueprint (Azure CLI)
             url: ./create-blueprint-azurecli.md
-          - text: Create a new blueprint (REST API)
+          - text: Create a new blueprint (Azure PowerShell)
+            url: ./create-blueprint-powershell.md
+          - text: Create a new blueprint (REST)
             url: ./create-blueprint-rest-api.md
       - linkListType: tutorial
         links:
@@ -101,9 +101,11 @@ landingContent:
             url: ./reference/blueprint-functions.md
           - text: PowerShell module (PSGallery)
             url: https://www.powershellgallery.com/packages/Az.Blueprint
+          - text: Azure CLI
+            url: /cli/azure/ext/blueprint/blueprint
           - text: Azure PowerShell
             url: /powershell/module/az.blueprint/#blueprint
-          - text: REST API
-            url: /rest/api/blueprints/
-          - text: .NET
+          - text: Azure SDK for .NET
             url: /dotnet/api/overview/azure/blueprints/management
+          - text: REST
+            url: /rest/api/blueprints/
