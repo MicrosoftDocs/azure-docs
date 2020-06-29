@@ -5,10 +5,12 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ---
 
-# Create activity log alerts on service notifications
+# Create activity log alerts on service notifications using Azure Resource Manager template 
 ## Overview
 
 This article shows you how to set up activity log alerts for service health notifications by using the Azure portal.  
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Service health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications. 
 
@@ -29,73 +31,9 @@ You also can configure who the alert should be sent to:
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
-For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](../azure-monitor/platform/alerts-activity-log.md).
 
-### Watch a video on setting up your first Azure Service Health alert
-
->[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
-
-## Alert and new action group using Azure portal
-1. In the [portal](https://portal.azure.com), select **Service Health**.
-
-    ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
-
-1. In the **Alerts** section, select **Health alerts**.
-
-    ![The "Health alerts" tab](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
-
-1. Select **Create service health alert** and fill in the fields.
-
-    ![The "Create service health alert" command](media/alerts-activity-log-service-notifications/service-health-alert.png)
-
-1. Select the **Subscription**, **Services**, and **Regions** you want to be alerted for.
-
-    ![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
-
-    > [!NOTE]
-    > This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
-
-1. Choose the **Event types** you want to be alerted for: *Service issue*, *Planned maintenance*, and *Health advisories* 
-
-1. Define your alert details by entering an **Alert rule name** and **Description**.
-
-1. Select the **Resource group** where you want the alert to be saved.
-
-1. Create a new action group by selecting **New action group**. Enter a name in the **Action group name** box and enter a name in the **Short name** box. The short name is referenced in the notifications that are sent when this alert fires.
-
-    ![Create a new action group](media/alerts-activity-log-service-notifications/action-group-creation.png)
-
-1. Define a list of receivers by providing the receiver's:
-
-    a. **Name**: Enter the receiver's name, alias, or identifier.
-
-    b. **Action Type**: Select SMS, email, webhook, Azure app, and more.
-
-    c. **Details**: Based on the action type chosen, enter a phone number, email address, webhook URI, etc.
-
-1. Select **OK** to create the action group, and then **Create alert rule** to complete your alert.
-
-Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
-
-Learn how to [Configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md). For information on the webhook schema for activity log alerts, see [Webhooks for Azure activity log alerts](../azure-monitor/platform/activity-log-alerts-webhook.md).
-
->[!NOTE]
->The action group defined in these steps is reusable as an existing action group for all future alert definitions.
->
-
-## Alert with existing action group using Azure portal
-
-1. Follow steps 1 through 6 in the previous section to create your service health notification. 
-
-1. Under **Define action group**, click the **Select action group** button. Select the appropriate action group.
-
-1. Select **Add** to add the action group, and then **Create alert rule** to complete your alert.
-
-Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
-
-## Alert and new action group using the Azure Resource Manager templates
-
-The following is an example that creates an action group with an email target and enables all service health notifications for the target subscription.
+## Review the template
+The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template as *CreateServiceHealthAlert.json*.
 
 ```json
 {
@@ -182,6 +120,43 @@ The following is an example that creates an action group with an email target an
     ]
 }
 ```
+
+### Deploy the template
+Deploy the template using any standard method for [deploying an ARM template](../../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, **workspaceName**, and **location** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
+
+# [CLI](#tab/CLI1)
+
+```azurecli
+az login
+az deployment group create --name CreateServiceHealthAlert --resource-group my-resource-group --template-file CreateServiceHealthAlert.json --parameters emailAddress='user@contoso.com'
+```
+
+# [PowerShell](#tab/PowerShell1)
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName my-subscription
+New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName my-resource-group -TemplateFile CreateServiceHealthAlert.json -emailAddress user@contoso.com
+```
+
+---
+
+### Verify the deployment
+Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** and **workspaceName** with the values you used above.
+
+# [CLI](#tab/CLI2)
+
+```azurecli
+az monitor log-analytics workspace show --resource-group my-workspace-01 --workspace-name my-resource-group
+```
+
+# [PowerShell](#tab/PowerShell2)
+
+```powershell
+Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-resource-group
+```
+
+---
 
 ## Manage your alerts
 
