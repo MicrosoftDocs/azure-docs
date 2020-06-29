@@ -14,7 +14,7 @@ After purchasing Azure Dev Tools for Teaching, all students located in your inst
 ## Managing access for students
 You can currently manage access for students based on the domain they use to log into Azure	Dev Tools for Teaching. To do so, go into your [Management Portal](https://azureforeducation.microsoft.com/en-us/account/Subscriptions) for Azure Dev Tools for	Teaching. Once in, you will see all your subscriptions. Choose the subscription you wish to manage access for.
 
-:::image type="content" source="../media/manage-students/manage-student-access.png" alt-text="Manage student access." border="false":::
+:::image type="content" source="media/manage-students/manage-student-access.png" alt-text="Manage student access." border="false":::
 
 ## Next steps	
 - NEED CONTENT [link to next logical step for the customer](global-quickstart-template.md)	
