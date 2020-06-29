@@ -23,6 +23,20 @@ The list of supported server parameters is constantly growing. Use the server pa
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
 
+### thread pools
+
+MySQL traditionally assigned a thread for every client connection, and as the number of concurrent users grows this shows performance drops. Many active threads can impact the performance significantly because, increasing a number of threads leads to more context switching, more thread contention and bad locality for CPU caches.
+
+Thread pool feature enables the server to keep the top performance by introducing a dynamic thread pool which can be used to limit the number of connections actively running on the server. This helps you to make sure that the burst of connections will not make your server out of the resource, even crash with out of memory. Thread pools are most efficient where queries are relatively short and load is CPU intensive, such as OLTP workloads. 
+
+### Configuring the thread pool
+If you would like to use the thread pool, then you can enable the thread pool by setting `thread_handling` server parameter to `pool-of-threads` . by default, this parameter is set to `one-thread-per-connection`, which means MySQL will create a new thread for each new connections. Please note that this parameter is a static paramater and requires a server restart in order to apply.
+
+You can also configure the maximum and minumum number of threads in the pool by setting `thread_pool_max_threads` and `thread_pool_min_threads` server parameter. By setting these parameter, there will not be more than `thread_pool_max_threads` number of threads in the pool and `thread_pool_min_threads` number of threads will be reserved even after connections are closed. 
+
+To improve the performance issue of short queries on thread pool, Azure Database for MySQL allows you to set `thread_pool_batch_max_time` and `thread_pool_wait_timeout`. Instead of returning back to the thread pool immediately after executing a query, after enabling the batch execution feature, threads will keep active for a short time `thread_pool_wait_timeout` to wait for the next statement through this connection, execute it rapidly, and repeat to wait for the next one, until the overall time consumption of this process exceeded the limitation `thread_pool_batch_max_time`.
+
+
 ### innodb_buffer_pool_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) to learn more about this parameter.
