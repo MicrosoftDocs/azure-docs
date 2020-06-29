@@ -42,17 +42,17 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 2. Open a command prompt. Clone the GitHub repo for the Azure IoT Python SDK:
     
-    ```cmd/sh 
+    ```console
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 3. Navigate to the `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` directory where the sample file, _provision_symmetric_key.py_, is located.
    
-   ```cmd/sh
+   ```console
    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
    ```
 4. Install the _azure-iot-device_ library by running the following command.
 
-    ```cmd/sh
+    ```console
     pip install azure-iot-device
     ```
 
@@ -102,11 +102,11 @@ The provisioning code will contact the DPS instance based on these variables in 
 
     The following commands are examples to show command syntax. Make sure to use your correct values.
 
-    ```cmd/sh
+    ```console
     set PROVISIONING_HOST=test-dps-docs.azure-devices-provisioning.net
     ```
 
-    ```cmd/sh
+    ```console
     set PROVISIONING_IDSCOPE=0ne00000A0A
     ```
 
@@ -114,23 +114,23 @@ The provisioning code will contact the DPS instance based on these variables in 
 
     The following commands are examples to show command syntax. Make sure to use your correct values.
 
-    ```cmd/sh
+    ```console
     set PROVISIONING_REGISTRATION_ID=symm-key-python-device-008
     ```
 
-    ```cmd/sh
+    ```console
     set PROVISIONING_SYMMETRIC_KEY=sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
     ```
 
 4. Run the python sample code in _provision_symmetric_key.py_.
 
-    ```cmd/sh
+    ```console
     D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py
     ```
 
 5. The expected output should look similar to the following which shows the linked IoT hub that the device was assigned to based on the individual enrollment settings. Some example wind speed telemetry messages are also sent to the hub as a test:
 
-    ```cmd/sh
+    ```output
     D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
