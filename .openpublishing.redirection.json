@@ -43167,6 +43167,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/advisor/advisor-alerts.md",
+      "redirect_url": "/azure/advisor/advisor-alerts-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-health/alerts-activity-log-service-notifications.md",
+      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
