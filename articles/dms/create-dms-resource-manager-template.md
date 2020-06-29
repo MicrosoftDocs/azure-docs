@@ -1,18 +1,17 @@
 ---
 title: Create instance of DMS (Azure Resource Manager template)
 description: Learn how to create  Database Migration Service by using Azure Resource Manager template.
-services: azure-resource-manager
 author: MashaMSFT
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
-ms.date: 06/29/20
+ms.date: 06/29/2020
+ms.service: dms
 ---
 
 # Create instance of Azure Database Migration Service (Azure Resource Manager template)
 
-[!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
