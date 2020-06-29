@@ -221,7 +221,7 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 
 | Cloud environment | Agent Resource | Ports | Direction |
 |:--|:--|:--|:--|
-|Azure Public     | scadvisor.blob.core.windows.net         | 443 | Outbound
+|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 

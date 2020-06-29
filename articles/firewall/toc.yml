@@ -58,6 +58,8 @@
       href: central-management.md
     - name: Remote work support
       href: remote-work-support.md
+    - name: FQDN in network rules
+      href: fqdn-filtering-network-rules.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell
@@ -80,6 +82,10 @@
       href: create-ip-group.md
     - name: Protect Windows Virtual Desktop
       href: protect-windows-virtual-desktop.md
+    - name: Protect Azure Kubernetes Service (AKS)
+      href: protect-azure-kubernetes-service.md
+    - name: DNS settings
+      href: dns-settings.md
 - name: Reference
   items:
   - name: Azure CLI
