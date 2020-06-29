@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 06/26/2020
 ms.author: sajaya
 ---
 
@@ -33,47 +33,24 @@ Yes. See the documentation from [Azure Security Center](https://docs.microsoft.c
 
 See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
-### How do I get admin credentials for a container registry?
+### How do I get credentials for a container registry?
+
+Azure Container Registry provides several [authentication options](container-registry-authentication.md) designed for different scenarios, including Azure Active Directory identities and service principals, repository-scoped tokens, and an admin account.
 
 > [!IMPORTANT]
-> The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
+> The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. 
 
-Before getting admin credentials, make sure the registry's admin user is enabled.
-
-To get credentials using the Azure CLI:
+For unique access, a user with at least the Contributor role on the registry can generate a [token and password](container-registry-repository-scoped-permissions.md) scoped to one or more repositories. For example, the following Azure CLI command generates a token with read and write permissions to the `samples/hello-world` repository:
 
 ```azurecli
-az acr credential show -n myRegistry
+az acr token create --name MyToken --registry myregistry \
+  --repository samples/hello-world \
+  content/write content/read
 ```
 
-Using Azure PowerShell:
+The command output includes two passwords that you should save in a secure place, and can regenerate if needed. For registry operations such as Docker pull and Docker push, provide the token name and one of its passwords as credentials.
 
-```powershell
-Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
-```
-
-### How do I get admin credentials in a Resource Manager template?
-
-> [!IMPORTANT]
-> The admin user account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials with multiple users. Individual identity is recommended for users and service principals for headless scenarios. See [Authentication overview](container-registry-authentication.md).
-
-Before getting admin credentials, make sure the registry's admin user is enabled.
-
-To get the first password:
-
-```json
-{
-    "password": "[listCredentials(resourceId('Microsoft.ContainerRegistry/registries', 'myRegistry'), '2017-10-01').passwords[0].value]"
-}
-```
-
-To get the second password:
-
-```json
-{
-    "password": "[listCredentials(resourceId('Microsoft.ContainerRegistry/registries', 'myRegistry'), '2017-10-01').passwords[1].value]"
-}
-```
+See [Create a token with repository-scoped permissions](container-registry-repository-scoped-permissions.md) for additional ways to create token and password credentials.
 
 ### Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell
 

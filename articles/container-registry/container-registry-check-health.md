@@ -2,13 +2,15 @@
 title: Check registry health
 description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 06/26/2020
 ---
 # Check the health of an Azure container registry
 
 When using an Azure container registry, you might occasionally encounter problems. For example, you might not be able to pull a container image because of an issue with Docker in your local environment. Or, a network issue might prevent you from connecting to the registry. 
 
 As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+
+To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostic-audit-logs.md).
 
 ## Run az acr check-health
 
@@ -68,9 +70,11 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 ## Next steps
 
-For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
+* For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+* To use registry resource logs to diagnose issues, see [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostic-audit-logs.md).
+
+* See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 
