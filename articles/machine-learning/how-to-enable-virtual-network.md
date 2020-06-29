@@ -127,6 +127,98 @@ To access data stored in an Azure SQL Database using managed identity, you must 
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
+## Use a storage account for your workspace
+
+> [!IMPORTANT]
+> You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
+>
+> The default storage account is
+> automatically provisioned when you create a workspace.
+>
+> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
+
+To use an Azure storage service for the workspace in a virtual network, use the following steps:
+
+1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
+
+   For more information, see the [Use a Machine Learning compute](#amlcompute), [Use a virtual machine or HDInsight cluster](#vmorhdi), and [Use Azure Kubernetes Service](#aksvnet) sections in this article.
+
+1. In the Azure portal, go to the storage service you want to use in your workspace.
+
+   [![The storage that's attached to the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+
+1. On the storage service account page, select __Firewalls and virtual networks__.
+
+   ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+
+1. On the __Firewalls and virtual networks__ page, do the following actions:
+    - Select __Selected networks__.
+    - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute resides (see step 1).
+
+        > [!IMPORTANT]
+        > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
+
+    - Select the __Allow trusted Microsoft services to access this storage account__ check box.
+
+    > [!IMPORTANT]
+    > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
+    >
+    > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
+
+   [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## Use datastores and datasets with the SDK
+
+This section covers datastore and dataset usage for the SDK. For more information on using datatores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
+
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
+
+To avoid this with the SDK, you must create datastores and datasets that skip validation.
+
+### Use a datastore
+
+ Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
+
+- Azure Blob storage
+- Azure fileshare
+- PostgreSQL
+- Azure SQL Database
+
+The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
+
+```python
+blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
+
+                                                         datastore_name=blob_datastore_name,  
+
+                                                         container_name=container_name,  
+
+                                                         account_name=account_name, 
+
+                                                         account_key=account_key, 
+
+                                                         skip_validation=True ) // Set skip_validation to true
+```
+
+### Use a dataset
+
+The syntax to skip dataset validation is similar for the following dataset types:
+- Delimited file
+- JSON 
+- Parquet
+- SQL
+- File
+
+The following code creates a new JSON dataset and sets `validate=False`.
+
+```python
+json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
+
+validate=False) 
+
+```
+
+
 ## <a name="compute-instance"></a>Compute clusters & instances 
 
 To use either a [managed Azure Machine Learning __compute target__](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute __instance__](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
@@ -314,97 +406,6 @@ When the creation process finishes, you train your model by using the cluster in
 If you're using notebooks on an Azure Comptue instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
 
 You must configure your Compute Instance to be in the same virtual network during creation under **Advanced settings** > **Configure virtual network**. You cannot add an existing Compute Instance to a virtual network.
-
-## Use a storage account for your workspace
-
-> [!IMPORTANT]
-> You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
->
-> The default storage account is
-> automatically provisioned when you create a workspace.
->
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
-
-To use an Azure storage service for the workspace in a virtual network, use the following steps:
-
-1. Create a compute resource (for example, a Machine Learning compute instance or cluster) behind a virtual network, or attach a compute resource to the workspace (for example, an HDInsight cluster, virtual machine, or Azure Kubernetes Service cluster). The compute resource can be for experimentation or model deployment.
-
-   For more information, see the [Use a Machine Learning compute](#amlcompute), [Use a virtual machine or HDInsight cluster](#vmorhdi), and [Use Azure Kubernetes Service](#aksvnet) sections in this article.
-
-1. In the Azure portal, go to the storage service you want to use in your workspace.
-
-   [![The storage that's attached to the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
-
-1. On the storage service account page, select __Firewalls and virtual networks__.
-
-   ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
-
-1. On the __Firewalls and virtual networks__ page, do the following actions:
-    - Select __Selected networks__.
-    - Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute resides (see step 1).
-
-        > [!IMPORTANT]
-        > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
-
-    - Select the __Allow trusted Microsoft services to access this storage account__ check box.
-
-    > [!IMPORTANT]
-    > When working with the Azure Machine Learning SDK, your development environment must be able to connect to the Azure Storage Account. When the storage account is inside a virtual network, the firewall must allow access from the development environment's IP address.
-    >
-    > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
-
-   [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-## Use datastores and datasets with the SDK
-
-This section covers datastore and dataset usage for the SDK. For more information on using datatores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
-
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
-
-To avoid this with the SDK, you must create datastores and datasets that skip validation.
-
-### Use a datastore
-
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
-
-- Azure Blob storage
-- Azure fileshare
-- PostgreSQL
-- Azure SQL Database
-
-The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
-
-```python
-blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
-
-                                                         datastore_name=blob_datastore_name,  
-
-                                                         container_name=container_name,  
-
-                                                         account_name=account_name, 
-
-                                                         account_key=account_key, 
-
-                                                         skip_validation=True ) // Set skip_validation to true
-```
-
-### Use a dataset
-
-The syntax to skip dataset validation is similar for the following dataset types:
-- Delimited file
-- JSON 
-- Parquet
-- SQL
-- File
-
-The following code creates a new JSON dataset and sets `validate=False`.
-
-```python
-json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
-
-validate=False) 
-
-```
 
 <a id="aksvnet"></a>
 
