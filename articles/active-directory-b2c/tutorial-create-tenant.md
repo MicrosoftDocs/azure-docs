@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -58,7 +58,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Select **Review + create**.
 1. Review your directory settings. Then select **Create**.
 
-You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes.
+You can link multiple Azure AD B2C tenants to a single Azure subscription for billing purposes. To link a tenant, you must be an admin in the Azure AD B2C tenant and be assigned at least a Contributor role within the Azure subscription. See [Link an Azure AD B2C tenant to a subscription](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 
 ## Select your B2C tenant directory
 

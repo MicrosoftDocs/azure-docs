@@ -51,7 +51,7 @@ Understand the expected customer experience in conjunction with Azure Virtual WA
 
 ###  <a name="access"></a>Access control
 
-Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
+Customers must be able to set up appropriate access control for Virtual WAN in the device UI. This is recommended using an Azure Service Principal. Service principal-based access provides the device controller appropriate authentication to upload branch information. For more information, see [Create service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). While this functionality is outside of the Azure Virtual WAN offering, we list below the typical steps taken to set up access in Azure after which the relevant details are inputted into the device management dashboard
 
 * Create an Azure Active Directory application for your on-premises device controller.
 * Get application ID and authentication key

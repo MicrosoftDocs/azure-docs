@@ -269,8 +269,8 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Japanese                | `ja`          |
 | Kannada                 | `kn`          |
 | Kiswahili               | `sw`          |
-| Klingon                 | `tlh`         |
-| Klingon (plqaD)         | `tlh-Qaak`    |
+| Klingon                 | `tlh-Latn`    |
+| Klingon (plqaD)         | `tlh-Piqd`    |
 | Korean                  | `ko`          |
 | Latvian                 | `lv`          |
 | Lithuanian              | `lt`          |

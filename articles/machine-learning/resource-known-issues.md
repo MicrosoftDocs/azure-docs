@@ -230,8 +230,14 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
-* **TensorFlow**: Automated machine learning does not currently support TensorFlow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release.
-
+* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install tensorflow models by default. To install tensorflow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
 * **Experiment Charts**: Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 * **Databricks cancel an automated machine learning run**: When you use automated machine learning capabilities on Azure Databricks, to cancel a run and start a new experiment run, restart your Azure Databricks cluster.

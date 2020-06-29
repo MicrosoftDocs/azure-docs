@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/25/2020
 ms.author: jgao
 
 ---
@@ -103,7 +103,7 @@ The following json is an example.  The latest template schema can be found [here
       "storageAccountKey": "myKey"
     },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
-    "arguments": "[concat('-name ', parameters('name'))]",
+    "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
         "name": "someSecret",
@@ -137,6 +137,20 @@ Property value details:
 - **storageAccountSettings**: Specify the settings to use an existing storage account. If not specified, a storage account is automatically created. See [Use an existing storage account](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Specify the module version to be used. For a list of supported PowerShell and CLI versions, see [Prerequisites](#prerequisites).
 - **arguments**: Specify the parameter values. The values are separated by spaces.
+
+    Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
+     to Azure Container Instance, and the command property is an array of string.
+
+    If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is **-name \\"John Dole\\"**.  The escaped string is **-name \\\\\\"John dole\\\\\\"**.
+
+    To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any **\\"** into **\\\\\\"**. For example:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    To see a sample template, select [here](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
 - **environmentVariables**: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - **scriptContent**: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
 - **primaryScriptUri**: Specify a publicly accessible Url to the primary deployment script with supported file extensions.
@@ -357,25 +371,25 @@ Timeout             : PT1H
 
 Using Azure CLI, you can manage deployment scripts at subscription or resource group scope:
 
-- [az deployment-scripts delete](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): Delete a deployment script.
-- [az deployment-scripts list](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list):	List all deployment scripts.
-- [az deployment-scripts show](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show):	Retrieve a deployment script.
-- [az deployment-scripts show-log](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log):	Show deployment script logs.
+- [az deployment-scripts delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): Delete a deployment script.
+- [az deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list):	List all deployment scripts.
+- [az deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show):	Retrieve a deployment script.
+- [az deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log):	Show deployment script logs.
 
 The list command output is similar to:
 
 ```json
 [
   {
-    "arguments": "-name 'John Dole'",
+    "arguments": "-name \\\"John Dole\\\"",
     "azPowerShellVersion": "3.0",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20200618T194637Z",
-    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "forceUpdateTag": "20200625T025902Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
       "type": "userAssigned",
@@ -394,30 +408,32 @@ The list command output is similar to:
     },
     "primaryScriptUri": null,
     "provisioningState": "Succeeded",
-    "resourceGroup": "myds0618rg",
+    "resourceGroup": "myds0624rg",
     "retentionInterval": "1 day, 0:00:00",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts",
-      "endTime": "2020-06-18T19:49:45.926522+00:00",
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "endTime": "2020-06-25T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2020-06-19T19:49:45.926522+00:00",
-      "startTime": "2020-06-18T19:46:45.667124+00:00",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts"
+      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
+      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
+    "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2020-06-18T19:46:41.363741+00:00",
-      "createdBy": "someon@contoso.com",
+      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2020-06-18T19:46:41.363741+00:00",
+      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
     "tags": null,
     "timeout": "1:00:00",
     "type": "Microsoft.Resources/deploymentScripts"
-  },
+  }
+]
 ```
 
 ### Use Rest API
@@ -441,9 +457,55 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 The output is similar to:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
+```json
+{
+  "kind": "AzurePowerShell",
+  "identity": {
+    "type": "userAssigned",
+    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "userAssignedIdentities": {
+      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      }
+    }
+  },
+  "location": "centralus",
+  "systemData": {
+    "createdBy": "someone@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "lastModifiedBy": "someone@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "forceUpdateTag": "20200625T025902Z",
+    "azPowerShellVersion": "3.0",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "arguments": "-name \\\"John Dole\\\"",
+    "retentionInterval": "P1D",
+    "timeout": "PT1H",
+    "containerSettings": {},
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "startTime": "2020-06-25T02:59:07.5951401Z",
+      "endTime": "2020-06-25T03:00:16.7969234Z",
+      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+    },
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "cleanupPreference": "OnSuccess"
+  },
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "type": "Microsoft.Resources/deploymentScripts",
+  "name": "runPowerShellInlineWithOutput"
+}
 
-The output shows the deployment state, and the deployment script resource IDs.
+```
 
 The following REST API returns the log:
 
@@ -467,7 +529,7 @@ The life cycle of these resources is controlled by the following properties in t
 
   - **Always**: Delete the automatically created resources once script execution gets in a terminal state. If an existing storage account is used, the script service deletes the file share created in the storage account. Because the deploymentScripts resource may still be present after the resources are cleaned up, the script service persists the script execution results, for example, stdout, outputs, return value, etc. before the resources are deleted.
   - **OnSuccess**: Delete the automatically created resources only when the script execution is successful. If an existing storage account is used, the script service removes the file share only when the script execution is successful. You can still access the resources to find the debug information.
-  - **OnExpiration**: Delete the automatically resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
+  - **OnExpiration**: Delete the automatically created resources only when the **retentionInterval** setting is expired. If an existing storage account is used, the script service removes the file share, but retain the storage account.
 
 - **retentionInterval**: Specify the time interval that a script resource will be retained and after which will be expired and deleted.
 
