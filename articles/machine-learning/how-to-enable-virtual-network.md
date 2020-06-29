@@ -355,15 +355,17 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-## Use datastores and datasets
+## Use datastores and datasets with the SDK
 
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
+This section covers datastore and dataset usage for the SDK. For more information on using datatores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
 
-To avoid this with the SDK, create datastores and datasets that skip validation.
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. When your data is behind a virtual network, Azure Machine Learning can't access the data and fails its checks.
+
+To avoid this with the SDK, you must create datastores and datasets that skip validation.
 
 ### Use a datastore
 
- Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use the similar syntax to skip datastore validation:
+ Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so no further action is necessary. However, for the following services you can use similar syntax to skip datastore validation:
 
 - Azure Blob storage
 - Azure fileshare
