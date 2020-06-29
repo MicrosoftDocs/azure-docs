@@ -34,18 +34,8 @@ You can use the security partners to filter Internet traffic in following scenar
    Leverage your Azure connectivity and global distribution to easily add third-party NSaaS filtering for branch to Internet scenarios. You can build your global transit network and security edge using Azure Virtual WAN.
 
 The following scenarios are supported:
--	VNet to Internet via a third-party partner offering.
--	Branch to Internet via a third-party partner offering.
--	Branch to Internet via a third-party partner offering, the rest of the private traffic (Spoke-to-Spoke, Spoke-to-Branches, Branch-to-Spokes) via Azure Firewall.
-
-The following scenario isn't supported:
-
-- VNet to Internet via a partner offering can't be combined with Azure Firewall for private traffic. See the following limitations.
-
-## Current limitations
-
-- For VNet to Internet, you can't mix adding Azure Firewall for private traffic and a partner offering for Internet traffic. You can either send Internet traffic to Azure Firewall or a third-party security partner offering in the secured virtual hub, but not both. 
-- You can deploy at most one security partner per virtual hub. If you need to change the provider, you must remove the existing partner and add a new one.
+- VNet/Branch to Internet via a security partner provider and the other traffic (spoke to spoke, spoke to branch, branch to spoke) via Azure Firewall.
+- VNet/Branch to Internet via security partner provider
 
 ## Best practices for Internet traffic filtering in secured virtual hubs
 
