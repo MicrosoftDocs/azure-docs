@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
@@ -57,8 +57,9 @@ Azure also offers Availability Zones support in the following regions:
 - Australia East
 - South Africa
 - South Central US
+- Canada Central
 
-To learn more about Availability Zone support in these four regions, contact your Microsoft sales or customer representative.
+To learn more about Availability Zones support in these five regions, contact your Microsoft sales or customer representative.
 
 ## Next steps
 
