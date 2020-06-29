@@ -55676,7 +55676,7 @@
     },
     {
       "source_path": "articles/azure-arc/kubernetes/overview.md",
-      "redirect_url": "azure/azure-arc/kubernetes",
+      "redirect_url": "/azure/azure-arc/kubernetes",
       "redirect_document_id": false
     }
   ]
