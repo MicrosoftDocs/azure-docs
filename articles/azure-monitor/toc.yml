@@ -382,7 +382,7 @@
         href: log-query/unify-app-resource-data.md
     - name: Examples and guidance
       items:
-      - name: Example query UI
+      - name: Example queries
         href: log-query/saved-queries.md
       - name: Log query examples
         href: log-query/examples.md

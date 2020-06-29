@@ -12,7 +12,7 @@ ms.date: 06/24/2020
 
 In February 2020, we introduced an improved visualization technology. Improving and enhancing your ability to visualize query results and reach powerful insights, fast. 
 
-You can read more about this upgrade in this [Azure Update](https://azure.microsoft.com/updates/azure-monitor-log-analytics-upgraded-results-visualization/)> 
+You can read more about this upgrade in this [Azure Update](https://azure.microsoft.com/updates/azure-monitor-log-analytics-upgraded-results-visualization/). 
 
 This new visualization technology is paving the way for new and improved experiences around your query result set. 
 
@@ -44,15 +44,14 @@ When a Log Analytics pinned part is able to be upgraded, a new *opt-in* notifica
  
 ![Sidebar](media/dashboard-upgrade/update-message-2.png)
 
-> [!WARNING] 
+> [!WARNING]
 > Once the dashboard is published, the upgrade is irreversible. However, changes are discarded if you navigate away from the dashboard without re-publishing.  
 
 Once clicked, the visualization will be updated to the new technology. Subtle differences in the visualization may occur to align with their look-and-feel in Log Analytics.
 
-After the visualizations are upgraded, you need to republish your dashboard for the change to take effect. 
+After the visualizations are upgraded, you need to republish your dashboard for the change to take effect.
 
  ![Sidebar](media/dashboard-upgrade/update-message-3.png)
-
 
 ## Stage 2 - Migration of all dashboards
 
@@ -60,19 +59,20 @@ After an initial opt-in period is over, the Log Analytics team will upgrade all 
 
 ## Considerations
 
-Log Analytics visualizations pinned to a dashboard have some specific behavior designed for an optimal experience. Consider the following design considerations when pinning a visualization to a dashboard.
+Log Analytics visualizations pinned to a dashboard have some specific behavior designed for an optimal experience. Review the following design considerations when pinning a visualization to a dashboard.
 
-**Query time scope - 30-day limit**
+### Query time scope - 30-day limit
 
 As dashboards may contain multiple visualizations from multiple queries, the time scope for a single pinned query is limited to 30 days. A single query may only run on a time span smaller or equal to 30 days. This limitation is to ensure a reasonable dashboard load time.
 
-**Query data values - 25 values and other grouping** 
+### Query data values - 25 values and other grouping
 
 Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. 
 
-**Dashboard refresh on load**
+### Dashboard refresh on load
 
 Dashboards are refreshed upon load. All queries related to dashboard-pinned Log Analytics visualizations are executed and the dashboard is refreshed once it loads.
 
 ## Next steps
+
 [Create and share dashboards in Log Analytics](../learn/tutorial-logs-dashboards.md)

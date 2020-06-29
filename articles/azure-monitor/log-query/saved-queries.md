@@ -10,13 +10,13 @@ ms.date: 06/16/2020
 
 # Saved queries in Azure Monitor Log Analytics
 
-Log Analytics now offers sets of example queries that you can run on their own or use as a starting point for your own queries. This article describes example queries and how to use them.
+Log Analytics offers sets of example queries that you can run on their own or use as a starting point for your own queries. This article describes example queries and how to use them.
 
 If you aren't familiar with Log Analytics or the KQL query language, example queries are a great way to start. They can provide instant insight into a resource and provide a nice way to start learning and using KQL, thus shortening the time it takes to start using Log Analytics. We have collected and curated over 250 example queries designed to provide you instant value and that number of example queries is continually growing.
 
 ## In-context queries
 
-It's important to understand that the new example query experience shows results in context. The system automatically shows only queries relevant to the scope you have selected.
+The new experience filters and suggests queries in context. In other words, the system automatically shows only queries relevant to the scope you have selected.
 
 - For a **single resource** – queries are filtered according to the resource type.
 - For a **resource group** - queries are filtered according to the resources in the specific resource group.
@@ -33,7 +33,7 @@ You can get to example queries from two different locations.
 
 ### Example query dialog
 
-When you first enter the Log Analytics experience, you can click on **Example queries** in the upper right and bring up a large window that overlays the rest of the Log Analytics query explorer.
+When you first enter the Log Analytics experience, the *Example queries dialog* is shown automatically.  It can also be accessed by clicking in the upper right of the screen on **Example queries**.
 
 ![Sidebar](media/saved-queries/sidebar-2.png)
 
@@ -91,9 +91,9 @@ You can also filter the queries according to the groupby values mentioned earlie
 
 The filter and group by functionality are designed to work in tandem. They provide flexibility in how queries are arranged. For example, if you using a resource group with multiple resources, you may want to filter down to a specific resource type and arrange the resulting queries by topic.
 
-## Turning sample queries on and off
+## Sample query dialog appearance behavior
 
-If you are a KQL pro and prefer to get directly to the query editor, you can toggle the new query dialog "off". With the toggle off, the example query dialog does not load when Log Analytics screen loads.
+If you are a KQL pro and prefer to get directly to the query editor, you can toggle the the query dialog "off". With the toggle off, the example query dialog does not load when Log Analytics screen loads.
 
 ![Examples On-Off](media/saved-queries/examples-on-off.png)
 
