@@ -20,7 +20,7 @@ Azure Cosmos DB transparently replicates your data across all the Azure regions 
 
 - Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
 
-- Each partition across all the regions is replicated. Each region contains all the data partitions of a Azure Cosmos container and can accept writes and serve reads.  
+- Each partition across all the regions is replicated. Each region contains all the data partitions of an Azure Cosmos container and can accept writes and serve reads.  
 
 If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. In addition to providing low latency data access and scaling write/read throughput across the regions associated with your Azure Cosmos account, having more regions (higher *N*) further improves availability.  
 
@@ -58,7 +58,7 @@ For the rare cases of regional outage, Azure Cosmos DB makes sure your database 
 ### Multi-region accounts with a single-write region (read region outage)
 
 - During a read region outage, Azure Cosmos accounts using any consistency level or strong consistency with three or more read regions will remain highly available for reads and writes.
-- Azure Cosmos accounts using strong consistency with two or fewer read regions(which includes the read & write region) will lose write availability during a read region outage but will maintain read availability for remaining regions.
+- Azure Cosmos accounts using strong consistency with two or fewer read regions (which includes the read & write region) will lose write availability during a read region outage but will maintain read availability for remaining regions.
 - The impacted region is automatically disconnected and will be marked offline. The [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md) will redirect read calls to the next available region in the preferred region list.
 - If none of the regions in the preferred region list is available, calls automatically fall back to the current write region.
 - No changes are required in your application code to handle read region outage. When the impacted read region is back online it will automatically sync with the current write region and will be available again to serve read requests.
