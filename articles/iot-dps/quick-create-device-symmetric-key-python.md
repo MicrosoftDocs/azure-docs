@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Use symmetric key to provision a device to Azure IoT Hub using Python
-description: In this quickstart you will use the Azure IoT Python SDK to provision a symmetric key device to an IoT hub using the Azure IoT Hub Device Provisioning Service (DPS)
+description: In this quickstart, you will use the Azure IoT Python SDK to provision a symmetric key device to an IoT hub using the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 06/29/2020
@@ -85,7 +85,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prepare the device provisioning code
 
-In this section, you will add the following four environment variables which will be used as parameters for the device provisioning sample code for your symmetric key device. 
+In this section, you will add the following four environment variables that will be used as parameters for the device provisioning sample code for your symmetric key device. 
 
 * `PROVISIONING_HOST`
 * `PROVISIONING_IDSCOPE`
@@ -94,11 +94,13 @@ In this section, you will add the following four environment variables which wil
 
 The provisioning code will contact the DPS instance based on these variables in order to authenticate your device. The device will then be assigned to an IoT hub already linked to the DPS instance based on the individual enrollment configuration. Once provisioned, the sample code will send some test telemetry to the IoT hub.
 
-1. In to the [Azure portal](https://portal.azure.com), on your Device Provisioning Service menu, select **Overview** and copy your _Service Endpoint_ and _ID Scope_. You will use these values for the `PROVISIONING_HOST` and `PROVISIONING_IDSCOPE` environment variables.
+1. In the [Azure portal](https://portal.azure.com), on your Device Provisioning Service menu, select **Overview** and copy your _Service Endpoint_ and _ID Scope_. You will use these values for the `PROVISIONING_HOST` and `PROVISIONING_IDSCOPE` environment variables.
 
     ![Service information](./media/quick-create-device-symm-key-python/extract-dps-endpoints.png)
 
-2. In your Python command prompt, add the environment variables using the values you just copied. The following is only an example:
+2. In your Python command prompt, add the environment variables using the values you copied. 
+
+    The following commands are examples to show command syntax. Make sure to use your correct values.
 
     ```cmd/sh
     set PROVISIONING_HOST=test-dps-docs.azure-devices-provisioning.net
@@ -108,7 +110,9 @@ The provisioning code will contact the DPS instance based on these variables in 
     set PROVISIONING_IDSCOPE=0ne00000A0A
     ```
 
-3. In your Python command prompt, add the environment variables for the registration ID and symmetric key you copied from the individual enrollment in the previous section. The following is only an example:
+3. In your Python command prompt, add the environment variables for the registration ID and symmetric key you copied from the individual enrollment in the previous section. 
+
+    The following commands are examples to show command syntax. Make sure to use your correct values.
 
     ```cmd/sh
     set PROVISIONING_REGISTRATION_ID=symm-key-python-device-008
