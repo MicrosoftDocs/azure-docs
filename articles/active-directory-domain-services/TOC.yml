@@ -37,6 +37,8 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Replica sets
+      href: concepts-replica-sets.md
     - name: Forests and trusts
       items:
         - name: Resource forests
