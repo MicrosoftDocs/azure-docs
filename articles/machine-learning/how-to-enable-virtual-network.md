@@ -63,10 +63,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 
 ## Machine Learning studio
 
-If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
-
-For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
-
 If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data. Failing to grant studio access will disable the following operations:
 
 * Preview data in the studio.
@@ -127,6 +123,12 @@ To access data stored in an Azure SQL Database using managed identity, you must 
 
 After you create a SQL contained user, grant permissions to it by using the [GRANT T-SQL command](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
+### Connect to the studio
+
+If you are accessing the studio from a resource inside of a virtual network (for example, a compute instance or virtual machine), you must allow outbound traffic from the virtual network to the studio. 
+
+For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
+
 ## Use a storage account for your workspace
 
 > [!IMPORTANT]
@@ -167,7 +169,7 @@ To use an Azure storage service for the workspace in a virtual network, use the 
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
-## Use datastores and datasets with the SDK
+## Use datastores and datasets
 
 This section covers datastore and dataset usage for the SDK. For more information on using datastores in the studio, see the section [Machine Learning studio](#machine-learning-studio).
 
