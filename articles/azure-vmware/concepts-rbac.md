@@ -24,7 +24,7 @@ You can view the privileges granted to the AVS CloudAdmin role on your AVS priva
 
    :::image type="content" source="media/rbac-cloudadmin-role-privileges.png" alt-text="How to view the CloudAdmin role privileges in vSphere Client":::
 
-The CloudAdmin role in AVS has the following privileges on vCenter. Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) listed below for a detailed discussed and explanation of each privilege.
+The CloudAdmin role in AVS has the following privileges on vCenter. Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
 
 | Privilege | Description |
 | --------- | ----------- |
