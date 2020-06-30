@@ -5,14 +5,14 @@ services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: tutorials 
+ms.topic: tutorial 
 ms.date: 06/27/2020
 ms.author: punagpal
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub
 
-IoT Connector provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy IoMT connector (preview) using Azure portal](iomt-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iomt-fhir-portal-quickstart#connect-your-devices-to-iot) to IoT Connector. IoT connector can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to IoT connector.
+IoT Connector provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy IoMT connector (preview) using Azure portal](iomt-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iomt-fhir-portal-quickstart.md#connect-your-devices-to-iot) to IoT Connector. IoT connector can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to IoT connector.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ IoT connector uses an Azure Event Hub instance under the hood to receive device 
 
 ## Connect Azure IoT Hub with the IoT connector (preview)
 
-Azure IoT Hub supports a feature called [message routing](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. IoT Connector leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
+Azure IoT Hub supports a feature called [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. IoT Connector leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
 
 Setting up a message routing consists of two steps.
 
@@ -61,7 +61,8 @@ Here is the list of parameters to use with the command to create an endpoint:
 |RouteName|route-name|A name you want to assign to message route being created.|
 |Source|source-type|Type of data to send to the endpoint. Use literal value of "DeviceMessages" for PowerShell and "devicemessages" for CLI.|
 
-> [!NOTE] Azure portal cannot be used to [create message routing](https://docs.microsoft.com/en-us/azure/iot-hub/tutorial-routing) because IoT Connector's Event Hub is not hosted on the customer subscription, hence it won't be visible to you on the portal. Though, once the endpoint and route are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
+> [!NOTE] 
+> Azure portal cannot be used to [create message routing](https://docs.microsoft.com/azure/iot-hub/tutorial-routing) because IoT Connector's Event Hub is not hosted on the customer subscription, hence it won't be visible to you on the portal. Though, once the endpoint and route are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
 
 ## Send device message to IoT Hub
 
