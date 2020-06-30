@@ -38,7 +38,7 @@ In the **New Project** dialog, click **Visual C# > Windows Classic Desktop > Con
 
 Name the application **MyConsoleSearchApp**, and then click **OK**.
 
-## Add the JSON.net Nuget package to the project
+## Add the JSON.net NuGet package to the project
 
 JSON.net allows you to work with the JSON responses returned by the API. Add its NuGet package to your project:
 
