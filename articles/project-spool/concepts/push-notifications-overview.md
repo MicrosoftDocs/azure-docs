@@ -1,28 +1,35 @@
+# Notifications
 
-# Integrating push notifications in your solution
+Azure Communication Services provides a number of mechanisms for your clients and services to be notified of important application events. Those three options are briefly described here with links for more detailed information. 
 
-## About 
+## SDK Client Notifications
 
-Push notification integration is included in the calling SDK. These are not the visual push notifications that pop a UI to the end user. These notifications are silent notifications that are delivered to the application in the background. THe purpose for these notifications is to notify the client application that there is an incoming call it needs to receive.
+When an application is active and using the Calling or Chat SDKs, those SDKs provide events for actions such as Call Ended and Chat Message Received. These SDK events allow for a real-time foreground application experience with limited polling. These events are powered by non-public client-to-service connections managed internally by these SDKs. All you need to do is integrate these SDK capabilities into your application business logic and presentation layer. 
 
-In order to improve reliability of your calls and ensure the application is able to receive incoming call, you will need to register your client application(s) for push notification. Azure Communication Services relies on Azure Notification Hubs to deliver notifications to the different endpoints. 
+To learn more about the events available in the Calling and Chat SDKs, please see the respective tutorials for these services (TBD).
 
-## Registering your app in the Azure Portal
+## Platform Push Notifications
 
-1. login to the azure portal; navigate to your communication resource
+When an application is in the background and non-active, you still may want to pop a push notification on the end-user device. The classic example is call initiation, when User A wants to start a voice or video call with User B. User B is not likely going to have the application idly open before the call starts. These push notifications need to use platform systems such as Apple Push Notification Service, Google Firebase, or the Windows Notification Service (WNS).
 
-2. in the resource menu, navigate to the push notifications blade
+Azure Communication Services supports two patterns for implementing platform push notifications: 
 
-### APNS registration
-You will need to enter in the following items:
- * **Token** - this is the provider authentication token, obtained through your developer account
- * **Key ID** - This is a 10-character key identifier (kid) key, obtained from your developer account
- * **Bundle ID** - The name of the application of BundleID
- * **Team ID** The issuer (iss) registered claim key; the value is a 10-character TeamId, obtained from your developer account
- * **Endpoint** The endpoint of this credential (i.e. development or production)
+## Push Notifications through Azure EventGrid connections
 
-### GCM Registration
-Enter your GCM API Key found in your developer account.
+All ACS events are fired into Azure EventGrid, where they can be ingested into Azure Data Explorer, fire Webhooks, and otherwise be connected to your own systems. You can build your own service or use server-less computing (e.g. Azure Functions) to process events and fire into platform push notifications. This allows for a high degree of customization in the platform push notification pipeline, but you have to operate the connection between Event Grid and the platform service.
+
+For more information see the topic on [ACS and EventGrid](acs-event-grid.md).
+
+### Direct Delivery of Platform Push Notifications
+A subset of ACS events can be configured to fire directly into Apple, Firebase, and Windows push notification channels. This requires you to provide platform configuration to ACS through the Azure portal. This subset of client-oriented events, such as call initiation, are available through this direct pathway to simple implementation, but customization of the notification payload is limited.
+
+These events are a subset of what is available via EventGrid. Even if you are using this direct  ACS -> platform functionality, we recommend you use EventGrid and ingest events into Azure Data Explorer (Kusto) or another data platform so you retain the ability to search event history and debug issues.
+
+For more information see the topic on *Direct Delivery of Platform Push Notifications*.
+
+## Service to Service Webhooks
+Your services might want to receive notifications of ACS activity. The common pattern for service to service notifications is Webhooks, where the initiating service (ACS) calls an HTTPS resource you specify.
+
+Webhooks are easily configured for ACS activity using Azure EventGrid integration. For more information see the topic on [ACS and EventGrid](acs-event-grid.md).
 
 
-## Related content
