@@ -84,12 +84,7 @@ This installer creates a scheduled task on the device system that runs in the us
 
 ## 10. Configure group policy to allow device registration
 
-* Create a group policy object in your Active Directory--if not already created.
-* Name it (ex- Hybrid Azure AD join).
-* Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration
-* Enable:  Register domain-joined computers as devices
-* Apply and click OK.
-* Link the GPO to the location of your choice (organizational unit, security group, or to the domain for all devices).
+Please see https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-control about how to allow Hybrid Azure AD Join for individual device.
 
 >[!NOTE]
 >For 2012R2 the policy settings are at **Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers**
