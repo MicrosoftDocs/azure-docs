@@ -14,7 +14,7 @@ ms.date: 06/22/2020
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance is a managed cloud-based workstation for data scientists. 
+An Azure Machine Learning compute instance is a managed cloud-based workstation for data scientists.
 
 Compute instances make it easy to get started with Azure Machine Learning development as well as provide management and enterprise readiness capabilities for IT administrators.  
 
@@ -153,7 +153,7 @@ You can also create an instance
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation. is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
 
-## Compute Target
+## Compute target
 
 Compute instances can be used as a [training compute target](concept-compute-target.md#train) similar to Azure Machine Learning compute training clusters. 
 
@@ -161,8 +161,12 @@ A compute instance:
 * Can run multiple jobs in parallel.
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
-.
+* Can run multiple small jobs in parallel (preview).  Two jobs per core can run in parallel while the rest of the jobs are queued.
+
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
+
+> [!NOTE]
+> Distributed training jobs are not supported on compute instance.  Use (compute clusters](how-to-set-up-training-targets.md#amlcompute) for distributed training.
 
 For more details, see the notebook [train-on-computeinstance](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). This notebook is also available in the studio **Samples** folder in *training/train-on-computeinstance*.
 
