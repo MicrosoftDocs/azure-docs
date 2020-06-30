@@ -3,7 +3,7 @@ title: Start an Azure Automation runbook from a webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/03/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
 ---
 # Start a runbook from a webhook
@@ -77,9 +77,13 @@ Now we pass the following JSON object in the UI for the `WebhookData` parameter.
 
 The security of a webhook relies on the privacy of its URL, which contains a security token that allows the webhook to be invoked. Azure Automation does not perform any authentication on a request as long as it is made to the correct URL. For this reason, your clients should not use webhooks for runbooks that perform highly sensitive operations without using an alternate means of validating the request.
 
-You can include logic within a runbook to determine if it is called by a webhook. Have the runbook check the `WebhookName` property of the `WebhookData` parameter. The runbook can perform further validation by looking for particular information in the `RequestHeader` and `RequestBody` properties.
+Consider the following strategies:
 
-Another strategy is to have the runbook perform some validation of an external condition when it receives a webhook request. For example, consider a runbook that is called by GitHub any time there's a new commit to a GitHub repository. The runbook might connect to GitHub to validate that a new commit has occurred before continuing.
+* You can include logic within a runbook to determine if it is called by a webhook. Have the runbook check the `WebhookName` property of the `WebhookData` parameter. The runbook can perform further validation by looking for particular information in the `RequestHeader` and `RequestBody` properties.
+
+* Have the runbook perform some validation of an external condition when it receives a webhook request. For example, consider a runbook that is called by GitHub any time there's a new commit to a GitHub repository. The runbook might connect to GitHub to validate that a new commit has occurred before continuing.
+
+* Azure Automation supports Azure virtual network service tags, specifically [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). You can use service tags to define network access controls on [network security groups](../virtual-network/security-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md) and trigger webhooks from within your virtual network. Service tags can be used in place of specific IP addresses when you create security rules. By specifying the service tag name **GuestAndHybridManagement**  in the appropriate source or destination field of a rule, you can allow or deny the traffic for the Automation service. This service tag does not support allowing more granular control by restricting IP ranges to a specific region.
 
 ## Create a webhook
 

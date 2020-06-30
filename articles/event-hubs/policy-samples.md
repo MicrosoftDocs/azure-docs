@@ -1,11 +1,8 @@
 ---
 title: Built-in policy definitions for Azure Event Hubs
 description: Lists Azure Policy built-in policy definitions for Azure Event Hubs. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
-author: spelluru
-ms.author: spelluru
-ms.service: event-hubs
 ms.custom: subject-policy-samples
 ---
 # Azure Policy built-in definitions for Azure Event Hubs
