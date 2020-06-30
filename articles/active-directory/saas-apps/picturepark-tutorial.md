@@ -106,9 +106,9 @@ To configure Azure AD single sign-on with Picturepark, perform the following ste
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
     ```http
-        https://<companyname>.current-picturepark.com`|
-        https://<companyname>.picturepark.com`|
-        https://<companyname>.next-picturepark.com`|
+        https://<companyname>.current-picturepark.com
+        https://<companyname>.picturepark.com
+        https://<companyname>.next-picturepark.com
     ```
 
 	> [!NOTE]
