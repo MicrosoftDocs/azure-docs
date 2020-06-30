@@ -257,7 +257,7 @@ Define a set of environment variables to be used in resource creations.
 ```bash
 PREFIX="aks-egress"
 RG="${PREFIX}-rg"
-LOC="westus2"
+LOC="eastus"
 PLUGIN=azure
 AKSNAME="${PREFIX}"
 VNET_NAME="${PREFIX}-vnet"
