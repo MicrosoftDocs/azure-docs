@@ -18,6 +18,23 @@ Azure Blockchain Service receives improvements on an ongoing basis. To stay up t
 
 ---
 
+## June 2020
+
+### Version upgrades
+
+- Quorum version upgrade to 2.6.0, this now enables customers to send signed private transactions. Please find more details [here](https://docs.goquorum.com/en/latest/Getting%20Started/api/)
+- Tessera version upgrade to 0.10.5
+
+### Contract Size and Transaction Size both increased to 128KB
+Type: Config change
+
+MaxCodeSize is now increased to 128KB, this would allow customers to deploy larger size smart contracts. To support this further, the txnSizeLimit is also increased to 128KB.  These config changes would apply to any new consortiums created on Azure Blockchain Service after June 19th 2020. 
+
+### TrieTimeout config change in Azure Blockchain Service 
+Type: Feature
+
+The TrieTimeout value has been reduced so that in-memory state is written to disk more frequently. This ensures faster recovery of a node in the rare case of a node crash.
+
 ## May 2020
 
 ### Version upgrades
@@ -39,6 +56,13 @@ Customers can sign private transactions outside of the account on the node.
 Two phases help optimize scenarios where a member is being created in a long existing consortium. The member infrastructure is provisioned in first phase. In the second phase, the member is synchronized with blockchain. Two-phase provisioning helps avoid member creation failure due to timeouts.
 
 ## Known issues
+
+### Quorum v2.6.0 crashes when eth.estimateGas function is used
+
+In Quorum v2.6.0, when any calls to eth.estimateGas function is made without providing the additional parameter, it throws "method handler crashed" exception. This issue has been notified to Quorum team and we are expecting a fix to be available by end of July 20. Meanwhile, we suggest to use the below workarounds
+ 
+1. We encourage you to move away from eth.estimateGas because it can hurt performance (refer [here](https://docs.microsoft.com/en-us/azure/blockchain/service/whats-new#calling-ethestimategas-function-reduces-performance)). Always pass gas value explicitly to every transaction. Failing to pass gas value explicitly, most libraries will call eth.estimateGas behind the scenes which will cause a crash in Quorum v2.6.0.
+2. In case you need to call eth.estimateGas, pass the additional parameter "value" as 0 for your call to succeed, this is a workaround suggested by Quorum. 
 
 ### Mining stops if fewer than four validator nodes
 
