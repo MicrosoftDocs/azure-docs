@@ -14,7 +14,7 @@ ms.author: xiaojul
 
 # Set up web endpoints
 
-In this article, you learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You complete the following tasks:
+In this article, you will learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You will complete the following tasks:
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application

@@ -140,5 +140,6 @@ For official Azure documentation about creating a service principal, see:
 * [Create a service principal by using Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 * [Create a service principal by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 
-### Feedback
+### Suggestions
+
 Do you have any feedback for us about integration with Azure Monitor for VMs Map feature or this documentation? Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote on existing suggestions.
