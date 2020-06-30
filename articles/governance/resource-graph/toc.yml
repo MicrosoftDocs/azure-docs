@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Run your first query - Azure portal
+  - name: Run your first query - Portal
     displayName: portal, resource, graph, explorer
     href: ./first-query-portal.md
   - name: Run your first query - Azure CLI
@@ -26,6 +26,9 @@
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
     href: ./first-query-python.md
+  - name: Create a shared query - Azure CLI
+    displayName: extension, docker, queries
+    href: ./shared-query-azure-cli.md
   - name: Deploy a shared query - ARM template
     displayName: resource manager, queries
     href: ./shared-query-template.md
