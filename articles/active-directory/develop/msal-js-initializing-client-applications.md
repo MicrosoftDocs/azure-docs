@@ -101,7 +101,7 @@ msalInstance.handleRedirectPromise().then((tokenResponse) => {
 
 ### `handleRedirectPromise`
 
-Use [handleRedirectPromise][msal-js-handleredirectpromise] when your application uses the redirect flows and needs to know when the page is ready (that is, when the processing of any redirect responses is complete). When using the redirect flows, `handleRedirectPromise` should be run on every page load.
+Invoke [handleRedirectPromise][msal-js-handleredirectpromise] when your application uses the redirect flows. When using the redirect flows, `handleRedirectPromise` should be run on every page load.
 
 There are three possible outcomes from the promise:
 
