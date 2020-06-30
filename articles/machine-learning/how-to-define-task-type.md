@@ -3,8 +3,8 @@ title: Define a machine learning task for an automated machine learning run
 titleSuffix: Azure Machine Learning
 description: Learn how to define a machine learning task for an automated machine learning run
 services: machine-learning
-author: RachelKellam
-ms.author: rakellam
+author: nibaccam
+ms.author: nibaccam
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
