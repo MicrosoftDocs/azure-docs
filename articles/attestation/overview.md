@@ -12,11 +12,11 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure Attestation
 
-Microsoft Azure Attestation is a new solution for attesting Trusted Execution Environments (TEEs) such as Software Guard Extensions (SGX) enclaves and Virtualization-based Security (VBS) enclaves. Enclave attestation is a process for verifying that an enclave is secure and trustworthy.
+Microsoft Azure Attestation is a new solution for attesting Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enclave attestation is a process for verifying that an enclave is secure and trustworthy.
 
-Attestation, the central tenet of Azure Attestation, is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation. 
+Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation. 
 
-Azure Attestation enables cutting-edge security paradigms such as Confidential Computing and Intelligent Edge protection. These innovative approaches take cloud security to a new level by introducing data encryption while in-use (in memory). Such capabilities allow customers to pave their path to the Azure cloud. As a result, customers can tap into disruptive business models which hitherto required highly scalable compute resources and uncompromising trust, an often-impossible combination. Concretely, customers have been requesting the ability to independently verify the location of a machine, the posture of a virtual machine (VM) on that machine, and the environment within which enclaves are running on that VM. Azure Attestation will empower these and many additional customer requests. 
+Azure Attestation enables cutting-edge security paradigms such as [Azure Confidential computing](https://docs.microsoft.com/en-us/azure/confidential-computing/overview) and Intelligent Edge protection. These innovative approaches take cloud security to a new level by introducing data encryption while in-use (in memory). Such capabilities allow customers to pave their path to the Azure cloud. As a result, customers can tap into disruptive business models which hitherto required highly scalable compute resources and uncompromising trust, an often-impossible combination. Concretely, customers have been requesting the ability to independently verify the location of a machine, the posture of a virtual machine (VM) on that machine, and the environment within which enclaves are running on that VM. Azure Attestation will empower these and many additional customer requests. 
 
 Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (e.g., relying parties, auditing authorities etc).
 
@@ -35,7 +35,7 @@ Protection of data using ACC is accomplished in two ways:
 
 ## Azure Attestation can run in a TEE
 
-Azure Attestation is critical to Confidential Computing scenarios, as Azure Attestation performs the following actions:
+Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
 - Verifies if the enclave evidence is valid 
 - Evaluates the enclave evidence against a customer-defined policy 
 - Manages and stores tenant specific policies
@@ -43,9 +43,9 @@ Azure Attestation is critical to Confidential Computing scenarios, as Azure Atte
 
 Azure Attestation is built to run in two types of environments:
 - Azure Attestation running in an SGX enabled TEE
-- Azure Attestation running in a non TEE which is currently supported with Business continuity and disaster recovery (BCDR) capability
+- Azure Attestation running in a non TEE
 
-Azure Attestation customers have expressed a requirement for Microsoft to be operationally out of trusted computing base (TCB). This is to prevent Microsoft entities such as VM admins, Host admins and Microsoft developers from modifying attestation requests, policies and Azure Attestation-issued tokens. To meet the needs of these customers, Azure Attestation is also built in a way to run in TEE where features of Azure Attestation like quote validation, token generation, token signing and policy management are moved into a SGX enclave
+Azure Attestation customers have expressed a requirement for Microsoft to be operationally out of trusted computing base (TCB). This is to prevent Microsoft entities such as VM admins, host admins and Microsoft developers from modifying attestation requests, policies and Azure Attestation-issued tokens. With a goal to meet the needs of these customers, Azure Attestation is also built in a way to run in TEE where features of Azure Attestation like quote validation, token generation and token signing are moved into an SGX enclave.
 
 ## Why use Azure Attestation
 
@@ -76,15 +76,15 @@ The below table describes Azure Attestation rollout plan in different regions.
 
 ## BCDR support
 
-Business Continuity and Disaster Recovery (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region. 
+[Business Continuity and Disaster Recovery](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region. 
 
 Below are the regions that are supported by BCDR
 - East US 2 => Paired with Central US 
 - Central US => Paired with East US 2 
 
-Service fabric clusters are deployed in two regions and will serve completely independently under normal circumstances. In case of fault/outage of one region, below will be the workflow: 
+Clusters deployed in two regions will serve completely independently under normal circumstances. In case of fault/outage of one region, below will be the workflow: 
 - Azure Attestation BCDR will provide seamless failover in which customers do not need to take any extra step to recover
-- Azure Traffic Manager for the region will detect the health probe is degraded and switch the endpoint to paired region
+- [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager) for the region will detect the health probe is degraded and switch the endpoint to paired region
 - Existing connections will not work and will receive internal server error or timeout issues
 - All control plane operations will be blocked. Customers will not be able to create attestation providers and update policies in the primary region
 - All data plane operations which includes attest calls will continue to work in primary region
