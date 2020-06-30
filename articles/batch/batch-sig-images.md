@@ -1,14 +1,14 @@
 ---
-title: Use the Shared Image Gallery to create a custom pool
-description: Custom images are an efficient way to configure compute nodes to run your Batch workloads.
+title: Use the Shared Image Gallery to create a custom image pool
+description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/01/2020
 ms.custom: tracking-python
 ---
 
-# Use the Shared Image Gallery to create a custom pool
+# Use the Shared Image Gallery to create a custom image pool
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with a [Shared Image Gallery image](../virtual-machines/windows/shared-image-galleries.md).
 
 ## Benefits of the Shared Image Gallery
 
@@ -42,9 +42,9 @@ Using a Shared Image configured for your scenario can provide several advantages
 
 If you use an Azure AD application to create a custom image pool with a Shared Image Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
-## Prepare a custom image
+## Prepare a Shared Image
 
-In Azure, you can prepare a custom image from:
+In Azure, you can prepare a shared image from:
 
 - Snapshots of an Azure VM's OS and data disks
 - A generalized Azure VM with managed disks

@@ -2,7 +2,7 @@
 title: Provision a custom pool from a managed image
 description: Create a Batch pool from a managed image resource to provision compute nodes with the software and data for your application.
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 07/01/2020
 ---
 
 # Use a managed image to create a pool of virtual machines
@@ -21,7 +21,7 @@ To create a custom image for your Batch pool's virtual machines (VMs), you can u
 
 - **Azure Active Directory (Azure AD) authentication**. The Batch client API must use Azure AD authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
-## Prepare a custom image
+## Prepare a managed image
 
 In Azure, you can prepare a managed image from:
 
@@ -52,7 +52,7 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
-## Create a pool from a custom image
+## Create a pool from a managed image
 
 Once you have found the resource ID of your managed image, create a custom image pool from that image. The following steps show you how to create a custom image pool using either Batch Service or Batch Management.
 
