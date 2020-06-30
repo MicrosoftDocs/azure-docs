@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Reply URL** text box, type a URL using any one of the following pattern:
 
-    ```https
+    ```http
     https://microsoft.hyperanna.com/userservice/auth/saml
     https://anna.hyperanna.com/userservice/auth/saml
     ```
