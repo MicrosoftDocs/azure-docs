@@ -454,6 +454,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
 var items = rootDirectory.ListFilesAndDirectories();
 ```
+---
 
 ### Restore file shares or files from share snapshots
 
