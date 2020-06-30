@@ -426,7 +426,7 @@ var snapshotShare = myShare.Snapshot();
 
 ### List share snapshots
 
-The following example lists the share snapshots on a share.
+The following example lists the snapshots on a share.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -439,9 +439,15 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 ---
 
-### Browse files and directories within share snapshots
+### List files and directories within share snapshots
 
 The following example browses files and directory within share snapshots.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListSnapshotContents":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -449,11 +455,17 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-### List shares and share snapshots and restore file shares or files from share snapshots
+### Restore file shares or files from share snapshots
 
 Taking a snapshot of a file share enables you to recover individual files or the entire the file share in the future.
 
 You can restore a file from a file share snapshot by querying the share snapshots of a file share. You can then retrieve a file that belongs to a particular share snapshot. Use that version to either directly read and compare or to restore.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_RestoreFileFromSnapshot":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -477,14 +489,22 @@ sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
 string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
 fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 ```
+---
 
 ### Delete share snapshots
 
 The following example deletes a file share snapshot.
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_DeleteSnapshot":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
+---
 
 ## Troubleshoot Azure Files by using metrics<a name="troubleshooting-azure-files-using-metrics"></a>
 
@@ -493,6 +513,12 @@ Azure Storage Analytics now supports metrics for Azure Files. With metrics data,
 You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation with the REST API or one of its analogs in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 First, add the following `using` directives to your *Program.cs* file, along with the ones you added above:
 
@@ -543,6 +569,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.MetricsLevel);
 Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
+---
 
 If you encounter any problems, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
