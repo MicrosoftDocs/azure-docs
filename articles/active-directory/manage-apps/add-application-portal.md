@@ -77,7 +77,7 @@ NEXT STEP IS TO CONFIGURE USER SIGN-IN PROPERTIES
 
 ## Next steps
 
-- [Configure an app](add-application-portal-configuration.md)
+- [Configure an app](add-application-portal-configure.md)
 - [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
 - [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
 - [Configure linked sign-on](configure-linked-sign-on.md)

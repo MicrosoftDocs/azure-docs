@@ -7,7 +7,7 @@
        href: what-is-application-management.md
   - name: Quickstarts
     items:
-    - name: View your enterprise apps
+    - name: View your apps
       href: view-applications-portal.md
     - name: Add an app
       href: add-application-portal.md
