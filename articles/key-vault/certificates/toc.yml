@@ -44,7 +44,7 @@
 - name: Samples
   items:
   - name: Key Vault Code Samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-key-vault
+    href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
     
 - name: How-to guides 
   items:
