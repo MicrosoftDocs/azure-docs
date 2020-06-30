@@ -78,21 +78,21 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 10. The job graph node displays the following information of each stage:
 
-   * ID.
+    * ID.
 
-   * Name or description.
+    * Name or description.
 
-   * Total task number.
+    * Total task number.
 
-   * Data read: the sum of input size and shuffle read size.
+    * Data read: the sum of input size and shuffle read size.
 
-   * Data write: the sum of output size and shuffle writes size.
+    * Data write: the sum of output size and shuffle writes size.
 
-   * Execution time: the time between start time of the first attempt and completion time of the last attempt.
+    * Execution time: the time between start time of the first attempt and completion time of the last attempt.
 
-   * Row count: the sum of input records, output records, shuffle read records and shuffle write records.
+    * Row count: the sum of input records, output records, shuffle read records and shuffle write records.
 
-   * Progress.
+    * Progress.
 
      ![view completed job](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
