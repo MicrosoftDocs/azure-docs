@@ -39,9 +39,9 @@ Use the following steps to install the connector without registering it:
 1. Open a command prompt.
 2. Run the following command, in which the /q means quiet installation. A quiet installation doesn't prompt you to accept the End-User License Agreement.
 
-        ```
-        AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
-        ```
+  ```
+  AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+  ```
 
 ## Register the connector with Azure AD
 There are two methods you can use to register the connector:
