@@ -79,9 +79,9 @@ The admin can choose to enable the user to use passwordless phone sign-in, or th
 
 ### AD FS integration
 
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click "Use your password instead." This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. 
+When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to AD FS for sign-in verification without the user taking an additional step to click "Use your password instead." This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. 
 
-If a user has an unanswered passwordless phone sign-in verification pending and attempts to sign in again, the user may be taken to ADFS to enter a password instead.  
+If a user has an unanswered passwordless phone sign-in verification pending and attempts to sign in again, the user may be taken to AD FS to enter a password instead.  
 
 ### Azure MFA server
 

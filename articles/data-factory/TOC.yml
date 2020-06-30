@@ -26,7 +26,7 @@
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Security - Enable Customer Managed Key Encryption
-    href: quickstart-enable-customer-managed-key.md
+    href: enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -576,7 +576,7 @@
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
   - name: Monitor and manage
     items:
     - name: Monitor visually

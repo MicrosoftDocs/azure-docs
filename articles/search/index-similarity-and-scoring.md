@@ -33,7 +33,7 @@ A scoring profile is part of the index definition, composed of weighted fields, 
 
 <a name="scoring-statistics"></a>
 
-## Scoring statistics and sticky sessions (preview)
+## Scoring statistics and sticky sessions
 
 For scalability, Azure Cognitive Search distributes each index horizontally through a sharding process, which means that portions of an index are physically separate.
 
@@ -42,14 +42,14 @@ By default, the score of a document is calculated based on statistical propertie
 If you prefer to compute the score based on the statistical properties across all shards, you can do so by adding *scoringStatistics=global* as a [query parameter](https://docs.microsoft.com/rest/api/searchservice/search-documents) (or add *"scoringStatistics": "global"* as a body parameter of the [query request](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
 Using scoringStatistics will ensure that all shards in the same replica provide the same results. That said, different replicas may be slightly different from one another as they are always getting updated with the latest changes to your index. In some scenarios, you may want your users to get more consistent results during a "query session". In such scenarios, you can provide a `sessionId` as part of your queries. The `sessionId` is a unique string that you create to refer to a unique user session.
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2020-06-30&search=[search term]
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
@@ -67,6 +67,37 @@ For now, you can specify which similarity ranking algorithm you would like to us
 The following video segment fast-forwards to an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+<a name="featuresMode-param"></a>
+
+## featuresMode parameter (preview)
+
+[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) requests have a new [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) parameter that can provide additional detail about relevance at the field level. Whereas the `@searchScore` is calculated for the document all-up (how relevant is this document in the context of this query), through featuresMode you can get information about individual fields, as expressed in `@search.features`:
+
++ Number of unique tokens found in the field
++ Similarity score, or a measure of how similar the content of the field is, relative to the query term
++ Term frequency, or the number of times the query term was found in the field
+
+For a query that targets the "description" and "title" fields, a response that includes `@search.features` might look like this:
+
+```json
+"value": [
+ {
+    "@search.score": 5.1958685,
+    "@search.features": {
+        "description": {
+            "uniqueTokenMatches": 1.0,
+            "similarityScore": 0.29541412,
+            "termFrequency" : 2
+        },
+        "title": {
+            "uniqueTokenMatches": 3.0,
+            "similarityScore": 1.75451557,
+            "termFrequency" : 6
+        }
+```
+
+You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
 
 ## See also
 
