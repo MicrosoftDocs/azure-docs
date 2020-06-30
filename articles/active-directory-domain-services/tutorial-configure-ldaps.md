@@ -139,7 +139,7 @@ Before you can use the digital certificate created in the previous step with you
 
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
-    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
+    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain (The encryption algorithm has to be TripleDES-SHA1, AADDS sould not support it otherwise)
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
