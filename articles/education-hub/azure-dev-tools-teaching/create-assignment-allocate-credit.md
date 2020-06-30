@@ -25,13 +25,14 @@ does *not* currently check for a valid account in your organization or whether t
 Microsoft Account is current or valid. Carefully check each email address before
 continuing.
 
-   > [!IMPORTANT] Org Accounts are subject to their own policies, including whether an email
+> [!IMPORTANT] 
+> Org Accounts are subject to their own policies, including whether an email
 address from a domain other than the org is permitted (for example, adding
 student2@outlook.com to the @school.edu domain). Be sure to check these
 policies before adding new users.
 
 When an Org Account (for example, student1@school.edu) is added as RBAC in the
-Educator Sponsor Portal or the [Azure portal](http://portal.azure.com), Azure automatically sends email to the recipient. This email requires the user to accept the new Org Account and RBAC role prior to receiving access to the Subscription. If you're a course teaching assistant (TA) or professor, be sure to inform students of this so that their Subscription displays in the Azure portal as expected. The email should look similar to this:
+Educator Sponsor Portal or the [Azure portal](https://portal.azure.com), Azure automatically sends email to the recipient. This email requires the user to accept the new Org Account and RBAC role prior to receiving access to the Subscription. If you're a course teaching assistant (TA) or professor, be sure to inform students of this so that their Subscription displays in the Azure portal as expected. The email should look similar to this:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory Get Started" border="false":::
 
