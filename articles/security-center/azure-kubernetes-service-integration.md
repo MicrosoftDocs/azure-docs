@@ -59,7 +59,7 @@ Using the two services together provides:
 
 As mentioned above, the optional Kubernetes bundle provides protections at the cluster level, the Log Analytics agent of Azure Security Center standard tier protect your nodes. 
 
-We recommend deploying both for the most complete protection possible. Autoprovisioning is available for the Log Analytics agent to all your nodes unless they're hosted on a virtual machine scale set.  
+We recommend deploying both for the most complete protection possible. Autoprovisioning is available for the Log Analytics agent to all your nodes, including those that are hosted on virtual machine scale sets.  
 
 If you choose not to install the agent on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
