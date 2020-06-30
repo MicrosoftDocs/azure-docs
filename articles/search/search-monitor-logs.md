@@ -87,6 +87,49 @@ Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnosti
 
    ![AzureDiagnostics table](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics table")
 
+## Kusto query examples
+
+If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
+
+#### Example: List operations 
+
+Return a list of operations and a count of each one.
+
+```
+AzureDiagnostics
+| summarize count() by OperationName
+```
+
+#### Example: Correlate operations
+
+Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
+
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
+
+## Find query and index events
+
+Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+
+Most of the logged data is for read-only operations ([query monitoring](search-monitor-queries.md)). For other create-update-delete operations not captured in the log, you can query the search service for system information.
+
+| OperationName | Description |
+|---------------|-------------|
+| ServiceStats | This operation is a routine call to [Get Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
+| Query.Search |  Query requests against an index See [Monitor queries](search-monitor-queries.md) for information about logged queries.|
+| Indexing.Index  | This operation is a call to [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | This is an index created by the Import Data wizard. |
+| Indexers.Create | Create an indexer explicitly or implicitly through the Import Data wizard. |
+| Indexers.Get | Returns the name of an indexer whenever the indexer is run. |
+| Indexers.Status | Returns the status of an indexer whenever the indexer is run. |
+| DataSources.Get | Returns the name of the data source whenever an indexer is run.|
+| Indexes.Get | Returns the name of an index whenever an indexer is run. |
+
 ## Log schema
 
 Data structures that contain Azure Cognitive Search log data conform to the schema below. 
