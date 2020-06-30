@@ -77,7 +77,7 @@ If you configured your server for geographically redundant backups, a new server
 
    ![The "Azure Database for MySQL" option](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
-2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
+2. In the form's **Data source** button, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
    ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
