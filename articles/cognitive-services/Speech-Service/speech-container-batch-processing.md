@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/30/2020
 ms.author: aahi
 ---
 
@@ -16,7 +16,9 @@ ms.author: aahi
 
 Use the batch processing kit to complement and scale out workloads on Speech containers. Available as a container, this open-source utility helps facilitate batch transcription for large numbers of audio files, across any number of on-premises and cloud-based speech container endpoints. 
 
-The batch kit container is available for free [on GitHub](). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
+:::image type="content" source="media/containers/general-diagram.png" alt-text="A diagram showing an example batch-kit container workflow.":::
+
+The batch kit container is available for free on [GitHub](https://github.com/microsoft/batch-processing-kit) and   [Docker hub](https://hub.docker.com/r/batchkit/batch-processing-kit/tags). You are only [billed](speech-container-howto.md#billing) for the Speech containers you use.
 
 | Feature  | Description  |
 |---------|---------|
@@ -27,6 +29,14 @@ The batch kit container is available for free [on GitHub](). You are only [bille
 | Endpoint availability detection | If an endpoint becomes unavailable, the batch client will continue transcribing, using other container endpoints. After becoming available again, the client will automatically begin using the endpoint.   |
 | Endpoint hot-swapping | Add, remove, or modify Speech container endpoints during runtime without interrupting the batch progress. Updates are immediate. |
 | Real-time logging | Real-time logging of attempted requests, timestamps, and failure reasons, with Speech SDK log files for each audio file. |
+
+## Get the container image with `docker pull`
+
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download the latest batch kit container.
+
+```bash
+docker pull docker.io/batchkit/batch-processing-kit:latest
+```
 
 ## Endpoint configuration
 
