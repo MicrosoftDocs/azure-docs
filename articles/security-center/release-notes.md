@@ -120,9 +120,7 @@ Learn more in the [Network recommendations](recommendations-reference.md#recs-ne
 
 ### New policies for enabling threat protection and advanced data security
 
-The new policies below were added to the ASC Default initiative and are designed to assist with enabling thread protection or advanced data security for the relevant resource types.
-
-To deploy your automation configurations across your organization, use these built-in 'DeployIfdNotExist' Azure policies to create and configure [continuous export](continuous-export.md) and [workflow automation](workflow-automation.md) procedures:
+The new policies below were added to the ASC Default initiative and are designed to assist with enabling threat protection or advanced data security for the relevant resource types.
 
 The policies can be found in Azure policy:
 
