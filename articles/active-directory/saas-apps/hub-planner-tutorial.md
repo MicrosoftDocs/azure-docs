@@ -149,9 +149,9 @@ After the extension is enabled, you must enable SSO for your account.
 1. Go to **Settings**.
 1. In the side menu, select **Authentication**.
 1. Select **SSO (Single Sign-On)**.
-1. Enter additional authentication information as shown in the following screenshot, and then select **Save**.
+1. Enter additional authentication information as shown in the following image, and then select **Save**.
 
-![SSO settings](media/hub-planner-tutorial/sso-settings.png)
+![Screenshot of SSO settings](media/hub-planner-tutorial/sso-settings.png)
 
 ### Create Hub Planner test user
 
