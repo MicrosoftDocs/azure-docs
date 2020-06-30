@@ -119,7 +119,7 @@ This can happen if the physical server has Hyper-V virtualization enabled. On th
 
 ## Readiness category "Not ready" for my physical server
 
-Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Server Assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the machine will be marked “Not ready”.  [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) about the impact of no. of NICs on sizing.
+Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Server Assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the machine will be marked “Not ready”.  [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) about the impact of no. of NICs on sizing.
 
 
 ## Number of discovered NICs higher than actual for physical servers
