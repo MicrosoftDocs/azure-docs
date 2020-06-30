@@ -39,26 +39,21 @@ The second type of layer connects addition external sources of data to map to pr
         **Reference layer**
 
         Overlay an uploaded GeoJSON file on top of the map.
+
+        ![Reference layer on map](media/power-bi-visual/reference-layer-thumb.png)
     :::column-end:::
     :::column span="":::
         **Tile layer**
 
         Overlay a custom tile layer on top of the map.
+        
+        ![Tile layer on map](media/power-bi-visual/tile-layer-thumb.png)
     :::column-end:::
     :::column span="":::
         **Traffic layer**
 
-        Overlay real-time traffic data on the map.
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
-        ![Reference layer on map](media/power-bi-visual/reference-layer-thumb.png)
-    :::column-end:::
-    :::column span="":::
-        ![Tile layer on map](media/power-bi-visual/tile-layer-thumb.png)
-    :::column-end:::
-    :::column span="":::
+        Overlay real-time traffic information on the map.
+        
         ![Traffic layer on map](media/power-bi-visual/traffic-layer-thumb.png)
     :::column-end:::
 :::row-end:::
