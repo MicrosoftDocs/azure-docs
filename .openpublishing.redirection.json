@@ -446,8 +446,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-cli.md",
-      "redirect_url": "/azure//virtual-machines/windows/disk-encryption",
+      "source_path": "articles/virtual-machines/linux/disks-ade-sse-conversion-cli.md",
+      "redirect_url": "/azure//virtual-machines/linux/disk-encryption",
       "redirect_document_id": false
     },
     {
