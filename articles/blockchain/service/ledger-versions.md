@@ -42,7 +42,7 @@ To check the Quorum version on your Azure Blockchain Service member, you can fol
  
 
 ## Check genesis file content on your Azure Blockchain Service member resource 
-To check genesis file content of your blockchain node, you can run the below admin API either on geth console or through web library 
+To check genesis file content of your blockchain node, you can run the below admin API either on geth console or through web3 library 
 	
 	admin.nodeInfo.protocols 
 
