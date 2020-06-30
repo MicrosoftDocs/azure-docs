@@ -20,9 +20,9 @@ Altogether, you can track the following:
 * Service health
 * Storage: used and available, with counts for each content type relative to the quota allowed for the service tier
 * Query activity: volume, latency, and throttled or dropped queries
-* Indexing activity: (generally requires add-on diagnostic logging)
+* Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor
 
-A search service does not support per-user authentication natively, so no user identity is recorded in the logs.
+A search service does not support per-user authentication, so no identity information will be found in the logs.
 
 ## Built-in monitoring
 
@@ -73,6 +73,8 @@ The following illustration is for the free service, which is capped at 3 objects
 > [!NOTE]
 > Alerts related to storage are not currently available; storage consumption is not aggregated or logged into the **AzureMetrics** table in Azure Monitor. To get storage alerts, you would need to [build a custom solution](../azure-monitor/insights/solutions-creating.md) that emits resource-related notifications, where your code checks for storage size and handles the response.
 
+<a name="add-azure-monitor"></a>
+
 ## Add-on monitoring with Azure Monitor
 
 Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
@@ -85,7 +87,7 @@ Azure Monitor provides several storage options, and your choice determines how y
 * Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
 * Choose Log Analytics if you want to explore data through Kusto queries.
 
-Azure Monitor has its own billing structure. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
 
 ## Monitor user access
 
