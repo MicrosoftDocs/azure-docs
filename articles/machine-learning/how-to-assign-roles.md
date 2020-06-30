@@ -35,6 +35,10 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 
 For more information on specific built-in roles, see [Built-in roles for Azure](/azure/role-based-access-control/built-in-roles).
 
+### Azure Machine Learning specific roles
+
+Azure Machine Learning provides built-in roles specific to resources and tasks within a workspace. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
 ## Manage workspace access
 
 If you're an owner of a workspace, you can add and remove roles for the workspace. You can also assign roles to users. Use the following links to discover how to manage access:
@@ -59,10 +63,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 > [!NOTE]
 > "az ml workspace share" command does not work for federated account by Azure Active Directory B2B. Please use Azure UI portal instead of command.
 
-
-## Azure Machine Learning operations
-
-Azure Machine Learning built-in roles for many operations and tasks. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Create custom role
 
