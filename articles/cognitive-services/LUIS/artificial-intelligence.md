@@ -28,8 +28,8 @@ Natural language processing is a broader concept that handles any form of proces
 Natural language processing is available to your LUIS app in the following ways:
 * [Natural language understanding](#natural-language-understanding) (LUIS)
 * Configurable NLP aspects in LUIS:
-    * [Tokenization](luis-language-support#tokenization)
-    * Morphology through diacritics, punctuation, and word forms [API settings](luis-reference-application-settings)
+    * [Tokenization](luis-language-support.md#tokenization)
+    * Morphology through diacritics, punctuation, and word forms [API settings](luis-reference-application-settings.md)
 * Pre- or post-processing of the query utterance provided by other [Cognitive Services](../Welcome.md) such as:
     * [Translation](../translator/translator-info-overview.md)
 
