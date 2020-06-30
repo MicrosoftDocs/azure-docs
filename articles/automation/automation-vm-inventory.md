@@ -81,7 +81,7 @@ The following sections provide information about each property that can be confi
 |Enter Path     | The path to check for the file, for example, **/etc/*.conf**.       |
 |Path Type     | The type of item to be tracked. Values are File and Directory.        |
 |Recursion     | True if recursion is used when looking for the item to be tracked, and False otherwise.        |
-|Use Sudo     | True if sudo is used when checking for the item, and False otherwise.         |
+|Use sudo     | True if sudo is used when checking for the item, and False otherwise.         |
 |Links     | Value indicating how symbolic links are dealt with when traversing directories. Possible values are: <br> Ignore - Ignores symbolic links and does not include the files/directories referenced<br>Follow - Follows the symbolic links during recursion and also includes the files/directories referenced<br>Manage - Follows the symbolic links and allows alter the treatment of returned content      |
 
 ## Manage machine groups
