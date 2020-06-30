@@ -22,9 +22,9 @@ Management SDKs target a specific version of the Management REST API. For more i
 
 | SDK version | Corresponding REST API version | Feature addition or behavior change |
 |-------------|--------------------------------|-------------------------------------|
-| 3.0         | api-version=2020-30-20         | Adds endpoint protections           |
-| 2.0         | api-version=2019-10-01         | Usability improvements
-| 1.0         | api-version=2015-08-19         | First version                       |
+| [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Adds endpoint protections           |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements
+| [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | First version                       |
 
 ## How to upgrade
 
