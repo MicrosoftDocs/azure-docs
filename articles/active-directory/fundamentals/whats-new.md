@@ -56,7 +56,7 @@ The user risk condition requires Azure AD Premium P2 because it uses Azure Ident
 **Service category:** Enterprise Apps  
 **Product capability:** SSO
  
-Some SAML applications require SPNameQualifier to be returned in the assertion subject. Azure AD now responds correctly when an SPNameQualifier is requested in the request NameID policy, and now works for SP initiated sign-in with IdP initiated sign-in to follow. To learn more about SAML protocol in Azure Active Directory see, [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
+Some SAML applications require SPNameQualifier to be returned in the assertion subject when requested. Now Azure AD responds correctly when a SPNameQualifier is requested in the request NameID policy. This also works for SP initiated sign-in, and IdP initiated sign-in will follow.  To learn more about SAML protocol in Azure Active Directory, see [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
 
 ---
 
@@ -67,7 +67,7 @@ Some SAML applications require SPNameQualifier to be returned in the assertion s
 **Product capability:** B2B/B2C
  
 
-Azure Government tenants using the B2B collaboration features can now invite users that have a Microsoft or Google account. To find out if your tenant is able to use these capabilities, follow the instructions at [How can I tell if B2B collaboration is available in my Azure US Government tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
+Azure Government tenants using the B2B collaboration features can now invite users that have a Microsoft or Google account. To find out if your tenant can use these capabilities, follow the instructions at [How can I tell if B2B collaboration is available in my Azure US Government tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
 
  
 ---
@@ -91,7 +91,7 @@ The externalUserState and externalUserStateChangedDateTime properties can be use
  
 Authentication session management capabilities allow you to configure how often your users need to provide sign-in credentials and whether they need to provide credentials after closing and reopening browsers to offer more security and flexibility in your environment.
  
-Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to MFA as well. For more information, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
+Additionally, authentication session management used to only apply to the First Factor Authentication on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices. Now authentication session management will apply to MFA as well. For more information, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
 
 ---
 
@@ -101,7 +101,7 @@ Additionally, authentication session management used to only apply to the First 
 **Service category:** Enterprise Apps  
 **Product capability:** 3rd Party Integration
  
-In June 2020 we have added following 29 new applications in our App gallery with Federation support:
+In June 2020 we have added the following 29 new applications in our App gallery with Federation support:
 
 [Shopify Plus](https://docs.microsoft.com/azure/active-directory/saas-apps/shopify-plus-tutorial), [Ekarda](https://docs.microsoft.com/azure/active-directory/saas-apps/ekarda-tutorial), [MailGates](https://docs.microsoft.com/azure/active-directory/saas-apps/mailgates-tutorial), [BullseyeTDP](https://docs.microsoft.com/azure/active-directory/saas-apps/bullseyetdp-tutorial), [Raketa](https://docs.microsoft.com/azure/active-directory/saas-apps/raketa-tutorial), [Segment](https://docs.microsoft.com/azure/active-directory/saas-apps/segment-tutorial), [Ai Auditor](https://www.mindbridge.ai/products/ai-auditor/), [Pobuca Connect](https://app.pobu.ca/), [Proto.io](https://docs.microsoft.com/azure/active-directory/saas-apps/proto.io-tutorial), [Gatekeeper](https://www.gatekeeperhq.com/), [Hub Planner](https://docs.microsoft.com/azure/active-directory/saas-apps/hub-planner-tutorial), [Ansira-Partner Go-to-Market Toolbox](https://ansira.com/technology/channel-engagement), [IBM Digital Business Automation on Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/ibm-digital-business-automation-on-cloud-tutorial), [Kisi Physical Security](https://docs.microsoft.com/azure/active-directory/saas-apps/kisi-physical-security-tutorial), [ViewpointOne](https://team.viewpoint.com/), [IntelligenceBank](https://docs.microsoft.com/azure/active-directory/saas-apps/intelligencebank-tutorial), [pymetrics](https://docs.microsoft.com/azure/active-directory/saas-apps/pymetrics-tutorial), [Zero](https://www.teamzero.com/), [InStation](https://instation.invillia.com/), [edX for Business SAML 2.0 Integration](https://docs.microsoft.com/azure/active-directory/saas-apps/edx-for-business-saml-integration-tutorial), [MOOC Office 365](https://mooc.office365-training.com/en/), [SmartKargo](https://docs.microsoft.com/azure/active-directory/saas-apps/smartkargo-tutorial), [PKIsigning platform](https://platform.pkisigning.nl/), [SiteIntel](https://docs.microsoft.com/azure/active-directory/saas-apps/siteintel-tutorial), [Field iD](https://docs.microsoft.com/azure/active-directory/saas-apps/field-id-tutorial), [Curricula SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/curricula-saml-tutorial), [Perforce Helix Core - Helix Authentication Service](https://docs.microsoft.com/azure/active-directory/saas-apps/perforce-helix-core-tutorial), [MyCompliance Cloud](https://cloud.metacompliance.com/), [Smallstep SSH](https://smallstep.com/sso-ssh/)  
 
@@ -110,7 +110,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 
 ---
 
-### API connectors for External Identities self-service sign-up is now in public preview
+### API connectors for External Identities self-service sign-up are now in public preview
 
 **Type:** New feature  
 **Service category:** B2B  
@@ -119,10 +119,10 @@ For listing your application in the Azure AD app gallery, please read the detail
 External Identities API connectors enable you to leverage web APIs to integrate self-service sign-up with external cloud systems. This means you can now invoke web APIs as specific steps in a sign-up flow to trigger cloud-based custom workflows. For example, you can use API connectors to:
 
 - Integrate with a custom approval workflows.
-- Perform identity proofing.
-- Validate user input data.
-- Overwrite user attributes. 
-- Run custom business logic.
+- Perform identity proofing
+- Validate user input data
+- Overwrite user attributes
+- Run custom business logic
 
 For more information about all of the experiences possible with API connectors, see [Use API connectors to customize and extend self-service sign-up](https://docs.microsoft.com/azure/active-directory/b2b/api-connectors-overview), or [Customize External Identities self-service sign-up with web API integrations](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-external-identities-self-service-sign-up-with-web-api/ba-p/1257364#.XvNz2fImuQg.linkedin).
  
@@ -134,7 +134,7 @@ For more information about all of the experiences possible with API connectors, 
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-The Azure AD provisioning service currently operates on a cyclic basis. The service runs every 40 mins. The [on demand provisioning capability](https://aka.ms/provisionondemand) allows you to pick a user and provision them in seconds. This capability allows you to quickly troubleshoot provisioning issues, without having to do a restart to force the provisioning cycle to start again. 
+The Azure AD provisioning service currently operates on a cyclic basis. The service runs every 40 mins. The [on-demand provisioning capability](https://aka.ms/provisionondemand) allows you to pick a user and provision them in seconds. This capability allows you to quickly troubleshoot provisioning issues, without having to do a restart to force the provisioning cycle to start again. 
  
 ---
 
@@ -165,9 +165,9 @@ The riskyUsers and riskDetections Microsoft Graph APIs are now generally availab
 **Product capability:** Collaboration
  
 
-You can now create sensitivity labels and use the label settings to apply policies to Microsoft 365 groups, including privacy (Public or Private) and external user access policy. You can create a label with privacy policy to be Private and external user access policy to not allow to add guest users. When a user applies this label to a group, the group will be private and no guest users are allowed to be added to the group. 
+You can now create sensitivity labels and use the label settings to apply policies to Microsoft 365 groups, including privacy (Public or Private) and external user access policy. You can create a label with the privacy policy to be Private, and external user access policy to not allow to add guest users. When a user applies this label to a group, the group will be private, and no guest users are allowed to be added to the group. 
 
-Sensitivity labels are central to protect your business-critical data and enable you to manage groups at scale, in a compliant and secure fashion. For guidance on using sensitivity labels, refer to [Assign sensitivity labels to Office 365 groups in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-assign-sensitivity-labels).
+Sensitivity labels are important to protect your business-critical data and enable you to manage groups at scale, in a compliant and secure fashion. For guidance on using sensitivity labels, refer to [Assign sensitivity labels to Office 365 groups in Azure Active Directory (preview)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-assign-sensitivity-labels).
  
 ---
 
@@ -181,7 +181,7 @@ Azure Support is now available for Azure AD integration components of Microsoft 
 
 ---
 
-### Use of group membership conditions in SSO claims configuration is increased
+### The use of group membership conditions in SSO claims configuration is increased
 
 **Type:** Changed feature  
 **Service category:** Enterprise Apps  
@@ -197,7 +197,7 @@ Previously, the number of groups you could use when you conditionally change cla
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
  
-The Company Branding functionality on the Azure AD/Microsoft 365 login experience has been updated to allow the customer to add hyperlinks and simple formatting, including bold font, underline and italics. For guidance on using this functionality, see [Add branding to your organization's Azure Active Directory sign-in page](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
+The Company Branding functionality on the Azure AD/Microsoft 365 login experience has been updated to allow the customer to add hyperlinks and simple formatting, including bold font, underline, and italics. For guidance on using this functionality, see [Add branding to your organization's Azure Active Directory sign-in page](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
 
 ---
 
@@ -211,13 +211,13 @@ The provisioning service has been updated to reduce the time for an [incremental
 
 ---
 
-### Announcing deprecation of ADAL and MS Graph Parity
+### Announcing the deprecation of ADAL and MS Graph Parity
 
 **Type:** Deprecated  
 **Service category:** N/A  
 **Product capability:** Device Lifecycle Management
 
-Now that Microsoft Authentication Libraries (MSAL) is available, we will no longer add new features to the Azure Active Directory Authentication Libraries (ADAL), and will end security patches on June 30th, 2022. For more information on how to migrate to MSAL, refer to [Migrate applications to Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-migration).
+Now that Microsoft Authentication Libraries (MSAL) is available, we will no longer add new features to the Azure Active Directory Authentication Libraries (ADAL) and will end security patches on June 30th, 2022. For more information on how to migrate to MSAL, refer to [Migrate applications to Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-migration).
 
 Additionally, we have finished the work to make all Azure AD Graph functionality available through MS Graph. So, Azure AD Graph APIs will receive only bugfix and security fixes through June 30th, 2022. For more information, see [Update your applications to use Microsoft Authentication Library and Microsoft Graph API](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363)
  
