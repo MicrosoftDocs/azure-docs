@@ -75,8 +75,8 @@ Communicating over the phone system can dramatically increase the reach of your 
 ### Networking 
 You may want to exchange arbitrary data between users, for example to synchronize a shared mixed reality or gaming experience. The real-time dataplane used for text, voice, and video communication is available to you directly in two ways:
 
--	**Calling SDK** - Devices in a call have access to APIs for sending and receiving data over the call channel. This is the easiest way to add data communication to an existing interaction.
--	**STUN/TURN ** - ACS makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc)
+- **Calling SDK** - Devices in a call have access to APIs for sending and receiving data over the call channel. This is the easiest way to add data communication to an existing interaction.
+- **STUN/TURN** - ACS makes standards-compliant STUN and TURN services available to you. This allows you to build a heavily customized transport layer on top of these standardized primitives. You can author your own standards-compliant client or use open-source libraries such as [WinRTC](https://github.com/microsoft/winrtc)
 
 
 ## Automation and Webhooks
