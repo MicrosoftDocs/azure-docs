@@ -23,7 +23,7 @@ To access the Azure Education Hub, you should have already received an email not
 
 :::image type="content" source="media/access-education-hub/browsing-in-private.png" alt-text="Open a private browser window." border="false":::
 > [!IMPORTANT]
-> Confirm that you are signing-in with an Organizational/Work Account (like your institution's @domain.edu) If so, select this option on the left-side of the window first. This will take you to a different login screen.
+> Confirm that you are signing-in with an Organizational/Work Account (like your institution's @domain.edu). If so, select this option on the left-side of the window first. This will take you to a different login screen.
 
 :::image type="content" source="media/access-education-hub/sign-in.png" alt-text="Sign in dialog box." border="false":::
 1. Once signed in, you will be directed to the Azure portal. To find the Education Hub, you can search for **Education** under the **All Services** menu.

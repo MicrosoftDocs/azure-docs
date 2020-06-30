@@ -19,10 +19,10 @@ For more information, please visit (Azure for Education website)[https://azurefo
 DO WE NEED CONTENT FOR THIS?
 
 ## For Administrators only	
-Access through (Visual Studio Subscription Portal)[https://my.visualstudio.com/].
+Access through [Visual Studio Subscription Portal](https://my.visualstudio.com/).
 
-To request access to your Visual Studio Subscription, you can do so through the (Management
-Portal)[https://azureforeducation.microsoft.com/account/Subscriptions]. Once approved, you'll have access to the Visual Studio Subscriptions Portal. If this is your first time accessing the Visual Studio Subscription portal, you'll be prompted to link a Microsoft Account with the email address that was provided when you enrolled. You will need your Subscriber ID or Benefits Access Number, the first and last name of an administrator, and the email given during enrollment to link these accounts. After linking your accounts you will be able to access the Visual Studio Subscriber Portal.
+To request access to your Visual Studio Subscription, you can do so through the [Management
+Portal](https://azureforeducation.microsoft.com/account/Subscriptions). Once approved, you'll have access to the Visual Studio Subscriptions Portal. If this is your first time accessing the Visual Studio Subscription portal, you'll be prompted to link a Microsoft Account with the email address that was provided when you enrolled. You will need your Subscriber ID or Benefits Access Number, the first and last name of an administrator, and the email given during enrollment to link these accounts. After linking your accounts you will be able to access the Visual Studio Subscriber Portal.
 
 ## For students, faculty, and administrators
 Access through the [Education Hub](https://aka.ms/devtoolsforteaching).
