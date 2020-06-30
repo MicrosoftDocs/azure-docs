@@ -53,8 +53,6 @@ You've finished adding your application. The next quickstart shows you how to ch
 
 ## Next steps
 
-NEXT STEPS TO DIVE DEEPER INTO ON PREM, SINGLE SIGN ON, CUSTOM APPS, NON GALLERY APPS
-
-- [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
-- [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configure linked sign-on](configure-linked-sign-on.md)
+- [Application management best practices](application-management-fundamentals.md)
+- [Application management common scenarios](common-scenarios.md)
+- [Application management visibility and control](cloud-app-security.md)

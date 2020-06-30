@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
-# Configure properties for an application in your Azure AD tenant
+# Quickstart: Configure properties for an application in your Azure AD tenant
 
 In the previous quickstart you added an application to your Azure AD tenant. When you add an application you are registering it with Azure AD. In this quickstart you will configure some of the properties for an app.
  

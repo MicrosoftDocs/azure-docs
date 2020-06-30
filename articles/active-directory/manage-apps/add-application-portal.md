@@ -55,3 +55,4 @@ You've finished adding your application. The next quickstart shows you how to ch
 
 - [Configure an app](add-application-portal-configure.md)
 - [Set up single sign-on](add-application-portal-setup-sso.md)
+- [Remove an app](remove-application-portal.md)
