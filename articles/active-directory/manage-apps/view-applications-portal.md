@@ -19,16 +19,16 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Quickstart: View your Azure Active Directory tenant applications
+# Quickstart: View the applications registered in your Azure Active Directory (Azure AD) tenant
 
 Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications that are already registered in your Azure AD tenant. 
 
 ## Prerequisites
 
-To view applications that have been registered in your Azure AD tenat, you need:
+To view applications that have been registered in your Azure AD tenant, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The role of Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 
 
 >[!IMPORTANT]
@@ -38,10 +38,10 @@ To view applications that have been registered in your Azure AD tenat, you need:
 
 The applications that are registered with your Azure AD tenant are viewable in the **Enterprise apps** section of the Azure portal.
 
-To find your tenant applications:
+To view the applications registered in your tenant:
 
 1. Sign in to your [Azure portal](https://portal.azure.com).
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
+1. On the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
 1. To view more applications, select **Load more** at the bottom of the list. If there are a lot of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
