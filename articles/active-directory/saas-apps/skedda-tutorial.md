@@ -56,7 +56,7 @@ To configure the integration of Skedda into Azure AD, you need to add Skedda fro
 1. Select **Skedda** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for Skedda
+## Configure and test Azure AD SSO for Skedda
 
 Configure and test Azure AD SSO with Skedda using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Skedda.
 
