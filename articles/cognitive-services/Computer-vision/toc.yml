@@ -105,7 +105,7 @@
     href: concept-detecting-color-schemes.md
   - name: Smart-cropped thumbnails
     href: concept-generating-thumbnails.md
-  - name: Printed and handwritten text recognition
+  - name: Text recognition
     href: concept-recognizing-text.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md

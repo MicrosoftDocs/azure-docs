@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
+ms.date: 06/25/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -97,9 +97,9 @@ Here are the limits for a single logic app definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To change the default limit, see [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), which is in preview. Or, you can distribute the workload across more than one logic app as necessary. |
-| Action: Concurrent outgoing calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Runtime endpoint: Concurrent incoming calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
-| Runtime endpoint: Read calls per 5 minutes  | 60,000 | You can distribute workload across more than one app as necessary. |
+| Action: Concurrent outbound calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Runtime endpoint: Concurrent inbound calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
+| Runtime endpoint: Read calls per 5 minutes  | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one app as necessary. |
 | Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute workload across more than one app as necessary. |
 | Content throughput per 5 minutes | 600 MB | You can distribute workload across more than one app as necessary. |
 ||||
@@ -213,7 +213,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -267,7 +267,7 @@ For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/
 
 | Runtime endpoint | Free | Basic | Standard | Notes |
 |------------------|------|-------|----------|-------|
-| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | You can distribute the workload across more than one account as necessary. |
+| Read calls per 5 minutes | 3,000 | 30,000 | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one account as necessary. |
 | Invoke calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Tracking calls per 5 minutes | 3,000 | 30,000 | 45,000 | You can distribute the workload across more than one account as necessary. |
 | Blocking concurrent calls | ~1,000 | ~1,000 | ~1,000 | Same for all SKUs. You can reduce the number of concurrent requests or reduce the duration as necessary. |

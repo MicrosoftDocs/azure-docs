@@ -265,6 +265,7 @@ Setting up an Azure container registry for anonymous (public) pull access is cur
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Repository format is invalid or unsupported](#repository-format-is-invalid-or-unsupported)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -435,6 +436,12 @@ Here are some scenarios where operations may be disallowed:
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
+
+### Repository format is invalid or unsupported
+
+If you see an error such as "unsupported repository format", "invalid format", or "the requested data does not exist" when specifying a repository name in repository operations, check the spelling and case of the name. Valid repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
+
+For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### How do I collect http traces on Windows?
 

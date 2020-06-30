@@ -3,7 +3,7 @@ title: Configure Azure HPC Cache settings
 description: Explains how to configure additional settings for the cache like MTU and no-root-squash, and how to access the express snapshots from Azure Blob storage targets.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
 ---

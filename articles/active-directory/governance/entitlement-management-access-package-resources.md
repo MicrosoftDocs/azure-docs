@@ -88,7 +88,7 @@ For more information, see [Compare groups](https://docs.microsoft.com/office365/
 
     Once you select the group or team, the **Sub type** column will list one of the following subtypes:
 
-    |  |  |
+    | Sub type | Description |
     | --- | --- |
     | Security | Used for granting access to resources. |
     | Distribution | Used for sending notifications to a group of people. |

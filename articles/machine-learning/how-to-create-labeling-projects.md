@@ -10,7 +10,7 @@ ms.date: 04/09/2020
 
 ---
 
-# Create a data labeling project and export labels 
+# Create a data labeling project (preview) and export labels 
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
