@@ -61,7 +61,7 @@ ACS supports human-to-system communication though text and voice channels, with 
 
 ![Bot architecture](./media/archdiagram-bot.png)
 
-### Public switched telephony network (PSTN)
+### Voice and SMS over the public switched telephony network (PSTN)
 Communicating over the phone system can dramatically increase the reach of your application. To support PSTN voice and SMS scenarios, ACS helps you acquire phone numbers quickly across a variety of geographies directly from the Azure portal or using REST APIs and SDKs.
 
 ![PSTN architecture](./media/archdiagram-pstn.png)
