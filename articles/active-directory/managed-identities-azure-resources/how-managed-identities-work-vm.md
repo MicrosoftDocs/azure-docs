@@ -90,4 +90,3 @@ Get started with the managed identities for Azure resources feature with the fol
 
 * [Use a Windows VM system-assigned managed identity to access Resource Manager](tutorial-windows-vm-access-arm.md)
 * [Use a Linux VM system-assigned managed identity to access Resource Manager](tutorial-linux-vm-access-arm.md)
-how-managed-identities-work-vm
