@@ -202,9 +202,8 @@ The following example shows how to use the fairness package to upload model fair
     1. Select a model, and then the **Fairness** tab to view the explanation visualization dashboard.
 
     To learn more about the visualization dashboard and what it contains, please check out Fairlearn's [user guide](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
-## Upload fairness insights for multiple models
 
-
+s## Upload fairness insights for multiple models
 
 If you are interested in comparing multiple models and seeing how their fairness assessments differ, you can pass more than one model to the visualization dashboard and navigate their performance-fairness trade-offs.
 
@@ -306,7 +305,8 @@ If you are interested in comparing multiple models and seeing how their fairness
     Similar to the previous section, you can follow one of the paths described above (via **Experiments** or **Models**) in Azure Machine Learning studio to access the visualization dashboard and compare the two models in terms of fairness and performance.
 
 
-## Upload original (unmitigated) and mitigated models' fairness insights
+## Upload unmitigated and mitigated fairness insights
+
 You can use Fairlearn's [mitigation algorithms](https://fairlearn.github.io/user_guide/mitigation.html), compare their generated mitigated model(s) to the original unmitigated model, and navigate the performance/fairness trade-offs among compared models.
 
 In order to see an example that demonstrates the use of the [Grid Search](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 

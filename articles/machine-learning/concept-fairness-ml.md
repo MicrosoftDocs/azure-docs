@@ -49,7 +49,7 @@ Together, these components enable data scientists and business leaders t
 ## Fairness assessment
 In the Fairlearn open-source package, fairness is conceptualized though an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harms? The relevant groups, also known as subpopulations, are defined through **sensitive features** or sensitive attributes. Sensitive features are passed to an estimator in the Fairlearn open-source package as a vector or a matrix called  `sensitive_features`. The term suggests that the system designer should be sensitive to these features when assessing group fairness. 
 
-Something to be mindful of is whether these features contain privacy implications due to personally identifiable information. But the word "sensitive" doesn't imply that these features shouldn't be used to make predictions.
+Something to be mindful of is whether these features contain privacy implications due to private data. But the word "sensitive" doesn't imply that these features shouldn't be used to make predictions.
 
 >[!NOTE]
 > A fairness assessment is not a purely technical exercise.  The Fairlearn open-source package can help you assess the fairness of a model, but it will not perform the assessment for you.  The Fairlearn open-source package helps identify quantitative metrics to assess fairness, but developers must also perform a qualitative analysis to evaluate the fairness of their own models.  The sensitive features noted above is an example of this kind of qualitative analysis.     
