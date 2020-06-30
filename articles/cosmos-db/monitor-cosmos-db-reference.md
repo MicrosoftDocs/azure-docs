@@ -4,7 +4,7 @@ description: Log and metrics reference for monitoring data from Azure Cosmos DB.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring 

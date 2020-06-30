@@ -1,9 +1,9 @@
 ---
-title: Scheduled Events for Linux VMs in Azure 
-description: Schedule events by using Azure Metadata Service for your Linux virtual machines.
+title: Scheduled Events for Windows VMs in Azure 
+description: Scheduled events using the Azure Metadata Service for your Windows virtual machines.
 author: EricRadzikowskiMSFT
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
@@ -11,11 +11,11 @@ ms.reviwer: mimckitt
 
 ---
 
-# Azure Metadata Service: Scheduled Events for Linux VMs
+# Azure Metadata Service: Scheduled Events for Windows VMs
 
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
-For information about Scheduled Events on Windows, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md).
+For information about Scheduled Events on Linux, see [Scheduled Events for Linux VMs](../linux/scheduled-events.md).
 
 > [!Note] 
 > Scheduled Events is generally available in all Azure Regions. See [Version and Region Availability](#version-and-region-availability) for latest release information.
@@ -35,7 +35,7 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
 - Virtual machine is running on [degraded host hardware](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) that is predicted to fail soon
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
 - [Spot VM](spot-vms.md) and [Spot scale set](../../virtual-machine-scale-sets/use-spot.md) instance evictions.
@@ -228,4 +228,4 @@ if __name__ == '__main__':
 - Watch [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) to see a demo. 
 - Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Read more about the APIs that are available in the [Instance Metadata Service](instance-metadata-service.md).
-- Learn about [planned maintenance for Linux virtual machines in Azure](planned-maintenance.md).
+- Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).

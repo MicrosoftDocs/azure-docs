@@ -65,6 +65,8 @@
     href: network-best-practices.md
   - name: DDoS Protection
     href: ddos-best-practices.md
+  - name: Dangling DNS and subdomain takeover
+    href: subdomain-takeover.md
   - name: DDoS Protection security baseline
     href: ddos-protection-security-baseline.md
   - name: Secure hybrid network architecture
@@ -155,4 +157,5 @@
     href: event-support-ticket.md
   - name: Pen testing
     href: pen-testing.md
-
+  - name: Azure domains
+    href: azure-domains.md

@@ -1014,7 +1014,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + Apply SQL transformation
   + Clip values
   + Summarize data
-  + Import from SQL database
+  + Import from SQL Database
 
 ## 2019-10-14
 
@@ -2031,7 +2031,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 ### Azure Machine Learning Data Prep SDK v1.0.12
 
 + **New features**
-  + Data Prep now supports reading from an Azure SQL database using Datastore.
+  + Data Prep now supports reading from Azure SQL Database using Datastore.
 
 + **Changes**
   + Improved the memory performance of certain operations on large data.

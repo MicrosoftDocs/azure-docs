@@ -3,7 +3,7 @@ title: Azure PowerShell samples for Azure Cosmos DB - Gremlin API
 description:  Get the Azure PowerShell samples to perform various common tasks in Azure Cosmos DB Gremlin API accounts
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: mjbrown
 ---
@@ -15,7 +15,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 > [!NOTE]
 > The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
-| | |
+|Task | Description |
 |---|---|
 |[Create an account, database and graph](scripts/powershell/gremlin/ps-gremlin-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account, database and graph. |
 |[List or get databases or graphs](scripts/powershell/gremlin/ps-gremlin-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or graph. |

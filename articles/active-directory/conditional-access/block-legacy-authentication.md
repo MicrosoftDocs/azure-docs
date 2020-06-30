@@ -5,7 +5,7 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/13/2020
 
 ms.author: joflore

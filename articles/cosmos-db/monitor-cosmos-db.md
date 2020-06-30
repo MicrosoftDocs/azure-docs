@@ -4,7 +4,7 @@ description: Learn how to monitor the performance and availability of Azure Cosm
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring 

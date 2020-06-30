@@ -2,7 +2,7 @@
 title: Develop locally with the Azure Cosmos Emulator
 description: Using the Azure Cosmos Emulator, you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020

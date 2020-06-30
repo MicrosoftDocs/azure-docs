@@ -58,4 +58,4 @@ If you use non-default ports for SQL IaaS traffic, you can configure those ports
 
 ## Next steps
 
-To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../azure-sql/database/connectivity-architecture.md).
+To learn about SQL proxy and redirect modes, see [Azure SQL Database connectivity architecture](../azure-sql/database/connectivity-architecture.md).

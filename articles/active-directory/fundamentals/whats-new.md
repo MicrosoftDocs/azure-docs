@@ -40,12 +40,24 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ### Retirement of properties in signIns, riskyUsers, and riskDetections APIs
 
 **Type:** Plan for change  
-**Service category:** Identity Protection 
+**Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
 Currently, enumerated types are used to represent the riskType property in both the riskDetections API and riskyUserHistoryItem (in preview). Enumerated types are also used for the riskEventTypes property in the signIns API. Going forward we will represent these properties as strings. 
 
 Customers should transition to the riskEventType property in the beta riskDetections and riskyUserHistoryItem API, and to riskEventTypes_v2 property in the beta signIns API by September 9th, 2020. At that date, we will be retiring the current riskType and riskEventTypes properties. For more information, refer to [Changes to risk event properties and Identity Protection APIs on Microsoft Graph](https://developer.microsoft.com/graph/blogs/changes-to-risk-event-properties-and-identity-protection-apis-on-microsoft-graph/).
+
+--- 
+
+### Deprecation of riskEventTypes property in signIns v1.0 API on Microsoft Graph
+
+**Type:** Plan for change  
+**Service category:** Reporting  
+**Product capability:** Identity Security & Protection
+
+Enumerated types will switch to string types when representing risk event properties in Microsoft Graph September 2020. In addition to impacting the preview APIs, this change will also impact the in-production signIns API.
+
+We have introduced a new riskEventsTypes_v2 (string) property to the signIns v1.0 API. We will retire the current riskEventTypes (enum) property on June 11, 2022 in accordance with our Microsoft Graph deprecation policy. Customers should transition to the riskEventTypes_v2 property in the v1.0  signIns API by June 11, 2022. For more information, refer to [Deprecation of riskEventTypes property in signIns v1.0 API on Microsoft Graph](https://developer.microsoft.com/graph/blogs/deprecation-of-riskeventtypes-property-in-signins-v1-0-api-on-microsoft-graph//).
 
 --- 
 
@@ -80,7 +92,7 @@ Currently, users who are in domains federated in Azure AD, but who are not synce
 **Service category:** Sovereign Clouds  
 **Product capability:** User Authentication
  
-Starting in June, the OIDC discovery document [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) on the [Azure Government cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) endpoint (login.microsoftonline.us), will begin to return the correct [National cloud graph](https://docs.microsoft.com/graph/deployments) endpoint (https://graph.microsoft.us or https://dod-graph.microsoft.us0), based on the tenant provided.  It currently provides the incorrect Graph endpoint (graph.microsoft.com) "msgraph_host" field.  
+Starting in June, the OIDC discovery document [Microsoft identity platform and OpenID Connect protocol](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) on the [Azure Government cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) endpoint (login.microsoftonline.us), will begin to return the correct [National cloud graph](https://docs.microsoft.com/graph/deployments) endpoint (https://graph.microsoft.us or https://dod-graph.microsoft.us), based on the tenant provided.  It currently provides the incorrect Graph endpoint (graph.microsoft.com) "msgraph_host" field.  
 
 This bug fix will be rolled out gradually over approximately 2 months.  
 
