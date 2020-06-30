@@ -36,7 +36,7 @@ There are four steps to accessing Identity Protection data through Microsoft Gra
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 1. Browse to **Azure Active Directory** > **Custom domain names**. 
-1. Take note of the `.onmicrosoft.com` domain as you will need this in a later step.
+1. Take note of the `.onmicrosoft.com` domain, you will need this information in a later step.
 
 ### Create a new app registration
 
@@ -44,13 +44,13 @@ There are four steps to accessing Identity Protection data through Microsoft Gra
 1. Select **New registration**.
 1. On the **Create** page, perform the following steps:
    1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API).
-   1. Under **Supported account types** select the type of accounts that will use the APIs.
+   1. Under **Supported account types**, select the type of accounts that will use the APIs.
    1. Select **Register**.
 1. Copy the **Application ID**.
 
 ### Configure API permissions
 
-1. From the **Application** you just created, select **API permissions**.
+1. From the **Application** you created, select **API permissions**.
 1. On the **Configured permissions** page, in the toolbar on the top, click **Add a permission**.
 1. On the **Add API access** page, click **Select an API**.
 1. On the **Select an API** page, select **Microsoft Graph**, and then click **Select**.
@@ -85,7 +85,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 - client_id: \<your client ID\>
 - client_secret: \<your key\>
 
-If successful, this returns an authentication token.  
+If successful, this request returns an authentication token.  
 To call the API, create a header with the following parameter:
 
 ```
