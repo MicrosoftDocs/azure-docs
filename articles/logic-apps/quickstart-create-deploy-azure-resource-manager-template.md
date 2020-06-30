@@ -12,19 +12,21 @@ ms.date: 06/30/2020
 
 ---
 
-# Quickstart: Create and deploy a logic app workflow by using an Azure Resource Manager template
+# Quickstart: Create and deploy a logic app workflow by using an ARM template
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by selecting from [hundreds of connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager (ARM) template to create a basic logic app that checks the status for Azure on an hourly schedule. 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by selecting from [hundreds of connectors](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic logic app that checks the status for Azure on an hourly schedule. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
-## Create a logic app
-
-### Review the quickstart template
+## Review the template
 
 This quickstart uses the [**Create a logic app**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) template, which you can find in the [Azure Quickstart Templates Gallery](https://azure.microsoft.com/resources/templates) but is too long to show here. Instead, you can review the quickstart template's ["azuredeploy.json file"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) in the templates gallery.
 
@@ -38,7 +40,7 @@ To find more quickstart templates for Azure Logic Apps, review the [Microsoft.Lo
 
 <a name="deploy-template"></a>
 
-### Deploy the quickstart template
+## Deploy the template
 
 Follow the option that you want to use for deploying the quickstart template:
 
