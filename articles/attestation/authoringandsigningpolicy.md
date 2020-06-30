@@ -10,9 +10,11 @@ ms.author: mbaldwin
 
 
 ---
-# Authoring and signing attestation policy
+# Authoring and signing attestation policy for Microsoft Azure Attestation
 
-The Attestation policy is a file which will be uploaded to Azure Attestation.The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWS, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
+Attestation provider gets created with a default policy for each TEE type. For default policy content, see [Examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
+
+Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWS, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. Structure of policy file looks as below:
 
@@ -20,16 +22,13 @@ The policy contains rules that determine the authorization criteria, properties 
 version=1.0;
 authizationrules
 {
-   c:[type="secureBootEnables", issuer=="AttestationService"]=> permit()
 };
 
 issuancerules
 {
-  c:[type="secureBootEnables", issuer=="AttestationService"]=> issue(claim=c)
-  c:[type="notSafeMode", issuer=="AttestationService"]=> issue(claim=c)
 };
 ```
-For more samples, see [Examples of attestation policy](samples.md).
+For policy samples, see [Examples of attestation policy](policy-samples.md).
 
 A policy file has 3 segments as seen above:
 - Version
@@ -163,4 +162,6 @@ print("\nAttestation Policy JWS:")
 print(encoded.decode('utf-8'))
 ```
 
-# Next steps
+## Next steps
+- Quickstart: [Set up Microsoft Azure Attestation using PowerShell](quickstart-powershell.md)
+
