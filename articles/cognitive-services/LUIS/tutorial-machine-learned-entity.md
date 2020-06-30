@@ -94,7 +94,7 @@ The previous steps create the entity and subentity. To improve extraction, add f
 
 1. Select **Create new phrase list** from the drop-down menu.
 
-1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Save** to create the new phrase list.
+1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Create** to create the new phrase list.
 
     This phrase list feature helps the `Size` subentity find words related to size by providing it with example words. This phrase list doesn't need to include every size word but should include words that are expected to indicate size.
 
