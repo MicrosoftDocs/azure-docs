@@ -6,7 +6,7 @@
     href: advisor-overview.md
 - name: Quickstarts
   items:
-  - name: Configure alerts for service health events
+  - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md

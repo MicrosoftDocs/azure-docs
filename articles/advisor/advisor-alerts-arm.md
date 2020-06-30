@@ -171,13 +171,13 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 
  
-# [CLI](#tab/CLI2)
+# [CLI](#tab/CLI3)
 
 ```azurecli
 az group delete --name my-resource-group
 ```
 
-# [PowerShell](#tab/PowerShell2)
+# [PowerShell](#tab/PowerShell3)
 
 ```powershell
 Remove-AzResourceGroup -Name my-resource-group
