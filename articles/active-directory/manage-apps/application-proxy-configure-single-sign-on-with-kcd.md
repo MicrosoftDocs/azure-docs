@@ -3,20 +3,18 @@ title: Single sign-on with Application Proxy | Microsoft Docs
 description: Covers how to provide single sign-on using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017, it-pro
-
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
@@ -116,8 +114,6 @@ To enable SPNEGO:
     net stop WAPCSvc & net start WAPCSvc
     ```
 
-For more information about Kerberos, see [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
-
 Non-Windows apps typically user usernames or SAM account names instead of domain email addresses. If that situation applies to your applications, you need to configure the delegated login identity field to connect your cloud identities to your application identities. 
 
 ## Working with different on-premises and cloud identities
@@ -156,5 +152,3 @@ But, in some cases, the request is successfully sent to the backend application 
 * [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
 
-
-For the latest news and updates, check out the [Application Proxy blog](https://blogs.technet.com/b/applicationproxyblog/)

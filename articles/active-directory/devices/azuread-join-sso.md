@@ -11,13 +11,13 @@ ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sandeo
+ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 
-It is probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can extend the SSO experience on these devices to it.
+It is probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can extend the SSO experience on these devices to resources and applications that rely on on-premises AD as well. 
 
 This article explains how this works.
 
@@ -27,19 +27,19 @@ This article explains how this works.
 
 ## How it works 
 
-Because you need to remember just one single user name and password, SSO simplifies access to your resources and improves the security of your environment. With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has an Azure AD and an on-premises AD, you probably want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.
+With an Azure AD joined device, your users already have an SSO experience to the cloud apps in your environment. If your environment has an Azure AD and an on-premises AD, you may want to expand the scope of your SSO experience to your on-premises Line Of Business (LOB) apps, file shares, and printers.
 
 Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
 An environment that has both, an Azure AD and an on-premises AD, is also known has hybrid environment. If you have a hybrid environment, it is likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises user information to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
-1. Azure AD sends the name of the on-premises domain the user is a member of back to the device.
-1. The local security authority (LSA) service enables Kerberos authentication on the device.
+1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token] (concept-primary-refresh-token.md)
+1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
-During an access attempt to a resource requesting Kerberos in the user's on-premises environment, the device:
+During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
-1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) that is used to access AD-joined resources. If the attempt to get the TGT for the AAD connect domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication popup requesting credentials for the target resource.
+1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication popup requesting credentials for the target resource.
 
 All apps that are configured for **Windows-Integrated authentication** seamlessly get SSO when a user tries to access them.
 

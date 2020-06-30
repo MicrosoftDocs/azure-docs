@@ -18,7 +18,7 @@ ms.author: pafarley
 
 Use Content Moderator's text moderation models to analyze text content.
 
-You can block, approve or review the content based on your policies and thresholds (see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews). Use the text moderation models to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents. 
+You can block, approve or review the content based on your policies and thresholds (see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews). Use the text moderation models to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents.
 
 The service response includes the following information:
 

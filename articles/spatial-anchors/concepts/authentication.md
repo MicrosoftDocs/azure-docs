@@ -1,11 +1,11 @@
 ---
 title: Authentication and authorization
 description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Azure Spatial Anchors.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
@@ -34,7 +34,6 @@ Azure AD authentication tokens can be obtained two ways:
 Using account keys for access to your Azure Spatial Anchors account is the simplest way to get started. You will find your account keys on the Azure portal. Navigate to your account, and select the “Keys” tab.
 
 ![An overview of authentication to Azure Spatial Anchors](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Two keys are made available, which are both simultaneously valid for access to the Spatial Anchors account. It is recommended that you regularly update the key you use to access the account; having two separate valid keys enable such updates without downtime; you only have to update  alternatively the primary key and the secondary key.
 
@@ -170,13 +169,14 @@ The Azure AD access token is retrieved using the [MSAL library](../../active-dir
         1.	In Azure portal, navigate to **Azure Active Directory**, and select **app registrations**
         2.	Select **new application registration**
         3.	Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Then hit **Create**.
-        4.	On that application, hit **Settings**, then select the **Keys** tab. Enter the name of your key, select a duration, and hit **Save**. Make sure to save the key value that is displayed at that time, as you will need to include it in your web service’s code.
+        4.	On that application, hit **Settings**, then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and hit **Add**. Make sure to save the secret value, as you will need to include it in your web service’s code.
     2.	Grant your application and/or users access to your resource:
         1.	Navigate to your Spatial Anchors resource in Azure portal
         2.	Switch to the **Access control (IAM)** tab
         3.	Hit **Add role assignment**
         1.	[Select a role](#role-based-access-control)
         2.	In the **select** field, enter the name of the application(s) you created and to which you want to assign access. If you want your app’s users to have different roles against the Spatial Anchors account, you should register multiple applications in Azure AD, and assign to each a separate role. Then implement your authorization logic to use the right role for your users.
+        3.	Note - In the **Add role assignment** selection you want the **Assign access to** to be set to "Azure AD user, group, or service principal".
     3.	Hit **Save**.
 2.	In your code (note: you can use the service sample included on GitHub):
     1.	Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in MSAL

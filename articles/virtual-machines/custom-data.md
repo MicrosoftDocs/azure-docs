@@ -11,9 +11,7 @@
 
 # Custom data and Cloud-Init on Azure Virtual Machines
 
-## What is Custom data?
-
-Customers often ask how they can inject a script or other metadata into a Microsoft Azure virtual machine at provision time.  In other clouds, this concept is often referred to as user data.  In Microsoft Azure, we have a similar feature called custom data. 
+You may need to inject a script or other metadata into a Microsoft Azure virtual machine at provisioning time.  In other clouds, this concept is often referred to as user data.  In Microsoft Azure, we have a similar feature called custom data. 
 
 Custom data is only made available to the VM during first boot/initial setup, we call this 'provisioning'. Provisioning is the process where VM Create parameters (for example, hostname, username, password, certificates, custom data, keys etc.) are made available to the VM and a provisioning agent processes them, such as the [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) and [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 

@@ -128,7 +128,7 @@ If you want to filter the new costs so that budgets are evaluated against first 
 - Publisher Type: Azure
 - Charge Type: Usage
 
-Budget cost evaluations are based on actual cost. They don't include amortization. For more information about filtering options available to you in budgets, see [Understanding grouping and filtering options](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+Budget cost evaluations are based on actual cost. They don't include amortization. For more information about filtering options available to you in budgets, see [Understanding grouping and filtering options](group-filter.md).
 
 ## Trigger an action group
 

@@ -48,5 +48,5 @@ py -m venv .venv
 
 ---
 
-You run all subsequent commands in this activated virtual environment. (To exit the virtual environment, run `deactivate`.)
+You run all subsequent commands in this activated virtual environment.   
 ::: zone-end

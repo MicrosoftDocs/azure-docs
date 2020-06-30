@@ -43,12 +43,10 @@ The database per tenant pattern isolates tenant data effectively, but increases 
 ![screen](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## Elastic Jobs limited preview
+## Elastic Jobs public preview
 
-There's a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in limited preview. This limited preview currently supports using PowerShell to create a job agent, and T-SQL to create and manage jobs.
-
-> [!NOTE]
-> This tutorial uses features of the SQL Database service that are in a limited preview (Elastic Database jobs). If you wish to do this tutorial, provide your subscription ID to SaaSFeedback@microsoft.com with subject=Elastic Jobs Preview. After you receive confirmation that your subscription has been enabled, [download and install the latest pre-release jobs cmdlets](https://github.com/jaredmoo/azure-powershell/releases). This preview is limited, so contact SaaSFeedback@microsoft.com for related questions or support.
+There's a new version of Elastic Jobs that is now an integrated feature of Azure SQL Database. This new version of Elastic Jobs is currently in public preview. This public preview currently supports using PowerShell to create a job agent, and T-SQL to create and manage jobs.
+See article on [Elastic Database Jobs](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) for more information.
 
 ## Get the Wingtip Tickets SaaS database per tenant application scripts
 
@@ -61,7 +59,7 @@ This tutorial requires you use PowerShell to create a job agent and its backing 
 1. **In PowerShell ISE**, open …\\Learning Modules\\Schema Management\\*Demo-SchemaManagement.ps1*.
 1. Press **F5** to run the script.
 
-The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a SQL database named *osagent* on the catalog server. It then creates the job agent, using the  database as a parameter.
+The *Demo-SchemaManagement.ps1* script calls the *Deploy-SchemaManagement.ps1* script to create a database named *osagent* on the catalog server. It then creates the job agent, using the  database as a parameter.
 
 ## Create a job to deploy new reference data to all tenants
 

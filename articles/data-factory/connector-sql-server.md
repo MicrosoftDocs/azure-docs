@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
+ms.date: 06/28/2020
 ---
 
 # Copy data to and from SQL Server by using Azure Data Factory
@@ -35,7 +35,7 @@ You can copy data from a SQL Server database to any supported sink data store. O
 
 Specifically, this SQL Server connector supports:
 
-- SQL Server versions 2016, 2014, 2012, 2008 R2, 2008, and 2005.
+- SQL Server version 2005 and above.
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during copy. 
@@ -390,7 +390,7 @@ Appending data is the default behavior of this SQL Server sink connector. Azure 
 
 **Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15) or INSERT/UPDATE statement in one shot. 
 
-Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
+Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
 
 As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into a SQL Server staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
@@ -516,7 +516,7 @@ When you copy data from and to SQL Server, the following mappings are used from 
 | xml |Xml |
 
 >[!NOTE]
-> For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
+> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
 
 ## Lookup activity properties
 

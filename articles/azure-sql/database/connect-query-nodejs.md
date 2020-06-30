@@ -1,6 +1,7 @@
 ---
 title: Use Node.js to query a database
-description: How to use Node.js to create a program that connects to a database in Azure SQL Database and query it using T-SQL statements.
+description: How to use Node.js to create a program that connects to a database in Azure SQL Database or Azure SQL Managed Instance, and query it using T-SQL statements.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
 ---
-# Quickstart: Use Node.js to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you use Node.js to connect to a database in Azure SQL Database and use T-SQL statements to query data.
+In this quickstart, you use Node.js to connect to a database and query data.
 
 ## Prerequisites
 

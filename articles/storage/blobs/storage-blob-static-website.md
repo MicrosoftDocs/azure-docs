@@ -3,7 +3,7 @@ title: Static website hosting in Azure Storage
 description: Azure Storage static website hosting, providing a cost-effective, scalable solution for hosting modern web applications.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](/azure/azure-functions/functions-overview) and other Platform as a service (PaaS) services.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > If your site depends on server-side code, use [Azure App Service](/azure/app-service/overview) instead.

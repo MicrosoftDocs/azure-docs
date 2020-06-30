@@ -123,6 +123,8 @@
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
     items:
+    - name: Azure Storage types for SAP workload
+      href: planning-guide-storage.md
     - name: SAP workload on Azure virtual machine supported scenarios
       href: sap-planning-supported-configurations.md
     - name: What SAP software is supported for Azure deployments
@@ -259,6 +261,10 @@
     href: https://docs.microsoft.com/power-bi/desktop-sap-bw-connector
   - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
     href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/sap-hana/hanainstance
 - name: Resources
   items:
   - name: Azure Roadmap

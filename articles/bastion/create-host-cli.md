@@ -5,7 +5,7 @@ services: bastion
 author: mialdrid
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
@@ -37,7 +37,7 @@ This section helps you create a new Azure Bastion resource using Azure CLI.
 2. Create a public IP address for Azure Bastion. The public IP is the public IP address the Bastion resource on which RDP/SSH will be accessed (over port 443). The public IP address must be in the same region as the Bastion resource you are creating.
 
    ```azurecli-interactive
-   az network public-ip create -g MyResourceGroup -n MyIp
+   az network public-ip create -g MyResourceGroup -n MyIp --sku Standard
    ```
 
 3. Create a new Azure Bastion resource in the AzureBastionSubnet of your virtual network. It takes about 5 minutes for the Bastion resource to create and deploy.

@@ -19,6 +19,17 @@ ms.author: memildin
 # File Integrity Monitoring in Azure Security Center
 Learn how to configure File Integrity Monitoring (FIM) in Azure Security Center using this walkthrough.
 
+
+## Availability
+
+- Release state: **Generally Available**
+- Required roles: **Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Reader** can view results.
+- Clouds:
+    - ✔ Commercial clouds
+    - ✔ US Gov cloud
+    - ✘ China Gov / Other Gov
+
+
 ## What is FIM in Security Center?
 File Integrity Monitoring (FIM), also known as change monitoring, examines files and registries of operating system, application software, and others for changes that might indicate an attack. A comparison method is used to determine if the current state of the file is different from the last scan of the file. You can leverage this comparison to determine if valid or suspicious modifications have been made to your files.
 

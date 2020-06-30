@@ -405,3 +405,8 @@ Advance to the next tutorial to learn how to easily improve the security of your
 
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)

@@ -12,6 +12,7 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: aahi
+ms.custom: tracking-python
 ---
 # Quickstart: Use the Anomaly Detector client library
 

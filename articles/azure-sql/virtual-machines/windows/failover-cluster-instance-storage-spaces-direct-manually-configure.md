@@ -1,10 +1,9 @@
 ---
-title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
-description: "This article explains how to create a SQL Server failover cluster instance on Azure virtual machines."
+title: SQL Server FCI on Azure Virtual Machines
+description: "This article explains how to create a SQL Server failover cluster instance (FCI) on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 
@@ -19,18 +18,19 @@ ms.date: 06/11/2018
 ms.author: mikeray
 ---
 
-# Configure a SQL Server failover cluster instance on Azure virtual machines
+# Configure a SQL Server failover cluster instance on Azure virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure Virtual Machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
 
-The following diagram shows the complete solution on Azure virtual machines:
+The following diagram shows the complete solution on Azure Virtual Machines:
 
 ![The complete solution](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/00-sql-fci-s2d-complete-solution.png)
 
 This diagram shows:
 
-- Two Azure virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
+- Two virtual machines in a Windows Server Failover Cluster. When a virtual machine is in a failover cluster, it's also called a *cluster node* or *node*.
 - Each virtual machine has two or more data disks.
 - Storage Spaces Direct synchronizes the data on the data disks and presents the synchronized storage as a storage pool.
 - The storage pool presents a Cluster Shared Volume (CSV) to the failover cluster.
@@ -47,13 +47,13 @@ Storage Spaces Direct supports two types of architectures: converged and hyper-c
 
 ## Licensing and pricing
 
-On Azure virtual machines, you can license SQL Server using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
+On Azure Virtual Machines, you can license SQL Server using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
 
-With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure virtual machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
+With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
 If you have Enterprise Agreement with Software Assurance, you can use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images, and use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-To compare pay-as-you-go and BYOL licensing for SQL Server on Azure virtual machines, see [Get started with SQL VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms).
+To compare pay-as-you-go and BYOL licensing for SQL Server on Azure Virtual Machines, see [Get started with SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 For complete information about licensing SQL Server, see [Pricing](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -66,6 +66,7 @@ You can create this entire solution in Azure from a template. An example of a te
 There are a few things you need to know and have in place before you start.
 
 ### What to know
+
 You should have an operational understanding of these technologies:
 
 - [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
@@ -79,20 +80,21 @@ You should also have a general understanding of these technologies:
 - [Azure resource groups](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure Virtual Machines are only supported with the [lightweight management mode](sql-vm-resource-provider-register.md#management-modes) of the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). To change from full extension mode to lightweight, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in lightweight mode. When deleting the **SQL Virtual Machine** resource using the Azure portal, **clear the checkbox next to the correct Virtual Machine**. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> 
 
 ### What to have
 
 Before you complete the steps in this article, you should already have:
 
-- A Microsoft Azure subscription.
-- A Windows domain on Azure virtual machines.
-- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
+- A Microsoft Azure subscription
+- A Windows domain on Azure Virtual Machines
+- An account that has permissions to create objects on both virtual machines and in Active Directory
 - An Azure virtual network and subnet with enough IP address space for these components:
-   - Both virtual machines.
-   - The failover cluster IP address.
-   - An IP address for each FCI.
-- DNS configured on the Azure network, pointing to the domain controllers.
+   - Both virtual machines
+   - The failover cluster IP address
+   - An IP address for each FCI
+- DNS configured on the Azure network, pointing to the domain controllers
 
 With these prerequisites in place, you can start building your failover cluster. The first step is to create the virtual machines.
 
@@ -124,15 +126,16 @@ With these prerequisites in place, you can start building your failover cluster.
 
    Place both virtual machines:
 
-   - In the same Azure resource group as your availability set.
-   - On the same network as your domain controller.
-   - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
-   - In the Azure availability set.
+   - In the same Azure resource group as your availability set
+   - On the same network as your domain controller
+   - On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster
+   - In the Azure availability set
 
       >[!IMPORTANT]
       >You can't set or change the availability set after you've created a virtual machine.
+      >
 
-   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure virtual machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
+   Choose an image from Azure Marketplace. You can use an Azure Marketplace image that includes Windows Server and SQL Server, or use one that just includes Windows Server. For details, see [Overview of SQL Server on Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    The official SQL Server images in the Azure Gallery include an installed SQL Server instance, the SQL Server installation software, and the required key.
 
@@ -150,10 +153,11 @@ With these prerequisites in place, you can start building your failover cluster.
 
    >[!IMPORTANT]
    >After you create the virtual machine, remove the pre-installed standalone SQL Server instance. You'll use the pre-installed SQL Server media to create the SQL Server FCI after you set up the failover cluster and Storage Spaces Direct.
+   >
 
    Alternatively, you can use Azure Marketplace images that contain just the operating system. Choose a **Windows Server 2016 Datacenter** image and install the SQL Server FCI after you set up the failover cluster and Storage Spaces Direct. This image doesn't contain SQL Server installation media. Place the SQL Server installation media in a location where you can run it for each server.
 
-1. After Azure creates your virtual machines, connect to each one by using RDP.
+1. After Azure creates your virtual machines, connect to each one by using remote desktop protocol (RDP).
 
    When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
 
@@ -182,8 +186,10 @@ With these prerequisites in place, you can start building your failover cluster.
    Both virtual machines need at least two data disks.
 
    Attach raw disks, not NTFS-formatted disks.
+
       >[!NOTE]
-      >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check.  
+      >If you attach NTFS-formatted disks, you can enable Storage Spaces Direct only without a disk eligibility check. 
+      > 
 
    Attach a minimum of two premium SSDs to each VM. We recommend at least P30 (1-TB) disks.
 
@@ -197,7 +203,7 @@ After you create and configure the virtual machines, you can set up the failover
 
 ## Step 2: Configure the Windows Server Failover Cluster with Storage Spaces Direct
 
-The next step is to configure the failover cluster with Storage Spaces Direct. In this step, you'll complete these substeps:
+Now you configure the failover cluster with Storage Spaces Direct. In this section, you complete these steps:
 
 1. Add the Windows Server Failover Clustering feature.
 1. Validate the cluster.
@@ -212,6 +218,7 @@ The next step is to configure the failover cluster with Storage Spaces Direct. I
 1. [Add Failover Clustering to each virtual machine](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    To install Failover Clustering from the UI, take these steps on both virtual machines:
+
    1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
    1. In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
    1. In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. Select **Add Features**.
@@ -257,9 +264,11 @@ After you validate the cluster, create the failover cluster.
 ### Create the failover cluster
 
 To create the failover cluster, you need:
-- The names of the virtual machines that will become the cluster nodes.
+
+- The names of the virtual machines that will become the cluster nodes
 - A name for the failover cluster
-- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
+- An IP address for the failover cluster <br/>
+  You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
 
 #### Windows Server 2008 through Windows Server 2016
 
@@ -350,10 +359,11 @@ After you've configured the failover cluster and all cluster components, includi
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## Step 5: Create the Azure load balancer
 
-On Azure virtual machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the SQL Server FCI.
 
 For more information, see [Create and configure an Azure load balancer](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
 
@@ -403,11 +413,11 @@ To create the load balancer:
 
 1. On the **Add health probe** blade, <a name="probe"></a>set the health probe parameters.
 
-   - **Name**: A name for the health probe.
-   - **Protocol**: TCP.
-   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports). In this article, the example uses TCP port `59999`.
+   - **Name**: A name for the health probe
+   - **Protocol**: TCP
+   - **Port**: Set to the port you created in the firewall for the health probe in [this step](#ports) <br/>In this article, the example uses TCP port `59999`.
    - **Interval**: 5 Seconds.
-   - **Unhealthy threshold**: 2 consecutive failures.
+   - **Unhealthy threshold**: 2 consecutive failures
 
 1. Select **OK**.
 
@@ -460,6 +470,7 @@ The following list describes the values that you need to update:
 
 >[!IMPORTANT]
 >The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
+>
 
 After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
 
@@ -479,7 +490,7 @@ Test failover of the FCI to validate cluster functionality. Take the following s
 
 1. Select **Move**, and then select **Best Possible Node**.
 
-**Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come online on the other node.
+**Failover Cluster Manager** shows the role and its resources go offline. The resources then move and come online on the other node.
 
 ### Test connectivity
 
@@ -487,14 +498,15 @@ To test connectivity, sign in to another virtual machine in the same virtual net
 
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## Limitations
 
-Azure virtual machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and a [standard load balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-On Azure virtual machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
+On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earlier because:
 
-- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
+- The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.
 
 ## See also

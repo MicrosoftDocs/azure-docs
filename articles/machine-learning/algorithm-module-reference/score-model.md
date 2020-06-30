@@ -11,7 +11,7 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ---
-# Score Model module
+# Score Model
 
 This article describes a module in Azure Machine Learning designer (preview).
 

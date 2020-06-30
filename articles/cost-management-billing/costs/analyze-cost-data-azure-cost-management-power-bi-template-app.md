@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
@@ -122,6 +122,27 @@ For details about how to use the report, see the [VM RI Coverage (shared recomme
 ## Troubleshoot problems
 
 If you're having issues with the Power BI app, the following troubleshooting information might help.
+
+### Error processing the data in the dataset
+
+You might get an error stating:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+A table name would appear instead of `<TableName>`.
+
+#### Cause
+
+The default **Scope** value of `Enrollment Number` was changed in the connection to Cost Management.
+
+#### Solution
+
+Reconnect to Cost Management and set the **Scope** value to `Enrollment Number`. Do not enter your organization's enrollment number, instead type `Enrollment Number` exactly as it appears in the following image.
+
+![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### BudgetAmount error
 

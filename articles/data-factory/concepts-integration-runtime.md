@@ -26,6 +26,8 @@ The Integration Runtime (IR) is the compute infrastructure used by Azure Data Fa
 
 In Data Factory, an activity defines the action to be performed. A linked service defines a target data store or a compute service. An integration runtime provides the bridge between the activity and linked Services.  It's referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. This way, the activity can be performed in the region closest possible to the target data store or compute service in the most performant way while meeting security and compliance needs.
 
+Integration runtimes can be created in the Azure Data Factory UX via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
+
 ## Integration runtime types
 
 Data Factory offers three types of Integration Runtime (IR), and you should choose the type that best serve the data integration capabilities and network environment needs you're looking for.  These three types are:
@@ -50,9 +52,9 @@ The following diagram shows how the different integration runtimes can be used i
 
 An Azure integration runtime can:
 
-- Running Data Flows in Azure 
-- Running copy activity between cloud data stores
-- Dispatching the following transform activities in public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- Run Data Flows in Azure 
+- Run copy activity between cloud data stores
+- Dispatch the following transform activities in public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
 
 ### Azure IR network environment
 

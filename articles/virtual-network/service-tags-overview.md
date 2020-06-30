@@ -57,7 +57,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **AzureDataExplorerManagement** | Azure Data Explorer Management. | Inbound | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Outbound | No | Yes |
 | **AzureDevSpaces** | Azure Dev Spaces. | Outbound | No | No |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Note:* This tag covers Azure Event Grid endpoints in US South Central, US East, US East 2, US West 2, and US Central only. | Both | No | No |
+| **AzureEventGrid** | Azure Event Grid. | Both | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Azure Front Door. | Both | No | No |
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Note:* This tag has a dependency on the **AzureActiveDirectory**, **AzureFrontDoor.Frontend** and **AzureFrontDoor.FirstParty** tags. | Outbound | No | No |
 | **AzureIoTHub** | Azure IoT Hub. | Outbound | No | No |
@@ -134,6 +134,8 @@ You can download JSON files that contain the current list of service tags togeth
 - [Azure US Government](https://www.microsoft.com/download/details.aspx?id=57063)  
 - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062) 
 - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)   
+
+The IP address ranges in these files are in CIDR notation. 
 
 > [!NOTE]
 >A subset of this information has been published in XML files for [Azure Public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure China](https://www.microsoft.com/download/details.aspx?id=42064), and [Azure Germany](https://www.microsoft.com/download/details.aspx?id=54770). These XML downloads will be deprecated by June 30, 2020 and will no longer be available after that date. You should migrate to using the Discovery API or JSON file downloads as described in the previous sections.

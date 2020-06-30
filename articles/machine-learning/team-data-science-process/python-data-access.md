@@ -10,7 +10,7 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Access datasets with Python using the Azure Machine Learning Python client library
 The preview of Microsoft Azure Machine Learning Python client library can enable secure access to your Azure Machine Learning datasets from a local Python environment and enables the creation and management of datasets in a workspace.
@@ -34,7 +34,7 @@ It has a dependency on the following packages:
 * python-dateutil
 * pandas
 
-We recommend using a Python distribution such as [Anaconda](http://continuum.io/downloads#all) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
+We recommend using a Python distribution such as [Anaconda](https://www.anaconda.com/) or [Canopy](https://store.enthought.com/downloads/), which come with Python, IPython and the three packages listed above installed. Although IPython is not strictly required, it is a great environment for manipulating and visualizing data interactively.
 
 ### <a name="installation"></a>How to install the Azure Machine Learning Python client library
 Install the Azure Machine Learning Python client library to complete the tasks outlined in this topic. This library is available from the [Python Package Index](https://pypi.python.org/pypi/azureml). To install it in your Python environment, run the following command from your local Python environment:

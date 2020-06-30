@@ -5,7 +5,7 @@ services: internet-analyzer
 author: mattcalder
 
 ms.service: internet-analyzer
-ms.topic: guide
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ---

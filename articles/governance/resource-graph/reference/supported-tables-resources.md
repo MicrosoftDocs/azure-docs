@@ -1,7 +1,7 @@
 ---
 title: Supported Resource Manager resource types
 description: Provide a list of the Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 05/21/2020
+ms.date: 06/04/2020
 ms.topic: reference
 ---
 # Azure Resource Graph table and resource type reference
@@ -480,13 +480,6 @@ part of a **table** in Resource Graph.
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- microsoft.security/securitystatuses
-- microsoft.security/securitystatuses/containerhosts
-- microsoft.security/securitystatuses/onpremisemachines
-- microsoft.security/securitystatuses/servers
-- microsoft.security/securitystatuses/subnets
-- microsoft.security/securitystatuses/virtualmachines
-- microsoft.security/securitystatusessummaries
 
 ## Next steps
 

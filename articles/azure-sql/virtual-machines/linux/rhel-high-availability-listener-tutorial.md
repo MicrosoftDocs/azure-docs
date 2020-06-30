@@ -1,5 +1,5 @@
 ---
-title: Configure availability group listener for SQL Server on RHEL virtual machines in Azure - Linux Virtual Machines | Microsoft Docs
+title: Configure an availability group listener for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
 description: Learn about setting up an availability group listener in SQL Server on RHEL virtual machines in Azure
 ms.service: virtual-machines-linux
 ms.subservice:
@@ -9,15 +9,15 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ---
-# Tutorial: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
+# Tutorial: Configure an availability group listener for SQL Server on RHEL virtual machines in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
 > The tutorial presented is in **public preview**. 
 >
-> We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 7 or RHEL 8 to configure HA. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article, [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
+> We use SQL Server 2017 with RHEL 7.6 in this tutorial, but it is possible to use SQL Server 2019 in RHEL 7 or RHEL 8 to configure high availability. The commands to configure availability group resources has changed in RHEL 8, and you'll want to look at the article [Create availability group resource](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) and RHEL 8 resources for more information on the correct commands.
 
-This tutorial will go over steps on how to create an availability group listener for your SQL Servers on RHEL virtual machines in Azure. You will learn how to:
+This tutorial will go over steps on how to create an availability group listener for your SQL Servers on RHEL virtual machines (VMs) in Azure. You will learn how to:
 
 > [!div class="checklist"]
 > - Create a load balancer in the Azure portal
@@ -31,7 +31,7 @@ This tutorial will go over steps on how to create an availability group listener
 
 ## Prerequisite
 
-Completed [**Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure**](rhel-high-availability-stonith-tutorial.md)
+Completed [Tutorial: Configure availability groups for SQL Server on RHEL virtual machines in Azure](rhel-high-availability-stonith-tutorial.md)
 
 ## Create the load balancer in the Azure portal
 
@@ -53,7 +53,7 @@ The following instructions take you through steps 1 through 4 from the [Create a
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal** |
-   | **Virtual network** |The default VNet that was created should be named **VM1VNET**. |
+   | **Virtual network** |The default virtual network that was created should be named **VM1VNET**. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. The default should be **VM1Subnet**.|
    | **IP address assignment** |**Static** |
    | **Private IP address** |Use the `virtualip` IP address that was created in the cluster. |
@@ -100,7 +100,7 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 4.  Click **OK**. 
 
-5. Log into all your virtual machines, and open the probe port using the following commands:
+5. Log in to all your virtual machines, and open the probe port using the following commands:
 
     ```bash
     sudo firewall-cmd --zone=public --add-port=59999/tcp --permanent
@@ -109,22 +109,22 @@ The probe defines how Azure verifies which of the SQL Server instances currently
 
 Azure creates the probe and then uses it to test which SQL Server instance has the listener for the availability group.
 
-### Set the load balancing rules
+### Set the load-balancing rules
 
-The load balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the three SQL Server instances owns the availability group listener resource at a time.
+The load-balancing rules configure how the load balancer routes traffic to the SQL Server instances. For this load balancer, you enable direct server return because only one of the three SQL Server instances owns the availability group listener resource at a time.
 
 1. On the load balancer **Settings** blade, click **Load balancing rules**. 
 
 2. On the **Load balancing rules** blade, click **Add**.
 
-3. On the **Add load balancing rules** blade, configure the load balancing rule. Use the following settings: 
+3. On the **Add load balancing rules** blade, configure the load-balancing rule. Use the following settings: 
 
    | Setting | Value |
    | --- | --- |
-   | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
+   | **Name** |A text name representing the load-balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
    | **Protocol** |**TCP** |
    | **Port** |*1433* |
-   | **Backend Port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
+   | **Backend port** |*1433*. This value is ignored because this rule uses **Floating IP (direct server return)**. |
    | **Probe** |Use the name of the probe that you created for this load balancer. |
    | **Session persistence** |**None** |
    | **Idle timeout (minutes)** |*4* |
@@ -133,13 +133,13 @@ The load balancing rules configure how the load balancer routes traffic to the S
    :::image type="content" source="media/rhel-high-availability-listener-tutorial/add-load-balancing-rule.png" alt-text="Add load balancing rule":::
 
 4. Click **OK**. 
-5. Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
+5. Azure configures the load-balancing rule. Now the load balancer is configured to route traffic to the SQL Server instance that hosts the listener for the availability group. 
 
 At this point, the resource group has a load balancer that connects to all SQL Server machines. The load balancer also contains an IP address for the SQL Server Always On availability group listener, so that any machine can respond to requests for the availability groups.
 
 ## Create the load balancer resource in the cluster
 
-1. Log into the primary virtual machine. We need to create the resource to enable the Azure load balancer probe port (59999 is used in our example). Run the following command:
+1. Log in to the primary virtual machine. We need to create the resource to enable the Azure load balancer probe port (59999 is used in our example). Run the following command:
 
     ```bash
     sudo pcs resource create azure_load_balancer azure-lb port=59999
@@ -198,7 +198,7 @@ At this point, the resource group has a load balancer that connects to all SQL S
     GO
     ```
 
-1. Log into each VM node. Use the following command to open the hosts file and set up host name resolution for the `ag1-listener` on each machine.
+1. Log in to each VM node. Use the following command to open the hosts file and set up host name resolution for the `ag1-listener` on each machine.
 
     ```
     sudo vi /etc/hosts
@@ -214,9 +214,9 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
 ## Test the listener and a failover
 
-### Test logging into SQL Server using the availability group listener
+### Test logging in to SQL Server using the availability group listener
 
-1. Use SQLCMD to log into the primary node of SQL Server using the availability group listener name:
+1. Use SQLCMD to log in to the primary node of SQL Server using the availability group listener name:
 
     - Use a login that was previously created and replace `<YourPassword>` with the correct password. The example below uses the `sa` login that was created with the SQL Server.
 
@@ -232,11 +232,11 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
     Your output should show the current primary node. This should be `VM1` if you have never tested a failover.
 
-    Exit the SQL session by typing the `exit` command.
+    Exit the SQL Server session by typing the `exit` command.
 
 ### Test a failover
 
-1. Run the following command to manually failover the primary replica to `<VM2>` or another replica. Replace `<VM2>` with the value of your server name.
+1. Run the following command to manually fail over the primary replica to `<VM2>` or another replica. Replace `<VM2>` with the value of your server name.
 
     ```bash
     sudo pcs resource move ag_cluster-master <VM2> --master
@@ -268,13 +268,13 @@ At this point, the resource group has a load balancer that connects to all SQL S
         virtualip  (ocf::heartbeat:IPaddr2):       Started <VM2>
     ```
 
-1. Use SQLCMD to log into your primary replica using the listener name:
+1. Use SQLCMD to log in to your primary replica using the listener name:
 
     - Use a login that was previously created and replace `<YourPassword>` with the correct password. The example below uses the `sa` login that was created with the SQL Server.
 
     ```bash
     sqlcmd -S ag1-listener -U sa -P <YourPassword>
-    ```
+     ```
 
 1. Check the server that you are connected to. Run the following command in SQLCMD:
 
@@ -286,7 +286,7 @@ At this point, the resource group has a load balancer that connects to all SQL S
 
 ## Next steps
 
-For more information on Load balancers in Azure, see:
+For more information on load balancers in Azure, see:
 
 > [!div class="nextstepaction"]
-> [Configure a load balancer for an availability group on Azure SQL Server VMs](../windows/availability-group-load-balancer-portal-configure.md)
+> [Configure a load balance for an availability group on SQL Server on Azure VMs](../windows/availability-group-load-balancer-portal-configure.md)

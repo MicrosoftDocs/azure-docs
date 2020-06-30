@@ -5,7 +5,7 @@ description: Learn how to train and register a Keras deep neural network classif
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu

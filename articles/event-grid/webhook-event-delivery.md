@@ -2,13 +2,13 @@
 title: WebHook event delivery
 description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
+ms.author: femila
 ---
 
 

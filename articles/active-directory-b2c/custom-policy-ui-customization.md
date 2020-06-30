@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -80,7 +80,7 @@ By using Azure AD B2C custom policies, you can send a parameter in the URL path,
 
 To send query string parameters, in the [relying party policy](relyingparty.md), add a `ContentDefinitionParameters` element as shown below.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
@@ -96,7 +96,7 @@ To send query string parameters, in the [relying party policy](relyingparty.md),
 
 In your content definition, change the value of `LoadUri` to `https://<app_name>.azurewebsites.net/home/unified`. Your custom policy `ContentDefinition` should look like the following code snippet:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
   ...
@@ -113,7 +113,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 Content can be pulled from different places based on the parameters used. In your CORS-enabled endpoint, set up a folder structure to host content. For example, you can organize the content in following structure. Root *folder/folder per language/your html files*. For example, your custom page URI might look like:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...

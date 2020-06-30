@@ -2,7 +2,7 @@
 title: Deploy Azure Policy to delegated subscriptions at scale
 description: Learn how Azure delegated resource management lets you deploy a policy definition and policy assignment across multiple tenants.
 ms.date: 11/8/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Deploy Azure Policy to delegated subscriptions at scale

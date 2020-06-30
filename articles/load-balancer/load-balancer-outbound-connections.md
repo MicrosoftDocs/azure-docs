@@ -17,7 +17,7 @@ ms.author: allensu
 
 # Outbound connections in Azure
 
-The Azure Load Balancer provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them. If you are experiencing issue with outbound connectivity through an Azure Load Balancer, see the [troubleshooting guide for outbound connections] (../load-balancer/troubleshoot-outbound-connection.md).
+The Azure Load Balancer provides outbound connectivity for customer deployments through several different mechanisms. This article describes what the scenarios are, when they apply, how they work, and how to manage them. If you are experiencing issue with outbound connectivity through an Azure Load Balancer, see the [troubleshooting guide for outbound connections](../load-balancer/troubleshoot-outbound-connection.md).
 
 >[!NOTE] 
 >This article covers Resource Manager deployments only. Review [Outbound connections (Classic)](load-balancer-outbound-connections-classic.md) for all Classic deployment scenarios in Azure.

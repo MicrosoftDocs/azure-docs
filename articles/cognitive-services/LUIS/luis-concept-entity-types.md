@@ -2,7 +2,7 @@
 title: Entity types - LUIS
 description: An entity extracts data from a user utterance at prediction runtime. An _optional_, secondary purpose is to boost the prediction of the intent or other entities by using the entity as a feature.
 ms.topic: conceptual
-ms.date: 05/17/2020
+ms.date: 06/10/2020
 ---
 
 # Extract data with entities
@@ -36,7 +36,9 @@ While [intents](luis-concept-intent.md) are required, entities are optional. You
 
 As your application develops and a new need for data is identified, you can add appropriate entities to your LUIS model later.
 
-## Entity compared to intent
+<a name="entity-compared-to-intent"></a>
+
+## Entity represents data extraction
 
 The entity represents a data concept _inside the utterance_. An intent classifies the _entire utterance_.
 
@@ -48,6 +50,10 @@ Consider the following four utterances:
 |Send something|sendSomething|-|Nothing to extract. The model does not have a required feature to extract `something` in this context, and there is no recipient stated.|
 |Send Bob a present|sendSomething|`Bob`, `present`|The model extracts `Bob` by adding a required feature of prebuilt entity `personName`. A machine-learning entity has been used to extract `present`.|
 |Send Bob a box of chocolates|sendSomething|`Bob`, `box of chocolates`|The two important pieces of data, `Bob` and the `box of chocolates`, have been extracted by machine-learning entities.|
+
+## Label entities in all intents
+
+Entities extract data regardless of the predicted intent. Make sure you label _all_ example utterances in all intents. The `None` intent missing entity labeling causes confusion even if there were far more training utterances for the other intents.
 
 ## Design entities for decomposition
 

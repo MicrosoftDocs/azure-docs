@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/19/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
@@ -121,7 +121,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Sample request
 
    ```html
-   PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>?api-version=2017-03-01-preview
+     PUT https://management.azure.com/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Sql/servers/<azure server name>/auditingSettings/default?api-version=2017-03-01-preview
    ```
 
    Request body
@@ -139,6 +139,18 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 
 - [Create or Update Database Auditing Policy (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Create or Update Server Auditing Policy (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## Using Azure Resource Manager template
+
+You can configure auditing to write database events on a storage account behind virtual network and firewall using [Azure Resource Manager](../../azure-resource-manager/management/overview.md) template, as shown in the following example:
+
+> [!IMPORTANT]
+> In order to use storage account behind virtual network and firewall, you need to set **isStorageBehindVnet** parameter to true
+
+- [Deploy an Azure SQL server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> The linked sample is on an external public repository and is provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
 
 ## Next steps
 
