@@ -3,7 +3,7 @@ title: Mount the Avere vFXT - Azure
 description: How to mount clients with Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ---

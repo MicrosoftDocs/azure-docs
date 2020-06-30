@@ -17,10 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Example: Direct federation with Active Directory Federation Services (AD FS) (preview)
-|     |
-| --- |
-| Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up [direct federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed identity provider. To support direct federation, certain attributes and claims must be configured at the identity provider. To illustrate how to configure an identity provider for direct federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML identity provider and as a WS-Fed identity provider.
 

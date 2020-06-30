@@ -84,7 +84,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
       - For MABS or DPM, select **Backup Management Servers**. Then, select the server that you want to delete.
 
-          ![For MABS, select your vault to open its dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+          ![For MABS or DPM, select your vault to open its dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
 3. The **Delete** pane appears with a warning message.
 
@@ -108,9 +108,12 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 After this process finishes, you can delete the backup items from management console:
 
 - [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console)
-- [Delete backup items from the MABS management console](#delete-backup-items-from-the-mabs-management-console)
+- [Delete backup items from the MABS or DPM management console](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
 ### Delete backup items from the MARS management console
+
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
 
 1. Open the MARS management console, go to the **Actions** pane, and select **Schedule Backup**.
 2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**. Then, select **Next**.
@@ -133,9 +136,12 @@ After this process finishes, you can delete the backup items from management con
 
 After you delete the on-premises backup items, follow the next steps from the portal.
 
-### Delete backup items from the MABS management console
+### Delete backup items from the MABS or DPM management console
 
-There are two methods you can use to delete backup items from the MABS management console.
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
+
+There are two methods you can use to delete backup items from the MABS or DPM management console.
 
 #### Method 1
 
@@ -159,7 +165,7 @@ To stop protection and delete backup data, do the following steps:
 
 #### Method 2
 
-Open the **MABS management** console. Under **Select data protection method**, clear the  **I want online protection** check box.
+Open the **MABS management** or **DPM management** console. Under **Select data protection method**, clear the  **I want online protection** check box.
 
   ![Select the data protection method.](./media/backup-azure-delete-vault/data-protection-method.png)
 

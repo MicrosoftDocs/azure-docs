@@ -46,6 +46,7 @@ To share your reports in PowerBI.com, you must have an account in PowerBI.com.  
 ## Let's get started
 In this tutorial, let's imagine that you are a geologist studying volcanoes around the world. The volcano data is stored in an Azure Cosmos DB account and the JSON document format is as follows:
 
+```json
     {
         "Volcano Name": "Rainier",
            "Country": "United States",
@@ -62,6 +63,7 @@ In this tutorial, let's imagine that you are a geologist studying volcanoes arou
           "Status": "Dendrochronology",
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
+```
 
 You will retrieve the volcano data from the Azure Cosmos DB account and visualize data in an interactive Power BI report.
 

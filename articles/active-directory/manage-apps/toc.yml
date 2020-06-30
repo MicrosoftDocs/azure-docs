@@ -3,20 +3,14 @@
   - name: Overview
     expanded: true
     items:
-     - name: What is cloud app management and single sign-on?
+     - name: What is application management?
        href: what-is-application-management.md
-     - name: What is Application Proxy for on-premises apps?
-       href: what-is-application-proxy.md
-     - name: Common app management scenarios
-       href: common-scenarios.md
-     - name: What is application provisioning?
-       href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - name: Quickstarts
     items:
-    - name: Add a cloud app from the gallery
-      href: add-application-portal.md
     - name: View your enterprise applications
       href: view-applications-portal.md
+    - name: Add a cloud app from the gallery
+      href: add-application-portal.md
   - name: Tutorials
     items:
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
@@ -32,6 +26,8 @@
     items: 
     - name: App management best practices
       href: application-management-fundamentals.md
+    - name: App management common scenarios
+      href: common-scenarios.md
     - name: Cloud apps and single sign-on
       items:
       - name: Planning a cloud app integration
@@ -80,6 +76,8 @@
       items:
        - name: Application Proxy
          href: application-proxy.md
+       - name: What is application proxy for on-premises apps?
+         href: what-is-application-proxy.md
        - name: Planning an Application Proxy deployment
          href: application-proxy-deployment-plan.md
        - name: Connectors
