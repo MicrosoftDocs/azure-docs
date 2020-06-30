@@ -89,10 +89,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | | |
-    |-|-|
-    | `https://<customer_site_url>/login`|
-    | `https://<customer_site_url>/login?no_auto=0`|
+    ```https
+    https://<customer_site_url>/login
+    https://<customer_site_url>/login?no_auto=0
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL which is explained later in the turorial.
