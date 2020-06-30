@@ -1,9 +1,9 @@
 ---
-title: About Azure Key Vault keys - Azure Key Vault
+title: About Azure Key Vault Managed HSM keys - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -13,41 +13,44 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 ---
 
-# About Managed HSM
+# About Managed HSM keys
 
-Azure Key Vault enables the use of Managed Hardware Security Modules (HSM) for high value keys, and supports multiple key types and algorithms.
+Azure Key Vault Managed HSM enables the use of single-tenant, fully managed, Hardware Security Modules (HSM) for high value keys, and supports multiple key types and algorithms.
 
-Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
+Cryptographic keys in Managed HSM are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
 -   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs. 
+The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
 
-Azure Key Vault supports both Soft and Hard keys:
+Managed HSM only supports **HSM-protected keys**. HSM-protected keys (also referred to as HSM-keys) are processed in an HSM (Hardware Security Module) and always remain HSM protection boundary. Managed HSM uses FIPS (Federal Information Processing Standards) **140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with it's own [security domain](security-domains.md) providing complete cryptographic isolation from all other HSM pools sharing the same hardware infrastructure.
 
-- **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
-- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the key_hsm attribute to the JWK obtain to carry the HSM key material.
+These keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using  keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
 
-For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
 ## Cryptographic protection
 
-Key Vault supports RSA and Elliptic Curve keys only. 
+Managed HSM supports RSA, EC and symmetric keys. 
 
--   **EC**: "Soft" Elliptic Curve key.
--   **EC-HSM**: "Hard" Elliptic Curve key.
--   **RSA**: "Soft" RSA key.
--   **RSA-HSM**: "Hard" RSA key.
+-   **EC-HSM**: "HSM-protected" Elliptic Curve key.
+-   **RSA-HSM**: "HSM-protected" RSA key.
+-   **oct-HSM**: "HSM-protected" Symmetric key.
 
-Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K (SECP256K1).
+### Key Types and algorithms support summary
 
-The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS (Federal Information Processing Standards) validated. You don't need to do anything special to run in FIPS mode. Keys **created** or **imported** as HSM-protected are  processed inside an HSM, validated to FIPS 140-2 Level 2. Keys **created** or **imported** as software-protected, are processed inside cryptographic modules validated to FIPS 140-2 Level 1.
+|Key Types| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
+| --- | --- | --- |
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
+|EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
+
 
 ###  EC algorithms
- The following algorithm identifiers are supported with EC and EC-HSM keys in Key Vault. 
+ The following algorithm identifiers are supported with EC-HSM keys
 
 #### Curve Types
 
@@ -64,7 +67,7 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 -   **ES512** - ECDSA for SHA-512 digests and keys created with curve P-521. This algorithm is described at [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  RSA algorithms  
- The following algorithm identifiers are supported with RSA and RSA-HSM keys in Key Vault.  
+ The following algorithm identifiers are supported with RSA and RSA-HSM keys  
 
 #### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
@@ -81,9 +84,16 @@ The cryptographic modules that Key Vault uses, whether HSM or software, are FIPS
 -   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
 -   **RSNULL** - See [RFC2437], a specialized use-case to enable certain TLS scenarios.  
 
+
+###  Symmetric key algorithms
+- **AES-KW** - 
+- **AES-GCM** - 
+- **AES-CBC** - 
+
+
 ##  Key operations
 
-Key Vault supports the following operations on key objects:  
+Managed HSM supports the following operations on key objects:  
 
 -   **Create**: Allows a client to create a key in Key Vault. The value of the key is generated by Key Vault and stored, and isn't released to the client. Asymmetric keys may be created in Key Vault.  
 -   **Import**: Allows a client to import an existing key to Key Vault. Asymmetric keys may be imported to Key Vault using a number of different packaging methods within a JWK construct. 
@@ -173,4 +183,3 @@ The following permissions can be granted, on a per user / service principal basi
 For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## Next steps
-
