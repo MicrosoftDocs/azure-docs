@@ -1,5 +1,5 @@
 ---
-title: Using stored procedures
+title: Use stored procedures
 description: Tips for implementing stored procedures in Synapse SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using stored procedures in SQL pool
+# Use stored procedures in SQL pool
 
 Tips for implementing stored procedures in Synapse SQL pool (data warehouse) for developing solutions.
 

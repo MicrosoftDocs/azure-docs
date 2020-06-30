@@ -12,7 +12,7 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
-# Using T-SQL loops in Synapse SQL
+# Use T-SQL loops in Synapse SQL
 This article provides you with essential tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in Synapse SQL.
 
 ## Purpose of WHILE loops
