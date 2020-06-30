@@ -1,5 +1,5 @@
 ﻿---
-title: Security controls
+title: Security controls for Azure App Service
 description: Find a checklist of security controls for evaluating Azure App Service for your organization.
 author: msmbaldwin
 
