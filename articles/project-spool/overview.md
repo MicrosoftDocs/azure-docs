@@ -19,15 +19,13 @@ ms.service: azure-project-spool
 
 Azure Communication Services (ACS) allows you to easily add real-time communications features to your applications.
 
-When you use ACS, you're building on top of the same infrastructure that powers Microsoft Teams and the consumer Skype experiance. These Azure native services seamlessly auto-scale for global deployments of any size. You can use ACS for various forms of communication:
+When you use ACS, you're building on top of the same infrastructure that powers Microsoft Teams and the consumer Skype experiance. These Azure native services seamlessly auto-scale for global deployments of any size. You can use ACS for voice, video, text, and data communication in a variety of scenarios:
 
-- Voice over the Internet (VOIP) 
-- Voice over the publicly switched telephony network (PSTN)
-- Video over the Internet (video calling)
-- Chat over the Internet
-- Chat through PSTN message (SMS)
+- Browser-to-browser, browser-to-app, and app-to-app communication
+- Humans engaging bots or other services
+- Humans and bots engaging the public switched telephony network 
 
-You can mix communication types intuitively, for example a single call may have end-users enjoying a browser application and interacting with end-users on traditional telephony devices. Communication between human users is a subset ACS' capabilities. You can build services and applications to directly interact with the data plane of the voice, video, and chat services, for example Azure Bots to support an interactive voice response systems (IVR).
+You can mix communication types intuitively, for example a single call may have end-users enjoying a browser application and interacting with end-users on traditional telephony devices. You can build services and applications to directly interact with the data plane of the voice, video, data, and text channels; for example using Azure Bots to support an interactive voice response systems (IVR).
 
 ## Scenarios 
 In this section we introduce some scenarios you can build with ACS. The first step for using ACS is making a resource in the Azure portal or via Azure Resource Management APIs:
