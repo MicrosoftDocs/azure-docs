@@ -787,7 +787,7 @@ These are the log attributes/properties of data movements through each leg of da
 ```
 
 | Property                     | Type   | Description                                                        | Example                        |
-| ------------------------ --- | ------ | ------------------------------------------------------------------ | ------------------------------ |
+| ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | This is set to `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **category**                 | String | The category of diagnostic logs                                    | `SSISPackageExecutionDataStatistics` |
@@ -881,7 +881,7 @@ The schemas and content of SSIS package execution logs in Azure Monitor and Log 
 | `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
 | `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
 
-For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Anaytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#monitor-schema).
+For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Anaytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of your invocation methods, for example on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS/SQL Server Agent/other designated tools, or as triggered/sandbox/debug runs of Execute SSIS Package activities in ADF pipelines.
 
