@@ -116,141 +116,60 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
-## List custom roles
+## Frequently asked questions
 
-To list the custom roles for your subscription, use the following Azure CLI command:
+
+### Q. What are the permissions needed to perform various actions in the Azure Machine Learning service?
+
+The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. As an example if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. All paths in this table are **relative paths** to `Microsoft.MachineLearningServices/`.
+
+| Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
+|---|---|---|---|
+| Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
+| Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
+| Create new Notebook VM | Not required | Owner or contributor | Not possible |
+| Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
+| Data plane activity like submitting run, accessing data, deploying model or publishing pipeline | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/*/write` <br/> Note that you also need a datastore registered to the workspace to allow MSI to access data in your storage account. |
+
+
+### Q. How do I list all the custom roles in my subscription?
+
+In the Azure CLI, run the following command.
 
 ```azurecli-interactive
-az role definition list --custom-role-only true
+az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-To list the custom roles defined at the resource group level, use the `-g` argument and specify the resource group name.
+### Q. How do I find the role definition for a role in my subscription?
 
-To list the custom roles defined at the workspace level, use the `--scope` argument and specify the scope. For example, `--scope '/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>'`.
-
-If you only want to see the role names, use the following command:
+In the Azure CLI, run the following command. Note that `<role-name>` should be in the same format returned by the command above.
 
 ```azurecli-interactive
-az role definition list --custom-role-only true --output tsv --query '[].roleName'
+az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-## View role definition
+### Q. How do I update a role definition?
 
-To view the definition for a custom role, use the following command. Replace the `<role-name>` with the name of the custom role. You can use the [List custom roles](#list-custom-roles) section to retrieve a list of names:
-
-```azurecli-interactive
-az role definition list -n <role-name>
-```
-
-## Update a role definition
-
-To update the definition for a custom role, use the following command. 
+In the Azure CLI, run the following command.
 
 ```azurecli-interactive
-az role definition update --role-definition update_def.json
+az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
 Note that you need to have permissions on the entire scope of your new role definition. For example if this new role has a scope across three subscriptions, you need to have permissions on all three subscriptions. 
 
 > [!NOTE]
 > Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
+### Q. Can I define a role that prevents updating the workspace Edition? 
 
-## Example: Restrict deployments
+Yes, you can define a role that prevents updating the workspace Edition. Since the workspace update is a PATCH call on the workspace object, you do this by putting the following action in the `"NotActions"` array in your JSON definition: 
 
-The following role definition builds on the custom role example by:
+`"Microsoft.MachineLearningServices/workspaces/write"`
 
-- Preventing deployment to production Azure Kubernetes Service clusters.
-- Preventing publication of Azure Machine Learning pipelines.
-- Changes the scope to the subscription level, so it applies across workspaces in a subscription.
+### Q. What permissions are needed to perform quota operations in a workspace? 
 
-`data_scientist_role_without_deployment.json` :
-```json
-{ 
-    "Name": "Data Scientist without Deployment", 
-    "IsCustom": true, 
-    "Description": "Can run experiment but can't create or delete compute.", 
-    "Actions": ["*"], 
-    "NotActions": [ 
-        "Microsoft.MachineLearningServices/workspaces/*/delete", 
-        "Microsoft.MachineLearningServices/workspaces/computes/*/write", 
-        "Microsoft.MachineLearningServices/workspaces/computes/*/delete",  
-        "Microsoft.Authorization/*/write" 
-    ], 
-    "DataActions": [ 
-        "Microsoft.MachineLearningServices/workspaces/*/read", 
-        "Microsoft.MachineLearningServices/workspaces/*/write", 
-        "Microsoft.MachineLearningServices/workspaces/*/delete", 
-        "Microsoft.MachineLearningServices/workspaces/*/action" 
-    ], 
-    "NotDataActions": [ 
-        "Microsoft.MachineLearningServices/workspaces/services/aks/prod/write", 
-        "Microsoft.MachineLearningServices/workspaces/services/aks/prod/delete", 
-        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write" 
-    ], 
-    "AssignableScopes": [ 
-        "/subscriptions/<subscription_id>" 
-    ] 
-} 
-```
+You need subscription level permissions to perform any quota related operation in the workspace. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope. 
 
-## Example: Minimum privileges
-
-The following role definition only allows:
-
-- Creation of experiments.
-- Submitting training runs on __existing__ compute targets.
-- Using registered datastores and datasets.
-
-`data_scientist_for_experimentation.json` :
-```json
-{ 
-    "Name": "Data Scientist for Experimentation", 
-    "IsCustom": true, 
-    "Description": "Can run experiments using existing artifacts like compute and datastores.", 
-    "Actions": ["*"], 
-    "NotActions": [ 
-        "Microsoft.MachineLearningServices/workspaces/*/delete", 
-        "Microsoft.MachineLearningServices/workspaces/computes/*/write", 
-        "Microsoft.MachineLearningServices/workspaces/computes/*/delete",  
-        "Microsoft.Authorization/*/write" 
-    ], 
-    "DataActions": [
-        "Microsoft.MachineLearningServices/workspaces/experiments/write", 
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write", 
-        "Microsoft.MachineLearningServices/workspaces/datastores/read", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read", 
-        "Microsoft.MachineLearningServices/workspaces/environments/write", 
-        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write", 
-        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write" 
-    ], 
-    "NotDataActions": [ 
-    ], 
-    "AssignableScopes": [ 
-        "/subscriptions/<subscription_id>" 
-    ] 
-} 
-```
-
-## Example: Restrict edition upgrade
-
-The following role definition prevents updating a workspace from Basic to Enterprise edition. The upgrade operation is a PATCH call on the workspace object. This role prevents writes to the object, which blocks the PATCH attempt.
-
-`block_edition_upgrade`:
-```json
-{
-    "Name": "Block workspace edition upgrade",
-    "IsCustom": true,
-    "Description": "Prevent workspace edition upgrade.",
-    "Actions": ["*"],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/write"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace_name>"
-    ]
-}
-```
 
 ## Next steps
 
