@@ -332,13 +332,14 @@ Azure Monitor for containers supports viewing metrics stored in your Log Analyti
 To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
 
 ```
-InsightsMetrics 
-| where Namespace == "prometheus"
+InsightsMetrics
+| where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
 | render barchart
 ```
+
 The output will show results similar to the following:
 
 ![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
@@ -346,7 +347,7 @@ The output will show results similar to the following:
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
-InsightsMetrics 
+InsightsMetrics
 | where Namespace contains "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
