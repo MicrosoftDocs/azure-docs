@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/05/2020
+ms.date: 07/06/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -91,17 +91,23 @@ const msalConfig = {
 // Create an instance of PublicClientApplication
 const msalInstance = new PublicClientApplication(msalConfig);
 
-// OPTIONAL: Register a redirect callback for Success or Error when using redirect methods
-function authCallback(error, response) {
-    // Handle redirect response in this callback
-}
-
+// Handle the redirect flows
 msalInstance.handleRedirectPromise().then((tokenResponse) => {
     // Handle redirect response
 }).catch((error) => {
     // Handle redirect error
 });
 ```
+
+### `handleRedirectPromise`
+
+Use [handleRedirectPromise][msal-js-handleredirectpromise] when your application uses the redirect flows and needs to know when the page is ready (that is, when the processing of any redirect responses is complete). When using the redirect flows, `handleRedirectPromise` should be run on every page load.
+
+There are three possible outcomes from the promise:
+
+- `.then` is invoked and `tokenResponse` is truthy: The application is returning from a redirect operation that was successful.
+- `.then` is invoked and `tokenResponse` is falsey (`null`): The application is not returning from a redirect operation.
+- `.catch` is invoked: The application is returning from a redirect operation and there was an error.
 
 ## Initialize MSAL.js 1.x apps
 
@@ -147,6 +153,7 @@ This MSAL.js 2.x code sample on GitHub demonstrates instantiation of a [PublicCl
 [msal-core]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/
 [msal-js-acquiretokenredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#acquiretokenredirect
 [msal-js-configuration]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_configuration_.html
+[msal-js-handleredirectpromise]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html#handleredirectpromise
 [msal-js-loginredirect]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/classes/_useragentapplication_.useragentapplication.html#loginredirect
-[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_app_publicclientapplication_.publicclientapplication.html
+[msal-js-publicclientapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-browser/classes/_src_app_publicclientapplication_.publicclientapplication.html
 [msal-js-useragentapplication]: https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/modules/_useragentapplication_.html
