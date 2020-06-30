@@ -18,7 +18,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Things to know
 
 * Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
-* You can set up a maximum of 10 private endpoints for a registry.
+* Currently, a maximum of 10 private endpoints can be set up for a registry.
 
 ## Prerequisites
 
