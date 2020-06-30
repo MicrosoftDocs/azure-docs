@@ -26,10 +26,10 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful node and/or pod assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
+This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
 Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-The following three (3) cases can cause an insufficient subnet size error:
+The following three (3) cases cause an insufficient subnet size error:
 
 1. AKS Scale or AKS Nodepool scale
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** the `number of new nodes requested`.
@@ -45,13 +45,13 @@ The following three (3) cases can cause an insufficient subnet size error:
    1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
    1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
 
-The following mitigation can be taken by creating new subnets. The ability to create a new subnet is required as a limitation of Azure networking.
+The following mitigation can be taken by creating new subnets. The permission to create a new subnet is required for mitigation due to the inability to update an existing subnet's CIDR range.
 
-1. Rebuild a new subnet with a larger CIDR range.
+1. Rebuild a new subnet with a larger CIDR range sufficient for operation goals:
    1. Create a new subnet with a new desired non-overlapping range.
-   1. Create a new nodepool on that subnet.
-   1. Drain pods from nodes on the old nodepool residing in the old subnet.
-   1. Delete the original subnet and old nodepool
+   1. Create a new nodepool on the new subnet.
+   1. Drain pods from the old nodepool residing in the old subnet to be replaced.
+   1. Delete the old subnet and old nodepool.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
