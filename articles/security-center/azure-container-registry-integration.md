@@ -28,7 +28,7 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 - Required roles: **Security reader**
 - Clouds: 
     - ✔ Commercial clouds
-    - ✔ US Government cloud
+    - ✘ US Government cloud
     - ✘ China Government cloud, other gov clouds
 
 

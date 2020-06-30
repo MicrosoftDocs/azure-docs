@@ -101,7 +101,7 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 
 
-## Threat protection for Azure Kubernetes Service <a name="azure-containers"></a>
+## Threat protection for containers <a name="azure-containers"></a>
 
 ### Availability
 
@@ -109,7 +109,7 @@ For more information on App Service plans, see [App Service plans](https://azure
 - Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
 - Clouds:<br>
     ✔ Commercial clouds<br>
-    ✔ US Gov<br>
+    ✘ US Gov<br>
     ✘ China Gov, Other Gov
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]

@@ -19,9 +19,12 @@ ms.author: memildin
 
 Azure Security Center is the Azure-native solution for securing your containers. Security Center provides two optional bundles for standard tier users to gain Azure-native protection of the following two Azure container services:
 
-- [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) - Microsoft's managed, private Docker registry service (based on the open-source Docker Registry 2.0) that stores and manages your container images for Azure deployments in a central registry. Security Center's ACR bundle brings deeper visibility into the vulnerabilities of the images in your ARM-based registries.
 
-- [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) - Microsoft's managed service for developing, deploying, and managing containerized applications. Security Center's AKS bundle provides deeper visibility to your AKS nodes, cloud traffic, and security controls.
+|Service  |Description  |Security Center bundle  |
+|---------|---------|---------|
+|[Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) |Microsoft's managed, private Docker registry service (based on the open-source Docker Registry 2.0) that stores and manages your container images for Azure deployments in a central registry.         |[Security Center's ACR bundle](azure-container-registry-integration.md) brings deeper visibility into the vulnerabilities of the images in your ARM-based registries.|
+|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) |Microsoft's managed service for developing, deploying, and managing containerized applications.|[Security Center's AKS bundle provides](azure-kubernetes-service-integration.md) deeper visibility to your AKS nodes, cloud traffic, and security controls.|
+||||
 
 This article describes how you can use these bundles to improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
 
@@ -65,9 +68,7 @@ For details of the relevant Security Center recommendations that might appear fo
 
 ## Run-time protection - Real-time threat detection
 
-Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
-
-We detect threats at the host and AKS cluster level. For full details, see [threat detection for Azure containers](threat-protection.md#azure-containers).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
