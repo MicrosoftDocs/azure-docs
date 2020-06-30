@@ -10,7 +10,7 @@ ms.date: 07/03/2020
 
 # Secure access and data in Azure Logic Apps
 
-Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
+Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md). For a security overview, see [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md).
 
 To further control access and protect sensitive data in Azure Logic Apps, you can set up additional security in these areas:
 
@@ -959,7 +959,6 @@ For more information about isolation in Azure, see these topics:
 
 ## Next steps
 
-* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
-* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)  
-* [Diagnose logic app failures and issues](../logic-apps/logic-apps-diagnosing-failures.md)  
-* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md)
+* [Automate deployment for Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Monitor logic apps](../logic-apps/monitor-logic-apps-log-analytics.md)
