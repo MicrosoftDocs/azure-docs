@@ -33,7 +33,7 @@ You can check the Quorum version on your Azure Blockchain Service member by atta
 
 ### Using geth
 
-Attach to your Azure Blockchain Service node using geth. For example, `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`. For more information on using geth, see [Quickstart: Use Geth to attach to an Azure Blockchain Service transaction node](connect-geth.md).
+Attach to your Azure Blockchain Service node using geth. For example, `geth attach https://myblockchainmember.blockchain.azure.com:3200/<Access key>`.
 
 Once your node is connected, geth reports the Quorum version similar to the following output:
 
@@ -41,17 +41,19 @@ Once your node is connected, geth reports the Quorum version similar to the foll
 instance: Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12
 ```
 
+For more information on using geth, see [Quickstart: Use Geth to attach to an Azure Blockchain Service transaction node](connect-geth.md).
+
 ### Using diagnostic logs
 
-If you enable diagnostic logs, the Quorum version is reported for transaction nodes. For more information on diagnostic logs, see [Monitor Azure Blockchain Service through Azure Monitor](monitor-azure-blockchain-service.md#diagnostic-settings).
-
-For example, the following node informational log message includes the Quorum version.
+If you enable diagnostic logs, the Quorum version is reported for transaction nodes. For example, the following node informational log message includes the Quorum version.
 
 ``` text 
 {"NodeName":"transaction-node","Message":"INFO [06-22|05:31:45.156] Starting peer-to-peer node instance=Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12\n"}
 {"NodeName":"transaction-node","Message":"[*] Starting Quorum node with QUORUM_VERSION=2.6.0, TESSERA_VERSION=0.10.5 and PRIVATE_CONFIG=/working-dir/c/tm.ipc\n"}
 111
 ```
+
+For more information on diagnostic logs, see [Monitor Azure Blockchain Service through Azure Monitor](monitor-azure-blockchain-service.md#diagnostic-settings).
 
 ## How to check genesis file content
 
