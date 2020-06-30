@@ -1055,7 +1055,7 @@
           - name: Distributed Network Name (DNN)
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
           - name: Virtual Network Name (VNN)
-            href: virtual-machines/windows/hadr-azure-load-balancer-configure.md
+            href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
 
     - name: Reference
       items:

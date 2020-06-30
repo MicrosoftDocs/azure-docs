@@ -1,6 +1,6 @@
 ---
 title: Prepare virtual machines for FCI  
-description: "Create and prepare your Azure Virtual Machines to use with the a failover cluster instance (FCI) and SQL Server on Azure Virtual Machines." 
+description: "Create and prepare your Azure Virtual Machines to use with a failover cluster instance (FCI) and SQL Server on Azure Virtual Machines." 
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -39,11 +39,11 @@ The configuration settings for your virtual machine vary depending on the storag
 
 ## Configure VM availability 
 
-The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets then yo can leverage [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md) to physically locate the VMs closer; in fact proximity placement groups are a prerequisite when using Azure Shared Disks. 
+The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can leverage [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md) to physically locate the VMs closer; in fact proximity placement groups are a prerequisite when using Azure Shared Disks. 
 
 Carefully select the VM availability option that matches your intended cluster configuration. The following VM availability options are available when you plan to configure your SQL Server failover cluster instance with: 
 
- - **Shared Managed Disks** [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with Fault Doman and Update Domain set to 1 and inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
+ - **Shared Managed Disks** [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configured with Fault Domain and Update Domain set to 1 and inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md)
  - **Premium File Shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). PFS is the only shared storage option if you choose availability zones as the availability configuration for your VMs. 
  - **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
@@ -67,11 +67,11 @@ You can create an Azure Virtual Machine using an image [with](sql-vm-create-port
 
 ## Uninstall SQL Server
 
-As part of the FCI creation process, you will install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server pre-installed, you will need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
+As part of the FCI creation process, you will install SQL Server as a clustered instance to the failover cluster. *If you deployed a virtual machine with an Azure Marketplace image without SQL Server, you can skip this step.* If you deployed an image with SQL Server pre-installed, you will need to unregister the SQL Server VM from the SQL VM resource provider, and then uninstall SQL Server. 
 
 ### Deregister from the SQL VM resource provider
 
-SQL Server VM images from the Azure marketplace are automatically registered with the SQL VM resource provider. Before uninstalling the pre-installed SQL Server instance, you must first unregister each SQL Server VM from the SQL VM resource provider. See [unregister from SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-from-the-rp) to learn more. 
+SQL Server VM images from the Azure Marketplace are automatically registered with the SQL VM resource provider. Before uninstalling the pre-installed SQL Server instance, you must first unregister each SQL Server VM from the SQL VM resource provider. See [unregister from SQL VM resource provider](sql-vm-resource-provider-register.md#unregister-from-the-rp) to learn more. 
 
 ### Uninstall SQL Server
 
@@ -129,6 +129,6 @@ Choose one of the following guides to configure the FCI environment appropriate 
 
 See an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [supported HADR configurations](hadr-cluster-best-practices.md) to learn more. 
 
-For additional information see: 
+For additional information, see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
