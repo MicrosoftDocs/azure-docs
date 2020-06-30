@@ -20,6 +20,25 @@ Azure Attestation enables cutting-edge security paradigms such as [Azure Confide
 
 Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (e.g., relying parties, auditing authorities etc).
 
+## Use cases
+Azure Attestation is tasked with providing comprehensive attestation services for multiple environments and distinctive use cases.
+This section elaborates on the primary scenarios.
+
+### SGX attestation
+SGX refers to hardware grade isolation, which is supported on certain CPUs models. SGX enables code to run in sanitized compartments known as SGX enclaves. Access and memory permissions are then managed by hardware to ensure a minimal attack surface with proper isolation.
+
+Client applications can be designed to take advantage of SGX enclaves by delegating security-sensitive tasks to take place inside those enclaves. Such applications can then make use of Azure Attestation to routinely establish trust in the enclave and its ability to access sensitive data.
+
+### VBS attestation
+VBS is a software-based architecture for an enclave memory protection based on Hyper-V. It prevents host admin code, as well as local and cloud service administrators from accessing the data in a VBS enclave or affecting its execution.
+
+In a similar fashion to SGX technology, Azure Attestation supports validating VBS enlcaves against configured policies and issuing a certification statement as proof of validity.
+
+### Open Enclave
+[Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developer to build TEEs based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing enclave technologies such as SGX and increasing their uptake on Azure.
+
+OE standardizes specific requirements for verification of an enclave evidence. This qualifies OE as a highly fitting attestation consumer of Azure Attestation.
+
 ## Azure Attestation can run in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
