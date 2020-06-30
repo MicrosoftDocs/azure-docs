@@ -535,6 +535,9 @@ images. Before you use this procedure, make sure Sysprep supports the role of th
 information, see
 [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
 
+In particular, Sysprep requires the drives to be fully decrypted before execution. If you have enabled Encryption on your VM, please disable it before running sysprep.
+
+
 ### Generalize a VHD
 
 >[!NOTE]
