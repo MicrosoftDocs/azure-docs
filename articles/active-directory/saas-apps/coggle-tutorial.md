@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Coggle supports **SP and IDP** initiated SSO
 * Coggle supports **Just In Time** user provisioning
 
-* Once you configure Coggle you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Coggle you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Coggle from the gallery
 
@@ -99,7 +99,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Coggle application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Coggle application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |  |  Source Attribute|
 	| ---------------| --------------- | --------- |
@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Coggle SSO
 
-1. In a different browser window, sign-on to your Coggle company site as administrator.
+1. In a different browser window, sign on to your Coggle company site as administrator.
 
 2. Click on **Coggle** account and select **My Settings**.
 
@@ -179,7 +179,7 @@ In this section, a user called B.Simon is created in Coggle. Coggle supports jus
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Coggle tile in the Access Panel, you should be automatically signed in to the Coggle for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Coggle tile in the Access Panel, you should be automatically signed in to the Coggle for which you setup SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
