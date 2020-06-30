@@ -781,7 +781,7 @@ These are the log attributes/properties of data movements through each leg of da
       "rowsSent": "",
       "createdTime": "",
       "executionPath": ""
-   ),
+   },
    "resourceId": ""
 }
 ```
@@ -805,7 +805,7 @@ These are the log attributes/properties of data movements through each leg of da
 | **rowsSent**                 | String | The number of rows sent by source component                        | `500` |
 | **createdTime**              | String | The time when row values are obtained in UTC format                | `2017-06-28T21:00:27.3534352Z` |
 | **executionPath**            | String | The path of execution for data flow task                           | `\Transformation\Data Flow Task` |
-| **resourceId**               | String | The unique ID of your ADF resource                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**               | String | The unique ID of your ADF resource                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### Log Analytics schema
 
