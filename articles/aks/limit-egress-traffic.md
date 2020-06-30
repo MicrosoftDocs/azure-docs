@@ -361,7 +361,7 @@ See [virtual network route table documentation](../virtual-network/virtual-netwo
 
 ### Adding firewall rules
 
-Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP (if you're deploying to Azure China 21Vianet, you might require [more](#azure-china-21vianet)). Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
+Below are three network rules you can use to configure on your firewall, you may need to adapt these rules based on your deployment. The first rule allows access to port 9000 via TCP. The second rule allows access to port 1194 and 123 via UDP (if you're deploying to Azure China 21Vianet, you might require [more](#azure-china-21vianet-required-network-rules)). Both these rules will only allow traffic destined to the Azure Region CIDR that we're using, in this case East US. 
 Finally, we'll add a third network rule opening port 123 to `ntp.ubuntu.com` FQDN via UDP (adding an FQDN as a network rule is one of the specific features of Azure Firewall, and you'll need to adapt it when using your own options).
 
 After setting the network rules, we'll also add an application rule using the `AzureKubernetesService` that covers all needed FQDNs accessible through TCP port 443 and port 80.
@@ -438,7 +438,7 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 You'll define the outbound type to use the UDR that already exists on the subnet. This configuration will enable AKS to skip the setup and IP provisioning for the load balancer.
 
 > [!IMPORTANT]
-> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](egress-outboungtype.md#limitations).
+> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](egress-outboundtype.md#limitations).
 
 
 > [!TIP]
