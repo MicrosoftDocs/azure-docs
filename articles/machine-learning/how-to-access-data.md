@@ -300,7 +300,7 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 ## Access data in a virtual network
 
-If your workspace is in a virtual network, you must perform additional configuration steps to use datastores. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+If your storage is behind a virtual network, you must perform additional configuration steps for your workspace and datastore to access your data. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
 <a name="move"></a>
 
