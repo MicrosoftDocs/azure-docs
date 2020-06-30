@@ -159,7 +159,7 @@ You should consider using the pull model in these scenarios:
 
 Here's some key differences between the change feed processor and pull model:
 
-|  | Change feed processor| Pull model |
+|Feature  | Change feed processor| Pull model |
 | --- | --- | --- |
 | Keeping track of current point in processing change feed | Lease (stored in an Azure Cosmos DB container) | Continuation token (stored in memory or manually persisted) |
 | Ability to replay past changes | Yes, with push model | Yes, with pull model|

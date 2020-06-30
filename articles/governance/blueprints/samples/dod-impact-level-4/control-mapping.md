@@ -598,7 +598,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [DoD Impact Level 4 blueprint - Overview](./index.md)
 > [DoD Impact Level 4 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

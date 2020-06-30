@@ -40,7 +40,7 @@ Once the language analyzer is selected for a field, it will be used with each in
 
 If the language of the agent issuing a query is known, a search request can be scoped to a specific field using the **searchFields** query parameter. The following query will be issued only against the description in Polish:
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2020-06-30`
 
 You can query your index from the portal, using [**Search explorer**](search-explorer.md) to paste in a query similar to the one shown above.
 
@@ -57,7 +57,7 @@ Sometimes the language of the agent issuing a query is not known, in which case 
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
 
 ## Next steps
 

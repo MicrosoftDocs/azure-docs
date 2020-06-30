@@ -38,13 +38,12 @@ This article assumes that you are familiar with the [Introduction to device iden
 
 To plan your hybrid Azure AD implementation, you should familiarize yourself with:
 
-|   |   |
-| --- | --- |
-| ![Check][1] | Review supported devices |
-| ![Check][1] | Review things you should know |
-| ![Check][1] | Review controlled validation of hybrid Azure AD join |
-| ![Check][1] | Select your scenario based on your identity infrastructure |
-| ![Check][1] | Review on-premises AD UPN support for hybrid Azure AD join |
+> [!div class="checklist"]
+> - Review supported devices
+> - Review things you should know
+> - Review controlled validation of hybrid Azure AD join
+> - Select your scenario based on your identity infrastructure
+> - Review on-premises AD UPN support for hybrid Azure AD join
 
 ## Review supported devices
 
