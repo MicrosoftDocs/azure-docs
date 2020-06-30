@@ -14,6 +14,7 @@
   - name: Create logic apps - Visual Studio Code
     href: quickstart-create-logic-apps-visual-studio-code.md
   - name: Create logic apps - ARM template
+    displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
 - name: Tutorials
   items:
