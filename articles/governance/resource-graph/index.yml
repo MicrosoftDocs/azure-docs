@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
+  ms.date: 06/29/2020
 
 landingContent:
   - title: About Azure Resource Graph
@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: First query (Azure portal)
+          - text: First query (Portal)
             url: ./first-query-portal.md
           - text: First query (Azure CLI)
             url: ./first-query-azurecli.md
@@ -45,7 +45,7 @@ landingContent:
             url: ./first-query-javascript.md
           - text: First query (Python)
             url: ./first-query-python.md
-          - text: Share queries (portal)
+          - text: Share queries (Portal)
             url: ./tutorials/create-share-query.md
       - linkListType: concept
         links:

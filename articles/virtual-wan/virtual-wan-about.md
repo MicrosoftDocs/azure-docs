@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 05/14/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -60,7 +60,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 **Additional Virtual WAN resources**
 
-  * **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
+* **Site:** This resource is used for site-to-site connections only. The site resource is **vpnsite**. It represents your on-premises VPN device and its settings. By working with a Virtual WAN partner, you have a built-in solution to automatically export this information to Azure.
 
 ## <a name="connectivity"></a>Types of connectivity
 
@@ -68,21 +68,9 @@ Virtual WAN allows the following types of connectivity: Site-to-Site VPN, User V
 
 ### <a name="s2s"></a>Site-to-site VPN connections
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
+You can connect to your resources in Azure over a Site-to-site IPsec/IKE (IKEv2) connection. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md). 
 
-When you create a virtual WAN site-to-site connection, you can work with an available partner. If you don't want to use a partner, you can configure the connection manually. For more information, see [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
-
-#### <a name="s2spartner"></a>Virtual WAN partner workflow
-
-When you work with a Virtual WAN partner, the workflow is:
-
-1. The branch device (VPN/SDWAN) controller is authenticated to export site-centric information into Azure by using an [Azure Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
-2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
-3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure supports both IKEv1 and IKEv2. BGP is optional.
-
-#### <a name="partners"></a>Partners for site-to-site virtual WAN connections
-
-For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+This type of connection requires a VPN device or a Virtual WAN Partner device. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration, and establish connectivity to the Azure Virtual WAN hub. For a list of the available partners and locations, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article. If your VPN/SD-WAN device provider is not listed in the mentioned link, then you can simplify use the step-by-step instruction [Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md) to set up the connection.
 
 ### <a name="uservpn"></a>User VPN (point-to-site) connections
 
@@ -91,9 +79,52 @@ You can connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN 
 ### <a name="er"></a>ExpressRoute connections
 ExpressRoute lets you connect on-premises network to Azure over a private connection. To create the connection, see [Create an ExpressRoute connection using Virtual WAN](virtual-wan-expressroute-portal.md).
 
+### <a name="hub"></a>Hub-to-VNet connections
+
+You can connect an Azure virtual network to a virtual hub. For more information, see [Connect your VNet to a hub](virtual-wan-site-to-site-portal.md#vnet).
+
+### <a name="transit"></a>Transit connectivity
+
+#### <a name="transit-vnet"></a>Transit connectivity between VNets
+
+Virtual WAN allows transit connectivity between VNets. VNets connect to a virtual hub via a virtual network connection. Transit connectivity between the VNets in **Standard Virtual WAN** is enabled due to the presence of a router in every virtual hub. This router is instantiated when the virtual hub is first created.
+
+The router can have four routing statuses: Provisioned, Provisioning, Failed, or None. The **Routing status** is located in the Azure portal by navigating to the Virtual Hub page.
+
+* A **None** status indicates that the Virtual hub did not provision the router. This can happen if the Virtual WAN is of type *Basic*, or if the virtual hub was deployed prior to the service being made available.
+* A **Failed** status indicates failure during instantiation. In order to instantiate or reset the router, you can locate the **Reset Router** option by navigating to the virtual hub Overview page in the Azure portal.
+
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets in a virtual WAN.
+
+#### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
+
+Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled. This flag can be located in the Azure Virtual WAN settings in the Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
+
+### <a name="routing"></a>Custom Routing
+
+Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliance or shared services routing scenarios.
+
+### <a name="global"></a>Global VNet peering
+
+Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
+
+### <a name="encryption"></a>ExpressRoute traffic encryption
+
+Azure Virtual WAN provides ability to encrypt your ExpressRoute traffic. The technique provides an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public internet or using public IP addresses. For more information, see [IPsec over ExpressRoute for Virtual WAN](vpn-over-expressroute.md).
+
 ## <a name="locations"></a>Locations
 
 For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
+
+## <a name="route"></a>Route tables in Basic and Standard virtual WANs
+
+Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have a pre-existing route table, consider the following:
+
+* **Standard Virtual WAN Customers with pre-existing route tables**:
+To use the new route table capabilities, delete any pre-existing route tables and recreate new ones.
+
+* **Basic Virtual WAN Customers with pre-existing route tables**:
+To use the new route table capabilities, delete any pre-existing route tables, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 
