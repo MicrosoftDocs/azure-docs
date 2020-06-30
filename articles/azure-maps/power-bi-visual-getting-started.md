@@ -27,7 +27,7 @@ The Azure Maps visual for Power BI provides a rich set of data visualizations fo
 
 ## What is sent to Azure?
 
-The Azure Maps visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates which are used to create the map visualization. 
+The Azure Maps visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates that are used to create the map visualization. 
 
 -   Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles). 
 -   Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding). 
@@ -65,7 +65,7 @@ Take the following steps to load the Azure Maps visual:
     > [!div class="mx-imgBorder"]
     > ![Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided](media/power-bi-visual/bubble-layer.png)
 
-2.  To color the data based on categorization, drag a categorial field into the **Legend** bucket of the **Fields** pane. In this example, we’re using the **AdminDistrict** column (also known as state or province).  
+2.  To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we’re using the **AdminDistrict** column (also known as state or province).  
     
     > [!div class="mx-imgBorder"]
     > ![Azure Maps visual displaying points as colored bubbles on the map after legend field provided](media/power-bi-visual/bubble-layer-with-legend-color.png)
@@ -102,10 +102,10 @@ The **Map settings** section of the Format pane provide options for customizing 
 | Setting             | Description  |
 |---------------------|--------------|
 | Auto zoom           | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map will update its position accordingly. When the slider is in the **Off** position, additional map view settings are displayed for the default map view. |
-| World wrap          | Allows the user to pan the map horizontally infinitively. |
+| World wrap          | Allows the user to pan the map horizontally infinitely. |
 | Style picker        | Adds a button to the map that allows the report readers to change the style of the map. |
-| Navigation controls | Adds buttons to the map as another method to allow the report readers to zoom, rotate and change the pitch of the map. See this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
-| Map style           | The style of the map. See this document for more information on [supported map styles](supported-map-styles.md). |
+| Navigation controls | Adds buttons to the map as another method to allow the report readers to zoom, rotate, and change the pitch of the map. For more information, see this document on [Navigating the map](map-accessibility.md#navigating-the-map) for details on all the different ways users can navigate the map. |
+| Map style           | The style of the map. For more information, see this document for more information on [supported map styles](supported-map-styles.md). |
 
 ### Map view settings
 
@@ -136,7 +136,7 @@ Support for additional Power BI services/apps will be added in future updates.
 
 **Where is Azure Maps available?**
 
-At this time, Azure Maps is currently available in all countries and regions except these:
+At this time, Azure Maps is currently available in all countries and regions except the following:
 
 - China
 - South Korea
@@ -149,7 +149,7 @@ See this documentation for information on [Azure Maps Web SDK supported browsers
 
 **How many rows of data can I visualize?**
 
-The initial preview of this visual is limited to 3,500 rows, with plans to increase this in future updates.
+The initial preview of this visual is limited to 3,500 rows, with plans to increase this limit in future updates.
 
 **Can addresses or other location strings be used in this visual?**
 

@@ -36,7 +36,7 @@ The following are all settings in the **Format** pane that are available in the 
 
 ## Styling data in a reference layer
 
-Properties can be added to each feature within the GeoJSON file to customize how it is styled on the map. This feature uses the simple data layer feature in the Azure Maps Web SDK, see this documentation on [supported style properties](spatial-io-add-simple-data-layer.md#default-supported-style-properties) for more information. Note that custom icon images are not supported within the Azure Maps visual as a security precaution.
+Properties can be added to each feature within the GeoJSON file to customize how it is styled on the map. This feature uses the simple data layer feature in the Azure Maps Web SDK. For more information, see this document on [supported style properties](spatial-io-add-simple-data-layer.md#default-supported-style-properties). Custom icon images are not supported within the Azure Maps visual as a security precaution.
 
 The following is an example of a GeoJSON point feature that sets its displayed color to red.
 

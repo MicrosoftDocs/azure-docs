@@ -31,7 +31,7 @@ Initially all bubbles have the same fill color. If a field is passed into the **
 | Outline transparency  | Transparency of the outline. |
 | Outline width         | Width of the outline in pixels. |
 | Blur                  | Amount of blur applied to the outline. A value of 1 blurs the bubbles such that only the center point has no transparency. A value of 0 apply any blur effect. |
-| Pitch alignment       | Specifies how the bubbles looks when the map is pitched. <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Viewport - Bubbles appear on their edge on the map relative to viewport. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Map - Bubbles are rendered flat on the surface of the map. |
+| Pitch alignment       | Specifies how the bubbles look when the map is pitched. <br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Viewport - Bubbles appear on their edge on the map relative to viewport. (default)<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Map - Bubbles are rendered flat on the surface of the map. |
 | Zoom scale            | Amount the bubbles should scale relative to the zoom level. A zoom scale of one means no scaling. Large values will make bubbles smaller when zoomed out and larger when zoomed in. This helps to reduce the clutter on the map when zoomed out, yet ensures points stand out more when zoomed in. A value of 1 does not apply any scaling. |
 | Min zoom              | Minimum zoom level tiles are available. |
 | Max zoom              | Maximum zoom level tiles are available. |
