@@ -109,6 +109,27 @@ Server Assessment continuously collects performance data of on-premises machines
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
 When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
 
+## I do not see performance data for some network adapters on my physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.
+
+## Recommended Azure VM SKU for my physical server is oversized
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. Hence, the no. of network adapters discovered is higher than actual. As Server Assessment picks an Azure VM that can support the required number of network adapters, this can potentially result in an oversized VM. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) about the impact of no. of network adapters on sizing. This is a product gap that will be addressed going forward.
+
+## Readiness category "Not ready" for my physical server
+
+Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Server Assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the machine will be marked “Not ready”.  [Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#calculating-sizing) about the impact of no. of NICs on sizing.
+
+
+## Number of discovered NICs higher than actual for physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of NICs discovered is higher than actual.
+
+
+## Low confidence rating on physical server assessments
+The rating is assigned based on the availability of data points that are needed to compute the assessment. In case of physical servers that have Hyper-V virtualization enabled, there is a known product gap due to which low confidence rating may be incorrectly assigned to physical server assessments. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. The network throughput is captured on the virtual network adapters discovered, but not on the physical network adapters. Due to the absence of data points on the physical network adapters, the confidence rating may be impacted resulting in a low rating. This is a product gap that will be addressed going forward.
+
 ## Dependency visualization in Azure Government
 
 Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
