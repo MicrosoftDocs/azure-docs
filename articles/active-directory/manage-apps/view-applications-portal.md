@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: View the applications registered in your Azure Active Directory (Azure AD) tenant
 
-Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications that are already registered in your Azure AD tenant. 
+Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already registered in your Azure AD tenant. 
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ To view applications that have been registered in your Azure AD tenant, you need
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
 
-## Find the list of tenant applications
+## Find the list of applications in your tenant
 
 The applications that are registered with your Azure AD tenant are viewable in the **Enterprise apps** section of the Azure portal.
 
@@ -44,7 +44,7 @@ To view the applications registered in your tenant:
 1. On the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
-1. To view more applications, select **Load more** at the bottom of the list. If there are a lot of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
+1. To view more applications, select **Load more** at the bottom of the list. If there are a lot of applications in your tenant, it might be easier to search for a particular application instead of scrolling through the list. Searching for a particular application is covered later in this quickstart.
 
 ## Select viewing options
 
@@ -61,7 +61,7 @@ Select options according to what you're looking for.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
 1. After choosing the options you want, select **Apply**.
 
-## Search for a tenant application
+## Search for an application
 
 To search for a particular application:
 

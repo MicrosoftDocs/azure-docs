@@ -15,17 +15,18 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Add an application to your Azure Active Directory tenant
 
-Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
+Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant. This quickstart focuses on adding an app that is already part of the gallery. Apps that are not included in the gallery can also be integrated with Azure AD but that is not covered in this quickstart. 
 
 After an application is added to your Azure AD tenant, you can:
 
-- Manage user access to the application with a Conditional Access policy.
-- Configure users to single sign-on to the application with their Azure AD accounts.
+- Configure properties for the app.
+- Manage user access to the app with a Conditional Access policy.
+- Configure single sign-on so users can login to the app with their Azure AD credentials.
 
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
 
-## Add an application to your Azure AD tenant
+## Add an app to your Azure AD tenant
 
 To add a gallery application to your Azure AD tenant:
 
@@ -33,7 +34,7 @@ To add a gallery application to your Azure AD tenant:
 
 1. In the **Azure Active Directory** pane, select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
 
-1. To add a gallery app to your tenant, select **New application**. 
+1. In the **Enterprise applications** pane, select **New application**. 
 
     ![Select New application to add a gallery app to your tenant](media/add-application-portal/new-application.png)
 
