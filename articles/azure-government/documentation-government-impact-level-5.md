@@ -341,11 +341,13 @@ You can protect data via storage accounts as your device is associated with a st
 
 Azure Logic Apps can be used in Azure Government supporting all impact levels with no additional configuration in the following regions:
 
-Azure Logic Apps relies on Azure Storage to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see Azure Storage encryption for data at rest and Azure Data Encryption-at-Rest.(https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment)
-
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Logic Apps** | X | X | X | | |
+
+Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) and [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+
+If you host and run your logic apps in a dedicated [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), rather than in global multi-tenant Azure, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment).
 
 ### [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 

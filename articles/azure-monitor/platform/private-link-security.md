@@ -118,7 +118,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
    a.    Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
  
-   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. 
+   b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
  
    c.    Click **Review + create**.
  
@@ -221,7 +221,7 @@ To allow the Log Analytics Agent to download solution packs, add the appropriate
 
 | Cloud environment | Agent Resource | Ports | Direction |
 |:--|:--|:--|:--|
-|Azure Public     | scadvisor.blob.core.windows.net         | 443 | Outbound
+|Azure Public     | scadvisorcontent.blob.core.windows.net         | 443 | Outbound
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Outbound
 |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
