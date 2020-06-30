@@ -11,7 +11,7 @@ ms.reviewer: janders
 
 Azure Blockchain Service uses the Ethereum-based [Quorum](https://www.goquorum.com/developers) ledger designed for the processing of private transactions within a group of known participants, identified as a consortium in Azure Blockchain Service.
 
-Currently, Azure Blockchain Service supports [Quorum version 2.5.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.5.0) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
+Currently, Azure Blockchain Service supports [Quorum version 2.6.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.5.0) and [Tessera transaction manager](https://github.com/jpmorganchase/tessera).
 
 ## Managing updates and upgrades
 
@@ -22,6 +22,26 @@ Versioning in Quorum is done through a major, minor, and patch releases. For exa
 | 2 | 0 | 1 | 
 
 Azure Blockchain Service automatically updates patch releases of Quorum to existing running members within 30 days of being made available from Quorum.
+
+## Check Quorum ledger version on your Azure Blockchain Service member resource
+To check the Quorum version on your Azure Blockchain Service member, you can follow the below steps
+	
+  a) Do a geth attach to your node,  
+	
+     geth attach https://vipurtestwe1.blockchain.azure.com:3200/APIKEY
+	
+  As soon as your node is connected you can check geth and Quorum version in message similar to below, 
+  
+	  instance: Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12
+  
+  b) If you have enabled logs you can verify this by looking at following logs. To enable logs, refer [here](https://docs.microsoft.com/en-us/azure/blockchain/service/monitor-azure-blockchain-service#diagnostic-settings)
+	
+	   {"NodeName":"transaction-node","Message":"INFO [06-22|05:31:45.156] Starting peer-to-peer node instance=Geth/v1.9.7-stable-9339be03(quorum-v2.6.0)/linux-amd64/go1.13.12\n"}
+	 
+	   {"NodeName":"transaction-node","Message":"[*] Starting Quorum node with QUORUM_VERSION=2.6.0, TESSERA_VERSION=0.10.5 and PRIVATE_CONFIG=/working-dir/c/tm.ipc\n"}
+ 
+
+
 
 ## Availability of new ledger versions
 
