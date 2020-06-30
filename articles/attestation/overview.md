@@ -97,4 +97,7 @@ Clusters deployed in two regions will serve completely independently under norma
 - All data plane operations which includes attest calls will continue to work in primary region
 
 ## Next steps
+- Learn about [Azure Attestation basic concepts](basic-concepts.md)
+- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
+- Quickstart:[Set up Microsoft Azure Attestation using PowerShell](quickstart-powershell.md)
 
