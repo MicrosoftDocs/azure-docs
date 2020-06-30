@@ -47,7 +47,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Immutable storage|Not yet supported|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Soft Delete|Not yet supported|Not yet supported|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)|
 
-<div id="diagnostic-logging"><sup>1</sup>For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
 
 ## See also
 
