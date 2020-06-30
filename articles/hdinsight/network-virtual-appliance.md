@@ -35,7 +35,7 @@ You can optionally enable one or more of the following service endpoints which w
 
 | **Endpoint** | **Details** |
 |---|---|
-| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are for HDInsight control place and should be included in the UDR to avoid asymetric routing |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are for HDInsight control place and should be included in the UDR to avoid asymmetric routing |
 | AAD-DS private IPs | Only needed for ESP clusters|
 
 
