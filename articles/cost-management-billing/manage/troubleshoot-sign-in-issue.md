@@ -13,7 +13,7 @@ ms.author: v-miegge
 
 # Troubleshoot Azure subscription sign-in issues
 
-This guide helps to resolve the issues in which you can't sign-in the Azure portal or Azure account center.
+This guide helps to resolve the issues in which you can't sign in the Azure portal or Azure account center.
 
 > [!NOTE]
 > If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
@@ -26,7 +26,7 @@ If your internet browser page hangs, try each of the following steps until you c
 - Use a different internet browser.
 - Use the private browsing mode for your browser:
 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign-in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -47,7 +47,7 @@ To resolve the issue, try one of the following methods:
    - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
 - Reset your browser settings to defaults.
 - Use the private browsing mode for your browser. 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign-in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
