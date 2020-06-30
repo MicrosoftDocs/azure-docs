@@ -227,10 +227,10 @@ On a computer that has the Group Policy management tools.
 3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List** per the image below.
 4.	Enable the policy, and enter the following item in the dialog box.
 
-   ```
-   Value: https://autologon.microsoftazuread-sso.com  
-   Data: 1
-   ```  
+	```
+	Value: https://autologon.microsoftazuread-sso.com  
+	Data: 1
+	```  
 
 
 5.	It should look similar to the following:  
