@@ -24,7 +24,7 @@ For example, if a service requires the SRE team to reset something every week, o
 
 SREs hate toil. They work to eliminate it whenever possible and appropriate. This is one of the places automation comes into play in SRE. If these requests can be handled automatically, that frees up the team to work on more rewarding and impactful things.
 
-*Coding expertise*: automation requires some coding expertise, but it does not have to require full software engineering skills. If you can write small scripts (perhaps in PowerShell or Bourne Shell) or even if you create an [https://docs.microsoft.com/azure/logic-apps/logic-apps-overview](Azure Logic app) with barely any code, this app can still help eliminate toil.
+*Coding expertise*: automation requires some coding expertise, but it does not have to require full software engineering skills. If you can write small scripts (perhaps in PowerShell or Bourne shell) or even if you create an [https://docs.microsoft.com/azure/logic-apps/logic-apps-overview](Azure Logic app) with barely any code, this app can still help eliminate toil.
 
 ## Scenario 2: Control through APIs/Domain Specific Languages (DSLs)/Templates
 
