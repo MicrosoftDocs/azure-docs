@@ -62,7 +62,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## Azure Machine Learning operations
 
-Azure Machine Learning built-in roles for many operations and tasks. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Create custom role
 
