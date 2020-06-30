@@ -1,4 +1,4 @@
- ---
+---
 title: Set up a course and create a classroom
 description: This quickstart explains how to set up a course and classroom in Azure Education Hub.
 author: rymend
