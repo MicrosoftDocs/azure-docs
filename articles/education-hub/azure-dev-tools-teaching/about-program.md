@@ -1,8 +1,8 @@
 ---
 title: What is Azure Dev Tools for Teaching?
 description: Explains the purpose of Azure Dev Tools for Teaching, including common questions about the tools.
-author: denrea
-ms.author: rymend
+author: rymend	
+ms.author: v-denrea
 ms.topic: overview
 ms.date: 06/30/2020
 ms.prod: azure
