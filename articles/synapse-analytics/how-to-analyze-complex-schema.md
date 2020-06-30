@@ -25,7 +25,7 @@ Complex data types are increasingly common and represent a challenge for data en
 
 Data Engineers need to understand how to efficiently process those data types and make them easily accessible by everyone.
 
-In the following example, Synapse Spark will be used to read and transform objects through data frames into a flat structure. Synapse SQL serverless is used to query such objects directly and return those results as a regular table.
+In the following example, Synapse Spark is used to read and transform objects in to a flat structure through data frames. Synapse SQL serverless is used to query such objects directly and return those results as a regular table.
 
 ## What are arrays and nested structures?
 
@@ -198,7 +198,7 @@ with ( ProfileType varchar(50) '$.customerInfo.ProfileType',
 ```
 
 There are two different types of operations:
-1. The line of code that  follows will define the column called `contextdataeventTime` that refers to the nested element: Context.Data.eventTime
+1. The following line of code defines the column called `contextdataeventTime` that refers to the nested element: Context.Data.eventTime
 ```sql
 contextdataeventTime varchar(50) '$.context.data.eventTime'
 ```
