@@ -18,26 +18,26 @@ The following entity categories are returned by [Text Analytics for Health](../.
 
 |Category  |Description   |Notes  |
 |----------|--------------|-------|
-| AGE | Age |  | 
+| AGE |  |  | 
 | BODY_STRUCTURE | Part of the human body such _upper arm_, _kidneys_, _heart tissue_, etc.| |
 | CONDITION_QUALIFIER | Condition level such as _mild_, _extended_, _diffuse_, etc. | |
 | DIAGNOSIS | Medical condition such as _hypertension_, _asthma_, _CAD_, etc. | |
-| DIRECTION | For example _Right_, _left_, _anterior_, _posterior_, _bilateral_, etc. | |
+| DIRECTION | For example _right_, _left_, _anterior_, _posterior_, _bilateral_, etc. | |
 | DOSAGE | Size or quantity of a medication  | |
-| EXAMINATION_NAME | A method or procedure of examination such as _biopsy_, _histopathology_, _CBC lab test_, etc. | |
+| EXAMINATION_NAME | A method or procedure of examination such as _biopsy_, _histopathology_, _CBC lab test_, _X-ray_, _endoscopy_etc. | |
 | EXAMINATION_RELATION | An entity linking a measurement unit to an examination  | |
 | EXAMINATION_UNIT | A measurement unit for an examination | |
 | EXAMINATION_VALUE | The value of the examination measurement unit | |
 | FAMILY_RELATION | An entity representing a family relationship for example _sister_, _spouse_, _aunt_, etc.  | |
-| FREQUENCY | An entity describing the   | |
+| FREQUENCY |    | |
 | GENDER |  | |
 | GENE | A gene entity for example _TP53_, _EGFR_, _ESR1_, etc.   | |
-| MEDICATION_CLASS |  | |
-| MEDICATION_NAME  |  | |
+| MEDICATION_CLASS | For example _corticosteroids_, _statins_, _antibiotics_, _diuretics_, _ACE inhibitor_, etc.  | |
+| MEDICATION_NAME  | Support both generic and brand named medications such as _Altace_, _ramipril_, _diphenhydramine hydrochloride_, _benadryl_, _diazepam_, etc.| |
 | ROUTE_OR_MODE  | Method of administering medication for example _inhaled_, _IV_, _oral_, etc. | |
-| SYMPTOM_OR_SIGN  |  | |
-| TIME  | Time for example _"8 years"_ or _"2:30AM this morning"_| |
-| TREATMENT_NAME  |  | |
+| SYMPTOM_OR_SIGN  | For example _nausea_, _SOB_, _difficulty swallowing_, _sore throat_, etc. | |
+| TIME  | For example _"8 years"_ or _"2:30AM this morning"_| |
+| TREATMENT_NAME  | For example _oxygen therapy_, _rheopheresis_, _chemotherapy_, _dialysis_, etc. | |
 | VARIANT  | A genetic variant of the gene entity | |
 
 ### Relation extraction
