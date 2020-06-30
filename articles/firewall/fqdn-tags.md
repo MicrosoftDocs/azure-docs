@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/24/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
@@ -31,7 +31,8 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 |App Service Environment (ASE)|Allows outbound access to ASE platform traffic. This tag doesn’t cover customer-specific Storage and SQL endpoints created by ASE. These should be enabled via [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or added manually.<br><br>For more information about integrating Azure Firewall with ASE, see [Locking down an App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Allows outbound access to the Azure Backup services.|
 |Azure HDInsight|Allows outbound access for HDInsight platform traffic. This tag doesn’t cover customer-specific Storage or SQL traffic from HDInsight. Enable these using [Service Endpoints](../virtual-network/tutorial-restrict-network-access-to-resources.md) or add them manually.|
-|WindowsVirtualDesktop (WVD)|Allows outbound Windows Virtual Desktop platform traffic. This tag doesn’t cover deployment-specific Storage and Service Bus endpoints created by WVD. Additionally, DNS and KMS network rules are required. For more information about integrating Azure Firewall with WVD, see [Use Azure Firewall to protect Window Virtual Desktop deployments](protect-windows-virtual-desktop.md). 
+|WindowsVirtualDesktop (WVD)|Allows outbound Windows Virtual Desktop platform traffic. This tag doesn’t cover deployment-specific Storage and Service Bus endpoints created by WVD. Additionally, DNS and KMS network rules are required. For more information about integrating Azure Firewall with WVD, see [Use Azure Firewall to protect Window Virtual Desktop deployments](protect-windows-virtual-desktop.md).|
+|Azure Kubernetes Service (AKS)|Allows outbound access to AKS.|
 
 > [!NOTE]
 > When selecting FQDN Tag in an application rule, the protocol:port field must be set to **https**.
