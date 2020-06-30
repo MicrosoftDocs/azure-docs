@@ -228,9 +228,9 @@
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
-      href: power-bi-add-bubble-layer.md
+      href: power-bi-visual-add-bubble-layer.md
     - name: Add a bar chart layer
-      href: power-bi-visual-add-bar-char-layer.md
+      href: power-bi-visual-add-bar-chart-layer.md
     - name: Add a reference layer
       href: power-bi-visual-add-reference-layer.md
     - name: Add a tile layer

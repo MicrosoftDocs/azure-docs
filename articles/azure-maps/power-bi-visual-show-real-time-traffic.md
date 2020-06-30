@@ -7,7 +7,6 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.subservice: powerbi
 manager: cpendle
 ms.custom: 
 ---
@@ -17,7 +16,7 @@ ms.custom:
 The traffic layer feature overlays real-time traffic data on top of the map. To enable this feature, move the **Traffic layer** slider in the **Format** pane to the **On** position. This will overlay traffic flow data as color coded roads.
 
 > [!div class="mx-imgBorder"]
-> ![A map displaying real-time traffic data]()
+> ![A map displaying real-time traffic data](media/power-bi-visual/traffic-layer.png)
 
 The following settings are available in the **Traffic layer** section.
 
@@ -27,6 +26,8 @@ The following settings are available in the **Traffic layer** section.
 | Traffic control | Adds a button to the map that allows report readers to turn the traffic layer on or off.  |
 
 ## Next steps
+
+Learn more about the Azure Maps Power BI visual:
 
 > [!div class="nextstepaction"]
 > [Understanding layers in the Azure Maps Power BI visual](power-bi-visual-understanding-layers.md)

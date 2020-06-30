@@ -7,7 +7,6 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.subservice: powerbi
 manager: cpendle
 ms.custom: 
 ---

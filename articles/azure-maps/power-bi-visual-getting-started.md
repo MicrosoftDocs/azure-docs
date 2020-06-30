@@ -7,7 +7,6 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.subservice: powerbi
 manager: cpendle
 ms.custom: 
 ---
@@ -43,7 +42,7 @@ To learn more, about privacy and terms of use related to the Azure Maps visual s
 There are a few considerations and requirements for this Preview release of **Azure Maps**:
 
 -   The **Azure Maps** visual is in Preview and must be enabled in Power BI Desktop. To enable **Azure Maps**, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview Features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it’s likely that a tenant admin switch in the Admin Portal needs to be enabled.
--   The **Azure Maps** visual will plot up to a maximum of 3,500 data points.
+-   The **Azure Maps** visual will plot up to a maximum of 3,500 data points currently, with plans to increase this in a future update.
 -   The data set must have fields that contain **latitude** and **longitude** information. Geocoding of location fields will be added in a future update.
 -   The built-in legend control for Power BI does not currently appear in this preview. It will be added in a future update.
 
@@ -51,8 +50,7 @@ There are a few considerations and requirements for this Preview release of **Az
 
 Once the **Azure Maps** visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
 
-> [!div class="mx-imgBorder"]
-> ![Azure Maps visual button on the Visualizations pane](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
+![Azure Maps visual button on the Visualizations pane](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
 
 Power BI creates an empty Azure Maps visual design canvas. While in preview, an additional disclaimer is displayed.
 
