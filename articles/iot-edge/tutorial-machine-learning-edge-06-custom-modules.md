@@ -327,7 +327,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 1. In the Azure Portal, start your IoT Edge device VM if it is not running. Connect to it using SSH. The connection requires the DNS name that you can copy from the overview page for the VM in the Azure portal.
 
    ```cmd
-   ssh -l <user> <vm name>.<region>.cloudapp.azure.com
+   ssh -l <user>@<vm name>.<region>.cloudapp.azure.com
    ```
 
 1. After logging in, create the directory that will hold the saved leaf device messages.
