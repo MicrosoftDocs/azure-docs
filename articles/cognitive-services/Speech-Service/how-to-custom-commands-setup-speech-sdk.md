@@ -1,7 +1,7 @@
 ---
 title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure Cognitive Services
-description: In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
+description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -14,7 +14,7 @@ ms.author: xiaojul
 
 # Integrate with a client application using Speech SDK
 
-In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application. In order to establish a connection to the Custom Commands application, you do the following tasks:
+In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in an UWP application. In order to establish a connection to the Custom Commands application, you need:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
 - Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
@@ -37,7 +37,7 @@ You'll also need:
 1. Go to **Settings**, select **LUIS resource**
 1. If **Prediction resource** is not assigned, select a query prediction key or create a new one
 
-    Note that query prediction key is always required before publishing an application. For more information about LUIS resources, please refer [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    Note that query prediction key is always required before publishing an application. For more information about LUIS resources, reference [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
 
 1. Go back to editing Commands, Select **Publish**
 
