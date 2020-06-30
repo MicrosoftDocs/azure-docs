@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/10/2020
+ms.date: 07/10/2020
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure Resource Manager template
@@ -262,8 +262,6 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 - Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage.
 - Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017.
-- For the **triggerStartTime**, specify the current day in the format: `2019-09-08T00:00:00`.
-- For the **triggerEndTime**, specify the next day in the format: `2019-09-09T00:00:00`. You can also check the current UTC time and specify the next hour or two as the end time. For example, if the UTC time now is 1:32 AM, specify `2019-09-09:03:00:00` as the end time. In this case, the trigger runs the pipeline twice (at 2 AM and 3 AM).
 
 In PowerShell, run the following command to deploy Data Factory entities in your resource group (in this case, take ADFTutorialResourceGroup as an example) using the Resource Manager template you created earlier in this quickstart.
 
@@ -289,9 +287,9 @@ Parameters              :
                           storageAccountKey      SecureString                         
                           triggerStartTime       String                     9/8/2019 11:00:00 AM
                           triggerEndTime         String                     9/8/2019 2:00:00 PM
-                          
-Outputs                 : 
-DeploymentDebugLogLevel : 
+
+Outputs                 :
+DeploymentDebugLogLevel :
 ```
 
 ## Review deployed resources
