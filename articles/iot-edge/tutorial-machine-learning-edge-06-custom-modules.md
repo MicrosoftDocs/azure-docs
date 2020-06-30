@@ -4,7 +4,7 @@ description: 'This tutorial shows how to create and deploy IoT Edge modules that
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/23/2020
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -68,7 +68,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 1. Name the module **turbofanRulClassifier**.
 
-1. Choose your machine learning workspace. This is the **turboFanDemo** workspace that you created in [Tutorial: Train and deploy an Azure Machine Learning model](tutorial-machine-learning-edge-04-train-model.md)
+1. Choose your machine learning workspace. This workspace is the **turboFanDemo** workspace that you created in [Tutorial: Train and deploy an Azure Machine Learning model](tutorial-machine-learning-edge-04-train-model.md)
 
 1. Select the image you created while running the Azure Notebook.
 
@@ -121,7 +121,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
         }
        ```
 
-   * **deployment.debug.template.json:** this file is the debug version of deployment.template.json. Typically, we should keep this file synchronized with the content of the the deployment.template.json file but doing so is not required for this tutorial.
+   * **deployment.debug.template.json:** this file is the debug version of deployment.template.json. Typically, we should keep this file synchronized with the content of the deployment.template.json file but doing so is not required for this tutorial.
 
    * **.env:** this file is where you should supply the username and password for accessing your registry.
 
@@ -174,12 +174,10 @@ The Router module is an important piece of the solution that ensures messages ar
 
 1. Select **.NET Core**.
 
-1. Replace the contents of tasks.json with the following code:
+1. Replace the contents of tasks.json with the following code.
 
     ```json
     {
-      // See https://go.microsoft.com/fwlink/?LinkId=733558
-      // for the documentation about the tasks.json format
       "version": "2.0.0",
       "tasks": [
         {
@@ -303,7 +301,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 
 1. Choose **Python Module**.
 
-1. Name the module **avroFileWriter**.
+1. Name the module `avroFileWriter`.
 
 1. When prompted for your Docker Image Repository, use the same registry as you used when adding the Router module.
 
@@ -325,8 +323,6 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 As mentioned previously, the writer module relies on the presence of a bind mount to write Avro files to the device’s file system.
 
 #### Add directory to device
-
-1. In Visual Studio Code, create a new terminal using the bash shell.
 
 1. In the Azure Portal, start your IoT Edge device VM if it is not running. Connect to it using SSH. The connection requires the DNS name that you can copy from the overview page for the VM in the Azure portal.
 
@@ -509,7 +505,7 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 1. On your development machine, open the `C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\requirements.txt` file and add "pyyaml" on a new line in the file.
 
    ```txt
-   azure-iothub-device-client~=1.43
+   azure-iothub-device-client~=1.4.3
    pyyaml
    ```
 
@@ -547,12 +543,12 @@ The writer module takes a dependency on two Python libraries, fastavro and PyYAM
 
 ### Fastavro
 
-1. In requirements.txt, add fastavro before pyyaml.
+1. In requirements.txt, add fastavro after pyyaml.
 
    ```txt
-   azure-iothub-device-client~=<current version>
-   fastavro
+   azure-iothub-device-client~=1.4.3
    pyyaml
+   fastavro
    ```
 
 1. Install fastavro to your development machine.
@@ -614,8 +610,6 @@ With the router and classifier in place, we expect to receive regular messages c
 1. Select **Test route**. If the test is successful, you see “The message matched the query.”
 
 1. Click **Save**.
-
-    The message body is not persisted and defaults to its example content after each test.
 
 #### Update turbofanDeviceDataToStorage route
 
@@ -718,9 +712,9 @@ Now that we have made the configuration changes, we are ready to build the image
 
 1. On your development VM, start Docker if it is not running.
 
-1. In Visual Studio Code, start a new terminal with a command prompt and login to your Azure container registry (ACR).
+1. In Visual Studio Code, start a new terminal with a command prompt and log in to your Azure container registry (ACR).
 
-You can find the required username, password, and login server values in the Azure portal. The container registry name has the format "turbofandemo\<unique id\>". From the left pane menu, under **Settings**, select **Access keys** to view them.
+  You can find the required username, password, and login server values in the Azure portal. The container registry name has the format "turbofandemo\<unique id\>". From the left pane menu, under **Settings**, select **Access keys** to view them.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
