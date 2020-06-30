@@ -129,7 +129,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
 | Create new Notebook VM | Not required | Owner or contributor | Not possible |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
-| Data plane activity like submitting run, accessing data, deploying model or publishing pipeline | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/*/write` <br/> Note that you also need a datastore registered to the workspace to allow MSI to access data in your storage account. |
+| Data plane activity like submitting run, accessing data, deploying model, or publishing pipeline | Not required | Not required | Owner, contributor, or custom role allowing: `workspaces/*/write` <br/> You also need a datastore registered to the workspace to allow MSI to access data in your storage account. |
 
 
 ### Q. How do I list all the custom roles in my subscription?
@@ -142,7 +142,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### Q. How do I find the role definition for a role in my subscription?
 
-In the Azure CLI, run the following command. Note that `<role-name>` should be in the same format returned by the command above.
+In the Azure CLI, run the following command. The `<role-name>` should be in the same format returned by the command above.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -156,7 +156,7 @@ In the Azure CLI, run the following command.
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Note that you need to have permissions on the entire scope of your new role definition. For example if this new role has a scope across three subscriptions, you need to have permissions on all three subscriptions. 
+You need to have permissions on the entire scope of your new role definition. For example if this new role has a scope across three subscriptions, you need to have permissions on all three subscriptions. 
 
 > [!NOTE]
 > Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
@@ -168,7 +168,7 @@ Yes, you can define a role that prevents updating the workspace Edition. Since t
 
 ### Q. What permissions are needed to perform quota operations in a workspace? 
 
-You need subscription level permissions to perform any quota related operation in the workspace. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope. 
+You need subscription level permissions to perform any quota-related operation in the workspace. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope. 
 
 
 ## Next steps
