@@ -146,7 +146,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ---
 
-### Verify the deployment
+### Validate the deployment
 Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** and **workspaceName** with the values you used above.
 
 # [CLI](#tab/CLI2)
@@ -245,7 +245,7 @@ New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -Tem
 ```
 ---
 
-### Verify the deployment
+### Validate the deployment
 Verify that the diagnostic setting has been created using one of the following commands. Replace the sample values for the subscription and setting name with the values you used above.
 
 > [!NOTE]
