@@ -144,7 +144,7 @@ To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-clus
 
 Using the DNN with FCI has additional considerations when used with other SQL Server features: 
 
-### DNN feature interoperability 
+## DNN feature interoperability 
 
 Consider the following when using the distributed network name (DNN) resource with SQL Server FCI and these features: 
 
@@ -180,7 +180,9 @@ Replication has three components: Publisher, Distributor, Subscriber. Any of the
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations **before configuring replication**:
 
-| Replication component (FCI w/ DNN) | Remote component | Network alias map| Server with network map| 
+
+
+| **Replication component (FCI w/ DNN)** | **Remote component** | **Network alias map** | **Server with network map**| 
 |---------|---------|---------|-------- | 
 |Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
 |Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
@@ -193,7 +195,7 @@ For example, if you have a Publisher that's configured as an FCI using DNN in a 
 
 Use the full instance name for a named instance, like the following image example: 
 
-:::image type="content" source="media/failover-cluster-instance-overview/alias-in-configuration-manager.png" alt-text="Use the full instance name when configuring a network alias for a named instance" :::
+:::image type="content" source="media/failover-cluster-instance-overview/alias-named-instance-configuration-manager.png" alt-text="Use the full instance name when configuring a network alias for a named instance" :::
 
 **Database mirroring**   
 Database mirroring can be configured with an FCI as either database mirroring partner. Configure database mirroring using [Transact-SQL (T-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) rather than the SSMS GUI to ensure the database mirroring endpoint is created using the DNN instead of the VNN. 
