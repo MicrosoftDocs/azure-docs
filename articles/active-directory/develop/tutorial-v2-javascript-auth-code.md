@@ -9,15 +9,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/06/2020
 ms.author: hahamil
 ms.custom: aaddev
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 This tutorial shows you how to create a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
 
