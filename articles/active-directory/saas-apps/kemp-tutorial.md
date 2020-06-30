@@ -19,7 +19,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kemp LoadMaster Azure AD integration
+# Tutorial: Azure Active Directory SSO integration with Kemp LoadMaster Azure AD integration
 
 In this tutorial, you'll learn how to integrate Kemp LoadMaster Azure AD integration with Azure Active Directory (Azure AD). When you integrate Kemp LoadMaster Azure AD integration with Azure AD, you can:
 
