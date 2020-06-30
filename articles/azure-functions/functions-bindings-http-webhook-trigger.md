@@ -808,7 +808,7 @@ Webhook authorization is handled by the webhook receiver component, part of the 
 
 ## Content types
 
-Passing binary and form data to a function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
+Passing binary and form data to a non-C# function requires that you use the appropriate content-type header. Supported content types include `octet-stream` for binary data and [multipart types](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart).
 
 ### Known issues
 
