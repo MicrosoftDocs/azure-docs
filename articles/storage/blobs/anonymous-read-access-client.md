@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---

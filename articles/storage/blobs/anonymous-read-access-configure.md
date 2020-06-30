@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -74,7 +74,8 @@ az resource show \
 
 ---
 
-Disabling public access for a storage account does not affect any static websites hosted in that storage account.
+> [!NOTE]
+> Disabling public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 
 ## Set the public access level for a container
 
