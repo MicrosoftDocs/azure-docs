@@ -28,7 +28,7 @@ Before you go through the U-SQL samples in this document, read and complete [Tut
 
 The following U-SQL script is simple and lets us explore many aspects the U-SQL language.
 
-```
+```usql
 @searchlog =
     EXTRACT UserId          int,
             Start           DateTime,

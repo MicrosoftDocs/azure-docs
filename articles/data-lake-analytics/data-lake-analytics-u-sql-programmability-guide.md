@@ -24,7 +24,7 @@ Download and install [Azure Data Lake Tools for Visual Studio](https://www.micro
 
 Look at the following U-SQL script:
 
-```
+```usql
 @a  = 
   SELECT * FROM 
     (VALUES
@@ -46,7 +46,7 @@ This script defines two RowSets: `@a` and `@results`. RowSet `@results` is defin
 
 A U-SQL Expression is a C# expression combined with U-SQL logical operations such `AND`, `OR`, and `NOT`. U-SQL Expressions can be used with SELECT, EXTRACT, WHERE, HAVING, GROUP BY and DECLARE. For example, the following script parses a string as a DateTime value.
 
-```
+```usql
 @results =
   SELECT
     customer,
@@ -57,7 +57,7 @@ A U-SQL Expression is a C# expression combined with U-SQL logical operations suc
 
 The following snippet parses a string as DateTime value in a DECLARE statement.
 
-```
+```usql
 DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
@@ -65,7 +65,7 @@ DECLARE @d = DateTime.Parse("2016/01/01");
 
 The following example demonstrates how you can do a datetime data conversion by using C# expressions. In this particular scenario, string datetime data is converted to standard datetime with midnight 00:00:00 time notation.
 
-```
+```usql
 DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
@@ -85,7 +85,7 @@ To pull today's date, we can use the following C# expression: `DateTime.Now.ToSt
 
 Here's an example of how to use this expression in a script:
 
-```
+```usql
 @rs1 =
   SELECT
     MAX(guid) AS start_id,
@@ -108,14 +108,14 @@ Use the `CREATE ASSEMBLY` statement to place a .NET assembly into a U-SQL Databa
 
 The following code shows how to register an assembly:
 
-```
+```usql
 CREATE ASSEMBLY MyDB.[MyAssembly]
    FROM "/myassembly.dll";
 ```
 
 The following code shows how to reference an assembly:
 
-```
+```usql
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
@@ -136,7 +136,7 @@ U-SQL user-defined functions, or UDF, are programming routines that accept param
 
 We recommend that you initialize U-SQL user-defined functions as **public** and **static**.
 
-```
+```usql
 public static string MyFunction(string param1)
 {
     return "my result";
@@ -149,7 +149,7 @@ In this use-case scenario, we need to determine the fiscal period, including the
 
 To calculate fiscal period, we introduce the following C# function:
 
-```
+```usql
 public static string GetFiscalPeriod(DateTime dt)
 {
     int FiscalMonth=0;
@@ -190,7 +190,7 @@ This is a regular C# function that we are going to use in our U-SQL project.
 
 Here is how the code-behind section looks in this scenario:
 
-```
+```usql
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -239,14 +239,12 @@ namespace USQL_Programmability
 ```
 
 Now we are going to call this function from the base U-SQL script. To do this, we have to provide a fully qualified name for the function, including the namespace, which in this case is NameSpace.Class.Function(parameter).
-
-```
+```usql
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
 Following is the actual U-SQL base script:
-
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -343,7 +341,7 @@ This example shows the global variable `static public string globalSession;` use
 
 The U-SQL base script is as follows:
 
-```
+```usql
 DECLARE @in string = @"\UserSession\test1.tsv";
 DECLARE @out1 string = @"\UserSession\Out1.csv";
 DECLARE @out2 string = @"\UserSession\Out2.csv";
@@ -432,7 +430,7 @@ U-SQL cannot implicitly serialize or de-serialize arbitrary UDTs when the UDT is
 
 If we try to use UDT in EXTRACTOR or OUTPUTTER (out of previous SELECT), as shown here:
 
-```
+```usql
 @rs1 =
     SELECT 
     	MyNameSpace.Myfunction_Returning_UDT(filed1) AS myfield
@@ -687,7 +685,7 @@ As you can see, it returns the value of our FiscalPeriod type.
 
 Here we provide an example of how to use it further in U-SQL base script. This example demonstrates different forms of UDT invocation from U-SQL script.
 
-```
+```usql
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.tsv";
 
@@ -1446,7 +1444,7 @@ public static class Factory
 
 And U-SQL base script:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.html";
 
@@ -1488,7 +1486,7 @@ To avoid creating an instance of the object in base script, we can create a func
 
 In this case, the original call looks like the following:
 
-```
+```usql
 OUTPUT @rs0 
 TO @output_file 
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
@@ -1562,7 +1560,7 @@ As you can see from the previous example, you can call C# methods during `output
 
 Following is an example of base U-SQL script that uses a custom processor:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -1592,7 +1590,7 @@ User-defined applier is being invoked as part of the USQL SELECT expression.
 
 The typical call to the user-defined applier looks like the following:
 
-```
+```usql
 SELECT …
 FROM …
 CROSS APPLYis used to pass parameters
@@ -1742,7 +1740,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 
 Following is the base U-SQL script for this user-defined applier:
 
-```
+```usql
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
 DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
 
@@ -1771,7 +1769,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 In this use case scenario, user-defined applier acts as a comma-delimited value parser for the car fleet properties. The input file rows look like the following:
 
-```
+```text
 103	Z1AB2CD123XY45889	Ford,Explorer,2005,SUV,152345
 303	Y0AB2CD34XY458890	Chevrolet,Cruise,2010,4Dr,32455
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
@@ -1779,13 +1777,15 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 
 It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
-	…USQL_Programmability.ParserApplier ("all")
-	…USQL_Programmability.ParserApplier ("make")
-	…USQL_Programmability.ParserApplier ("make&model")
+```
+...USQL_Programmability.ParserApplier ("all")
+...USQL_Programmability.ParserApplier ("make")
+...USQL_Programmability.ParserApplier ("make&model")
+```
 
 The user-defined applier can be called as a new instance of applier object:
 
-```
+```usql
 CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
@@ -1802,7 +1802,7 @@ A combiner is being invoked with the COMBINE expression that provides the necess
 
 To call a combiner in a base U-SQL script, we use the following syntax:
 
-```
+```usql
 Combine_Expression :=
 	'COMBINE' Combine_Input
 	'WITH' Combine_Input
@@ -2177,7 +2177,7 @@ In this use-case scenario, the reducer is skipping rows with an empty user name.
 
 Following is base U-SQL script that uses a custom reducer:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file_reducer.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
