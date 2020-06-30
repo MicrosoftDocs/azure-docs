@@ -136,34 +136,34 @@ Here are the exporters that OpenCensus provides mapped to the types of telemetry
 
 You can configure logging explicitly in your application code like above for your Django applications, or you can specify it in Django's logging configuration. This code can go into whatever file you use for Django settings configuration. See [Django settings](https://docs.djangoproject.com/en/3.0/topics/settings/) for how to configure Django settings and [Django logging](https://docs.djangoproject.com/en/3.0/topics/logging/) for more information on configuring logging.
 
-    ```python
-    LOGGING = {
-        "handlers": {
-            "azure": {
-                "level": "DEBUG",
-                "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
-                "instrumentation_key": "<your-ikey-here>",
-            },
-            "console": {
-                "level": "DEBUG",
-                "class": "logging.StreamHandler",
-                "stream": sys.stdout,
-            },
-        },
-        "loggers": {
-            "logger_name": {"handlers": ["azure", "console"]},
-        },
-    }
-    ```
+```python
+ LOGGING = {
+     "handlers": {
+         "azure": {
+             "level": "DEBUG",
+          "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+             "instrumentation_key": "<your-ikey-here>",
+          },
+         "console": {
+             "level": "DEBUG",
+             "class": "logging.StreamHandler",
+             "stream": sys.stdout,
+          },
+       },
+     "loggers": {
+         "logger_name": {"handlers": ["azure", "console"]},
+     },
+ }
+```
 
 Be sure you are using the logger with the same name as the one specified in your configuration.
 
-    ```python
-    import logging
+```python
+ import logging
         
-    logger = logging.getLogger("logger_name")
-    logger.warning("this will be tracked")
-    ```
+ logger = logging.getLogger("logger_name")
+ logger.warning("this will be tracked")
+```
 
 #### Sending exceptions
 
@@ -332,6 +332,7 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
+
 Below is a list of performance counters that are currently sent:
 
 - Available Memory (bytes)
