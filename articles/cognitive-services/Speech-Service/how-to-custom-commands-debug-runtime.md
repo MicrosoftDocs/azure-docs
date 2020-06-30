@@ -22,8 +22,8 @@ If your run Custom Commands application from [client application (with Speech SD
 
 | Error code | Details |
 | ------- | -------- |
-| [401](#Error-401) | AuthenticationFailure: WebSocket Upgrade failed with an authentication error |
-| [1002](#Error-1002)] | The server returned status code '404' when status code '101' was expected. |
+| [401](#error-401) | AuthenticationFailure: WebSocket Upgrade failed with an authentication error |
+| [1002](#error-1002)] | The server returned status code '404' when status code '101' was expected. |
 
 ### Error 401
 - The region specified in client application does not match with the region of the custom command application
@@ -63,14 +63,14 @@ The CancelledDialog event consists of cancellation code and description, as list
 
 | Cancellation Code | Cancellation Description |
 | ------- | --------------- | ----------- |
-| [MaxTurnThresholdReached](#No-progress-was-made-after-the-max-number-of-turns-allowed) | No progress was made after the max number of turns allowed |
-| [RecognizerQuotaExceeded](#Recognizer-usage-quota-exceeded) | Recognizer usage quota exceeded |
-| [RecognizerConnectionFailed](#Connection-to-the-recognizer-failed) | Connection to the recognizer failed |
-| [RecognizerUnauthorized](#This-application-cannot-be-accessed-with-the-current-subscription) | This application cannot be accessed with the current subscription |
-| [RecognizerInputExceededAllowedLength](#Input-exceeds-the-maximum-supported-length) | Input exceeds the maximum supported length for the recognizer |
-| [RecognizerNotFound](#Recognizer-not-found) | Recognizer not found |
-| [RecognizerInvalidQuery](#Invalid-query-for-the-recognizer) | Invalid query for the recognizer |
-| [RecognizerError](#Recognizer-return-an-error) | Recognizer returns an error |
+| [MaxTurnThresholdReached](#no-progress-was-made-after-the-max-number-of-turns-allowed) | No progress was made after the max number of turns allowed |
+| [RecognizerQuotaExceeded](#recognizer-usage-quota-exceeded) | Recognizer usage quota exceeded |
+| [RecognizerConnectionFailed](#connection-to-the-recognizer-failed) | Connection to the recognizer failed |
+| [RecognizerUnauthorized](#this-application-cannot-be-accessed-with-the-current-subscription) | This application cannot be accessed with the current subscription |
+| [RecognizerInputExceededAllowedLength](#input-exceeds-the-maximum-supported-length) | Input exceeds the maximum supported length for the recognizer |
+| [RecognizerNotFound](#recognizer-not-found) | Recognizer not found |
+| [RecognizerInvalidQuery](#invalid-query-for-the-recognizer) | Invalid query for the recognizer |
+| [RecognizerError](#recognizer-return-an-error) | Recognizer returns an error |
 
 ### No progress was made after the max number of turns allowed
 The dialog is canceled when a required slot is not successfully updated after certain number of turns. The build-in max number is 3.
