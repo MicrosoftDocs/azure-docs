@@ -14,4 +14,4 @@ V3 API query string parameters include:
 |`show-all-intents`|Include scores for all intents|boolean|V3 only|false|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|Include more entities details|boolean|V2 & V3|false|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
 |`timezoneOffset`|-|string|V2|-|Timezone applied to datetimeV2 entities.|
-|`datetimeReference`|-|string|V3|-|[Timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applied to datetimeV2 entities. Replaces `timezoneOffset` from V2.|
+|`datetimeReference`|-|string|V3|-|[Timezone](../luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) applied to datetimeV2 entities. Replaces `timezoneOffset` from V2.|
