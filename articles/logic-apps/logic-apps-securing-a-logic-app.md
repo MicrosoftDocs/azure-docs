@@ -952,7 +952,10 @@ Azure Logic Apps can be used in Azure Government supporting all impact levels in
 
   * For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
-For more information about isolation in Azure, see [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md).
+For more information about isolation in Azure, see these topics:
+
+* [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
+* [Security for highly sensitive IaaS apps in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## Next steps
 
