@@ -27,5 +27,5 @@ The following table describes the maximum block and blob sizes permitted by serv
 | Service version | Maximum block size (via Put Block) | Maximum blob size (via Put Block List) | Maximum blob size via single write operation (via Put Blob) |
 |-|-|-|-|
 | Version 2019-12-12 and later | 4000 MiB (preview) | Approximately 190.7 TiB (4000 MiB X 50,000 blocks) (preview) | 5000 MiB (preview) |
-| Version 2016-05-31 through version 2019-07-07 | 100 MiB | Approximately 4.75 TiB (100 MB X 50,000 blocks) | 256 MiB |
-| Versions prior to 2016-05-31 | 4 MiB | Approximately 195 GiB (4 MB X 50,000 blocks) | 64 MiB |
+| Version 2016-05-31 through version 2019-07-07 | 100 MiB | Approximately 4.75 TiB (100 MiB X 50,000 blocks) | 256 MiB |
+| Versions prior to 2016-05-31 | 4 MiB | Approximately 195 GiB (4 MiB X 50,000 blocks) | 64 MiB |
