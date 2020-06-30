@@ -4,7 +4,7 @@ description: Learn about some of the common issues seen when using the Azure Imp
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
