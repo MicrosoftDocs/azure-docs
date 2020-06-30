@@ -94,17 +94,6 @@ ConfidentialClientApplication client = new ConfidentialClientApplication(...); /
 client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-## Microsoft Authentication Library (MSAL)
-
-### MSAL.NET ValidateAuthority property
-
-If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. Setting this value to `false` is not required for MSAL.NET v3 and above.
-
-```csharp
-ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
-client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
-```
-
 ### MSAL for JavaScript validateAuthority property
 
 If you're using [MSAL for JavaScript][msal-js] v1.2.2 or earlier, set the **validateAuthority** property to `false`.
