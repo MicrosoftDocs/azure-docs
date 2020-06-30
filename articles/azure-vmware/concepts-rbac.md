@@ -2,7 +2,7 @@
 title: Concepts - Role-based access control (RBAC)
 description: Learn about the key capabilities of role-based access control for Azure VMware Solution (AVS) 
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 06/30/2020
 ---
 
 # Role-based access control (RBAC) for Azure VMware Solution (AVS)
