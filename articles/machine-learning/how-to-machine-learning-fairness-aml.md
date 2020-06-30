@@ -64,6 +64,10 @@ The following example shows how to use the fairness package to upload model fair
     A = X_raw[['Sex','Race']]
     X = X_raw.drop(labels=['Sex', 'Race'],axis = 1)
     X = pd.get_dummies(X)
+    
+    sc = StandardScaler()
+    X_scaled = sc.fit_transform(X)
+    X_scaled = pd.DataFrame(X_scaled, columns=X.columns)
 
     # Perform some standard data preprocessing steps to convert the data into a format suitable for the ML algorithms
     le = LabelEncoder()
@@ -72,7 +76,7 @@ The following example shows how to use the fairness package to upload model fair
     # Split data into train and test
     from sklearn.model_selection import train_test_split
     from sklearn.model_selection import train_test_split
-    X_train, X_test, Y_train, Y_test, A_train, A_test = train_test_split(X_raw, 
+    X_train, X_test, Y_train, Y_test, A_train, A_test = train_test_split(X_scaled, 
                                                         Y, 
                                                         A,
                                                         test_size = 0.2,
