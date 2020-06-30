@@ -361,7 +361,7 @@ Telemetry processors in OpenCensus Python are simply callback functions called t
 
 ```python
 def callback_function(envelope):
-    envelope.tags['ai.cloud.role'] = 'new_role_name.py'
+    envelope.tags['ai.cloud.role'] = 'new_role_name'
 ```
 
 ```python
