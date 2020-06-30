@@ -31,7 +31,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | service | global | 1-50 | Alphanumerics.<br><br>Start with letter. |
+> | service | global | 1-50 | Alphanumerics, and hyphens.<br><br>Start with letter, and end with alphanumeric. |
 > | service / apis | service | 1-256 | Can't use:<br> `*#&+:<>?` |
 > | service / apis / issues | api | 1-256 | Can't use:<br> `*#&+:<>?` |
 > | service / apis / issues / attachments | issue | 1-256 | Can't use:<br> `*#&+:<>?` |
