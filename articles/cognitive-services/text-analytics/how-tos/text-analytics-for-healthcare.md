@@ -13,18 +13,16 @@ ms.date: 06/15/2020
 ms.author: aahi
 ---
 
-# How to: Use Text Analytics for Health (PREVIEW)
+# How to: Use Text Analytics for Health (preview)
 
 > [!IMPORTANT] 
 > Text Analytics for Health is not a substitute for professional medical advice, diagnosis, or treatment. Azure Text Analytics for Health should only be used in patient care scenarios after review for accuracy and sound medical judgment by trained medical professionals.
 
-Azure Text Analytics for Health is a new Text Analytics service that extracts relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  Text Analytics for Health uses natural language processing techniques to find and label valuable information in unstructured clinical documents such as doctor's notes, electronic health records, patient intake forms and discharge summaries. 
-
-The Text Analytics for Health container currently performs named entity recognition (NER), relation extraction, entity negation and entity linking for English-language text in your own environment that meets your specific security and data governance requirements.
-
+Azure Text Analytics for Health is a containerized service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
 
 ## Features
 
+The Text Analytics for Health container currently performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking for English-language text in your own development environment that meets your specific security and data governance requirements.
 
 #### [Named Entity Recognition](#tab/ner)
 
@@ -32,58 +30,30 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 
 ![Health NER](../media/ta-for-health/health-named-entity-recognition.png)
 
-See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
-
-
 #### [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a time of medication relation is found between a medication name ("Altace") and the time ("8 years") corresponding to how long the patient had been taking the medication.
+Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time. 
 
 ![Health RE](../media/ta-for-health/health-relation-extraction.png)
-
-See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
 
 
 #### [Entity Linking](#tab/entity-linking)
 
-Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined taxonomy of concepts. For example, the concept “NHL” in the text below is linked to the Unified Medical Language System (UMLS) concept C0024305.
+Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts. For example, the Unified Medical Language System (UMLS).
 
 ![Health EL](../media/ta-for-health/health-entity-linking.png)
 
-Text Analytics for Health supports linking to the health and biomedical vocabularies represented in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source, including:
-
-See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
-
+Text Analytics for Health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 #### [Negation Detection](#tab/negation-detection) 
 
-The meaning of medical content is highly affected by modifiers such as negation which can have critical implication if misdiagnosed. Text Analytics for Health supports negation detection for the different entities mentioned in the text. 
+The meaning of medical content is highly affected by modifiers such as negation, which can have critical implication if misdiagnosed. Text Analytics for Health supports negation detection for the different entities mentioned in the text. 
 
 ![Health NEG](../media/ta-for-health/health-negation.png)
 
-Notice that in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the "isNegated" flag as follows:
-```json
-{
-          "id": "2",
-          "offset": 90,
-          "length": 10,
-          "text": "chest pain",
-          "type": "SYMPTOM_OR_SIGN",
-          "score": 0.9972,
-          "isNegated": true,
-          "links": [
-            {
-              "dataSource": "UMLS",
-              "id": "C0008031"
-            },
-            {
-              "dataSource": "CHV",
-              "id": "0000023593"
-            },
-            ...
-```
-
 ---
+
+See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for Healthcare for a full list of supported entities.
 
 ## Supported languages
 
@@ -103,7 +73,7 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 ## Install the container
 
-See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers.md?tabs=healthcare) to get your container running. You can also use [Azure web app for containers](https://docs.microsoft.com/azure/app-service/containers/) and [Azure container instances](text-analytics-how-to-use-container-instances.md) to make installation easier. Use the below PowerShell scripts  to automate the resource provisioning and installation process. 
+See [How to install and run Text Analytics containers](text-analytics-how-to-install-containers.md?tabs=healthcare) to get your container running. You can also use the below PowerShell scripts for Azure web app for containers and Azure container instances to automate the resource deployment and container configuration.
 
 ### Using Azure Web App for Containers
 
@@ -179,14 +149,13 @@ By default there is no security provided when using ACI with container API. This
 
 #### Set up NGINX as an ingress gateway
 
-NGINX uses [configuration files](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) (a sample configuration file is provided below) to enable features at runtime. In order to enable TLS termination for another service, we must specify an ssl_certificate to terminate the TLS connection and a proxy_pass to specify an address for the service.
+NGINX uses [configuration files](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) (a sample is provided below) to enable features at runtime. In order to enable TLS termination for another service, you must specify an SSL certificate to terminate the TLS connection and  `proxy_pass` to specify an address for the service.
 
-If you don't have a SSL certificate for your domain, here is a good resource on [how to create and acquire a SSL certificate](https://letsencrypt.org/getting-started/).
 
 > [!NOTE]
-> The `ssl_certificate` expects a path to be specified within the NGINX container's local filesystem. The address specified for `proxy_pass` must be available from within the NGINX container's network.
+> `ssl_certificate` expects a path to be specified within the NGINX container's local filesystem. The address specified for `proxy_pass` must be available from within the NGINX container's network.
 
-The NGINX container will load all of the files in the _.conf_ that are mounted under `/etc/nginx/conf.d/` into the HTTP configuration path.
+The NGINX container will load all of the files in the `_.conf_` that are mounted under `/etc/nginx/conf.d/` into the HTTP configuration path.
 
 ```nginx
 server {
@@ -347,3 +316,33 @@ The following JSON is an example of the Text Analytics for Health API response b
   "modelVersion": "2020-01-01"
 }
 ```
+
+> [!NOTE] 
+> With negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the "isNegated" flag:
+
+```json
+{
+  "id": "2",
+  "offset": 90,
+  "length": 10,
+  "text": "chest pain",
+  "type": "SYMPTOM_OR_SIGN",
+  "score": 0.9972,
+  "isNegated": true,
+  "links": [
+    {
+      "dataSource": "UMLS",
+      "id": "C0008031"
+    },
+    {
+      "dataSource": "CHV",
+      "id": "0000023593"
+    },
+    ...
+```
+
+## See also
+
+* [Text Analytics overview](../overview.md)
+* [Named Entity categories](../named-entity-types.md)
+* [What's new](../whats-new.md)
