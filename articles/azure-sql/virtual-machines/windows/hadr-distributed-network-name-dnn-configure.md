@@ -29,7 +29,7 @@ Before you complete the steps in this article, you should already have:
 
 - Decided the distributed network name (DNN) is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [failover cluster instances (FCI)](failover-cluster-instance-overview.md). 
-- The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 ## Create the DNN resource 
 

@@ -56,7 +56,8 @@ The rest of this section provides additional details about the different options
 
 ### Disk Witness
 
-A small clustered disk which is in the Cluster Available Storage group. This disk is highly-available and can failover between nodes. It contains a copy of the cluster database, with a default size of less than 1 GB usually. Disk Witness is a unique capability of Azure Shared Disks and preferred because it is a familiar part of the on-premises infrastructure. 
+A small clustered disk which is in the Cluster Available Storage group. This disk is highly-available and can failover between nodes. It contains a copy of the cluster database, with a default size of less than 1 GB usually. Though a Disk Witness is common in a traditional on-premises environment, in Azure it is a unique capability of Azure Shared Disks. It is the preferred quorum solution in Azure since it most closely matches what customers are used to on-premises. 
+
 
 Since the disk witness is common in on-premises clusters, the familiar functionality makes it easier to adapt to the Azure environment, and technically provides the most protection for teh cluster. 
 
