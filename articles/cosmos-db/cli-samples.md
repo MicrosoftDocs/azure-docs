@@ -13,7 +13,7 @@ ms.author: mjbrown
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB Core (SQL) API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). For Azure CLI samples for other Azure Cosmos DB APIs see, [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md), and [Table API](cli-samples-table.md). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and container](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container for SQL (Core) API. |
 | [Change throughput](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and container.|

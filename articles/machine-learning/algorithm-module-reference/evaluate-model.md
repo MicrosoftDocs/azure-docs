@@ -118,7 +118,7 @@ The following metrics are reported for evaluating clustering models.
   
      If the number of data points assigned to clusters is less than the total number of data points available, it means that the data points could not be assigned to a cluster.  
   
--   The scores in the column, **Maximal Distance to Cluster Center**, represent the sum of the distances between each point and the centroid of that point's cluster.  
+-   The scores in the column, **Maximal Distance to Cluster Center**, represent the max of the distances between each point and the centroid of that point's cluster.  
   
      If this number is high, it can mean that the cluster is widely dispersed. You should review this statistic together with the **Average Distance to Cluster Center** to determine the cluster's spread.   
 
