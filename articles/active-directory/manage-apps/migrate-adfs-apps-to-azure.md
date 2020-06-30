@@ -458,7 +458,7 @@ Depending on how you configure your app, verify that SSO works properly.
 ‎ |
 | Password-Based SSO| Download and install the [MyApps Secure Sign](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). This extension helps you start any of your organization's cloud apps that require you to use an SSO process.  
 ‎ |
-| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)for further assistance.  
+| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) for further assistance.  
 ‎ |
 
 > [!NOTE]
