@@ -1,10 +1,10 @@
 ---
-title: Security baseline for Azure Azure Policy
-description: Security baseline for Azure Azure Policy
+title: Azure Policy security baseline for Azure Security Benchmark
+description: The Azure Policy security baseline for the Azure Security Benchmark helps you strengthen security through improved tooling, tracking, and security features. They also provide you a consistent experience when securing your environment.
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 06/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,14 +12,19 @@ ms.custom: security-benchmark
 
 ---
 
-# Security baseline for Azure Azure Policy
+# Azure Policy security baseline for Azure Security Benchmark
 
-This security baseline applies guidance from the [Azure Security Benchmark](../../../security/benchmarks/overview.md) to Azure Policy. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Policy. **Controls** not applicable to Azure Policy have been excluded. To see how Azure Policy completely maps to the Azure Security Benchmark, see the [full Azure Policy security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets/security_baselines).
+This security baseline applies guidance from the [Azure Security Benchmark](../../../security/benchmarks/overview.md) to Azure Policy. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **compliance domains** and **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Policy. **Controls** not applicable to Azure Policy have been excluded. To see how Azure Policy completely maps to the Azure Security Benchmark, see the [full Azure Policy security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
-For a mapping of the Azure Security Benchmark controls to built-in
-policy definitions via the built-in initiative, see
+For a mapping of the Azure Security Benchmark controls to built-in policy definitions via the built-in initiative, see [Regulatory Compliance: Azure Security Benchmark](../samples/azure-security-benchmark.md).
 
-[Regulatory Compliance: Azure Security Benchmark](../samples/azure-security-benchmark.md).
+&gt; [!NOTE]
+
+&gt; Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](../definition-structure.md#type)
+
+&gt; and
+
+&gt; [Shared responsibility in the cloud](../../../../security/fundamentals/shared-responsibility.md).
 
 
 
@@ -134,5 +139,5 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
