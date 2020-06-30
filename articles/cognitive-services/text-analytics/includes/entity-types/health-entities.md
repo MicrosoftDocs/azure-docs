@@ -19,26 +19,26 @@ The following entity categories are returned by [Text Analytics for Health](../.
 |Category  |Description   |Notes  |
 |----------|--------------|-------|
 | AGE | Age |  | 
-| BODY_STRUCTURE | Part of the human body such upper arm, kidneys, heart tissue, etc.| |
-| CONDITION_QUALIFIER | Condition level such as mild, extended, diffuse, etc. | |
-| DIAGNOSIS | Medical condition such as hypertension, asthma, CAD, etc. | |
-| DIRECTION | Right, left, anterior, posterior, bilateral, etc. | |
+| BODY_STRUCTURE | Part of the human body such _upper arm_, _kidneys_, _heart tissue_, etc.| |
+| CONDITION_QUALIFIER | Condition level such as _mild_, _extended_, _diffuse_, etc. | |
+| DIAGNOSIS | Medical condition such as _hypertension_, _asthma_, _CAD_, etc. | |
+| DIRECTION | For example _Right_, _left_, _anterior_, _posterior_, _bilateral_, etc. | |
 | DOSAGE | Size or quantity of a medication  | |
-| EXAMINATION_NAME | A method or procedure of examination such as biopsy, histopathology, etc. | |
-| EXAMINATION_RELATION |  | |
-| EXAMINATION_UNIT |  | |
-| EXAMINATION_VALUE |  | |
-| FAMILY_RELATION |  | |
-| FREQUENCY |  | |
+| EXAMINATION_NAME | A method or procedure of examination such as _biopsy_, _histopathology_, _CBC lab test_, etc. | |
+| EXAMINATION_RELATION | An entity linking a measurement unit to an examination  | |
+| EXAMINATION_UNIT | A measurement unit for an examination | |
+| EXAMINATION_VALUE | The value of the examination measurement unit | |
+| FAMILY_RELATION | An entity representing a family relationship for example _sister_, _spouse_, _aunt_, etc.  | |
+| FREQUENCY | An entity describing the   | |
 | GENDER |  | |
-| GENE |  | |
+| GENE | A gene entity for example _TP53_, _EGFR_, _ESR1_, etc.   | |
 | MEDICATION_CLASS |  | |
 | MEDICATION_NAME  |  | |
-| ROUTE_OR_MODE  |  | |
+| ROUTE_OR_MODE  | Method of administering medication for example _inhaled_, _IV_, _oral_, etc. | |
 | SYMPTOM_OR_SIGN  |  | |
-| TIME  |  | |
+| TIME  | Time for example _"8 years"_ or _"2:30AM this morning"_| |
 | TREATMENT_NAME  |  | |
-| VARIANT  |  | |
+| VARIANT  | A genetic variant of the gene entity | |
 
 ### Relation extraction
 
