@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -18,11 +18,11 @@ Azure Cosmos DB transparently replicates your data across all the Azure regions 
 
 - The data within Cosmos containers is [horizontally partitioned](partitioning-overview.md).
 
-- Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
+- A partition-set is a collection of multiple replica-sets. Within each region, every partition is protected by a replica-set with all writes replicated and durably committed by a majority of replicas. Replicas are distributed across as many as 10-20 fault domains.
 
 - Each partition across all the regions is replicated. Each region contains all the data partitions of a Cosmos container and can accept writes and serve reads.  
 
-If your Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. In addition to providing low latency data access and scaling write/read throughput across the regions associated with your Cosmos account, having more regions (higher *N*) further improves availability.  
+If your Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. Generally having an Azure Cosmos account in more than 2 regions improves the availability of your application and provides low latency across the regions associated.
 
 ## SLAs for availability
 
@@ -94,7 +94,7 @@ The following table summarizes the high availability capability of various accou
 |Zone failures – availability | Availability loss | No availability loss | No availability loss |
 |Read latency | Cross region | Cross region | Low |
 |Write latency | Cross region | Cross region | Low |
-|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multi master and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
+|Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multiple write regions and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
 |Regional outage – availability | Availability loss | Availability loss | No availability loss |
 |Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
 
