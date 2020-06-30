@@ -116,7 +116,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. (Preview) The content of the email sent to reviewers is auto-generated based on the review details, such as review name, resource name, due date, etc. If you need a way to communicate additional information such as additional instructions or contact information, you can specify these details in the Additional content for reviewer email which will be included in the invitation and reminder emails sent to assigned reviewers. The highlighted section below is where this information will be displayed.
 
-![Review a users access to a group](./media/create-access-review/review-users-access-group.png)
+    ![Review a users access to a group](./media/create-access-review/review-users-access-group.png)
 
 ## Start the access review
 
