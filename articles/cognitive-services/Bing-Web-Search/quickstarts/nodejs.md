@@ -39,7 +39,7 @@ const https = require('https')
 
 ## Set the subscription key
 
-This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, which is a good practice to prevent the accidental exposure of your keys when deploying code. To look up your subscription key, see [Your APIs](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+This code snippet uses the `AZURE_SUBSCRIPTION_KEY` environment variable to store your subscription key, which is a good practice to prevent the accidental exposure of your keys when deploying code.
 
 If you're unfamiliar with the use of environment variables, or you want to run this app as fast as possible, replace `process.env['AZURE_SUBSCRIPTION_KEY']` with your subscription key set as a string.
 
