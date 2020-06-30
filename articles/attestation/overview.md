@@ -20,19 +20,6 @@ Azure Attestation enables cutting-edge security paradigms such as [Azure Confide
 
 Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (e.g., relying parties, auditing authorities etc).
 
-## Confidential Computing and TEEs
-
-[Azure confidential computing](https://azure.microsoft.com/solutions/confidential-compute/) (ACC) protects confidentiality and integrity of customer’s data and code while in use in the Azure public cloud. ACC is aimed to protect data from the following threats:
-- Malicious insiders (tenant employees or Microsoft employees) with administrative privilege or direct access to hardware on which data is being processed
-- Hackers and malware that exploit bugs in the operating system, application, or hypervisor
-- Third parties accessing the data without customer’s consent
-ACC ensures that the data is protected inside a Trusted Execution environment (TEE – also known as enclave). Only authorized code is permitted to run and to access data inside a TEE, so data is protected against viewing and modification from the outside of the TEE .
-
-Protection of data using ACC is accomplished in two ways:
-
-- Hardware: Azure can offer hardware-protected virtual machines that run on Intel® Software Guard Extensions (SGX) technology. Intel® SGX is a set of extensions to the Intel® CPU architecture that aims to provide integrity and confidentiality guarantees to sensitive computations performed on a computer, where all the privileged software (kernel, hypervisor and so on) is assumed to be untrusted.
-- Hypervisor: Virtualization-based security (VBS) enclaves are a software-¬based TEE that’s implemented by Hyper-V in Windows Server 2016 and beyond. Hyper-V prevents administrator code from running on the Azure server, as well as local administrators and cloud service administrators from viewing the contents of the enclave or modifying its execution.
-
 ## Azure Attestation can run in a TEE
 
 Azure Attestation is critical to Confidential Computing scenarios, as it performs the following actions:
