@@ -78,7 +78,7 @@ Clients will now enter `FCIDNN` into their connection string when connecting to 
 
 ### Rename the VNN 
 
-If you have an existing virtual network name (VNN) and you want clients to continue using this value to connect to the SQL Server FCI, then you must rename the current VNN to a placeholder value. Once the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. Some restrictions apply for renaming the VNN, for more information see [Renaming an FCI](/sql/sql-server/failover-clusters/install/rename-a-sql-server-failover-cluster-instance)
+If you have an existing virtual network name (VNN) and you want clients to continue using this value to connect to the SQL Server FCI, then you must rename the current VNN to a placeholder value. Once the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. Some restrictions apply for renaming the VNN, for more information, see [Renaming an FCI](/sql/sql-server/failover-clusters/install/rename-a-sql-server-failover-cluster-instance)
 
 If using the current VNN is not necessary for your business, skip this section. Once you've renamed the VNN, then [set the cluster DNN DNS name](#set-cluster-dnn-dns-name). 
 
@@ -140,7 +140,7 @@ If you need to, you can [download SQL Server Management Studio](/sql/ssms/downlo
 
 - Currently, a distributed network name (DNN) is only supported for a SQL Server 2019 CU2 and above failover cluster instance on Windows Server 2019. 
 - Currently, DNN is only supported for SQL Server FCI on Azure IaaS, it is not supported for Always ON AG Listeners. For AG Listeners, the only connectivity option for automated failover is through Azure Load Balancers.
-- There are additional limitations when working with other SQL Server features and an FCI with DNN. See [DNN FCI interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
+- There are additional limitations when working with other SQL Server features and an FCI with DNN. See [FCI with DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
 
 ## Next steps
 

@@ -102,7 +102,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported SQL version**: SQL Server 2012 and higher   
 
 **Benefits:** 
-- Only shared storage solution for virtual machines spread over mulitple availablity zones. 
+- Only shared storage solution for virtual machines spread over multiple availability zones. 
 - Fully managed file system with single digit latencies and burstable IO performance. 
 
 **Limitations:**
@@ -120,7 +120,7 @@ There are a number of third-party clustering solutions with supported storage.
 **Supported SQL version**: All   
 
 
-One example uses SIOS Datakeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
+One example uses SIOS DataKeeper as the storage. For more information, see the blog [Failover clustering and SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/)
 
 
 ### iSCSI and ExpressRoute
@@ -138,7 +138,7 @@ For third-party shared storage and data replication solutions, contact the vendo
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines use a [virtual network name (VNN) with an Azure Load Balancer](hadr-azure-load-balancer-configure.md) or a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) to route traffic to the SQL Server instance regardless of which node currently owns the clustered resources. 
+Failover cluster instances with SQL Server on Azure Virtual Machines use a [virtual network name (VNN) with an Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) or a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) to route traffic to the SQL Server instance regardless of which node currently owns the clustered resources. 
 
 To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#route-connections). 
 
@@ -269,7 +269,7 @@ On Azure Virtual Machines, MSDTC isn't supported on Windows Server 2016 or earli
 
 Be sure to review [cluster configurations best practices](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
-For additional information see: 
+For additional information, see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 

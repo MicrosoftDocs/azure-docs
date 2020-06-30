@@ -48,7 +48,7 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use a [Di
 |Supported FCI storage|Azure Shared Disks|All|All|
 
 
-The **Disk Witness** is a unique capability of Azure Shared Disks and might be preferable since its a familiar part of on-premises infrastructure
+The **Disk Witness** is a unique capability of Azure Shared Disks and might be preferable since it's a familiar part of on-premises infrastructure
 
 The **Cloud Witness** is ideal for multi-site, multi-zone, and multi-region deployments. 
 
@@ -56,10 +56,9 @@ The rest of this section provides additional details about the different options
 
 ### Disk Witness
 
-A small clustered disk which is in the Cluster Available Storage group. This disk is highly-available and can failover between nodes. It contains a copy of the cluster database, with a default size of less than 1 GB usually. Though a Disk Witness is common in a traditional on-premises environment, in Azure it is a unique capability of Azure Shared Disks. It is the preferred quorum solution in Azure since it most closely matches what customers are used to on-premises. 
+A small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size of less than 1 GB usually. A disk witness on Azure requires Azure Shared Disks.
 
-
-Since the disk witness is common in on-premises clusters, the familiar functionality makes it easier to adapt to the Azure environment, and technically provides the most protection for teh cluster. 
+Since the disk witness is common in on-premises clusters, the familiar functionality makes it easier to adapt to the Azure environment, and technically provides the most protection for the cluster. 
 
 To get started, see [Configure Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)
 
@@ -81,7 +80,7 @@ To get started, see [Configure Cloud Witness](/windows-server/failover-clusterin
 
 ### File Share Witness
 
-A SMB file share that is typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure File Share](../../../storage/files/storage-how-to-create-file-share.md) to use as the File Share Witness, or you can use a file share on a separate virtual machine.
+An SMB file share that is typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can configure an [Azure File Share](../../../storage/files/storage-how-to-create-file-share.md) to use as the File Share Witness, or you can use a file share on a separate virtual machine.
 
 If you're going to use another Azure file share, you can mount it with the same process used to [mount the premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-the-premium-file-share). 
 
@@ -101,7 +100,7 @@ Use a **Virtual Network Name with an Azure Load Balancer** or a **distributed ne
 
 ### Virtual Network name with Azure Load Balancer
 
-Since the virtual IP access point works differently in Azure, you need to configure an [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the FCI nodes. In Azure virtual machines, a load balancer holds the IP address for the virtual network name (VNN) that the clustered SQL Server resources relies on. The load balancer distributes inbound flows that arrive at the frontend, and then routes that traffic to the instances defined by the backend pool. Traffic flow is configured using load balancing rules and health probes. With SQL Server FCI, the backend pool instances are the Azure Virtual Machines running SQL Server. 
+Since the virtual IP access point works differently in Azure, you need to configure an [Azure Load Balancer](../../../load-balancer/index.yml) to route traffic to the IP address of the FCI nodes. In Azure virtual machines, a load balancer holds the IP address for the virtual network name (VNN) that the clustered SQL Server resources rely on. The load balancer distributes inbound flows that arrive at the frontend, and then routes that traffic to the instances defined by the backend pool. Traffic flow is configured using load-balancing rules and health probes. With SQL Server FCI, the backend pool instances are the Azure Virtual Machines running SQL Server. 
 
 There is a slight failover delay when using the load balancer as the health probe conducts alive checks every 10 seconds by default. 
 
@@ -122,7 +121,7 @@ Using a distributed network name rather than a load balancer is recommended beca
 - Minimized failover duration by eliminating the load balancer probes. 
 - Simplified provisioning and management of the failover cluster instance with SQL Server on Azure VM. 
 
-Most SQL Server features work transparently with FCI and you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN value with the existing VNN DNS name. However, some server side components require a network alias that maps the VNN Name to the DNN name. Additionally, there may be specific cases that require the explicit use of the DNN DNS name, such as when defining certain URLs in a server-side configuration. 
+Most SQL Server features work transparently with FCI and you can simply replace the existing VNN DNS name with the DNN DNS name, or set the DNN value with the existing VNN DNS name. However, some server-side components require a network alias that maps the VNN Name to the DNN name. Additionally, there may be specific cases that require the explicit use of the DNN DNS name, such as when defining certain URLs in a server-side configuration. 
 
 To get started, learn how to [configure a distributed network name (DNN) resource for an FCI](failover-cluster-instance-connectivity-configure.md#dynamic-network-name). 
 
