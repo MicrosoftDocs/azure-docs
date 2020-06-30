@@ -33,6 +33,15 @@ Use the table below to find which model versions are supported by each endpoint.
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
 
+## Text Analytics for health
+
+The [Text Analyics for health](../how-tos/text-analytics-for-healthcare.md) container uses seperate model versioning than the other API endpoints. See the table below for available model versions for Text Analytics for health.
+
+| Supported Versions                       | latest version |
+|------------------------------------------|----------------|
+| `2020-07-01`                             | `2020-07-01`   |
+
+
 ## Next steps
 
 * [Text Analytics overview](../overview.md)
