@@ -370,7 +370,7 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
-### Error: vmSubnet not available when configuring virutal networks
+### Error: vmSubnet not available when configuring virutal networks //todo
 
 **Cause:** Our ARM templates require the total number of VMs to be specified and not the number of VMs to add. In the UI portal, we define some constraints on the element for selecting the subnet. The validation logic uses the total number of VMs specified to check if the subnet has enough IP addresses and only allow those with enough addresses available.
 
