@@ -4,7 +4,7 @@ description: 'This tutorial shows how you can use your development machine as a 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 2/24/2020
+ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -15,7 +15,7 @@ services: iot-edge
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we once again use the development VM as a simulated device. However Instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
+In this article, we once again use the development VM as a simulated device. However instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
 
 We monitor the operation of the IoT Edge device while the simulated device is sending data. Once the device is finished running, we look at the data in our storage account to validate everything worked as expected.
 
@@ -40,7 +40,7 @@ Look at the code to see how these two items are implemented.
 
 1. Now look at the GetIotHubDevice method on the TurbofanDevice class.
 
-1. When the user specifies the FQDN of the gateway using the “-g” option, that value is passed to the `gatewayFqdn` method and then appended to the device connection string.
+1. When the user specifies the FQDN of the gateway using the “-g” option, that value is passed to this method as the `gatewayFqdn` variable, which gets appended to the device connection string.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
@@ -52,9 +52,9 @@ Look at the code to see how these two items are implemented.
 
 1. Find the fully qualified domain name (FQDN) for your edge gateway by navigating to your IoT Edge device (Linux VM) in the Azure portal and copying the value for **DNS name** from the overview page.
 
-1. Start your IoT device (Linux VM) VM if it is not already running.
+1. Start your IoT device (Linux VM) if it is not already running.
 
-1. Open the Visual Studio Code terminal. From the **Terminal** menu, select **New Terminal** and run the following command, replacing `<edge_device_fqdn>` with the DNS name that you copied from the development VM:
+1. Open the Visual Studio Code terminal. From the **Terminal** menu, select **New Terminal** and run the following command, replacing `<edge_device_fqdn>` with the DNS name that you copied from the IoT Edge device (Linux VM):
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
