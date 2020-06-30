@@ -44,7 +44,7 @@ In Visual Studio, create a new Windows console application. The following steps 
 1. In **Create a new project**, choose **Console App (.NET Framework)** for C#, and then select **Next**.
 1. In **Configure your new project**, enter a name for the app, and select **Create**.
 
-You can add all the code examples in this tutorial to the `Main()` method of your console application's `Program.cs` file.
+You can add all the code examples in this tutorial to the `Main()` method of your console application's *Program.cs* file.
 
 You can use the Azure Storage client library in any type of .NET application. These types include an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
@@ -79,7 +79,7 @@ You can use NuGet to obtain both packages. Follow these steps:
 
 ## Save your storage account credentials to the App.config file
 
-Next, save your credentials in your project's `App.config` file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
+Next, save your credentials in your project's *App.config* file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -105,7 +105,7 @@ Next, save your credentials in your project's `App.config` file. In **Solution E
 
 ## Add using directives
 
-In **Solution Explorer**, open the `Program.cs` file, and add the following using directives to the top of the file.
+In **Solution Explorer**, open the *Program.cs* file, and add the following using directives to the top of the file.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -125,6 +125,8 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 ---
 
 ## Access the file share programmatically
+
+In the *Program.cs* file, add the following code to access the file share programmatically.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -491,7 +493,7 @@ You can enable metrics for Azure Files from the [Azure portal](https://portal.az
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 
-First, add the following `using` directives to your `Program.cs` file, along with the ones you added above:
+First, add the following `using` directives to your *Program.cs* file, along with the ones you added above:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
