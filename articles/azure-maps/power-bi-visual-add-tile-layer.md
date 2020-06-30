@@ -50,7 +50,7 @@ parameters:
 -   `{x}` - X position of the tile. Also needs `{y}` and `{z}`.
 -   `{y}` - Y position of the tile. Also needs `{x}` and `{z}`.
 -   `{z}` - Zoom level of the tile. Also needs `{x}` and `{y}`.
--   `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
+-   `{quadkey}` - Tile `quadkey` identifier based on the Bing Maps tile system naming convention.
 -   `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 spatial reference system.
 
 As an example, the following is a formatted tile URL for the [weather radar tile service](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) in Azure Maps. Note that `[subscription-key]` is a placeholder for your Azure Maps subscription key.
