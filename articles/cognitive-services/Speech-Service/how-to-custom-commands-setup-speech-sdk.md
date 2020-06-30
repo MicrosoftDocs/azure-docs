@@ -37,7 +37,7 @@ You'll also need:
 1. Go to **Settings**, select **LUIS resource**
 1. If **Prediction resource** is not assigned, select a query prediction key or create a new one
 
-    Note that query prediction key is always required before publishing an applicaiton. For more information about LUIS resources, please refer [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    Note that query prediction key is always required before publishing an application. For more information about LUIS resources, please refer [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
 
 1. Go back to editing Commands, Select **Publish**
 

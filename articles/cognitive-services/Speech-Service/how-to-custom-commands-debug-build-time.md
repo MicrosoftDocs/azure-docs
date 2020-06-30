@@ -85,7 +85,9 @@ For best practice of LUIS training, please refer [LUIS best practice](https://do
 ### Reassign to E0 authoring resource
 LUIS does not support reassigning LUIS application to E0 authoring resource.
 
-If you need to change your authoring resource from F0 to E0, or change to a different E0 resource, please recreate the application.
+If you need to change your authoring resource from F0 to E0, or change to a different E0 resource, please recreate the application. 
+
+For quickly export an existing application and import it into a new application, please refer to [Continuous Deployment with Azure DevOps](./how-to-custom-commands-deploy-cicd.md).
 
 ### Save button is disabled
 If you never assign a LUIS prediction resource to your application, the Save button would be disabled when you try to change your authoring resource without adding a prediction resource.
