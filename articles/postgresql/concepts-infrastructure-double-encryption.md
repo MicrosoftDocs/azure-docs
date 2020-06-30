@@ -3,7 +3,7 @@ title: Infrastructure double encryption - Azure Database for PostgreSQL
 description: Learn about using Infrastructure double encryption to add a second layer of encryption with a service managed keys.
 author: kummanish
 ms.author: manishku
-ms.service: PostgreSQL
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/29/2020
 ---
