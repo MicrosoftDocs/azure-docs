@@ -41,7 +41,7 @@ Using the two services together provides:
 
 * **Environment hardening** - Security Center constantly monitors the configuration of your Kubernetes clusters and Docker configurations. It then generates security recommendations that reflect industry standards.
 
-* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level. For the list of possible alerts, see these sections in the alerts reference table: [AKS cluster level alerts](alerts-reference.md#alerts-akscluster) and [Container host level alerts](alerts-reference.md#alerts-containerhost).
+* **Run-time protection** - Through continuous analysis of the following AKS sources, Security Center alerts you to threats and malicious activity detected at the host *and* AKS cluster level. [Learn more about threat protection for containers](threat-protection.md#azure-containers).
 
 
      

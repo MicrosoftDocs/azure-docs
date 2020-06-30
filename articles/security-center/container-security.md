@@ -17,14 +17,17 @@ ms.author: memildin
 
 # Container security in Security Center
 
-Azure Security Center is the Azure-native solution for securing your containers. Security Center provides two optional bundles for standard tier users to gain Azure-native protection of the following two Azure container services:
+Azure Security Center is the Azure-native solution for securing your containers. Security Center can protect the following container resource types:
 
 
-|Service  |Description  |Security Center bundle  |
-|---------|---------|---------|
-|[Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/) |Microsoft's managed, private Docker registry service (based on the open-source Docker Registry 2.0) that stores and manages your container images for Azure deployments in a central registry.         |[Security Center's ACR bundle](azure-container-registry-integration.md) brings deeper visibility into the vulnerabilities of the images in your ARM-based registries.|
-|[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) |Microsoft's managed service for developing, deploying, and managing containerized applications.|[Security Center's AKS bundle provides](azure-kubernetes-service-integration.md) deeper visibility to your AKS nodes, cloud traffic, and security controls.|
+
+|Resource |Name  |Details  |
+|:---------:|---------|---------|
+|![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)|Container hosts (virtual machines that are running Docker)|Security Center scans your Docker configurations and gives you visibility into misconfigurations by providing a list of all failed rules that were assessed. Security Center provides guidelines to help you resolve these issues quickly and save time. Security Center continuously assesses the Docker configurations and provides you with their latest state.|
+|![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)|Azure Kubernetes Service (AKS) clusters|Gain deeper visibility to your AKS nodes, cloud traffic, and security controls with [Security Center's optional AKS bundle](azure-kubernetes-service-integration.md) for standard tier users.|
+|![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)|Azure Container Registry (ACR) registries|Gain deeper visibility into the vulnerabilities of the images in your ARM-based ACR registries with [Security Center's optional ACR bundle](azure-kubernetes-service-integration.md) for standard tier users.|
 ||||
+
 
 This article describes how you can use these bundles to improve, monitor, and maintain the security of your containers and their apps. You'll learn how Security Center helps with these core aspects of container security:
 
@@ -72,12 +75,9 @@ For details of the relevant Security Center recommendations that might appear fo
 
 
 
+
 ## Next steps
 
-To learn more about container security in Azure Security Center, see these related articles:
-
-* To view the security posture of your container-related resources, see the containers section of [Protect your machines and applications](security-center-virtual-machine-protection.md#containers).
-
-* Details of the [integration with Azure Kubernetes Service](azure-kubernetes-service-integration.md)
-
-* Details of the [integration with Azure Container Registry](azure-container-registry-integration.md)
+In this overview, you learned about the core elements of container security in Azure Security Center. Continue to [how to monitor the security of your containers](monitor-container-security.md).
+> [!div class="nextstepaction"]
+> [Monitoring the security of your containers](monitor-container-security.md)
