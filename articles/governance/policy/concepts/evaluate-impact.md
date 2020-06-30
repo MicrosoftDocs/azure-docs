@@ -28,6 +28,12 @@ The recommended approach to validating a new policy definition is by following t
 - Deploy your policy to resources
 - Continuous monitoring
 
+[!IMPORTANT]
+> After a policy definition or initiative has been assigned to a scope, there is a 15 minute delay for the 
+> policy to propagate throughout the assigned scope.  If a resource is created during the 15 minute delay, 
+> the policy definition or initiative will still be effective, but the deployment will fail during deployment 
+> versus during validation before deployment until the propagation is completed.
+
 ## Tightly define your policy
 
 It's important to understand how the business policy is implemented as a policy definition and the
