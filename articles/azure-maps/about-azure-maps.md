@@ -161,6 +161,14 @@ Azure Maps is built for mobility and can help you develop cross-platform applica
 
 Also, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
 
+## Power BI visual
+
+The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+
+![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+
+For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+
 ## Usage
 
 Accessing the Azure Maps services is a matter of going to the [Azure portal](https://portal.azure.com) and creating an Azure Maps account.

@@ -41,6 +41,7 @@ There are several different ways in which the map can be zoomed, panned, rotated
 - With the map focused, use the Minus sign, Hyphen (`-`), or Underscore (`_`) to zoom out one level.
 - Using the zoom control with a mouse, touch or keyboard tab/enter keys.
 - Press and hold the `Shift` button and press the left mouse button down on the map and drag to draw out an area to zoom the map into.
+- Using some multi-touch pads, dragging two fingers up to zoom out, or down to zoom in.
 
 **Pan the map**
 

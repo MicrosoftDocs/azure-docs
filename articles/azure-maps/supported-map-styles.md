@@ -23,6 +23,7 @@ A **road** map is a standard map that displays roads, natural and artificial fea
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 ## blank and blank_accessible
 
@@ -43,6 +44,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 * [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 ## satellite_road_labels
 This map style is a hybrid of roads and labels overlaid on top of satellite and aerial imagery.
@@ -52,6 +54,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 ## grayscale_dark
 **grayscale dark** is a dark version of the road map style.
@@ -63,6 +66,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Web SDK map control 
 * Android map control
+* Power BI visual
 
 
 ## grayscale_light
@@ -73,6 +77,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 
 ## night
@@ -83,6 +88,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 **Applicable APIs:**
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 ## road_shaded_relief
 **road shaded relief** is an Azure Maps main style completed with contours of the Earth.
@@ -93,6 +99,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Web SDK map control
 * Android map control
+* Power BI visual
 
 ## high_contrast_dark
 
@@ -102,6 +109,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 * Web SDK map control
+* Power BI visual
 
 ## Next steps
 
