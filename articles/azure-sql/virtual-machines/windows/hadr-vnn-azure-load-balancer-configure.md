@@ -34,7 +34,7 @@ Before you complete the steps in this article, you should already have:
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
-## Create the load balancer
+## Create load balancer
 
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
@@ -61,7 +61,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
    ![Set up the load balancer](./media/failover-cluster-instance-premium-file-share-manually-configure/30-load-balancer-create.png)
    
 
-## Configure the backend pool
+## Configure backend pool
 
 1. Return to the Azure resource group that contains the virtual machines and locate the new load balancer. You might need to refresh the view on the resource group. Select the load balancer.
 
@@ -73,7 +73,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK** to create the backend pool.
 
-### Configure a load balancer health probe
+## Configure health probe
 
 1. On the load balancer blade, select **Health probes**.
 
@@ -91,7 +91,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 ## Set load-balancing rules
 
-1. On the load balancer blade, select **Load balancing rules**.
+1. On the load balancer blade, select **Load-balancing rules**.
 
 1. Select **Add**.
 
@@ -109,7 +109,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK**.
 
-## Configure the probe
+## Configure cluster probe
 
 Set the cluster probe port parameter in PowerShell.
 
@@ -136,37 +136,6 @@ The following table describes the values that you need to update:
 |`ILBIP`|The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.|
 |`nnnnn`|The probe port you configured in the load balancer health probe. Any unused TCP port is valid.|
 |"SubnetMask"| The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.| 
-
-
-This is text to present the same information as the table, not sure which is better, leaving both for now: 
-
-The following list describes the values that you need to update:
-
-   - `<Cluster Network Name>`: The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
-
-   - `<SQL Server FCI/AG listener IP Address Resource Name>`: The SQL Server IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
-
-   - `<ILBIP>`: The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.  
-
-   - `<nnnnn>`: The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
-
-Same text, different format, comparing styles: 
-
-`<Cluster Network Name>`   
-The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.
-
-`<SQL Server FCI/AG listener IP Address Resource Name>`   
-The SQL Server IP address resource name. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.
-
-`<ILBIP>`   
- The ILB IP address. This address is configured in the Azure portal as the ILB front-end address. This is also the SQL Server FCI IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.  
-
-`<nnnnn>`   
- The probe port you configured in the load balancer health probe. Any unused TCP port is valid.
-
-
->[!IMPORTANT]
->The subnet mask for the cluster parameter must be the TCP IP broadcast address: `255.255.255.255`.
 
 
 After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
