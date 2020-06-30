@@ -1,6 +1,6 @@
 ﻿---
 title: 'Quickstart: Get started with Azure Sentinel'
-description: Azure Sentinel Quickstart - Get started with Azure Sentinel
+description: Use this quickstart to learn how to quickly view and monitor what's happening across your environment by using Azure Sentinel. 
 services: sentinel
 author: yelevin
 manager: rkarlin

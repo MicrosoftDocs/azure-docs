@@ -35,11 +35,11 @@ landingContent:
           - text: Infuse intelligence in your apps with Vision APIs
             url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
 
-  - title: Recognize printed and handwritten text
+  - title: Read text from images and documents
     linkLists:
       - linkListType: concept
         links:
-          - text: Printed and handwritten text recognition
+          - text: Text recognition
             url: concept-recognizing-text.md
       - linkListType: quickstart
         links:

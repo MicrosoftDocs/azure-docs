@@ -3,7 +3,7 @@ title: Deploy a Windows Hybrid Runbook Worker in Azure Automation
 description: This article tells how to deploy a Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
 ---
 # Deploy a Windows Hybrid Runbook Worker
@@ -181,18 +181,18 @@ Import-Module .\HybridRegistration.psd1
 Now run the `Add-HybridRunbookWorker` cmdlet using the following syntax.
 
 ```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 ```
 
-You can get the information required for this cmdlet from the Manage Keys page in the Azure portal. Open this page by selecting **Keys** on the Settings page in your Automation account.
+You can get the information required for the parameters `Url` and `Key` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
 ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
+* For the `Url` parameter, copy the value for **URL**.
+
+* For the `Key` parameter, copy the value for **PRIMARY ACCESS KEY**.
+
 * For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's added.
-
-* For the `EndPoint` parameter, use the **URL** entry on the Manage Keys page.
-
-* For the `Token` parameter, use the **PRIMARY ACCESS KEY** entry on the Manage Keys page.
 
 * If required, set the `Verbose` parameter to receive details about the installation.
 
@@ -213,7 +213,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <primaryAccessKey> -machineName <computerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## Remove a Hybrid Worker group
