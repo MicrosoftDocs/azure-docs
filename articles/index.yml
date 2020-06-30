@@ -76,7 +76,7 @@ productDirectory:
       azureCategories:
         - ai-machine-learning
         - analytics
-      url: /azure/databricks/index.yml
+      url: /azure/databricks/
     # Card
     - title: Azure Machine Learning
       summary: Bring AI to everyone with an end-to-end, scalable, trusted platform with experimentation and model management
@@ -784,7 +784,7 @@ productDirectory:
         - developer-tools
       url: https://code.visualstudio.com/docs
     # Card
-    - title: Visual Studio Online (Preview)
+    - title: Visual Studio Codespaces (Preview)
       summary: Cloud-powered development environments accessible from anywhere
       imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       azureCategories:

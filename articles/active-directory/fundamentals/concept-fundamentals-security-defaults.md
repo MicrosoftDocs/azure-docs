@@ -120,7 +120,7 @@ The following additional considerations are related to deployment of security de
 
 These free security defaults allow registration and use of Azure Multi-Factor Authentication **using only the Microsoft Authenticator app using notifications**. Conditional Access allows the use of any authentication method the administrator chooses to enable.
 
-|   | Security defaults | Conditional Access |
+| Method | Security defaults | Conditional Access |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token | X** | X |
