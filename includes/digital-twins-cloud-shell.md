@@ -28,9 +28,9 @@ Next you'll add the [**Microsoft Azure IoT Extension for Azure CLI**](https://do
 
 First, run this command to see a list of all the extensions you already have installed.
 
-    ```azurecli-interactive
-    az extension list
-    ```
+```azurecli-interactive
+az extension list
+```
 
 In the output, look for the `"name"` field for each list entry to see the names of the extensions.
 
@@ -43,15 +43,15 @@ Use the output to determine which of the following commands to run for the exten
 
 * If the list does **not** contain `azure-iot`: You need to install the extension. Use this command:
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
 
 * If the list contains `azure-iot-cli-ext`: This is the legacy version of the extension. Only one version of the extension should be installed at a time, so you should uninstall the legacy extension. Use this command:
 
-    ```azurecli-interactive
-    az extension remove --name azure-cli-iot-ext
-    ```
+   ```azurecli-interactive
+   az extension remove --name azure-cli-iot-ext
+   ```
 
 Now you are ready to work with Azure Digital Twins in the Cloud Shell.
 
