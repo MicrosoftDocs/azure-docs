@@ -79,7 +79,7 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pod/deployments would use the API IP.  |
 
-### Azure China 21Vianet required FQDN / application rules 
+### Azure China 21Vianet required FQDN / application rules
 
 The following FQDN / application rules are required:
 
