@@ -6,7 +6,7 @@ ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
 ---
-# Tutorial: Set up physically based rendering materials in Maya
+# Tutorial: Set up physically based rendering materials in 3D Studio Max
 
 ## Overview
 In this tutorial, you'll learn how to:
@@ -88,10 +88,10 @@ The next step is to create a second UV map channel.
 
 * In the **Channel Change Warning** dialog that opens up you will be given the option to either **Move** the existing UV's in channel 1 into the new channel 2 or **Abandon** the existing UV's that will create a new **UV Unwrap** automatically. Only select **Abandon** if you intend to create a new **UV unwrap** for the ambient occlusion map that differs from the UV's in map channel 1 (for example if you want to use tiling textures in channel 1). For our purposes, we will **Move** the UV's from channel one to channel 2 as we do not need to edit the new UV channel.
 
-    > [!NOTE]
+> [!NOTE]
 Even if you have copied - **Moved** - the UV unwrap from map channel 1 into map channel 2 you can make any necessary edits to the new channel UV's without affecting the original map channel.
 
-    ![channel-change](media/3dsmax/channel-change.jpg)
+![channel-change](media/3dsmax/channel-change.jpg)
 
 With the new map channel created we can return to the physical material in the material editor and begin to add our textures to it. We will first add the ambient occlusion (**AO**) map as there is a further step to take to allow it to work correctly. Once the AO map is plugged in to our material, we need to instruct it to use map channel 2.
 
@@ -101,10 +101,10 @@ With the new map channel created we can return to the physical material in the m
 
 * In the AO textures properties, you will see map channel set to **1** by default. Change this value to **2**. This action completes the steps necessary for adding your ambient occlusion map.
 
-    > [!IMPORTANT]
+> [!IMPORTANT]
 This is an important step, particularly if your UV's in channel 2 are different to those in channel 1, as the AO will not map correctly with the wrong channel selected.
 
-    ![assign-ao-map](media/3dsmax/assign-ao-map.jpg)
+![assign-ao-map](media/3dsmax/assign-ao-map.jpg)
 
 We will now tackle assigning our normal-map to our PBR Material. This action differs somewhat from **Maya** in that the normal-map is not applied directly to the bump map slot (there is no normal-map slot in the **3DSMax Physical Material** as such), but is instead added to a normal-map modifier, which itself is plugged into the **normals** slot.
 
@@ -116,8 +116,8 @@ We will now tackle assigning our normal-map to our PBR Material. This action dif
 
 * Check that the method is set to **Tangent** (it should be that by default) and if necessary toggle **Flip Green (Y)**.
 
-    ![normal-bump](media/3dsmax/normal-bump.jpg)
-    ![load-normal-map](media/3dsmax/load-normal-map.jpg)
+![normal-bump](media/3dsmax/normal-bump.jpg)
+![load-normal-map](media/3dsmax/load-normal-map.jpg)
 
 With our normal-map assigned correctly, we can proceed to assign the remaining textures to complete our physical material setup. This process is a simple process with no special settings to consider. The following image shows the full set of textures assigned to our material: 
 ![all-textures](media/3dsmax/all-textures.jpg)
