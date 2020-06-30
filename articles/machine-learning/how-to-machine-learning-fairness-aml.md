@@ -182,7 +182,7 @@ The following example shows how to use the fairness package to upload model fair
     ```
 5. Check the fairness dashboard from Azure Machine Learning studio
 
-    If you complete the previous steps (uploading generated fairness insights to Azure Machine Learning), you can view the fairness dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is the same visualization dashboard provided in Fairlearn, enabling you to analyse the disparities among your sensitive feature's subgroups (e.g., male vs. female).
+    If you complete the previous steps (uploading generated fairness insights to Azure Machine Learning), you can view the fairness dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is the same visualization dashboard provided in Fairlearn, enabling you to analyze the disparities among your sensitive feature's subgroups (e.g., male vs. female).
     Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
     * **Experiments pane (Preview)**
