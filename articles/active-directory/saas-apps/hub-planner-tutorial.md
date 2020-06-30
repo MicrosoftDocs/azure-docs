@@ -40,8 +40,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Hub Planner supports **SP** initiated SSO
-* Once you configure Hub Planner you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Hub Planner supports **SP** initiated SSO.
+* Once you configure Hub Planner you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Hub Planner from the gallery
 
@@ -155,7 +155,7 @@ After the extension is enabled, you must enable SSO for your account.
 
 ### Create Hub Planner test user
 
-If you want to add other users go to settings -> Manage resoures and add users from here. Make sure to add their email address and invite them. Once invited they will receive an email and be able to enter via SSO. 
+If you want to add other users go to **Settings** > **Manage resources** and add users from here. Make sure to add their email address and invite them. Once invited, they will receive an email and be able to enter via SSO. 
 
 ## Test SSO 
 
