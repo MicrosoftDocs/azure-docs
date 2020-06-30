@@ -11,7 +11,7 @@ ms.topic: tutorial
 ## Overview
 In this tutorial, you'll learn how to:
 
-> [!div class="checklist"]
+>[!div class="checklist"]
 >
 > * Assign materials with advanced lighting to objects in the scene.
 > * Handle instancing of objects and materials.
@@ -33,16 +33,16 @@ In **3D Studio Max**, the process for setting up a PBR material is as follows.
 
 To begin with, as you will see in the Sample Scene, we have created a number of box objects, each of which represents a different type of material:
 
-> [!TIP]
-It is worth noting before starting to create assets for ARR that it uses **meters** for measurement.  
-Therefore it is advisable to set your scene **System Units** to **Meters**. Furthermore, it is advisable when exporting to set Units to meters in the FBX export settings.
+>[!TIP]
+>It is worth noting before starting to create assets for ARR that it uses **meters** for measurement.  
+>Therefore it is advisable to set your scene **System Units** to **Meters**. Furthermore, it is advisable when exporting to set Units to meters in the FBX export settings.
 
 The Following image illustrates the steps to set the System Units to meters in 3D Studio Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup** and in the **System Units Scale** dropdown select **Meters**. 
 ![system units](media/3dsmax/system-units.jpg)
 
 With system units set to meters, we can begin to create our models. In our sample scene, we create several box objects, each representing a different material type - for example, metal, rubber, plastic etc. 
 
-> [!TIP]
+>[!TIP]
 >It is good practice when creating assets to name the appropriately as you go. This will make them easier to find later if the scene has a lot of objects
 
 ![rename-objects](media/3dsmax/rename-objects.jpg)
@@ -68,8 +68,8 @@ In the Material Editor, you can select types of materials from a wide selection,
 
 As can be seen from the above image, there are a wide range of maps and textures that can be added to the material. For our purposes though, we will use only five texture slots in the material.
 
-> [!TIP]
-It is good practice to name your materials appropriately, as shown in the image above.
+>[!TIP]
+>It is good practice to name your materials appropriately, as shown in the image above.
 
 We can now begin to consider assigning textures to our material. How you generate your textures may vary according to preference or even  according to usage. For example, you may be happy to use tiling textures that can be applied to any asset or you may require specific parts of a project/asset to have their own custom set of textures. You may want to use generic tiling textures obtained online or create them yourself in apps such as **Photoshop**, **Quixel Suite**, **Substance Suite** etc. 
 
@@ -89,8 +89,8 @@ The next step is to create a second UV map channel.
 
 * In the **Channel Change Warning** dialog that opens up you will be given the option to either **Move** the existing UV's in channel 1 into the new channel 2 or **Abandon** the existing UV's that will create a new **UV Unwrap** automatically. Only select **Abandon** if you intend to create a new **UV unwrap** for the ambient occlusion map that differs from the UV's in map channel 1 (for example if you want to use tiling textures in channel 1). For our purposes, we will **Move** the UV's from channel one to channel 2 as we do not need to edit the new UV channel.
 
-> [!NOTE]
-Even if you have copied - **Moved** - the UV unwrap from map channel 1 into map channel 2 you can make any necessary edits to the new channel UV's without affecting the original map channel.
+>[!NOTE]
+>Even if you have copied - **Moved** - the UV unwrap from map channel 1 into map channel 2 you can make any necessary edits to the new channel UV's without affecting the original map channel.
 
 ![channel-change](media/3dsmax/channel-change.jpg)
 
@@ -102,8 +102,8 @@ With the new map channel created we can return to the physical material in the m
 
 * In the AO textures properties, you will see map channel set to **1** by default. Change this value to **2**. This action completes the steps necessary for adding your ambient occlusion map.
 
-> [!IMPORTANT]
-This is an important step, particularly if your UV's in channel 2 are different to those in channel 1, as the AO will not map correctly with the wrong channel selected.
+>[!IMPORTANT]
+>This is an important step, particularly if your UV's in channel 2 are different to those in channel 1, as the AO will not map correctly with the wrong channel selected.
 
 ![assign-ao-map](media/3dsmax/assign-ao-map.jpg)
 
@@ -133,11 +133,12 @@ With your PBR materials created and set up, it is worth thinking about instancin
 ![instance-object](media/3dsmax/instance-object.jpg)
 
 This action will create an instance of your object that can be moved rotated or scaled independently of its parent and of other instances of that parent.
-> [!IMPORTANT]
-However - any changes you make to an instance while in sub-object mode will be transmitted to all instances of your object, so if you are working with an instanced objects components - vertices, polygon faces etc be sure first that you want any changes you make to affect all of these instances. Remember that any instanced object can be made into a unique object at any time. 
 
-> [!TIP]
-Best Practice regarding instancing in your scene is to create them as you go along, as replacing **Copies** with Instanced objects later is extremely difficult. 
+>[!IMPORTANT]
+>However - any changes you make to an instance while in sub-object mode will be transmitted to all instances of your object, so if you are working with an instanced objects components - vertices, polygon faces etc be sure first that you want any changes you make to affect all of these instances. Remember that any instanced object can be made into a unique object at any time. 
+
+>[!TIP]
+>Best Practice regarding instancing in your scene is to create them as you go along, as replacing **Copies** with Instanced objects later is extremely difficult. 
 
 One final thing to take into consideration before we move on to the export process is how you might want to package your scene/asset for sharing. Ideally if you pass the asset on to a client or team member you will want them to be able to open and view the asset as it should be seen with a minimum amount of fuss. It is important therefore to keep your assets texture paths relative to the scene file. If the texture paths for your asset are pointing to a local drive or absolute path/location, they will not load in to the scene if opened on a different computer, even if the **.max** file is sitting in the same folder as the textures. Making the texture paths relative in 3D Studio Max solves this issue and is fairly simple.
 
@@ -163,17 +164,17 @@ You may notice that not all of your textures are listed in the asset tracker whe
 
 Notice that the **Full Path** column is now blank. It means that the scene is no longer looking to find the relevant textures in a specific (absolute) location but will always find them as long as the max file or related FBX file is sitting in the same folder as the textures. 
 
-> [!NOTE]
-It may sometimes occur that you have to repeat this process a couple of times to find and resolve all textures and paths. This is nothing to be concerned about, just repeat until all relevant assets are accounted for. It may also be the case that some files are no longer to be found. In this case, simply select all assets in the list and click **Remove Missing Paths** (see image above)
+>[!NOTE]
+>It may sometimes occur that you have to repeat this process a couple of times to find and resolve all textures and paths. This is nothing to be concerned about, just repeat until all relevant assets are accounted for. It may also be the case that some files are no longer to be found. In this case, simply select all assets in the list and click **Remove Missing Paths** (see image above)
 
 ## FBX export
 
 With the asset tracking complete, we can now move on to the FBX export. Again, the process is simple and can be done in a couple of ways. 
 
-> [!TIP]
-It is good practice that unless you wish to export your entire scene, you select for export only those assets which are needed. In particularly resource intensive scenes, export can take a long time so it makes sense to export only what you need
+>[!TIP]
+>It is good practice that unless you wish to export your entire scene, you select for export only those assets which are needed. In particularly resource intensive scenes, export can take a long time so it makes sense to export only what you need
 >
-> It is advisable that if you have used modifiers such as **Turbosmooth** or **Open SubDiv** etc that you collapse them before export as they can cause problems during export. Always save your scene before doing this! 
+>It is advisable that if you have used modifiers such as **Turbosmooth** or **Open SubDiv** etc that you collapse them before export as they can cause problems during export. Always save your scene before doing this! 
 
 * In the scene, select those assets that you want to export and in the main toolbar, go to **File** > **Export** > **Export Selected**
 
@@ -187,8 +188,8 @@ Remember that previously it was mentioned that there were a couple of ways to ex
 
 However, if you would prefer not to share large folders/directories of textures along with the FBX you can choose to **Embed** the textures in the FBX. It means that the entire asset - textures included - will be added to a single FBX. Be aware though, while it combines your export into a single asset that the FBX file will be considerably larger as a result.
 
-> [!IMPORTANT]
-If your result FBX file is bigger than 2.4GB then the minimum version of FBX export settings (see above) should be 2016 or newer. Because newer versions have 64 bit support and thus support bigger files.
+>[!IMPORTANT]
+>If your result FBX file is bigger than 2.4GB then the minimum version of FBX export settings (see above) should be 2016 or newer. Because newer versions have 64 bit support and thus support bigger files.
 
 * In the FBX export settings, toggle on **Embed Media, then click **OK** to export with textures included. 
 
@@ -205,5 +206,5 @@ In general, this type of material looks more realistic because it's based on the
 
 You now know how to set up materials with advanced lighting for objects in a scene. You also know how to export the objects to FBX format that's supported by Azure Remote Rendering. The next step is to convert the FBX file and visualize it in Azure Remote Rendering.
 
-> [!div class="nextstepaction"]
-> [Quickstart: Convert a model for rendering](../../quickstarts\convert-model.md)
+>[!div class="nextstepaction"]
+>[Quickstart: Convert a model for rendering](../../quickstarts\convert-model.md)
