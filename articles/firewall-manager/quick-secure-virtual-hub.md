@@ -1,22 +1,22 @@
 ---
-title: 'Quickstart: Secure virtual hub using Azure Firewall Manager Preview - Resource Manager template'
-description: Learn how to secure your virtual hub using Azure Firewall Manager Preview.
+title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Resource Manager template'
+description: Learn how to secure your virtual hub using Azure Firewall Manager.
 services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
 # Quickstart: Secure your virtual hub using Azure Firewall Manager - Resource Manager template
 
-In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager Preview. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
+In this quickstart, you use a Resource Manager template to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-For more information about Azure Firewall Manager Preview, see [What is Azure Firewall Manager Preview?](overview.md).
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ For more information about Azure Firewall Manager Preview, see [What is Azure Fi
 
 ## Create a secured virtual hub
 
-This template creates a secured virtual hub using Azure Firewall Manager Preview, along with the necessary resources to support the scenario.
+This template creates a secured virtual hub using Azure Firewall Manager, along with the necessary resources to support the scenario.
 
 ### Review the template
 
@@ -96,4 +96,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about trusted security partners](trusted-security-partners.md)
+> [Learn about security partner providers](trusted-security-partners.md)

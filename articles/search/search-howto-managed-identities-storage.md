@@ -79,7 +79,7 @@ When indexing from a storage account, the data source must have the following re
 Example of how to create a blob data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
 
 ```
-POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
 Content-Type: application/json
 api-key: [admin key]
 
@@ -99,7 +99,7 @@ The index specifies the fields in a document, attributes, and other constructs t
 
 Here's how to create an index with a searchable `content` field to store the text extracted from blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ Once the index and data source have been created, you're ready to create the ind
 
 Example indexer definition for a blob indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
