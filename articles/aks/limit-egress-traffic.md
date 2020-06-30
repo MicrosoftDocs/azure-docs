@@ -29,19 +29,17 @@ By default, AKS clusters have unrestricted outbound (egress) internet access. Th
 
 ## Required outbound network rules and FQDNs for AKS clusters
 
-The following network and FQDN/application rules are required for an AKS cluster, you can use them if you which to configure a solution other than Azure Firewall.
+The following network and FQDN/application rules are required for an AKS cluster, you can use them if you wish to configure a solution other than Azure Firewall.
 
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 * FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 * Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your AKS cluster based on a number of qualifiers.
-* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system, that ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP. 
+* AKS uses an admission controller to inject the FQDN as an environment variable to all deployments under kube-system and gatekeeper-system, that ensures all system communication between nodes and API server uses the API server FQDN and not the API server IP. 
 * If you have an app or solution that needs to talk to the API server, you must add an **additional** network rule to allow *TCP communication to port 443 of your API server's IP*.
 * On rare occasions, if there's a maintenance operation your API server IP might change. Planned maintenance operations that can change the API server IP are always communicated in advance.
 
 
-### Azure Global
-
-#### Required network rules
+### Azure Global required network rules
 
 The required network rules and IP address dependencies are:
 
@@ -53,7 +51,7 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP.  |
 
-#### Required FQDN / application rules 
+### Azure Global required FQDN / application rules 
 
 The following FQDN / application rules are required:
 
@@ -68,9 +66,7 @@ The following FQDN / application rules are required:
 | **`packages.microsoft.com`**     | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | **`acs-mirror.azureedge.net`**   | **`HTTPS:443`** | This address is for the repository required to download and install required binaries like kubenet and Azure CNI. |
 
-### Azure China 21Vianet
-
-#### Required network rules
+### Azure China 21Vianet required network rules
 
 The required network rules and IP address dependencies are:
 
@@ -83,7 +79,7 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pod/deployments would use the API IP.  |
 
-#### Required FQDN / application rules 
+### Azure China 21Vianet required FQDN / application rules 
 
 The following FQDN / application rules are required:
 
@@ -99,9 +95,7 @@ The following FQDN / application rules are required:
 | **`packages.microsoft.com`**                   | **`HTTPS:443`** | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | **`*.azk8s.cn`**                               | **`HTTPS:443`** | This address is for the repository required to download and install required binaries like kubenet and Azure CNI. |
 
-### Azure US Government
-
-#### Required network rules
+### Azure US Government required network rules
 
 The required network rules and IP address dependencies are:
 
@@ -113,7 +107,7 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP.  |
 
-#### Required FQDN / application rules 
+### Azure US Government required FQDN / application rules 
 
 The following FQDN / application rules are required:
 
@@ -225,10 +219,6 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ## Restrict egress traffic using Azure firewall
 
-> [!IMPORTANT]
-> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
-> You can lock down the traffic for TCP port 9000, TCP port 22 and UDP port 1194 using a network rule between the egress worker node IP(s) and the IP for the API server.
-
 Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration. The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
 Below is an example architecture of the deployment:
 
@@ -236,15 +226,15 @@ Below is an example architecture of the deployment:
 
 * Public Ingress is forced to flow through firewall filters
   * AKS agent nodes are isolated in a dedicated subnet.
-  * Azure Firewall is deployed in its own subnet.
+  * [Azure Firewall](../firewall/overview.md) is deployed in its own subnet.
   * A DNAT rule translates the FW public IP into the LB frontend IP.
-* Outbound requests start from agent nodes to the Azure Firewall internal IP using a user-defined route
+* Outbound requests start from agent nodes to the Azure Firewall internal IP using a [user-defined route](egress-outboundtype.md)
   * Requests from AKS agent nodes follow a UDR that has been placed on the subnet the AKS cluster was deployed into.
   * Azure Firewall egresses out of the virtual network from a public IP frontend
   * Access to the public internet or other Azure services flows to and from the firewall frontend IP address
-  * Optionally, access to the AKS control plane is protected by [API server Authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), which include the firewall public frontend IP address.
+  * Optionally, access to the AKS control plane is protected by [API server Authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), which includes the firewall public frontend IP address.
 * Internal Traffic
-  * Optionally, instead or in addition to a Public Load Balancer you can use an Internal Load Balancer for internal traffic, which you could isolate on its own subnet as well.
+  * Optionally, instead or in addition to a [Public Load Balancer](load-balancer-standard.md) you can use an [Internal Load Balancer](internal-lb.md) for internal traffic, which you could isolate on its own subnet as well.
 
 
 The below steps make use of Azure Firewall's `AzureKubernetesService` FQDN tag to restrict the outbound traffic from the AKS cluster and provide an example how to configure public inbound traffic via the firewall.
@@ -286,7 +276,7 @@ Create a resource group to hold all of the resources.
 az group create --name $RG --location $LOC
 ```
 
-Create a two virtual networks to host the AKS cluster and the Azure Firewall. Each will have their own subnet. Let's start with the AKS network.
+Create a virtual network with two subnets to host the AKS cluster and the Azure Firewall. Each will have their own subnet. Let's start with the AKS network.
 
 ```
 # Dedicated virtual network with AKS subnet
@@ -402,13 +392,13 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 ### Deploy AKS with outbound type of UDR to the existing network
 
-Now an AKS cluster can be deployed into the existing virtual network. We'll also use [outbound type `userDefinedRouting`](egress-outboundtype.md), this feature ensures any outbound traffic will be forced through the firewall and not other egress paths will exist (by default the Load Balancer outbound type could be used).
+Now an AKS cluster can be deployed into the existing virtual network. We'll also use [outbound type `userDefinedRouting`](egress-outboundtype.md), this feature ensures any outbound traffic will be forced through the firewall and no other egress paths will exist (by default the Load Balancer outbound type could be used).
 
 ![aks-deploy](media/limit-egress-traffic/aks-udr-fw.png)
 
 ### Create a service principal with access to provision inside the existing virtual network
 
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as VMs, Storage, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
+A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -425,14 +415,16 @@ VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
 
 # Assign SP Permission to VNET
 
-az role assignment create --assignee $APPID --scope $VNETID --role Contributor
+az role assignment create --assignee $APPID --scope $VNETID --role "Network Contributor"
 ```
+
+You can check the detailed permissions that are required [here](kubernetes-service-principal.md#delegate-access-to-other-azure-resources).
 
 > [!NOTE]
 > If you're using the kubenet network plugin, you'll need to give the AKS service principal or managed identity permissions to the pre-created route table, since kubenet requires a route table to add neccesary routing rules. 
 > ```azurecli-interactive
 > RTID=$(az network route-table show -g $RG -n $FWROUTE_TABLE_NAME --query id -o tsv)
-> az role assignment create --assignee $APPID --scope $RTID --role Contributor
+> az role assignment create --assignee $APPID --scope $RTID --role "Network Contributor"
 > ```
 
 ### Deploy AKS
@@ -443,10 +435,14 @@ Finally, the AKS cluster can be deployed into the existing subnet we've dedicate
 SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --query id -o tsv)
 ```
 
-You'll define the outbound type to use the UDR that already exists on the subnet. This configuration will enable AKS to skip the setup and IP provisioning for the load balancer (which could even be internal).
+You'll define the outbound type to use the UDR that already exists on the subnet. This configuration will enable AKS to skip the setup and IP provisioning for the load balancer.
+
+> [!IMPORTANT]
+> For more information on outbound type UDR including limitations, see [**egress outbound type UDR**](egress-outboungtype.md#limitations).
+
 
 > [!TIP]
-> Additional features can be added to the cluster deployment such as [**Private Cluster**](private-clusters.md). When using authorized IP ranges, a jumpbox will be required inside of the cluster network to access the API server.
+> Additional features can be added to the cluster deployment such as [**Private Cluster**](private-clusters.md). 
 >
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. The authorized IP ranges feature is denoted in the diagram as optional. When enabling the authorized IP range feature to limit API server access, your developer tools must use a jumpbox from the firewall's virtual network or you must add all developer endpoints to the authorized IP range.
 
@@ -714,7 +710,11 @@ kubectl apply -f example.yaml
 
 ### Add a DNAT rule to Azure Firewall
 
-To configure inbound connectivity, a DNAT rule must be written to the Azure Firewall. To test connectivity to our cluster, a rule is defined for the firewall frontend public IP address to route to the internal IP exposed by the internal service.
+> [!IMPORTANT]
+> When you use Azure Firewall to restrict egress traffic and create a user-defined route (UDR) to force all egress traffic, make sure you create an appropriate DNAT rule in Firewall to correctly allow ingress traffic. Using Azure Firewall with a UDR breaks the ingress setup due to asymmetric routing. (The issue occurs if the AKS subnet has a default route that goes to the firewall's private IP address, but you're using a public load balancer - ingress or Kubernetes service of type: LoadBalancer). In this case, the incoming load balancer traffic is received via its public IP address, but the return path goes through the firewall's private IP address. Because the firewall is stateful, it drops the returning packet because the firewall isn't aware of an established session. To learn how to integrate Azure Firewall with your ingress or service load balancer, see [Integrate Azure Firewall with Azure Standard Load Balancer](https://docs.microsoft.com/azure/firewall/integrate-lb).
+
+
+To configure inbound connectivity, a DNAT rule must be written to the Azure Firewall. To test connectivity to your cluster, a rule is defined for the firewall frontend public IP address to route to the internal IP exposed by the internal service.
 
 The destination address can be customized as it's the port on the firewall to be accessed. The translated address must be the IP address of the internal load balancer. The translated port must be the exposed port for your Kubernetes service.
 
@@ -748,7 +748,10 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app.
+You should see the AKS voting app. In this example the Firewall public IP was `52.253.228.132`.
+
+
+![aks-vote](media/limit-egress-traffic/aks-vote.png)
 
 
 ### Clean up resources
