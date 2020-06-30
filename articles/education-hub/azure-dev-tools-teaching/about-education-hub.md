@@ -22,10 +22,7 @@ amount and a link to the [Education Hub](https://aka.ms/startedu).
 To use your Academic Grant, you must create a classroom in the
 Education Hub and use subscriptions within the classroom that will access your Azure credit.
 
-## How do I get support?
-
-Most sponsored academic offers include a Developer tier of Azure Support for free. Microsoft also offers an [Educator Services Desk](azuredu@microsoft.com) where your local Microsoft representative or teaching assistant (TA) can request support for any questions or issues regarding the Education Hub, including setup issues.
-
 ## Next steps
 
 - [Access the Education Hub](access-education-hub.md)
+- [Support options](includes/educator-service-desk.md)
