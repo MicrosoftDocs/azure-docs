@@ -20,7 +20,7 @@ This quickstart explains how to set up a course and classroom in the Microsoft A
 ### Subscriptions
 
 A student will be given a subscription tied to a monetary cap of credit the professor
-gives to them. The term *monetary cap* describes the US$ amount of an Academic Sponsorship. For example, a $1,000 monetary cap provides the recipient with a US$1,000 Azure credit using [published webdirect rates](https://azure.microsoft.com/en-us/pricing/calculator/).
+gives to them. The term *monetary cap* describes the US$ amount of an Academic Sponsorship. For example, a $1,000 monetary cap provides the recipient with a US$1,000 Azure credit using [published webdirect rates](https://azure.microsoft.com/pricing/calculator/).
 
 The educator can choose to allocate a cap to the subscriptions to prevent
 unintended use, and then set an expiration date. Some examples:
