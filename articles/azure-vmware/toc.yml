@@ -28,7 +28,7 @@
     href: concepts-identity.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
-  - name: Role-based access control for AVS
+  - name: Role-based access control
     href: concepts-rbac.md
 - name: How-to guides
   items:
