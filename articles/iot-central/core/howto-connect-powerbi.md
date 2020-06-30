@@ -30,12 +30,15 @@ To complete the steps in this how-to guide, you need an active Azure subscriptio
 
 Setting up the solution requires the following resources:
 
-- IoT Central application. To learn more, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+- A version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
 - Continuous data export configured to export telemetry, devices, and device templates to Azure Blob storage. To learn more, see [How to export IoT data to destinations in Azure](howto-export-data.md).
   - Make sure that only your IoT Central application is exporting data to the blob container.
   - Your [devices must send JSON encoded messages](../../iot-hub/iot-hub-devguide-messages-d2c.md). Devices must specify `contentType:application/JSON` and `contentEncoding:utf-8` or `contentEncoding:utf-16` or `contentEncoding:utf-32` in the message system properties.
 - Power BI Desktop (latest version). See [Power BI downloads](https://powerbi.microsoft.com/downloads/).
 - Power BI Pro (if you want to share the dashboard with others).
+
+> [!NOTE]
+> If you're using a version 2 IoT Central application, see [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) on the previous versions documentation site.
 
 ## Install
 
@@ -74,12 +77,6 @@ Azure Data Factory generates a set of analysis tables for Power BI. You can expl
 ## Estimated costs
 
 The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) page on the Microsoft AppSource site includes a link to a cost estimator for the resources you deploy.
-
-## Difference between V2 and V3
-
-The [Power BI Solution for Azure IoT Central V3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) solution works with Azure IoT Central V3 apps. 
-
-If you are using an Azure IoT Central V2 app, use the [Power BI Solution for Azure IoT Central V2](https://appsource.microsoft.com/product/web-apps/iot-central.powerbi-solution-for-azure-iot-central?tab=Overview) instead.
 
 ## Next steps
 

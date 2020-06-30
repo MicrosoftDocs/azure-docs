@@ -20,6 +20,15 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 - When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Office 365, or a third-party service.
 - An event in another cloud service, such as Office 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
 
+## Prerequisites
+
+To complete the steps in this how-to guide, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Setting up the solution requires a version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md). To learn how to create an IoT Central application, see [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+
+> [!NOTE]
+> If you're using a version 2 IoT Central application, see [Build workflows with the IoT Central connector in Azure Logic Apps](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-build-azure-logic-apps) on the previous versions documentation site and use the Azure IoT Central V2 connector
+
 ## Trigger a workflow from a rule
 
 Before you can trigger a workflow in Power Automate or Azure Logic Apps, you need a rule in your IoT Central application. To learn more, see [Configure rules and actions in Azure IoT Central](./howto-configure-rules.md).
@@ -174,12 +183,6 @@ Use this action to update writeable property values for a specific device.
 | Device | The unique ID of the device to delete. |
 | Device Template | Choose from the list of device templates in your IoT Central application. |
 | Writeable properties | After you choose a device template, a field is added for each writeable property defined in the template. |
-
-## Difference between V2 and V3
-
-The Azure IoT Central V3 connector works with Azure IoT Central V3 apps. 
-
-If you are using an Azure IoT Central V2 app, use the Azure IoT Central V2 connector instead.
 
 ## Next steps
 
