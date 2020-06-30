@@ -104,6 +104,8 @@ To learn more about self-help support options in Azure, watch this video:
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
+* [How to manage an Azure support request](how-to-manage-azure-support-request.md)
+* [Azure support ticket REST API](/rest/api/support)
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
 * Get help from your peers in the [Microsoft Q&A question page](https://docs.microsoft.com/answers/products/azure)

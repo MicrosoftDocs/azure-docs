@@ -1,59 +1,94 @@
 ---
 title: Manage an Azure support request
-description: Describes how to grant consent for support to access your data, set case severity, upload files, and send messages.
+description: Describes how to view support requests, send messages, change the request severity level, share diagnostic information with Azure support, reopen a closed support request, and upload files.
 author: mgblythe
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 06/30/2020
 ms.author: mblythe
 
-# To add: close and reopen, review case status, update contact info
+# To add: close and reopen, review request status, update contact info
 
 ---
 
 # Manage an Azure support request
 
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
+
 ## View support requests
 
-You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
+View the details and status of support requests by going to **Help + support** >  **All support requests**.
 
 :::image type="content" source="media/how-to-manage-azure-support-request/allrequestslower.png" alt-text="All support requests":::
 
-On this page, you can filter support requests by **Subscription**, **Created** date (UTC), and **Status**. Additionally, you can sort and search for support requests on this page.
-
-Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
-
-If you want to change the severity of the request, select  **Business impact**. Choose from a list of severities to assign.
+On this page, you can search, filter, and sort support requests. Select a support request to view details, including severity and any messages associated with the request.
 
 ## Send a message related to a support request
 
-## Change the severity of a support request
+1. On the **All support requests** page, select the support request.
+
+1. On the **Support Request** page, select **New message**.
+
+1. Enter your message and select **Submit**.
+
+## Change the severity level of a support request
 
 > [!NOTE]
 > The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
 >
 
+1. On the **All support requests** page, select the support request.
+
+1. On the **Support Request** page, select **Change**.
+
+    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Change support request severity":::
+
+1. The Azure portal shows one of two screens, depending on whether your request is already assigned to a support engineer:
+
+    - If your request hasn't been assigned, you see a screen like the following. Select a new severity level, then select **Change**.
+
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="CAn":::
+
+    - If your request has been assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message-related-to-a-support-request) to request a change in severity level.
+
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Assigned":::
+
 ## Share diagnostic information with Azure support
+
+When you create a support request, by default the **Share diagnostic information** option is selected. This allows Azure support to gather diagnostic information from your Azure resources:
+
+* You can't clear this option after a request is created.
+
+* If you cleared the option when creating a request, you can select it after the request is created.
+
+    1. On the **All support requests** page, select the support request.
+    
+    1. On the **Support Request** page, select **Grant permission**, then select **Yes** and **OK**.
+    
+        :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
 
 ## Upload files for a support request
 
-When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
+You can use the file upload option to upload diagnostic files or any other files that you think are relevant to a support request.
 
-> [!NOTE]
-> To protect your privacy, do not include any personal information in your upload.
->
->
+1. On the **All support requests** page, select the support request.
+
+1. On the **Support Request** page, browse to find your file, then select **Upload**. Repeat the process if you have multiple files.
+
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Upload file":::
+
+### File upload guidelines
 
 Follow these guidelines when you use the file upload option:
 
+* To protect your privacy, do not include any personal information in your upload.
 * All files must have a file name extension, such as *.docx* or *.xlsx*. See the table for the allowed file name extensions.
 * The file name must be no longer than 110 characters.
 * You can't upload more than one file.
 * Files can't be larger than 4 MB.
-
-### Table of the allowed file name extensions
+* The following table shows the filename extensions that are allowed for upload.
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -86,4 +121,11 @@ Follow these guidelines when you use the file upload option:
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
 
+## Reopen a closed support request
+
+If you need to reopen a closed support request, create a [new message](#send-a-message-related-to-a-support-request), which automatically reopens the request.
+
 ## Next steps
+
+[How to create an Azure support request](how-to-create-azure-support-request.md)
+[Azure support ticket REST API](/rest/api/support)
