@@ -55346,7 +55346,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/si-faqs.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/analytics",
+      "redirect_url": "/azure/marketplace/partner-center-portal/faq-terminology",
       "redirect_document_id": false
     },
     {
@@ -55361,7 +55361,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/manage-offers/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-overview",
+      "redirect_url": "/azure/marketplace/publisher-guide-by-offer-type",
       "redirect_document_id": false
     },
     {
