@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 06/29/2020
 ---
 
 # Pricing model in Azure Cosmos DB 
