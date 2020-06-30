@@ -144,7 +144,8 @@ The information you previously provided for SKUs in a single page in the Cloud P
 - Plan set up page
 - Plan listing page
 - Plan availability page
-- Plan technical configuration page, as shown here:<br><br>![![](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Plan technical configuration page, as shown here:
+![![](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Your offer ID is now shown on the left-navigation bar of the offer:
 
