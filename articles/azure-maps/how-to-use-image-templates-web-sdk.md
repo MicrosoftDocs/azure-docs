@@ -103,6 +103,17 @@ The following sample uses the `marker-arrow` template with a red primary color, 
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> Image templates can be used outside of the map too. The getImageTemplate funciton returns an SVG string that has placeholders; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Replace these placeholder values to create a valid SVG string. You can then either add the SVG string directly to the HTML DOM or convert it into a data URI and insert it into an image tag. For example:
+> ```JavaScript
+> //Retrieve an SVG template and replace the placeholder values.
+> var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
+>
+> //Convert to data URI for use in image tags.
+> var dataUri = 'data:image/svg+xml;base64,' + btoa(svg);
+> ```
+
 ## Create custom reusable templates
 
 If your application uses the same icon with different icons or if you are creating a module that adds additional image templates, you can easily add and retrieve these icons from the Azure Maps web SDK. Use the following static functions on the `atlas` namespace.
@@ -175,6 +186,25 @@ This table lists all image templates currently available within the Azure Maps w
 |||||
 | zig-zag | zig-zag-vertical | dots |  |
 | ![zig-zag icon](./media/image-templates/zig-zag.png) | ![zig-zag-vertical icon](./media/image-templates/zig-zag-vertical.png) | ![dots icon](./media/image-templates/dots.png) | |
+
+**Preloaded image icons**
+
+The map preloads a set of icons into the maps image sprite using the `marker`, `pin`, and `pin-round` templates. These icon names and their color values are listed in the table below.
+
+| icon name | color | secondaryColor |
+|-----------|-------|----------------|
+| `marker-black` | `#231f20` | `#ffffff` |
+| `marker-blue` | `#1a73aa` | `#ffffff` |
+| `marker-darkblue` | `#003963` | `#ffffff` |
+| `marker-red` | `#ef4c4c` | `#ffffff` |
+| `marker-yellow` | `#f2c851` | `#ffffff` |
+| `pin-blue` | `#2072b8` | `#ffffff` |
+| `pin-darkblue` | `#003963` | `#ffffff` |
+| `pin-red` | `#ef4c4c` | `#ffffff` |
+| `pin-round-blue` | `#2072b8` | `#ffffff` |
+| `pin-round-darkblue` | `#003963` | `#ffffff` |
+| `pin-round-red` | `#ef4c4c` | `#ffffff` |
+
 
 ## Try it now tool
 

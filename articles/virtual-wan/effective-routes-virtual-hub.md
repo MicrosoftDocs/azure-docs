@@ -1,68 +1,60 @@
 ---
 title: 'View effective routes of a virtual hub: Azure Virtual WAN | Microsoft Docs'
-description: Vie effective routes for a virtual hub in Azure Virtual WAN
+description: How to view effective routes for a virtual hub in Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 ---
 
-# View effective routes of a virtual hub
+# View virtual hub effective routes
 
-You can view all the routes of your Virtual WAN hub in the Azure portal. To view the routes, navigate to the virtual hub, then select **Routing -> View Effective Routes**.
+You can view all of the routes of your Virtual WAN hub in the Azure portal. This article walks you through the steps to view effective routes. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-## <a name="understand"></a>Understanding routes
+## <a name="routing"></a>Select connections or route tables
 
-The following example can help you better understand how Virtual WAN routing appears.
+1. Navigate to your virtual hub, then select **Routing**. On the Routing page, select **Effective Routes**.
+1. From the dropdown, you can select **Connection Type** or a **Route Table**. If you don't see a Route Table option, this means that you don't have a custom or default route table set up in this virtual hub.
+1. From the dropdown for **Connections / Route Tables**, you can select from the following items:
 
-In this example, we have a virtual WAN with three hubs. The first hub is in the East US region, second hub is in the West Europe region, and the third hub is in the West US region. In a virtual WAN, all hubs are interconnected. In this example, we will assume that the East US and West Europe hubs have connections from on-premises branches (spokes) and Azure virtual networks (spokes).
+   * Virtual Network Connection
+   * VPN Site Connection
+   * ExpressRoute Connection
+   * Point-to-site Connection
+   * Route table
 
-An Azure VNet spoke (10.4.0.0/16) with a Network Virtual Appliance (10.4.0.6) is further peered to a VNet (10.5.0.0/16). See [Additional information](#abouthubroute) later in this article for more information about the hub route table.
+   :::image type="content" source="./media/effective-routes-virtual-hub/routing.png" alt-text="Routing":::
 
-In this example, we also assume that the West Europe Branch 1 is connected to East US hub, as well as to the West Europe hub. An ExpressRoute circuit in East US connects Branch 2 to the East US hub.
+## <a name="output"></a>View output
 
-![diagram](./media/effective-routes-virtual-hub/diagram.png)
+The page output shows the following fields:
 
-## <a name="view"></a>View effective routes
+* **Prefix**: Address prefix known to the current entity.
+* **Next hop type**: Can be Virtual Network Connection, VPN_S2S_Gateway, ExpressRouteGateway, Remote Hub, or Azure Firewall.
+* **Next hop**: This is the IP, or simply shows On-link to imply the current hub.
+* **Origin**: Resource ID of the routing source.
+* **AS Path**: BGP Attribute AS (autonomous system) path lists all the AS numbers that need to be traversed to reach the location where the prefix that the path is attached to, is advertised from.
 
-When you select 'View Effective Routes' in the portal, it produces the output shown in the [Hub route table](#routetable) for the East US Hub.
+### <a name="example"></a>Example
 
-To put this in perspective, the first line implies that the East US hub has learned the route of 10.20.1.0/24 (Branch 1) due to the VPN *Next hop type* connection ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). *Route Origin* points to the resource ID. *AS Path* indicates the AS Path for Branch 1.
-
-### <a name="routetable"></a>Hub route table
+The values in the following example table imply that the virtual hub connection or route table has learned the route of 10.2.0.0/24 (a branch prefix). It has learned the route due to the **VPN Next hop type** VPN_S2S_Gateway with **Next hop** VPN Gateway resource ID. **Route Origin** points to the resource ID of the originating VPN gateway/Route table/Connection. **AS Path** indicates the AS Path for the branch.
 
 Use the scroll bar at the bottom of the table to view the "AS Path".
 
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-gw|21000|
-|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw|23000|
-|10.4.0.0/16|Virtual Network Connection| On-link |  |  |
-|10.5.0.0/16| IP Address| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
-|0.0.0.0/0| IP Address|	`<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
-|10.22.1.0/16| Remote Hub|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Remote Hub|  On-link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_1| |
+| 10.2.0.0/24| VPN_S2S_Gateway |10.1.0.6, 10.1.0.7|/subscriptions/`<sub id>`/resourceGroups/`<resource group name>`/providers/Microsoft.Network/vpnGateways/vpngw| 20000|
 
->[!NOTE]
-> If the East US and the West Europe hubs were not communicating with each other in the example topology, the route learned (10.9.0.0/16) would not exist. Hubs only advertise networks that are directly connected to them.
->
+**Considerations:**
 
-## <a name="additional"></a>Additional information
+* If you see 0.0.0.0/0 in the **Get Effective Routes** output, it implies the route exists in one of the route tables. However, if this route was set up for internet, an additional flag **"enableInternetSecurity": true** is required on the connection. The effective route on the VM NIC will not show the route if the "enableInternetSecurity" flag on the connection is "false".
 
-### <a name="abouthubroute"></a>About the hub route table
-
-You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table. This lets you set a route for destination VNet via an IP address (typically the Network Virtual Appliance (NVA) in a spoke VNet). For more information about NVAs, see [Route traffic from a virtual hub to an NVA](virtual-wan-route-table-portal.md). Please note that these routes will not show up in the effective route table. The effective route table contains only the prefixes for local and remote hubs plus connected Virtual Network address space and routes learned via BGP.
-
-### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
-
-A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. 'EnableInternetSecurity' is always false by default on Hub VNet, ExpressRoute, and VPN connections.
-
-The default route does not originate in the virtual WAN hub. The default route is propagated if it is already learned by the virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled.
+* The **Propagate Default Route** field is seen in Azure Virtual WAN portal when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. This field indicates the **enableInternetSecurity** flag, which is always by default "false" for ExpressRoute and VPN connections, but "true" for virtual network connections.
 
 ## Next steps
 
-For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+* For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+* For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).

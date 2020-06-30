@@ -5,7 +5,7 @@ author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 12/26/2018
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB

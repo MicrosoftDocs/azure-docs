@@ -16,11 +16,11 @@ ms.author: makromer
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
+A common scenario in Data Factory when using mapping data flows, is to write your transformed data to a database in Azure SQL Database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
 
 ## Scenario
 
-1. We have a target Azure SQL database table that has an ```nvarchar(5)``` column called "name".
+1. We have a target database table that has an ```nvarchar(5)``` column called "name".
 
 2. Inside of our data flow, we want to map movie titles from our sink to that target "name" column.
 

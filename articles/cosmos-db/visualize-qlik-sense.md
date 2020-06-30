@@ -4,7 +4,7 @@ description: This article describes the steps required to connect Azure Cosmos D
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ---

@@ -301,7 +301,7 @@ Use the following parameter types for the output binding:
 * `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
 * `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
 * `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x and higher)
-* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
+* `ICollector<T>` or `IAsyncCollector<T>` (for async methods) - For creating multiple messages. A message is created when you call the `Add` method.
 
 When working with C# functions:
 
