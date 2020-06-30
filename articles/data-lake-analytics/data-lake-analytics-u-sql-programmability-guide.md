@@ -289,7 +289,7 @@ This example demonstrates a simple usage of inline UDF in U-SQL.
 ### Keep state between UDF invocations
 U-SQL C# programmability objects can be more sophisticated, utilizing interactivity through the code-behind global variables. Let’s look at the following business use-case scenario.
 
-In large organizations, users can switch between varieties of internal applications. These can include Microsoft Dynamics CRM, PowerBI, and so on. Customers might want to apply a telemetry analysis of how users switch between different applications, what the usage trends are, and so on. The goal for the business is to optimize application usage. They also might want to combine different applications or specific sign-on routines.
+In large organizations, users can switch between varieties of internal applications. These can include Microsoft Dynamics CRM, Power BI, and so on. Customers might want to apply a telemetry analysis of how users switch between different applications, what the usage trends are, and so on. The goal for the business is to optimize application usage. They also might want to combine different applications or specific sign-on routines.
 
 To achieve this goal, we have to determine session IDs and lag time between the last session that occurred.
 
