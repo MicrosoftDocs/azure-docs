@@ -4,7 +4,7 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 01/28/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ---
 # Manage inventory collection from VMs
@@ -94,7 +94,7 @@ To view your machine groups select the **Machine groups** tab on the Inventory p
 
 ![View machine groups on the inventory page](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-Selecting a machine group from the list opens the Machine groups page. This page shows details about the machine group. These details include the log analytics query that is used to define the group. At the bottom of the page, is a paged list of the machines that are part of that group.
+Selecting a machine group from the list opens the Machine groups page. This page shows details about the machine group. These details include the Azure Monitor log query that is used to define the group. At the bottom of the page, is a paged list of the machines that are part of that group.
 
 ![View machine group page](./media/automation-vm-inventory/machine-group-page.png)
 
@@ -109,15 +109,18 @@ If you want to create a new machine group, click **+ Create a machine group**. T
 To remove your VM from Change Tracking and Inventory management:
 
 1. In the left pane of the Azure portal, select **Log Analytics**, and then select the workspace that you used when enabling your VM for Change Tracking and Inventory.
-2. On the Log Analytics page, open the **Resource** menu.
+2. On the **Log Analytics** page, open the **Resource** menu.
 3. Select **Virtual Machines** under **Workspace Data Sources**.
 4. In the list, select the VM that you want to disconnect. The machine has a green check mark next to **This workspace** in the **OMS Connection** column.
 
    >[!NOTE]
    >Operations Management Suite (OMS) is now referred to as Azure Monitor logs.
-   
+
 5. At the top of the next page, click **Disconnect**.
 6. In the confirmation window, click **Yes** to disconnect the machine from management.
+
+>[!NOTE]
+>Machines are still shown after you have unenrolled them because we report on all machines inventoried in the last 24 hours. After disconnecting the machine, you need to wait 24 hours before they are no longer listed.
 
 ## Next steps
 
