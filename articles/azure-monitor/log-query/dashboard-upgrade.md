@@ -51,7 +51,7 @@ Once clicked, the visualization will be updated to the new technology. Subtle di
 
 After the visualizations are upgraded, you need to republish your dashboard for the change to take effect.
 
- ![Sidebar](media/dashboard-upgrade/update-message-3.png)
+![Sidebar](media/dashboard-upgrade/update-message-3.png)
 
 ## Stage 2 - Migration of all dashboards
 
@@ -67,7 +67,9 @@ As dashboards may contain multiple visualizations from multiple queries, the tim
 
 ### Query data values - 25 values and other grouping
 
-Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. 
+Dashboards can be visually dense and complex. In order to reduce cognitive load when viewing a dashboard, we optimize the visualizations by limiting the display to 25 different data types. When there are more than 25, Log Analytics optimizes the data. It individually shows the 25 types with most data as separate and then groups the remaining values into an “other” value. The following chart shows such a case.  
+
+![Sidebar](media/dashboard-upgrade/values-25-limit.png)
 
 ### Dashboard refresh on load
 
