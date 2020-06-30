@@ -297,12 +297,12 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
-<a name="move"></a>
 
 ## Access data in a virtual network
 
 If your workspace is in a virtual network, you must perform additional configuration steps to use datastores. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
 
+<a name="move"></a>
 
 ## Move data to supported Azure storage solutions
 
