@@ -12,64 +12,52 @@ ms.author: aahi
 
 ## Health entity categories:
 
-The following entity categories are returned by [Text Analytics for health](../../how-tos/text-analytics-for-healthcare.md).
+The following entity categories are returned by [Text Analytics for Health](../../how-tos/text-analytics-for-healthcare.md).  Please note that only ENGLISH text is supported in this container preview and only a single model-version is provided in each container image.
 
 ### Named Entity Recognition
 
 |Category  |Description   |Notes  |
-|---------|---------|---------|---------|
-| `AGE` | `tbd` |  | 
-| `BODY_STRUCTURE` | `tbd` | |
-| `CONDITION_QUALIFIER` | `tbd` | |
-| `DIAGNOSIS` | `tbd` | |
-| `DIRECTION` | `tbd` | |
-| `DOSAGE` | `tbd` | |
-| `EXAMINATION_NAME` | `tbd` | |
-| `EXAMINATION_RELATION` | `tbd` | |
-| `EXAMINATION_UNIT` | `tbd` | |
-| `EXAMINATION_VALUE` | `tbd` | |
-| `FAMILY_RELATION` | `tbd` | |
-| `FREQUENCY` | `tbd` | |
-| `GENDER` | `tbd` | |
-| `GENE` | `tbd` | |
-| `MEDICATION_CLASS` | `tbd` | |
-| `MEDICATION_NAME`  | `tbd` | |
-| `ROUTE_OR_MODE`  | `tbd` | |
-| `SYMPTOM_OR_SIGN`  | `tbd` | |
-| `TIME`  | `tbd` | |
-| `TREATMENT_NAME`  | `tbd` | |
-| `VARIANT`  | `tbd` | |
+|----------|--------------|-------|
+| AGE | Age |  | 
+| BODY_STRUCTURE | Part of the human body such upper arm, kidneys, heart tissue, etc.| |
+| CONDITION_QUALIFIER | Condition level such as mild, extended, diffuse, etc. | |
+| DIAGNOSIS | Medical condition such as hypertension, asthma, CAD, etc. | |
+| DIRECTION | Right, left, anterior, posterior, bilateral, etc. | |
+| DOSAGE | Size or quantity of a medication  | |
+| EXAMINATION_NAME | A method or procedure of examination such as biopsy, histopathology, etc. | |
+| EXAMINATION_RELATION |  | |
+| EXAMINATION_UNIT |  | |
+| EXAMINATION_VALUE |  | |
+| FAMILY_RELATION |  | |
+| FREQUENCY |  | |
+| GENDER |  | |
+| GENE |  | |
+| MEDICATION_CLASS |  | |
+| MEDICATION_NAME  |  | |
+| ROUTE_OR_MODE  |  | |
+| SYMPTOM_OR_SIGN  |  | |
+| TIME  |  | |
+| TREATMENT_NAME  |  | |
+| VARIANT  |  | |
 
 ### Relation extraction
 
-|Category  |Description |Starting model version  |Notes  |
-|---------|---------|---------|---------|
-|  `DIRECTION_OF_BODY_STRUCTURE` | | | |
-|  `TIME_OF_CONDITION` | | | |
-|  `QUALIFIER_OF_CONDITION` | | | |
-|  `DOSAGE_OF_MEDICATION` | | | |
-|  `FORM_OF_MEDICATION` | | | |
-|  `ROUTE_OR_MODE_OF_MEDICATION` | | | |
-|  `STRENGTH_OF_MEDICATION` | | | |
-|  `ADMINISTRATION_RATE_OF_MEDICATION` | | | |
-|  `FREQUENCY_OF_MEDICATION` | | | |
-|  `TIME_OF_MEDICATION` | | | |
-|  `TIME_OF_TREATMENT` | | | |
-|  `FREQUENCY_OF_TREATMENT` | | | |
-|  `VALUE_OF_EXAMINATION` | | | |
-|  `UNIT_OF_EXAMINATION` | | | |
-|  `RELATION_OF_EXAMINATION` | | | |
-|  `TIME_OF_EXAMINATION` | | | |
-|  `ABBREVIATION` | | | |
-
-### entity linking
-
-
-|Category  |Description |Starting model version  |Notes  |
-|---------|---------|---------|---------|
-|  `CPT` | | | |
-|  `ICD-10-CM` | | | |
-|  `ICPC2` | | | |
-|  `MeSH` | | | |
-|  `RxNorm` | | | |
-|  `SNOMEDCT_US` | | | |
+|Category  |Description  |Notes  |
+|----------|-------------|-------|
+|  DIRECTION_OF_BODY_STRUCTURE | | | 
+|  TIME_OF_CONDITION | | | 
+|  QUALIFIER_OF_CONDITION | | | 
+|  DOSAGE_OF_MEDICATION | | | 
+|  FORM_OF_MEDICATION | | | 
+|  ROUTE_OR_MODE_OF_MEDICATION | | | 
+|  STRENGTH_OF_MEDICATION | | | 
+|  ADMINISTRATION_RATE_OF_MEDICATION | | | 
+|  FREQUENCY_OF_MEDICATION | | | 
+|  TIME_OF_MEDICATION | | | 
+|  TIME_OF_TREATMENT | | | 
+|  FREQUENCY_OF_TREATMENT | | | 
+|  VALUE_OF_EXAMINATION | | | 
+|  UNIT_OF_EXAMINATION | | | 
+|  RELATION_OF_EXAMINATION | | | 
+|  TIME_OF_EXAMINATION | | | 
+|  ABBREVIATION | | | 
