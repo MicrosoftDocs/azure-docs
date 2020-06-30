@@ -276,7 +276,7 @@ OUTPUT @rs1
 
 Following is the output file of the script execution:
 
-```
+```output
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
 
 20843640-d771-11e5-b87b-8b7265c75a44,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User2",""
@@ -301,7 +301,7 @@ This global variable is applied to the entire rowset during our script execution
 
 Here is the code-behind section of our U-SQL program:
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -393,7 +393,7 @@ Function `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp
 
 The output file is as follows:
 
-```
+```output
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
 "2016-02-17T11:52:43.6350000-08:00","User2",,True,"4a0cd19a-6e67-4d95-a119-4eda590226ba"
 "2016-02-17T11:59:08.8320000-08:00","User2","2016-02-17T11:52:43.6350000-08:00",False,"4a0cd19a-6e67-4d95-a119-4eda590226ba"
@@ -443,7 +443,7 @@ OUTPUT @rs1
 
 We receive the following error:
 
-```
+```output
 Error	1	E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
@@ -462,7 +462,7 @@ To work with UDT in outputter, we either have to serialize it to string with the
 
 UDTs currently cannot be used in GROUP BY. If UDT is used in GROUP BY, the following error is thrown:
 
-```
+```output
 Error	1	E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
 for column myfield
 
@@ -481,7 +481,7 @@ To define a UDT, we have to:
 
 * Add the following namespaces:
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
@@ -500,7 +500,7 @@ The constructor of the class:
 
 * Type formatter: Required parameter to define an UDT formatter--specifically, the type of the `IFormatter` interface must be passed here.
 
-```
+```csharp
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
 public class MyType
 { … }
@@ -508,7 +508,7 @@ public class MyType
 
 * Typical UDT also requires definition of the IFormatter interface, as shown in the following example:
 
-```
+```csharp
 public class MyTypeFormatter : IFormatter<MyType>
 {
     public void Serialize(MyType instance, IColumnWriter writer, ISerializationContext context)
@@ -541,7 +541,7 @@ Earlier in this guide, we demonstrated an example for fiscal period identificati
 
 Following is an example of a code-behind section with custom UDT and IFormatter interface:
 
-```
+```csharp
 [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
 public struct FiscalPeriod
 {
@@ -646,7 +646,7 @@ As mentioned earlier, UDT can be used in SELECT expressions, but cannot be used 
 
 Now let’s discuss usage of UDT. In a code-behind section, we changed our GetFiscalPeriod function to the following:
 
-```
+```csharp
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 {
     int FiscalMonth = 0;
@@ -731,7 +731,7 @@ OUTPUT @rs2
 
 Here's an example of a full code-behind section:
 
-```
+```csharp
 using Microsoft.Analytics.Interfaces;
 using Microsoft.Analytics.Types.Sql;
 using System;
@@ -913,7 +913,7 @@ SqlUserDefinedType attribute is **optional** for UDAGG definition.
 
 The base class allows you to pass three abstract parameters: two as input parameters and one as the result. The data types are variable and should be defined during class inheritance.
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
 	string guid_agg;
@@ -935,7 +935,7 @@ public class GuidAggregate : IAggregate<string, string, string>
 
 To declare correct input and output data types, use the class definition as follows:
 
-```
+```csharp
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
@@ -945,13 +945,13 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 
 For example:
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
 or
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 ```
 
@@ -960,13 +960,13 @@ To use UDAGG, first define it in code-behind or reference it from the existent p
 
 Then use the following syntax:
 
-```
+```csharp
 AGG<UDAGG_functionname>(param1,param2)
 ```
 
 Here is an example of UDAGG:
 
-```
+```csharp
 public class GuidAggregate : IAggregate<string, string, string>
 {
 	string guid_agg;
@@ -994,7 +994,7 @@ public class GuidAggregate : IAggregate<string, string, string>
 
 And base U-SQL script:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
 
@@ -1076,7 +1076,7 @@ It can be useful to develop a custom extractor. This can be helpful during data 
 
 To define a user-defined extractor, or UDE, we need to create an `IExtractor` interface. All input parameters to the extractor, such as column/row delimiters, and encoding, need to be defined in the constructor of the class. The `IExtractor`  interface should also contain a definition for the `IEnumerable<IRow>` override as follows:
 
-```
+```csharp
 [SqlUserDefinedExtractor]
 public class SampleExtractor : IExtractor
 {
@@ -1103,7 +1103,7 @@ The input data is accessed through `System.IO.Stream` and `System.IO.StreamReade
 
 For input columns enumeration, we first split the input stream by using a row delimiter.
 
-```
+```csharp
 foreach (Stream current in input.Split(my_row_delimiter))
 {
 …
@@ -1112,7 +1112,7 @@ foreach (Stream current in input.Split(my_row_delimiter))
 
 Then, further split input row into column parts.
 
-```
+```csharp
 foreach (Stream current in input.Split(my_row_delimiter))
 {
 …
@@ -1126,7 +1126,7 @@ To set output data, we use the `output.Set` method.
 
 It's important to understand that the custom extractor only outputs columns and values that are defined with the output. Set method call.
 
-```
+```csharp
 output.Set<string>(count, part);
 ```
 
@@ -1134,7 +1134,7 @@ The actual extractor output is triggered by calling `yield return output.AsReadO
 
 Following is the extractor example:
 
-```
+```csharp
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
 public class FullDescriptionExtractor : IExtractor
 {
@@ -1195,7 +1195,7 @@ In this use-case scenario, the extractor regenerates the GUID for “guid” col
 
 Following is base U-SQL script that uses a custom extractor:
 
-```
+```usql
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
 DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
 
@@ -1229,7 +1229,7 @@ To define user-defined outputter, we need to create the `IOutputter` interface.
 
 Following is the base `IOutputter` class implementation:
 
-```
+```csharp
 public abstract class IOutputter : IUserDefinedOperator
 {
 	protected IOutputter();
@@ -1241,7 +1241,7 @@ public abstract class IOutputter : IUserDefinedOperator
 
 All input parameters to the outputter, such as column/row delimiters, encoding, and so on, need to be defined in the constructor of the class. The `IOutputter` interface should also contain a definition for `void Output` override. The attribute `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` can optionally be set for atomic file processing. For more information, see the following details.
 
-```
+```csharp
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
 public class MyOutputter : IOutputter
 {
@@ -1282,13 +1282,13 @@ The output data is accessed through the `IRow` interface. Output data is passed 
 
 The individual values are enumerated by calling the Get method of the IRow interface:
 
-```
+```csharp
 row.Get<string>("column_name")
 ```
 
 Individual column names can be determined by calling `row.Schema`:
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1300,7 +1300,7 @@ The output data is written to file by using `System.IO.StreamWriter`. The stream
 
 Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the **using** keyword:
 
-```
+```csharp
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
 {
 …
@@ -1312,7 +1312,7 @@ Otherwise, call Flush() method explicitly after each iteration. We show this in 
 ### Set headers and footers for user-defined outputter
 To set a header, use single iteration execution flow.
 
-```
+```csharp
 public override void Output(IRow row, IUnstructuredWriter output)
 {
  …
@@ -1337,7 +1337,7 @@ For the footer, use the reference to the instance of `System.IO.Stream` object (
 
 Following is an example of a user-defined outputter:
 
-```
+```csharp
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
 public class HTMLOutputter : IOutputter
 {
@@ -1499,7 +1499,7 @@ To define a UDP, we need to create an `IProcessor` interface with the `SqlUserDe
 
 This interface should contain the definition for the `IRow` interface rowset override, as shown in the following example:
 
-```
+```csharp
 [SqlUserDefinedProcessor]
 public class MyProcessor: IProcessor
 {
@@ -1518,7 +1518,7 @@ The main programmability objects are **input** and **output**. The input object 
 
 For input columns enumeration, we use the `input.Get` method.
 
-```
+```csharp
 string column_name = input.Get<string>("column_name");
 ```
 
@@ -1528,7 +1528,7 @@ For output, use the `output.Set` method.
 
 It's important to note that custom producer only outputs columns and values that are defined with the `output.Set` method call.
 
-```
+```csharp
 output.Set<string>("mycolumn", mycolumn);
 ```
 
@@ -1536,7 +1536,7 @@ The actual processor output is triggered by calling `return output.AsReadOnly();
 
 Following is a processor example:
 
-```
+```csharp
 [SqlUserDefinedProcessor]
 public class FullDescriptionProcessor : IProcessor
 {
@@ -1601,7 +1601,7 @@ For more information about using appliers in a SELECT expression, see [U-SQL SEL
 
 The user-defined applier base class definition is as follows:
 
-```
+```csharp
 public abstract class IApplier : IUserDefinedOperator
 {
 protected IApplier();
@@ -1612,7 +1612,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 
 To define a user-defined applier, we need to create the `IApplier` interface with the [`SqlUserDefinedApplier`] attribute, which is optional for a user-defined applier definition.
 
-```
+```csharp
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
@@ -1638,7 +1638,7 @@ public class ParserApplier : IApplier
 
 The main programmability objects are as follows:
 
-```
+```csharp
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
@@ -1646,7 +1646,7 @@ Input rowsets are passed as `IRow` input. The output rows are generated as `IUpd
 
 Individual column names can be determined by calling the `IRow` Schema method.
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1654,19 +1654,19 @@ string val = row.Get<string>(col.Name)
 
 To get the actual data values from the incoming `IRow`, we use the Get() method of `IRow` interface.
 
-```
+```csharp
 mycolumn = row.Get<int>("mycolumn")
 ```
 
 Or we use the schema column name:
 
-```
+```csharp
 row.Get<int>(row.Schema[0].Name)
 ```
 
 The output values must be set with `IUpdatableRow` output:
 
-```
+```csharp
 output.Set<int>("mycolumn", mycolumn)
 ```
 
@@ -1676,13 +1676,13 @@ The actual output is triggered by calling `yield return output.AsReadOnly();`.
 
 The user-defined applier parameters can be passed to the constructor. Applier can return a variable number of columns that need to be defined during the applier call in base U-SQL Script.
 
-```
+```csharp
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
 Here is the user-defined applier example:
 
-```
+```csharp
 [SqlUserDefinedApplier]
 public class ParserApplier : IApplier
 {
@@ -1777,7 +1777,7 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 
 It is a typical tab-delimited TSV file with a properties column that contains car properties such as make and model. Those properties must be parsed to the table columns. The applier that's provided also enables you to generate a dynamic number of properties in the result rowset, based on the parameter that's passed. You can generate either all properties or a specific set of properties only.
 
-```
+```text
 ...USQL_Programmability.ParserApplier ("all")
 ...USQL_Programmability.ParserApplier ("make")
 ...USQL_Programmability.ParserApplier ("make&model")
@@ -1819,7 +1819,7 @@ To define a user-defined combiner, we need to create the `ICombiner` interface w
 
 Base `ICombiner` class definition:
 
-```
+```csharp
 public abstract class ICombiner : IUserDefinedOperator
 {
 protected ICombiner();
@@ -1832,7 +1832,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 
 The custom implementation of an `ICombiner` interface should contain the definition for an `IEnumerable<IRow>` Combine override.
 
-```
+```csharp
 [SqlUserDefinedCombiner]
 public class MyCombiner : ICombiner
 {
@@ -1882,13 +1882,13 @@ See [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concept
 
 To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.
 
-```
+```csharp
 mycolumn = row.Get<int>("mycolumn")
 ```
 
 Individual column names can be determined by calling the `IRow` Schema method.
 
-```
+```csharp
 ISchema schema = row.Schema;
 var col = schema[i];
 string val = row.Get<string>(col.Name)
@@ -1896,13 +1896,13 @@ string val = row.Get<string>(col.Name)
 
 Or by using the schema column name:
 
-```
+```csharp
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
 The general enumeration with LINQ looks like the following:
 
-```
+```csharp
 var myRowset =
             (from row in left.Rows
                           select new
@@ -1915,7 +1915,7 @@ After enumerating both rowsets, we are going to loop through all rows. For each 
 
 The output values must be set with `IUpdatableRow` output.
 
-```
+```csharp
 output.Set<int>("mycolumn", mycolumn)
 ```
 
@@ -1923,7 +1923,7 @@ The actual output is triggered by calling to `yield return output.AsReadOnly();`
 
 Following is a combiner example:
 
-```
+```csharp
 [SqlUserDefinedCombiner]
 public class CombineSales : ICombiner
 {
@@ -2074,14 +2074,14 @@ OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
 
 A user-defined combiner can be called as a new instance of the applier object:
 
-```
+```csharp
 USING new MyNameSpace.MyCombiner();
 ```
 
 
 Or with the invocation of a wrapper factory method:
 
-```
+```csharp
 USING MyNameSpace.MyCombiner();
 ```
 
@@ -2095,7 +2095,7 @@ To define a UDR class, we need to create an `IReducer` interface with an optiona
 
 This class interface should contain a definition for the `IEnumerable` interface rowset override.
 
-```
+```csharp
 [SqlUserDefinedReducer]
 public class EmptyUserReducer : IReducer
 {
@@ -2118,7 +2118,7 @@ The main programmability objects are **input** and **output**. The input object 
 
 For input rows enumeration, we use the `Row.Get` method.
 
-```
+```csharp
 foreach (IRow row in input.Rows)
 {
 	row.Get<string>("mycolumn");
@@ -2131,7 +2131,7 @@ For output, use the `output.Set` method.
 
 It is important to understand that custom reducer only outputs values that are defined with the `output.Set` method call.
 
-```
+```csharp
 output.Set<string>("mycolumn", guid);
 ```
 
@@ -2139,7 +2139,7 @@ The actual reducer output is triggered by calling `yield return output.AsReadOnl
 
 Following is a reducer example:
 
-```
+```csharp
 [SqlUserDefinedReducer]
 public class EmptyUserReducer : IReducer
 {
