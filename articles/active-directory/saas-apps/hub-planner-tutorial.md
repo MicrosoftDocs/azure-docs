@@ -133,23 +133,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Hub Planner** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Hub Planner support team](mailto:hello@hubplanner.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Install Extension on Hub Planner.
-To enable the SSO functionality you need to first enable the extension. As the account owner or someone with rights follow these steps.
+### Install the extension in Hub Planner
 
-1. Navigate to Settings
-1. Choose Manage Extensions - > Add/Remove Extensions from the sidebar.
+To enable  SSO functionality, you must first enable the extension. As the account owner or with equivalent permissions, complete these steps:
+
+1. Go to **Settings**.
+1. In the side menu, select **Manage Extensions** > **Add/Remove Extensions**.
 1. Find the extension for Single Sign On and Add or Try Free.
-1. Agree to T&C in the pop up that appears and click Add Now.
+1. When prompted, agree to the terms and conditions, and then select **Add Now**.
 
-### Enable SSO.
-Once the extension is enabled you now need to enable SSO for your account. 
+### Enable SSO
 
-1. Navigate to Settings
-1. Choose "Authentication" from the sidebar.
-1. Enable SSO
-1. Add the 3 required fields and click save.
+After the extension is enabled, you must enable SSO for your account. 
 
-![SSO Settings Link](https://hubplanner-static.s3-eu-west-1.amazonaws.com/img/extensions/sso/hub_planner_sso_config.png)
+1. Go to **Settings**.
+1. In the side menu, select **Authentication**.
+1. Select **SSO (Single Sign-On)**.
+1. Enter additional authentication information as shown in the following screenshot, and then select **Save**.
+
+![SSO settings](media/hub-planner-tutorial/sso-settings.png)
 
 ### Create Hub Planner test user
 
