@@ -39,7 +39,9 @@ Use the following steps to install the connector without registering it:
 1. Open a command prompt.
 2. Run the following command, in which the /q means quiet installation. A quiet installation doesn't prompt you to accept the End-User License Agreement.
 
+        ```
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+        ```
 
 ## Register the connector with Azure AD
 There are two methods you can use to register the connector:
@@ -50,19 +52,24 @@ There are two methods you can use to register the connector:
 ### Register the connector using a Windows PowerShell credential object
 1. Create a Windows PowerShell Credentials object `$cred` that contains an administrative username and password for your directory. Run the following command, replacing *\<username\>* and *\<password\>*:
 
+        ```powershell
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+        ```
 2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the following script using the `$cred` object that you created:
 
+        ```powershell
         .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
+        ```
 
 ### Register the connector using a token created offline
 1. Create an offline token using the AuthenticationContext class using the values in this code snippet or PowerShell cmdlets below:
 
     **Using C#:**
 
+        ```csharp
         using System;
         using System.Linq;
         using System.Collections.Generic;
@@ -127,9 +134,11 @@ There are two methods you can use to register the connector:
         token = authResult.AccessToken;
         tenantID = authResult.TenantId;
         }
+        ```
 
     **Using PowerShell:**
 
+        ```powershell
         # Load MSAL (Tested with version 4.7.1) 
 
         Add-Type -Path "..\MSAL\Microsoft.Identity.Client.dll" 
@@ -175,14 +184,19 @@ There are two methods you can use to register the connector:
          Write-Output "Error: Authentication result, token or tenant id returned with null."
         
         } 
+        ```
 
 2. Once you have the token, create a SecureString using the token:
 
-   `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
+   ```powershell
+   $SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force
+   ```
 
 3. Run the following Windows PowerShell command, replacing \<tenant GUID\> with your directory ID:
 
-   `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
+   ```powershell
+   .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy
+   ```
 
 ## Next steps
 * [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
