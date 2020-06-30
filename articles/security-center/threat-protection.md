@@ -107,10 +107,10 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 - Release state: **General availability**
 - Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Government cloud
-    - ✘ China Government cloud, other gov clouds
+- Clouds:<br>
+    ✔ Commercial clouds<br>
+    ✔ US Gov<br>
+    ✘ China Gov, Other Gov
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
