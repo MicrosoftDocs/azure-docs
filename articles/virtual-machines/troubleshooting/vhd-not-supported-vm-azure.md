@@ -44,16 +44,18 @@ This problem occurs for one of the following reasons:
 To resolve this problem, resize the disk to comply with 1 MB alignment:
 
 - To resolve the problem in Windows, use the [Resize-VHD PowerShell cmdlet](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd). Note that **Resize-VHD** is not an Azure PowerShell cmdlet.
-  - [Convert the virtual disk to a fixed size VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
-  - [Install the Hyper-V role on Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+
+  1. [Install the Hyper-V role on Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+  1. [Convert the virtual disk to a fixed size VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
+
 - To resolve the problem in Linux, use the [qemu-img command](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
 
 For more information about how to create and upload a VHD for creating Azure VM, see the following articles:
 
-- [Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd-nodejs)
-- [Create and upload a Windows Server VHD to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd)
+- [Upload and create a Linux VM from custom disk image by using the Azure CLI 1.0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
+- [Create and upload a Windows Server VHD to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
 
-If the problem continues to occur, this may indicate a corrupted VHD. In this situation, we recommend that you rebuild the VHD from scratch.
+Continuing problems may indicate a corrupted VHD. In this situation, we recommend that you rebuild the VHD from scratch.
 
 For more information, see the following articles:
 
