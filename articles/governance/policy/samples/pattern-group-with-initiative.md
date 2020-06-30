@@ -1,7 +1,7 @@
 ---
 title: "Pattern: Group policy definitions with initiatives"
 description: This Azure Policy pattern provides an example of how to group policy definitions into an initiative
-ms.date: 01/31/2020
+ms.date: 06/29/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: group policy definitions
