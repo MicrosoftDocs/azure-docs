@@ -1,4 +1,3 @@
-
 ---
 title: V3 API query string parameters
 ms.topic: include
