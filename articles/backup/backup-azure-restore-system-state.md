@@ -1,19 +1,18 @@
 ---
 title: Restore System State to a Windows Server
-description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
-ms.reviewer: saurse
+description: Step-by-step explanation for restoring Windows Server System State from a backup in Azure.
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 06/30/2020
 ---
 # Restore System State to Windows Server
 
-This article explains how to restore Windows Server System State backups from an Azure Recovery Services vault. To restore System State, you must have a System State backup (created using the instructions in [Back up System State](backup-azure-system-state.md#back-up-windows-server-system-state), and make sure you have installed the [latest version of the Microsoft Azure Recovery Services (MARS) agent](https://aka.ms/azurebackup_agent). Recovering Windows Server System State data from an Azure Recovery Services vault is a two-step process:
+This article explains how to restore Windows Server System State backups from an Azure Recovery Services vault. To restore System State, you must have a System State backup (created using the instructions in [Back up System State](backup-azure-system-state.md#back-up-windows-server-system-state), and make sure you've installed the [latest version of the Microsoft Azure Recovery Services (MARS) agent](https://aka.ms/azurebackup_agent). Recovering Windows Server System State data from an Azure Recovery Services vault is a two-step process:
 
 1. Restore System State as files from Azure Backup. When restoring System State as files from Azure Backup, you can either:
    * Restore System State to the same server where the backups were taken, or
    * Restore System State file to an alternate server.
 
-2. Apply the restored System State files to a Windows Server.
+2. Apply the restored System State files to a Windows Server using the Windows Server Backup utility.
 
 ## Recover System State files to the same server
 
@@ -55,7 +54,7 @@ The following steps explain how to roll back your Windows Server configuration t
 
 9. Copy the *WindowsImageBackup* directory in the Recovery destination to a non-critical volume of the server. Usually, the Windows OS volume is the critical volume.
 
-10. Once the recovery is successful, follow the steps in the section, [Apply restored System State files to the Windows Server](backup-azure-restore-system-state.md), to complete the System State recovery process.
+10. Once the recovery is successful, follow the steps in the section, [Apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server), to complete the System State recovery process.
 
 ## Recover System State files to an alternate server
 
@@ -109,6 +108,43 @@ The terminology used in these steps includes:
 
 Once you have recovered System State as files using Azure Recovery Services Agent, use the Windows Server Backup utility to apply the recovered System State to Windows Server. The Windows Server Backup utility is already available on the server. The following steps explain how to apply the recovered System State.
 
+1. Open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
+
+    The desktop app appears in the search results. If it doesn't appear, or you encounter errors when you open the application, you must install the **Windows Server Backup Features**, and dependent components below it, that are available in the **Add Features Wizard** in **Server Manager**.
+
+1. In the snap-in, select **Local Backup**.
+
+    ![select Local Backup to restore from there](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
+
+1. On the Local Backup console, in the **Actions Pane**, click **Recover** to open the Recovery Wizard.
+
+1. Select the option, **A backup stored in another location**, and click **Next**.
+
+   ![choose to recover to a different server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
+
+1. When specifying the location type, select **Remote shared folder** if your System State backup was recovered to another server. If your System State was recovered locally, then select **Local drives**.
+
+    ![select whether to recovery from local server or another](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
+
+1. Enter the path to the *WindowsImageBackup* directory, or choose the local drive containing this directory (for example, D:\WindowsImageBackup), recovered as part of the System State files recovery using Azure Recovery Services Agent and click **Next**.
+
+    ![path to the shared file](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
+
+1. Select the System State version that you want to restore, and click **Next**.
+
+1. In the Select Recovery Type pane, select **System State** and click **Next**.
+
+1. For the location of the System State Recovery, select **Original Location**, and click **Next**.
+
+1. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
+
+    ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
+
+## Special considerations for System State recovery on a domain controller
+
+System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
+
+1. Follow the steps here to [Recover System State files to an alternate server](#recover-system-state-files-to-an-alternate-server).
 1. Use the following commands to reboot your server in *Directory Services Repair Mode*. In an elevated command prompt:
 
     ```cmd
@@ -116,48 +152,12 @@ Once you have recovered System State as files using Azure Recovery Services Agen
     Shutdown /r /t 0
     ```
 
-2. After the reboot, open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
-
-    The desktop app appears in the search results. If it doesn't appear, or you encounter errors when opening the application, you must install the **Windows Server Backup Features**, and dependent components below it, that are available in the **Add Features Wizard** in **Server Manager**.
-
-3. In the snap-in, select **Local Backup**.
-
-    ![select Local Backup to restore from there](./media/backup-azure-restore-system-state/win-server-backup-local-backup.png)
-
-4. On the Local Backup console, in the **Actions Pane**, click **Recover** to open the Recovery Wizard.
-
-5. Select the option, **A backup stored in another location**, and click **Next**.
-
-   ![choose to recover to a different server](./media/backup-azure-restore-system-state/backup-stored-in-diff-location.png)
-
-6. When specifying the location type, select **Remote shared folder** if your System State backup was recovered to another server. If your System State was recovered locally, then select **Local drives**.
-
-    ![select whether to recovery from local server or another](./media/backup-azure-restore-system-state/ss-recovery-remote-shared-folder.png)
-
-7. Enter the path to the *WindowsImageBackup* directory, or choose the local drive containing this directory (for example, D:\WindowsImageBackup), recovered as part of the System State files recovery using Azure Recovery Services Agent and click **Next**.
-
-    ![path to the shared file](./media/backup-azure-restore-system-state/ss-recovery-remote-folder.png)
-
-8. Select the System State version that you want to restore, and click **Next**.
-
-9. In the Select Recovery Type pane, select **System State** and click **Next**.
-
-10. For the location of the System State Recovery, select **Original Location**, and click **Next**.
-
-11. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
-
-    ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
-
-## Special considerations for System State recovery on Active Directory server
-
-System State backup includes Active Directory data. Use the following steps to restore Active Directory Domain Service (AD DS) from its current state to a previous state.
-
-1. Restart the domain controller in Directory Services Restore Mode (DSRM).
-2. Follow the steps [here](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) to use Windows Server Backup cmdlets to recover AD DS.
+1. [Apply restored System State on a Windows Server](#apply-restored-system-state-on-a-windows-server) with the Windows Server Backup utility.
+1. Follow the steps [here](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) to use Windows Server Backup cmdlets to recover AD DS.
 
 ## Troubleshoot failed System State restore
 
-If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
+If the previous process of applying System State doesn't complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server doesn't boot normally after a System State restore. The following process erases non-system data, use caution.
 
 1. Boot your Windows Server into the Windows Recovery Environment (Win RE).
 
