@@ -145,7 +145,7 @@ This step provides data source connection information used by the indexer. The d
 
 Substitute valid values for service name, admin key, storage account, and account key placeholders.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -164,7 +164,7 @@ The index stores searchable content in Azure Cognitive Search. To create an inde
 
 The following example shows a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) request. The index will have a searchable `content` field to store the text extracted from blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -181,7 +181,7 @@ The following example shows a [Create Index](https://docs.microsoft.com/rest/api
 
 As with an index and a data source, and indexer is also a named object that you create and reuse on an Azure Cognitive Search service. A fully specified request to create an indexer might look as follows:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -208,7 +208,7 @@ This section is a recap of all the requests used for creating objects. For a dis
 
 All indexers require a data source object that provides connection information to existing data. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -224,7 +224,7 @@ All indexers require a data source object that provides connection information t
 
 All indexers require a target index that receives the data. The body of the request defines the index schema, consisting of fields, attributed to support the desired behaviors in a searchable index. This index should be empty when you run the indexer. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -243,7 +243,7 @@ This request shows a fully-specified indexer. It includes field mappings, which 
 
 Creating the indexer on Azure Cognitive Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
 
@@ -324,7 +324,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 
 For a JSON array, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonArray` parser. Specifying the right parser and having the right data input are the only two array-specific requirements for indexing JSON blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -371,7 +371,7 @@ If your blob contains multiple JSON entities separated by a newline, and you wan
 
 For JSON lines, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonLines` parser. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
