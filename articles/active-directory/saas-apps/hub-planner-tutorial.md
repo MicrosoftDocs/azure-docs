@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.hubplanner.com/sso/metadata`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hubplanner.com/sso/callback`
+    `https://app.hubplanner.com/sso/callback`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Hub Planner Client support team](mailto:hello@hubplanner.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
