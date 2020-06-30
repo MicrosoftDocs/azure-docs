@@ -44,7 +44,7 @@
       href: set-up-mabs-for-avs.md
     - name: Back up AVS VMs with Azure Backup Server
       href: backup-avs-vms-with-mabs.md
-  - name: Azure Core Integration
+  - name: Azure native integration
     items:
     - name: API Management
       href: concepts-api-management.md
