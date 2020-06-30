@@ -1,5 +1,5 @@
 ---	
-title: Manage students in Azure Dev Tools for Teaching	
+title: Manage student access in Azure Dev Tools for Teaching	
 description: Learn how to enroll and manage student access to Azure Dev Tools for Teaching.	
 author: rymend	
 ms.author: rymend	
@@ -17,4 +17,4 @@ You can currently manage access for students based on the domain they use to log
 :::image type="content" source="media/manage-students/manage-student-access.png" alt-text="Manage student access." border="false":::
 
 ## Next steps	
-- NEED CONTENT 
+> [For issues with a student log in](troubleshoot-login.md)

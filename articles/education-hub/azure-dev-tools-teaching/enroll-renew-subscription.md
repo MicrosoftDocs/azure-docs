@@ -12,10 +12,6 @@ ms.date: 06/30/2020
 
 This Quickstart describes the process for enrolling in Azure Education and creating a subscription.
 
-## Prerequisites
-
-DOES THIS NEED CONTENT?
-
 ## Manage subscription
 
 1. From the Azure for Education webpage, click on **Institutions**.
@@ -40,4 +36,4 @@ DOES THIS NEED CONTENT?
 :::image type="content" source="media/enroll-renew-subscription/application-confirm-place-order.png" alt-text="Confirm your order." border="false":::
 ## Next steps	
 
-> NEED CONTENT
+> [Set up access for Azure Dev Tools](set-up-access.md)

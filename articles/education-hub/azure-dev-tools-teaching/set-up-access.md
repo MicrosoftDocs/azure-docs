@@ -30,4 +30,4 @@ Access through the [Education Hub](https://aka.ms/devtoolsforteaching).
 Students and faculty alike can get access to all the software download benefits through the Education Hub. The Education Hub is built within the Azure portal and it provides your students easy access to the entire catalog of software, as well as access to the entire [Microsoft Learn](https://docs.microsoft.com/learn/) catalog.
 
 ## Next steps
-NEED CONTENT
+> [Learn how to manage student accounts](manage-students.md)
