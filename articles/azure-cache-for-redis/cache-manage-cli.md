@@ -53,6 +53,7 @@ The following properties are used when creating and updating Azure Cache for Red
 ## See all Azure Cache for Redis commands
 To see all Azure Cache for Redis commands and their parameters, use the `azure rediscache -h` command.
 
+```azurecli
     C:\>azure rediscache -h
     help:    Commands to manage your Azure Cache for Redis(s)
     help:
@@ -81,14 +82,18 @@ To see all Azure Cache for Redis commands and their parameters, use the `azure r
     help:      -h, --help  output usage information
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## Create an Azure Cache for Redis
 To create an Azure Cache for Redis, use the following command:
 
+```azurecli
     azure rediscache create [--name <name> --resource-group <resource-group> --location <location> [options]]
+```
 
 For more information about this command, run the `azure rediscache create -h` command.
 
+```azurecli
     C:\>azure rediscache create -h
     help:    Create an Azure Cache for Redis
     help:
@@ -114,14 +119,18 @@ For more information about this command, run the `azure rediscache create -h` co
     help:      -s, --subscription <id>                                  the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## Delete an existing Azure Cache for Redis
 To delete an Azure Cache for Redis, use the following command:
 
+```azurecli
     azure rediscache delete [--name <name> --resource-group <resource-group> ]
+```
 
 For more information about this command, run the `azure rediscache delete -h` command.
 
+```azurecli
     C:\>azure rediscache delete -h
     help:    Delete an existing Azure Cache for Redis
     help:
@@ -137,14 +146,18 @@ For more information about this command, run the `azure rediscache delete -h` co
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## List all Azure Cache for Redis within your Subscription or Resource Group
 To list all Azure Cache for Redis within your Subscription or Resource Group, use the following command:
 
+```azurecli
     azure rediscache list [options]
+```
 
 For more information about this command, run the `azure rediscache list -h` command.
 
+```azurecli
     C:\>azure rediscache list -h
     help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:
@@ -159,14 +172,18 @@ For more information about this command, run the `azure rediscache list -h` comm
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## Show properties of an existing Azure Cache for Redis
 To show properties of an existing Azure Cache for Redis, use the following command:
 
+```azurecli
     azure rediscache show [--name <name> --resource-group <resource-group>]
+```
 
 For more information about this command, run the `azure rediscache show -h` command.
 
+```azurecli
     C:\>azure rediscache show -h
     help:    Show properties of an existing Azure Cache for Redis
     help:
@@ -182,16 +199,20 @@ For more information about this command, run the `azure rediscache show -h` comm
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 <a name="scale"></a>
 
 ## Change settings of an existing Azure Cache for Redis
 To change settings of an existing Azure Cache for Redis, use the following command:
 
+```azurecli
     azure rediscache set [--name <name> --resource-group <resource-group> --redis-configuration <redis-configuration>/--redis-configuration-file <redisConfigurationFile>]
+```
 
 For more information about this command, run the `azure rediscache set -h` command.
 
+```azurecli
     C:\>azure rediscache set -h
     help:    Change settings of an existing Azure Cache for Redis
     help:
@@ -209,16 +230,20 @@ For more information about this command, run the `azure rediscache set -h` comma
     help:      -s, --subscription <subscription>                        the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## Renew the authentication key for an existing Azure Cache for Redis
 To renew the authentication key for an existing Azure Cache for Redis, use the following command:
 
+```azurecli
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
+```
 
 Specify `Primary` or `Secondary` for `key-type`.
 
 For more information about this command, run the `azure rediscache renew-key -h` command.
 
+```azurecli
     C:\>azure rediscache renew-key -h
     help:    Renew the authentication key for an existing Azure Cache for Redis
     help:
@@ -235,6 +260,7 @@ For more information about this command, run the `azure rediscache renew-key -h`
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```
 
 ## List Primary and Secondary keys of an existing Azure Cache for Redis
 To list Primary and Secondary keys of an existing Azure Cache for Redis, use the following command:
@@ -243,6 +269,7 @@ To list Primary and Secondary keys of an existing Azure Cache for Redis, use the
 
 For more information about this command, run the `azure rediscache list-keys -h` command.
 
+```azurecli
     C:\>azure rediscache list-keys -h
     help:    Lists Primary and Secondary key of an existing Azure Cache for Redis
     help:
@@ -258,3 +285,4 @@ For more information about this command, run the `azure rediscache list-keys -h`
     help:      -s, --subscription <subscription>      the subscription identifier
     help:
     help:    Current Mode: arm (Azure Resource Management)
+```

@@ -39,11 +39,13 @@ To run the deployment automatically, click the following button:
 This template uses variables to construct names for the resources. It uses the [uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) function to construct a value based on the
 resource group id.
 
+    ```json
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
       "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
       "cacheName": "[concat('cache', uniqueString(resourceGroup().id))]"
     },
+    ```
 
 
 ## Resources to deploy
@@ -54,6 +56,7 @@ Creates the Azure Cache for Redis that is used with the web app. The name of the
 
 The template creates the cache in the same location as the resource group.
 
+    ```json
     {
       "name": "[variables('cacheName')]",
       "type": "Microsoft.Cache/Redis",
@@ -71,6 +74,7 @@ The template creates the cache in the same location as the resource group.
         }
       }
     }
+    ```
 
 
 ### Web app
@@ -78,6 +82,7 @@ Creates the web app with name specified in the **webSiteName** variable.
 
 Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. These app settings are dynamically created based on values provided during deployment.
 
+    ```json
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -110,12 +115,19 @@ Notice that the web app is configured with app setting properties that enable it
         }
       ]
     }
+    ```
 
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
+
+    ```azurepowershell
     New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup
+    ```
 
 ### Azure CLI
+
+    ```azurecli
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
+    ```
