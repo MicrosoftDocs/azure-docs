@@ -33,17 +33,17 @@ In **3D Studio Max**, the process for setting up a PBR material is as follows.
 
 To begin with, as you will see in the Sample Scene, we have created a number of box objects, each of which represents a different type of material:
 
-* It is worth noting before starting to create assets for ARR that it uses **meters** for measurement.
-> [!TIP]
+> [!TIP] It is worth noting before starting to create assets for ARR that it uses **meters** for measurement.  
 Therefore it is advisable to set your scene **System Units** to **Meters**. Furthermore, it is advisable when exporting to set Units to meters in the FBX export settings.
 
-* The Following image illustrates the steps to set the System Units to meters in 3D Studio Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup** and in the **System Units Scale** dropdown select **Meters**. 
+The Following image illustrates the steps to set the System Units to meters in 3D Studio Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup** and in the **System Units Scale** dropdown select **Meters**. 
 ![system units](media/3dsmax/system-units.jpg)
 
 With system units set to meters, we can begin to create our models. In our sample scene, we create several box objects, each representing a different material type - for example, metal, rubber, plastic etc. 
 
 > [!TIP]
 >It is good practice when creating assets to name the appropriately as you go. This will make them easier to find later if the scene has a lot of objects
+
 ![rename-objects](media/3dsmax/rename-objects.jpg)
 
 ## Assign materials
