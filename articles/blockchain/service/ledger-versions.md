@@ -41,6 +41,10 @@ To check the Quorum version on your Azure Blockchain Service member, you can fol
 	   {"NodeName":"transaction-node","Message":"[*] Starting Quorum node with QUORUM_VERSION=2.6.0, TESSERA_VERSION=0.10.5 and PRIVATE_CONFIG=/working-dir/c/tm.ipc\n"}
  
 
+## Check genesis file content on your Azure Blockchain Service member resource 
+To check genesis file content of your blockchain node, you can run the below admin API either on geth console or through web library 
+	
+	admin.nodeInfo.protocols 
 
 
 ## Availability of new ledger versions
