@@ -55,8 +55,6 @@ Unless otherwise stated, we recommend you follow all best practices listed in ea
 - [NIST Special Publication 800-53 Security Controls](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
 
-### Feedback
-
 We plan on continuing to update the recommendations and best practices listed here. Provide input or any corrections for this document using the **Feedback** link at the bottom of this article.
 
 ## Authentication

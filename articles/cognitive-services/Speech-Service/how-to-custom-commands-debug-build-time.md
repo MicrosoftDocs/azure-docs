@@ -21,7 +21,7 @@ Custom Commands also creates an application in [LUIS](https://www.luis.ai/) when
 
 [LUIS limits 500 applications per authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). Creation of LUIS application could fail if you are using an authoring resource that already have 500 applications. 
 
-Make sure the selected LUIS authoring resource has less than 500. If not, you can new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
+Make sure the selected LUIS authoring resource has less than 500 applications. If not, you can create new LUIS authoring resource, switch to another one, or try to clean up your LUIS applications.  
 
 ## Errors when deleting an application
 ### Can't delete LUIS application
@@ -45,8 +45,8 @@ You are not allowed to delete a Web Endpoint when it is being used.
 Please remove any **Call Web Endpoint** action that uses this Web Endpoint before removing a Web Endpoint.
 
 ## Errors when training an application
-### Build in intents
-LUIS has build-in Yes/No intents. Having sample sentences with only "yes", "no" would fail the training. 
+### Built-In intents
+LUIS has built-in Yes/No intents. Having sample sentences with only "yes", "no" would fail the training. 
 
 | Keyword | Variations | 
 | ------- | --------- | 
@@ -69,7 +69,7 @@ One or more parameters are used in the sample sentences but not defined.
 ### Training takes too long
 LUIS training is meant to learn quickly with fewer examples. Don't add too many example sentences. 
 
-If you have many example sentences are similar, define a parameter, abstract them into a pattern and add it to Example Sentences.
+If you have many example sentences that are similar, define a parameter, abstract them into a pattern and add it to Example Sentences.
 
 For example, you can define a parameter {vehicle} for the example sentences below, and only add "Book a {vehicle}" to Example Sentences.
 

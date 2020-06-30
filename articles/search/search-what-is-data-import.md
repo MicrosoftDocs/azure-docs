@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 06/30/2020
 ---
 # Data import overview - Azure Cognitive Search
 
@@ -58,11 +58,13 @@ In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatc
 
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2019-05-06` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+For both POST and GET, you need to provide your *service name*, *index name*, and an *API version* in the request URL. 
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
 
-The format for POST is the same, but with only api-version in the query string parameters.
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+
+The format for POST is the same, but with `api-version` in the query string parameters.
 
 ## Pulling data into an index
 

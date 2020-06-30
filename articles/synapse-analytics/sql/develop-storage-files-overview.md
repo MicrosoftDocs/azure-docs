@@ -1,5 +1,5 @@
 ---
-title: Query storage files using SQL on-demand (preview) within Synapse SQL
+title: Access files on storage using SQL on-demand (preview) within Synapse SQL
 description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -10,216 +10,165 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-# Query storage files using SQL on-demand (preview) resources within Synapse SQL
+# Accessing external storage in Synapse SQL
 
-SQL on-demand (preview) enables you to query data in your data lake. It offers a T-SQL query surface area that accommodates semi-structured and unstructured data queries.
+This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
 
-For querying, the following T-SQL aspects are supported:
+- [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
+- [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
 
-- Full [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) surface area, including majority of SQL functions, operators, and so on.
-- CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)) creates an [external table](develop-tables-external-tables.md) and then exports, in parallel, the results of a Transact-SQL SELECT statement to Azure Storage.
+User can use [different authentication methods](develop-storage-files-storage-access-control.md) such as Azure AD passthrough authentication (default for Azure AD principals) and SAS authentication (default for SQL principals).
 
-For more information on what is vs. what isn't currently supported, read the [SQL on-demand overview](on-demand-workspace-overview.md) article.
+## OPENROWSET
 
-When Azure AD users run queries, the default is for storage accounts to be accessed using the Azure AD pass-through authentication protocol. As such, users will be impersonated and permissions checked at the storage level. You can [control storage access](develop-storage-files-storage-access-control.md) to suit your needs.
+[OPENROWSET](develop-openrowset.md) function enables user to read the files from Azure storage.
 
-## Extensions
+### Query files using OPENROWSET
 
-To support a smooth experience for in place querying of data that's located in Azure Storage files, SQL on-demand uses the [OPENROWSET](develop-openrowset.md) function with additional capabilities:
+OPENROWSET enables users to query external files on Azure storage if they have access on storage. User who is connected to Synapse SQL on-demand endpoint should use the following query to read the content of the files on Azure storage:
 
-- [Query multiple files or folders](#query-multiple-files-or-folders)
-- [PARQUET file format](#parquet-file-format)
-- [Additional options for working with delimited text (field terminator, row terminator, escape char)](#additional-options-for-working-with-delimited-text)
-- [Read a chosen subset of columns](#read-a-chosen-subset-of-columns)
-- [Schema inference](#schema-inference)
-- [filename function](#filename-function)
-- [filepath function](#filepath-function)
-- [Work with complex types and nested or repeated data structures](#work-with-complex-types-and-nested-or-repeated-data-structures)
-
-### Query multiple files or folders
-
-To run a T-SQL query over a set of files within a folder or set of folders while treating them as a single entity or rowset, provide a path to a folder or a pattern (using wildcards) over a set of files or folders.
-
-The following rules apply:
-
-- Patterns can appear either in part of a directory path or in a filename.
-- Several patterns can appear in the same directory step or file name.
-- If there are multiple wildcards, then files within all matching paths will be included in the resulting file set.
-
-```
-N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
+```sql
+SELECT * FROM
+ OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
 ```
 
-Refer to [Query folders and multiple files](query-folders-multiple-csv-files.md) for usage examples.
+User can access storage using the following access rules:
 
-### PARQUET file format
+- Azure AD user - OPENROWSET will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
+- SQL user – OPENROWSET will access storage with anonymous access.
 
-To query Parquet source data, use FORMAT = 'PARQUET'
+SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with ALTER ANY CREDENTIAL permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
 
-```syntaxsql
-OPENROWSET
-(
-    { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
-)
-AS table_alias(column_alias,...n)
-<bulk_options> ::=
-...
-[ , FORMAT = {'CSV' | 'PARQUET'} ]
+```sql
+EXECUTE AS somepoweruser
+
+CREATE CREDENTIAL [http://storage.dfs.com/container]
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
+
+GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
 ```
 
-Review the [Query Parquet files](query-parquet-files.md) article for usage examples.
-
-### Additional options for working with delimited text
-
-These additional parameters are introduced for working with CSV (delimited text) files:
-
-```syntaxsql
-<bulk_options> ::=
-...
-[ , FIELDTERMINATOR = 'char' ]
-[ , ROWTERMINATOR = 'char' ]
-[ , ESCAPE_CHAR = 'char' ]
-...
-```
-
-- ESCAPE_CHAR = 'char'
-Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by either a value other than itself or any of the delimiter values, the escape character is dropped when reading the value.
-The ESCAPE_CHAR parameter will be applied whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
-- FIELDTERMINATOR ='field_terminator'
-Specifies the field terminator to be used. The default field terminator is a comma ("**,**")
-- ROWTERMINATOR ='row_terminator'
-Specifies the row terminator to be used. The default row terminator is a newline character: **\r\n**.
-
-### Read a chosen subset of columns
-
-To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
-
-- If there are CSV data files, to read all the columns, provide column names and their data types. If you want a subset of columns, use ordinal numbers to pick the columns from the originating data files by ordinal. Columns will be bound by the ordinal designation.
-- If there are Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name.
-
-```syntaxsql
-OPENROWSET
-...
-| BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
-) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
-```
-
-For samples, refer to [Read CSV files without specifying all columns](query-single-csv-file.md#returning-subset-of-columns).
-
-### Schema inference
-
-By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) the schema from underlying files.
+If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
 
 > [!NOTE]
-> This currently works only for PARQUET file format.
+> This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
+
+### Querying data sources using OPENROWSET
+
+OPENROWSET enables user to query the files placed on some external data source:
 
 ```sql
-OPENROWSET(
-BULK N'path_to_file(s)', FORMAT='PARQUET');
+SELECT * FROM
+ OPENROWSET(BULK 'file/path/*.csv',
+ DATASOURCE = MyAzureInvoices,
+ FORMAT= 'csv') as rows
 ```
 
-Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
-
-### Filename function
-
-This function returns the file name that the row originates from. 
-
-To query specific files, read the Filename section in the [Query specific files](query-specific-files.md#filename) article.
-
-Return data type is nvarchar(1024). For optimal performance, always cast result of filename function to appropriate data type. If you use character data type, make sure appropriate length is used.
-
-### Filepath function
-
-This function returns a full path or a part of path:
-
-- When called without parameter, returns the full file path that a row originates from.
-- When called with parameter, it returns part of path that matches the wildcard on position specified in the parameter. For example, parameter value 1 would return part of path that matches the first wildcard.
-
-For additional information, read the Filepath section of the [Query specific files](query-specific-files.md#filepath) article.
-
-Return data type is nvarchar(1024). For optimal performance, always cast result of filepath function to appropriate data type. If you use character data type, make sure appropriate length is used.
-
-### Work with complex types and nested or repeated data structures
-
-To enable a smooth experience when working with data stored in nested or repeated data types, such as in [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) files, SQL on-demand has added the extensions below.
-
-#### Project nested or repeated data
-
-To project data, run a SELECT statement over the Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as a varchar(8000) SQL data type.
+Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
 
 ```sql
-    SELECT * FROM
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    [AS alias]
+CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
+
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ CREDENTIAL = AccessAzureInvoices) ;
 ```
 
-For more detailed information, refer to the Project nested or repeated data section of the [Query Parquet nested types](query-parquet-nested-types.md#project-nested-or-repeated-data) article.
+DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source (currently SAS and Managed Identity).
 
-#### Access elements from nested columns
+Caller must have one of the following permissions to execute OPENROWSET function:
 
-To access nested elements from a nested column, such as Struct, use "dot notation" to concatenate field names into the path. Provide the path as column_name in the WITH clause of the OPENROWSET function.
+- One of the permissions to execute OPENROWSET:
+  - ADMINISTER BULK OPERATION enables login to execute OPENROWSET function.
+  - ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
+- REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
-The syntax fragment example is as follows:
+#### Accessing anonymous data sources
 
-```syntaxsql
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    WITH ({'column_name' 'column_type',})
-    [AS alias]
-    'column_name' ::= '[field_name.] field_name'
+User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
+
+```sql
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
 ```
 
-By default, the OPENROWSET function matches the source field name and path with the column names provided in the WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed via the WITH clause.
+## EXTERNAL TABLE
 
-**Return values**
+User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
 
-- Function returns a scalar value, such as int, decimal, and varchar, from the specified element, and on the specified path, for all Parquet types that are not in the Nested Type group.
-- If the path points to an element that is of a Nested Type, the function returns a JSON fragment starting from the top element on the specified path. The JSON fragment is of type varchar(8000).
-- If the property can't be found at the specified column_name, the function returns an error.
-- If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
+User that has [permissions to create external table](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (for example CREATE TABLE and ALTER ANY CREDENTIAL or REFERENCES DATABASE SCOPED CREDENTIAL) can use the following script to create a table on top of Azure Storage data source:
 
-For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
-
-#### Access elements from repeated columns
-
-To access elements from a repeated column, such as an element of an Array or Map, use the [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every scalar element you need to project and provide:
-
-- Nested or repeated column, as the first parameter
-- A [JSON path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) that specifies the element or property to access, as a second parameter
-
-To access non-scalar elements from a repeated column, use the [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) function for every non-scalar element you need to project and provide:
-
-- Nested or repeated column, as the first parameter
-- A [JSON path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) that specifies the element or property to access, as a second parameter
-
-See syntax fragment below:
-
-```syntaxsql
-    SELECT
-       { JSON_VALUE (column_name, path_to_sub_element), }
-       { JSON_QUERY (column_name [ , path_to_sub_element ]), )
-    FROM
-    OPENROWSET
-    (   BULK 'unstructured_data_path' ,
-        FORMAT = 'PARQUET' )
-    [AS alias]
+```sql
+CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
+( ProductKey int, ProductLabel nvarchar, ProductName nvarchar )
+WITH
+(
+LOCATION='/DimProduct/year=*/month=*' ,
+DATA_SOURCE = AzureDataLakeStore ,
+FILE_FORMAT = TextFileFormat
+) ;
 ```
 
-You can find query samples for accessing elements from repeated columns in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-repeated-columns) article.
+User with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL cred
+ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
+
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
+ WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ CREDENTIAL = cred
+ ) ;
+```
+
+DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source.
+
+### Reading external files with EXTERNAL TABLE
+
+EXTERNAL TABLE enables you to read data from the files that are referenced via data source using standard SQL SELECT statement:
+
+```sql
+SELECT *
+FROM dbo.DimProductsExternal
+```
+
+Caller must have the following permissions to read data:
+- SELECT permission ON external table
+- REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
+
+## Permissions
+
+The following table lists required permissions for the operations listed above.
+
+| Query | Required permissions|
+| --- | --- |
+| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
+| OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
+| OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
+| CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
+| CREATE EXTERNAL TABLE | CREATE TABLE, ALTER ANY SCHEMA, ALTER ANY EXTERNAL FILE FORMAT, ALTER ANY EXTERNAL DATA SOURCE |
+| SELECT FROM EXTERNAL TABLE | SELECT TABLE |
+| CETAS | To create table - CREATE TABLE ALTER ANY SCHEMA ALTER ANY DATA SOURCE+ALTER ANY EXTERNAL FILE FORMAT. To read data: ADMIN BULK OPERATIONS+REFERENCES CREDENTIAL or SELECT TABLE per each table/view/function in query + R/W permission on storage |
 
 ## Next steps
 
-For more information on how to query different file types and creating and using views, see the following articles:
+You're now ready to continue on with the following How To articles:
 
-- [Query single CSV file](query-single-csv-file.md)
+- [Query data on storage](query-data-storage.md)
+
+- [Query CSV file](query-single-csv-file.md)
+
+- [Query folders and multiple files](query-folders-multiple-csv-files.md)
+
+- [Query specific files](query-specific-files.md)
+
 - [Query Parquet files](query-parquet-files.md)
+
+- [Query nested types](query-parquet-nested-types.md)
+
 - [Query JSON files](query-json-files.md)
-- [Query Parquet nested types](query-parquet-nested-types.md)
-- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
-- [Use file metadata in queries](query-specific-files.md)
-- [Create and use views](create-use-views.md)
+
+- [Creating and using views](create-use-views.md)

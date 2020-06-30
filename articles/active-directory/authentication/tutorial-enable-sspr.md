@@ -46,7 +46,11 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Enable self-service password reset
 
-Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate the requirements with a broader set of users, you can select additional groups of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
+Azure AD lets you enable SSPR for *None*, *Selected*, or *All* users. This granular ability lets you choose a subset of users to test the SSPR registration process and workflow. When you're comfortable with the process and can communicate the requirements with a broader set of users, you can select a group of users to enable for SSPR. Or, you can enable SSPR for everyone in the Azure AD tenant.
+
+> [!NOTE]
+>
+> Only one Azure AD group can currently be enabled for SSPR using the Azure portal. As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
 
 In this tutorial, configure SSPR for a set of users in a test group. In the following example, the group *SSPR-Test-Group* is used. Provide your own Azure AD group as needed:
 
@@ -56,8 +60,6 @@ In this tutorial, configure SSPR for a set of users in a test group. In the foll
 1. Browse for and select your Azure AD group, such as *SSPR-Test-Group*, then choose *Select*.
 
     [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
-
-    As part of a wider deployment of SSPR, nested groups are supported. Make sure that the users in the group(s) you choose have the appropriate licenses assigned. There's currently no validation process of these licensing requirements.
 
 1. To enable SSPR for the select users, select **Save**.
 
