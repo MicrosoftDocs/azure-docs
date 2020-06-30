@@ -18,21 +18,7 @@ ms.reviewer: sureshja
 
 # Application and service principal objects in Azure Active Directory
 
-Sometimes, the meaning of the term "application" can be misunderstood when used in the context of Azure Active Directory (Azure AD). This article clarifies the conceptual and concrete aspects of Azure AD application integration, with an illustration of registration and consent for a [multi-tenant application](developer-glossary.md#multi-tenant-application).
-
-## Overview
-
-An application that has been integrated with Azure AD has implications that go beyond the software aspect. "Application" is frequently used as a conceptual term, referring to not only the application software, but also its Azure AD registration and role in authentication/authorization "conversations" at runtime.
-
-By definition, an application can function in these roles:
-
-- [Client](developer-glossary.md#client-application) role (consuming a resource)
-- [Resource server](developer-glossary.md#resource-server) role (exposing APIs to clients)
-- Both client role and resource server role
-
-An [OAuth 2.0 Authorization Grant flow](developer-glossary.md#authorization-grant) defines the conversation protocol, which allows the client/resource to access/protect a resource's data, respectively.
-
-In the following sections, you'll see how the Azure AD application model represents an application at design-time and run-time.
+This article describes application registration, application objects, and service principals in Azure Active Directory: what they are, how they're used, and how they are related to each other. A multi-tenant example scenario is also presented to illustrate the relationship between an application's application object and corresponding service principal objects.
 
 ## Application registration
 In order to delegate Identity and Access Management functions to Azure AD, it must be registered with an Azure AD [tenant](developer-glossary.md#tenant). When you register your application with Azure AD, you are creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the [Azure portal][AZURE-Portal], you choose whether it's single tenant (only accessible in your tenant) or multi-tenant (accessible to in other tenants) and can optionally set a redirect URI (where the access token is sent to).
