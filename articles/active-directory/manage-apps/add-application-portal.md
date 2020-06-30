@@ -49,27 +49,9 @@ To add a gallery application to your Azure AD tenant:
 
 7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
 
-You've finished adding your application. The next sections show you how to change the logo and edit other properties for your application.
-
-## Find your Azure AD tenant application
-
-Let's assume you had to leave and now you're returning to continue configuring your application. The first thing to do is find your application.
-
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-1. From the **Application Type** drop-down menu, select **All Applications**, and then select **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
-1. You can now see a list of all the applications in your Azure AD tenant. The list is a random sample. To see more applications, select **Show more** one or more times.
-1. To quickly find an application in your tenant, enter the application name in the search box and select **Apply**. This example finds the GitHub-test application added previously.
-
-    ![Shows how to find an application using the search box](media/add-application-portal/find-application.png)
-
-
-NEXT STEP IS TO CONFIGURE USER SIGN-IN PROPERTIES
-
+You've finished adding your application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
 ## Next steps
 
 - [Configure an app](add-application-portal-configure.md)
-- [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
-- [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configure linked sign-on](configure-linked-sign-on.md)
+- [Set up single sign-on](add-application-portal-setup-sso.md)
