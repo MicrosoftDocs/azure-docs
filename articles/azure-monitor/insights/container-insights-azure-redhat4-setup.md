@@ -34,7 +34,9 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift v4.x as
 
 - The [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) command-line tool
 
-- A [Log Analytics workspace](../platform/design-logs-deployment.md). The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or Bash script. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+- A [Log Analytics workspace](../platform/design-logs-deployment.md).
+
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
 - To enable and access the features in Azure Monitor for containers, you need to have, at minimum, an Azure *Contributor* role in the Azure subscription and a [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
 
@@ -106,7 +108,7 @@ If you don't have a workspace to specify, you can skip to the [Integrate with th
 
 1. In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **ID**.
 
-1. To enable monitoring, run the following command. Replace the values for the `azureAroV4ClusterResourceId`, `logAnalyticsWorkspaceResourceId`, and `kubeContext` parameters. To identify the `kubeContext` of your cluster, see [step 3](#enable-monitoring-for-an-existing-cluster) in the previous section.
+1. To enable monitoring, run the following command. Replace the values for the `azureAroV4ClusterResourceId`, `logAnalyticsWorkspaceResourceId`, and `kubeContext` parameters.
 
     ```bash
     export azureAroV4ClusterResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>”
