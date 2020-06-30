@@ -28,6 +28,40 @@ If you want to include a data disk, the data disk size cannot be more than 1 TB.
 
 When working through this article, replace the resource names where needed.
 
+
+## Get the snapshot or VHD
+
+You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
+
+```
+get-azsnapshot | Format-Table -Property Name,ResourceGroupName
+```
+
+Once you know the snapshot name and what resource group it is in, you can use `Get-AzSnapshot` again to get the snapshot object and store it in a variable to use later. This example gets an snapshot named *mySnapshot* from the "myResourceGroup" resource group and assigns it to the variable *$source*. 
+
+```azurepowershell-interactive
+$source = Get-AzSnapshot `
+   -SnapshotName mySnapshot `
+   -ResourceGroupName myResourceGroup
+```
+
+You can also use a VHD instead of a snapshot. To get a VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
+
+```
+Get-AzDisk | Format-Table -Property Name,ResourceGroupName
+```
+
+Then get the VHD and assign it to the `$source` variable.
+
+```azurepowershell-interactive
+$source = Get-AzDisk `
+   -SnapshotName mySnapshot
+   -ResourceGroupName myResourceGroup
+```
+
+You can use the same cmdlets to get any data disks that you want to include in your image. Assign them to variables, then use those variables later when you create the image version.
+
+
 ## Get the gallery
 
 You can list all of the galleries and image definitions by name. The results are in the format `gallery\image definition\image version`.
@@ -68,29 +102,14 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Sku 'mySKU'
 ```
 
-## Get the snapshot
-
-You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). Once you know the snapshot name and what resource group it is in, you can use `Get-AzSnapshot` again to get the snapshot object and store it in a variable to use later. This example gets an snapshot named *mySnapshot* from the "myResourceGroup" resource group and assigns it to the variable *$snapshot*. 
-
-```azurepowershell-interactive
-$source = Get-AzSnapshot `
-   -SnapshotName mySnapshot
-   -ResourceGroupName myResourceGroup
-```
-
-You can also use a VHD. To get a VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk)
-
-```azurepowershell-interactive
-$source = Get-AzSnapshot `
-   -SnapshotName mySnapshot
-   -ResourceGroupName myResourceGroup
-```
 
 ## Create an image version
 
 Create an image version from the snapshot using [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+If you want your image to contain a data disk, in addition to the OS disk, then add the `-DataDiskImage` parameter and set it to the Id of data disk snapshot or VHD.
 
 In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
@@ -100,14 +119,14 @@ $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
 $job = $imageVersion = New-AzGalleryImageVersion `
-   -GalleryImageDefinitionName $galleryImage.Name `
+   -GalleryImageDefinitionName $imageDefinition.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `
-   -ResourceGroupName $resourceGroup.ResourceGroupName `
-   -Location $resourceGroup.Location `
+   -ResourceGroupName $gallery.ResourceGroupName `
+   -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $source.Id.ToString() `
-   -PublishingProfileEndOfLifeDate '2020-01-01' `
+   -OSDiskImage $source.Id.ToString() '
+   -PublishingProfileEndOfLifeDate '2025-01-01' `
    -asJob 
 ```
 
