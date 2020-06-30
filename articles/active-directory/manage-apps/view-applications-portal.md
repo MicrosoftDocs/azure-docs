@@ -36,7 +36,7 @@ To find your tenant applications:
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
-1. To view more applications, select **Load more** at the bottom of the list. Depending on the number of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
+1. To view more applications, select **Load more** at the bottom of the list. If there are a lot of applications in your tenant, it might be easier to [search for a particular application](#search-for-a-tenant-application), instead of scrolling through the list.
 
 ## Select viewing options
 
