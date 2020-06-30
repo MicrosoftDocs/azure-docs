@@ -58,7 +58,7 @@ To enable monitoring for an Azure Red Hat OpenShift version 4 or later cluster t
 
 1. To identify the *kubeContext* of your cluster, run the following commands
 
- ```
+```
 adminUserName=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminUsername' -o tsv)
 adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
 apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
