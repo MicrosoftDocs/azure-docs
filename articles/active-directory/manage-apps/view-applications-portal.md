@@ -78,6 +78,7 @@ To search for a particular application:
 
 In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
 
-- [Add an app](add-application-portal-configure.md)
+- [Add an app](add-application-portal.md)
 - [Configure an app](add-application-portal-configure.md)
 - [Set up single sign-on](add-application-portal-setup-sso.md)
+- [Remove an app](remove-application-portal.md)
