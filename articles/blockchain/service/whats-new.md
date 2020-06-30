@@ -84,11 +84,11 @@ Azure Blockchain Service restarts Tessera when there is a crash. Restart takes a
 
 Use the *Standard* tier if you are sending a high volume of private transactions. Use the *Basic* tier for development, testing, and proof of concepts. Changing the pricing tier between basic and standard after member creation is not supported.
 
-### Calling eth.estimate gas function reduces performance
+### Calling eth.estimateGas function reduces performance
 
-Calling *eth.estimate* function multiple times reduces transactions per second drastically. Do not use *eth.estimate* gas function for each transaction submission. The *eth.estimate* function is memory intensive.
+Calling *eth.estimateGas* function multiple times reduces transactions per second drastically. Do not use *eth.estimateGas* function for each transaction submission. The *eth.estimateGas* function is memory intensive.
 
-If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimate*.
+If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimateGas*.
 
 ### Unbounded loops in smart contracts reduces performance
 
