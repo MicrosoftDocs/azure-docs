@@ -131,7 +131,7 @@ U-SQL local run needs a specified data root as local storage account, as well as
 
 The **run** command is used to compile the script and then execute compiled results. Its command-line arguments are a combination of those from **compile** and **execute**.
 
-```cmd
+```console
 LocalRunHelper run -Script path_to_usql_script.usql [optional_arguments]
 ```
 
