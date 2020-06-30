@@ -104,23 +104,23 @@ _To create your ASE with the egress addresses_: Follow the directions in [Create
 ```json
 "resources": [
     {
-    "apiVersion": "2015-08-01",
-    "type": "Microsoft.Web/hostingEnvironments",
-    "name": "[parameters('aseName')]",
-    "kind": "ASEV2",
-    "location": "[parameters('aseLocation')]",
-    "properties": {
+        "apiVersion": "2015-08-01",
+        "type": "Microsoft.Web/hostingEnvironments",
         "name": "[parameters('aseName')]",
+        "kind": "ASEV2",
         "location": "[parameters('aseLocation')]",
-        "ipSslAddressCount": 0,
-        "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
-        "dnsSuffix" : "[parameters('dnsSuffix')]",
-        "virtualNetwork": {
-        "Id": "[parameters('existingVnetResourceId')]",
-        "Subnet": "[parameters('subnetName')]"
-        },
-    "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
-    }
+        "properties": {
+            "name": "[parameters('aseName')]",
+            "location": "[parameters('aseLocation')]",
+            "ipSslAddressCount": 0,
+            "internalLoadBalancingMode": "[parameters('internalLoadBalancingMode')]",
+            "dnsSuffix" : "[parameters('dnsSuffix')]",
+            "virtualNetwork": {
+                "Id": "[parameters('existingVnetResourceId')]",
+                "Subnet": "[parameters('subnetName')]"
+            },
+            "userWhitelistedIpRanges":  ["11.22.33.44/32", "55.66.77.0/30"]
+        }
     }
 ]
 ```
