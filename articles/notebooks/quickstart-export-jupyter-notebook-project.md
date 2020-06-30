@@ -28,7 +28,7 @@ An existing Azure Notebooks project.
 
 After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
 - [Visual Studio Code](#using-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#using-noteboooks-in-visual-studio-codespaces)
+- [Visual Studio Codespaces](#using-notebooks-in-visual-studio-codespaces)
 - [Azure Machine Learning](#using-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#using-azure-lab-services)
 - [GitHub](#using-github)
@@ -61,7 +61,7 @@ After [downloading](#export-an-azure-notebooks-project) your project files you c
 
 You can also use the [Azure Notebooks requirements](#download-the-requirements-file-used-by-azure-notebooks) with Visual Studio Code to create an environment that matches the Azure Notebooks Preview.
 
-## Using Notebooks in VS Codespaces
+## Using Notebooks in Visual Studio Codespaces
 
 Visual Studio Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code or your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
 
@@ -96,7 +96,7 @@ For additional information about Azure ML and running Jupyter Notebooks, you can
 
 ## Using GitHub
 
-GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#using-notebooks-in-vs-codespaces) for a full development experience. To get started with GitHub
+GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#using-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
 
 1. [Download](#export-an-azure-notebooks-project) your project files.
 1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
