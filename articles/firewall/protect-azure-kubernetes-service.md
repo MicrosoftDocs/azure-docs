@@ -4,7 +4,7 @@ description: Learn how to use Azure Firewall to protect Azure Kubernetes Service
 author: vhorne
 ms.service: firewall
 services: firewall
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ---
