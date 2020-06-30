@@ -59,18 +59,20 @@ The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a bu
 Now that we have the SDK included in our project we can send an SMS message with a few lines of code:
 
 ```csharp
-using System;
-using Azure.Communication.Sms;
+using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
 
-namespace SMSSend
+namespace SmsSender
 {
     class Program
     {
         static void Main(string[] args)
         {
-            string connectionString = "<connectionString>";
+            var connectionString = "<connectionString>"; // Connection string can be acqiured throught the Azure portal
             var sms = new SmsClient(connectionString);
-            sms.Send("1-555-111-1111", "1-555-222-2222", "Hello World via SMS");          
+            sms.Send(
+                from: "+15551111111", // Phone number acquired by your account
+                to: "+15552222222",
+                message: "Hello World 👋🏻 via Sms");          
         }
     }
 }
@@ -78,7 +80,7 @@ namespace SMSSend
 
 Step by step:
 
-1. Include the ACS namespaces with `using Azure.Communication.SMS;`
+1. Include the ACS namespaces with `using Azure.Communication.Sms;`
 2. Initialize the `SmsClient` using the connection string retrieved in the Azure Portal. It is important to protect connection strings, they should only be used by trusted services and devices.
-3. Use the `SmsClient.Send()` API to send an SMS message using a number allocated to the Azure Communication Service resource, in this case 1-555-111-1111, to a destination phone number 1-555-222-2222. To programmatically list allocated phoned numbers and acquire new ones, check out the allocate phone number quick start.
+3. Use the `SmsClient.Send()` API to send an SMS message using a number allocated to the Azure Communication Service resource, in this case `+15551111111`, to a destination phone number `+15552222222`. To programmatically list allocated phoned numbers and acquire new ones, check out the allocate phone number quick start.
 
