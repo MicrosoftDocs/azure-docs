@@ -404,7 +404,7 @@ upper cased `substring` of the extension ID. The portion of the ID before
 property for the `join`. `summarize` is then used with `make_list` on the name of the virtual
 machine extension to combine the name of each extension where _id_, _OSName_, _OSType_, and _VMSize_
 are the same into a single array property. Lastly, we `order by` the lower cased _OSName_ with
-**asc**. By defualt, `order by` is descending.
+**asc**. By default, `order by` is descending.
 
 ```kusto
 Resources

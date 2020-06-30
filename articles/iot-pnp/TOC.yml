@@ -57,6 +57,8 @@
     href: libraries-sdks.md
   - name: Digital Twin REST API
     href: https://aka.ms/iot-pnp-preview-rest
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
