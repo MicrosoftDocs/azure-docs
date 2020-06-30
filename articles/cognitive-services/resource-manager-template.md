@@ -11,7 +11,7 @@ ms.author: aahi
 ms.custom: subject-armqs
 ---
 
-# Create a Cognitive Services resource using an Azure Resource Manager template
+# Quickstart: Create a Cognitive Services resource using an Azure Resource Manager template
 
 Use this article to create and deploy a Cognitive Services resource, using an Azure Resource Manager (ARM) template. This multi-service resource lets you:
 * Access multiple Azure Cognitive Services with a single key and endpoint.
@@ -19,23 +19,24 @@ Use this article to create and deploy a Cognitive Services resource, using an Az
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using Azure Resource Manager templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-## Prerequisites 
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
+
+## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-## Create a Cognitive Services resource
+## Review the template
 
-### Review the template
-
-The template used in this quickstart is from [Azure quickstart ARM templates](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
 One Azure resource is defined in the template:
 * [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): creates a Cognitive Services resource.
 
-### Deploy the template
+## Deploy the template
 
 # [Azure portal](#tab/portal)
 
@@ -58,7 +59,6 @@ One Azure resource is defined in the template:
 
 3. Select **Review + Create**, then **Create**. After the resource has successfully finished deploying, the **Go to resource** button will be highlighted.
 
-    
 
 # [Azure CLI](#tab/CLI)
 
@@ -92,7 +92,7 @@ When your deployment finishes, you will be able to click the **Go to resource** 
 
 # [Azure CLI](#tab/CLI)
 
-Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier. 
+Using the Azure CLI, run the following script, and enter the name of the resource group you created earlier.
 
 ```azurecli-interactive
 echo "Enter the resource group where the Cognitive Services resource exists:" &&

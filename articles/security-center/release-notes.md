@@ -37,6 +37,19 @@ For examples of external tools made possible with the secure score API, see [the
 Learn more about [secure score and security controls in Azure Security Center](secure-score-security-controls.md).
 
 
+
+### New recommendation for using NSGs to protect non-internet-facing virtual machines
+
+The "implement security best practices" security control now includes the following new recommendation:
+
+- **Non-internet-facing virtual machines should be protected with network security groups**
+
+An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
+
+For the full description and more details about this recommendation, see [Network recommendations](recommendations-reference.md#recs-network).
+
+
+
 ## May 2020
 
 

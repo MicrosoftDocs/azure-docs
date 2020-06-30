@@ -327,7 +327,6 @@ See the following table for supported languages for the various Speaker Recognit
 |es-MX	|Spanish (Mexico)	|n/a|	yes|	yes|
 |ja-JP|	Japanese	|n/a	|yes	|yes|
 |pt-BR|	Portuguese (Brazil)|	n/a|	yes|	yes|
-|ko-KR|	Korean	|n/a	|yes|	yes|
 
 ## Next steps
 
