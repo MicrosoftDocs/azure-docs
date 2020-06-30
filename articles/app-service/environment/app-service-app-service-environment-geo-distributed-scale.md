@@ -47,7 +47,7 @@ Once multiple instances of an app are deployed on multiple App Service Environme
 * **webfrontend2.fe2ase.p.azurewebsites.net:**  An instance of the sample app deployed on the second App Service Environment.
 * **webfrontend3.fe3ase.p.azurewebsites.net:**  An instance of the sample app deployed on the third App Service Environment.
 
-The easiest way to register multiple Azure App Service endpoints, all running in the **same** Azure region, is with the Powershell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
+The easiest way to register multiple Azure App Service endpoints, all running in the **same** Azure region, is with the PowerShell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
 
 The first step is to create an Azure Traffic Manager profile.  The code below shows how the profile was created for the sample app:
 
@@ -74,7 +74,7 @@ Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficMan
 Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 ```
 
-Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each individual app instance.  The *TargetResourceId* parameter in each Powershell command references one of the three deployed app instances.  The Traffic Manager profile will spread load across all three endpoints registered in the profile.
+Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each individual app instance.  The *TargetResourceId* parameter in each PowerShell command references one of the three deployed app instances.  The Traffic Manager profile will spread load across all three endpoints registered in the profile.
 
 All of the three endpoints use the same value (10) for the *Weight* parameter.  This results in Traffic Manager spreading customer requests across all three app instances relatively evenly. 
 
@@ -109,7 +109,7 @@ The console picture below shows a DNS lookup for the sample app's custom domain 
 ![DNS Lookup][DNSLookup] 
 
 ## Additional Links and Information
-Documentation on the Powershell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
+Documentation on the PowerShell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

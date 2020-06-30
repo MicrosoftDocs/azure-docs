@@ -41,7 +41,7 @@ There are two approaches for restricting traffic to this endpoint:
 * [Network Security Groups][NetworkSecurityGroups]
 
 ## Restricting Access With a Network ACL
-Port 1433 can be secured using a network access control list.  The example below whitelists client addresses originating from inside of a virtual network, and blocks access to all other clients.
+Port 1433 can be secured using a network access control list.  The example below adds to assignment permissions the client addresses originating from inside of a virtual network, and blocks access to all other clients.
 
 ![Network Access Control List Example][NetworkAccessControlListExample]
 

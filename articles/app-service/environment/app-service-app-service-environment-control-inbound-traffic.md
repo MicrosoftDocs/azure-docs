@@ -1,6 +1,6 @@
 ---
 title: Control inbound traffic v1
-description: Learn howto control inbound traffic to an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
+description: Learn how to control inbound traffic to an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
 
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
@@ -48,7 +48,7 @@ It is also recommended that any custom DNS servers on the vnet be setup ahead of
 ## Creating a Network Security Group
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The Azure Service Management example below touches on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.
 
-**Note:** Network security groups can be configured graphically using the [Azure Portal](https://portal.azure.com) or through Azure PowerShell.
+**Note:** Network security groups can be configured graphically using the [Azure portal](https://portal.azure.com) or through Azure PowerShell.
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, ensure that the network security group is created in the same region as the App Service Environment.
 
