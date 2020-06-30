@@ -163,6 +163,8 @@ Learn more about the Azure Maps Power BI visual:
 > [!div class="nextstepaction"]
 > [Manage the Azure Maps visual within your organization](power-bi-visual-manage-access.md)
 
+Customize the visual:
+
 > [!div class="nextstepaction"]
 > [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 

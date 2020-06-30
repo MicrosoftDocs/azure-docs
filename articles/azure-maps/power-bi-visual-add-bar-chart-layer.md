@@ -52,17 +52,6 @@ The following are all settings in the **Format** pane that are available in the 
 
 ## Next steps
 
-Change how your data is displayed on the map:
-
-> [!div class="nextstepaction"]
-> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
-
-> [!div class="nextstepaction"]
-> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
-
-> [!div class="nextstepaction"]
-> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
-
 Add more context to the map:
 
 > [!div class="nextstepaction"]
@@ -73,3 +62,11 @@ Add more context to the map:
 
 > [!div class="nextstepaction"]
 > [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
+
+Customize the visual:
+
+> [!div class="nextstepaction"]
+> [Tips and tricks for color formatting in Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+
+> [!div class="nextstepaction"]
+> [Customize visualization titles, backgrounds, and legends](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
