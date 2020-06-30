@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart - Add an app to your Azure Active Directory tenant'
-description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
+title: 'Quickstart - Set up Single Sign-On (SSO) for an application in your Azure AD tenant'
+description: This quickstart walks through the process of setting up Single Sign-On (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -8,137 +8,133 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Add an application to your Azure Active Directory tenant
+# Quickstart: Set up Single Sign-On (SSO) for an application in your Azure AD tenant
 
-Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery. This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
+Get started with simplified user logins by setting up SSO for an application you have added to your Azure AD tenant. After setting up SSO your users will be able to sign into an application using their Azure AD credentials. SSO is included in the free edition of Azure AD. 
 
-After an application is added to your Azure AD tenant, you can:
+## Prerequisites
 
-- Manage user access to the application with a Conditional Access policy.
-- Configure users to single sign-on to the application with their Azure AD accounts.
+To set up SSO for an application you have added to your tenant, you need:
 
-## Before you begin
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An application that supports SSO
+- (Optional: Completion of [View your apps](view-applications-portal.md))
+- (Optional: Completion of [Add an app](add-application-portal.md))
+- (Optional: Completion of [Configure an app](add-application-portal-configure.md))
 
-To add an application to your tenant, you need:
 
-- An Azure AD subscription
-- A single sign-on enabled subscription for your application
+>[!IMPORTANT]
+>We recommend using a non-production environment to test the steps in this quickstart.
 
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
 
-To test the steps in this tutorial, we recommend using a non-production environment. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+## Procedure 1
 
-## Add an application to your Azure AD tenant
+<!---Required:
+Quickstarts are prescriptive and guide the customer through an end-to-end procedure.
+Make sure to use specific naming for setting up accounts and configuring technology.
 
-To add a gallery application to your Azure AD tenant:
+Avoid linking off to other content - include whatever the customer needs to complete the
+scenario in the article. For example, if the customer needs to set permissions, include the
+permissions they need to set, and the specific settings in the quickstart procedure. Don't
+send the customer to another article to read about it.
 
-1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
+In a break from tradition, do not link to reference topics in the procedural part of the
+quickstart when using cmdlets or code. Provide customers what they need to know in the quickstart
+to successfully complete the quickstart.
 
-2. In the **Azure Active Directory** pane, select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
+For portal-based procedures, minimize bullets and numbering.
 
-3. To add a gallery app to your tenant, select **New application**. 
+For the CLI or PowerShell based procedures, don't use bullets or numbering.
 
-    ![Select New application to add a gallery app to your tenant](media/add-application-portal/new-application.png)
+Be mindful of the number of H2/procedures in the Quickstart. 3-5 procedural steps are about right.
+Once you've staged the article, look at the right-hand "In this article" section on the docs page;
+if there are more than 8 total, consider restructuring the article.
+--->
 
- 4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
+Include a sentence or two to explain only what is needed to complete the
+procedure.
 
-5. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
+1. Step 1 of the procedure
+1. Step 2 of the procedure
+1. Step 3 of the procedure
+   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png)
+   <!---Use screenshots but be judicious to maintain a reasonable length. Make
+    sure screenshots align to the
+    [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
 
-    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
+   If users access your product/service via a web browser the first screenshot
+   should always include the full browser window in Chrome or Safari. This is
+   to show users that the portal is browser-based - OS and browser agnostic.--->
+1. Step 4 of the procedure
 
-6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
+## Procedure 2
 
-    ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
+Include a sentence or two to explain only what is needed to complete the procedure.
 
-7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
+1. Step 1 of the procedure
+1. Step 2 of the procedure
+1. Step 3 of the procedure
 
-You've finished adding your application. The next sections show you how to change the logo and edit other properties for your application.
+## Procedure 3
 
-## Find your Azure AD tenant application
+Include a sentence or two to explain only what is needed to complete the procedure.
+<!---Code requires specific formatting. Here are a few useful examples of
+commonly used code blocks. Make sure to use the interactive functionality where
+possible.
+For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
 
-Let's assume you had to leave and now you're returning to continue configuring your application. The first thing to do is find your application.
+Here is an example of a code block for Java:
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-1. From the **Application Type** drop-down menu, select **All Applications**, and then select **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
-1. You can now see a list of all the applications in your Azure AD tenant. The list is a random sample. To see more applications, select **Show more** one or more times.
-1. To quickly find an application in your tenant, enter the application name in the search box and select **Apply**. This example finds the GitHub-test application added previously.
+```java
+cluster = Cluster.build(new File("src/remote.yaml")).create();
+...
+client = cluster.connect();
+```
 
-    ![Shows how to find an application using the search box](media/add-application-portal/find-application.png)
+or a code block for Azure CLI:
 
-## Configure user sign-in properties
+```azurecli 
+az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
+```
+or a code block for Azure PowerShell:
 
-Now that you've found the application, you can open it and configure application properties.
+```azurepowershell
+New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+```
 
-To edit the application properties:
+<!-- Use the -interactive CLI/PowerShell code fences ONLY if all such commands can be marked that way,
+otherwise the reader might run some in the interactive in which case the state isn't determinate. --->
 
-1. Select the application to open it.
-2. Select **Properties** to open the properties pane for editing.
+## Clean up resources
 
-    ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
+If you're not going to continue to use this application, delete <resources> with the following steps:
 
-3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
+1. From the left-hand menu...
+2. ...click Delete, type...and then click Delete
 
-    - **Enabled for users to sign-in?** determines whether users assigned to the application can sign in.
-    - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to users?** determines whether users assigned to an app can see it in the access panel and O365 launcher.
+<!---Required:
+To avoid any costs associated with following the quickstart procedure, a
+Clean up resources (H2) should come just before Next steps (H2).
 
-4. Use the following tables to help you choose the best options for your needs.
-
-   - Behavior for **assigned** users:
-
-       | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
-       |---|---|---|---|---|
-       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
-       | yes | yes | yes | yes | yes  |
-       | yes | yes | no  | yes | no   |
-       | yes | no  | yes | yes | yes  |
-       | yes | no  | no  | yes | no   |
-       | no  | yes | yes | no  | no   |
-       | no  | yes | no  | no  | no   |
-       | no  | no  | yes | no  | no   |
-       | no  | no  | no  | no  | no   |
-
-   - Behavior for **unassigned** users:
-
-       | Application property | Application property | Application property | Unassigned-user experience | Unassigned-user experience |
-       |---|---|---|---|---|
-       | Enabled for users to sign in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
-       | yes | yes | yes | no  | no   |
-       | yes | yes | no  | no  | no   |
-       | yes | no  | yes | yes | no   |
-       | yes | no  | no  | yes | no   |
-       | no  | yes | yes | no  | no   |
-       | no  | yes | no  | no  | no   |
-       | no  | no  | yes | no  | no   |
-       | no  | no  | no  | no  | no   |
-
-     *Can the user see the application in the access panel and the Office 365 app launcher?
-
-## Use a custom logo
-
-To use a custom logo:
-
-1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
-1. Since you've already found your application, select the application.
-1. In the left pane, select **Properties**.
-1. Upload the logo.
-1. When you're finished, select **Save**. 
-
-    ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
-
-   > [!NOTE]
-   > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the properties to see the updated icon.
+If there is a follow-on quickstart that uses the same resources, make that option clear
+so that a reader doesn't need to recreate those resources.
+--->
 
 ## Next steps
 
-Now that you've added the application to your Azure AD organization, [choose a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method) you want to use and refer to the appropriate article below:
+Advance to the next article to learn how to create...
+> [!div class="nextstepaction"]
+> [Next steps button](contribute-get-started-mvc.md)
 
-- [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
-- [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
-- [Configure linked sign-on](configure-linked-sign-on.md)
+<!--- Required:
+Quickstarts should always have a Next steps H2 that points to the next logical
+quickstart in a series, or, if there are no other quickstarts, to some other
+cool thing the customer can do. A single link in the blue box format should
+direct the customer to the next article - and you can shorten the title in the
+boxes if the original one doesn’t fit.
+Do not use a "More info section" or a "Resources section" or a "See also section". --->

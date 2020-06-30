@@ -25,8 +25,6 @@ This quickstart uses the Azure portal to view the applications in your Azure Act
 
 ## Before you begin
 
-To see results, you need to have at least one application in your Azure AD tenant. To add an application, see the [Add an application](add-application-portal.md) quickstart.
-
 Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
 
 ## Find the list of tenant applications
@@ -72,7 +70,6 @@ To search for a particular application:
 
 In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
 
-Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on.
-
-> [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-non-gallery-applications.md)
+- [Add an app](add-application-portal-configure.md)
+- [Configure an app](add-application-portal-configure.md)
+- [Set up single sign-on](add-application-portal-setup-sso.md)

@@ -22,16 +22,8 @@ After an application is added to your Azure AD tenant, you can:
 - Manage user access to the application with a Conditional Access policy.
 - Configure users to single sign-on to the application with their Azure AD accounts.
 
-## Before you begin
-
-To add an application to your tenant, you need:
-
-- An Azure AD subscription
-- A single sign-on enabled subscription for your application
-
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
-
-To test the steps in this tutorial, we recommend using a non-production environment. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+>[!IMPORTANT]
+>We recommend using a non-production environment to test the steps in this quickstart.
 
 ## Add an application to your Azure AD tenant
 
