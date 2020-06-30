@@ -53,7 +53,7 @@ If you are creating a new Azure Key Vault through Azure portal, __Soft Delete__ 
 
 Make sure that Azure Key Vault and Azure Data Factory are in the same Azure Active Directory (Azure AD) tenant and in the _same region_. From Azure Key Vault access control, grant data factory's Managed Service Identity (MSI) following permissions: _Get_, _Unwrap Key_, and _Wrap Key_. These permissions are required to enable customer-managed keys in Data Factory.
 
-  ![Screenshot Enable Data Factory Access to Key Vault](media/enable-customer-managed-key/02-access-policy-factory-msi.png)
+  ![Screenshot Enable Data Factory Access to Key Vault](media/enable-customer-managed-key/02-access-policy-factory-managed-identities.png)
 
 ### Generate or upload customer-managed key to Azure Key Vault
 
@@ -69,13 +69,13 @@ You can either create your own keys and store them in a key vault, or you can us
 
 1. Copy the value of the Key Identifier field, which provides the URI
 
-    ![Screenshot Get Key URI from Key Vault](media/enable-customer-managed-key/04-get-key-uri.png)
+    ![Screenshot Get Key URI from Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
 1. Launch Azure Data Factory portal, and using the navigation bar on the left, jump to Data Factory Home Page
 
 1. Click on the __Customer manged key__ icon
 
-    ![Screenshot Enable Customer Managed Key in Data Factory](media/enable-customer-managed-key/05-cmk-configuration.png)
+    ![Screenshot Enable Customer Managed Key in Data Factory](media/enable-customer-managed-key/05-customer-managed-key-configuration.png)
 
 1. Enter the URI for customer-managed key that you copied before
 
