@@ -43,8 +43,8 @@ __Mitigations provided by Azure Machine Learning__:
 * __Image URL__ and __Markdown links__ are sent to a Microsoft owned endpoint, which checks for malicious values. If a malicious value is detected, the endpoint rejects the request.
 
 __Recommended actions__:
-* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
-* When selecting a link to open an external application, you will be prompted to trust the application.
+* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you're uploading trusted files.
+* When selecting a link to open an external application, you'll be prompted to trust the application.
 
 ## Azure ML compute instance
 
@@ -58,7 +58,7 @@ __Mitigations provided by Azure Machine Learning__:
 * None. Jupyter and Jupyter Lab are open-source applications hosted on the Azure Machine Learning compute instance.
 
 __Recommended actions__:
-* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you are uploading trusted files.
+* Verify that you trust the contents of files before uploading to studio. When uploading, you must acknowledge that you're uploading trusted files.
 
 ## Report security issues or concerns 
 
