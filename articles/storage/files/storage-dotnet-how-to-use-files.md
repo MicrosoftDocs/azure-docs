@@ -119,9 +119,10 @@ using Microsoft.Azure.Storage; // Namespace for Storage Client Library
 using Microsoft.Azure.Storage.Blob; // Namespace for Azure Blobs
 using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 ```
----
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
+
+---
 
 ## Access the file share programmatically
 
