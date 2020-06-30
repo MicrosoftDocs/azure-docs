@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: dphansen
-ms.author: davidph
+author: garyericson
+ms.author: garye
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 11/20/2019

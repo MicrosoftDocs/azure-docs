@@ -73,25 +73,34 @@ To assign the TenantCreator application role:
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage the TenantCreator application role. Search for and select **Enterprise applications**. If you're working with multiple Azure Active Directory tenants, it's a best practice to open a private browser session and copy and paste the URLs into the address bar.
 
-   ![Screenshot of searching for Enterprise applications in the Azure portal](../media/azure-portal-enterprise-applications.png)
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of searching for Enterprise applications in the Azure portal](../media/azure-portal-enterprise-applications.png)
+
 2. Within **Enterprise applications**, search for **Windows Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Windows Virtual Desktop**.
    
-   ![A screenshot of the search results when searching for "Windows Virtual Desktop" in "Enterprise applications." The app named "Windows Virtual Desktop" is highlighted.](../media/tenant-enterprise-app.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the search results when searching for "Windows Virtual Desktop" in "Enterprise applications." The app named "Windows Virtual Desktop" is highlighted.](../media/tenant-enterprise-app.png)
+
 3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create a Windows Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
    
-   ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot shows only one assignment, which is for "Default Access."](../media/tenant-default-access.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot shows only one assignment, which is for "Default Access."](../media/tenant-default-access.png)
+
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** tab.
 5. Search for a user account that will create your Windows Virtual Desktop tenant. For simplicity, this can be the global administrator account.
    - If you're using a Microsoft Identity Provider like contosoadmin@live.com or contosoadmin@outlook.com, you might not be able to sign in to Windows Virtual Desktop. We recommend using a domain-specific account like admin@contoso.com or admin@contoso.onmicrosoft.com instead.
 
-   ![A screenshot of selecting a user to add as "TenantCreator."](../media/tenant-assign-user.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of selecting a user to add as "TenantCreator."](../media/tenant-assign-user.png)
+
    > [!NOTE]
    > You must select a user (or a group that contains a user) that's sourced from this Azure Active Directory instance. You can't choose a guest (B2B) user or a service principal.
 
 6. Select the user account, choose the **Select** button, and then select **Assign**.
 7. On the **Windows Virtual Desktop - Users and groups** page, verify that you see a new entry with the **TenantCreator** role assigned to the user who will create the Windows Virtual Desktop tenant.
 
-   ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot now includes a second entry of a user assigned to the "TenantCreator" role.](../media/tenant-tenant-creator-added.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot now includes a second entry of a user assigned to the "TenantCreator" role.](../media/tenant-tenant-creator-added.png)
 
 Before you continue on to create your Windows Virtual Desktop tenant, you need two pieces of information:
 
@@ -101,20 +110,26 @@ Before you continue on to create your Windows Virtual Desktop tenant, you need t
 To find your Azure Active Directory tenant ID (or **Directory ID**):
 1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Azure Active Directory**.
 
-   ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-azure-active-directory.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-azure-active-directory.png)
+
 2. Scroll down until you find **Properties**, and then select it.
 3. Look for **Directory ID**, and then select the clipboard icon. Paste it in a handy location so you can use it later as the **AadTenantId** value.
 
-   ![A screenshot of the Azure Active Directory properties. The mouse is hovering over the clipboard icon for "Directory ID" to copy and paste.](../media/tenant-directory-id.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Azure Active Directory properties. The mouse is hovering over the clipboard icon for "Directory ID" to copy and paste.](../media/tenant-directory-id.png)
 
 To find your Azure subscription ID:
 1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Subscriptions**.
    
-   ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-subscription.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-subscription.png)
+
 2. Select the Azure subscription you want to use to receive Windows Virtual Desktop service notifications.
 3. Look for **Subscription ID**, and then hover over the value until a clipboard icon appears. Select the clipboard icon and paste it in a handy location so you can use it later as the **AzureSubscriptionId** value.
    
-   ![A screenshot of the Azure subscription properties. The mouse is hovering over the clipboard icon for "Subscription ID" to copy and paste.](../media/tenant-subscription-id.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Azure subscription properties. The mouse is hovering over the clipboard icon for "Subscription ID" to copy and paste.](../media/tenant-subscription-id.png)
 
 ## Create a Windows Virtual Desktop tenant
 

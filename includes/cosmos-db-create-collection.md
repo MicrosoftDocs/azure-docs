@@ -16,7 +16,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
     
     The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
 
-    ![The Azure portal Data Explorer, Add Container pane](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
 
 2. In the **Add container** page, enter the settings for the new container.
 
