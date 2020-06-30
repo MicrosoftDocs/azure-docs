@@ -11,25 +11,21 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Analyze complex data types in Synapse
+# Analyze complex data types in Azure Synapse Analytics
 
-This article is relevant for Parquet files and containers in [Azure Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). It explains how users can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document but can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
+This article is relevant for Parquet files and containers in [Synapse Link for Azure Cosmos DB](.\synapse-link\how-to-connect-synapse-link-cosmos-db.md). It explains how users can use Spark or SQL to read or transform data with complex schemas such as arrays or nested structures. The following example is completed with a single document but can easily scale to billions of documents with Spark or SQL. The code included in this article uses PySpark (Python).
 
 ## Use Case
 
-Complex data types are increasingly common and represent a challenge for data engineers as analyzing nested schema and arrays tend to include
+Complex data types are increasingly common and represent a challenge for data engineers as analyzing nested schema and arrays tend to include time-consuming and complex SQL queries. Additionally, it can be difficult to rename or cast the nested columns data type. Also, performance issues arise when working with deeply nested objects.
 
-* Complex SQL queries
-* Difficult to rename/cast datatype of nested columns
-* Performance issues with deeply nested objects
+Data Engineers need to understand how to efficiently process complex data types and make them easily accessible to everyone.
 
-Data Engineers need to understand how to efficiently process those data types and make them easily accessible by everyone.
-
-In the following example, Synapse Spark is used to read and transform objects in to a flat structure through data frames. Synapse SQL serverless is used to query such objects directly and return those results as a regular table.
+In the following example, Synapse Spark is used to read and transform objects into a flat structure through data frames. Synapse SQL serverless is used to query such objects directly and return those results as a regular table.
 
 ## What are arrays and nested structures?
 
-The following object comes from App Insight. In this object, there are nested structures and arrays that contain nested structures.
+The following object comes from [App Insight](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
 
 ```json
 {
@@ -86,7 +82,7 @@ With Synapse Spark, transforming nested structures into columns and array elemen
 
 [![Spark transformations steps](./media/how-to-complex-schema/spark-transfo-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
 
-**Step 1**: We define a function to flatten the nested schema. This function can be used without change. Create a cell in a Pyspark notebook with the following function:
+**Step 1**: We define a function to flatten the nested schema. This function can be used without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
 
 ```python
 from pyspark.sql.functions import col
@@ -168,7 +164,7 @@ First, depending how the data has been stored, users should use the following ta
 
 
 > [!NOTE]
-> SQL serverless will support Linked Service for Azure Synapse Link for Azure Cosmos DB and AAD passthrough. The capability is currently under gated preview for Synapse Link.
+> SQL serverless will support Linked Service for Synapse Link for Azure Cosmos and AAD passthrough. The capability is currently under gated preview for Synapse Link.
 
 Replace each field as follows:
 * 'YOUR BULK ABOVE' = the connection string of the data source you connect to
@@ -217,5 +213,5 @@ SQL serverless can query in-place, map the array in 2 rows and, display all nest
 
 ## Next steps
 
-* [Learn how to query Azure Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
+* [Learn how to query Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Query parquet nested types](./sql/query-parquet-nested-types.md) 
