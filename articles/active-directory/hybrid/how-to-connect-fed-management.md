@@ -187,7 +187,7 @@ To change the logo of the company that's displayed on the **Sign-in** page, use 
 > [!NOTE]
 > The recommended dimensions for the logo are 260 x 35 \@ 96 dpi with a file size no greater than 10 KB.
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 ```
 
@@ -197,7 +197,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 ## <a name="addsignindescription"></a>Add a sign-in description 
 To add a sign-in page description to the **Sign-in page**, use the following Windows PowerShell cmdlet and syntax.
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 ```
 
