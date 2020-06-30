@@ -53,7 +53,7 @@ New-AzSnapshot
 
 Since ADE and SSE with customer-managed keys are incompatible, you must disable ADE to start the migration process.
 
-[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-encryption-cli.md)]
+[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
 
 ## Verify encryption status
 

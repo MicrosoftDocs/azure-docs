@@ -48,7 +48,7 @@ New-AzSnapshot
 
 Since ADE and SSE with customer-managed keys are incompatible, you must disable ADE to migrate to SSE with customer-managed keys.
 
-[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-encryption-powershell.md)]
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## Verify encryption status
 
