@@ -185,7 +185,7 @@ function renderErrorMessage(message, code) {
 
 ## bingSpellCheck function
 
-The `bingSpellCheck` function is called each time the user enters text in the HTML form field.
+The bingSpellCheck function is called each time the user enters text in the HTML form field.
 It takes two parameters: the contents of the HTML form field, and the Bing Spell Check API key.
 
 ```html
