@@ -219,7 +219,11 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 ## Restrict egress traffic using Azure firewall
 
-Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration. The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
+Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration. 
+
+> [!NOTE]
+> The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
+
 Below is an example architecture of the deployment:
 
 ![Locked down topology](media/limit-egress-traffic/aks-azure-firewall-egress.png)
@@ -302,6 +306,11 @@ az network vnet subnet create \
 Azure Firewall inbound and outbound rules must be configured. The main purpose of the firewall is to enable organizations to configure granular ingress and egress traffic rules into and out of the AKS Cluster.
 
 ![Firewall and UDR](media/limit-egress-traffic/firewall-udr.png)
+
+
+> [!IMPORTANT]
+> If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
+> For more information on how to create an Azure firewall with multiple IPs, see [**here**](../firewall/quick-create-multiple-ip-template.md)
 
 Create a standard SKU public IP resource that will be used as the Azure Firewall frontend address.
 
