@@ -172,6 +172,9 @@
               href: how-to-change-storage-access-key.md
             - name: Use Azure Firewall
               href: how-to-access-azureml-behind-firewall.md
+            - name: Secure coding
+              href: concept-secure-code-best-practice.md
+              displayName: security threat
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md

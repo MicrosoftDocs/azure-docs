@@ -1,20 +1,8 @@
 ---
 title: Connect to your virtual machines through a browser - Azure | Microsoft Docs
 description: Learn how to connect to your virtual machines through a browser.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2019
-ms.author: takamath
-
+ms.date: 06/26/2020
 ---
 
 # Connect to your virtual machines through a browser 
