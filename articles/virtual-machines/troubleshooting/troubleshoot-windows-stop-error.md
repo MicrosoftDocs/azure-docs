@@ -39,7 +39,7 @@ The operating system’s disk is either full, too fragmented, or the operating s
 
 ## Solution
 
-Process Overview:
+### Process Overview:
 
 1. Create and Access a Repair VM
 1. Free Up Space on the Disk
@@ -56,7 +56,7 @@ Process Overview:
 1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
-For Generation 2 VMs, assign a letter to the Extensible Firmware Interface (EFI) partition:
+### For Generation 2 VMs, assign a letter to the Extensible Firmware Interface (EFI) partition:
 
 If you're using a Generation 2 VM, the EFI partition of the attached disk may not have a letter assigned to it. You'll need to follow the steps below to assign a letter to the partition before proceeding with this troubleshooting guide.
 
@@ -80,8 +80,8 @@ If you're using a Generation 2 VM, the EFI partition of the attached disk may no
    - In the command, replace `<NUMBER OF THE ATTACHED DISK>` with the disk number you identified in step 2.
    - In the command, replace `<NUMBER OF THE SYSTEM PARTION>` with the partition number of the EFI system partition. This partition has not been assigned a letter yet, but it should be of the type **System** and be about 100MB in size.
 
-> [!NOTE]
-> Comparing the partitions in the Disk Management console with those listed in the DISKPART tool, may be helpful in determining which partition number corresponds to the EFI system partition in the attached disk.
+   > [!NOTE]
+   > Comparing the partitions in the Disk Management console with those listed in the DISKPART tool, may be helpful in determining which partition number corresponds to the EFI system partition in the attached disk.
 
 1. Close the command prompt window.
 
@@ -125,7 +125,7 @@ Now that the broken disk is attached to the repair VM, you should verify that th
 
 The page file stores data that cannot be held by your computer’s random-access memory (RAM) as a form of overflow/backup. It is possible that the file is hosted in a VHD rather than the temp drive, which is the default Azure location. If true, the file may not be accessible, and should be restored to the default location.
 
-Before taking any steps, you should create a copy of the \windows\system32\config folder on a healthy disk. This step ensures that can undo any unwanted changes. You'll be working on important system files, so this precaution is highly recommended.
+Before taking any steps, you should create a copy of the **\windows\system32\config** folder on a healthy disk. This step ensures that can undo any unwanted changes. You'll be working on important system files, so this precaution is highly recommended.
 
 1. In Windows search, enter **regedit** and open the Registry Editor application.
 1. In the Registry Editor, highlight the key **HKEY_LOCAL_MACHINE** and select **File > Load Hive...** from the menu.
@@ -180,8 +180,8 @@ To enable memory dump collection and Serial Console, run the following script:
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
    
-   1. In the command, replace `<VOLUME LETTER WHERE THE BCD FOLDER IS>` with the letter of the BCD folder.
-   1. In the command, replace `<BOOT LOADER IDENTIFIER>` with the identifier you found in the previous step.
+   - In the command, replace `<VOLUME LETTER WHERE THE BCD FOLDER IS>` with the letter of the BCD folder.
+   - In the command, replace `<BOOT LOADER IDENTIFIER>` with the identifier you found in the previous step.
 
 1. Verify that the free space on the OS disk is larger than the memory size (RAM) on the VM.
 
