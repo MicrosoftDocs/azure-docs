@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/30/2020
 ---
 
 # Secure access and data in Azure Logic Apps
