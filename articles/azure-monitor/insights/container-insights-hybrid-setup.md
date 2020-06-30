@@ -245,7 +245,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
-## Install the chart
+## Install the HELM chart
 
 In this section you install the containerized agent for Azure Monitor for containers. Before proceeding, you need to identify the workspace ID required for the `omsagent.secret.wsid` parameter, and primary key required for the `omsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the command to install the agent using the HELM chart.
 
@@ -296,7 +296,7 @@ In this section you install the containerized agent for Azure Monitor for contai
 
 ### Enable the Helm chart using the API Model
 
-You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics workspace where the collected monitoring data is stored.
+You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics workspace where the collected monitoring data is stored. You can find the `WorkspaceGUID` and `WorkspaceKey` using steps 1 and 2 in the previous section.
 
 Supported API definitions for the Azure Stack Hub cluster can be found in this example - [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Specifically, find the **addons** property in **kubernetesConfig**:
 
