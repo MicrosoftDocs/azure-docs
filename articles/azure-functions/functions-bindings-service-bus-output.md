@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus bindings for Azure Functions
+title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 author: craigshoemaker
 
