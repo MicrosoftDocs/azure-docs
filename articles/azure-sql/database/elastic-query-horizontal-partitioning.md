@@ -43,10 +43,12 @@ These statements create the metadata representation of your sharded data tier in
 
 The credential is used by the elastic query to connect to your remote databases.  
 
+    ```sql
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
+    ```
 
 > [!NOTE]
 > Make sure that the *"\<username\>"* does not include any *"\@servername"* suffix.
@@ -55,6 +57,7 @@ The credential is used by the elastic query to connect to your remote databases.
 
 Syntax:
 
+    ```sql
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
             (TYPE = SHARD_MAP_MANAGER,
@@ -63,9 +66,11 @@ Syntax:
             CREDENTIAL = <credential_name>,
             SHARD_MAP_NAME = ‘<shardmapname>’
                    ) [;]
+    ```
 
 ### Example
 
+    ```sql
     CREATE EXTERNAL DATA SOURCE MyExtSrc
     WITH
     (
@@ -75,10 +80,13 @@ Syntax:
         CREDENTIAL= SMMUser,
         SHARD_MAP_NAME='ShardMap'
     );
+    ```
 
 Retrieve the list of current external data sources:
 
+    ```sql
     select * from sys.external_data_sources;
+    ```
 
 The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier.
 The same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query.
@@ -87,6 +95,7 @@ The same credentials are used to read the shard map and to access the data on th
 
 Syntax:  
 
+    ```sql
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])
         { WITH ( <sharded_external_table_options> ) }
@@ -97,9 +106,11 @@ Syntax:
       [ SCHEMA_NAME = N'nonescaped_schema_name',]
       [ OBJECT_NAME = N'nonescaped_object_name',]
       DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+    ```
 
 **Example**
 
+    ```sql
     CREATE EXTERNAL TABLE [dbo].[order_line](
          [ol_o_id] int NOT NULL,
          [ol_d_id] tinyint NOT NULL,
@@ -120,6 +131,7 @@ Syntax:
          OBJECT_NAME = 'order_details',
         DISTRIBUTION=SHARDED(ol_w_id)
     );
+    ```
 
 Retrieve the list of external tables from the current database:
 
@@ -127,7 +139,9 @@ Retrieve the list of external tables from the current database:
 
 To drop external tables:
 
+    ```sql
     DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+    ```
 
 ### Remarks
 
