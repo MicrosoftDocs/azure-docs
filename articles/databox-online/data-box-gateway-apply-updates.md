@@ -6,7 +6,7 @@ author: priestlg
 
 ms.service: databox
 ms.topic: article
-ms.date: 06/24/2020
+ms.date: 06/30/2020
 ms.author: v-grpr
 ---
 # Update your Azure Data Box Gateway
