@@ -215,10 +215,20 @@ For more information, see NGINX's documentation on [NGINX SSL Termination](https
 
 
 ## Example API request
+The container provides REST-based query prediction endpoint APIs.
 
-The following JSON is an example of the Text Analytics for Health API request's POST body:
+Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
+
+```bash
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+
+```
+
+The following JSON is an example of a JSON file attached to the Text Analytics for Health API request's POST body:
 
 ```json
+example.json
+
 {
   "documents": [
     {
