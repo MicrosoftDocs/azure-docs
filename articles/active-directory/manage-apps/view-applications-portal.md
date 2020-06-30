@@ -21,18 +21,26 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: View your Azure Active Directory tenant applications
 
-This quickstart uses the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
+Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications that are already registered in your Azure AD tenant. 
 
-## Before you begin
+## Prerequisites
 
-Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
+To view applications that have been registered in your Azure AD tenat, you need:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- The role of Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+
+
+>[!IMPORTANT]
+>We recommend using a non-production environment to test the steps in this quickstart.
 
 ## Find the list of tenant applications
 
-Your Azure AD tenant applications are viewable in the **Enterprise apps** section of the Azure portal.
+The applications that are registered with your Azure AD tenant are viewable in the **Enterprise apps** section of the Azure portal.
 
 To find your tenant applications:
 
+1. Sign in to your [Azure portal](https://portal.azure.com).
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
 1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 1. From the **Application Type** drop-down menu, select **All Applications**, and choose **Apply**. A random sample of your tenant applications appears.
