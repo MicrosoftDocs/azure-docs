@@ -65,8 +65,7 @@ To read more about securing your Active Directory environment, see [Best Practic
 
 Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following the recommendations below will help to mitigate some security risks to your organization. 
 
-- You **may** install Azure AD Connect on a Domain Controller to enforce more restrictive settings that can protect your environment from certain security risks.  
-- If you **cannot install** Azure AD Connect on a Domain Controller then: 
+   - You **must** treat Azure AD Connect the same as a [Domain Controller and other Tier 0 resources](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
     - You **should** restrict administrative access to the Azure AD Connect server to only domain administrators or other tightly controlled security groups.  
     - You **should** remove access to the Azure AD Connect server for local accounts and only Domain Admins should be a member of the Administrators group on the Azure AD Connect server. 
     - You **should** create a dedicated account for all personnel with privileged access. Administrators should not be browsing the web, checking their email, and doing day to day productivity tasks with highly privileged accounts. 
