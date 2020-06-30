@@ -89,9 +89,7 @@ Use the docker login command with credentials provided in your onboarding email 
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
-
-For a full description of available tags for the Text Analytics containers, see the [Text Analytics for health](https://go.microsoft.com/fwlink/?linkid=2018759) container on the Docker Hub.
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download this container image from our private container registry.
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-healthcare:latest
