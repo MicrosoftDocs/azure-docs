@@ -1,5 +1,5 @@
 ---
-title: 'Upcoming changes to the ingestion and flattening rules | Microsoft Docs'
+title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights | Microsoft Docs'
 description: Ingestion rule changes
 ms.service: time-series-insights
 services: time-series-insights
@@ -18,10 +18,10 @@ These changes will be applied to new Azure Time Series Insights pay-as-you-go (P
 
 Your Azure Time Series Insights environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
 
-1. If your JSON payload contains nested objects
-1. If your JSON payload contains arrays
-1. If you use any of the following four special characters in a JSON property name: [ \ . '
-1. If one or more of your TS ID properties are within a nested object.
+* If your JSON payload contains nested objects
+*  If your JSON payload contains arrays
+*  If you use any of the following four special characters in a JSON property name: [ \ . '
+*  If one or more of your TS ID properties are within a nested object.
 
 If you create a new environment and one or more of the cases above applies to your event payload, you'll see your data flattened and stored differently. Below is a summary of the changes:
 
@@ -32,15 +32,15 @@ If you create a new environment and one or more of the cases above applies to yo
 | Arrays of primitives are stored as a string | Arrays of primitive types are stored as a dynamic type  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
 Arrays of objects are always flattened, producing multiple events | If the objects within an array don't have either the TS ID or timestamp propert(ies), the array of objects is stored whole as a dynamic type | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
 
-## Recommended Changes
+## Recommended changes
 
 #### If your TS ID and/or timestamp property is nested within an object:
 
-1. Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you'll need to update any ARM templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This change is needed for event source timestamps in nested JSON as well.
+*  Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you'll need to update any ARM templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This change is needed for event source timestamps in nested JSON as well.
 
  #### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
-1. Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) expression of `"value": {"tsx": "$event.series.value.Double"}` should be updated to `"value": {"tsx": "$event.['series.value'].Double"}`
+*  Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) expression of `"value": {"tsx": "$event.series.value.Double"}` should be updated to `"value": {"tsx": "$event.['series.value'].Double"}`
 
 ## Next steps
 
