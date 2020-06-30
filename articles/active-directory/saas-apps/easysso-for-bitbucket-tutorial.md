@@ -101,13 +101,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. The EasySSO for BitBucket application also expects a few more attributes to be passed back in the SAML response. The following table shows these. These attributes are also pre-populated, but you can review them per your requirements.
 	
-	| Name |  |  Source attribute|
-	| ---------------| --------------- | --------- |
-	| urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-	| urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-	| urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-	| urn:oid:2.5.4.4 | | user.surname |
-	| urn:oid:2.5.4.42 | | user.givenname |
+	| Name | Source attribute|
+	| ---------------| --------- |
+	| urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+	| urn:oid:2.5.4.4 | user.surname |
+	| urn:oid:2.5.4.42 | user.givenname |
     
 	If your Azure AD users have **sAMAccountName** configured, you have to map **urn:oid:0.9.2342.19200300.100.1.1** onto the **sAMAccountName** attribute.
     
