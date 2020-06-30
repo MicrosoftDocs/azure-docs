@@ -42,7 +42,12 @@ The installation shows the following attributes, which are valid candidates:
 
 
 >[!NOTE]
+> Reference attributes are currently not supported as synchronized directory extensions and will not be listed by this installation wizard feature.
+
+
+>[!NOTE]
 > Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
+
 
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
