@@ -3,16 +3,21 @@ title: Send Azure Activity log to Log Analytics workspace using Azure Resource M
 description: Use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs.
 ms.subservice: logs
 ms.topic: quickstart
+ms.custom: subject-armqs
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
 
 ---
 
-# Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template
-The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use ARM templates to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../log-query/log-query-overview.md) and enable other features such as [log alerts](../platform/alerts-log-query.md) and [workbooks](../platform/workbooks-overview.md). 
+# Quickstart: Send Azure Activity log to Log Analytics workspace using an ARM template
+The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. This quickstart shows how to use Azure Resource Manager templates (ARM templates) to create a Log Analytics workspace and a diagnostic setting to send the Activity log to Azure Monitor Logs where you can analyze it using [log queries](../log-query/log-query-overview.md) and enable other features such as [log alerts](../platform/alerts-log-query.md) and [workbooks](../platform/workbooks-overview.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a Log Analytics workspace
 
@@ -159,6 +164,8 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 ---
 
 ## Create diagnostic setting
+
+### Review the template
 The following template creates a diagnostic setting that sends the Activity log to a Log Analytics workspace. Save this template as *CreateDiagnosticSetting.json*.
 
 ```json
