@@ -30,6 +30,7 @@ To use the control plane APIs:
 * You can currently access SDKs for control APIs in...
   - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1)
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins)
+  - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins)
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/)
   - [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
 
