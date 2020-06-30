@@ -34,7 +34,7 @@ Start by copying the following JSON into a new file named `azuredeploy.json`. Th
 * The *init1* container runs the [busybox](https://hub.docker.com/_/busybox) image from Docker Hub. It sleeps for 60 seconds and then writes a command-line string to a file in an [emptyDir volume](container-instances-volume-emptydir.md).
 * Both application containers run the Microsoft `aci-wordcount` container image:
     * The *hamlet* container runs the wordcount app in its default configuration, counting word frequencies in Shakespeare's play *Hamlet*.
-    * The *juliet* app container reads the command-line string from the emptDir volue to run the wordcount app instead on Shakespeare's *Romeo and Juliet*.
+    * The *juliet* app container reads the command-line string from the emptDir volume to run the wordcount app instead on Shakespeare's *Romeo and Juliet*.
 
 For more information and examples using the `aci-wordcount` image, see [Set environment variables in container instances](container-instances-environment-variables.md).
 
@@ -171,7 +171,7 @@ az deployment group create \
   --template-file azuredeploy.json
 ```
 
-In a group with an init container, the deployment time is increased because ofthe time it takes for the init container or containers to complete.
+In a group with an init container, the deployment time is increased because of the time it takes for the init container or containers to complete.
 
 
 ## View container logs
