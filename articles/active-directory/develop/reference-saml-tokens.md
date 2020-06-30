@@ -66,12 +66,12 @@ This is a sample of a typical SAML token.
                     <ds:CanonicalizationMethod Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
                     <ds:SignatureMethod Algorithm="https://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
                     <ds:Reference URI="#_3ef08993-846b-41de-99df-b7f3ff77671b">
-                    <ds:Transforms>
-                        <ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-                        <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
-                    </ds:Transforms>
-                    <ds:DigestMethod Algorithm="https://www.w3.org/2001/04/xmlenc#sha256" />
-                    <ds:DigestValue>cV1J580U1pD24hEyGuAxrbtgROVyghCqI32UkER/nDY=</ds:DigestValue>
+                        <ds:Transforms>
+                            <ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </ds:Transforms>
+                        <ds:DigestMethod Algorithm="https://www.w3.org/2001/04/xmlenc#sha256" />
+                        <ds:DigestValue>cV1J580U1pD24hEyGuAxrbtgROVyghCqI32UkER/nDY=</ds:DigestValue>
                     </ds:Reference>
                 </ds:SignedInfo>
                 <ds:SignatureValue>j+zPf6mti8Rq4Kyw2NU2nnu0pbJU1z5bR/zDaKaO7FCTdmjUzAvIVfF8pspVR6CbzcYM3HOAmLhuWmBkAAk6qQUBmKsw+XlmF/pB/ivJFdgZSLrtlBs1P/WBV3t04x6fRW4FcIDzh8KhctzJZfS5wGCfYw95er7WJxJi0nU41d7j5HRDidBoXgP755jQu2ZER7wOYZr6ff+ha+/Aj3UMw+8ZtC+WCJC3yyENHDAnp2RfgdElJal68enn668fk8pBDjKDGzbNBO6qBgFPaBT65YvE/tkEmrUxdWkmUKv3y7JWzUYNMD9oUlut93UTyTAIGOs5fvP9ZfK2vNeMVJW7Xg==</ds:SignatureValue>
