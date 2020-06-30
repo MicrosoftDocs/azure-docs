@@ -27,7 +27,7 @@ When you set up diagnostic logging, you will be asked to specify a storage mecha
 
 ## Prerequisites
 
-Create resources in advance so that you can select one when configuring diagnostic logging.
+Create resources in advance so that you can select one or more when configuring diagnostic logging.
 
 + [Create a log analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
 
@@ -112,11 +112,9 @@ AzureDiagnostics
 | render timechart
 ```
 
-## Find query and index events
+## Logged operations
 
 Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
-
-Most of the logged data is for read-only operations ([query monitoring](search-monitor-queries.md)). For other create-update-delete operations not captured in the log, you can query the search service for system information.
 
 | OperationName | Description |
 |---------------|-------------|
@@ -132,9 +130,7 @@ Most of the logged data is for read-only operations ([query monitoring](search-m
 
 ## Log schema
 
-Data structures that contain Azure Cognitive Search log data conform to the schema below. 
-
-For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
+If you are building custom reports, the data structures that contain Azure Cognitive Search log data conform to the schema below. For Blob storage, each blob has one root object called **records** containing an array of log objects. Each blob contains records for all the operations that took place during the same hour.
 
 The following table is a partial list of fields common to resource logging.
 

@@ -13,7 +13,7 @@ ms.date: 06/30/2020
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article is an overview of monitoring concepts and tools for Azure Cognitive Search at the service and workload level. For holistic monitoring, you can use a combination of built-in infrastructure and foundational services like Azure Monitor, as well as search service APIs that return statistics, counts, and status. Understanding the range of capabilities can help you construct a feedback loop so that you can address problems as they emerge.
+This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and foundational services like Azure Monitor.
 
 Altogether, you can track the following:
 
@@ -26,13 +26,13 @@ A search service does not support per-user authentication natively, so no user i
 
 ## Built-in monitoring
 
-Built-in monitoring refers to activities that are tracked and reported on by a search service. With the exception of diagnostic logging, no configuration is required for this level of monitoring.
+Built-in monitoring refers to activities that are logged by a search service. With the exception of diagnostics, no configuration is required for this level of monitoring.
 
 Azure Cognitive Search maintains internal data on a rolling 30-day schedule for reporting on service health and query metrics, which you can find in the portal or through these [REST APIs](#monitoring-apis).
 
-The following screenshot helps you locate monitoring in the portal. Monitoring information becomes available as soon as you start using the service and the page is refreshed every few minutes.
+The following screenshot helps you locate monitoring information in the portal. Data becomes available as soon as you start using the service. Portal pages are refreshed every few minutes.
 
-* **Monitoring** tab, on the main Overview page, shows query volumes, latency, and whether the service had to drop queries due to pressure.
+* **Monitoring** tab, on the main Overview page, shows query volume, latency, and whether the service is under pressure.
 * **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
 * **Monitoring** settings, further down, provides configurable alerts, metrics, and diagnostic logs. Create these when you need them. Once data is collected and stored, you can query or visualize the information for insights.
 
@@ -40,7 +40,7 @@ The following screenshot helps you locate monitoring in the portal. Monitoring i
  "Azure Monitor integration in a search service")
 
 > [!NOTE]
-> Portal pages are refreshed every few minutes. As such, numbers reported in the portal are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page.
+> Because portal pages are refreshed every few minutes, the numbers reported are approximate, intended to give you a general sense of how well your system is servicing requests. Actual metrics, such as queries per second (QPS) may be higher or lower than the number shown on the page. If precision is a requirement, consider using APIs.
 
 <a name="monitoring-apis"> </a>
 
