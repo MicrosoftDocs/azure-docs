@@ -21,7 +21,7 @@ This quickstart shows you how to use the [Azure CLI Logic Apps extension](https:
 * An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account][Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An [installation of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your local machine.
 * An installation of the [Logic Apps Azure CLI extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-list?view=azure-cli-latest). Use the command `az extension add --name logic` to install this extension.
-* An [Azure resource group](#example--create-resource-group) in which to create your logic app.
+* An [Azure resource group](#example---create-resource-group) in which to create your logic app.
 
 ### Prerequisite check
 
@@ -86,7 +86,7 @@ Your command must include the following [required parameters](https://docs.micro
 | Workflow definition | `--definition` | A JSON file with your logic app's [workflow definition](#workflow-definition). |
 | Location | `--location -l` | The Azure region in which your logic app is located. |
 | Name | `--name -n` | The name of your logic app. The name can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`,`)`), and periods (`.`). The name must also be unique across regions. |
-| Resource group name | `--resource-group -g` | The [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) in which you want to create your logic app. [Create a resource group](#example--create-resource-group) before you begin if you don't already have one for your logic app. |
+| Resource group name | `--resource-group -g` | The [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) in which you want to create your logic app. [Create a resource group](#example---create-resource-group) before you begin if you don't already have one for your logic app. |
 
 You can also include additional [optional parameters](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, integration service environment, state, and resource tags.
 
@@ -125,7 +125,7 @@ az logic workflow create --definition
 
 ### Example - update logic app
 
-In this example, the [sample workflow created in the previous section](#example--create-logic-app) is updated to use a different JSON definition file, *newTestDefinition.json*, and add two resource tags, *testTag1* and *testTag2* with description values.
+In this example, the [sample workflow created in the previous section](#example---create-logic-app) is updated to use a different JSON definition file, *newTestDefinition.json*, and add two resource tags, *testTag1* and *testTag2* with description values.
 
 ```azurecli-interactive
 
@@ -168,7 +168,7 @@ You can confirm a logic app's deletion by [listing your logic apps in the CLI](#
 
 ### Example - delete logic app
 
-In this example, the [sample workflow created in a previous section](#example--create-logic-app) is deleted.
+In this example, the [sample workflow created in a previous section](#example---create-logic-app) is deleted.
 
 ```azurecli-interactive
 
