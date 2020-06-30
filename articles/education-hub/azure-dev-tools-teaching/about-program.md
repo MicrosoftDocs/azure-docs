@@ -47,7 +47,7 @@ You renew your subscription on the same renewal date as your previous Imagine su
 
 Your internal WebStore will no longer allow students to successfully download software after the
 launch of Azure Dev Tools for Teaching. If you want to retain your internal WebStore, you
-can provide redirects to the new WebStore by using the Azure Dev Tools for Teaching [short link](aka.ms/devtoolsforteaching).
+can provide redirects to the new WebStore by using the Azure Dev Tools for Teaching [short link](https://aka.ms/devtoolsforteaching).
 
 ### How do students access software?
 
@@ -65,4 +65,4 @@ No, this will not impact how you access Imagine Academy.
 ## Next steps
 
 - [Enroll or renew a subscription](enroll-renew-subscription.md)
-- [Support options](includes/educator-service-desk.md)
+- [Support options](../includes/educator-service-desk.md)
