@@ -23,11 +23,11 @@ Use this article to find the entity categories that can be returned by [Named En
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### [Personal and Health](#tab/personal)
+#### [Personal](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 
-#### [Biomedical](#tab/biomedical)
+#### [Health](#tab/health)
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 

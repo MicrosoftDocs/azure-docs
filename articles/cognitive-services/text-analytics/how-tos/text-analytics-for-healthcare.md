@@ -1,7 +1,7 @@
 ---
-title: How to use the Text Analytics for healthcare service
+title: How to use the Text Analytics for health service
 titleSuffix: Azure Cognitive Services
-description: This article explains how to use the Text Analytics for healthcare service.
+description: This article explains how to use the Text Analytics for health service.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,14 +13,15 @@ ms.date: 06/15/2020
 ms.author: aahi
 ---
 
-# How to: Use Text Analytics for health
+# How to: Use Text Analytics for Health (PREVIEW)
 
 > [!IMPORTANT] 
 > Text Analytics for Health is not a substitute for professional medical advice, diagnosis, or treatment. Azure Text Analytics for Health should only be used in patient care scenarios after review for accuracy and sound medical judgment by trained medical professionals.
 
-Azure Text Analytics for Health is a containerized service that extracts relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. The Text Analytics for Health container currently performs named entity recognition (NER), relation extraction, and entity linking for English-language text in your own environment that meets your specific security and data governance requirements.
+Azure Text Analytics for Health is a new Text Analytics service that extracts relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  Text Analytics for Health uses natural language processing techniques to find and label valuable information in unstructured clinical documents such as doctor's notes, electronic health records, patient intake forms and discharge summaries. 
 
-Text Analytics for Health uses natural language processing techniques to find and label valuable information in unstructured clinical documents such as doctor's notes, electronic health records, patient intake forms and discharge summaries.
+The Text Analytics for Health container currently performs named entity recognition (NER), relation extraction, entity negation and entity linking for English-language text in your own environment that meets your specific security and data governance requirements.
+
 
 ## Features
 
@@ -34,7 +35,7 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 See the [entity categories](../named-entity-types.md?tabs=biomedical) returned by Text Analytics for Healthcare for a full list of supported entities.
 
 
-#### [relation extraction](#tab/relation-extraction)
+#### [Relation Extraction](#tab/relation-extraction)
 
 Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a time of medication relation is found between a medication name ("Altace") and the time ("8 years") corresponding to how long the patient had been taking the medication.
 
@@ -90,7 +91,7 @@ Text Analytics for Health only supports English language documents.
 
 ## HIPAA compliance
 
-This is a HIPAA and HiTRUST eligible service. For more information on Azure Text Analytics' certifications, please see sections 49, 50 and Appendix A of the [Microsoft Azure Compliance Offering](https://aka.ms/azurecompliance) document.  For an Azure Blueprint sample of using Azure Policy to assist towards HIPAA HITRUST attestation, please see the [Azure HIPAA Blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust/) page.
+Azure Text Analytics is a HIPAA and HiTRUST eligible service. For more information on Azure Text Analytics' certifications, please see sections 49, 50 and Appendix A of the [Microsoft Azure Compliance Offering](https://aka.ms/azurecompliance) document.  For an Azure Blueprint sample of using Azure Policy to assist towards HIPAA HITRUST attestation, please see the [Azure HIPAA Blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust/) page.
 
 ## Request access to the container registry
 
@@ -164,7 +165,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 8 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 10 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
