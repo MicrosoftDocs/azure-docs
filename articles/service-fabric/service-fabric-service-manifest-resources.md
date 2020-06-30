@@ -146,6 +146,8 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 
 For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
 
+## Port ACLing for HTTP Endpoints
+Service Fabric will automatically ACL http endpoints specified by default. Service Fabric will not automatically add URL ACL, if an endpoint does not have a [SecurityAccessPolicy](service-fabric-reliable-services-configuration.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.
 
 ## Overriding Endpoints in ServiceManifest.xml
 
