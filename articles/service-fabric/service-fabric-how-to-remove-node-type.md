@@ -17,7 +17,7 @@ This article describes how to scale an Azure Service Fabric cluster by removing 
 > resource behind the node type. 
 
 ## Durability characteristics
-Safety is prioritized over speed when using Remove-AzServiceFabricNodeType. The node type must be Silver or Gold [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster), because:
+Safety is prioritized over speed when using Remove-AzServiceFabricNodeType. The node type must be Silver or Gold [durability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster), because:
 - Bronze does not give you any guarantees about saving state information.
 - Silver and Gold durability trap any changes to the scale set.
 - Gold also gives you control over the Azure updates underneath scale set.
@@ -172,6 +172,6 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     - Wait for deployment to complete.
 
 ## Next steps
-- Learn more about cluster [durability characteristics](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- Learn more about cluster [durability characteristics](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#durability-characteristics-of-the-cluster).
 - Learn more about [node types and Virtual Machine Scale Sets](service-fabric-cluster-nodetypes.md).
 - Learn more about [Service Fabric cluster scaling](service-fabric-cluster-scaling.md).
