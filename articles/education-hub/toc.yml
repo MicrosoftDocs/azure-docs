@@ -42,8 +42,6 @@
       href: azure-dev-tools-teaching/download-software.md
   - name: Troubleshooting
     items:
-    - name: Attach existing Microsoft account 
-      href: azure-dev-tools-teaching/troubleshoot-accounts.md
     - name: Login errors
       href: azure-dev-tools-teaching/troubleshoot-login.md
 - name: Resources
