@@ -691,8 +691,8 @@ Here are some ways that you can help secure endpoints that receive calls or requ
     [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and [ExpressRoute](../expressroute/expressroute-introduction.md) integration for secured proxy and communication to on-premises systems. If you have an API that provides access to your on-premises system, and you exposed that API by creating an [API Management service instance](../api-management/get-started-create-service-instance.md), you can call that API in your logic app's workflow by selecting the built-in API Management trigger or action in the Logic App Designer.
 
     > [!NOTE]
-    > The connector shows only existing API Management service instances, 
-    > but not consumption-based API Management service instances.
+    > The connector shows only those API Management services where you have permissions to view and connect, 
+    > but doesn't show consumption-based API Management services.
 
     1. In the Logic App Designer, enter `api management` in the search box. Choose the step based on whether you're adding a trigger or an action:<p>
 
