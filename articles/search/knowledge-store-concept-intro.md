@@ -110,13 +110,11 @@ The **Import data** wizard includes options for creating a knowledge store. For 
 
 1. Run the wizard. Extraction, enrichment, and storage occur in this last step.
 
-### Use Create Skillset and the preview REST API
+### Use Create Skillset (REST API)]
 
 A `knowledgeStore` is defined within a [skillset](cognitive-search-working-with-skillsets.md), which in turn is invoked by an [indexer](search-indexer-overview.md). During enrichment, Azure Cognitive Search creates a space in your Azure Storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
-The REST API is the only mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
-
-Reference content for this preview feature is located in the [API reference](#kstore-rest-api) section of this article. 
+The REST API is one mechanism by which you can create a knowledge store programmatically. An easy way to explore is [create your first knowledge store using Postman and the REST API](knowledge-store-create-rest.md).
 
 <a name="tools-and-apps"></a>
 
