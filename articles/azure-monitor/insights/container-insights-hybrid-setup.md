@@ -11,7 +11,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 ## Supported configurations
 
-The following is officially supported with Azure Monitor for containers.
+The following configurations are officially supported with Azure Monitor for containers.
 
 - Environments:
 
