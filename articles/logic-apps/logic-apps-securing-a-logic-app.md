@@ -5,12 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/03/2020
 ---
 
 # Secure access and data in Azure Logic Apps
 
-To control access and protect sensitive data in Azure Logic Apps, you can set up security for these areas:
+Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
+
+To further control access and protect sensitive data in Azure Logic Apps, you can set up additional security in these areas:
 
 * [Access to request-based triggers](#secure-triggers)
 * [Access to logic app operations](#secure-operations)
@@ -18,6 +20,7 @@ To control access and protect sensitive data in Azure Logic Apps, you can set up
 * [Access to parameter inputs](#secure-action-parameters)
 * [Access to services and systems called from logic apps](#secure-outbound-requests)
 * [Block creating connections for specific connectors](#block-connections)
+* [Isolation guidance for logic app workloads](#isolation-workloads)
 
 <a name="secure-triggers"></a>
 
@@ -928,6 +931,28 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 ## Block creating connections
 
 If your organization doesn't permit connecting to specific resources by using their connectors in Azure Logic Apps, you can [block the capability to create those connections](../logic-apps/block-connections-connectors.md) for specific connectors in logic app workflows by using [Azure Policy](../governance/policy/overview.md). For more information, see [Block connections created by specific connectors in Azure Logic Apps](../logic-apps/block-connections-connectors.md).
+
+<a name="isolation-workloads"></a>
+
+## Isolation for logic app workloads
+
+Azure Logic Apps can be used in Azure Government supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md#integration-services) and the [US Department of Defense Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). To meet these requirements, Logic Apps supports the capability for you to create and run workflows in dedicated environments so that don't affect, be affected by, or share resources with other customers.
+
+* To run your own code snippets or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps/enterprise-integration-maps.md), respectively. Make sure that you set up your Azure function to comply with your isolation requirements, for example, by running your function in an [App Service Environment (ASE)](../app-service/environment/intro.md), which is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. For more information, see these topics:<p>
+
+  * [Azure Functions scale and hosting - Dedicated (App Service) plan](../azure-functions/functions-scale.md#app-service-plan)
+  * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
+  * [Security in Azure App Service](../app-service/overview-security.md)
+  * [Azure App Service plans](../app-service/overview-hosting-plans.md)
+  * [Security recommendations for App Service](../app-service/security-recommendations.md)
+
+* To create logic apps that run on dedicated resources and can access resources protected by an Azure virtual network, you can create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can run your logic apps.
+
+  * Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
+
+  * For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
+
+For more information about isolation in Azure, see [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md).
 
 ## Next steps
 
