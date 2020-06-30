@@ -49,7 +49,7 @@ Any applications running in App Service Environment in the same virtual network 
 
 The example connection string below references the SQL Server using its private IP address.
 
-    Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
+`Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient`
 
 Although the virtual machine has a public endpoint as well, connection attempts using the public IP address will be rejected because of the network ACL. 
 
@@ -58,7 +58,9 @@ An alternative approach for securing access is with a network security group.  N
 
 First a network security group needs to be created:
 
-    New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
+```azurepowershell-interactive
+New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
+```
 
 Restricting access to only VNet internal traffic is very simple with a network security group.  The default rules in a network security group only allow access from other network clients in the same virtual network.
 
@@ -66,7 +68,9 @@ As a result locking down access to SQL Server is as simple as applying a network
 
 The sample below applies a network security group to the containing subnet:
 
-    Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
+```azurepowershell-interactive
+Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
+```
 
 The end result is a set of security rules that block external access, while allowing VNet internal access:
 
