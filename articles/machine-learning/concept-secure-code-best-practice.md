@@ -63,3 +63,7 @@ __Recommended actions__:
 ## Report security issues or concerns 
 
 Azure Machine Learning is eligible under the Microsoft Azure Bounty Program. For more information, visit [https://www.microsoft.com/msrc/bounty-microsoft-azure](https://www.microsoft.com/msrc/bounty-microsoft-azure).
+
+## Next steps
+
+* [Enterprise security for Azure Machine Learning](concept-enterprise-security.md)
