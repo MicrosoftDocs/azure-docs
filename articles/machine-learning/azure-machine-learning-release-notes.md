@@ -62,11 +62,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add support for deploying local file:// models with AzureML-MLflow
     + Deprecating _with_auth param in ws.get_mlflow_tracking_uri()
   + **azureml-opendatasets**
-    + Doc improvements to azureml-opendatasets.
-    + Doc updates to azureml-opendatasets.
-    + Expose covid tracking project dataset and ecdc covid cases dataset
-    + Expose covid19 open research dataset
-    + Expose Bing COVID-19 dataset
+    + Recently published Covid-19 tracking datasets are now available with the SDK
   + **azureml-pipeline-core**
     + Log out warning when "azureml-defaults" is not included as part of pip-dependency
     + Improve Note rendering.
