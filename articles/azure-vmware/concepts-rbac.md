@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 
 # Role-based access control (RBAC) for Azure VMware Solution (AVS)
 
-In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account and may have additional Active Directory (AD) users/groups assigned. However, in Azure VMware Solution (AVS), the administrator doesn't have access to the administrator user account. Also, the AVS private cloud user doesn't have permission to access or configure specific management components supported and managed by Microsoft, such as clusters, hosts, datastores, distributed virtual switches, and virtual machines.
+In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account and may have additional Active Directory (AD) users/groups assigned. However, in an Azure VMware Solution (AVS) deployment, the administrator doesn't have access to the administrator user account but can assign AD users and groups to the CloudAdmin role on vCenter.  Also, the AVS private cloud user doesn't have permission to access or configure specific management components supported and managed by Microsoft, such as clusters, hosts, datastores, distributed virtual switches, and virtual machines.
+
 
 In AVS, vCenter has a built-in local user for cloudadmin that is assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up additional users in AD. The CloudAdmin role, in general, has the privilege to create and manage workloads in your private cloud (virtual machines, resource pools, datastores, and networks). The CloudAdmin role in AVS has a specific set of vCenter privileges that differ from other VMware cloud solutions.   
 
