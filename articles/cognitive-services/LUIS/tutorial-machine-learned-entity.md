@@ -127,7 +127,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. On the **Schema and features** tab, select the **Size** entity, then select **+ Add feature**.
 
-1. Select **@ SizeList** from the drop-down list.
+1. Select **@ SizeListentity** from the drop-down list.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 
