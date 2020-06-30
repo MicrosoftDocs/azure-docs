@@ -28,7 +28,7 @@ SREs hate toil. They work to eliminate it whenever possible and appropriate. Thi
 
 ## Scenario 2: Control through APIs/Domain Specific Languages (DSLs)/Templates
 
-Though not strictly necessary for SRE work, being able to control environments through APIs, DSLs, and Templates (especially cloud environments) allows SREs to scale up their work. Provisioning/De-provisioning infrastructure, configuring monitoring, and integrating several services all becomes much more efficient via coding.
+Though not strictly necessary for SRE work, being able to control environments through APIs, DSLs, and Templates (especially cloud environments) allow SREs to scale up their work. Provisioning/De-provisioning infrastructure, configuring monitoring, and integrating several services all becomes much more efficient via coding.
 
 *Coding expertise*: like the previous scenario, this requires some coding expertise, but it does not have to require full software engineering skills. In addition to the scripts and Logic apps mentioned before, [https://docs.microsoft.com/azure/azure-resource-manager/templates/overview](Azure Resource Manager Templates) can also be used with minimal coding experience.
 
