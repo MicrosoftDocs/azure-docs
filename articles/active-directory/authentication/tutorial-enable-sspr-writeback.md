@@ -13,6 +13,7 @@ author: iainfoulds
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4
 
 # Customer intent: As an Azure AD Administrator, I want to learn how to enable and use password writeback so that when end-users reset their password through a web browser their updated password is synchronized back to my on-premises AD environment.
 ---
