@@ -162,6 +162,52 @@ The following table lists the available platform error overrides:
 | `Unauthorized_TooManyUsers` | 401 | The site has reached the maximum number of users, and the server is limiting further additions. This error is exposed to the client because there's no limit to the number of [invitations](authentication-authorization.md) you can generate, and some users may never accept their invitation.|
 | `Unauthorized_Unknown` | 401 | There is an unknown problem while trying to authenticate the user. One cause for this error may be that the user isn't recognized because they didn't grant consent to the application.|
 
+## Custom mime types
+
+The `mimeTypes` object, listed at the same level as the `routes` array, allows you to associate [MIME types](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types) with file extensions.
+
+```json
+{
+    "routes": [],
+    "mimeTypes": {
+        "js": "application/javascript"
+    }
+}
+```
+
+In the example above, all files with the `js` extension are served with the `application/javascript` MIME type.
+
+The following considerations are important as you work with MIME types:
+
+- Keys cannot be null or empty, or more than 50 characters
+- Values cannot be null or empty, or more than 1000 characters
+
+## Default headers
+
+The `defaultHeaders` object, listed at the same level as the `routes` array, allows you to add, modify, or remove [content headers](https://developer.mozilla.org/docs/Web/HTTP/Headers/Content-Security-Policy).
+
+Providing a value for a header either adds or modifies the header. Providing an empty value, removes the header from being served to the client.
+
+```json
+{
+    "routes": [],
+    "defaultHeaders": {
+      "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+      "cache-control": "must-revalidate, max-age=6000",
+      "x-dns-prefetch-control": ""
+    }
+}
+```
+
+In the above example, a new `content-security-policy` header is added, the `cache-control` modifies the server default value, and the `x-dns-prefectch-control` header is removed.
+
+The following considerations are important as you work with headers:
+
+- Keys cannot be null or empty
+- Null or empty values remove a header from processing
+- Keys or values cannot exceed 8,000 characters
+- Defined headers are served with all requests
+
 ## Example route file
 
 The following example shows how to build route rules for static content and APIs in a _routes.json_ file. Some routes use the [_/.auth_ system folder](authentication-authorization.md) that access authentication-related endpoints.
@@ -217,24 +263,33 @@ The following example shows how to build route rules for static content and APIs
       "statusCode": "302",
       "serve": "/login"
     }
-  ]
+  ],
+  "defaultHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'"
+  },
+  "mimeTypes": {
+      "js": "application/javascript"
+  }
 }
 ```
 
 The following examples describe what happens when a request matches a rule.
 
-|Requests to...  | Result in... |
-|---------|---------|---------|
+| Requests to... | Result in... |
+|--|--|--|
 | _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users redirected to _/login_. |
 | _/admin/reports_ | Authenticated users in the _administrators_ role are served the _/admin/reports/index.html_ file. Authenticated users not in the _administrators_ role are served a 401 error<sup>2</sup>. Unauthenticated users redirected to _/login_. |
 | _/api/admin_ | Requests from authenticated users in the _administrators_ role are sent to the API. Authenticated users not in the _administrators_ role and unauthenticated users are served a 401 error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrators_ or _customers\_contoso_ roles are served the _/customers/contoso/index.html_ file<sup>2</sup>. Authenticated users not in the _administrators_ or _customers\_contoso_ roles are served a 401 error. Unauthenticated users redirected to _/login_. |
-| _/login_     | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_     | Authorization with Twitter is disabled. The server responds with a 404 error. |
-| _/logout_     | Users are logged out of any authentication provider. |
+| _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
+| _/.auth/login/twitter_ | Authorization with Twitter is disabled. The server responds with a 404 error. |
+| _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2020/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is redirected to _/deals_. |
-| _/unknown-folder_     | The _/custom-404.html_ file is served. |
+| _/unknown-folder_ | The _/custom-404.html_ file is served. |
+| Files with the `.js` extension | Are served with the `application/javascript` MIME type |
+
+- All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
 <sup>1</sup> Route rules for API functions only support [redirects](#redirects) and [securing routes with roles](#securing-routes-with-roles).
 
