@@ -370,11 +370,11 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
-### Error: vmSubnet not available when configuring virutal networks //todo
+### Error: vmSubnet not available when configuring virutal networks
 
-**Cause:** Our ARM templates require the total number of VMs to be specified and not the number of VMs to add. In the UI portal, we define some constraints on the element for selecting the subnet. The validation logic uses the total number of VMs specified to check if the subnet has enough IP addresses and only allow those with enough addresses available.
+**Cause:** In the WVD Marketplace template the UI only displays subnets that have at least as many IP addresses available as the total number of VMs specified in the template. The actual number of available IP addresses in the subnet only needs to be equal to the number of new VMs being deployed but this cannot be calculated by the current UI.
 
-**Fix:** There are few options to resolve this, expand existing host pool by redeploying in Azure: https://docs.microsoft.com/en-us/azure/virtual-desktop/expand-existing-host-pool#redeploy-from-azure or use the underlying ARM templates: https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-arm-template#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool. Both of these options should allow you to specify the subnet.
+**Fix:** You can specify a subnet with at least as many IP addresses available as the number of VMs being added by not using the Marketplace UI, this can be done by specifying the subnet name in the "**existingSubnetName**" parameter when you [redeploy an existing deployment](expand-existing-host-pool-2019.md#redeploy-from-azure) or [deploy using the underlying ARM template from GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## Next steps
 
