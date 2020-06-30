@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD join is intended for organizations that want to be cloud-first or cloud-only. Any organization can deploy Azure AD joined devices no matter the size or industry. Azure AD join works even in a hybrid environment, enabling access to both cloud and on-premises apps and resources.
 
-|   | Azure AD Join |
+| Azure AD Join | Description |
 | --- | --- |
 | **Definition** | Joined only to Azure AD requiring organizational account to sign in to the device |
 | **Primary audience** | Suitable for both cloud-only and hybrid organizations. |

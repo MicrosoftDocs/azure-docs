@@ -60,18 +60,6 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 - Get and set ACL operations are not currently recursive.
 
-## Lifecycle management policies
-
-The deletion of blob snapshots is not yet supported. 
-
-## Archive Tier
-
-There is currently a bug that affects the archive access tier.
-
-## Blobfuse
-
-Blobfuse is not supported.
-
 <a id="known-issues-tools"></a>
 
 ## AzCopy

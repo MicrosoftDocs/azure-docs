@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Secure your virtual WAN using Azure Firewall Manager preview'
-description: In this tutorial, you learn how to secure your virtual WAN with Azure Firewall Manager using the Azure portal. 
+title: 'Tutorial: Secure your virtual hub using Azure Firewall Manager'
+description: In this tutorial, you learn how to secure your virtual hub with Azure Firewall Manager using the Azure portal. 
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 05/01/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Tutorial: Secure your virtual WAN using Azure Firewall Manager preview 
+# Tutorial: Secure your virtual hub using Azure Firewall Manager
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-Using Azure Firewall Manager Preview, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
+Using Azure Firewall Manager, you can create secured virtual hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there's no need to create user defined routes (UDRs).
 
 ![secure the cloud network](media/secure-cloud-network/secure-cloud-network.png)
 
@@ -90,7 +88,7 @@ Now you can peer the hub and spoke VNets.
 5. For **Hubs**, select **Hub-01**.
 6. For **Resource group**, select **FW-Manager**.
 7. For **Virtual network**, select **Spoke-01**.
-8. Select **OK**.
+8. Select **Create**.
 
 ## Create a firewall policy and secure your hub
 
@@ -106,16 +104,18 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 8. For **Priority**, type **100**.
 9. Ensure **Rule collection action** is **Allow**.
 10. For the rule **Name** type **Allow-msft**.
-11. For **Source address**, type **\***.
-12. For **Protocol**, type **http,https**.
-13. Ensure **Destination type is **FQDN**.
-14. For **Destination**, type **\*.microsoft.com**.
-15. Select **Add**.
-16. Select **Next: Hubs**.
-17. On the **Hubs** tab, select **Associate virtual hubs**.
-18. Select **Hub-01** and then select **Add**.
-1. Select **Review + create**.
-2. Select **Create**.
+11. For the **Source type**, select **IP address**.
+12. For **Source**, type **\***.
+13. For **Protocol**, type **http,https**.
+14. Ensure **Destination type** is **FQDN**.
+15. For **Destination**, type **\*.microsoft.com**.
+16. Select **Add**.
+17. Select **Next : Threat intelligence**.
+18. Select **Next: Hubs**.
+19. On the **Hubs** tab, select **Associate virtual hubs**.
+20. Select **Hub-01** and then select **Add**.
+21. Select **Review + create**.
+22. Select **Create**.
 
 This can take about five minutes or more to complete.
 
@@ -125,13 +125,11 @@ Now you must ensure that network traffic gets routed to through your firewall.
 
 1. From Firewall Manager, select **Secured virtual hubs**.
 2. Select **Hub-01**.
-3. Under **Settings**, select **Route settings**.
-4. Under **Internet traffic**, **Traffic from Virtual Networks**, select **Send via Azure Firewall**.
-5. Under **Azure private traffic**, **Traffic to Virtual Networks**, select **Send via Azure Firewall**.
-6. Select **Edit IP address prefix(es)**.
-8. Type **10.0.1.0/24** as the address of the Workload subnet and select **Save**.
-9. Under **Settings**, select **Connections**.
+3. Under **Settings**, select **Security configuration**.
+4. Under **Internet traffic**, select **Azure Firewall**.
+5. Under **Private traffic**, select **Send via Azure Firewall**.
 10. Verify that the **hub-spoke** connection shows **Internet Traffic** as **Secured**.
+11. Select **Save**.
 
 
 ## Test your firewall
