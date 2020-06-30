@@ -40,8 +40,7 @@ If your run Custom Commands application from [client application (with Speech SD
 - Your custom command applicationId is not valid
 
     Make sure your custom command application ID is correct.
-
-- You are trying to access an custom command application outside your speech resource
+ custom command application outside your speech resource
 
     Make sure the custom command application is created under your speech resource.
 
