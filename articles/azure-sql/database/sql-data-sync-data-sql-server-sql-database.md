@@ -232,7 +232,7 @@ Federation Root Database can be used in the SQL Data Sync Service without any li
 
 ### Can I use Data Sync to sync data exported from Dynamics 365 using bring your own database (BYOD) feature?
 
-The [Dynamics 365 BYOD feature](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/analytics/export-entities-to-your-own-database) lets administrators export data entities from the application into their own Microsoft Azure SQL database. Data Sync can be used to sync this data into other databases if data is exported using **incremental push** (full push is not supported) and **enable triggers in target database** is set to **yes**.
+The Dynamics 365 bring your own database feature lets administrators export data entities from the application into their own Microsoft Azure SQL database. Data Sync can be used to sync this data into other databases if data is exported using **incremental push** (full push is not supported) and **enable triggers in target database** is set to **yes**.
 
 ## Next steps
 
