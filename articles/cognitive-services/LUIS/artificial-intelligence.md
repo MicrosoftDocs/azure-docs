@@ -23,6 +23,16 @@ Natural language processing is a broader concept that handles any form of proces
 * Discourse
 * Translation
 
+## Natural language processing in LUIS
+
+Natural language processing is available to your LUIS app in the following ways:
+* [Natural language understanding](#natural-language-understanding) (LUIS)
+* Configurable NLP aspects in LUIS:
+    * [Tokenization](luis-language-support#tokenization)
+    * Morphology through diacritics, punctuation, and word forms [API settings](luis-reference-application-settings)
+* Pre- or post-processing of the query utterance provided by other [Cognitive Services](../Welcome.md) such as:
+    * [Translation](../translator/translator-info-overview.md)
+
 ## Natural language understanding
 
 NLU is the ability to _transform_ a linguistic statement to a representation that enables you to understand your users naturally. Natural language understanding remains a very challenging problem and is defined as an _AI-hard_ problem.
@@ -31,14 +41,11 @@ LUIS is intended to focus on intention and extraction, this includes being able 
 * What the user wants
 * What they are talking about.
 
-
 LUIS has little or no knowledge of the broader _NLP_ aspects, such as semantic similarity, without explicit identification in examples. For example, the following tokens (words) are three different things until they are used in similar contexts in the examples provided:
 
 * buy
 * buying
 * bought
-
-_Some aspects_ of NLP are configurable in LUIS using settings. Others you provide through your example utterances or your dictionary lists used in the model. Some are provided by other Cognitive Services, such as Translation.
 
 ## Next steps
 
