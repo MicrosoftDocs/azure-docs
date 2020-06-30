@@ -247,7 +247,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
 ## Install the HELM chart
 
-In this section you install the containerized agent for Azure Monitor for containers. Before proceeding, you need to identify the workspace ID required for the `omsagent.secret.wsid` parameter, and primary key required for the `omsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the command to install the agent using the HELM chart.
+In this section you install the containerized agent for Azure Monitor for containers. Before proceeding, you need to identify the workspace ID required for the `omsagent.secret.wsid` parameter, and primary key required for the `omsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the commands to install the agent using the HELM chart.
 
 1. Run the following command to identify the workspace ID:
 
