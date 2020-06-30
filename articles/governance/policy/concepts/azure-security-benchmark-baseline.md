@@ -1,6 +1,6 @@
 ---
 title: Azure Policy security baseline for Azure Security Benchmark
-description: The Azure Policy security baseline for the Azure Security Benchmark helps you strengthen security through improved tooling, tracking, and security features. They also provide you a consistent experience when securing your environment.
+description: The Azure Policy security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 06/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
-# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information. 
+# Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
 ---
 
@@ -20,12 +20,11 @@ For a mapping of the Azure Security Benchmark controls to built-in policy defini
 
 &gt; [!NOTE]
 
-&gt; Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](../definition-structure.md#type)
+&gt; Azure Policy uses the term _Ownership_ in place of _Responsibility_. For details on _Ownership_, see [Azure Policy policy definitions](./definition-structure.md#type)
 
 &gt; and
 
-&gt; [Shared responsibility in the cloud](../../../../security/fundamentals/shared-responsibility.md).
-
+&gt; [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 
 ## Logging and monitoring
@@ -34,13 +33,11 @@ For a mapping of the Azure Security Benchmark controls to built-in policy defini
 
 ### 2.3: Enable audit logging for Azure resources
 
-**Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date,
+**Guidance**: Azure Policy uses activity logs, which are automatically enabled, to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-user, timestamp, source addresses, destination addresses, and other useful elements.
+* [How to collect platform logs and metrics with Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
 
-* [How to collect platform logs and metrics with Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
-
-* [Understand logging and different log types in Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Understand logging and different log types in Azure](../../../azure-monitor/platform/platform-logs-overview.md)
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -53,7 +50,9 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts. You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure AD Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) Privileged Roles or [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts. 
+
+You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure AD Privileged Identity Management](../../../active-directory/privileged-identity-management/pim-configure.md) Privileged Roles or [Azure Resource Manager](../../../azure-resource-manager/management/overview.md).
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -66,7 +65,7 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 * [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
+* [How to enable MFA in Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -81,9 +80,9 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 **Guidance**: Use Azure Active Directory role-based access control (RBAC) to control access to Azure Policy.
 
-* [RBAC Permissions in Azure Policy](./overview.md#rbac-permissions-in-azure-policy)
+* [RBAC Permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [How to configure RBAC in Azure](../../role-based-access-control/role-assignments-portal.md)
+* [How to configure RBAC in Azure](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -94,7 +93,7 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 **Guidance**: Use Azure Monitor with activity logs to create alerts for when changes take place in Azure Policy.
 
-* [How to create alerts for Azure activity log events](../../azure-monitor/platform/alerts-activity-log.md)
+* [How to create alerts for Azure activity log events](../../../azure-monitor/platform/alerts-activity-log.md)
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -109,9 +108,9 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy. Use the Azure Policy _modify_ effect to report on and enforce compliance and consistent tag governance.
 
-* [Tutorial: Create and manage policies](./tutorials/create-and-manage.md)
+* [Tutorial: Create and manage policies](../tutorials/create-and-manage.md)
 
-* [Tutorial: Manage tag governance](./tutorials/govern-tags.md)
+* [Tutorial: Manage tag governance](../tutorials/govern-tags.md)
 
 
 **Azure Security Center monitoring**: Currently not available
@@ -130,7 +129,7 @@ user, timestamp, source addresses, destination addresses, and other useful eleme
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
-* [How to configure and manage Azure Policy](./tutorials/create-and-manage.md)
+* [How to configure and manage Azure Policy](../tutorials/create-and-manage.md)
 
 
 **Azure Security Center monitoring**: Not applicable
