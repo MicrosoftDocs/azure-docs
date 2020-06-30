@@ -21,7 +21,7 @@ To restrict access to only [private endpoint for your IoT hub in your VNet](virt
 4. Under “Allow public network access to”, select **Disabled**
 5. Select **Save**.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Image showing Azure portal where to turn off public network access" lightbox="media/iot-hub-publicnetworkaccess/turn-off-publicnetworkaccess.png":::
+:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Image showing Azure portal where to turn off public network access" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
 To turn on public network access, selected **Enabled**, then **Save**.
 
