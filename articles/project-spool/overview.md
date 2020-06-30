@@ -43,7 +43,7 @@ ACS JavaScript SDKs enable browser applications with rich text, voice, and video
 **Resources** 
 - **Concept:** [Identity model](./concepts/identity-model.md)
 - **Concept:** [User access tokens (UAT)](./concepts/user-access-tokens.md)
-- **Quick Start:** [Implement rowser voice chat](./quickstarts/get-started-with-voice.md)
+- **Quick Start:** [Implement browser voice chat](./quickstarts/get-started-with-voice.md)
 - **Concept:** [Calling client samples](./concepts/calling-client-samples.md)
 
 ### Native app communication
