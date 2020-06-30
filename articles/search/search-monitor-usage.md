@@ -22,15 +22,15 @@ Altogether, you can track the following:
 * Query activity: volume, latency, and throttled or dropped queries
 * Indexing activity: (generally requires add-on diagnostic logging)
 
-A search service does not support per-user authentication natively so there is no built-in, per-user activity recorded in the logs.
+A search service does not support per-user authentication natively, so no user identity is recorded in the logs.
 
 ## Built-in monitoring
 
-Built-in monitoring refers to activities that are tracked and reported on by a search service. With the exception of diagnostic logging, no configuration steps are required for this level of monitoring.
+Built-in monitoring refers to activities that are tracked and reported on by a search service. With the exception of diagnostic logging, no configuration is required for this level of monitoring.
 
-Azure Cognitive Search maintains internal data on a rolling 30-day window for reporting on service health and query metrics, which you can find in the portal. The portal provides this information at a glance but you can also use these [REST APIs](#monitoring-apis).
+Azure Cognitive Search maintains internal data on a rolling 30-day schedule for reporting on service health and query metrics, which you can find in the portal or through these [REST APIs](#monitoring-apis).
 
-The following screenshot helps you locate monitoring in the portal. This information becomes available as soon as you start using the service, with no configuration required, and the page is refreshed every few minutes.
+The following screenshot helps you locate monitoring in the portal. Monitoring information becomes available as soon as you start using the service and the page is refreshed every few minutes.
 
 * **Monitoring** tab, on the main Overview page, shows query volumes, latency, and whether the service had to drop queries due to pressure.
 * **Activity log**, in the left navigation pane, is connected to Azure Resource Manager. The activity log reports on actions undertaken by Resource Manager: service availability and status, changes to capacity (replicas and partitions), and API key-related activities.
@@ -77,9 +77,10 @@ The following illustration is for the free service, which is capped at 3 objects
 
 Many services, including Azure Cognitive Search, integrate with [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for additional alerts, metrics, and logging diagnostic data. 
 
-Logged events captured by Azure Monitor include those related to indexing and queries. The **AzureDiagnostics** table in Log Analytics collects operational data related to queries and indexing.
+[Enable diagnostic logging](search-monitor-logs.md) for a search service if you want control over data collection and storage. 
+Logged events captured by Azure Monitor are stored in the **AzureDiagnostics** table and consists of operational data related to queries and indexing.
 
-Azure Monitor provides several storage options, and your choice determines how you will consume the data:
+Azure Monitor provides several storage options, and your choice determines how you can consume the data:
 
 * Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
 * Choose Log Analytics if you want to explore data through Kusto queries.
