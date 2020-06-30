@@ -2,15 +2,14 @@
 title: Understand how Azure AD provisioning works | Microsoft Docs
 description: Understand how Azure AD provisioning works 
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 

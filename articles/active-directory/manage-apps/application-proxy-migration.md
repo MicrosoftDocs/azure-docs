@@ -3,9 +3,8 @@ title: Upgrade to Azure AD Application Proxy | Microsoft Docs
 description: Choose which proxy solution is best if you're upgrading from Microsoft Forefront or Unified Access Gateway.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
+
 # Compare remote access solutions
 
 Azure Active Directory Application Proxy is one of two remote access solutions that Microsoft offers. The other is Web Application Proxy, the on-premises version. These two solutions replace earlier products that Microsoft offered: Microsoft Forefront Threat Management Gateway (TMG) and Unified Access Gateway (UAG). Use this article to understand how these four solutions compare to each other. For those of you still using the deprecated TMG or UAG solutions, use this article to help plan your migration to one of the Application Proxy. 

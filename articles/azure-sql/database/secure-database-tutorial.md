@@ -295,7 +295,7 @@ To enable auditing:
     ![Audit records](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> See [SQL database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
+> See [SQL Database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
 
 ### Dynamic data masking
 

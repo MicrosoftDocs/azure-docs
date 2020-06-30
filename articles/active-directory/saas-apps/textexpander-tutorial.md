@@ -40,7 +40,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* TextExpander supports **SP and IDP** initiated SSO
+* TextExpander supports **IDP** initiated SSO
 * TextExpander supports **Just In Time** user provisioning
 * Once you configure TextExpander you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
@@ -86,11 +86,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.textexpander.com/acs/<ORGID>`
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type the URL:
-    `https://app.textexpander.com/ssoSignin`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [TextExpander Client support team](mailto:support@smilesoftware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

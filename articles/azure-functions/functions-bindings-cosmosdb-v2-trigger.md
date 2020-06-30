@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB trigger for Functions 2.x
+title: Azure Cosmos DB trigger for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB trigger in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.custom: tracking-python
 ---
 
-# Azure Cosmos DB trigger for Azure Functions 2.x
+# Azure Cosmos DB trigger for Azure Functions 2.x and higher
 
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
 

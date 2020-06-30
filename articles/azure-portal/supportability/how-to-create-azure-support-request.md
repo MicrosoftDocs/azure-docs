@@ -6,7 +6,7 @@ author: ganganarayanan
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: kfollis
 ---

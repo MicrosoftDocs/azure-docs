@@ -96,27 +96,27 @@ For more information about regional availability, see [regions](regions.md#stand
 
 |Locale  | Language            | Gender | Voice name | Style support |
 |--|--|--|--|--|
-| `de-DE` | German (Germany)                | Female | "de-DE-KatjaNeural"      | General |
-| `en-AU` | English (Australia)             | Female | "en-AU-NatashaNeural"    | General |
-| `en-CA` | English (Canada)                | Female | "en-CA-ClaraNeural"      | General |
-| `en-GB` | English (UK)                    | Female | "en-GB-LibbyNeural"      | General |
-|         |                                 | Female | "en-GB-MiaNeural"        | General |
-| `en-US` | English (US)                    | Female | "en-US-AriaNeural"       | General, multiple voice styles available |
-|         |                                 | Male   | "en-US-GuyNeural"        | General |
-| `es-ES` | Spanish (Spain)                 | Female | "es-ES-ElviraNeural"     | General |
-| `es-MX` | Spanish (Mexico)                | Female | "es-MX-DaliaNeural"      | General |
-| `fr-CA` | French (Canada)                 | Female | "fr-CA-SylvieNeural"     | General |
-| `fr-FR` | French (France)                 | Female | "fr-FR-DeniseNeural"     | General |
-| `it-IT` | Italian (Italy)                 | Female | "it-IT-ElsaNeural"       | General |
-| `ja-JP` | Japanese                        | Female | "ja-JP-NanamiNeural"     | General |
-| `ko-KR` | Korean                          | Female | "ko-KR-SunHiNeural"      | General |
-| `nb-NO` | Norwegian                       | Female | "nb-NO-IselinNeural"     | General |
-| `pt-BR` | Portuguese (Brazil)             | Female | "pt-BR-FranciscaNeural"  | General |
-| `tr-TR` | Turkish                         | Female | "tr-TR-EmelNeural"       | General |
-| `zh-CN` | Chinese (Mandarin, simplified)  | Female | "zh-CN-XiaoxiaoNeural"   | General, multiple voice styles available |
-|         |                                 | Female | "zh-CN-XiaoyouNeural"    | Kid voice, optimized for story narrating |
-|         |                                 | Male   | "zh-CN-YunyangNeural"    | Optimized for news reading,  multiple voice styles available |
-|         |                                 | Male   | "zh-CN-YunyeNeural"      | Optimized for story narrating |
+| `de-DE` | German (Germany)                | Female | `de-DE-KatjaNeural`      | General |
+| `en-AU` | English (Australia)             | Female | `en-AU-NatashaNeural`    | General |
+| `en-CA` | English (Canada)                | Female | `en-CA-ClaraNeural`      | General |
+| `en-GB` | English (UK)                    | Female | `en-GB-LibbyNeural`      | General |
+|         |                                 | Female | `en-GB-MiaNeural`        | General |
+| `en-US` | English (US)                    | Female | `en-US-AriaNeural`       | General, multiple voice styles available |
+|         |                                 | Male   | `en-US-GuyNeural`        | General |
+| `es-ES` | Spanish (Spain)                 | Female | `es-ES-ElviraNeural`     | General |
+| `es-MX` | Spanish (Mexico)                | Female | `es-MX-DaliaNeural`      | General |
+| `fr-CA` | French (Canada)                 | Female | `fr-CA-SylvieNeural`     | General |
+| `fr-FR` | French (France)                 | Female | `fr-FR-DeniseNeural`     | General |
+| `it-IT` | Italian (Italy)                 | Female | `it-IT-ElsaNeural`       | General |
+| `ja-JP` | Japanese                        | Female | `ja-JP-NanamiNeural`     | General |
+| `ko-KR` | Korean                          | Female | `ko-KR-SunHiNeural`      | General |
+| `nb-NO` | Norwegian                       | Female | `nb-NO-IselinNeural`     | General |
+| `pt-BR` | Portuguese (Brazil)             | Female | `pt-BR-FranciscaNeural`  | General |
+| `tr-TR` | Turkish                         | Female | `tr-TR-EmelNeural`       | General |
+| `zh-CN` | Chinese (Mandarin, simplified)  | Female | `zh-CN-XiaoxiaoNeural`   | General, multiple voice styles available |
+|         |                                 | Female | `zh-CN-XiaoyouNeural`    | Kid voice, optimized for story narrating |
+|         |                                 | Male   | `zh-CN-YunyangNeural`    | Optimized for news reading,  multiple voice styles available |
+|         |                                 | Male   | `zh-CN-YunyeNeural`      | Optimized for story narrating |
 
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
@@ -269,8 +269,8 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Japanese                | `ja`          |
 | Kannada                 | `kn`          |
 | Kiswahili               | `sw`          |
-| Klingon                 | `tlh`         |
-| Klingon (plqaD)         | `tlh-Qaak`    |
+| Klingon                 | `tlh-Latn`    |
+| Klingon (plqaD)         | `tlh-Piqd`    |
 | Korean                  | `ko`          |
 | Latvian                 | `lv`          |
 | Lithuanian              | `lt`          |
@@ -307,6 +307,26 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Vietnamese              | `vi`          |
 | Welsh                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## Speaker Recognition
+
+See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+
+| Locale | Language | Text-dependent verification | Text-independent verification | Text-independent identification |
+|----|----|----|----|----|
+| en-US | English (US) | yes | yes | yes |
+|zh-CN	|Chinese (Mandarin, simplified)|	n/a|	yes|	yes|
+|de-DE	|German (Germany)	|n/a	|yes	|yes|
+|en-GB	|English (UK)	|n/a	|yes	|yes|
+|fr-FR	|French (France)	|n/a	|yes	|yes|
+|en-AU	|English (Australia)	|n/a	|yes	|yes|
+|en-CA	|English (Canada)	|n/a|	yes|	yes|
+|fr-CA	|French (Canada)	|n/a	|yes|	yes|
+|it-IT	|Italian|	n/a	|yes|	yes|
+|es-ES|	Spanish (Spain)	|n/a	|yes|	yes|
+|es-MX	|Spanish (Mexico)	|n/a|	yes|	yes|
+|ja-JP|	Japanese	|n/a	|yes	|yes|
+|pt-BR|	Portuguese (Brazil)|	n/a|	yes|	yes|
 
 ## Next steps
 

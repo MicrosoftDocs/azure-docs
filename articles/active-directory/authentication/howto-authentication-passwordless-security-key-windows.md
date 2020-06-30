@@ -19,10 +19,8 @@ ms.collection: M365-identity-device-management
 
 This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Azure AD and hybrid Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
 
-|     |
-| --- |
-| FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
@@ -33,7 +31,7 @@ This document focuses on enabling FIDO2 security key based passwordless authenti
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1809 or higher | X | X |
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1903 or higher | X |   |
-| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
+| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 version 2004 or higher |   | X |
 | Fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 or later |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
@@ -57,7 +55,7 @@ The following scenarios aren't supported:
 
 Azure AD joined devices that you are piloting during the feature preview with must run Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-Hybrid Azure AD joined devices must run Windows 10 Insider Build 18945 or newer.
+Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
 ## Enable security keys for Windows sign-in
 

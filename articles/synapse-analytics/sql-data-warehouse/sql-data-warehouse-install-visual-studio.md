@@ -8,7 +8,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan

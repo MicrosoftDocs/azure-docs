@@ -5,11 +5,10 @@ description: Use this tutorial to build a single-page web application that can s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/05/2020
+ms.date: 06/23/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -38,8 +37,10 @@ The tutorial page is entirely self-contained; it does not use any external frame
 
 ## Prerequisites
 
-To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have them, you can use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) and a [basic Bing Maps key](https://www.microsoft.com/maps/create-a-bing-maps-key).
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have these, you'll need to create them:
 
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
@@ -347,7 +348,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `news` renderer is shown in the following javascript excerpt:
+The `news` renderer is shown in the following JavaScript excerpt:
 ```javascript
     // render news story
     news: function (item) {

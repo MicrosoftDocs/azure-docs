@@ -123,6 +123,8 @@
   - name: Plan and implement SAP NetWeaver on Azure
     href: planning-guide.md
     items:
+    - name: Azure Storage types for SAP workload
+      href: planning-guide-storage.md
     - name: SAP workload on Azure virtual machine supported scenarios
       href: sap-planning-supported-configurations.md
     - name: What SAP software is supported for Azure deployments

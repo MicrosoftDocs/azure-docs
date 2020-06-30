@@ -57,6 +57,9 @@ In traditional scenarios, raw data is stored in files and databases. When users 
 
 Implementing differentially private systems is difficult. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and WhiteNoise](./concept-differential-privacy.md) article.
 
+> [!NOTE]
+> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+
 ## Document the machine learning lifecycle with datasheets
 
 Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle.

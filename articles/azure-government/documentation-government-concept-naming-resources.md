@@ -1,10 +1,8 @@
 ---
 title: Considerations for naming Azure resources | Microsoft Docs
 description: This article contains guidance on how customers should consider naming their Azure resources to prevent attribution to business/mission sensitive workloads.
-services: Azure-government
+services: azure-government
 cloud: gov
-author: bernie-msft
-manager: zakramer
 
 ms.devlang: na
 ms.topic: article
@@ -12,7 +10,6 @@ ms.tgt_pltfrm: na
 ms.service: azure-government
 ms.workload: Azure-government
 ms.date: 4/6/2020
-ms.author: beellis
 
 ---
 # Considerations for naming Azure resources

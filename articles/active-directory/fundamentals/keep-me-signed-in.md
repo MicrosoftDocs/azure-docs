@@ -23,7 +23,7 @@ The following diagram shows the user sign-in flow for a managed tenant and feder
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagram showing the user sign-in flow for a managed vs. federated tenant":::
 
 > [!NOTE]
-> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have an Office 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Configuring the keep me signed in option requires you to use Azure Active Directory (Azure AD) Premium 1, Premium 2, or Basic editions, or to have a Microsoft 365 license. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium and Basic editions are available for customers in China using the worldwide instance of Azure AD. Azure AD Premium and Basic editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure AD Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Configure KMSI
 
@@ -56,6 +56,6 @@ You can stop users from seeing the interrupt by setting the **Show option to rem
 
 Learn about other settings that affect sign-in session timeout:
 
-* Office 365 – [Idle session timeout](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
+* Microsoft 365 – [Idle session timeout](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
 * Azure AD Conditional Access - [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 * Azure portal – [Directory-level inactivity timeout](https://docs.microsoft.com/azure/azure-portal/admin-timeout)

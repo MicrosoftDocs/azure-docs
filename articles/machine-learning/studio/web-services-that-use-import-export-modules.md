@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 
 When you create a predictive experiment, you typically add a web service input and output. When you deploy the experiment, consumers can send and receive data from the web service through the inputs and outputs. For some applications, a consumer's data may be available from a data feed or already reside in an external data source such as Azure Blob storage. In these cases, they do not need read and write data using web service inputs and outputs. They can, instead, use the Batch Execution Service (BES) to read data from the data source using an Import Data module and write the scoring results to a different data location using an Export Data module.
 
-The Import Data and Export data modules, can read from and write to various data locations such as a Web URL via HTTP, a Hive Query, an Azure SQL database, Azure Table storage, Azure Blob storage, a Data Feed provide, or a SQL Server database.
+The Import Data and Export data modules, can read from and write to various data locations such as a Web URL via HTTP, a Hive Query, a database in Azure SQL Database, Azure Table storage, Azure Blob storage, a Data Feed provide, or a SQL Server database.
 
 This topic uses the "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" sample and assumes the dataset has already been loaded into an Azure SQL table named censusdata.
 
