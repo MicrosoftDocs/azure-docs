@@ -158,15 +158,13 @@ When you open the **Containers** tab, depending on your environment, you might s
 
 ![Container host](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png) Container hosts - VMs running docker 
 
-![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes Service (AKS) clusters
+![Kubernetes service](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png) Azure Kubernetes Service (AKS) clusters. [Learn about Security Center's AKS bundle](azure-kubernetes-service-integration.md)
 
-![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries - Shown only when you're on the standard pricing tier and when you have the Azure Container Registry bundle enabled.
+![Container registry](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png) Azure Container Registry (ACR) registries. [Learn about Security Center's ACR bundle](azure-container-registry-integration.md)
 
 For instructions on how to use the container security features, see [Monitoring the security of your containers](monitor-container-security.md).
 
-Benefits of the Azure Container Registry bundle are explained [here](azure-container-registry-integration.md)
 
-Benefits of the Kubernetes Services bundle are explained [here](azure-kubernetes-service-integration.md)
 
 [![Containers tab](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png)](./media/security-center-virtual-machine-recommendations/container-recommendations-all-types.png#lightbox)
 
