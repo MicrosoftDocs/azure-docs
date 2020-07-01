@@ -40,7 +40,7 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 - **sgx-mrenclave**: hex encoded value of the “mrenclave” field of the quote
 - **product-id**
 - **svn**: security version number encoded in the quote 
-- **tee: type of enclave 
+- **tee**: type of enclave 
 
 ### Outgoing claims
 
