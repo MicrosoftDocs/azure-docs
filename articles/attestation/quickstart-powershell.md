@@ -105,7 +105,7 @@ Azure AD is the default trust model for new attestation providers. The isolated 
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-For PolicySignersCertificateFile sample, see [Examples of policy signer certificate](samples.md).
+For PolicySignersCertificateFile sample, see [Examples of policy signer certificate](policysigner-samples.md).
 
 Get-AzAttestation retrieve attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
@@ -166,7 +166,7 @@ Supported policy formats are "Text" and "JWT". Policy format is optional and "Te
 In Azure AD trust model, policy can be uploaded in Azure Attestation specific policy format (PolicyFormat="Text") or in an unsigned JWT format (PolicyFormat="JWT"). 
 In isolated trust model, policy can be configured only in signed JWT format (PolicyFormat="JWT").
 
-For policy samples, see [Examples of attestation policy](samples.md).
+For policy samples, see [Examples of attestation policy](policy-samples.md).
 
 Reset-AzAttestationPolicy resets the policy to default for the specified TEE.
 
@@ -190,7 +190,7 @@ Policy signer certificate is signed JWT with a claim named "maa-policyCertificat
 
 Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, is is a simple string.
 
-For policy signer certificate sample, see [Examples of policy signer certificate](samples.md).
+For policy signer certificate sample, see [Examples of policy signer certificate](policysigner-samples.md).
 
 For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
 
