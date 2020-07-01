@@ -15772,6 +15772,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/how-to-define-task-type.md",
+      "redirect_url": "/azure/machine-learning/concept-automated-ml",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-app-service.md",
       "redirect_url": "/azure/machine-learning/how-to-deploy-app-service",
       "redirect_document_id": true
