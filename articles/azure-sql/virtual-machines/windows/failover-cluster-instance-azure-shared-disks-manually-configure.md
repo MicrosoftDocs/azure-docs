@@ -20,28 +20,28 @@ ms.author: mathoma
 # Create an FCI with Azure Shared Disks (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article explains how to create a failover cluster instance (FCI) using Azure Shared Disks with SQL Server on Azure Virtual Machines. 
+This article explains how to create a failover cluster instance (FCI) by using Azure Shared Disks with SQL Server on Azure Virtual Machines (VMs). 
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
 
 ## Prerequisites 
 
-Before you complete the steps in this article, you should already have:
+Before you complete the instructions in this article, you should already have:
 
-- A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more West Central US prepared Windows Azure Virtual Machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md), with the availability set created with Fault Domain and Update Domain set to `1`. 
+- An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
+- [Two or more West Central US-prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in the same [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) and a [proximity placement group](../../../virtual-machines/windows/co-location.md#proximity-placement-groups.md), with the availability set that's created with Fault Domain and Update Domain set to **1**. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## Add Azure Shared Disk
-Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to `2` to make the disk shareable across both FCI nodes. 
+Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **2** to make the disk shareable across both FCI nodes. 
 
-Add an Azure Shared Disk by following these steps: 
+Add an Azure Shared Disk by doing the following: 
 
 
-1. Save the following script as `SharedDiskConfig.json`: 
+1. Save the following script as *SharedDiskConfig.json*: 
 
    ```JSON
    { 
@@ -83,7 +83,7 @@ Add an Azure Shared Disk by following these steps:
    ```
 
 
-2. Run the `SharedDiskConfig.json` file using PowerShell: 
+2. Run *SharedDiskConfig.json* by using PowerShell: 
 
    ```powershell
    $rgName = < specify your resource group name>
@@ -92,7 +92,7 @@ Add an Azure Shared Disk by following these steps:
    -TemplateFile "SharedDiskConfig.json"
    ```
 
-3. For each VM, initialize the attached shared disks as GBT and format as NTFS by running this command: 
+3. For each VM, initialize the attached shared disks as GUID partition table (GPT) and format them as New Technology File System (NTFS) by running this command: 
 
    ```powershell
    $resourceGroup = "<your resource group name>"
@@ -109,7 +109,7 @@ Add an Azure Shared Disk by following these steps:
    ```
 
 
-## Create the failover cluster
+## Create failover cluster
 
 To create the failover cluster, you need:
 
@@ -143,21 +143,22 @@ For more information, see [Failover cluster: Cluster Network Object](https://blo
 
 Configure the quorum solution that best suits your business needs. You can configure a [Disk Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum), a [Cloud Witness](/windows-server/failover-clustering/deploy-cloud-witness), or a [File Share Witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum). For more information, see [Quorum with SQL Server VMs](hadr-cluster-best-practices.md#quorum). 
 
-## Validate the cluster
+## Validate cluster
 Validate the cluster in the UI or by using PowerShell.
 
-To validate the cluster by using the UI, take the following steps on one of the virtual machines:
+To validate the cluster by using the UI, do the following on one of the virtual machines:
 
-1. Under Server Manager, select Tools, and then select Failover Cluster Manager.
-2. Under Failover Cluster Manager, select Action, and then select Validate Configuration.
-3. Select Next.
-4. Under Select Servers or a Cluster, enter the names of both virtual machines.
-5. Under Testing options, select Run only tests I select. Select Next.
-6. Under Test Selection, select all tests except for Storage Spaces Direct.
+1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
+1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
+1. Select **Next**.
+1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
+1. Under **Testing options**, select **Run only tests I select**. 
+1. Select **Next**.
+1. Under **Test Selection**, select all tests *except* **Storage Spaces Direct**.
 
 ## Test cluster failover
 
-Test failover of your cluster. In **Failover Cluster Manager**, right-click your cluster and select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
+Test the failover of your cluster. In **Failover Cluster Manager**, right-click your cluster, select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
 
 :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
@@ -165,17 +166,19 @@ Test failover of your cluster. In **Failover Cluster Manager**, right-click your
 
 After you've configured the failover cluster and all cluster components, including storage, you can create the SQL Server FCI.
 
-1. Connect to the first virtual machine by using RDP.
+1. Connect to the first virtual machine by using Remote Desktop Protocol (RDP).
 
-1. In **Failover Cluster Manager**, make sure all Core Cluster Resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
+1. In **Failover Cluster Manager**, make sure that all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
 
-1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
+1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. 
+
+1. Select **Setup**.
 
 1. In **SQL Server Installation Center**, select **Installation**.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on clustered storage. With Storage Spaces Direct, it's not a shared disk, but a mount point to a volume on each server. Storage Spaces Direct synchronizes the volume between both nodes. The volume is presented to the cluster as a Cluster Shared Volume. Use the CSV mount point for the data directories.
+   The FCI data directories need to be on clustered storage. With Storage Spaces Direct, it's not a shared disk, but a mount point to a volume on each server. Storage Spaces Direct synchronizes the volume between both nodes. The volume is presented to the cluster as a Cluster Shared Volume (CSV). Use the CSV mount point for the data directories.
 
    ![Data directories](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
 
@@ -183,12 +186,12 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
 
-1. Open the **SQL Server Installation Center**. Select **Installation**.
+1. Open the **SQL Server Installation Center**, and then select **Installation**.
 
 1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
    >[!NOTE]
-   >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. See [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. For more information, see [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
    >
 
 ## Register with the SQL VM RP
@@ -209,7 +212,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that is suitable for your environment. You can create an [Azure Load  Balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 and Windows Server 2019, you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
+To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 and Windows Server 2019, you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
 
 ## Limitations
 
@@ -218,12 +221,12 @@ To route traffic appropriately to the current primary node, configure the connec
 
 ## Next steps
 
-If you haven't already, configure connectivity to your FCI with a [virtual network name and an Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
 
-If Azure Shared Disks are not the appropriate FCI storage solution for you, consider creating your FCI using [Premium File Shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
+If Azure Shared Disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 
-To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [best practices](hadr-cluster-best-practices.md).
+To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md).
 
-For additional information see: 
+For more information see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
