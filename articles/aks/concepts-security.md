@@ -2,9 +2,10 @@
 title: Concepts - Security in Azure Kubernetes Services (AKS)
 description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
 services: container-service
+author: mlearned
 ms.topic: conceptual
-ms.date: 05/08/2020
-
+ms.date: 07/01/2020
+ms.author: mlearned
 ---
 
 # Security concepts for applications and clusters in Azure Kubernetes Service (AKS)
@@ -94,7 +95,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
