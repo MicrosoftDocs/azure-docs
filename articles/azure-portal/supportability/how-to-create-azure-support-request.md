@@ -85,9 +85,13 @@ After gathering basic information, we next show you solutions to try on your own
 
 Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right agent.
 
-If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics.
+If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-After we have all the information about the problem, choose how to get support. In the **Support method** section of **Details**, select the severity of impact. Provide your preferred contact method, a good time to contact you, and your support language.
+After we have all the information about the problem, choose how to get support. In the **Support method** section of **Details**, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
+
+By default the **Share diagnostic information** option is selected. This allows Azure support to gather diagnostic information from your Azure resources. In some cases, there is a second question that isn't selected by default, such as requesting access to a virtual machine's memory.
+
+Provide your preferred contact method, a good time to contact you, and your support language.
 
 Next, complete the **Contact info** section so we know how to contact you.
 
@@ -95,7 +99,7 @@ Next, complete the **Contact info** section so we know how to contact you.
 
 Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
 
-A support agent will contact you using the method you indicated. For information about initial response time, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
+A support agent will contact you using the method you indicated. For information about initial response times, see [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/).
 
 
 ## Next steps
@@ -103,6 +107,8 @@ A support agent will contact you using the method you indicated. For information
 To learn more about self-help support options in Azure, watch this video:
 
 > [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
+
+Follow these links to learn more:
 
 * [How to manage an Azure support request](how-to-manage-azure-support-request.md)
 * [Azure support ticket REST API](/rest/api/support)
