@@ -10,7 +10,14 @@ ms.date: 07/03/2020
 
 # Secure access and data in Azure Logic Apps
 
-Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md). For a security overview, see [Azure security baseline for Azure Logic Apps](../logic-apps/security-baseline.md).
+Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data.
+
+For more information about security in Azure, see these topics:
+
+* [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
+* [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md)
+* [Azure Security Benchmark](../security/benchmarks/overview.md)
+* [Azure Security Baseline for Azure Logic Apps](../logic-apps/security-baseline.md).
 
 To further control access and protect sensitive data in Azure Logic Apps, you can set up additional security in these areas:
 
@@ -936,9 +943,11 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Isolation for logic app workloads
 
-You can use Azure Logic Apps in Azure Government supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md#integration-services) and the [US Department of Defense Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). To meet these requirements, Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can reduce the performance impact by other Azure tenants on your logic apps and avoid sharing computing resources with other tenants.
+You can use Azure Logic Apps in [Azure Government](../azure-government/documentation-government-welcome.md) supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md#integration-services) and the [US Department of Defense Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html). To meet these requirements, Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can reduce the performance impact by other Azure tenants on your logic apps and avoid sharing computing resources with other tenants.
 
-* To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Make sure that you set up your Azure function to comply with your isolation requirements, for example, by running your function in an [App Service Environment (ASE)](../app-service/environment/intro.md), which is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. For more information, see these topics:<p>
+* To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements. For example, run your function app in an [App Service Environment (ASE)](../app-service/environment/intro.md) that uses the [**Isolated** App Service plan](../app-service/overview-hosting-plans.md). At this level, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provides network isolation on top of compute isolation for your apps and maximum scale-out capabilities.
+
+  For more information, see these topics:<p>
 
   * [Azure Functions scale and hosting - Dedicated (App Service) plan](../azure-functions/functions-scale.md#app-service-plan)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
