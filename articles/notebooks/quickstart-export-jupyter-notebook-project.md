@@ -37,11 +37,12 @@ After downloading your project files, you can use them with other Jupyter Notebo
 
 If you'd like to create an environment that matches that of the Azure Notebooks Preview, you can use the **AzureNotebooksRequirements.txt** file provided in GitHub.
 
-1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or click [here](https://aka.ms/aznbrequirementstxt) to directly access the file.
+1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or you can [directly access the file](https://aka.ms/aznbrequirementstxt).
 1. Download the **AzureNotebooksRequirements.txt** file that contains the package dependencies for the Azure Notebooks environment. 
 1. From a command prompt, navigate to the directory you want to use for your projects and use the requirements file to install the appropriate packages.
 
-    >**Note:** While not required, generally you would want to create a new virtual environment for package installation as shown below.
+    > [!Note]
+    > While not required, generally you would want to create a new virtual environment for package installation as shown below.
 
     ```bash
     cd your-project-dir
@@ -61,7 +62,7 @@ After [downloading](#export-an-azure-notebooks-project) your project files you c
 
 You can also use the [Azure Notebooks requirements](#download-the-requirements-file-used-by-azure-notebooks) with Visual Studio Code to create an environment that matches the Azure Notebooks Preview.
 
-## Using Notebooks in Visual Studio Codespaces
+## Use Notebooks in Visual Studio Codespaces
 
 Visual Studio Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code or your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
 
@@ -70,7 +71,7 @@ Visual Studio Codespaces provides cloud hosted environments where you can edit y
 1. [Add your files](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) to the repository.
 1. Setup Visual Studio Codespaces in the [browser](https://docs.microsoft.com/visualstudio/online/how-to/browser), [Visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside), or [Visual Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
 
-## Using Notebooks with Azure Machine Learning
+## Use Notebooks with Azure Machine Learning
 
 Azure Machine Learning provides an end-to-end machine learning platform to enable users to build and deploy models faster on Azure. Azure ML allows you to run Jupyter Notebooks on a VM or a shared cluster computing environment. If you are in need of a cloud-based solution for your ML workload with experiment tracking, dataset management, and more, we recommend Azure Machine Learning. To get started with Azure ML:
 
@@ -86,7 +87,7 @@ Azure Machine Learning provides an end-to-end machine learning platform to enabl
 For additional information about Azure ML and running Jupyter Notebooks, you can review the [documentation](../machine-learning/how-to-run-jupyter-notebooks.md) or try the [Intro to Machine Learning](https://docs.microsoft.com/learn/modules/intro-to-azure-machine-learning-service/) module on Microsoft Learn.
 
 
-## Using Azure Lab Services
+## Use Azure Lab Services
 
 [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) allow educators to easily setup and provide on-demand access to preconfigured VMs for an entire classroom. If you're looking for a way to work with Jupyter Notebooks and cloud compute in a tailored classroom environment, Lab Services is a great option.
 
@@ -94,7 +95,7 @@ For additional information about Azure ML and running Jupyter Notebooks, you can
 
  After [downloading](#export-an-azure-notebooks-project) your project files you can use them with Azure Lab Services. For guidance about setting up a lab, see [Set up a lab to teach data science with Python and Jupyter Notebooks](../lab-services/class-type-jupyter-notebook.md)
 
-## Using GitHub
+## Use GitHub
 
 GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#using-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
 
