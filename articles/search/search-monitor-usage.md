@@ -13,14 +13,14 @@ ms.date: 06/30/2020
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and foundational services like Azure Monitor.
+This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you can use a combination of built-in functionality and add-on services like Azure Monitor.
 
 Altogether, you can track the following:
 
-* Service health
-* Storage: used and available, with counts for each content type relative to the quota allowed for the service tier
-* Query activity: volume, latency, and throttled or dropped queries
-* Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor
+* Service: health/availability and changes to service configuration.
+* Storage: both used and available, with counts for each content type relative to the quota allowed for the service tier.
+* Query activity: volume, latency, and throttled or dropped queries. Logged query requests require [Azure Monitor](#add-azure-monitor).
+* Indexing activity: requires [diagnostic logging](#add-azure-monitor) with Azure Monitor.
 
 A search service does not support per-user authentication, so no identity information will be found in the logs.
 
