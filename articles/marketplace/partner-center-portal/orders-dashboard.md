@@ -30,7 +30,7 @@ The **Orders dashboard** of the **Analyze** menu displays the current orders for
 - [Orders and seats trend](#orders-and-seats-trend)
 - [Order details table](#order-details-table)
 
-# Order dashboard details
+## Order dashboard details
 
 This section describes the analytics reports in more detail.
 
