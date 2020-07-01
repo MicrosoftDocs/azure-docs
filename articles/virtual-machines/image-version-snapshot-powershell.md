@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure
-ms.date: 06/29/2020
+ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Create an image from a VHD or snapshot in a Shared Image Gallery
+# Create an image from a VHD or snapshot in a Shared Image Gallery using PowerShell
 
-If you have an existing snapshot or VHD that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the VHD or snapshot. Once you have tested your new image, you can delete the source VHD or snapshpt. You can also create an image from a VHD or snapshot in a Shared Image Gallery using the [Azure CLI](image-version-vhd-cli.md).
+If you have an existing snapshot or VHD that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the VHD or snapshot. Once you have tested your new image, you can delete the source VHD or snapshpt. You can also create an image from a VHD or snapshot in a Shared Image Gallery using the [Azure CLI](image-version-snapshot-cli.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -33,7 +33,7 @@ When working through this article, replace the resource names where needed.
 
 You can see a list of snapshots that are available in a resource group using [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot). 
 
-```
+```azurepowershell-interactive
 get-azsnapshot | Format-Table -Property Name,ResourceGroupName
 ```
 
@@ -47,7 +47,7 @@ $source = Get-AzSnapshot `
 
 You can also use a VHD instead of a snapshot. To get a VHD, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk). 
 
-```
+```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
@@ -83,7 +83,7 @@ $gallery = Get-AzGallery `
 
 Image definitions create a logical grouping for images. They are used to manage information about the image. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. 
 
-When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or VHD are from a VM that is in use, and hasn't been generalized. If the VHD or snapshot was take of a generalized OS (after running Sysprep for Windows or  then change the `-OsState` to `generalized`. 
+When making your image definition, make sure is has all of the correct information. In this example, we are assuming that the snapshot or VHD are from a VM that is in use, and hasn't been generalized. If the VHD or snapshot was taken of a generalized OS (after running Sysprep for Windows or [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` or `-deprovision+user` for Linux) then change the `-OsState` to `generalized`. 
 
 For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
@@ -101,6 +101,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
+
 
 
 ## Create an image version
@@ -125,7 +126,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -OSDiskImage $source.Id.ToString() '
+   -OSDiskImage @{Source = @{Id=$source.Id}; HostCaching = "ReadOnly" } `
    -PublishingProfileEndOfLifeDate '2025-01-01' `
    -asJob 
 ```
