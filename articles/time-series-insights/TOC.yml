@@ -174,7 +174,7 @@
         - name: Update
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings/update
       - name: Query
-      items:
+        items:
         - name: Overview
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query
         - name: Execute
