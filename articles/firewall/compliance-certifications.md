@@ -88,7 +88,7 @@ The following Azure Firewall certifications are for Azure Government:
 - EAR
 - FIPS 140-2
 - FedRAMP High
-- HIPPA
+- HIPAA
 - HITECH Act (US)
 - HITRUST
 - IRS 1075
