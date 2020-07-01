@@ -91,9 +91,7 @@ When you see the following notification, the scale operation is complete.
 
 ## Get domain verification ID
 
-To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, click **Resource explorer** under **Development Tools**, then click **Go**.
-
-In the JSON view of your app's properties, search for `customDomainVerificationId`, and copy its value inside the double quotes. You need this verification ID for the next step.
+To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, click **Custom Domains** under **Settings**. Copy value of Custom Domain Verification ID from here. You need this verification ID for the next step.
 
 ## Map your domain
 
