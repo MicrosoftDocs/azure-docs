@@ -74,6 +74,8 @@ A Kubernetes *Secret* is used to inject sensitive data into pods, such as access
 
 The use of Secrets reduces the sensitive information that is defined in the pod or service YAML manifest. Instead, you request the Secret stored in Kubernetes API Server as part of your YAML manifest. This approach only provides the specific pod access to the Secret. Please note: the raw secret manifest files contains the secret data in base64 format (see the [official documentation][secret-risks] for more details). Therefore, this file should be treated as sensitive information, and never committed to source control.
 
+Kubernetes secrets are stored in etcd, a distributed key-value store. Etcd store is fully managed by AKS and [data is encrypted at rest within the Azure platform][encryption-atrest]. 
+
 ## Next steps
 
 To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks-upgrade-cluster].
@@ -92,6 +94,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
+[encryption-atrest]: https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-atrest
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
