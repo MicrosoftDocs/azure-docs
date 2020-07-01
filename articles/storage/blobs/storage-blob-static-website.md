@@ -18,6 +18,7 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 > [!NOTE]
 > If your site depends on server-side code, use [Azure App Service](/azure/app-service/overview) instead.
+Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Setting up a static website
 
