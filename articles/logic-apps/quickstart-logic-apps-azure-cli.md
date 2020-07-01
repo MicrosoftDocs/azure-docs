@@ -11,29 +11,29 @@ ms.date: 06/30/2020
 
 # Quickstart: Create and manage logic apps using the Azure CLI
 
-This quickstart shows you how to use the [Azure CLI Logic Apps extension](https://docs.microsoft.com/cli/azure/ext/logic/logic?view=azure-cli-latest) (`az logic`)to create and manage your logic apps. You can create a logic app from the JSON file for a logic app workflow definition from the command line. Then, you can perform operations such as `list`, `show` (`get`), `update`, and `delete` to manage your logic app from the command line.
+This quickstart shows you how to create and manage logic apps by using the [Azure CLI Logic Apps extension](https://docs.microsoft.com/cli/azure/ext/logic/logic?view=azure-cli-latest) (`az logic`). From the command line, you can create a logic app by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
 
 > [!WARNING]
-> The Azure CLI Logic apps extension is currently *experimental* and *not covered by customer support*. Use this CLI extension with caution, especially if you choose to utilize it in production environments.
+> The Azure CLI Logic Apps extension is currently *experimental* and *not covered by customer support*. Use this CLI extension with caution, especially if you choose to use the extension in production environments.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account][Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* An [installation of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your local machine.
-* An installation of the [Logic Apps Azure CLI extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-list?view=azure-cli-latest). Use the command `az extension add --name logic` to install this extension.
+* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed on your local computer.
+* The [Logic Apps Azure CLI extension](https://docs.microsoft.com/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installed on your computer. To install this extension, use this command: `az extension add --name logic`
 * An [Azure resource group](#example---create-resource-group) in which to create your logic app.
 
 ### Prerequisite check
 
 To validate your environment:
 
-* Run `az login` to sign in to the Azure portal and verify that your subscription is active.
-* In a terminal or command window, run `az --version` to check your version of the Azure CLI. For the latest version, see the [latest release notes](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest&tabs=azure-cli).
-  * If you're not using the latest version, see the [installation guide for your operating system or platform](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to update your version.
+* To sign in to the Azure portal and check that your subscription is active, run `az login`.
+* To check your version of the Azure CLI, in a terminal or command window, run `az --version`. For the latest version, see the [latest release notes](https://docs.microsoft.com/cli/azure/release-notes-azure-cli?view=azure-cli-latest&tabs=azure-cli).
+  * If you don't have the latest version, update your version by following the [installation guide for your operating system or platform](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Example - create resource group
 
-If you don't already have a resource group for your logic app, create one with the command `az group create`. For example, the following command creates a resource group named *testResourceGroup* in the location *westus*.
+If you don't already have a resource group for your logic app, create the group with the command `az group create`. For example, the following command creates a resource group named `testResourceGroup` in the location `westus`.
 
 ```azurecli-interactive
 
@@ -56,9 +56,9 @@ The output shows the `provisioningState` as `Succeeded` when your resource group
 
 ## Workflow definition
 
-Before you [create a new logic app](#create-logic-apps-from-cli) or [update an existing logic app](#update-logic-apps-from-cli) from the Azure CLI, you need a workflow definition for it. In the Azure portal, this underlying workflow is visible in JSON format in the **Logic app code view**.
+Before you [create a new logic app](#create-logic-apps-from-cli) or [update an existing logic app](#update-logic-apps-from-cli) by using the Azure CLI, you need a workflow definition for your logic app. In the Azure portal, you can view your logic app's underlying workflow definition in JSON format by switching from **Designer** view to **Code view**.
 
-Your workflow definition is uploaded when you run the commands to create or update your logic app, as a required parameter (`--definition`). You must create your workflow definition as a JSON file that follows the Workflow Definition Language schema. For more information, see the [schema reference guide for the Workflow Definition Language in Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language).
+When you run the commands to create or update your logic app, your workflow definition is uploaded as a required parameter (`--definition`). You must create your workflow definition as a JSON file that follows the [Workflow Definition Language schema](https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language).
 
 ## Create logic apps from CLI
 
@@ -85,14 +85,14 @@ Your command must include the following [required parameters](https://docs.micro
 | --------- | ----- | ----------- |
 | Workflow definition | `--definition` | A JSON file with your logic app's [workflow definition](#workflow-definition). |
 | Location | `--location -l` | The Azure region in which your logic app is located. |
-| Name | `--name -n` | The name of your logic app. The name can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`,`)`), and periods (`.`). The name must also be unique across regions. |
+| Name | `--name -n` | The name of your logic app. The name can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). The name must also be unique across regions. |
 | Resource group name | `--resource-group -g` | The [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) in which you want to create your logic app. [Create a resource group](#example---create-resource-group) before you begin if you don't already have one for your logic app. |
 
 You can also include additional [optional parameters](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, integration service environment, state, and resource tags.
 
 ### Example - create logic app
 
-In this example, a workflow named *testLogicApp* is created in the resource group *testResourceGroup* in the location *westus*. The workflow is using the JSON file *testDefinition.json* for its definition.
+In this example, a workflow named `testLogicApp` is created in the resource group `testResourceGroup` in the location `westus`. The JSON file `testDefinition.json` contains the workflow definition.
 
 ```azurecli-interactive
 
@@ -125,7 +125,7 @@ az logic workflow create --definition
 
 ### Example - update logic app
 
-In this example, the [sample workflow created in the previous section](#example---create-logic-app) is updated to use a different JSON definition file, *newTestDefinition.json*, and add two resource tags, *testTag1* and *testTag2* with description values.
+In this example, the [sample workflow created in the previous section](#example---create-logic-app) is updated to use a different JSON definition file, `newTestDefinition.json`, and add two resource tags, `testTag1` and `testTag2` with description values.
 
 ```azurecli-interactive
 
@@ -198,7 +198,7 @@ Your command must include the following [required parameters](https://docs.micro
 
 ### Example - get logic app
 
-In this example, the logic app *testLogicApp* in the resource group *testResourceGroup* is returned with full logs for debugging.
+In this example, the logic app `testLogicApp` in the resource group `testResourceGroup` is returned with full logs for debugging.
 
 ```azurecli-interactive
 
@@ -208,7 +208,7 @@ az logic workflow show --resource-group "testResourceGroup" --name "testLogicApp
 
 ## List logic apps in CLI
 
-You can list your logic apps by subscription using the command [`az logic workflow list`](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list). This command returns the JSON code of your logic apps' workflows.
+You can list your logic apps by subscription using the command [`az logic workflow list`](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list). This command returns the JSON code for your logic apps' workflows.
 
 You can filter your results by the following [optional parameters](https://docs.microsoft.com/cli/azure/ext/logic/logic/workflow?view=azure-cli-latest#ext-logic-az-logic-workflow-list-optional-parameters):
 
@@ -228,7 +228,7 @@ az logic workflow list [--filter]
 
 ### Example - list logic apps
 
-In this example, all enabled workflows in the resource group *testResourceGroup* are returned in an ASCII table format.
+In this example, all enabled workflows in the resource group `testResourceGroup` are returned in an ASCII table format.
 
 ```azurecli-interactive
 
@@ -238,7 +238,7 @@ az logic workflow list --resource-group "testResourceGroup" --filter "(State eq 
 
 ## Errors
 
-The following error indicates that the Azure Logic Apps CLI extension isn't installed. Follow the steps in the prerequisites to [install the Logic Apps extension](#prerequisites) on your machine.
+The following error indicates that the Azure Logic Apps CLI extension isn't installed. Follow the steps in the prerequisites to [install the Logic Apps extension](#prerequisites) on your computer.
 
 ```azurecli
 
