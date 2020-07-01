@@ -87,6 +87,10 @@
       href: backup-azure-dpm-azure-server-faq.md
     - name: FAQ-Azure Backup monitor alert
       href: backup-azure-monitor-alert-faq.md
+  - name: Workloads
+    items:
+    - name: Active Directory
+      href: active-directory-backup-restore.md
   - name: Backup architecture
     href: backup-architecture.md
 - name: How to guides
