@@ -1,5 +1,5 @@
 ---
-title: Using T-SQL loops
+title: Use T-SQL loops
 description: Tips for using T-SQL loops, replacing cursors, and developing related solutions with SQL pool in Synapse SQL.
 services: synapse-analytics
 author: filippopovic
