@@ -1,5 +1,5 @@
 ---
-title: Key Vault versions 
+title: Azure Key Vault versions 
 description: The various versions of Azure Key Vault     
 services: key-vault
 author: msmbaldwin   
@@ -63,7 +63,7 @@ The following tasks were updated:
  
 First preview version 2014-12-08-preview, announced on January 8, 2015.  
  
-## See also  
+## Next steps
 - [About keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Keys](../keys/index.yml)
 - [Secrets](../secrets/index.yml)
