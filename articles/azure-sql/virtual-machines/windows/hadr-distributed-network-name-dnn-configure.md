@@ -19,7 +19,7 @@ ms.reviewer: jroth
 # Configure a DNN for an FCI (SQL Server on Azure VMs) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate clustered resource without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and above and Windows Server 2019. 
+On Azure Virtual Machines, the distributed network name (DNN) optionally replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate clustered resource without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and above and Windows Server 2019. 
 
 This article teaches you to configure a distributed network name (DNN) to route traffic to your [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
@@ -63,14 +63,15 @@ Clients use the DNS name to connect to the SQL Server FCI. You can choose a uniq
 Use this command to set the DNS name for your DNN: 
 
 ```powershell
-Get-ClusterResource -Name <dnnResourceName> `
+Get-ClusterResource -Name <dnnResourceName> |
+
 Set-ClusterParameter -Name DnsName -Value <DNSName>
 ```
 
 The `DNSName` value is what clients use to connect to the SQL Server FCI. For example, for clients to connect to `FCIDNN`, use the following PowerShell Command:
 
 ```powershell
-Get-ClusterResource -Name dnn-demo `
+Get-ClusterResource -Name dnn-demo |
 Set-ClusterParameter -Name DnsName -Value FCIDNN
 ```
 
@@ -99,10 +100,31 @@ For example, to start your DNN resource `dnn-demo` use the following PowerShell 
 Start-ClusterResource -Name dnn-demo
 ```
 
-## Create network alias
+## Configure possible owners
 
-There are some server-side components that rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. See [DNN FCI interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
+By default, the cluster binds the DNN DNS name to all the nodes in the cluster. However, nodes in the cluster that are not part of the SQL Server FCI should be excluded from the DNN possible owner list. 
 
+To update possible owners, follow these steps:
+
+1. Go to your DNN resource in Failover Cluster Manager. 
+1. Right-click the DNN resource and select **Properties**. 
+1. Clear the checkbox for any nodes that do not participate in the failover cluster instance. The possible owner list for the DNN resource should match the possible owner list for the SQL Server instance resource. 
+1. Select **OK** to save your settings. 
+
+
+## Restart SQL Server instance 
+
+Use the Failover Cluster Manager to restart the SQL Server instance.  Follow these steps:
+
+1. Go to your SQL Server resource in the Failover Cluster Manager.
+1. Right-click the SQL Server resource, and take it offline. 
+1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
+
+## Create network alias (FCI)
+
+If you're using the distributed network name with a SQL Server failover cluster instance (FCI), there may be some SQL Server features that require you to map a network alias. Skip this section if you are not using a failover cluster instance, or if you are not using any of the server-side components that may require a network alias. See [FCI DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability) for more information. 
+
+Some server-side components rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. 
 Follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) to create an alias that maps the VNN to the DNN DNS name. 
 
 For a default instance, you can map the VNN to the DNN DNS name directly, such that VNN = DNN DNS name.
