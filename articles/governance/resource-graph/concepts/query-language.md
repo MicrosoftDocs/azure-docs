@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 03/07/2020
+ms.date: 06/29/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -14,6 +14,7 @@ query language used by Resource Graph, start with the
 This article covers the language components supported by Resource Graph:
 
 - [Resource Graph tables](#resource-graph-tables)
+- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
 - [Supported KQL language elements](#supported-kql-language-elements)
 - [Escape characters](#escape-characters)
 
@@ -74,6 +75,40 @@ Resources
 > [!NOTE]
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
+
+## Resource Graph custom language elements
+
+### <a name="shared-query-syntax"></a>Shared query syntax (preview)
+
+As a preview feature, a [shared query](../tutorials/create-share-query.md) can be accessed directly
+in a Resource Graph query. This scenario makes it possible to create standard queries as shared
+queries and reuse them. To call a shared query inside a Resource Graph query, use the
+`{{shared-query-uri}}` syntax. The URI of the shared query is the _Resource ID_ of the shared query
+on the **Settings** page for that query. In this example, our shared query URI is
+`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS`.
+This URI points to the subscription, resource group, and full name of the shared query we want to
+reference in another query. This query is the same as the one created in
+[Tutorial: Create and share a query](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> You can't save a query that references a shared query as a shared query.
+
+Example 1: Use only the shared query
+
+The results of this Resource Graph query are the same as the query stored in the shared query.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Example 2: Include the shared query as part of a larger query
+
+This query first uses the shared query, and then uses `limit` to further restrict the results.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
 
 ## Supported KQL language elements
 
