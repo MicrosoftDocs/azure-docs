@@ -28,7 +28,7 @@ As a Security Operations Center (SOC) manager, you need to have overall efficien
 
 ## Use the security incidents table
 
-The **SecurityIncident** table is built-in to Azure Sentinel. You'll see it with the other tables in the **SecurityInsights** collection under **Logs**. You can query it like any other table in Log Analytics.
+The **SecurityIncident** table is built in to Azure Sentinel. You'll see it with the other tables in the **SecurityInsights** collection under **Logs**. You can query it like any other table in Log Analytics.
 
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-incident-table.png" alt-text="Security incidents table":::
 
@@ -43,10 +43,10 @@ For example, if you wanted to return a list of all incidents sorted by their inc
 
 To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
 - Incident created over time 
-- Incidents created by closing classification, severity, owner and status 
+- Incidents created by closing classification, severity, owner, and status 
 - Mean time to triage 
 - Mean time to closure 
-- Incidents created by severity, owner, status, product and tactics over time 
+- Incidents created by severity, owner, status, product, and tactics over time 
 - Time to triage percentiles 
 - Time to closure percentiles 
 - Mean time to triage per owner 
@@ -60,6 +60,10 @@ You can find this new workbook template by choosing **Workbooks** from the Azure
 :::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Security incidents workbook complete":::
 
 You can use the template to create your own custom workbooks tailored to your specific needs.
+
+## SecurityIncidents schema
+
+[!INCLUDE [SecurityIncidents schema](../../includes/sentinel-schema-security-incident.md)]
 
 ## Next steps
 
