@@ -35,7 +35,7 @@ The IoT Edge module offer type is a specific type of container running on an IoT
 
 **Selecting the right storefront**
 
-IoT Edge Modules are only published to the Azure Marketplace, AppSource does not apply.  For more information on the differences and target audience across storefronts, see [determining the publishing option for your solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+IoT Edge Modules are only published to the Azure Marketplace, AppSource does not apply.  For more information on the differences and target audience across storefronts, see [determining the publishing option for your solution](determine-your-listing-type.md).
  
 **Billing options**
 
@@ -43,7 +43,7 @@ The marketplace currently supports **Free** and **Bring Your Own License (BYOL)*
  
 **Publishing options**
 
-In all cases, IoT Edge modules should select the **Transact** publishing option.  See [choose a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) for more details on publishing options.  
+In all cases, IoT Edge modules should select the **Transact** publishing option.  See [choose a publishing option](determine-your-listing-type.md) for more details on publishing options.  
 
 ## Eligibility Criteria
 
@@ -53,7 +53,7 @@ All the terms of the Microsoft Azure Marketplace agreements and policies apply t
 
 To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
 
-- Access to the Partner Center. For more information, see [Azure Marketplace and AppSource publishing guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
+- Access to the Partner Center. For more information, see [Azure Marketplace and AppSource publishing guide](marketplace-publishers-guide.md).
 - Host your IoT Edge module in an Azure Container Registry. 
 - Have your IoT Edge module metadata ready such as (non-exhaustive list): 
     - A title

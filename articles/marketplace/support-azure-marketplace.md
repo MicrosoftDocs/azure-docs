@@ -43,6 +43,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 ## Next steps
 
 * Visit the [commercial marketplace publisher guide page](https://docs.microsoft.com/azure/marketplace/).
-* Learn more about [support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+* Learn more about [support for the commercial marketplace program in Partner Center](partner-center-portal/support.md).
 
 ---

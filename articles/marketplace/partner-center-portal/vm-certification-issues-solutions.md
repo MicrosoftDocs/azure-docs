@@ -27,7 +27,7 @@ This failure will occur when you used a base image that belongs to another publi
 To fix this issue, retrieve your latest image from Azure Marketplace and make changes to that image. See the following to view approved base images where you can search for your image:
 
 - [Linux-Images](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows-Images](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base)
+- [Windows-Images](cloud-partner-portal/virtual-machine/cpp-create-vhd.md#select-an-approved-base))
 
 ## VM extension failure
 
@@ -54,7 +54,7 @@ Check whether VM Extensions are properly activated:
 
 ## Virtual machine provisioning issue
 
-Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure Virtual Machine (VM) image certification](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template).
+Check that the provisioning process is rigorously followed for the VM before submitting your offer. To view the json format for provisioning the VM, go to [Azure Virtual Machine (VM) image certification](cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md).
 
 Provisioning issues can include the following failure scenarios:
 
@@ -66,8 +66,8 @@ Provisioning issues can include the following failure scenarios:
 
 > [!NOTE]
 > Follow these links for documentation related to VM generalization:
-> - [Linux](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm#generalize-the-image)
-> - [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
+> - [Linux](cloud-partner-portal/virtual-machine/cpp-configure-vm.md#generalize-the-image))
+> - [Windows](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep))
 
 ## Software compliance for Windows
 
@@ -77,13 +77,13 @@ Don't create your own windows image with SQL server installed in it. Instead, us
 
 If you're trying to install Visual studio or any office licensed product, then contact the support team for prior approval.
 
-For more information, visit [Create your Azure Virtual Machine technical assets](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd#select-an-approved-base) to select an approved base.
+For more information, visit [Create your Azure Virtual Machine technical assets](cloud-partner-portal/virtual-machine/cpp-create-vhd.md#select-an-approved-base)) to select an approved base.
 
 ## Tool kit test case execution failed
 
 The Microsoft Certification toolkit will help you to execute test cases verify that your VHD/Image is compatible with the Azure environment.
 
-Download the [Microsoft Certification toolkit](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm).
+Download the [Microsoft Certification toolkit](cloud-partner-portal/virtual-machine/cpp-certify-vm.md).
 
 ## Linux test cases
 

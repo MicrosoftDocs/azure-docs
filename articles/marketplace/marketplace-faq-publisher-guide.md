@@ -73,7 +73,7 @@ You can also [join our active community forum](https://www.microsoftpartnercommu
 
 ### What analytics are available to my organization from the commercial marketplace?
 
-We provide reporting on your offers within our commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics).
+We provide reporting on your offers within our commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md).
 
 ### What is Microsoft's relationship with my customers?
 
@@ -85,7 +85,7 @@ As a publisher, you set the terms of use for your software solution, which custo
 
 You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box or hosted on a website that will be shown as a web address.
 
-To learn more, see [Standard Contract for the Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract).
+To learn more, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md).
 
 ### Is Azure Marketplace available in Azure Government?
 
@@ -122,7 +122,7 @@ To complete a purchase at a very low price, we suggest publishing a private plan
 
 As customers use your offers on the Microsoft AppSource and Azure Marketplace storefronts, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with our commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
 
-For more information, see [Customer leads from your marketplace offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads).
+For more information, see [Customer leads from your marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ### Why aren't my changes reflected in the offer on Microsoft AppSource or Azure Marketplace?
 
@@ -142,7 +142,7 @@ Microsoft AppSource is the destination for business and industry solutions, and 
 
 Our global network of resellers includes tens of thousands of organizations who take part in the Cloud Solution Provider program. The CSP program enables organizations to resell our products and offers from the commercial marketplace, and it gives them the tools to do it successfully.
 
-For more information, see [Cloud Solution Providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+For more information, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 ### How can I find resellers to establish partnerships?
 
@@ -152,7 +152,7 @@ By using the [solution provider directory](https://www.microsoft.com/solution-pr
 
 Yes, you can make offers available to all resellers in the Cloud Solution Provider program or only to those whom you specify.
 
-For more information, see [Cloud Solution Providers](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+For more information, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 ### How can I pay margin to resellers?
 
@@ -225,7 +225,7 @@ The user account must have *Owner* or *Contributor* permissions on the Azure sub
 
 Customers can get solutions from the commercial marketplace in 141 locations around the world.
 
-To review the list of locations, go to [Tax details for commercial marketplace publishers](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+To review the list of locations, go to [Tax details for commercial marketplace publishers](partner-center-portal/tax-details-paid-transactions.md).
 
 ### What currencies are supported with the commercial marketplace?
 
@@ -248,7 +248,7 @@ Transactions can be handled in the following 17 currencies:
 - TWD
 - USD
 
-To review the list of currencies, go to [Geographic availability and currency support for commercial marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+To review the list of currencies, go to [Geographic availability and currency support for commercial marketplace](marketplace-geo-availability-currencies.md).
 
 ### Can customers change subscriptions or license volumes mid-term?
 
@@ -270,32 +270,32 @@ Customers are usually billed monthly for any purchases in the previous billing c
 
 ### How often will I receive payouts for sales through the commercial marketplace?
 
-Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout Policy Details](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
+Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout Policy Details](partner-center-portal/payout-policy-details.md).
 
 - For transactions where the customer used an Enterprise Agreement, payouts are issued in the next payout cycle 30-days post customer invoice. 
 - For transactions where the customer used a credit card, there is an additional 30-day escrow period after we receive payment to ensure funds clear and there are no chargebacks or suspected fraud.
 
 Payouts are issued only when sales have reached a minimum combined value of $50.00.
 
-For more information, see [Payment thresholds, methods, and time frames](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
+For more information, see [Payment thresholds, methods, and time frames](partner-center-portal/payment-thresholds-methods-timeframes.md).
 
 ### In what countries/regions are taxes managed on my behalf?
 
 Customers can find solutions from our commercial marketplace around the world, and we manage taxes in many locations. 
 
-To review the full list of locations, go to [Tax details for commercial marketplace publishers](https://docs.microsoft.com/azure/marketplace/partner-center-portal/tax-details-paid-transactions).
+To review the full list of locations, go to [Tax details for commercial marketplace publishers](partner-center-portal/tax-details-paid-transactions.md).
 
 ### Where can I find payout reporting for the commercial marketplace?
 
 Within Partner Center, a user with *Owner* or *Financial Contributor* permissions can view payout reporting. These users can access reports at the upper right by selecting the icon showing a hand holding a bill.
 
-For more information, see [payout reporting](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-summary).
+For more information, see [payout reporting](partner-center-portal/payout-summary.md).
 
 ### How do I configure my payout method and destination?
 
 With Partner Center, users with *Owner* permissions can set up the payout account and tax forms. Users can do this by selecting the **Settings** button (gear icon) at the upper right.
 
-For more information, go to [payout account and tax forms](https://docs.microsoft.com/azure/marketplace/partner-center-portal/set-up-your-payout-account-tax-forms).
+For more information, go to [payout account and tax forms](partner-center-portal/set-up-your-payout-account-tax-forms.md).
 
 ### Are returns and refunds supported with the commercial marketplace?
 

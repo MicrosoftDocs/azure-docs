@@ -39,7 +39,7 @@ An example of such call is `https://contoso.com/signup?token=<blob>`, whereas th
 
 The landing page url must be up and running 24x7, and ready to receive new calls from Microsoft at all times. If the landing page becomes unavailable, customers won't be able to sign up for the SaaS service and start using it.
 
-Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, purchased plan ID, etc.
+Then, the *token* must be passed back to Microsoft from the publisher by calling the [SaaS Resolve API](#resolve-a-subscription), as the value of the `x-ms-marketplace-token header` header parameter.  As the result of the Resolve API call, the token is exchanged for the details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, purchased plan ID, etc.
 
 On the landing page, the customer should be logged on to the new or existing SaaS account via Azure Active Directory (AAD) Single Sign On (SSO). 
 
@@ -56,7 +56,7 @@ This will start the customer's billing cycle. If the Activate Subscription API c
 
 #### Active (Subscribed)
 
-This state is the steady state of a provisioned SaaS subscription. Once the [Activate Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#activate-a-subscription) call is processed on Microsoft side, the SaaS subscription is marked as Subscribed. The SaaS service is now ready to be used by the customer on the publisher's side, and the customer is billed.
+This state is the steady state of a provisioned SaaS subscription. Once the [Activate Subscription API](#activate-a-subscription) call is processed on Microsoft side, the SaaS subscription is marked as Subscribed. The SaaS service is now ready to be used by the customer on the publisher's side, and the customer is billed.
 
 When the SaaS subscription is already active, and the customer chooses to launch **Manage** SaaS experience from the Azure portal or M365 Admin Center, **Landing page URL** is again called by Microsoft with *token* parameter, same as in the activate flow.  The publisher should distinguish between new purchases and management of existing SaaS accounts and handle this landing page URL call accordingly.
 
@@ -80,7 +80,7 @@ Only an active subscription can be updated. While the subscription is being upda
 In this flow, the customer changes the subscription plan or quantity of seats from M365 Admin Center.  
 
 1. Once an update is entered, Microsoft will call the publisher's webhook URL, configured in **Connection webhook** field in Partner Center, with an appropriate value for *action* and other relevant parameters.  
-1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when the change is complete by calling the [Update Status of Operation API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. The publisher side should make the required changes to the SaaS service, and notify Microsoft when the change is complete by calling the [Update Status of Operation API](#update-the-status-of-an-operation).
 1. If the Patch is sent with fail status, the update process will not be completed on Microsoft side.  The SaaS subscription will be left with existing plan and quantity of seats.
 
 The sequence of API calls for a Marketplace initiated update scenario is shown below.
@@ -91,11 +91,11 @@ The sequence of API calls for a Marketplace initiated update scenario is shown b
 
 In this flow, the customer changes the subscription plan or quantity of seats purchased from the SaaS service itself. 
 
-1. The publisher code must call the [Change Plan API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-plan-on-the-subscription) and/or [Change Quantity API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#change-the-quantity-on-the-subscription) before making the requested change on the publisher side. 
+1. The publisher code must call the [Change Plan API](#change-the-plan-on-the-subscription) and/or [Change Quantity API](#change-the-quantity-on-the-subscription) before making the requested change on the publisher side. 
 
 1. Microsoft will apply the change to the subscription, and then notify the publisher via **Connection Webhook** to apply the same change.  
 
-1. Only then the publisher should make the required change to the SaaS subscription, and notify Microsoft when the change is done by calling [Update Status of Operation API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+1. Only then the publisher should make the required change to the SaaS subscription, and notify Microsoft when the change is done by calling [Update Status of Operation API](#update-the-status-of-an-operation).
 
 The sequence of API calls for the publisher-side initiated update scenario.
 
@@ -122,7 +122,7 @@ This action indicates the customer's payment instrument became valid again, and 
 
 1. Microsoft calls webhook with an *action* parameter set to the *Reinstate* value.  
 1. The publisher makes sure this subscription is fully operational again on the publisher side.
-1. The publisher calls the [Patch Operation API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation) with success status.  
+1. The publisher calls the [Patch Operation API](#update-the-status-of-an-operation) with success status.  
 1. Then the Reinstate will be successful and the customer will be billed again for the SaaS subscription. 
 1. If the Patch is sent with fail status, the reinstatement process will not be completed on Microsoft side. The subscription will remain Suspended.
 
@@ -250,7 +250,7 @@ Bad request. `x-ms-marketplace-token` is missing, malformed, invalid, or expired
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly.
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
 
 Code: 500<br>
 Internal server error.  Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -266,7 +266,7 @@ Once the SaaS account is configured for an end customer, the publisher must call
 |             |                   |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Use 2018-08-31.   |
-| `subscriptionId` | A unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the marketplace authorization token by using the [Resolve API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#resolve-a-subscription).
+| `subscriptionId` | A unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the marketplace authorization token by using the [Resolve API](#resolve-a-subscription).
  |
 
 *Request headers:*
@@ -305,7 +305,7 @@ Bad request: validation failed.
 Code: 403 <br>
 Forbidden. The authorization token is invalid, expired, or not provided. The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly.
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
 
 Code: 404 <br>
 Not found. SaaS subscription is in Unsubscribed state.
@@ -424,7 +424,7 @@ If no purchased SaaS subscriptions are found for this publisher, empty response 
 Code: 403 <br>
 Forbidden. The authorization token is unavailable, invalid, or expired.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 500<br>
 Internal server error. Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -495,7 +495,7 @@ Returns details for a SaaS subscription based on the `subscriptionId` provided.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired, and not provided. The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  SaaS subscription with the specified `subscriptionId` cannot be found.
@@ -555,7 +555,7 @@ If `subscriptionId` is not found, empty response body is returned.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request may be attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 500<br>
 Internal server error.  Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -616,7 +616,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly.
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -687,7 +687,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden.  The authorization token is invalid, expired or not provided.  The request is attempting to access a subscription that doesn't belong to the current publisher.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -751,7 +751,7 @@ Bad request.  Delete is not in `allowedCustomerOperations` list for this SaaS su
 Code: 403<br>
 Forbidden.  The authorization token is invalid, expired or not available. The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly.
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -763,7 +763,7 @@ Internal server error. Retry the API call.  If the error persists contact [Micro
 
 #### List outstanding operations 
 
-Get list of the pending operations for the specified SaaS subscription.  Returned operations should be acknowledged by the publisher by calling the [Operation patch API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#update-the-status-of-an-operation).
+Get list of the pending operations for the specified SaaS subscription.  Returned operations should be acknowledged by the publisher by calling the [Operation patch API](#update-the-status-of-an-operation).
 
 Currently only **Reinstate operations** are returned as response for this API call.
 
@@ -816,7 +816,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -878,7 +878,7 @@ Response body:
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly. 
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  
@@ -931,7 +931,7 @@ Code: 403<br>
 Forbidden.  The authorization token is not available, invalid, or expired. The request may be attempting to access a subscription that doesn't belong to the current publisher.
 Forbidden.  The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration) correctly.
+This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.
@@ -1014,11 +1014,11 @@ A purchase flow can be triggered from the Azure portal or Microsoft AppSource si
 
 ## Get support
 
-See [Support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support) for publisher support options.
+See [Support for the commercial marketplace program in Partner Center](partner-center-portal/support.md) for publisher support options.
 
 
 ## Next steps
 
-See Marketplace [metering service APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis) for more options for SaaS offers in marketplace.
+See Marketplace [metering service APIs](partner-center-portal/marketplace-metering-service-apis.md) for more options for SaaS offers in marketplace.
 
 Review and use [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) built on top of the APIs described in this document.

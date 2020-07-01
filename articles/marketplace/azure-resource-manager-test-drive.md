@@ -172,7 +172,7 @@ You can use this parameter to uniquely identify the test drive session, if it's 
 
 ### Unique Names
 
-Some Azure resources, like storage accounts or DNS names, requires globally unique names. This means that every time test drive deploys the ARM template, it creates a new resource group with a unique name for all its resources. Therefore, you must use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to generate random unique values:
+Some Azure resources, like storage accounts or DNS names, requires globally unique names. This means that every time test drive deploys the ARM template, it creates a new resource group with a unique name for all its resources. Therefore, you must use the [uniquestring](../azure-resource-manager/resource-group-template-functions.md#uniquestring) function concatenated with your variable names on resource group IDs to generate random unique values:
 
 ```JSON
 "variables": {

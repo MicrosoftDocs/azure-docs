@@ -32,11 +32,11 @@ Any application that wants to use the capabilities of Azure AD must first be reg
     -   **Application type**:  
         
         Select **Web app / API** for
-        [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
-        and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
+        [client applications](../../active-directory/develop/active-directory-dev-glossary.md#client-application))
+        and [resource/API applications](../../active-directory/develop/active-directory-dev-glossary.md#resource-server))
         that are installed on a secure server. This setting is used for
-        OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
-        and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+        OAuth confidential [web clients](../../active-directory/develop/active-directory-dev-glossary.md#web-client))
+        and public [user-agent-based  clients](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
         The same application can also expose both a client and resource/API.
 
         For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).

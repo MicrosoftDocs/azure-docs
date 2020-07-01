@@ -98,9 +98,9 @@ Additional requirements and checklists are provided for specific listing types, 
 
 ## Next steps
 * Learn about the various offer types in Azure Marketplace:
-  * [SaaS apps](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Containers](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Consulting services](https://docs.microsoft.com/azure/marketplace/consulting-services)
+  * [SaaS apps](marketplace-saas-applications-technical-publishing-guide.md)
+  * [Containers](marketplace-containers.md)
+  * [Consulting services](consulting-services.md)
 
-* [Determine your publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* [Determine your publishing option](determine-your-listing-type.md)
 

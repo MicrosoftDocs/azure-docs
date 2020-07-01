@@ -25,7 +25,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
         ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        For more information about storage accounts, see [Quickstart tutorial](https://docs.microsoft.com/azure/storage/). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+        For more information about storage accounts, see [Quickstart tutorial](../../storage/index.yml). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Wait until your storage account is provisioned. This process typically takes a few minutes. 
 

@@ -123,7 +123,7 @@ If you deploy a product by using a template and it is available on both the Azur
 
 Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
 
-For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
+For more information, see the [Tracking Azure customer usage with GUIDs FAQ](azure-partner-customer-usage-attribution.md#faq)).
 
 ## Create a billing profile
 
@@ -259,7 +259,7 @@ If you want to grant Partner Center access to a brand-new Azure AD application a
 1. From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
 2. On the next page, select **New Azure AD application**.
 3. Enter the **Reply URL** for the new Azure AD application. This is the URL where users can sign in and use your Azure AD application (sometimes also known as the App URL or Sign-On URL). The **Reply URL** can't be longer than 256 characters and must be unique within your directory.
-4. Enter the **App ID URI** for the new Azure AD application. This is a logical identifier for the Azure AD application that is presented when a single sign-on request is sent to Azure AD. Note that the **App ID URI** must be unique for each Azure AD application in your directory. This ID can't be longer than 256 characters. For more info about the App ID URI, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
+4. Enter the **App ID URI** for the new Azure AD application. This is a logical identifier for the Azure AD application that is presented when a single sign-on request is sent to Azure AD. Note that the **App ID URI** must be unique for each Azure AD application in your directory. This ID can't be longer than 256 characters. For more info about the App ID URI, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. In the **Roles** section, specify the role(s) or customized permissions for the Azure AD application.
 6. Select **Save**.
 

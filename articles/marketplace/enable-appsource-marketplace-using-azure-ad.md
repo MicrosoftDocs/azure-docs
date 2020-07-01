@@ -24,7 +24,7 @@ Microsoft AppSource and Azure Marketplace customers use in-product experiences t
 
 ## Offers that require Azure AD
 
-The various commercial marketplace [listing options and offer types](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) have different requirements for Azure AD implementation. See the following table for details.
+The various commercial marketplace [listing options and offer types](determine-your-listing-type.md) have different requirements for Azure AD implementation. See the following table for details.
 
 | **Offer type**    | **Azure AD SSO required?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
@@ -36,7 +36,7 @@ The various commercial marketplace [listing options and offer types](https://doc
 | Containers  | N/A | N/A | N/A | No |
 | Consulting Services  | No | N/A | N/A | N/A |
 
-For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](marketplace-saas-applications-technical-publishing-guide.md).
 
 ## Azure AD integration
 
