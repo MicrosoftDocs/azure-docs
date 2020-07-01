@@ -54,23 +54,16 @@ In the on-premises world, you rarely had to care about the I/O subsystems and it
 
 Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to leverage Azure premium storage, Ultra disk or ANF for **/hana/data** and **/hana/log** volumes. 
 
+
+Some guiding principles in selecting your storage configuration for HANA can be listed like:
+
+- Decide on the type of storage based on [Azure Storage types for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) and [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
+- The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your /hana/data volume configuration. Writing savepoints, SAP HANA can be very aggressive issuing I/Os. It is easily possible to push up to throughput limits of your /hana/data volume when writing a savepoint. If your disk(s) that build the /hana/data volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
+- If you are using Azure premium storage the least expensive configuration is to use logical volume managers to build stripe sets to build the /hana/data and /hana/log volumes
+
 > [!IMPORTANT]
-> In case you are using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It is highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
-
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
-
-- 256 KB for **/hana/data**
-- 64 KB for **/hana/log**
-
-> [!IMPORTANT]
-> The stripe size for /hana/data got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB is providing slightly better performance. We also changed the recommendation for stripe sizes of /hana/log from 32 KB to 64 KB in order to get enough throughput with larger I/O sizes.
-
-> [!NOTE]
-> You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.
-
-Accumulating a number of Azure VHDs underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
-
-Also keep the overall VM I/O throughput in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
+> The suggestions for the storage configurations are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you are not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find the right compromise for you and your HANA workload.
 
 ## Linux I/O Scheduler mode
 Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
@@ -98,7 +91,24 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 - **OS disk** - don't change default caching that is set by Azure at creation time of the VM
 
 
-## Azure burst functionality for premium storage
+If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes for the RAID 0 the recommendation is to use:**
+
+- 256 KB for **/hana/data**
+- 64 KB for **/hana/log**
+
+> [!NOTE]
+> The stripe size for /hana/data got changed from earlier recommendations calling for 64 KB or 128 KB to 256 KB based on customer experiences with more recent Linux versions. The size of 256 KB is providing slightly better performance. We also changed the recommendation for stripe sizes of /hana/log from 32 KB to 64 KB in order to get enough throughput with larger I/O sizes.
+
+> [!NOTE]
+> You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.
+
+Accumulating a number of Azure VHDs underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across  over 3 x P30 Azure Premium Storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure Premium Storage P30 disk.
+
+> [!IMPORTANT]
+> In case you are using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It is highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
+
+
+### Azure burst functionality for premium storage
 For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You are going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
@@ -115,13 +125,13 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 - Read bursts when performing transaction log or redo log backups
 
 
-### Production recommended storage solution
+### Production recommended storage solution based on Azure premium storage
 
 > [!IMPORTANT]
 > SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
 
 > [!NOTE]
-> In scenarios that involve Azure premium storage, we are implementing the burst capabilities into the configuration. As you are using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) works in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we are not expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break
+> In scenarios that involve Azure premium storage, we are implementing the burst capabilities into the configuration. As you are using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting) works in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we are not expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
 
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
 
@@ -134,51 +144,51 @@ Configuration for SAP /hana/data volume:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 510 MiB | 1500 | 10,500 |
-| M32ls | 256 GiB | 500 MB/s | 3 x P10 | 510 MiB | 1500 | 10,500 |
-| M64ls | 512 GiB | 1000 MB/s | 3 x P15 |  510 GiB | 3,300 | 10,500 |
-| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 |
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 |
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M32ts | 192 GiB | 500 MBps | 3 x P10 | 510 MBps | 1500 | 10,500 |
+| M32ls | 256 GiB | 500 MBps | 3 x P10 | 510 MBps | 1500 | 10,500 |
+| M64ls | 512 GiB | 1,000 MBps | 3 x P15 |  510 MBps | 3,300 | 10,500 |
+| M64s | 1,000 GiB | 1,000 MBps | 4 x P15 | 680 MBps | 4,400 | 14,000 |
+| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 680 MBps | 9,200 | 14,400 |  
+| M128s | 2,000 GiB | 2,000 MBps |5 x P20 | 850 MBps | 11,500| 17,500 | 
+| M128ms | 3,800 GiB | 2,000 MBps | 5 x P30 | 1,000 MBps (provisioned) | 25,000 | no burst | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps (provisioned) | 20,000| no burst | 
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 30,000 | no burst |
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 30,000 | no burst |
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 8 x P40 | 2,000 MBps (provisioned) | 60,000 | no burst |
 
 
 For the /hana/log volume the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MB/s | 2 x P10 | 340 MB | 1,000 | 7,000 | 
-| M32ls | 256 GiB | 500 MB/s | 2 x P10 | 340 MB | 1,000 | 7,000 | 
-| M64ls | 512 GiB | 1000 MB/s | 2 x P10 | 340 MB | 1,000 | 7,000 | 
-| M64s | 1000 GiB | 1000 MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 |
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 |
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M32ts | 192 GiB | 500 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
+| M32ls | 256 GiB | 500 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
+| M64ls | 512 GiB | 1,000 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
+| M64s | 1,000 GiB | 1,000 MBps | 2 x P15 | 340 MBps | 4,600 | 7000 | 
+| M64ms | 1,750 GiB | 1,000 MBps | 2 x P15 | 340 MBps | 4,600 | 7000 |  
+| M128s | 2,000 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
+| M128ms | 3,800 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 |  
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
 
 
 For the other volumes the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MB/s | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MB/s |  1 x P20 | 1 x P6 | 1 x P6 |
-| M64ls | 512 GiB | 1000 MB/s | 1 x P20 | 1 x P6 | 1 x P6 |
-| M64s | 1000 GiB | 1000 MB/s | 1 x P30 | 1 x P6 | 1 x P6 |
-| M64ms | 1750 GiB | 1000 MB/s | 1 x P30 | 1 x P6 | 1 x P6 | 
-| M128s | 2000 GiB | 2000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M128ms | 3800 GiB | 2000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 |
-| M208s_v2 | 2850 GiB | 1000 MB/s |  1 x P30 | 1 x P10 | 1 x P6 |
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 | 
-| M416s_v2 | 5700 GiB | 2000 MB/s |  1 x P30 | 1 x P10 | 1 x P6 | 
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M32ts | 192 GiB | 500 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M64ls | 512 GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
+| M64s | 1,000 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
+| M64ms | 1,750 GiB | 1,000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
+| M128s | 2,000 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M128ms | 3,800 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M208s_v2 | 2,850 GiB | 1,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
+| M416s_v2 | 5,700 GiB | 2,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 | 
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
@@ -189,35 +199,35 @@ For the HANA certified VMs of the Azure [Esv3](https://docs.microsoft.com/azure/
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 3 x P10 | 510 MB | 1,500 | 10,500 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 3 x P10 |  510 MB | 1,500 | 10,500|
-| E48ds_v4 | 384 GiB | 1152 MB/s | 3 x P15 |  510 MB | 3,300  | 10,500 | 
-| E64ds_v4 | 504 GiB | 1200 MB/s | 3 x P15 |  510 MB | 3,300 | 10,500 | 
-| E64s_v3 | 432 GiB | 1,200 MB/s | 3 x P15 |  510 MB | 3,300 | 10,500 | 
+| E20ds_v4 | 160 GiB | 480 MBps | 3 x P10 | 510 MBps | 1,500 | 10,500 |
+| E32ds_v4 | 256 GiB | 768 MBps | 3 x P10 |  510 MBps | 1,500 | 10,500|
+| E48ds_v4 | 384 GiB | 1,152 MBps | 3 x P15 |  510 MBps | 3,300  | 10,500 | 
+| E64ds_v4 | 504 GiB | 1,200 MBps | 3 x P15 |  510 MBps | 3,300 | 10,500 | 
+| E64s_v3 | 432 GiB | 1,200 MB/s | 3 x P15 |  510 MBps | 3,300 | 10,500 | 
 
 For the other volumes the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS | /hana/shared | /root volume | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E20ds_v4 | 160 GiB | 480 MB/s | 80 GiB | 250 MB | 3000 | 1 x P15 | 1 x P6 | 1 x P6 |
-| E32ds_v4 | 256 GiB | 768 MB/s | 128 GiB | 250 MB | 3000 | 1 x P15 | 1 x P6 | 1 x P6 |
-| E48ds_v4 | 384 GiB | 1152 MB/s | 192 GiB | 250 MB | 3000 | 1 x P20 | 1 x P6 | 1 x P6 |
-| E64ds_v4 | 504 GiB | 1200 MB/s | 256 GiB | 250 MB | 3000 | 1 x P20 | 1 x P6 | 1 x P6 |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 220 GiB | 250 MB | 3000 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E20ds_v4 | 160 GiB | 480 MBps | 80 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
+| E32ds_v4 | 256 GiB | 768 MBps | 128 GB | 250 MBps | 1,800 | 1 x P15 | 1 x P6 | 1 x P6 |
+| E48ds_v4 | 384 GiB | 1,152 MBps | 192 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E64ds_v4 | 504 GiB | 1,200 MBps | 256 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
+| E64s_v3 | 432 GiB | 1,200 MBps | 220 GB | 250 MBps | 1,800 | 1 x P20 | 1 x P6 | 1 x P6 |
 
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Microsoft is in the process of rolling out a new Azure storage type called [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Another Azure storage type is called [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
 - Storage throughput from 300 MB/sec to 2,000 MB/sec
 
-Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and Premium Storage. As a result, you can limit the usage of Ultra disk to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
+Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and Premium Storage. As a result, you can limit the usage of Ultra disk to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure premium storage
 
-Other advantages of Ultra disk can be the better read latency in comparison to Premium Storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
+Other advantages of Ultra disk can be the better read latency in comparison to premium storage. The faster read latency can have advantages when you want to reduce the HANA startup times and the subsequent load of the data into memory. Advantages of Ultra disk storage also can be felt when HANA is writing savepoints. Since Premium Storage disks for /hana/data are usually not Write Accelerator cached, the write latency to /hana/data on Premium Storage compared to the Ultra disk is higher. It can be expected that savepoint writing with Ultra disk is performing better on Ultra disk.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types listed below. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk).
 
 ### Production recommended storage solution with pure Ultra disk configuration
@@ -227,45 +237,28 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 600 GB | 700 MBps | 7,500 | 512 GB | 500 MBps  | 2,000 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
-| M64ls | 512 GiB | 1,000 MB/s | 600 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M64s | 1,000 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M64ms | 1,750 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M128s | 2,000 GiB | 2,000 MB/s |2,400 GB | 1,200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
-| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
-| M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 | 
-| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 |   
+| E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2,500 | 80 GB | 250 MB | 1,800 |
+| E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2,500 | 128 GB | 250 MBps | 1,800 |
+| E48ds_v4 | 384 GiB | 1152 MB/s | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1,800 |
+| E64ds_v4 | 504 GiB | 1200 MB/s | 610 GB | 400 MBps | 3,500 |  256 GB | 250 MBps | 1,800 |
+| E64s_v3 | 432 GiB | 1,200 MB/s | 610 GB | 400 MBps | 3,500 | 220 GB | 250 MB | 1,800 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2,500 | 96 GB | 250 MBps  | 1,800 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 2,500 | 256 GB | 250 MBps  | 1,800 |
+| M64ls | 512 GiB | 1,000 MB/s | 620 GB | 400 MBps | 3,500 | 256 GB | 250 MBps  | 1,800 |
+| M64s | 1,000 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M64ms | 1,750 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 5,000 | 512 GB | 250 MBps  | 2,500 |
+| M128s | 2,000 GiB | 2,000 MB/s |2,400 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 750 MBps |7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 750 MBps | 7,000 | 512 GB | 250 MBps  | 2,500 | 
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 4,000 | 
+| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 9,000 | 512 GB | 400 MBps  | 4,000 |   
 
-The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
+**The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
 > So far, storage snapshots with Ultra disk storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
 
-### Cost conscious storage solution with pure Ultra disk configuration
-In this configuration, you the /hana/data and /hana/log volumes on the same disk. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
-
-The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
-
-| VM SKU | RAM | Max. VM I/O<br /> Throughput | Volume for /hana/data and /log | /hana/data and log I/O throughput | /hana/data and log IOPS |
-| --- | --- | --- | --- | --- | --- |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 1,200 GB | 1,200 MBps | 9,500 | 
-| M32ts | 192 GiB | 500 MB/s | 512 GB | 400 MBps | 9,500 | 
-| M32ls | 256 GiB | 500 MB/s | 600 GB | 400 MBps | 9,500 | 
-| M64ls | 512 GiB | 1,000 MB/s | 1,100 GB | 900 MBps | 10,000 | 
-| M64s | 1,000 GiB | 1,000 MB/s |  1,700 GB | 900 MBps | 10,000 | 
-| M64ms | 1,750 GiB | 1,000 MB/s | 2,600 GB | 900 MBps | 10,000 | 
-| M128s | 2,000 GiB | 2,000 MB/s |2,900 GB | 1,800 MBps |12,000 | 
-| M128ms | 3,800 GiB | 2,000 MB/s | 5,300 GB | 1,800 MBps |12,000 |  
-| M208s_v2 | 2,850 GiB | 1,000 MB/s | 4,000 GB | 900 MBps | 10,000 |  
-| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,700 GB | 900 MBps | 10,000 | 
-| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,700 GB | 1,800MBps | 12,000 |  
-| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 15,000 GB | 1,800 MBps | 12,000 |    
-
-The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
 ## NFS v4.1 volumes on Azure NetApp Files
 Azure NetApp Files provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. The NFS protocol v3 is not supported for the usage of /hana/data and /hana/log volumes when basing the shares on ANF. 
