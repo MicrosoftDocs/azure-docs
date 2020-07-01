@@ -176,8 +176,8 @@ Here is an example of a relationship formatted as a JSON object:
   "$relationshipId": "relationship-01",
   "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationshipName": "contains",
   "$targetId": "Cafe",
+  "$relationshipName": "contains",
   "startDate": "2020-02-04"
 }
 ```

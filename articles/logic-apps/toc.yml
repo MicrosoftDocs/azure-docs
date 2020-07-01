@@ -7,12 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create logic apps - Azure portal
+  - name: Create logic apps - Portal
     href: quickstart-create-first-logic-app-workflow.md
   - name: Create logic apps - Visual Studio
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
-    href: quickstart-create-logic-apps-visual-studio-code.md  
+    href: quickstart-create-logic-apps-visual-studio-code.md
+  - name: Create logic apps - ARM template
+    displayName: Resource Manager
+    href: quickstart-create-deploy-azure-resource-manager-template.md
 - name: Tutorials
   items:
   - name: Create schedule-based workflows
