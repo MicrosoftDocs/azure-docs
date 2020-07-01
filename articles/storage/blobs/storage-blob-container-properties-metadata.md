@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/01/2020
 ms.author: tamram
 ---
 
@@ -29,6 +29,14 @@ Retrieving property and metadata values for a Blob storage resource is a two-ste
 Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
 ## Retrieve container properties
+
+# [.NET v12 SDK](#tab/dotnet)
+
+Put something here.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 To retrieve container properties, call one of the following methods:
 
@@ -59,7 +67,21 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 }
 ```
 
+---
+
 ## Set and retrieve metadata
+
+# [.NET v12 SDK](#tab/dotnet)
+
+To set metadata, do this:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddContainerMetadata":::
+
+To set retrieve metadata, do this:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
+
+# [.NET v11 SDK](#tab/dotnet11)
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call one of the following methods to write the values:
 
@@ -121,6 +143,8 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
