@@ -82,7 +82,7 @@ If you configured your server for geographically redundant backups, a new server
 
 4. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-georestore.png" alt-text="Select data source.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Select data source.":::
     
    > [!NOTE]
    > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
@@ -90,7 +90,7 @@ If you configured your server for geographically redundant backups, a new server
 
 5. Select the **Backup** dropdown.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-georestore-backup.png" alt-text="Select backup dropdown.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Select backup dropdown.":::
 
 6. Select the source server to restore from.
    

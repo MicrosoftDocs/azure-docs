@@ -68,7 +68,6 @@ The following steps restore the sample server to a point-in-time:
 
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
-
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
@@ -85,7 +84,7 @@ If you configured your server for geographically redundant backups, a new server
 
 3. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-georestore.png" alt-text="Select data source.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Select data source.":::
     
    > [!NOTE]
    > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
@@ -93,7 +92,7 @@ If you configured your server for geographically redundant backups, a new server
 
 4. Select the **Backup** dropdown.
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-georestore-backup.png" alt-text="Select backup dropdown.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Select backup dropdown.":::
 
 5. Select the source server to restore from.
    
