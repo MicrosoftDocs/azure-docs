@@ -74,26 +74,26 @@ If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so 
 
 ## Container runtime configuration (Preview)
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away syscalls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away sys-calls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
     
 ![Docker CRI](media/cluster-configuration/docker-cri.png)
 
-[Containerd](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of containerd, as shown above. 
+[`Containerd`](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of `containerd`, as shown above. 
 
-With a containerd-based node and node pools, instead of talking to the dockershim, the kubelet will talk directly to containerd via the CRI (container runtime interface) plugin, removing extra hops on the flow when compared to the Docker CRI implementation. As such, you'll see better pod startup latency and less resource (CPU and memory) usage.
+With a containerd-based node and node pools, instead of talking to the `dockershim`, the kubelet will talk directly to `containerd` via the CRI (container runtime interface) plugin, removing extra hops on the flow when compared to the Docker CRI implementation. As such, you'll see better pod startup latency and less resource (CPU and memory) usage.
 
-By using containerd for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. This is enabled by this new architecture where kubelet talks directly to containerd through the CRI plugin while in Moby/docker architecture kubelet would talk to the dockershim and docker engine before reaching containerd, thus having extra hops on the flow.
+By using `containerd` for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. These improvements are enabled by this new architecture where kubelet talks directly to `containerd` through the CRI plugin while in Moby/docker architecture kubelet would talk to the `dockershim` and docker engine before reaching `containerd`, thus having extra hops on the flow.
 
 ![Docker CRI](media/cluster-configuration/containerd-cri.png)
 
-Containerd works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
+`Containerd` works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
 
 > [!IMPORTANT]
-> After containerd becomes generally available on AKS, it'll be the default and only option available for container runtime on new clusters. You can still use Moby nodepools and clusters on older supported versions until those fall off support. 
+> After `containerd` becomes generally available on AKS, it'll be the default and only option available for container runtime on new clusters. You can still use Moby nodepools and clusters on older supported versions until those fall off support. 
 > 
-> We recommend you test your workloads on containerd node pools before upgrading or creating new clusters with this container runtime.
+> We recommend you test your workloads on `containerd` node pools before upgrading or creating new clusters with this container runtime.
 
-### Use containerd as your container runtime (Preview)
+### Use `containerd` as your container runtime (Preview)
 
 You must have the following pre-requisites:
 
@@ -126,12 +126,12 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```  
 
-### Use containerd on new clusters (Preview)
+### Use `containerd` on new clusters (Preview)
 
-Configure the cluster to use containerd when the cluster is created. Use the `--aks-custom-headers` flag to set containerd as the container runtime.
+Configure the cluster to use `containerd` when the cluster is created. Use the `--aks-custom-headers` flag to set `containerd` as the container runtime.
 
 > [!NOTE]
-> The containerd runtime is only supported on nodes and node pools using the AKS Ubuntu 18.04 image.
+> The `containerd` runtime is only supported on nodes and node pools using the AKS Ubuntu 18.04 image.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
@@ -139,9 +139,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-
 
 If you want to create clusters with the Moby (docker) runtime, you can do so by omitting the custom `--aks-custom-headers` tag.
 
-### Use containerd on existing clusters (Preview)
+### Use `containerd` on existing clusters (Preview)
 
-Configure a new node pool to use containerd. Use the `--aks-custom-headers` flag to set containerd as the runtime for that node pool.
+Configure a new node pool to use `containerd`. Use the `--aks-custom-headers` flag to set `containerd` as the runtime for that node pool.
 
 ```azurecli
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804,ContainerRuntime=containerd
@@ -150,16 +150,16 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 If you want to create node pools with the Moby (docker) runtime, you can do so by omitting the custom `--aks-custom-headers` tag.
 
 
-### Containerd limitations/differences
-* To use containerd as the container runtime you must use AKS Ubuntu 18.04 as your base OS image.
-* While the docker toolset is still present on the nodes, Kubernetes uses containerd as the container runtime. Therefore, since Moby/Docker does not manage the Kubernetes-created containers on the nodes, you can't view or interact with your containers using Docker commands (like `docker ps`) or the Docker API.
-* For containerd, we recommend using [crictl](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (eg. `crictl ps`). 
-   * It does not provide the complete functionality of the docker CLI. It's intended for troubleshooting only.
-   * crictl offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
-* Containerd sets up logging using the standardized cri logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the cri logging format (like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
-* You can no longer access the docker engine, `/var/run/docker.sock` or use Docker-in-Docker (DinD).
-  * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS does not support running any out of band commands on the agent nodes that could cause instability.
-  * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes is not fully aware of those consumed resources, and those approaches present a lot of issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
+### `Containerd` limitations/differences
+* To use `containerd` as the container runtime you must use AKS Ubuntu 18.04 as your base OS image.
+* While the docker toolset is still present on the nodes, Kubernetes uses `containerd` as the container runtime. Therefore, since Moby/Docker doesn't manage the Kubernetes-created containers on the nodes, you can't view or interact with your containers using Docker commands (like `docker ps`) or the Docker API.
+* For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`). 
+   * It doesn't provide the complete functionality of the docker CLI. It's intended for troubleshooting only.
+   * `crictl` offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
+* `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+* You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
+  * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS doesn't  support running any out of band commands on the agent nodes that could cause instability.
+  * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
 * Building images - The recommended approach for building images is to use [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). An alternative approach is to use more secure in-cluster options like [img](https://github.com/genuinetools/img).
 
 
@@ -249,7 +249,7 @@ As you work with the node resource group, keep in mind that you can't:
 
 - Learn how to use `Kured` to [apply security and kernel updates to Linux nodes](node-updates-kured.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
-- Read more about [ContainerD and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
+- Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
 
 
