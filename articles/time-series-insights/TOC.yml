@@ -147,26 +147,78 @@
   items:
   - name: Time Series Insights 
     items:
-    - name: Azure Time Series Insights 
-      href: /rest/api/time-series-insights/index
+    - name: Rest APIs Overview
+      href: https://docs.microsoft.com/rest/api/time-series-insights/
     - name: Data Access Gen 1
-      href: /rest/api/time-series-insights/ga
       items:
+      - name: Overview
+        href: https://docs.microsoft.com/rest/api/time-series-insights/ga
       - name: Query
-        href: /rest/api/time-series-insights/ga-query
         items:
+        - name: Query
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query
         - name: API
-          href: /rest/api/time-series-insights/ga-query-api
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api
         - name: Syntax
-          href: /rest/api/time-series-insights/ga-query-syntax
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
-        href: /rest/api/time-series-insights/ga-reference-data-api
-    - name: Data Access Concepts Gen 2
-      href: /rest/api/time-series-insights/preview
+        href: https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api
+    - name: Data Access Gen 2
+      items:
+      - name: Overview
+        href: https://docs.microsoft.com/rest/api/time-series-insights/preview
+      - name: Model Settings
+        items:
+        - name: Overview
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings
+        - name: Get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings/get
+        - name: Update
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings/update
+      - name: Query
+        items:
+        - name: Overview
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query
+        - name: Execute
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute
+        - name: Get Availability
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability
+        - name: Get Event Schema
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema
+      - name: Time Series Hierarchies
+        items:
+        - name: Overview
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies
+        - name: Execute Batch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch
+        - name: Get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get
+      - name: Time Series Instances
+        items:
+        - name: Overview
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances
+        - name: Execute Batch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch
+        - name: Get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get
+        - name: Search
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search
+        - name: Suggest
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest
+      - name: Time Series Types
+        items:
+        - name: Overview
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes
+        - name: Execute Batch
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch
+        - name: Get
+          href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get
   - name: Client SDK
     items:
     - name: JavaScript Client SDK
       href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
 - name: Resources
   items:
   - name: Support and help options
