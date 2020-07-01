@@ -100,6 +100,7 @@ You must have the following pre-requisites:
 - [The Azure CLI][azure-cli-install], version 2.8.0 or later installed
 - The aks-preview extension version 0.4.53 or later
 - The `UseCustomizedContainerRuntime` feature flag registered
+- The `UseCustomizedUbuntuPreview` feature flag registered
 
 To install the aks-preview 0.4.53 extension or later, use the following Azure CLI commands:
 
@@ -108,16 +109,19 @@ az extension add --name aks-preview
 az extension list
 ```
 
-Register the `UseCustomizedContainerRuntime` feature:
+Register the `UseCustomizedContainerRuntime` and `UseCustomizedUbuntuPreview` features:
 
 ```azurecli
 az feature register --name UseCustomizedContainerRuntime --namespace Microsoft.ContainerService
+az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
+
 ```
 
 It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
 When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
