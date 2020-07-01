@@ -49,15 +49,15 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
     - If your request hasn't been assigned, you see a screen like the following. Select a new severity level, then select **Change**.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="CAn":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="Select a new severity level":::
 
     - If your request has been assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message) to request a change in severity level.
 
-        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Assigned":::
+        :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Can't select a new severity level":::
 
 ## Share diagnostic information with Azure support
 
-When you create a support request, by default the **Share diagnostic information** option is selected. This allows Azure support to gather diagnostic information from your Azure resources:
+When you create a support request, by default the **Share diagnostic information** option is selected. This allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources:
 
 * You can't clear this option after a request is created.
 
