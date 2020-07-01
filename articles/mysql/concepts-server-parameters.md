@@ -38,7 +38,7 @@ You can also configure the maximum and minimum number of threads in the pool by 
 
 To improve performance issues of short queries on the thread pool, Azure Database for MySQL allows you to enable batch execution where instead of returning back to the thread pool immediately after executing a query, threads will keep active for a short time to wait for the next query through this connection. The thread then executes the query rapidly and once complete, waits for the next one, until the overall time consumption of this process exceeds a threshold. The batch execution behavior is determined using the following server parameters:  
 
--  `thread_pool_wait_timeout`: this value determines the time a thread waits for another query to process
+-  `thread_pool_batch_wait_timeout`: this value determines the time a thread waits for another query to process
 - `thread_pool_batch_max_time`: this value determines the max time a thread will repeat the cycle of query execution and waiting for the next query
 
 
