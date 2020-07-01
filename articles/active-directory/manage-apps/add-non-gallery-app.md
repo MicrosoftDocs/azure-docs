@@ -65,7 +65,7 @@ This article describes how to add a non-gallery application to **Enterprise Appl
 
       Behavior for **assigned** users:
 
-       | Application property settings | | | Assigned-user experience | |
+       | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
        |---|---|---|---|---|
        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
        | yes | yes | yes | yes | yes  |
@@ -79,7 +79,7 @@ This article describes how to add a non-gallery application to **Enterprise Appl
 
       Behavior for **unassigned** users:
 
-       | Application property settings | | | Unassigned-user experience | |
+       | Application property | Application property | Application property | Unassigned-user experience | Unassigned-user experience |
        |---|---|---|---|---|
        | Enabled for users to sign in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
        | yes | yes | yes | no  | no   |

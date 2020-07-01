@@ -102,19 +102,17 @@ To configure Azure AD single sign-on with Predictix Assortment Planning, take th
 
 	1. In the **Sign on URL** box, enter a URL in this pattern:
 
-       | |
-    	|--|
-    	| `https://<sub-domain>.ap.predictix.com/sso/request`|
-    	| `https://<sub-domain>.dev.ap.predictix.com/`|
-    	| |
+        ```https
+        https://<sub-domain>.ap.predictix.com/sso/request
+        https://<sub-domain>.dev.ap.predictix.com/
+        ```
 
     1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-        | |
-    	|--|
-    	| `https://<sub-domain>.ap.predictix.com`|
-    	| `https://<sub-domain>.dev.ap.predictix.com`|
-    	| |
+        ```https
+        https://<sub-domain>.ap.predictix.com
+        https://<sub-domain>.dev.ap.predictix.com
+        ```
 
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Assortment Planning support team](https://www.infor.com/support) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.

@@ -94,6 +94,8 @@
       items:
       - name: Event Grid
         href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Logic Apps
+        href: ../../logic-apps/quickstart-create-deploy-azure-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Service Bus
         href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Internet of Things
@@ -108,8 +110,12 @@
         href: ../../cost-management-billing/costs/quick-create-budget-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Monitor
+        href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Portal
+        href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
       - name: Resource Graph
         href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Role-based access control (RBAC)
@@ -120,6 +126,8 @@
       items:
       - name: Application Gateway
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Content Delivery Network
+        href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - Availability Zones
         href: ../../firewall/deploy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall - IP Groups

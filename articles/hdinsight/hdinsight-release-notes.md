@@ -75,3 +75,7 @@ Kafka version is upgraded from version 2.1.0 to 2.1.1.
  
 You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
 
+## Known issues
+
+### Hive Warehouse Connector issue
+There is an issue for Hive Warehouse Connector in this release. The fix will be included in the next release. Existing clusters created before this release are not impacted. Avoid droping and recreating the cluster if possible. Please open support ticket if you need further help on this.
