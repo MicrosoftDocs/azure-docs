@@ -68,7 +68,7 @@ We'll walk you through some steps to gather information about your problem and h
 
 The first step of the support request process gathers basic information about your issue and your support plan.
 
-On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Select the service, for example **Virtual Machine running Windows**. Select the resource, such as the name of your virtual machine. Describe the problem in your own words, then **Select problem type** to get more specific.
+On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Select the service, for example **Virtual Machine running Windows**. Select the resource, such as the name of your virtual machine. Describe the problem in your own words, then select **Problem type** and **Problem subtype** to get more specific.
 
 ![Basics blade](./media/how-to-create-azure-support-request/basics2lower.png)
 
