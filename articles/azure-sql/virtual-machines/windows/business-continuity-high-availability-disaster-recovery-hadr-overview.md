@@ -1,6 +1,6 @@
 ---
 title: High availability, disaster recovery, business continuity
-description: Learn about the high availability, disaster recovery (HADR), and business continuity options available for SQL Server on Azure VMs.  
+description: Learn about the high availability, disaster recovery (HADR), and business continuity options available for SQL Server on Azure VMs, such as Always On availability groups, failover cluster instance, database mirroring, log shipping, and backup & restore to Azure Storage.  
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -77,9 +77,9 @@ You can have a disaster recovery solution for your SQL Server databases in a hyb
 | **Replicate and fail over SQL Server to Azure with Azure Site Recovery** |On-premises production SQL Server instance replicated directly to Azure Storage for disaster recovery.<br/>![Replicate using Azure Site Recovery](./media/business-continuity-high-availability-disaster-recovery-hadr-overview/hybrid-dr-standalone-sqlserver-asr.png)<br/>For more information, see [Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 
 
-## Free disaster recovery replica in Azure
+## Free DR replica in Azure
 
-If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery plans with SQL Server without incurring additional licensing costs for the passive disaster recovery instance.
+If you have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), you can implement hybrid disaster recovery (DR) plans with SQL Server without incurring additional licensing costs for the passive disaster recovery instance.
 
 In the following image, the setup uses SQL Server running on an Azure virtual machine that uses 12 cores as a disaster recovery replica for an on-premises SQL Server deployment that uses 12 cores. In the past, you would need to license 12 cores of SQL Server for the on-premises deployment and the Azure Virtual Machines deployment. The new benefit offers passive replica benefits for running on an Azure virtual machine. Now you would need to license only 12 cores of SQL Server running on-premises, as long as the disaster recovery criteria for the passive replica on Azure Virtual Machines are met.
 
@@ -123,7 +123,7 @@ You can avoid this scenario by assigning an unused static IP address to the clus
 For more information, see [Configure availability groups in Azure (GUI)](availability-group-azure-marketplace-template-configure.md).
 
 ### Support for availability group listeners
-Availability group listeners are supported on Azure VMs running Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. This support is made possible by the use of load-balanced endpoints enabled on the Azure VMs that are availability group nodes. You must follow special configuration steps for the listeners to work for both client applications running in Azure and those running on-premises.
+Availability group listeners are supported on Azure VMs running Windows Server 2012 and later. This support is made possible by the use of load-balanced endpoints enabled on the Azure VMs that are availability group nodes. You must follow special configuration steps for the listeners to work for both client applications running in Azure and those running on-premises.
 
 There are two main options for setting up your listener: external (public) or internal. The external (public) listener uses an internet-facing load balancer and is associated with a public virtual IP that's accessible over the internet. An internal listener uses an internal load balancer and supports only clients within the same virtual network. For either load balancer type, you must enable Direct Server Return. 
 
