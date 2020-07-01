@@ -192,7 +192,7 @@ You can define and create views as part of the sampling process. These views are
 
 To create a view for your data, in the **Schema Editor** window, in the **View Definitions** column, click **Add** on the row of the container to sample. 
 
-    :::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
+:::image type="content" source="./media/odbc-driver/odbc-driver-create-view.png" alt-text="Create a view of data":::
 
 
 Then in the **View Definitions** window, do the following:
