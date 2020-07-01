@@ -151,7 +151,7 @@ For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicit
 Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN DNS name as the server name in the connection string. 
 
 ### Availability groups and FCI   
-You can configure Always On availability groups a failover cluster instance as one of the replicas. In this configuration, the mirroring endpoint URL for the FCI replica needs to use the FCI DNN. Likewise, if the FCI is used as a read-only replica, the read-only routing to the FCI replica needs to use the FCI DNN. 
+You can configure an Always On availability group by using a failover cluster instance as one of the replicas. In this configuration, the mirroring endpoint URL for the FCI replica needs to use the FCI DNN. Likewise, if the FCI is used as a read-only replica, the read-only routing to the FCI replica needs to use the FCI DNN. 
 
 The format for the mirroring endpoint is: `ENDPOINT_URL = 'TCP://<DNN DNS name>:<mirroring endpoint port>'`. 
 
@@ -172,18 +172,18 @@ READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 You can omit the port in the URL if it is the default 1433 port. For a named instance, configure a static port for the named instance and specify it in the read-only routing URL.  
 
 ### Replication   
-Replication has three components: publisher, distributor, subscriber. Any of these components can be a failover cluster instance. Because the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN might be necessary for replication to work. 
+Replication has three components: Publisher, Distributor, Subscriber. Any of these components can be a failover cluster instance. Because the FCI VNN is heavily used in replication configuration, both explicitly and implicitly, a network alias that maps the VNN to the DNN might be necessary for replication to work. 
 
 Keep using the VNN name as the FCI instance name within replication, but create a network alias in the following remote situations *before you configure replication*:
 
 | **Replication component (FCI with DNN)** | **Remote component** | **Network alias map** | **Server with network map**| 
 |---------|---------|---------|-------- | 
-|Publisher | Distributor | Publisher VNN to publisher DNN| Distributor| 
-|Distributor|Subscriber |Distributor VNN to distributor DNN| Subscriber | 
-|Distributor|Publisher | Distributor VNN to distributor DNN | Publisher| 
-|Subscriber| Distributor| Subscriber VNN to subscriber DNN | Distributor| 
+|Publisher | Distributor | Publisher VNN to Publisher DNN| Distributor| 
+|Distributor|Subscriber |Distributor VNN to Distributor DNN| Subscriber | 
+|Distributor|Publisher | Distributor VNN to Distributor DNN | Publisher| 
+|Subscriber| Distributor| Subscriber VNN to Subscriber DNN | Distributor| 
 
-For example, assume you have a publisher that's configured as an FCI using DNN in a replication topology, and the distributor is remote. In that case, create a network alias on the distributor server to map the publisher VNN to the publisher DNN: 
+For example, assume you have a Publisher that's configured as an FCI using DNN in a replication topology, and the Distributor is remote. In that case, create a network alias on the Distributor server to map the Publisher VNN to the Publisher DNN: 
 
 :::image type="content" source="media/failover-cluster-instance-overview/alias-in-configuration-manager.png" alt-text="Configure the DNN DNS name as the network alias using SQL Server Configuration Manager." :::
 
