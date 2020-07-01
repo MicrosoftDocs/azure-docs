@@ -56,14 +56,12 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
 - **Team ID**: `SGGM6D27TK`
 - **URLs**:
   - `https://login.microsoftonline.com`
-  - `https://login.windows.net`
   - `https://login.microsoft.com`
   - `https://sts.windows.net`
   - `https://login.partner.microsoftonline.cn`
   - `https://login.chinacloudapi.cn`
   - `https://login.microsoftonline.de`
   - `https://login.microsoftonline.us`
-  - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
 You can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For more information, see the [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
