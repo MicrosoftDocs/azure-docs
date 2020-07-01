@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Configure properties for an application in your Azure AD tenant
 
-In the previous quickstart you added an application to your Azure AD tenant. When you add an application you are registering it with Azure AD tenant. In this quickstart you will configure some of the properties for an app.
+In the previous quickstart, you added an application to your Azure AD tenant. When you add an application, you are letting your Azure AD tenant know it is the identity provider for the app. Now you'll configure some of the properties for the app.
  
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
@@ -24,9 +24,9 @@ In the previous quickstart you added an application to your Azure AD tenant. Whe
 
 To configure the properties of an application in your tenant, you need to have already added the app. The previous quickstart walks you through adding an app to your tenant.
 
-## Configure user sign-in properties
+## Configure app properties
 
-When you finish adding an application to your Azure AD tenant you are immediately presented with the overview page for it. If you are configuring an application that has already been added then look at the first quickstart which walks you through viewing the applications added to your tenant. 
+When you finish adding an application to your Azure AD tenant, you are immediately presented with the overview page for it. If you are configuring an application that has already been added, then look at the first quickstart, it walks you through viewing the applications added to your tenant. 
 
 To edit the application properties:
 
@@ -35,9 +35,9 @@ To edit the application properties:
 
     ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
 
-3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign in to the application. And, the options also determine if a user can see the application in the access panel.
+3. Take a moment to understand the user options. The options determine how users who are assigned or unassigned to the application can sign in to the application. And, the options also determine if a user can see the application in the access panel.
 
-    - **Enabled for users to sign-in?** determines whether users assigned to the application can sign in.
+    - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
     - **Visible to users?** determines whether users assigned to an app can see it in the access panel and O365 launcher.
 
@@ -47,7 +47,7 @@ To edit the application properties:
 
        | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
        |---|---|---|---|---|
-       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
+       | Enabled for users to sign in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
        | yes | yes | yes | yes | yes  |
        | yes | yes | no  | yes | no   |
        | yes | no  | yes | yes | yes  |
@@ -90,7 +90,7 @@ To use a custom logo:
 
 ## Next steps
 
-Now that you've configured the properties of the application you can continue on to setup single sign-on.
+Now that you've configured the properties of the application you can continue on to set up single sign-on.
 
 - [Set up single sign-on](add-application-portal-setup-sso.md)
 - [Remove an app](remove-application-portal.md)
