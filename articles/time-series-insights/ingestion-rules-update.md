@@ -48,7 +48,7 @@ Arrays of objects are always flattened, producing multiple events | If the objec
 
 ## Next steps
 
-- Read [Adding Support for Long Data Type](./time-series-insights-long-data-type.md).
+- Read [Adding Support for Long Data Type](./breaking-changes-long-data-type.md).
 
 - Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
 
