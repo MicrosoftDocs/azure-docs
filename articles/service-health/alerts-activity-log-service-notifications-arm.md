@@ -34,11 +34,11 @@ To learn more about action groups, see [Create and manage action groups](../azur
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- To deploy the template, the Azure CLI and PowerShell commands are run on your local computer. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Review the template
 
-The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template on your local computer as *CreateServiceHealthAlert.json*.
+The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template as *CreateServiceHealthAlert.json*.
 
 ```json
 {
@@ -158,13 +158,13 @@ Verify that the workspace has been created using one of the following commands. 
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az monitor activity-log alert show --resource-group my-resource-group --name ServiceHealthActivityLogAlert
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```powershell
 Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name ServiceHealthActivityLogAlert
 ```
 
@@ -176,13 +176,13 @@ If you plan to continue working with subsequent quickstarts and tutorials, you m
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az group delete --name my-resource-group
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```powershell
 Remove-AzResourceGroup -Name my-resource-group
 ```
 
