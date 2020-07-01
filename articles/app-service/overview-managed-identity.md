@@ -428,11 +428,15 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
+For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. 
+
+It's also important to understand that there are subtle differences in the way you code your application to use this library. For instance, if you plan to use the system-assigned managed identity then you can use the code below. However, if you intend to use user-defined managed identities, you need to explicitly configure the AzureServiceTokenProvider with the ClientId of the managed identity. 
+
+This section shows you how to get started with the library in your code.
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2. Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
+2. Add the following code to your application, modifying to target the correct resource, if you plan to run the application locally or using the system-assigned managed identity. This example shows two ways to work with Azure Key Vault:
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -443,8 +447,21 @@ For .NET applications and functions, the simplest way to work with a managed ide
     // OR
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
+If you want to use a user-defined managed identity, then you'll need to use the following code instead modifying to target the right resources and use the right clientid:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider("RunAs=App;AppId=<clientid-guid>");
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
 
 To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+
+To learn more about how to configure the AzureServiceTokenProvider for service to service authentication, see the [Service to Service Authentication with .NET documentation](https://docs.microsoft.com/en-us/azure/key-vault/general/service-to-service-authentication#connection-string-support)
 
 ### Using the Azure SDK for Java
 
