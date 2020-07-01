@@ -8,7 +8,7 @@ ms.custom: has-adal-ref
 
 # Authenticate Batch Management solutions with Active Directory
 
-Applications that call the Azure Batch Management service authenticate with [Azure Active Directory][aad_about] (Azure AD). Azure AD is Microsoft’s multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
+Applications that call the Azure Batch Management service authenticate with [Azure Active Directory][aad_about] (Azure AD). Azure AD is Microsoft's multi-tenant cloud based directory and identity management service. Azure itself uses Azure AD for the authentication of its customers, service administrators, and organizational users.
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview].
 
@@ -20,13 +20,13 @@ To learn more about using the Batch Management .NET library and the AccountManag
 
 The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint:
+To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint.
 
-![](./media/batch-aad-auth-management/app-registration-management-plane.png)
+![Adding an application](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
 Once you complete the registration process, you'll see the application ID and the object (service principal) ID listed for your application.
 
-![](./media/batch-aad-auth-management/app-registration-client-id.png)
+![Completed registration process](./media/batch-aad-auth-management/app-registration-client-id.png)
 
 ## Grant the Azure Resource Manager API access to your application
 
@@ -116,7 +116,7 @@ To learn more about Azure AD, see the [Azure Active Directory Documentation](htt
 To authenticate Batch service applications using Azure AD, see [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
+[aad_about]: "What is Azure Active Directory?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
