@@ -46,7 +46,7 @@ You can edit storage targets to modify some of their properties. Different prope
 
 You can't edit a storage target's name, type, or back-end storage system (Blob container or NFS hostname/IP address). If you need to change these properties, delete the storage target and create a replacement with the new value.
 
-To modify a storage target, click the storage target name to open its details page. Some fields in the page are editable. You also can modify storage targets by using the Azure CLI.
+In the Azure portal, you can see which fields are editable by clicking the storage target name and opening its details page. You also can modify storage targets with the Azure CLI.
 
 ![screenshot of the edit page for an NFS storage target](media/hpc-cache-edit-storage-nfs.png)
 
@@ -74,7 +74,7 @@ Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-t
 
 * To change the usage model, use the ``--nfs3-usage-model`` option. Example: ``--nfs3-usage-model WRITE_WORKLOAD_15``
 
-* To change the namespace path, export, or export subdirectory, use the ``--junction`` option. 
+* To change the namespace path, export, or export subdirectory, use the ``--junction`` option.
 
   The ``--junction`` parameter uses these values:
 

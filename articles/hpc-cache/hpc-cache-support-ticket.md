@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Open a support ticket for Azure HPC Cache
