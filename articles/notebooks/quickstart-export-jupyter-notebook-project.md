@@ -37,20 +37,10 @@ After downloading your project files, you can use them with other Jupyter Notebo
 
 If you'd like to create an environment that matches that of the Azure Notebooks Preview, you can use the **AzureNotebooksRequirements.txt** file provided in GitHub.
 
-1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or you can [directly access the file](https://aka.ms/aznbrequirementstxt).
-1. Download the **AzureNotebooksRequirements.txt** file that contains the package dependencies for the Azure Notebooks environment. 
-1. From a command prompt, navigate to the directory you want to use for your projects and use the requirements file to install the appropriate packages.
+1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or [directly access the environment folder](https://aka.ms/aznbrequirementstxt).
+1. From a command prompt, navigate to the directory you want to use for your projects
+1. Download the enviroment folder contents and follow the README instructions to install the Azure Notebooks package dependencies
 
-    > [!Note]
-    > While not required, generally you would want to create a new virtual environment for package installation as shown below.
-
-    ```bash
-    cd your-project-dir
-    python -m venv .venv
-    python -m pip install -r AzureNotebooksRequirements.txt
-    ```
-
-For more information about requirements files, see the [pip docs]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 ## Use Notebooks in Visual Studio Code
 
