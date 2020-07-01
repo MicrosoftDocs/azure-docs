@@ -522,8 +522,8 @@ New-GuestConfigurationPolicy
 
 > [!Note]
 > This feature is in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-> In version 1.20.1, this feature is only available for policy definitions that audit Windows machines
+> version 1.20.3, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+> In version 1.20.3, this feature is only available for policy definitions that audit Windows machines
 
 The artifact packages for Guest Configuration can be extended to include third-party tools.
 Extending Guest Configuration requires development of two components.
@@ -559,7 +559,14 @@ community module is maintained as an
 Install required modules in your development environment:
 
 ```azurepowershell-interactive
-Install-Module GuestConfiguration, gcInSpec
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
 ```
 
 First, create the YaML file used by InSpec. The file provides basic information about the
@@ -577,7 +584,7 @@ supports:
   - os-family: windows
 ```
 
-Save this file to a folder named `wmi_service` in your project directory.
+Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
 
 Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
 
@@ -596,7 +603,7 @@ end
 
 ```
 
-Save this file in a new folder named `controls` inside the `wmi_service` directory.
+Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
 
 Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
 `gcInSpec` resource to set the name of the InSpec profile.
@@ -605,7 +612,7 @@ Finally, create a configuration, import the **GuestConfiguration** resource modu
 # Define the configuration and import GuestConfiguration
 Configuration wmi_service
 {
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
     node 'wmi_service'
     {
         gcInSpec wmi_service
@@ -653,7 +660,8 @@ the previous step:
 New-GuestConfigurationPackage `
   -Name 'wmi_service' `
   -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## Policy lifecycle
