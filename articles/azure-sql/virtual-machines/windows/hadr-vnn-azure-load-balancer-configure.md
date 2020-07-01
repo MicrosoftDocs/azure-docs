@@ -30,7 +30,7 @@ This article teaches you to configure a load balancer by using the Azure Load Ba
 Before you complete the steps in this article, you should already have:
 
 - Decided that Azure Load Balancer is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
-- Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances (FCI)](failover-cluster-instance-overview.md). 
+- Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
