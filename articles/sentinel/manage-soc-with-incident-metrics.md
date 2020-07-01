@@ -20,7 +20,7 @@ ms.author: yelevin
 ---
 # Manage your SOC better with incident metrics
 
-As a Security Operations Center (SOC) manager, you need to have overall efficiency metrics and measures at your fingertips to gauge the performance of your team. You'll want to see incident operations over time by many different criteria, like severity, MITRE tactics, mean time to triage, mean time to resolve, and more. Azure Sentinel now makes this data available to you with the new **SecurityIncident** table and schema in Log Analytics and the accompanying **Security operations efficiency** workbook. You'll be able to visualize your team's performance over time, and use this insight to improve efficiency. You can also use the incident table to create customized workbooks that fit your specific auditing needs and KPIs.
+As a Security Operations Center (SOC) manager, you need to have overall efficiency metrics and measures at your fingertips to gauge the performance of your team. You'll want to see incident operations over time by many different criteria, like severity, MITRE tactics, mean time to triage, mean time to resolve, and more. Azure Sentinel now makes this data available to you with the new **SecurityIncident** table and schema in Log Analytics and the accompanying **Security operations efficiency** workbook. You'll be able to visualize your team's performance over time and use this insight to improve efficiency. You can also write and use your own KQL queries against the incident table to create customized workbooks that fit your specific auditing needs and KPIs.
 
 ## Prerequisites
 
@@ -39,7 +39,25 @@ For example, if you wanted to return a list of all incidents sorted by their inc
 `SecurityIncident` <br>
 `| summarize arg_max(LastModifiedTime, *) by IncidentNumber`
 
-## Incident metrics workbook
+## Security operations efficiency workbook
+
+To complement the **SecurityIncidents** table, we’ve provided you an out-of-the-box **security operations efficiency** workbook template that you can use to monitor your SOC operations. The workbook contains the following metrics: 
+- Incident created over time 
+- Incidents created by closing classification, severity, owner and status 
+- Mean time to triage 
+- Mean time to closure 
+- Incidents created by severity, owner, status, product and tactics over time 
+- Time to triage percentiles 
+- Time to closure percentiles 
+- Mean time to triage per owner 
+- Recent activities 
+- Recent closing classifications  
+
+You can find this new workbook template by choosing **Workbooks** from the Azure Sentinel navigation menu and selecting the **Templates** tab. Choose **Security operations efficiency** from the gallery and click one of the **View saved workbook** and **View template** buttons.
+
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Security incidents workbook gallery":::
+
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-all.png" alt-text="Security incidents workbook complete":::
 
 
 
