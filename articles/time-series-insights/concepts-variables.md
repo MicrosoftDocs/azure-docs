@@ -1,7 +1,7 @@
 ---
 title: 'Model variables - Azure Time Series Insights | Microsoft Docs'
-description: 'Model variables ... '
-author: shreyasharma
+description: 'Model variables'
+author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
