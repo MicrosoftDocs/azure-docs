@@ -62,7 +62,7 @@ sku-name|GP_Gen5_2|The default sku-name is "GP_Gen5_2" is not provided in the co
 >[!IMPORTANT] 
 >- The default PostgreSQL version on your server is 9.6. We also support 9.5, 10, 11 . 
 >- To view all the arguments for **az postgres server create** command, see this [reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)
->- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./howto-configure-ssl).
+>- SSL is enabled by default on your server . For more infroamtion on SSL , see [Configure SSL connectivity](./concepts-ssl-connection-security.md)
 
 ## Configure a server-level firewall rule 
 By default the server created is not publicly accessible and you need to give permissions to your local machine IP. You can configure the firewall rule on your server using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local machine access to connect to the server. 
