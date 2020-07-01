@@ -29,8 +29,8 @@ Installing and configuring Azure AD Connect provisioning is accomplished in the 
 To install the agent, follow these steps.
 
 1. Sign in to the server you'll use with enterprise admin permissions.
-1. Open the Azure portal and go to **Azure Active Directory**
-1. On the left, select **Azure AD Connect**
+1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
+1. In the left menu, select **Azure AD Connect**.
 1. Select **Manage provisioning (preview)** > **Review all agents**.
 1. Download the Azure AD Connect provisioning agent from the Azure portal.
 
