@@ -345,7 +345,7 @@ Azure Logic Apps can be used in Azure Government supporting all impact levels wi
 | --- | --- | --- | --- | --- | --- | 
 | **Azure Logic Apps** | X | X | X | | |
 
-For more information, see [Secure access and data in Azure Logic Apps - Isolateion guidance](../logic-apps/logic-apps-securing-a-logic-app.md#isolation-logic-apps).
+For more information, see [Secure access and data in Azure Logic Apps - Isolation guidance](../logic-apps/logic-apps-securing-a-logic-app.md#isolation-logic-apps).
 
 ### [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 
