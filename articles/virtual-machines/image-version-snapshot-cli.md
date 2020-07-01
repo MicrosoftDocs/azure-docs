@@ -43,7 +43,7 @@ You can also use a VHD instead of a snapshot. To get a VHD, use [az disk list](/
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Once you have the Id of the snapshot or VHD and assign it to a variable called `$source` to be used later.
+Once you have the ID of the snapshot or VHD and assign it to a variable called `$source` to be used later.
 
 You can use the same process to get any data disks that you want to include in your image. Assign them to variables, then use those variables later when you create the image version.
 
@@ -111,7 +111,7 @@ az sig image-version create \
    --os-snapshot $source
 ```
 
-If you want to include data disks in the image, then you need to include both the `--data-snapshot-luns` parameter set to the LUN number and the `--data-snapshots` set to the Id of the data disk or snapshot.
+If you want to include data disks in the image, then you need to include both the `--data-snapshot-luns` parameter set to the LUN number and the `--data-snapshots` set to the ID of the data disk or snapshot.
 
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.

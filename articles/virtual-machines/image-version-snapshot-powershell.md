@@ -110,7 +110,7 @@ Create an image version from the snapshot using [New-AzGalleryImageVersion](http
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-If you want your image to contain a data disk, in addition to the OS disk, then add the `-DataDiskImage` parameter and set it to the Id of data disk snapshot or VHD.
+If you want your image to contain a data disk, in addition to the OS disk, then add the `-DataDiskImage` parameter and set it to the ID of data disk snapshot or VHD.
 
 In this example, the image version is *1.0.0* and it's replicated to both *West Central US* and *South Central US* datacenters. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
