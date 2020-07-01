@@ -15203,7 +15203,7 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-sql-query-cheat-sheet.md",
-      "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
+      "redirect_url": "/azure/cosmos-db/documentdb-sql-query-cheat-sheet",
       "redirect_document_id": false
     },
     {
@@ -15544,7 +15544,7 @@
     {
       "source_path": "articles/cosmos-db/documentdb-sql-query-cheat-sheet.md",
       "redirect_url": "/azure/cosmos-db/query-cheat-sheet",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/documentdb-sql-query-metrics.md",
