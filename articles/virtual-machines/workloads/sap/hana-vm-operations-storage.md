@@ -143,34 +143,34 @@ Configuration for SAP **/hana/data** volume:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 3 x P10 | 510 MBps | 1500 | 10,500 |
-| M32ls | 256 GiB | 500 MBps | 3 x P10 | 510 MBps | 1500 | 10,500 |
-| M64ls | 512 GiB | 1,000 MBps | 3 x P15 |  510 MBps | 3,300 | 10,500 |
+| M32ts | 192 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
+| M32ls | 256 GiB | 500 MBps | 4 x P6 | 680 MBps | 960 | 14,000 |
+| M64ls | 512 GiB | 1,000 MBps | 4 x P10 |  680 MBps | 2,000 | 14,000 |
 | M64s | 1,000 GiB | 1,000 MBps | 4 x P15 | 680 MBps | 4,400 | 14,000 |
-| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 680 MBps | 9,200 | 14,400 |  
-| M128s | 2,000 GiB | 2,000 MBps |5 x P20 | 850 MBps | 11,500| 17,500 | 
-| M128ms | 3,800 GiB | 2,000 MBps | 5 x P30 | 1,000 MBps (provisioned) | 25,000 | no burst | 
+| M64ms | 1,750 GiB | 1,000 MBps | 4 x P20 | 680 MBps | 9,200 | 14,000 |  
+| M128s | 2,000 GiB | 2,000 MBps | 4 x P20 | 680 MBps | 9,200| 14,000 | 
+| M128ms | 3,800 GiB | 2,000 MBps | 4 x P30 | 800 MBps (provisioned) | 20,000 | no burst | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps (provisioned) | 20,000| no burst | 
-| M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 30,000 | no burst |
-| M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 30,000 | no burst |
-| M416ms_v2 | 11,400 GiB | 2,000 MBps | 8 x P40 | 2,000 MBps (provisioned) | 60,000 | no burst |
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 25,000 | no burst |
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 4 x P40 | 1,000 MBps (provisioned) | 25,000 | no burst |
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 4 x P50 | 2,000 MBps (provisioned) | 25,000 | no burst |
 
 
 For the **/hana/log** volume the configuration would look like:
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | **/hana/log** volume | Maximum burst throughput | IOPS | Burst IOPS |
 | --- | --- | --- | --- | --- | --- | --- | 
-| M32ts | 192 GiB | 500 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
-| M32ls | 256 GiB | 500 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
-| M64ls | 512 GiB | 1,000 MBps | 2 x P10 | 340 MBps | 1,000 | 7,000 | 
-| M64s | 1,000 GiB | 1,000 MBps | 2 x P15 | 340 MBps | 4,600 | 7000 | 
-| M64ms | 1,750 GiB | 1,000 MBps | 2 x P15 | 340 MBps | 4,600 | 7000 |  
-| M128s | 2,000 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
-| M128ms | 3,800 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
-| M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
-| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 |  
-| M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
-| M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 6,900 | 10,500 | 
+| M32ts | 192 GiB | 500 MBps | 3 x P10 | 510 MBps | 1,500 | 10,500 | 
+| M32ls | 256 GiB | 500 MBps | 3 x P10 | 510 MBps | 1,500 | 10,500 | 
+| M64ls | 512 GiB | 1,000 MBps | 3 x P10 | 510 MBps | 1,500 | 10,500 | 
+| M64s | 1,000 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 | 
+| M64ms | 1,750 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 |  
+| M128s | 2,000 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500|  
+| M128ms | 3,800 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 |  
+| M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 |  
+| M416s_v2 | 5,700 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 |  
+| M416ms_v2 | 11,400 GiB | 2,000 MBps | 3 x P15 | 510 MBps | 3,300 | 10,500 | 
 
 
 For the other volumes the configuration would look like:
