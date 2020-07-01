@@ -13,7 +13,7 @@ Accessing Azure Dev Tools for Teaching requires a user to have a Microsoft Accou
 
 If a student tries to log in and receives the following error message, use one of the solutions described below.
 
-    :::image type="content" source="media/troubleshoot-login/error-login-message.png" alt-text="Sign in error message." border="false":::
+:::image type="content" source="media/troubleshoot-login/error-login-message.png" alt-text="Sign in error message." border="false":::
 
 There are two solutions: create a new Microsoft account or use an existing Microsoft account.
 

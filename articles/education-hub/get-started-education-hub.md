@@ -8,12 +8,12 @@ ms.prod: azure
 ms.date: 06/30/2020
 ---
 
-# Getting started with the Education Hub
+# Getting started with Azure Education Hub
 
 The Education Hub Get Started page provides quick links upon first landing into the Education Hub. There, you can find information about how to set up your course, learn about different services through Microsoft Learn, or easily deploy your first services through Quickstart Templates.
 
 After your first login, the Overview page is displayed.
-    :::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Azure Education Get Started page." border="false":::
+:::image type="content" source="media/get-started-education-hub/get-started-page.png" alt-text="Azure Education Get Started page." border="false":::
 
 ## Next steps
 
