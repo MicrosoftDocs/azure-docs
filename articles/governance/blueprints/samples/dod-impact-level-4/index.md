@@ -1,12 +1,15 @@
 ---
 title: DoD Impact Level 4 blueprint sample overview
 description: Overview of the DoD Impact Level 4 sample. This blueprint sample helps customers assess specific DoD Impact Level 4 controls.
-ms.date: 03/12/2020
+ms.date: 06/30/2020
 ms.topic: sample
 ---
 # Overview of the DoD Impact Level 4 blueprint sample
 
 The Department of Defense Impact Level 4 (DoD IL4) blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md) that help you assess specific DoD Impact Level 4 controls. This blueprint helps customers deploy a core set of policies for any Azure-deployed architecture that must implement DoD Impact Level 4 controls. For latest information on which Azure Clouds and Services meet DoD Impact Level 4 authorization, see [Azure services by FedRAMP and DoD CC SRG audit scope](../../../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+
+> [!NOTE]
+> This blueprint sample is available in Azure Government.
 
 ## Control mapping
 
