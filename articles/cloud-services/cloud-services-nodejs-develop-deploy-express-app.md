@@ -40,10 +40,10 @@ PS C:\Node\expressapp> Add-AzureNodeWebRole
 PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 ```
 
-    > [!NOTE]
-    > By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
-    >
-    >
+> [!NOTE]
+> By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
+>
+>
 
 ## Install Express
 1. Install the Express generator by issuing the following command:

@@ -42,15 +42,15 @@ Perform the following tasks to create a new Azure Cloud Service project, along w
 2. [Connect PowerShell] to your subscription.
 3. Enter the following PowerShell cmdlet to create to create the project:
 
-```powershell
-New-AzureServiceProject helloworld
-```
+   ```powershell
+   New-AzureServiceProject helloworld
+   ```
 
-    ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
+  ![The result of the New-AzureService helloworld command][The result of the New-AzureService helloworld command]
 
-    The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
+  The **New-AzureServiceProject** cmdlet generates a basic structure for publishing a Node.js application to a Cloud Service. It contains configuration files necessary for publishing to Azure. The cmdlet also changes your working directory to the directory for the service.
 
-    The cmdlet creates the following files:
+  The cmdlet creates the following files:
 
    * **ServiceConfiguration.Cloud.cscfg**,
      **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**:
@@ -59,6 +59,7 @@ New-AzureServiceProject helloworld
      [Overview of Creating a Hosted Service for Azure].
    * **deploymentSettings.json**: Stores local settings that are used by
      the Azure PowerShell deployment cmdlets.
+
 4. Enter the following command to add a new web role:
 
 ```powershell
@@ -114,10 +115,10 @@ To deploy your application to Azure, you must first download the publishing sett
 ### Publish the application
 To publish, run the following commands:
 
-    ```powershell
-    $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
-    Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
-    ```
+```powershell
+$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
+Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
+```
 
 * **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
 * **-Location** specifies the datacenter that the application will be hosted in. To see a list of available datacenters, use the **Get-AzureLocation** cmdlet.
