@@ -264,11 +264,11 @@
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Azure Monitor for SAP Solutions Overview
-    href: azure-monitor-sap-overview.md
+    href: azure-monitor-overview.md
   - name: Azure Monitor for SAP Solutions Providers
-    href: azure-monitor-sap-providers.md
+    href: azure-monitor-providers.md
   - name: Azure Monitor for SAP Solutions FAQ
-    href: azure-monitor-sap-faq.md
+    href: azure-monitor-faq.md
 - name: Reference
   items:
   - name: Azure CLI
