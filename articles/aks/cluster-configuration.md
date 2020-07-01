@@ -17,9 +17,9 @@ As part of creating an AKS cluster, you may need to customize your cluster confi
 AKS now supports Ubuntu 18.04 as the node operating system (OS) in preview. During the preview period, both Ubuntu 16.04 and Ubuntu 18.04 are available.
 
 > [!IMPORTANT]
-> On kubernetes versions 1.18+, the AKS Ubuntu 18.04 image will be the default and only option. You can still use AKS Ubuntu 16.04 images with older supported kubernetes versions until those fall off support. 
+> Node pools created on Kubernetes v1.18 or greater default to a required `AKS Ubuntu 18.04` node image. Node pools on a supported Kubernetes version less than 1.18 receive `AKS Ubuntu 16.04` as the node image, but will be updated to `AKS Ubuntu 18.04` once the node pool Kubernetes version is updated to v1.18 or greater.
 > 
-> We recommend you test your workloads on AKS Ubuntu 18.04 node pools before upgrading or creating new clusters with this base image version.
+> It is highly recommended to test your workloads on AKS Ubuntu 18.04 node pools prior to using clusters on 1.18 or greater. Read about how to [test Ubuntu 18.04 node pools](#use-aks-ubuntu-1804-existing-clusters).
 
 You must have the following resources installed:
 
@@ -78,9 +78,11 @@ A container runtime is software that executes containers and manages container i
     
 ![Docker CRI](media/cluster-configuration/docker-cri.png)
 
-[Containerd](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of containerd, as shown above. 
+[Containerd](https://containerd.io/) is an [OCI](https://opencontainers.org/) (Open Container Initiative) compliant core container runtime that provides the minimum set of required functionality to execute containers and manage images on a node. It was [donated](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) to the Cloud Native Compute Foundation (CNCF) in March of 2017. The current Moby version that AKS uses today already leverages and is built on top of containerd, as shown above. 
 
 With a containerd-based node and node pools, instead of talking to the dockershim, the kubelet will talk directly to containerd via the CRI (container runtime interface) plugin, removing extra hops on the flow when compared to the Docker CRI implementation. As such, you'll see better pod startup latency and less resource (CPU and memory) usage.
+
+By using containerd for AKS nodes, pod startup latency improves and node resource consumption by the container runtime decreases. This is enabled by this new architecture where kubelet talks directly to containerd through the CRI plugin while in Moby/docker architecture kubelet would talk to the dockershim and docker engine before reaching containerd, thus having extra hops on the flow.
 
 ![Docker CRI](media/cluster-configuration/containerd-cri.png)
 
@@ -205,7 +207,7 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 az extension update --name aks-preview
 ```
 
-### Use Gen2 VMs on new clusters
+### Use Gen2 VMs on new clusters (Preview)
 Configure the cluster to use Gen2 VMs for the selected SKU when the cluster is created. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation on a new cluster.
 
 ```azure-cli
@@ -214,7 +216,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 
 If you want to create a regular cluster using Generation 1 (Gen1) VMs, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more Gen1 or Gen2 VMs as per below.
 
-### Use Gen2 VMs on existing clusters
+### Use Gen2 VMs on existing clusters (Preview)
 Configure a new node pool to use Gen2 VMs. Use the `--aks-custom-headers` flag to set Gen2 as the VM generation for that node pool.
 
 ```azure-cli
