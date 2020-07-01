@@ -51,7 +51,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
         :::image type="content" source="media/how-to-manage-azure-support-request/unassigned-can-change-severity.png" alt-text="CAn":::
 
-    - If your request has been assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message-related-to-a-support-request) to request a change in severity level.
+    - If your request has been assigned, you see a screen like the following. Select **OK**, then create a [new message](#send-a-message) to request a change in severity level.
 
         :::image type="content" source="media/how-to-manage-azure-support-request/assigned-cant-change-severity.png" alt-text="Assigned":::
 
@@ -122,7 +122,7 @@ Follow these guidelines when you use the file upload option:
 
 ## Reopen a closed request
 
-If you need to reopen a closed support request, create a [new message](#send-a-message-related-to-a-support-request), which automatically reopens the request.
+If you need to reopen a closed support request, create a [new message](#send-a-message), which automatically reopens the request.
 
 ## Next steps
 
