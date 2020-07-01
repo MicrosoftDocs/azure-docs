@@ -4,8 +4,8 @@ description: Here's how to onboard to the Business Applications ISV Connect Prog
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 7/12/2019
+ms.topic: article
+ms.date: 7/01/2020
 ms.author: dsindona
 ---
 
@@ -31,12 +31,12 @@ To enroll and take advantage of all the [technical, marketing, and sales enablem
 [Partner Center](https://partner.microsoft.com) is the place to manage your account settings for the ISV Connect program.
 
 > [!NOTE]
-> This step requires an *Owner* role in Cloud Partner Portal for your given account and an *Owner* or *Manager* role in Partner Center.
+> This step requires an *Owner* or *Manager* role in Partner Center.
 
-If you've already published Dynamics CE or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Partner Center. If not, you can manually activate your Partner Center account from your CPP Publisher Profile.
+If you've already published Dynamics CE or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already transitioned to Partner Center. If not, you can activate your Partner Center account using your CPP credentials.
 
 1. Sign in to your **Publisher Profile** page in [Cloud Partner Portal](https://cloudpartner.azure.com/).
-2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, select the banner prompting you to activate your Partner Center account.
+2. If you see a banner showing that your account settings have been transitioned to Partner Center, continue on to the next section. Otherwise, select the banner prompting you to activate your Partner Center account.
 
 For more information, see [Account migration from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
 
@@ -45,7 +45,7 @@ For more information, see [Account migration from Cloud Partner Portal to Partne
 Participation in this program requires you to review and accept the *Business Applications Addendum*.
 
 > [!NOTE]
-> This step requires an *Owner* or *Manager* role in Partner Center for your  account to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](#set-up-your-microsoft-partner-center-account) in the previous step, your permissions have also migrated to Partner Center.
+> This step requires an *Owner* or *Manager* role in Partner Center for your account to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](#set-up-your-microsoft-partner-center-account) in the previous step, your permissions have also transitioned to Partner Center.
 
 1. Go to [the Partner Center Dashboard](https://partner.microsoft.com/dashboard/account/agreements) and sign in to Partner Center as prompted.
 
@@ -85,18 +85,11 @@ The final step for enrollment in the Business Applications ISV Connect program i
 1. [Follow these steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to recertify your application to AppSource.
 2. [Create and publish a new offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer). This offer will be an entirely new offer, and doesn't replace an existing one.
 
-## Further info
+## Further information
 
 Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account. For general information on the Business Applications ISV Connect Program and Microsoft Partner Center, see:
 
-#### Business Applications for ISVs (online article)
-https://partner.microsoft.com/solutions/business-applications/isv-overview
-
-#### Overview of the New Program for Business Applications ISVs (PDF)
-https://aka.ms/BizAppsISVProgram
-
-#### Business Applications ISV Connect Program FAQ (PDF)
-https://assetsprod.microsoft.com/business-applications-partner-faq.pdf
-
-#### Upcoming program for Business Applications ISVs (blog post)
-https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/
+- [Business Applications for ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (online article)
+- [Overview of the New Program for Business Applications ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
+- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Upcoming program for Business Applications ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)

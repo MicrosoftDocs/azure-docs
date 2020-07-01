@@ -5,15 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
+ms.date: 07/01/2020
 ms.author: dsindona
 ---
-
 
 # Retrieve operations
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center.
 
 Retrieves all the operations on the offer or to get a particular operation for the specified operationId. The client may use
 query parameters to filter on running operations.
@@ -25,7 +24,6 @@ query parameters to filter on running operations.
   GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/operations/<operationId>?api-version=2017-10-31
 
 ```
-
 
 ## URI parameters
 
@@ -39,13 +37,11 @@ query parameters to filter on running operations.
 
 ## Header
 
-
 |  **Name**          |  **Value**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Authorization     | `Bearer YOUR_TOKEN`  |
 |  |  |
-
 
 ## Body example
 

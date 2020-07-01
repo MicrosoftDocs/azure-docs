@@ -4,8 +4,8 @@ description: Prerequisites for using the Cloud Partner Portal APIs.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
+ms.topic: article
+ms.date: 07/01/2020
 ms.author: dsindona
 ---
 
@@ -14,7 +14,7 @@ API Prerequisites
 ================
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center.
 
 There are two required programmatic assets that you need to use the Cloud Partner Portal APIs: a service principal and an Azure Active Directory (Azure AD) access token.
 

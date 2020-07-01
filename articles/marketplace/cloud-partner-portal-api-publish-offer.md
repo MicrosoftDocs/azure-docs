@@ -5,15 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
+ms.date: 07/01/2020
 ms.author: dsindona
 ---
-
 
 # Publish an offer
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center.
 
 Starts the publishing process for the specified offer. This call is a long running operation.
 
@@ -60,7 +59,6 @@ Starts the publishing process for the specified offer. This call is a long runni
 |  notification-emails    | Comma-separated list of email addresses to be notified of the progress of the publishing operation. |
 |  |  |
 
-
 ### Response
 
 #### Migrated offers
@@ -71,14 +69,12 @@ Starts the publishing process for the specified offer. This call is a long runni
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### Response Header
 
 |  **Name**             |    **Value**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Location    | The relative path to retrieve this operation's status     |
 |  |  |
-
 
 ### Response status codes
 

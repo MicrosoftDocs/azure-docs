@@ -1,6 +1,6 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required SKU.
+description: Learn how to create a virtual machine offer on Azure Marketplace with the required plan.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace 
@@ -276,7 +276,7 @@ Select **Save draft** before you proceed to the next section.
 
 ## Plan overview
 
-You can provide a variety of plan options within the same offer in Partner Center. These plans were formerly referred to as SKUs. An offer requires at least one plan, which can vary by monetization audience, Azure region, features, or VM images.
+You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
 After you create your plans, select the **Plan overview** tab to display:
 

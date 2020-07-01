@@ -5,8 +5,8 @@ author: mingshen
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.topic: article
+ms.date: 07/01/2020
 ---
 
 # Payout summary overview
@@ -40,7 +40,7 @@ These are roles and permissions to access the payout report:
 
 ## Payout report differences
 
-These are the differences in the payout report between Cloud Partner Portal (old) and Partner Center (new):
+These are the differences in the payout report between the retired Cloud Partner Portal and the current Partner Center:
 
 | Cloud Partner Portal | Partner Center |
 | --- | --- |

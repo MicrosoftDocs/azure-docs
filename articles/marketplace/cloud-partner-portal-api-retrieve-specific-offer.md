@@ -5,16 +5,14 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
+ms.date: 07/01/2020
 ms.author: dsindona
 ---
 
-
-Retrieve a specific offer
-=========================
+# Retrieve a specific offer
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center.
 
 Retrieves the specified offer within the publisher namespace.  
 
@@ -32,10 +30,7 @@ You can also retrieve a particular version of the offer, or retrieve the offer i
 
 ```
 
-
-URI parameters
---------------
-
+## URI parameters
 
 | **Name**    | **Description**                                                                          | **Data type** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
@@ -46,9 +41,7 @@ URI parameters
 | api-version | Latest version of API                                                                    | Date          |
 |  |  |  |
 
-
-Header
-------
+## Header
 
 |  **Name**          |   **Value**            |
 |  ---------------   |  --------------        |
@@ -56,9 +49,7 @@ Header
 |  Authorization     | `Bearer YOUR_TOKEN`    |
 |  |  |
 
-
-Body example
-------------
+## Body example
 
 ### Response
 
@@ -173,7 +164,6 @@ Body example
 }
 ```
 
-
 ### Response body properties
 
 |  **Name**       |   **Description**                                                                                                               |
@@ -187,7 +177,6 @@ Body example
 |  changedTime    | UTC datetime when the offer was last modified                                                                                   |
 |  |  |
 
-
 ### Response status codes
 
 | **Code**  | **Description**                                                                                                                 |
@@ -197,7 +186,6 @@ Body example
 |  403      | `Forbidden` - The client doesn't have access to the specified namespace.                                                        |
 |  404      | `Not found` - The specified entity doesn't exist. Client should check the publisherId, offerId, and version (if specified).      |
 |  |  |
-
 
 ### Offer status
 

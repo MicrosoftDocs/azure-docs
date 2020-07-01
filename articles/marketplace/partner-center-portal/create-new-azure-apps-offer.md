@@ -5,8 +5,8 @@ author: qianw211
 ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 07/01/2020
 ---
 
 # Create an Azure application offer
@@ -298,7 +298,7 @@ The technical configuration defines the details (tenant ID, and app ID) used to 
 
 ## Plan overview
 
-This tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  Configure at least one plan in order to list your offer in the marketplace.
+This tab enables you to provide different plan options within the same offer. These plans (formerly called SKUs) can differ in terms of plan type (solution template vs. managed application), monetization, or audience. Configure at least one plan in order to list your offer in the marketplace.
 
 Once created, you will see your plan names, IDs, plan type, availability (Public or Private), current publishing status, and any available actions on this tab.
 
@@ -507,7 +507,7 @@ For each principal, select one of the Azure AD built-in roles from the list (Own
 
 #### Policy settings
 
-Apply [Azure Policies](https://docs.microsoft.com/azure/governance/policy/overview) to your managed application to specify compliance requirements for the deployed solution. For policy definitions and the format of the parameter values, see [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index). You can configure a maximum of five policies, and only one instance of each Policies option. Some policies require additional parameters. The Standard SKU is required for audit policies. Policy Name is limited to 50 characters.
+Apply [Azure Policies](https://docs.microsoft.com/azure/governance/policy/overview) to your managed application to specify compliance requirements for the deployed solution. For policy definitions and the format of the parameter values, see [Azure Policy Samples](https://docs.microsoft.com/azure/governance/policy/samples/index). You can configure a maximum of five policies, and only one instance of each Policies option. Some policies require additional parameters. The Standard plan is required for audit policies. Policy Name is limited to 50 characters.
 
 Select **Save draft** before continuing.
 
