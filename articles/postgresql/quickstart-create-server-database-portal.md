@@ -65,8 +65,7 @@ By default the server created is not publicly accessible and you need to give pe
   
 Now click on **Add current client IP address** and then click on **Save** . You can add additional IPs or provide an IP range to give access to your server. For more information, see [How to manage firewall rules on Azure Database for postgreSQL server](./concepts-ssl-connection-security.md)
    
- >[!IMPORTANT]
- > Check if you network allows outbound traffc over port 5432 that is used by Azure database for PostgreSQL to avoid connectivity issues.  
+> Note: Check if you network allows outbound traffc over port 5432 that is used by Azure database for PostgreSQL to avoid connectivity issues.  
 
 ## Connect to your server using the psql client in Azure Cloud Shell
 If you dont have any postgresql client installed , using [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) in the portal is the easiest way to connect to your server .  
