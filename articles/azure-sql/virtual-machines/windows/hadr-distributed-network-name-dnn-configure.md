@@ -19,7 +19,7 @@ ms.reviewer: jroth
 # Configure a DNN for an FCI (SQL Server on Azure VMs) 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) replaces the virtual network name (VNN) in the cluster. It routes traffic to the appropriate clustered resource without the need for Azure Load Balancer. This feature is currently in preview and is available only for SQL Server 2019 CU2 and later and Windows Server 2019. 
+On Azure Virtual Machines, the distributed network name (DNN) optionally replaces the virtual network name (VNN) in the cluster. It routes traffic to the appropriate clustered resource without the need for Azure Load Balancer. This feature is currently in preview and is available only for SQL Server 2019 CU2 and later and Windows Server 2019. 
 
 This article teaches you to configure a DNN to route traffic to your [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
@@ -63,14 +63,15 @@ Clients use the DNS name to connect to the SQL Server FCI. You can choose a uniq
 Use this command to set the DNS name for your DNN: 
 
 ```powershell
-Get-ClusterResource -Name <dnnResourceName> `
+Get-ClusterResource -Name <dnnResourceName> |
+
 Set-ClusterParameter -Name DnsName -Value <DNSName>
 ```
 
 The `DNSName` value is what clients use to connect to the SQL Server FCI. For example, for clients to connect to `FCIDNN`, use the following PowerShell command:
 
 ```powershell
-Get-ClusterResource -Name dnn-demo `
+Get-ClusterResource -Name dnn-demo |
 Set-ClusterParameter -Name DnsName -Value FCIDNN
 ```
 
@@ -99,11 +100,31 @@ For example, to start your DNN resource `dnn-demo`, use the following PowerShell
 Start-ClusterResource -Name dnn-demo
 ```
 
-## Create the network alias
+## Configure possible owners
 
-Some server-side components rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. For more information, see [DNN FCI interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability). 
+By default, the cluster binds the DNN DNS name to all the nodes in the cluster. However, nodes in the cluster that are not part of the SQL Server FCI should be excluded from the list of DNN possible owners. 
 
-To create an alias that maps the VNN to the DNN DNS name, follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client). 
+To update possible owners, follow these steps:
+
+1. Go to your DNN resource in Failover Cluster Manager. 
+1. Right-click the DNN resource and select **Properties**. 
+1. Clear the check box for any nodes that don't participate in the failover cluster instance. The list of possible owners for the DNN resource should match the list of possible owners for the SQL Server instance resource. 
+1. Select **OK** to save your settings. 
+
+
+## Restart the SQL Server instance 
+
+Use Failover Cluster Manager to restart the SQL Server instance. Follow these steps:
+
+1. Go to your SQL Server resource in Failover Cluster Manager.
+1. Right-click the SQL Server resource, and take it offline. 
+1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
+
+## Create the network alias (FCI)
+
+If you're using the distributed network name with a SQL Server FCI, some SQL Server features might require you to map a network alias. Skip this section if you're not using a failover cluster instance, or if you're not using any of the server-side components that might require a network alias. For more information, see [FCI DNN interoperability](failover-cluster-instance-overview.md#dnn-feature-interoperability). 
+
+Some server-side components rely on a hard-coded VNN value, and require a network alias that maps the VNN to the DNN DNS name to function properly. To create an alias that maps the VNN to the DNN DNS name, follow the steps in [Create a server alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client). 
 
 For a default instance, you can map the VNN to the DNN DNS name directly, such that `VNN` = `DNN DNS name`.
 For example, suppose the VNN is `FCI1`, the instance name is `MSSQLSERVER`, and the DNN is `FCI1DNN`. (Clients previously connected to `FCI`, and now they connect to `FCI1DNN`.) You'd then map the VNN `FCI1` to the DNN `FCI1DNN`. 

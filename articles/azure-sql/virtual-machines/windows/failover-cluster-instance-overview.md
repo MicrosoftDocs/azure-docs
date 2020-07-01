@@ -145,7 +145,7 @@ To learn more, see [Route HADR connections to SQL Server on Azure VMs](hadr-clus
 Consider feature interoperability when you're using the DNN resource with FCI and the following SQL Server features. 
 
 ### Client access   
-For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicitly specify the DNN DNS name as the server name in the connection string. 
+For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicitly specify the DNN DNS name as the server name in the connection string. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is lower than 4.6.1. 
 
 ### Tools   
 Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN DNS name as the server name in the connection string. 
