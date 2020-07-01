@@ -42,24 +42,28 @@ To perform a migration of table data, complete the following tasks:
 
 Options for the command are:
 
-    /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
-    /OverwriteErrorLog: Optional. Overwrite error log file
-    /ProgressUpdateInterval: Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress
-    /ErrorDetails: Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All
-    /EnableCosmosTableLog: Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously.
-	/CosmosTableLogConnectionString: Optional. ConnectionString to direct the log to a remote cosmos table account. 
+| Option | Description |
+|--------|-------------|
+| `/ErrorLog` | Optional. Name of the CSV file to redirect data transfer failures. |
+| `/OverwriteErrorLog` | Optional. Overwrite error log file. |
+| `/ProgressUpdateInterval` | Optional, default is 00:00:01. Time interval to refresh on-screen data transfer progress. |
+| `/ErrorDetails` | Optional, default is None. Specifies that detailed error information should be displayed for the following errors: None, Critical, All. |
+| `/EnableCosmosTableLog` | Optional. Direct the log to a cosmos table account. If set, this defaults to destination account connection string unless /CosmosTableLogConnectionString is also provided. This is useful if multiple instances of DT are being run simultaneously. |
+| `/CosmosTableLogConnectionString` | Optional. ConnectionString to direct the log to a remote cosmos table account. |
 
 ### Command-line source settings
 
 Use the following source options when defining Azure Table Storage or Table API preview as the source of the migration.
 
-    /s:AzureTable: Reads data from Azure Table storage
-    /s.ConnectionString: Connection string for the table endpoint. This can be retrieved from the Azure portal
-    /s.LocationMode: Optional, default is PrimaryOnly. Specifies which location mode to use when connecting to Azure Table storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary
-    /s.Table: Name of the Azure Table
-    /s.InternalFields: Set to All for table migration as RowKey and PartitionKey are required for import.
-    /s.Filter: Optional. Filter string to apply
-    /s.Projection: Optional. List of columns to select
+| Option | Description |
+|--------|-------------|
+| `/s:AzureTable` | Reads data from Azure Table storage. |
+| `/s.ConnectionString` | Connection string for the table endpoint. This can be retrieved from the Azure portal. |
+| `/s.LocationMode` | Optional, default is PrimaryOnly. Specifies which location mode to use when connecting to Azure Table storage: PrimaryOnly, PrimaryThenSecondary, SecondaryOnly, SecondaryThenPrimary. |
+| `/s.Table` | Name of the Azure Table. |
+| `/s.InternalFields` | Set to All for table migration as RowKey and PartitionKey are required for import. |
+| `/s.Filter` | Optional. Filter string to apply. |
+| `/s.Projection` | Optional. List of columns to select. |
 
 To retrieve the source connection string when importing from Azure Table storage, open the Azure portal and click **Storage accounts** > **Account** > **Access keys**, and then use the copy button to copy the **Connection string**.
 
@@ -77,13 +81,17 @@ To retrieve the source connection string when importing from an Azure Cosmos DB 
 
 Use the following target options when defining Azure Cosmos DB Table API as the target of the migration.
 
-    /t:TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
-    /t.ConnectionString: Connection string for the table endpoint
-    /t.TableName: Specifies the name of the table to write to
-    /t.Overwrite: Optional, default is false. Specifies if existing values should be overwritten
-    /t.MaxInputBufferSize: Optional, default is 1GB. Approximate estimate of input bytes to buffer before flushing data to sink
-    /t.Throughput: Optional, service defaults if not specified. Specifies throughput to configure for table
-    /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
+
+| Option | Description | 
+|--------|-------------|
+| `/t:TableAPIBulk` | Uploads data into Azure CosmosDB Table in batches. | 
+| `/t.ConnectionString` | Connection string for the table endpoint. |
+| `/t.TableName` | Specifies the name of the table to write to. |
+| `/t.Overwrite` | Optional, default is false. Specifies if existing values should be overwritten. |
+| `/t.MaxInputBufferSize` | Optional, default is 1GB. Approximate estimate of input bytes to buffer before flushing data to sink. |
+| `/t.Throughput` | Optional, service defaults if not specified. Specifies throughput to configure for table. |
+| `/t.MaxBatchSize` | Optional, default is 2MB. Specify the batch size in bytes. |
+
 
 <a id="azure-table-storage"></a>
 ### Sample command: Source is Azure Table storage
