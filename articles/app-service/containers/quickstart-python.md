@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a Linux Python app'
 description: Get started with Linux apps on Azure App Service by deploying your first Python app to a Linux container in App Service.
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, tracking-python
 
 ---
@@ -23,10 +23,25 @@ Before you begin, you must have the following:
 
 Open a terminal window and check your Python version is 3.6 or higher:
 
+# [Bash](#tab/bash)
+
 ```bash
-# You may need to use python3 --version
-python --version
+python3 --version
 ```
+
+# [PowerShell](#tab/powershell)
+
+```cmd
+py -3 --version
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+py -3 --version
+```
+
+---
 
 Check that your Azure CLI version is 2.0.80 or higher:
 

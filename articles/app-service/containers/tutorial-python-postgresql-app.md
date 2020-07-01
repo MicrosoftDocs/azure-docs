@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django app with Postgres'
 description: Create a Python web app with a PostgreSQL database and deploy it to Azure. The tutorial uses the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 06/30/2020
 ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
@@ -28,10 +28,25 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 Open a terminal window and check your Python version is 3.6 or higher:
 
+# [Bash](#tab/bash)
+
 ```bash
-# You may need to use python3 --version
-python --version
+python3 --version
 ```
+
+# [PowerShell](#tab/powershell)
+
+```cmd
+py -3 --version
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+py -3 --version
+```
+
+---
 
 Check that your Azure CLI version is 2.0.80 or higher:
 
