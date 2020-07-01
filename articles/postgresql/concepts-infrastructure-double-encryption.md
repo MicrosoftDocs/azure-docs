@@ -25,7 +25,7 @@ Infrastructure Layer encryption has the benefit of being implemented at the laye
 Implementation at the infrastructure layers also supports a diversity of keys. Infrastructure must be aware of different clusters of machine and networks. As such, different keys are used to minimize the blast radius of infrastructure attacks and a variety of hardware and network failures. 
 
 > [!NOTE]
-> Using Infrastructure double encryption will have performance impact on the Azure Database for MySQL server due to the additional encryption process.
+> Using Infrastructure double encryption will have performance impact on the Azure Database for PostgreSQL server due to the additional encryption process.
 
 ## Benefits
 
