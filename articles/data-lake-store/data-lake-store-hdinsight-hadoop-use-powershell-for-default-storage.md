@@ -75,7 +75,7 @@ To create a Data Lake Storage Gen1 account, do the following:
 
     You should see an output like this:
 
-    ```ouput
+    ```output
     ResourceGroupName : hdiadlgrp
     Location          : eastus2
     ProvisioningState : Succeeded
@@ -92,7 +92,7 @@ To create a Data Lake Storage Gen1 account, do the following:
 
     You should see an output like the following:
 
-    ```ouput
+    ```output
     ...
     ProvisioningState           : Succeeded
     State                       : Active
@@ -241,22 +241,25 @@ In this section, you make a Secure Shell (SSH) connection into the HDInsight Lin
 
 1. After you have made the connection, start the Hive command-line interface (CLI) by using the following command:
 
-        hive
+    ```powershell
+    hive
+    ```
+
 2. Use the CLI to enter the following statements to create a new table named **vehicles** by using the sample data in Data Lake Storage Gen1:
 
-```azurepowershell
-DROP TABLE log4jLogs;
+    ```azurepowershell
+    DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
         STORED AS TEXTFILE LOCATION 'adl:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
-```
+    ```
 
-    You should see the query output on the SSH console.
+You should see the query output on the SSH console.
 
-	>[!NOTE]
-	>The path to the sample data in the preceding CREATE TABLE command is `adl:///example/data/`, where `adl:///` is the cluster root. Following the example of the cluster root that's specified in this tutorial, the command is `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. You can either use the shorter alternative or provide the complete path to the cluster root.
-	>
+>[!NOTE]
+>The path to the sample data in the preceding CREATE TABLE command is `adl:///example/data/`, where `adl:///` is the cluster root. Following the example of the cluster root that's specified in this tutorial, the command is `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. You can either use the shorter alternative or provide the complete path to the cluster root.
+>
 
 ## Access Data Lake Storage Gen1 by using HDFS commands
 After you have configured the HDInsight cluster to use Data Lake Storage Gen1, you can use Hadoop Distributed File System (HDFS) shell commands to access the store.
