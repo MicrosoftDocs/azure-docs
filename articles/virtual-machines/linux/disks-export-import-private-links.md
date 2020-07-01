@@ -9,9 +9,9 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Private links for securely exporting/importing data to Azure Managed Disks
+# Private Links for securely exporting/importing data to Azure Managed Disks
 
-You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises.  Now you can leverage [Private Links](../../../articles/private-link/private-link-overview.md) for restricting the export and import to Managed Disks only from your Azure VNET. Moreover, you are rest assured that the data never goes over the public internet and always travels within the secure Microsoft backbone network when you use Private Links. 
+You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises. Now you can leverage [Private Links](../../../articles/private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure VNET. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network. 
 
 You can create an instance of the new resource called DiskAccess and link it to your VNET in the same subscription by creating a private endpoint. You must associate a disk or a snapshot with an instance of DiskAccess for exporting and importing the data via Private Links. Also, you must set the NetworkAccessPolicy property of the disk or the snapshot to AllowPrivate. 
 
@@ -109,7 +109,7 @@ az network private-endpoint dns-zone-group create \
    --resource-group $resourceGroupName \
    --endpoint-name $privateEndPointName \
    --name yourZoneGroup \
-   --private-dns-zone "privatelink.database.windows.net" \
+   --private-dns-zone "privatelink.blob.core.windows.net" \
    --zone-name disks
 ```
 ## Create a snapshot of a disk protected with Private Links
@@ -127,4 +127,5 @@ az network private-endpoint dns-zone-group create \
 
 ## Next steps
 
-[FAQ on private links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ on private links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
