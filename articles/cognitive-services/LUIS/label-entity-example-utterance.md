@@ -12,7 +12,7 @@ Labeling an entity in an example utterance gives LUIS an example of what the ent
 
 You can label machine-learned entities and subentities.
 
-Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities are features, when applicable, to the entity or subentity.
+Because you can't label regular expression, list, or prebuilt entities, create an entity or subentity, then add these entities as features, when applicable, to the entity or subentity.
 
 ## Label example utterances from the Intent detail page
 

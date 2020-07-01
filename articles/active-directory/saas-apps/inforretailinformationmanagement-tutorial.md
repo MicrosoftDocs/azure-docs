@@ -104,10 +104,10 @@ To configure Azure AD single sign-on with Infor Retail – Information Managemen
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<company name>.mingle.infor.com` |
-	| `http://<company name>.mingledev.infor.com` |
+    ```http
+    https://<company name>.mingle.infor.com
+    http://<company name>.mingledev.infor.com
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern: `https://<company name>.mingle.infor.com/sp/ACS.saml2`
 

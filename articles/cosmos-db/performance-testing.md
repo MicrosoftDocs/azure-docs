@@ -24,8 +24,6 @@ To get started with code, download the project from [Azure Cosmos DB performance
 
 > [!NOTE]
 > The goal of this application is to demonstrate how to get the best performance from Azure Cosmos DB with a small number of client machines. The goal of the sample is not to achieve the peak throughput capacity of Azure Cosmos DB (which can scale without any limits).
-> 
-> 
 
 If you're looking for client-side configuration options to improve Azure Cosmos DB performance, see [Azure Cosmos DB performance tips](performance-tips.md).
 
@@ -43,7 +41,7 @@ The quickest way to get started is to compile and run the .NET sample, as descri
 
 **Step 3:** Compile and run the console app from the command line. You should see output like the following:
 
-```console
+```bash
 C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
 Summary:
 ---------------------------------------------------------------------
@@ -52,7 +50,6 @@ Collection : db.data at 100000 request units per second
 Document Template*: Player.json
 Degree of parallelism*: -1
 ---------------------------------------------------------------------
-
 DocumentDBBenchmark starting...
 Found collection data with 100000 RU/s
 Starting Inserts with 100 tasks
@@ -90,6 +87,7 @@ Press any key to exit...
 After you have the app running, you can try different [indexing policies](index-policy.md) and [consistency levels](consistency-levels.md) to understand their impact on throughput and latency. You can also review the source code and implement similar configurations to your own test suites or production applications.
 
 ## Next steps
+
 In this article, we looked at how you can perform performance and scale testing with Azure Cosmos DB by using a .NET console app. For more information, see the following articles:
 
 * [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)

@@ -58,8 +58,8 @@ The queries in this article use the following sample document.
 Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
 
 **Query**
-    
-```
+
+```bash
 db.families.find({ id: "WakefieldFamily"})
 ```
 
@@ -112,10 +112,10 @@ db.families.find({ id: "WakefieldFamily"})
 The next query returns all the children in the family. 
 
 **Query**
-    
-```
+
+```bash 
 db.families.find( { id: "WakefieldFamily" }, { children: true } )
-```
+``` 
 
 **Results**
 
@@ -143,29 +143,29 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
 }
 ```
 
-
 ## <a id="examplequery3"></a>Example query 3 
 
 The next query returns all the families that are registered. 
 
 **Query**
-    
-```
+
+```bash
 db.families.find( { "isRegistered" : true })
-```
+``` 
 
 **Results**
-	No document will be returned. 
+
+No document will be returned. 
 
 ## <a id="examplequery4"></a>Example query 4
 
 The next query returns all the families that are not registered. 
 
 **Query**
-    
-```
+
+```bash
 db.families.find( { "isRegistered" : false })
-```
+``` 
 
 **Results**
 
@@ -211,10 +211,10 @@ db.families.find( { "isRegistered" : false })
 The next query returns all the families that are not registered and state is NY. 
 
 **Query**
-    
-```
+
+```bash
 db.families.find( { "isRegistered" : false, "address.state" : "NY" })
-```
+``` 
 
 **Results**
 
@@ -255,14 +255,13 @@ db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 }
 ```
 
-
 ## <a id="examplequery6"></a>Example query 6
 
 The next query returns all the families where children grades are 8.
 
 **Query**
-  
-```     
+
+```bash
 db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 ```
 
@@ -310,8 +309,8 @@ db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 The next query returns all the families where size of children array is 3.
 
 **Query**
-  
-```
+
+```bash
 db.Family.find( {children: { $size:3} } )
 ```
 
