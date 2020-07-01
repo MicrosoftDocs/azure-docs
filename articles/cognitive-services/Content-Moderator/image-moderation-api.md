@@ -81,7 +81,7 @@ Example extract:
     "result": true,
     "count": 2,
     "advancedInfo": [
-    .....
+        .....
     ],
     "faces": [
         {

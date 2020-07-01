@@ -35,12 +35,12 @@ If the API detects any profane terms in any of the [supported languages](Text-Mo
 
 ```json
 "Terms": [
-{
-    "Index": 118,
-    "OriginalIndex": 118,
-    "ListId": 0,
-    "Term": "crap"
-}
+    {
+        "Index": 118,
+        "OriginalIndex": 118,
+        "ListId": 0,
+        "Term": "crap"
+    }
 ```
 
 > [!NOTE]
@@ -146,12 +146,12 @@ The following example shows the matching List ID:
 
 ```json
 "Terms": [
-{
-    "Index": 118,
-    "OriginalIndex": 118,
-    "ListId": 231.
-    "Term": "crap"
-}
+    {
+        "Index": 118,
+        "OriginalIndex": 118,
+        "ListId": 231.
+        "Term": "crap"
+    }
 ```
 
 The Content Moderator provides a [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for managing custom term lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
