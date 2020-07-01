@@ -166,7 +166,7 @@
       - name: Overview
         href: https://docs.microsoft.com/rest/api/time-series-insights/preview
       - name: Model Settings
-      items:
+        items:
         - name: Overview
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/modelsettings
         - name: Get
