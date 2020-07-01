@@ -20,7 +20,7 @@ So, how do you store this data and where?
 
 You might have experience on SQL databases or have a notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model). You may start drawing something as follows:
 
-![Diagram illustrating a relative relational model](./media/social-media-apps/social-media-apps-sql.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-sql.png" alt-text="Diagram illustrating a relative relational model" border="false":::
 
 A perfectly normalized and pretty data structure... that doesn't scale.
 
@@ -34,6 +34,7 @@ You could use an enormous SQL instance with enough power to solve thousands of q
 
 This article guides you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) cost-effectively. It also tells you how to use other Azure Cosmos DB features like the [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
+```json
     {
         "id":"ew12-res2-234e-544f",
         "title":"post title",
@@ -50,6 +51,7 @@ This article guides you into modeling your social platform's data with Azure's N
             {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
+```
 
 And it can be gotten with a single query, and with no joins. This query is much simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
@@ -57,6 +59,7 @@ Azure Cosmos DB makes sure that all properties are indexed with its automatic in
 
 Comments on a post can be treated as other posts with a parent property. (This practice simplifies your object mapping.)
 
+```json
     {
         "id":"1234-asd3-54ts-199a",
         "title":"Awesome post!",
@@ -72,9 +75,11 @@ Comments on a post can be treated as other posts with a parent property. (This p
         "createdBy":User3,
         "parent":"ew12-res2-234e-544f"
     }
+```
 
 And all social interactions can be stored on a separate object as counters:
 
+```json
     {
         "id":"dfe3-thf5-232s-dse4",
         "post":"ew12-res2-234e-544f",
@@ -90,6 +95,7 @@ Creating feeds is just a matter of creating documents that can hold a list of po
         {"relevance":8, "post":"fer7-mnb6-fgh9-2344"},
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
+```
 
 You could have a "latest" stream with posts ordered by creation date. Or you could have a "hottest" stream with those posts with more likes in the last 24 hours. You could even implement a custom stream for each user based on logic like followers and interests. It would still be a list of posts. It’s a matter of how to build these lists, but the reading performance stays unhindered. Once you acquire one of these lists, you issue a single query to Cosmos DB using the [IN keyword](sql-query-keywords.md#in) to get pages of posts at a time.
 
@@ -99,6 +105,7 @@ Points and likes over a post can be processed in a deferred manner using this sa
 
 Followers are trickier. Cosmos DB has a document size limit, and reading/writing large documents can impact the scalability of your application. So you may think about storing followers as a document with this structure:
 
+```json
     {
         "id":"234d-sd23-rrf2-552d",
         "followersOf": "dse4-qwe2-ert4-aad2",
@@ -109,11 +116,13 @@ Followers are trickier. Cosmos DB has a document size limit, and reading/writing
             "uie0-4tyg-3456-rwjh"
         ]
     }
+```
 
 This structure might work for a user with a few thousands followers. If some celebrity joins the ranks, however, this approach will lead to a large document size, and it might eventually hit the document size cap.
 
 To solve this problem, you can use a mixed approach. As part of the User Statistics document you can store the number of followers:
 
+```json
     {
         "id":"234d-sd23-rrf2-552d",
         "user": "dse4-qwe2-ert4-aad2",
@@ -121,6 +130,7 @@ To solve this problem, you can use a mixed approach. As part of the User Statist
         "totalPosts":452,
         "totalPoints":11342
     }
+```
 
 You can store the actual graph of followers using Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md) to create [vertexes](http://mathworld.wolfram.com/GraphVertex.html) for each user and [edges](http://mathworld.wolfram.com/GraphEdge.html) that maintain the "A-follows-B" relationships. With the Gremlin API, you can get the followers of a certain user and create more complex queries to suggest people in common. If you add to the graph the Content Categories that people like or enjoy, you can start weaving experiences that include smart content discovery, suggesting content that those people you follow like, or finding people that you might have much in common with.
 
@@ -136,6 +146,7 @@ You're going to solve it by identifying the key attributes of a user that you sh
 
 Let’s take user information as an example:
 
+```json
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
@@ -149,10 +160,11 @@ Let’s take user information as an example:
         "totalPoints":100,
         "totalPosts":24
     }
+```
 
 By looking at this information, you can quickly detect which is critical information and which isn’t, thus creating a "Ladder":
 
-![Diagram of a ladder pattern](./media/social-media-apps/social-media-apps-ladder.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram of a ladder pattern" border="false":::
 
 The smallest step is called a UserChunk, the minimal piece of information that identifies a user and it’s used for data duplication. By reducing the duplicated data size to only the information you'll "show", you reduce the possibility of massive updates.
 
@@ -162,6 +174,7 @@ The largest is the Extended User. It includes the critical user information and 
 
 Why would you split the user and even store this information in different places? Because from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network. Store the other extra information for eventual scenarios like full profile edits, logins, and data mining for usage analytics and Big Data initiatives. You really don’t care if the data gathering for data mining is slower, because it’s running on Azure SQL Database. You do have concern though that your users have a fast and slim experience. A user stored on Cosmos DB would look like this code:
 
+```json
     {
         "id":"dse4-qwe2-ert4-aad2",
         "name":"John",
@@ -170,9 +183,11 @@ Why would you split the user and even store this information in different places
         "email":"john@doe.com",
         "twitterHandle":"\@john"
     }
+```
 
 And a Post would look like:
 
+```json
     {
         "id":"1234-asd3-54ts-199a",
         "title":"Awesome post!",
@@ -182,6 +197,7 @@ And a Post would look like:
             "username":"johndoe"
         }
     }
+```
 
 When an edit arises where a chunk attribute is affected, you can easily find the affected documents. Just use queries that point to the indexed attributes, such as `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`, and then update the chunks.
 
@@ -223,9 +239,9 @@ For a social experience, you must align your partitioning strategy with the way 
 
 Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, so you don't need to add any logic as your data grows.
 
-With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](/rest/api/cosmos-db/replace-an-offer).
 
-![Scaling up and defining a partition key](./media/social-media-apps/social-media-apps-scaling.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Scaling up and defining a partition key":::
 
 What happens if things keep getting better? Suppose users from another region, country, or continent notice your platform and start using it. What a great surprise!
 
@@ -235,13 +251,13 @@ Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-d
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you're using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they'll be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
 
-![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Adding global coverage to your social platform" border="false":::
 
 ## Conclusion
 
 This article sheds some light into the alternatives of creating social networks completely on Azure with low-cost services. it delivers results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".
 
-![Diagram of interaction between Azure services for social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram of interaction between Azure services for social networking" border="false":::
 
 The truth is that there's no silver bullet for this kind of scenarios. It’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Cognitive Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
 

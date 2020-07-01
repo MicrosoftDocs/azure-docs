@@ -2,7 +2,7 @@
 title: Develop locally with the Azure Cosmos Emulator
 description: Using the Azure Cosmos Emulator, you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
@@ -71,7 +71,7 @@ The Azure Cosmos Emulator is installed to `C:\Program Files\Azure Cosmos DB Emul
 
 When the Azure Cosmos  Emulator launches, it automatically opens the Azure Cosmos Data Explorer in your browser. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos Emulator in the Windows Tray Icon as shown below.
 
-![Azure Cosmos local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos local emulator data explorer launcher":::
 
 ## Checking for updates
 
@@ -228,7 +228,9 @@ From the installation location, you can use the command-line to start and stop t
 
 ### Command-line syntax
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at the command prompt.
 
@@ -413,7 +415,7 @@ Closing the interactive shell once the emulator has been started will shut down 
 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https\://**\<emulator endpoint provided in response>**/_explorer/index.html**
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, please follow the below section for Linux to import the certificate into the Linux docker container.
 
@@ -477,7 +479,7 @@ Use the following steps if you are working on Mac:
 
 1. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
 
-   ![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust":::
 
 After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 

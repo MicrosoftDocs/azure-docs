@@ -1,16 +1,8 @@
 ---
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use an Azure Automation runbook to automatically update messaging units of a Service Bus namespace.
-services: service-bus-messaging
-
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
-
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
