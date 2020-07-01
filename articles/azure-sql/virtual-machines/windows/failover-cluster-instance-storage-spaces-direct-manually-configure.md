@@ -65,7 +65,7 @@ Before you complete the instructions in this article, you should already have:
    To install failover clustering from the UI, do the following on both virtual machines:
 
    1. In **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
-   1. In the **Add Roles and Features Wizard**, select **Next** until you get to **Select Features**.
+   1. In the **Add Roles and Features** wizard, select **Next** until you get to **Select Features**.
    1. In **Select Features**, select **Failover Clustering**. Include all required features and the management tools. 
    1. Select **Add Features**.
    1. Select **Next**, and then select **Finish** to install the features.
@@ -99,7 +99,7 @@ To validate the cluster by using the UI, do the following on one of the virtual 
 1. Select **Next**.
 1. Under **Confirmation**, select **Next**.
 
-    The Validate a Configuration wizard runs the validation tests.
+    The **Validate a Configuration** wizard runs the validation tests.
 
 To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
