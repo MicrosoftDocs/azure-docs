@@ -49,7 +49,7 @@ During ingestion, payloads that contain nested objects will be flattened so that
 
 > [!IMPORTANT]
 > * Azure Time Series Insights Gen 2 uses underscores (`_`) for column delineation.
-> * Note the difference from General Availability which uses periods (`.`) instead.
+> * Note the difference from Gen 1 which uses periods (`.`) instead.
 
 More complex scenarios are illustrated below.
 

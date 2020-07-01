@@ -39,16 +39,6 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
-    - name: Develop
-      items:
-      - name: Authenticate and authorize
-        href: time-series-insights-authentication-and-authorization.md
-      - name: Query data by using C#
-        href: time-series-insights-query-data-csharp.md
-      - name: Manage reference data in C#
-        href: time-series-insights-manage-reference-data-csharp.md
-      - name: Share a custom view
-        href: time-series-insights-parameterized-urls.md
   - name: Azure Time Series Insights Gen 2
     items:
     - name: Data access control
@@ -81,6 +71,16 @@
       items:
       - name: UX panels
         href: concepts-ux-panels.md
+  - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data by using C#
+        href: time-series-insights-query-data-csharp.md
+      - name: Manage reference data in C#
+        href: time-series-insights-manage-reference-data-csharp.md
+      - name: Share a custom view
+        href: time-series-insights-parameterized-urls.md
 - name: How-to guides
   items:
   - name: Grant data access
