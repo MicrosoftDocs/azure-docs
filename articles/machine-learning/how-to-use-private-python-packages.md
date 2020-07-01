@@ -20,7 +20,7 @@ ms.date: 07/01/2020
 
 In this article, learn how to use private Python packages securely within Azure Machine Learning. Use cases for private Python packages include:
 
- * You have developed a private private that you don't want to share publicly.
+ * You've developed a private package that you don't want to share publicly.
  * You want to use a curated repository of packages stored within an enterprise firewall.
 
 The recommended approach depends on whether you have few packages for a single Azure Machine Learning workspace, or an entire repository of packages for all workspaces within an organization.
@@ -36,7 +36,7 @@ The private packages are used through [Environment](https://docs.microsoft.com/p
 
 For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
 
-Point the file path argument to a local wheel file and run the ```add_private_pip_wheel``` command. The command returns an URL used to track the location of the package within your Workspace. Capture the storage URL and pass it the `add_pip_package()` method.
+Point the file path argument to a local wheel file and run the ```add_private_pip_wheel``` command. The command returns a URL used to track the location of the package within your Workspace. Capture the storage URL and pass it the `add_pip_package()` method.
 
 ```python
 whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
@@ -50,7 +50,7 @@ Internally, Azure Machine Learning service replaces the URL by secure SAS URL, s
 
 ### Consume a repository of packages from Azure DevOps feed
 
-If you're actively developing Python packages for your machine learning application, you can host them in a Azure DevOps repository as artifacts and publish them into a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learing Workspace. To learn how to set up Python feed using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
+If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them into a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Leaaring Workspace. To learn how to set up Python feed using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
 
  1. [Create a Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
 
@@ -85,7 +85,7 @@ The environment is now ready to be used in training runs or web service endpoint
 
 ### Consume a repository of packages from private storage
 
-You can consume packages from an Azure storage account within organization's firewall. Such a storage can for example hold a curated set of packages for enterprise use, or an internal mirror of publicly available packages.
+You can consume packages from an Azure storage account within organization's firewall. Such a storage account can hold a curated set of packages for enterprise use, or an internal mirror of publicly available packages.
 
 To set up such private storage:
 
