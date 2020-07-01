@@ -31,7 +31,7 @@ The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECT
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
-By default Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
+By default, Functions proxies use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
 
 |Key|Value|Description|
 |-|-|-|
