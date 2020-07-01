@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt
+ms.custom: mqtt, tracking-python
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)

@@ -9,17 +9,19 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ---
 
-# Create an Azure container offer
+# Create an Azure container offer in Azure Marketplace
 
-This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish a container offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+
 3. On the Overview page, select **+ New offer** > **Azure Container**.
 
-    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
+   ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -45,10 +47,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page shows different links based on the current status of the offer. For example:
 
-- If the offer is a draft - [Delete draft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- If the offer is live - [Stop selling the offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- If the offer is in preview - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- If you haven't completed publisher sign-out - [Cancel publishing](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -61,12 +63,12 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 1. **Select a lead destination where you want us to send customer leads**. Partner Center supports the following CRM systems:
 
-   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) for Customer Engagement
-   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+   - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+   - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
    > [!NOTE]
-   > If your CRM system isn't listed above, use [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) or [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) to store customer lead data, then export the data to your CRM system.
+   > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -74,7 +76,7 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Lead management overview](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
+- [Lead management overview](commercial-marketplace-get-customer-leads.md)
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
@@ -235,9 +237,6 @@ Specify your preview audience using Azure subscription ID GUIDs, along with an o
 
 Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you determine who can preview your offer before it's published live. If your offer is already live, you can choose a preview audience to test changes or updates to your offer.
 
-> [!NOTE]
-> The preview audience differs from a private audience. A **preview** audience can see and confirm all offer plans before they are live in the marketplace, including those that will be published only to a **private** audience (set on the Availability tab).
-
 Select **Save draft** before continuing.
 
 ### Plan overview
@@ -272,22 +271,20 @@ In the **Plan name** box, enter a name for this plan. Customers see this name wh
 
 This tab lets you choose which clouds the plan is available in. Your answers on this tab affect which fields are displayed on other tabs.
 
-#### Cloud availability
+#### Azure regions
 
-Your plan must be available in at least one cloud.
+All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Global** option so your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
-
-Select the [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the [**Azure Government**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
 Before [publishing](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> After your plan is published and available in a specific cloud, you can't remove that cloud.
+> After your plan is published and available in a specific region, you can't remove that region.
 
-#### Azure Government Cloud certifications
+#### Azure Government certifications
 
-This option can only be seen if **Azure Government Cloud** is selected under **Cloud availability**.
+This option can only be seen if **Azure Government** is selected under **Cloud availability**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.
 
@@ -329,7 +326,7 @@ If you want to hide your published offer so customers can't search, browse, or p
 
 This field is used when:
 
-- The offer is intended to be used indirectly when referenced though another application.
+- The offer is intended to be used indirectly when referenced through another application.
 - The offer should not be purchased individually.
 - The plan was used for initial testing and is no longer relevant.
 - The plan was used for temporary or seasonal offers and should no longer be offered.
@@ -338,7 +335,7 @@ This field is used when:
 
 Container images must be hosted in a private [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). On the **Technical Configuration** tab, provide reference information for your container image repository inside the Azure Container Registry.
 
-After the offer is published, your container image is copied to Azure Marketplace in a specific public container registry. All requests to use your container image are served from the Azure Marketplace public container registry, not your private one. For details, see [Prepare your Azure Container technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+After the offer is published, your container image is copied to Azure Marketplace in a specific public container registry. All requests to use your container image are served from the Azure Marketplace public container registry, not your private one. For details, see [Prepare your Azure Container technical assets](create-azure-container-technical-assets.md).
 
 ### Image repository details
 
@@ -371,7 +368,7 @@ Customers must be able to automatically get updates from the Azure Marketplace w
 
 This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them.
 
-All manifest tags (except the latest tag) must start with either X.Y **-** or X.Y.Z- where X, Y, and Z are integers. For example, if a **latest** tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details, see [Prepare your Azure Container technical assets](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+All manifest tags (except the latest tag) must start with either X.Y **-** or X.Y.Z- where X, Y, and Z are integers. For example, if a **latest** tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details, see [Prepare your Azure Container technical assets](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > Remember to add a test tag to your image so you can identify the image during testing.
@@ -394,8 +391,8 @@ To submit the offer for publishing, select **Publish**.
 
 We'll send you an email to let you know when a preview version of the offer is available to review and approve.
 
-To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+To publish your offer to the public, go to Partner Center and select **Go-live**.
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)

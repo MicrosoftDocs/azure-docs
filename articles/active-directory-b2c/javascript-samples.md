@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -46,7 +46,7 @@ You enable script execution by adding the **ScriptExecution** element to the [Re
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 2. Add the **ScriptExecution** element to the **UserJourneyBehaviors** element of **RelyingParty**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>

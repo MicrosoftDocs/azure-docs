@@ -4,7 +4,6 @@ description: Learn how to access the SQL virtual machine resource in the Azure p
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 

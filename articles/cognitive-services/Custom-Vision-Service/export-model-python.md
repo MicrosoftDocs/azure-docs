@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
+ms.custom: tracking-python
 ---
 
 # Tutorial: Run TensorFlow model in Python

@@ -1,5 +1,5 @@
 ---
-title: Create, view, and manage system topics in Azure Event Grid
+title: Create, view, and manage system topics in Azure Event Grid (portal)
 description: This article shows how view existing system topic, create Azure Event Grid system topics using the Azure portal. 
 services: event-grid
 author: spelluru
@@ -10,22 +10,14 @@ ms.date: 06/02/2020
 ms.author: spelluru
 ---
 
-# Create, view, and manage system topics in Azure Event Grid
-This article shows you how to do the following tasks:
-
-- Create a system topic
-- View all existing system topics 
-- Delete a system topic
-- Create an event subscription for a system topic
-
+# Create, view, and manage Event Grid system topics in the Azure portal
+This article shows you how to create and manage system topics using the Azure portal. For an overview of system topics, see [System topics](system-topics.md).
 
 ## Create a system topic
-You can create a system topic for an Azure resource in two ways:
+You can create a system topic for an Azure resource (Storage account, Event Hubs namespace, etc.) in two ways:
 
-- Using the resource page, for example, Storage Account page or Event Hubs Namespace page. 
-- Using the **Event Grid System Topics** page. 
-
-See [this quickstart](blob-event-quickstart-portal.md) for an example of creating a system topic using a resource page (**Events** tab of a resource page in the Azure portal). The following steps are for creating a system topic using the **Event Grid System Topics** page. 
+- Using the **Events** page of a resource, for example, Storage Account or Event Hubs Namespace. When you use the **Events** page in the Azure portal to create an event subscription for an event raised by an Azure source (for example: Azure Storage account), the portal creates a system topic for the Azure resource and then creates a subscription for the system topic. You specify the name of the system topic if you are creating an event subscription on the Azure resource for the first time. From the second time onwards, the system topic name is displayed for you in the read-only mode. See [Quickstart: Route Blob storage events to web endpoint with the Azure portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) for detailed steps.
+- Using the **Event Grid System Topics** page. The following steps are for creating a system topic using the **Event Grid System Topics** page. 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
@@ -53,11 +45,9 @@ See [this quickstart](blob-event-quickstart-portal.md) for an example of creatin
 
         ![System topic page](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## View all system topics
 Follow these steps to view all existing Event Grid system topics. 
-
-> [!NOTE]
-> Earlier, when you created a subscription for an event raised by Azure sources, the Event Grid service automatically created a system topic with a randomly generated name. Now, you can specify a name for the system topic while creating the topic. You can use this system topic resource to discover metrics and diagnostic logs.
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In the search box at the top, type **Event Grid System Topics**, and then press **ENTER**. 
@@ -96,7 +86,6 @@ Follow these steps to view all existing Event Grid system topics.
 3. Confirm that the **Topic Type**, **Source Resource**, and **Topic Name** are automatically populated. Enter a name, select an **Endpoint Type**, and specify the **endpoint**. Then, select **Create** to create the event subscription. 
 
     ![System topic - create event subscription](./media/create-view-manage-system-topics/create-event-subscription.png)
-
 
 ## Next steps
 See the [System topics in Azure Event Grid](system-topics.md) section to learn more about system topics and topic types supported by Azure Event Grid. 

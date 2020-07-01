@@ -122,6 +122,9 @@ You can get the value of these service-defined variables to make adjustments tha
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
+> [!IMPORTANT]
+> Job release tasks are not currently included in the above variables that provide task counts, such as $ActiveTasks and $PendingTasks. Depending on your auto-scale formula, this can result in nodes being removed and no nodes being available to run the job release tasks.
+
 > [!TIP]
 > The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
 >

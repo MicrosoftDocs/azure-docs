@@ -5,10 +5,11 @@ services: synapse analytics
 author: ruixinxu 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice:
+ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: ruxu 
 ms.reviewer: 
+ms.custom: tracking-python
 ---
 
 # Create, develop, and maintain Azure Synapse Studio (preview) notebooks
@@ -340,7 +341,7 @@ Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user i
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you cant type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
+2. Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to click on a cell's editor area.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

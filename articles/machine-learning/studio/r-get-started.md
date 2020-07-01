@@ -4,7 +4,7 @@ description: Use this R programming tutorial to get started with Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

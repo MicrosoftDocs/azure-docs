@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -211,7 +211,12 @@ You may have a limited number of Voice actions in an Action Group.
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Webhook
-Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
+Webhooks are processed using the following rules
+- A webhook call is attempted a maximum of 3 times.
+- The call will be retried if a response is not received within the timeout period or one of the following HTTP status codes is returned: 408, 429, 503 or 504.
+- The first call will wait 10 seconds for a response.
+- The second and third attempts will wait 30 seconds for a response.
+- After the 3 attempts to call the webhook have failed no action group will call the endpoint for 15 minutes.
 
 Source IP address ranges
  - 13.72.19.232

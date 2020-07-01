@@ -267,7 +267,7 @@ However, it's good practice to avoid using the same name.
 ## Create downstream device certificates
 
 If you're setting up a downstream IoT device for a gateway scenario and want to use X.509 authentication, you can generate demo certificates for the downstream device.
-If you want to use symmetric key authentication, you don't need any certificates for the downstream device.
+If you want to use symmetric key authentication, you don't need to create additional certificates for the downstream device.
 There are two ways to authenticate an IoT device using X.509 certificates: using self-signed certs or using certificate authority (CA) signed certs.
 For X.509 self-signed authentication, sometimes referred to as thumbprint authentication, you need to create new certificates to place on your IoT device.
 These certificates have a thumbprint in them that you share with IoT Hub for authentication.

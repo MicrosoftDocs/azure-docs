@@ -4,7 +4,6 @@ description: This article provides answers to frequently asked questions about r
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 

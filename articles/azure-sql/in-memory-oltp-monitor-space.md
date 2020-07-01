@@ -19,7 +19,7 @@ When using [In-Memory OLTP](in-memory-oltp-overview.md), data in memory-optimize
 
 ## Determine whether data fits within the In-Memory OLTP storage cap
 
-Determine the storage caps of the different service tiers.Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
+Determine the storage caps of the different service tiers. Each Premium and Business Critical service tier has a maximum In-Memory OLTP storage size.
 
 - [DTU-based resource limits - single database](database/resource-limits-dtu-single-databases.md)
 - [DTU-based resource limits - elastic pools](database/resource-limits-dtu-elastic-pools.md)

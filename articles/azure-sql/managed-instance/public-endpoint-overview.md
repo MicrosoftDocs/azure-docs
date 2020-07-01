@@ -2,7 +2,7 @@
 title: Secure Azure SQL Managed Instance public endpoints
 description: "Securely use public endpoints in Azure SQL Managed Instance"
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: conceptual

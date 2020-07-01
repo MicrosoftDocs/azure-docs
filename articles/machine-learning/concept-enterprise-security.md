@@ -141,7 +141,7 @@ To use your own (customer-managed) keys to encrypt the Azure Cosmos DB instance,
 
 To enable provisioning a Cosmos DB instance in your subscription with customer-managed keys, perform the following actions:
 
-* Register the Azure Machine Learning and Azure Cosmos DB resource providers in your subscription, if not done already.
+* Register the Microsoft.MachineLearning and Microsoft.DocumentDB resource providers in your subscription, if not done already.
 
 * Authorize the Machine Learning App (in Identity and Access Management) with contributor permissions on your subscription.
 
@@ -171,6 +171,11 @@ For more information on customer-managed keys with Cosmos DB, see [Configure cus
 All container images in your registry (Azure Container Registry) are encrypted at rest. Azure automatically encrypts an image before storing it and decrypts it when Azure Machine Learning pulls the image.
 
 To use your own (customer-managed) keys to encrypt your Azure Container Registry, you need to create your own ACR and attach it while provisioning the workspace or encrypt the default instance that gets created at the time of workspace provisioning.
+
+> [!IMPORTANT]
+> Azure Machine Learning requires the admin account be enabled on your Azure Container Registry. By default, this setting is disabled when you create a container registry. For information on enabling the admin account, see [Admin account](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
 
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 

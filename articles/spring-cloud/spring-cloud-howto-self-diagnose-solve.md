@@ -9,7 +9,7 @@ ms.date: 05/29/2020
 ---
 
 # How to self-diagnose and solve problems in Azure Spring Cloud
-This tutorial shows you how to self-diagnose and solve problems for Azure Spring Cloud. It provides an easy way to collect metrics and logs.
+Azure Spring Cloud diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 ## Prerequisites
 To complete this tutorial, you need:
