@@ -1,6 +1,6 @@
 ---
-title: Single-user/single-password rotation tutorial
-description: Use this tutorial to learn how to automate the rotation of a secret for resources that use single-user/single-password authentication.
+title: Rotation tutorial for resources with one set of authentication credentials
+description: Use this tutorial to learn how to automate the rotation of a secret for resources that use one set of authentication credentials.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -13,11 +13,11 @@ ms.date: 01/26/2020
 ms.author: mbaldwin
 
 ---
-# Automate the rotation of a secret for resources that use single-user/single-password authentication
+# Automate the rotation of a secret for resources that use one set of authentication credentials
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use single-user/single-password authentication. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
 ![Diagram of rotation solution](../media/rotate1.png)
 

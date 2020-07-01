@@ -7,6 +7,8 @@ ms.date: 02/25/2019
 
 # Your profile and user ID for Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 Within the powerful, collaborative space of Azure Notebooks, your user profile presents your public image to others:
 
 [![An Azure Notebooks profile page](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
@@ -18,8 +20,6 @@ Your user ID is part of the URLs you use to share projects and notebooks. The fo
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Project files.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones of a specific projects.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: The HTML preview of a specific notebook or file.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Your user ID
 
@@ -56,4 +56,4 @@ To edit your profile, use the **Edit Profile Information** command on your profi
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
