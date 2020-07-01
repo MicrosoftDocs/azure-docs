@@ -18,7 +18,7 @@ Key Vault allows you to securely access sensitive information from within your a
 - Your application can use keys for signing and encryption yet keeps the key management external from your application, allowing your solution to be suitable as a geographically distributed app.
 - Manage Key Vault certificates. For more information, see [Certificates](../certificates/about-certificates.md)
 
-For more general information on Azure Key Vault, see [What is Key Vault](overview.md)).
+For more general information on Azure Key Vault, see [What is Key Vault](overview.md).
 
 ## Public Previews
 
