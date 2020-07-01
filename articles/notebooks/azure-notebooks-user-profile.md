@@ -56,4 +56,4 @@ To edit your profile, use the **Edit Profile Information** command on your profi
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
