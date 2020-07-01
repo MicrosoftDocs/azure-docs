@@ -13,7 +13,7 @@ ms.author: mjbrown
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB Table API. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). All Azure Cosmos DB CLI script samples can be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-| |  |
+|Task | Description |
 |---|---|
 | [Create an Azure Cosmos account and table](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account and table for Table API. |
 | [Change throughput](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a table.|

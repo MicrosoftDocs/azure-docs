@@ -127,7 +127,7 @@ If you created configuration with plain `TelemetryConfiguration()` constructor, 
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### Full example

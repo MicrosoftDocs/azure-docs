@@ -23,7 +23,6 @@ ms.date: 06/24/2020
 
 Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
-* Obtain information about your service and contents in the **Overview** home page.
 * Check storage using the mid-page **Usage** link.
 * Check query volumes and latency using the mid-page **Monitoring** link, and whether requests were throttled.
 * Manage access using the **Keys** page to the left.
