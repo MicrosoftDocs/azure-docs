@@ -17,6 +17,7 @@ ms.author: mbaldwin
 **Outgoing claims** set is created as an output by Azure Attestation. It contains all the claims that should end up in the attestation token.
 
 **Property claims** set is created as an output by Azure Attestation. It contains all the claims that represent properties of the attestation token, such as encoding of the report, validity duration of the report, and so on. 
+
 Below claims that are defined by the JWT RFC and used by MAA in the response object:
 
 - **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
@@ -85,7 +86,7 @@ Currently 1.0.
 - **cnf (Confirmation) Claim**:  The "cnf" claim is used to identify the proof-of-possession key. Confirmation claim as defined in RFC 7800, contains the public part of the attested enclave key represented as a JSON Web Key (JWK) object (RFC 7517).
 - **rp_data (relying party data)**:  Relying party data, if any, specified in the request. This is normally used by the relying party as a nonce to guarantee freshness of the report.
 
-### property claim types supported by MAA
+### Property claims
 
 - **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
   - **Default value(time)**: one day in minutes
