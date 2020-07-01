@@ -16,7 +16,8 @@ Self-service exchange and cancel capability isn't available for US Government En
 
 You must have owner access on the Reservation Order to exchange or refund an existing reservation. You can [Add or change users who can manage a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
 
-> [!NOTE] Microsoft is not currently charging early termination fees for reservation refunds. We might charge the fees for refunds made in the future. We currently don't have a date for enabling the fee.
+> [!NOTE]
+> Microsoft is not currently charging early termination fees for reservation refunds. We might charge the fees for refunds made in the future. We currently don't have a date for enabling the fee.
 
 ## How to exchange or refund an existing reservation
 
