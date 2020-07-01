@@ -93,7 +93,9 @@ This article describes some items you should check to help you troubleshoot Azur
 
 If an error is met after triggering an access package reprocess request, you must wait while the system reprocesses the request. The system tries multiple times to reprocess for several hours, so you can't force reprocessing during this time. 
 
-You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week.
+You can only reprocess a request that has a status of **Delivery failed** or **Partially delivered** and a completed date of less than one week. The **reprocess** button would be grayed out otherwise.
+
+![Reprocess button grayed out](./media/entitlement-management-troubleshoot/cancel-reprocess-grayedout.png)
 
 - If the error is fixed during the trials window, the request status will change to **Delivering**. The request will reprocess without additional actions from the user.
 
@@ -115,7 +117,7 @@ You can only reprocess a request that has a status of **Delivery failed** or **P
 
 ### Cancel a pending request
 
-You can only cancel a pending request that has not yet been delivered or whose delivery has failed.
+You can only cancel a pending request that has not yet been delivered or whose delivery has failed.The **cancel** button would be grayed out otherwise.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
