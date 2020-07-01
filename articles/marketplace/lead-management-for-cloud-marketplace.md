@@ -86,7 +86,7 @@ You can find documentation at [Get customer leads](./partner-center-portal/comme
 **Am I required to configure a lead destination in order to publish an offer on Marketplace?**
 
 Yes, if you are publishing a Contact Me SaaS app, or Consulting Services.  
- 
+
 **How can I confirm that the lead configuration is correct?**
 
 After setting up your offer, and lead destination, publish your offer. On lead validation step, Marketplace will send a test lead to the lead destination configured in your offer. 
@@ -95,6 +95,7 @@ After setting up your offer, and lead destination, publish your offer. On lead v
 
 Search for "MSFT_TEST" in your lead destination, here's a sample test lead data: 
 
+```text
 company = MSFT_TEST_636573304831318844 
 
 country = US 
@@ -118,57 +119,43 @@ oid = 00Do0000000ZHog
 phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **I have a live offer, but I'm not seeing any leads?**
 
-Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer** 
+Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer**
 
-  *Sources:*
+- *Sources:*
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (acronym for AppSource)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- *Actions:*
+  - "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product.
+  - "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button.
+  - "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted.
+  - "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account.
+  - "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive.
 
-  *Actions:*
+- *Offers:*
+  - "checkpoint.check-point-r77-10sg-byol",
+  - "bitnami.openedxcypress",
+  - "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a"
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+*Here's sample data of the customer information*
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  *Offers:*
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  *Here's sample data of the customer information*
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 Find out more under [Lead Info](./partner-center-portal/commercial-marketplace-get-customer-leads.md). 
 

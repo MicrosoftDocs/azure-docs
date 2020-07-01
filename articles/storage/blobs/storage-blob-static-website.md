@@ -18,6 +18,7 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 > [!NOTE]
 > If your site depends on server-side code, use [Azure App Service](/azure/app-service/overview) instead.
+Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Setting up a static website
 
@@ -41,7 +42,7 @@ You can use any of these tools to upload content to the **$web** container:
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](/azure/javascript/tutorial-vscode-static-website-node-01)
+> * [Visual Studio Code extension](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
 ## Viewing content
 
@@ -58,11 +59,11 @@ The URL of your site contains a regional code. For example the URL `https://cont
 
 While that code must remain in the URL, it is only for internal use, and you won't have to use that code in any other way.
 
-The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).  
+The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).
 
 ### Secondary endpoints
 
-If you set up [redundancy in a secondary region](../common/storage-redundancy.md#redundancy-in-a-secondary-region), you can also access website content by using a secondary endpoint. Because data is replicated to secondary regions asynchronously, the files that are available at the secondary endpoint aren't always in sync with the files that are available on the primary endpoint. 
+If you set up [redundancy in a secondary region](../common/storage-redundancy.md#redundancy-in-a-secondary-region), you can also access website content by using a secondary endpoint. Because data is replicated to secondary regions asynchronously, the files that are available at the secondary endpoint aren't always in sync with the files that are available on the primary endpoint.
 
 ## Impact of the setting the public access level of the web container
 
@@ -80,11 +81,11 @@ However, the public access to the primary blob service endpoint `https://contoso
 
 ## Mapping a custom domain to a static website URL
 
-You can make your static website available via a custom domain. 
+You can make your static website available via a custom domain.
 
 It's easier to enable HTTP access for your custom domain, because Azure Storage natively supports it. To enable HTTPS, you'll have to use Azure CDN because Azure Storage does not yet natively support HTTPS with custom domains. see [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md) for step-by-step guidance.
 
-If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then users must use the HTTPS endpoint. 
+If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then users must use the HTTPS endpoint.
 
 > [!TIP]
 > Consider hosting your domain on Azure. For more information, see [Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
