@@ -22468,7 +22468,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/v1-permissions-and-consent.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/v1-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/azuread-dev/v1-permissions-consent",
       "redirect_document_id": false
     },
     {
@@ -24058,7 +24058,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-permissions.md",
-      "redirect_url": "/azure/active-directory/develop/v1-permissions-and-consent",
+      "redirect_url": "/azure/active-directory/azuread-dev/v1-permissions-consent",
       "redirect_document_id": true
     },
     {
