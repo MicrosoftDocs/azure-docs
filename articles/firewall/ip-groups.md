@@ -5,14 +5,11 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 06/23/2020
 ms.author: victorh
 ---
 
-# IP Groups (preview) in Azure Firewall
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+# IP Groups in Azure Firewall
 
 IP Groups allow you to group and manage IP addresses for Azure Firewall rules in the following ways:
 
@@ -35,7 +32,7 @@ The following IPv4 address format examples are valid to use in IP Groups:
 
 ## Create an IP Group
 
-An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group (preview)](create-ip-group.md).
+An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group](create-ip-group.md).
 
 ## Browse IP Groups
 1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
@@ -59,9 +56,6 @@ You can see all the IP addresses in the IP Group and the rules or resources that
 ## Use an IP Group
 
 You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
-
-> [!NOTE]
-> IP Groups are not supported in Firewall Policy. It is currently only supported with traditional firewall rules.
 
 ![IP Groups in Firewall](media/ip-groups/fw-ipgroup.png)
 

@@ -149,7 +149,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
         SearchServiceAdminKey=<YOUR-ADMIN-KEY>
         SearchServiceQueryKey=<YOUR-QUERY-KEY>
         IndexName=hotels-quickstart
-        ApiVersion=2019-05-06
+        ApiVersion=2020-06-30
     ```
 
 ### Add the main method
