@@ -28,7 +28,7 @@ Here are the general steps in a typical SGX enclave attestation workflow (using 
 1. Azure Attestation validates the submitted information and evaluates it against a configured policy. If the verification succeeds, Azure Attestation issues an attestation token and returns it to the client. If this step fails, Azure Attestation reports an error to the client. 
 1. The client sends the attestation token to relying party. The relying party calls public key metadata endpoint of Azure Attestation to retrieve signing certificates. The relying party then verifies the signature of the attestation token and ensures the enclave trustworthiness. 
 
-![IMAGE](../media/image1.png)
+![This should be a descriptive alt-text](../media/image1.png)
 
 
 ## Next steps
