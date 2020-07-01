@@ -156,7 +156,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
-For additional information, see [Test drive your offer in the commercial marketplace](partner-center-portal/test-drive.md).
+For additional information, see [Test drive your offer in the commercial marketplace](test-drive.md).
 
 ### Test drive resources
 

@@ -13,9 +13,9 @@ ms.date: 05/26/2020
 
 The metered billing APIs should be used when the publisher creates custom metering dimensions for an offer to be published in Partner Center. Integration with the metered billing APIs is required for any purchased offer that has one or more plans with custom dimensions to emit usage events.
 
-For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](partner-center-portal/saas-metered-billing.md).
+For more information on creating custom metering dimensions for SaaS, see [SaaS metered billing](saas-metered-billing.md).
 
-For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](partner-center-portal/create-new-azure-apps-offer.md#technical-configuration-managed-application-plans-only)).
+For more information on creating custom metering dimensions for an Azure Application offer with a Managed app plan, see the [technical configuration section of create a new Azure Apps offer](create-new-azure-apps-offer.md#technical-configuration-managed-application-plans-only)).
 
 ## Enforcing TLS 1.2 Note
 

@@ -70,4 +70,4 @@ For more information, see these articles:
 
 Every time I try to create an image from my VHDs, I get the error "VHD is already registered with image repository as the resource" in Azure PowerShell. I didn't create any image before nor did I find any image with this name in Azure. How do I resolve this?
 
-This issue usually appears if you created a VM from a VHD that has a lock on it. Confirm that there is no VM allocated from this VHD and then retry the operation. If this issue continues, open a support ticket. See [Support for Partner Center](partner-center-portal/support.md).
+This issue usually appears if you created a VM from a VHD that has a lock on it. Confirm that there is no VM allocated from this VHD and then retry the operation. If this issue continues, open a support ticket. See [Support for Partner Center](support.md).

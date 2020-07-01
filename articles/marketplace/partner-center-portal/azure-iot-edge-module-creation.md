@@ -11,7 +11,7 @@ ms.date: 05/19/2020
 
 # Create, configure, and publish an IoT Edge module offer in Azure Marketplace
 
-This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](partner-center-portal/create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -45,10 +45,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](partner-center-portal/update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](partner-center-portal/publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing.](partner-center-portal/update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
+- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing))
 
 ## Offer setup
 
@@ -60,12 +60,12 @@ When publishing your offer to the marketplace with Partner Center, you can optio
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
 
-    - [Dynamics 365](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
-    - [Marketo](partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md)
-    - [Salesforce](partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
+    > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data, then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -73,7 +73,7 @@ When publishing your offer to the marketplace with Partner Center, you can optio
 
 Here are some additional lead management resources:
 
-- [Lead management overview](partner-center-portal/commercial-marketplace-get-customer-leads.md)
+- [Lead management overview](commercial-marketplace-get-customer-leads.md)
 - [Lead management FAQs](lead-management-for-cloud-marketplace.md#frequently-asked-questions))
 - [Common lead configuration errors](lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
@@ -380,7 +380,7 @@ The **IoT Edge module** offer type is a specific type of container that runs on 
 
 After the offer is published, your IoT Edge container image is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
-You can target multiple platforms and provide several versions of your module container image using tags. To learn more about tags and versioning, see [Prepare your IoT Edge module technical assets](partner-center-portal/create-iot-edge-module-asset.md).
+You can target multiple platforms and provide several versions of your module container image using tags. To learn more about tags and versioning, see [Prepare your IoT Edge module technical assets](create-iot-edge-module-asset.md).
 
 ### Image repository details
 

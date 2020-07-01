@@ -61,7 +61,7 @@ You can only build a Power BI app within the [Power BI](https://powerbi.microsof
 2. Create and test your app in Power BI.
 3. When you receive the app installation web address, add it to the **Technical Configuration** page in Partner Center.
 
-After your app is created and tested in Power BI, save the application installation web address, as you'll need it to [create a Power BI app offer](partner-center-portal/create-power-bi-app-offer.md).
+After your app is created and tested in Power BI, save the application installation web address, as you'll need it to [create a Power BI app offer](create-power-bi-app-offer.md).
 
 ### Business requirements
 
@@ -73,4 +73,4 @@ The business requirements include procedural, contractual, and legal obligations
 
 ## Next step
 
-- [Create a Power BI app offer in Partner Center](partner-center-portal/create-power-bi-app-offer.md)
+- [Create a Power BI app offer in Partner Center](create-power-bi-app-offer.md)

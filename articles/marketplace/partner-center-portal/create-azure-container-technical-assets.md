@@ -55,4 +55,4 @@ For more information, see the following tutorials:
 
 ## Next steps
 
-- [Create your container offer](partner-center-portal/create-azure-container-offer.md).
+- [Create your container offer](create-azure-container-offer.md).

@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 This article explains the steps and considerations for creating a new Azure application offer in the commercial marketplace. You should be familiar with these concepts before you create a new Azure application offer.
 
-Before you can publish a new Azure application offer, [create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md) and make sure your account is enrolled in the commercial marketplace program.
+Before you can publish a new Azure application offer, [create a commercial marketplace account in Partner Center](create-account.md) and make sure your account is enrolled in the commercial marketplace program.
 
 ## Before you begin
 
@@ -131,7 +131,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box. Configure the test drive environment in the [Test drive technical configuration](#test-drive-technical-configuration) section later in this topic.
 
-For additional information, see [Test drive your offer in the commercial marketplace](partner-center-portal/test-drive.md). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
+For additional information, see [Test drive your offer in the commercial marketplace](test-drive.md). You can also read about [test drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) and download the [Test drives overview PDF](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (make sure your pop-up blocker is off)
 
 >[!Note]
 >Because all Azure applications are implemented using an Azure Resource Manager template, the only type of test drive available for an Azure Application is an [Azure Resource Manager based test drive](cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md).
@@ -294,7 +294,7 @@ The technical configuration defines the details (tenant ID, and app ID) used to 
 >The Azure application ID will be associated to your publisher ID, and can only be re-used within this publisher account.
 
 >[!Note]
->This configuration is required if you want to use [Batch usage event](partner-center-portal/marketplace-metering-service-apis.md#batch-usage-event)).  In case you want to submit [usage event](partner-center-portal/marketplace-metering-service-apis.md#usage-event)), you can also use the [instance metadata service](../../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#get-a-token-based-on-the-azure-ad-app)).
+>This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#batch-usage-event)).  In case you want to submit [usage event](marketplace-metering-service-apis.md#usage-event)), you can also use the [instance metadata service](../../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](pc-saas-registration.md#get-a-token-based-on-the-azure-ad-app)).
 
 ## Plan overview
 
@@ -515,7 +515,7 @@ Select **Save draft** before continuing.
 
 Providing information on the Co-sell tab is entirely optional for publishing your offer. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers.
 
-For details on this tab, see [Co-sell option in Partner Center](partner-center-portal/commercial-marketplace-co-sell.md).
+For details on this tab, see [Co-sell option in Partner Center](commercial-marketplace-co-sell.md).
 
 ## Resell through CSPs
 
@@ -525,7 +525,7 @@ Select **Save draft** before continuing.
 
 ## Test drive
 
-Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](partner-center-portal/test-drive.md).
+Set up a demonstration (test drive) that lets customers try your offer before purchasing it. To create a demonstration environment that lets customers try your offer for a fixed period of time, see [Test Drive your offer in the commercial marketplace](test-drive.md).
 
 To enable a test drive, select the **Enable a test drive** check box on the [Offer setup](#test-drive) tab. To remove test drive from your offer, clear this check box.
 

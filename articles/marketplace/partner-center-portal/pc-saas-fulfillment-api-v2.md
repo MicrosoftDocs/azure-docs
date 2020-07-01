@@ -250,7 +250,7 @@ Bad request. `x-ms-marketplace-token` is missing, malformed, invalid, or expired
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 500<br>
 Internal server error.  Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -305,7 +305,7 @@ Bad request: validation failed.
 Code: 403 <br>
 Forbidden. The authorization token is invalid, expired, or not provided. The request is attempting to access a SaaS subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404 <br>
 Not found. SaaS subscription is in Unsubscribed state.
@@ -424,7 +424,7 @@ If no purchased SaaS subscriptions are found for this publisher, empty response 
 Code: 403 <br>
 Forbidden. The authorization token is unavailable, invalid, or expired.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 500<br>
 Internal server error. Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -495,7 +495,7 @@ Returns details for a SaaS subscription based on the `subscriptionId` provided.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired, and not provided. The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  SaaS subscription with the specified `subscriptionId` cannot be found.
@@ -555,7 +555,7 @@ If `subscriptionId` is not found, empty response body is returned.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request may be attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 500<br>
 Internal server error.  Retry the API call.  If the error persists contact [Microsoft support](https://partner.microsoft.com/support/v2/?stage=1).
@@ -616,7 +616,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -687,7 +687,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden.  The authorization token is invalid, expired or not provided.  The request is attempting to access a subscription that doesn't belong to the current publisher.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -751,7 +751,7 @@ Bad request.  Delete is not in `allowedCustomerOperations` list for this SaaS su
 Code: 403<br>
 Forbidden.  The authorization token is invalid, expired or not available. The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -816,7 +816,7 @@ Bad request: validation failures.
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  The SaaS subscription with `subscriptionId` is not found.
@@ -878,7 +878,7 @@ Response body:
 Code: 403<br>
 Forbidden. The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly. 
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly. 
 
 Code: 404<br>
 Not found.  
@@ -931,7 +931,7 @@ Code: 403<br>
 Forbidden.  The authorization token is not available, invalid, or expired. The request may be attempting to access a subscription that doesn't belong to the current publisher.
 Forbidden.  The authorization token is invalid, expired or not provided.  The request is attempting to access a SaaS subscription for an offer that is published with a different Azure AD App ID from the one used to create the authorization token.
 
-This error is often a symptom of not performing the [SaaS registration](partner-center-portal/pc-saas-registration.md) correctly.
+This error is often a symptom of not performing the [SaaS registration](pc-saas-registration.md) correctly.
 
 Code: 404<br>
 Not found.
@@ -1014,11 +1014,11 @@ A purchase flow can be triggered from the Azure portal or Microsoft AppSource si
 
 ## Get support
 
-See [Support for the commercial marketplace program in Partner Center](partner-center-portal/support.md) for publisher support options.
+See [Support for the commercial marketplace program in Partner Center](support.md) for publisher support options.
 
 
 ## Next steps
 
-See Marketplace [metering service APIs](partner-center-portal/marketplace-metering-service-apis.md) for more options for SaaS offers in marketplace.
+See Marketplace [metering service APIs](marketplace-metering-service-apis.md) for more options for SaaS offers in marketplace.
 
 Review and use [SaaS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) built on top of the APIs described in this document.

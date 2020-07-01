@@ -138,4 +138,4 @@ To upload your IoT Edge module to Azure Marketplace, you first need to host it i
 
 ## Next steps
 
-- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Create an IoT Edge module offer](azure-iot-edge-module-creation.md)

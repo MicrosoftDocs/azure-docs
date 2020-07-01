@@ -12,7 +12,7 @@ ms.date: 05/19/2020
 
 # Create a Managed Service offer
 
-Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](partner-center-portal/create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) to publish a Managed Service offer.
 

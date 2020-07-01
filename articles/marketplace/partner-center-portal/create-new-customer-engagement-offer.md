@@ -13,7 +13,7 @@ ms.date: 02/17/2020
 
 This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](partner-center-portal/create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 

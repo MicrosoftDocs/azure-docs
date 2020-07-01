@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks. 
 
-Before you start, [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Introduction
 
@@ -96,12 +96,12 @@ Additional Test Drive resources:
 When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a Test Drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
-    - [Marketo](partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md)
-    - [Salesforce](partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md)
+    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
+    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed here, use [Azure Table storage](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed here, use [Azure Table storage](commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
 
 1. Connect your offer to the lead destination when you're publishing in Partner Center.
 1. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, Microsoft validates the connection and sends you a test lead. While you're previewing the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
@@ -415,7 +415,7 @@ Select **Save draft** before you continue.
 
 ### Technical configuration
 
-Provide the images and other technical properties that are associated with this plan. For more information, see [Create an Azure VM technical asset](partner-center-portal/create-azure-container-technical-assets.md).
+Provide the images and other technical properties that are associated with this plan. For more information, see [Create an Azure VM technical asset](create-azure-container-technical-assets.md).
 
 > [!NOTE]
 > The **Technical configuration** tab isn't displayed if you configured this plan to reuse packages from another plan on the **Plan setup** tab.
@@ -449,7 +449,7 @@ For **Support Accelerated Networking**, select whether your VM supports [Acceler
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.
 
 - **Disc version**: The version of the image you are providing.
-- **SAS URI**: The location in your Azure storage account where you've stored the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](partner-center-portal/get-sas-uri.md).
+- **SAS URI**: The location in your Azure storage account where you've stored the operating system VHD. To learn how to get a SAS URI, see [Get shared access signature URI for your VM image](get-sas-uri.md).
 - Data disk images are also VHD shared access signature URIs that are stored in their Azure storage accounts.
 - Add only one image per submission in a plan.
 
@@ -465,7 +465,7 @@ Select **Save draft** before you continue.
 
 ## Test Drive
 
-Set up a demonstration, or *Test Drive*, that lets customers try your offer for a fixed period of time before they buy it. To create a demonstration environment for your customers, see [Test Drive offers in the commercial marketplace](partner-center-portal/test-drive.md).
+Set up a demonstration, or *Test Drive*, that lets customers try your offer for a fixed period of time before they buy it. To create a demonstration environment for your customers, see [Test Drive offers in the commercial marketplace](test-drive.md).
 
 To enable a Test Drive, select the **Enable a test drive** check box on the **Offer setup** pane. To remove the Test Drive from your offer, clear the check box.
 
@@ -506,10 +506,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](partner-center-portal/update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live: [Stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview: [Go-live](partner-center-portal/publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out: [Cancel publishing](partner-center-portal/update-existing-offer.md#cancel-publishing))
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval))
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing))
 
 ## Marketplace examples
 
@@ -582,4 +582,4 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 ## Next step
 
-- [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md)
+- [Update an existing offer in the commercial marketplace](update-existing-offer.md)
