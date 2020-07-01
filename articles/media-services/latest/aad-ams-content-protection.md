@@ -11,7 +11,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 067/1/2020
+ms.date: 07/1/2020
 ms.author: inhenkel
 ---
 
