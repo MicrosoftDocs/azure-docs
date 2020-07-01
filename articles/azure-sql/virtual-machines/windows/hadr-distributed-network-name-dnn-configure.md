@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure a DNN for an FCI (SQL Server on Azure VMs) 
+# Configure a distributed network name for an FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) optionally replaces the virtual network name (VNN) in the cluster, routing traffic to the appropriate clustered resource without the need of an Azure Load Balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and above and Windows Server 2019. 
+On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource and provides an easier way to connect to the SQL Server failover cluster (FCI) than the virtual network name (VNN), without the need of an Azure load balancer. This feature is currently in preview and only available for SQL Server 2019 CU2 and above and Windows Server 2019. 
 
 This article teaches you to configure a distributed network name (DNN) to route traffic to your [failover cluster instances (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
@@ -63,15 +63,14 @@ Clients use the DNS name to connect to the SQL Server FCI. You can choose a uniq
 Use this command to set the DNS name for your DNN: 
 
 ```powershell
-Get-ClusterResource -Name <dnnResourceName> |
-
+Get-ClusterResource -Name <dnnResourceName> | `
 Set-ClusterParameter -Name DnsName -Value <DNSName>
 ```
 
 The `DNSName` value is what clients use to connect to the SQL Server FCI. For example, for clients to connect to `FCIDNN`, use the following PowerShell Command:
 
 ```powershell
-Get-ClusterResource -Name dnn-demo |
+Get-ClusterResource -Name dnn-demo | `
 Set-ClusterParameter -Name DnsName -Value FCIDNN
 ```
 
