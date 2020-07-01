@@ -100,6 +100,7 @@ For example, if you set the performance duration to one day and the percentile v
 
 Using the 95th percentile value ensures that outliers are ignored. Outliers might be included if your Azure Migrate uses the 99th percentile. To pick the peak usage for the period without missing any outliers, set Azure Migrate to use the 99th percentile.
 
+
 ## How are import-based assessments different from assessments with discovery source as appliance?
 
 Import-based Azure VM assessments are assessments created with machines that are imported into Azure Migrate using a CSV file. Only four fields are mandatory to import: Server name, cores, memory, and operating system. Here are some things to note: 
