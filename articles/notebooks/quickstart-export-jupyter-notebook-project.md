@@ -27,11 +27,11 @@ An existing Azure Notebooks project.
 1. Alternatively, from a specific project page, click the "Download Project" button to download all the files of a given project.
 
 After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
-- [Visual Studio Code](#using-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#using-notebooks-in-visual-studio-codespaces)
-- [Azure Machine Learning](#using-notebooks-with-azure-machine-learning)
-- [Azure Lab Services](#using-azure-lab-services)
-- [GitHub](#using-github)
+- [Visual Studio Code](#use-notebooks-in-visual-studio-code)
+- [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
+- [Azure Lab Services](#use-azure-lab-services)
+- [GitHub](#use-github)
 
 ## Download the requirements file used by Azure Notebooks
 
@@ -52,7 +52,7 @@ If you'd like to create an environment that matches that of the Azure Notebooks 
 
 For more information about requirements files, see the [pip docs]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
-## Using Notebooks in Visual Studio Code
+## Use Notebooks in Visual Studio Code
 
 [VS Code](https://code.visualstudio.com/) is a free code editor that you can use locally or connected to remote compute. Combined with the Python extension, it offers a full environment for Python development including a rich native experience for working with Jupyter notebooks. 
 
@@ -80,7 +80,7 @@ Azure Machine Learning provides an end-to-end machine learning platform to enabl
 
    ![Create a Workspace](../machine-learning/media/how-to-manage-workspace/create-workspace.gif)
  
-1.  Open the [Azure Studio (preview)](https://ml.azure.com/)
+1. Open the [Azure Studio (preview)](https://ml.azure.com/).
 1. Using the left-side navigation bar, select **Notebooks**.
 1. Click on the **Upload files** button and upload the project files that you downloaded from Azure Notebooks.
 
@@ -97,7 +97,7 @@ For additional information about Azure ML and running Jupyter Notebooks, you can
 
 ## Use GitHub
 
-GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#using-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
+GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
 
 1. [Download](#export-an-azure-notebooks-project) your project files.
 1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
