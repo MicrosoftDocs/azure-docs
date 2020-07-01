@@ -59,10 +59,6 @@ See the [entity categories](../named-entity-types.md?tabs=health) returned by Te
 
 Text Analytics for Health only supports English language documents.
 
-## HIPAA compliance
-
-Azure Text Analytics is a HIPAA and HiTRUST eligible service. For more information on Azure Text Analytics' certifications, please see sections 49, 50 and Appendix A of the [Microsoft Azure Compliance Offering](https://aka.ms/azurecompliance) document.  For an Azure Blueprint sample of using Azure Policy to assist towards HIPAA HITRUST attestation, please see the [Azure HIPAA Blueprint](https://docs.microsoft.com/azure/governance/blueprints/samples/hipaa-hitrust/) page.
-
 ## Request access to the container registry
 
 Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
