@@ -197,7 +197,7 @@ You can optionally add up to four videos that demonstrate your offer. These vide
 
 #### Additional marketplace listing resources
 
-[Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md)
+[Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 

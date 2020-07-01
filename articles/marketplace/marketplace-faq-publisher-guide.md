@@ -85,7 +85,7 @@ As a publisher, you set the terms of use for your software solution, which custo
 
 You can create changes that apply to all customers, or you can make the changes specific to certain customers. You can also fully customize your terms and conditions, which can be entered into a text box or hosted on a website that will be shown as a web address.
 
-To learn more, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md).
+To learn more, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md).
 
 ### Is Azure Marketplace available in Azure Government?
 

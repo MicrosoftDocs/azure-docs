@@ -72,8 +72,8 @@ When publishing your offer to the marketplace with Partner Center, you _must_ co
 Here are some additional lead management resources:
 
 - [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
 
 Select **Save draft** before continuing.

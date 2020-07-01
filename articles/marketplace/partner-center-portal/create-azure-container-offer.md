@@ -102,9 +102,9 @@ You must provide terms and conditions for the offer. There are two options:
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to create custom terms and conditions.
 
-To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn more about the Standard Contract, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
-To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplac](standard-contract.md)
+To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplac](../standard-contract.md)
 
 > [!NOTE]
 > After you publish an offer using the Standard contract for Microsoft commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the Standard Contract or under your own terms and conditions.
@@ -175,9 +175,9 @@ In the **CSP Program contact** section, provide the link ( **CSP Program Marketi
 
 #### Additional marketplace listing resources
 
-To learn more about creating offer listings, see [Offer listing best practices](gtm-offer-listing-best-practices.md)
+To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md)
 
-### Marketplace images](gtm-offer-listing-best-practices.md)
+### Marketplace images](../gtm-offer-listing-best-practices.md)
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
@@ -273,9 +273,9 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 #### Azure regions
 
-All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
+All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
-Select the [**Azure Government**](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, s](marketplace-geo-availability-currencies.md)em. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
+Select the [**Azure Government**](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, s](../marketplace-geo-availability-currencies.md)em. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
 Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 

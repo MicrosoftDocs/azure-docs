@@ -138,7 +138,7 @@ You must provide offer terms and conditions to your customers. You have two opti
   > [!NOTE]
   > After you publish an offer by using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. You can offer a solution under either the Standard Contract or your own terms and conditions.
 
-  For more information, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure that your pop-up blocker is turned off).
+  For more information, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure that your pop-up blocker is turned off).
 
   **Standard Contract amendments**
 
@@ -254,7 +254,7 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. The videos should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 &times; 720 pixels.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before you continue.
 
@@ -319,7 +319,7 @@ If you have more than one plan of the same type, and the packages are identical 
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For more information, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For more information, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
 Select the **Azure Government** option to make your plan available in the [Azure Government](../../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from  US federal, state, local, or tribal entities, as well as for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
 

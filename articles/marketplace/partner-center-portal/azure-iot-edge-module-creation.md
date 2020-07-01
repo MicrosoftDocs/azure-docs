@@ -74,8 +74,8 @@ When publishing your offer to the marketplace with Partner Center, you can optio
 Here are some additional lead management resources:
 
 - [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
@@ -99,7 +99,7 @@ You must provide terms and conditions for the offer. You have two options:
 
 We offer a Standard Contract template to help facilitate transactions in the commercial marketplace. You can choose to offer your solution under the Standard Contract, which customers only need to check and accept once. This is a good option if you don't want to craft custom terms and conditions.
 
-To learn more about the Standard Contract, see [Standard Contract for the Microsoft Commercial Marketplace](standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
+To learn more about the Standard Contract, see [Standard Contract for the Microsoft Commercial Marketplace](../standard-contract.md). You can also download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
 To use the Standard Contract, select the **Use the Standard Contract for Microsoft's commercial marketplace** check box, and then click **Accept**.
 
@@ -178,7 +178,7 @@ In the **CSP Program contact** section, provide the link (**CSP Program Marketin
 
 #### Additional marketplace listing resources
 
-To learn more about creating offer listings, see [Offer listing best practices](gtm-offer-listing-best-practices.md).
+To learn more about creating offer listings, see [Offer listing best practices](../gtm-offer-listing-best-practices.md).
 
 ### Marketplace images
 
@@ -310,7 +310,7 @@ This tab lets you configure which clouds the plan is available in. Your answers 
 
 #### Azure regions
 
-All plans for IoT Edge module offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
+All plans for IoT Edge module offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the marketplace. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
 Select the [Azure Government](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To stage and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
@@ -418,7 +418,7 @@ You'll provide the following information on the **Image repository details** tab
 
 Customers must be able to automatically get updates from the Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
 
-**Image tag**. This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
+**Image tag**. This field must include a **latest** tag that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to 1.0.1-linux-x64, 1.0.1-linux-arm32, and 1.0.1-windows-arm32, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your IoT Edge module technical assets.](create-iot-edge-module-asset.md)
 
 ### Default deployment settings (optional)
 

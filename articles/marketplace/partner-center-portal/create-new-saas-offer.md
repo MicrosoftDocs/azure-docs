@@ -169,8 +169,8 @@ For additional information, see [Test drive your offer in the commercial marketp
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### Additional lead management resources
-- [Lead management FAQs](lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](lead-management-for-cloud-marketplace.md#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal))
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal))
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Select **Save draft** before continuing.
@@ -291,7 +291,7 @@ This field is required.
 
 #### Additional marketplace listing resources
 
-- [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md)
+- [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 

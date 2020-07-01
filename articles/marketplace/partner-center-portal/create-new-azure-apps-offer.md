@@ -254,7 +254,7 @@ Add up to five videos that demonstrate your offer. These should be hosted on an 
 
 #### Additional marketplace listing resources
 
-- [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md)
+- [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 
@@ -331,7 +331,7 @@ If you have more than one plan of the same type and the packages are identical b
 
 Your plan must be made available in at least one Azure region.
 
-Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
+Select the **Azure Global** option to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
 Select the **Azure Government** option to make your plan available in the [Azure Government](../../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from  U.S. federal, state, local, or tribal entities, as well as partners eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
 
