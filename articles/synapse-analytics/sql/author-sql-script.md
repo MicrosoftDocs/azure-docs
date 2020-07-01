@@ -21,7 +21,8 @@ There are several ways to start the authoring experience in SQL script. You can 
 ![new sql script](media/author-sql-script/newsqlscript.png)
 
 2. From the **Actions** menu, choose **New SQL script**.
-    ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
+> [!div class="mx-imgBorder"]
+> ![new sql script 2 actions](media/author-sql-script/newsqlscript2actions.png)
 
 Alternatively, you can: 
 
