@@ -7,7 +7,7 @@ ms.date: 07/01/2020
 
 # Use a managed image to create a custom image pool
 
-To create a custom image for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01. 
+To create a custom image for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01. 
 
 > [!IMPORTANT]
 > In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
