@@ -78,14 +78,14 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 # [.NET v12 SDK](#tab/dotnet)
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to an [IDictionary](/dotnet/api/system.collections.idictionary) interface, and then call one of the following methods to write the values:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to an [IDictionary](/dotnet/api/system.collections.idictionary) object, and then call one of the following methods to write the values:
 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadataasync)
 
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage comma-separates and concatenates the two values and return HTTP response code 200 (OK).
 
-The following code example sets metadata on a container. 
+The following code example sets metadata on a container.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddContainerMetadata":::
 
