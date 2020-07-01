@@ -50,6 +50,9 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 * Azure Digital Twins Owner (Preview) – Use this role to give full access over Azure Digital Twins resources.
 * Azure Digital Twins Reader (Preview) – Use this role to give read-only access to Azure Digital Twins resources.
 
+> [!TIP]
+> The Azure Digital Twins Reader (Preview) role now also supports browsing relationships.
+
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
