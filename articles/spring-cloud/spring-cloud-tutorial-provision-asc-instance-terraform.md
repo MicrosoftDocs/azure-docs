@@ -17,11 +17,15 @@ This tutorial creates an Azure Spring Cloud instance using Terraform. The proced
 > * Azure Spring Cloud Instance
 > * Azure Storage for Log Analytics
 
-[!INCLUDE [hashicorp-support.md](includes/hashicorp-support.md)]
+> [!NOTE]
+> For Terraform-specific support, use one of HashiCorp's community support channels to Terraform:
+>
+> * Questions, use-cases, and useful patterns: [Terraform section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-core)
+> * Provider-related questions: [Terraform Providers section of the HashiCorp community portal](https://discuss.hashicorp.com/c/terraform-providers)
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Create configuration file
 
@@ -158,4 +162,4 @@ terraform destroy -auto-approve
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and configure Terraform to provision Azure resources](getting-started-cloud-shell.md).
+> [Install and configure Terraform to provision Azure resources](https://docs.microsoft.com/azure/developer/terraform/getting-started-cloud-shell).
