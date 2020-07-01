@@ -8,9 +8,9 @@ ms.custom: tracking-python
 
 # Quickstart: Create a project with a custom environment in Azure Notebooks Preview
 
-A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
 
 ## Create a project
 

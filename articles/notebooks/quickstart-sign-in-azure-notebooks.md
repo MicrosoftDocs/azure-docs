@@ -7,6 +7,8 @@ ms.date: 04/15/2019
 
 # Quickstart: Sign in and set a user ID for Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 Although you can always view Azure Notebooks without signing in, you must sign in to run notebooks, access saved projects and notebooks, and share your notebooks with others.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
