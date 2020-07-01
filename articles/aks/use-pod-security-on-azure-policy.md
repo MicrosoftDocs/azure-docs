@@ -1,20 +1,14 @@
 ---
-title: Use pod security policies in Azure Kubernetes Service (AKS)
-description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
+title: Secure pods with Azure Policy in Azure Kubernetes Service (AKS)
+description: Learn how to secure pods with Azure Policy on Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/06/2020
 ---
 
-# Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
+# Preview - Secure pods using Azure Policy in Azure Kubernetes Service (AKS)
 
-> [!WARNING]
-> **Pod Security Policy on AKS is set for deprecation** in favor of [Pod Security on Azure Policy](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing the succeeding feature linked above.
-
-**This document and feature are set for deprecation.**
-
-To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
+To improve the security of your AKS cluster, you can limit what pods can be scheduled and audit for anything running against policy. You define this access using specific policies enabled by the [Azure Policy Add-on](../governance/policy/concepts/policy-for-kubernetes.md). This article shows you how to use Azure Policy to limit the deployment of pods in AKS.
 
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional information, please see the following support articles:
@@ -26,109 +20,35 @@ To improve the security of your AKS cluster, you can limit what pods can be sche
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+### Install the Azure Policy Add-on for AKS
 
-### Install aks-preview CLI extension
+To secure AKS pods through Azure Policy, you need to install the Azure Policy Add-on for AKS. Follow these [steps to install the Azure Policy Add-on](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
 
-To use pod security policies, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
+Ensure you have the following which are instructed in the walk-through linked above.
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
+* Registered the `AKS-AzurePolicyAutoApprove` preview feature flag
+* Azure CLI installed with the `aks-preview` extension version 0.4.53 or greater
+* An AKS cluster on a supported version of 1.15 or greater installed with the Azure Policy Add-on
 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register pod security policy feature provider
-
-To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-## Overview of pod security policies
+## Overview of securing pods through Azure Policy
 
 In a Kubernetes cluster, an admission controller is used to intercept requests to the API server when a resource is to be created. The admission controller can then *validate* the resource request against a set of rules, or *mutate* the resource to change deployment parameters.
 
-*PodSecurityPolicy* is an admission controller that validates a pod specification meets your defined requirements. These requirements may limit the use of privileged containers, access to certain types of storage, or the user or group the container can run as. When you try to deploy a resource where the pod specifications don't meet the requirements outlined in the pod security policy, the request is denied. This ability to control what pods can be scheduled in the AKS cluster prevents some possible security vulnerabilities or privilege escalations.
+Previously, a feature called pod security policy was enabled through the Kubernetes project to support the protection of what pods can be deployed by provisioning a dedicated admission controller. By using Azure Policy for Kubernetes, an AKS cluster can instrument a set of built-in Azure policies which support securing pods and more.
 
-When you enable pod security policy in an AKS cluster, some default policies are applied. These default policies provide an out-of-the-box experience to define what pods can be scheduled. However, cluster users may run into problems deploying pods until you define your own policies. The recommended approach is to:
+The policy language used by Azure Policy for Kubernetes is built on the open-source Open Policy Agent which relies on Rego and is [explained further here](../governance/policy/concepts/policy-for-kubernetes.md#policy-language).
 
-* Create an AKS cluster
-* Define your own pod security policies
-* Enable the pod security policy feature
+This document covers the scenarios of using Azure Policy to secure pods similar to what was enabled through pod security policies.
 
-To show how the default policies limit pod deployments, in this article we first enable the pod security policies feature, then create a custom policy.
+## Enable policies on an AKS cluster that target pod security
 
-## Enable pod security policy on an AKS cluster
+After installing the Azure Policy Add-on, no policies are applied by default. You can select from built-in policies to be audited or enforced against a given AKS cluster.
 
-You can enable or disable pod security policy using the [az aks update][az-aks-update] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*.
+### Use built-in initiatives
 
-> [!NOTE]
-> For real-world use, don't enable the pod security policy until you have defined your own custom policies. In this article, you enable pod security policy as the first step to see how the default policies limit pod deployments.
+### Build a custom initiative
 
-```azurecli-interactive
-az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --enable-pod-security-policy
-```
-
-## Default AKS policies
-
-When you enable pod security policy, AKS creates one default policy named *privileged*. Don't edit or remove the default policy. Instead, create your own policies that define the settings you want to control. Let's first look at what these default policies are how they impact pod deployments.
-
-To view the policies available, use the [kubectl get psp][kubectl-get] command, as shown in the following example
-
-```console
-$ kubectl get psp
-
-NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
-privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
-```
-
-The *privileged* pod security policy is applied to any authenticated user in the AKS cluster. This assignment is controlled by ClusterRoles and ClusterRoleBindings. Use the [kubectl get rolebindings][kubectl-get] command and search for the *default:privileged:* binding in the *kube-system* namespace:
-
-```console
-kubectl get rolebindings default:privileged -n kube-system -o yaml
-```
-
-As shown in the following condensed output, the *psp:privileged* ClusterRole is assigned to any *system:authenticated* users. This ability provides a basic level of privilege without your own policies being defined.
-
-```
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  [...]
-  name: default:privileged
-  [...]
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: psp:privileged
-subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: Group
-  name: system:masters
-```
-
-It's important to understand how these default policies interact with user requests to schedule pods before you start to create your own pod security policies. In the next few sections, let's schedule some pods to see these default policies in action.
-
-## Create a test user in an AKS cluster
+## Create a test user to validate the policy
 
 By default, when you use the [az aks get-credentials][az-aks-get-credentials] command, the *admin* credentials for the AKS cluster are added to your `kubectl` config. The admin user bypasses the enforcement of pod security policies. If you use Azure Active Directory integration for your AKS clusters, you could sign in with the credentials of a non-admin user to see the enforcement of policies in action. In this article, let's create a test user account in the AKS cluster that you can use.
 
@@ -266,49 +186,6 @@ Error from server (Forbidden): error when creating "nginx-unprivileged-nonroot.y
 
 The pod doesn't reach the scheduling stage, so there are no resources to delete before you move on.
 
-## Create a custom pod security policy
-
-Now that you've seen the behavior of the default pod security policies, let's provide a way for the *nonadmin-user* to successfully schedule pods.
-
-Let's create a policy to reject pods that request privileged access. Other options, such as *runAsUser* or allowed *volumes*, aren't explicitly restricted. This type of policy denies a request for privileged access, but otherwise lets the cluster run the requested pods.
-
-Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
-
-```yaml
-apiVersion: policy/v1beta1
-kind: PodSecurityPolicy
-metadata:
-  name: psp-deny-privileged
-spec:
-  privileged: false
-  seLinux:
-    rule: RunAsAny
-  supplementalGroups:
-    rule: RunAsAny
-  runAsUser:
-    rule: RunAsAny
-  fsGroup:
-    rule: RunAsAny
-  volumes:
-  - '*'
-```
-
-Create the policy using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
-
-```console
-kubectl apply -f psp-deny-privileged.yaml
-```
-
-To view the policies available, use the [kubectl get psp][kubectl-get] command, as shown in the following example. Compare the *psp-deny-privileged* policy with the default *privilege* policy that was enforced in the previous examples to create a pod. Only the use of *PRIV* escalation is denied by your policy. There are no restrictions on the user or group for the *psp-deny-privileged* policy.
-
-```console
-$ kubectl get psp
-
-NAME                  PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP    READONLYROOTFS   VOLUMES
-privileged            true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *
-psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *          
-```
-
 ## Allow user account to use the custom pod security policy
 
 In the previous step, you created a pod security policy to reject pods that request privileged access. To allow the policy to be used, you create a *Role* or a *ClusterRole*. Then, you associate one of these roles using a *RoleBinding* or *ClusterRoleBinding*.
@@ -390,33 +267,15 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## Clean up resources
 
-To disable pod security policy, use the [az aks update][az-aks-update] command again. The following example disables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+To disable Azure Policy for Kubernetes, use the [az aks disable-addons][az-aks-disable-addons] command.
 
-```azurecli-interactive
-az aks update \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --disable-pod-security-policy
+```azure-cli
+# Log in first with az login if you're not using Cloud Shell
+
+az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
-Next, delete the ClusterRole and ClusterRoleBinding:
-
-```console
-kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
-kubectl delete -f psp-deny-privileged-clusterrole.yaml
-```
-
-Delete the security policy using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
-
-```console
-kubectl delete -f psp-deny-privileged.yaml
-```
-
-Finally, delete the *psp-aks* namespace:
-
-```console
-kubectl delete namespace psp-aks
-```
+Learn how to remove the [Azure Policy Add-on from Azure portal](../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks).
 
 ## Next steps
 
