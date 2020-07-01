@@ -446,7 +446,7 @@ The following are some common reason for a cache disconnect.
   * The bandwidth threshold limits were reached.
   * CPU bound operations took too long to complete.
 * Server-side causes
-  * On the standard cache offering, the Azure Cache for Redis service initiated a fail-over from the primary node to the secondary node.
+  * On the standard cache offering, the Azure Cache for Redis service initiated a fail-over from the primary node to the replica node.
   * Azure was patching the instance where the cache was deployed
     * This can be for Redis server updates or general VM maintenance.
 
