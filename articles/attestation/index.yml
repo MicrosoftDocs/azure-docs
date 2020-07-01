@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Attestation
+title: Microsoft Azure Attestation
 summary: Learn how to use Azure Attestation 
 metadata:
   title: Azure Attestation documentation
@@ -18,11 +18,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Attestation
+  - title: About Microsoft Azure Attestation
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Attestation?
+          - text: What is Microsoft Azure Attestation?
             url: overview.md
 
   # Card
