@@ -5,7 +5,7 @@ services: active-directory
 author: CelesteDG
 manager: daveba
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
