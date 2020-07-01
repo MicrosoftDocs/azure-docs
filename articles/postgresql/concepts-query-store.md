@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/01/2020
 ---
 
 # Monitor performance with the Query Store
@@ -226,7 +226,15 @@ The following tables describes the fields for the two log types. Depending on th
 | TimeGenerated [UTC] | Time stamp when the log was recorded in UTC |
 | ResourceId | Postgres server's Azure resource URI |
 | Category | `QueryStoreWaitStatistics` |
-| OperationName | 
+| OperationName | `QueryStoreWaitEvent` |
+| user_id_s | OID of user who executed the statement |
+| db_id_s | OID of database in which the statement was executed |
+| query_id_s | Internal hash code of the query |
+| calls_s | Number of the same event captured |
+| event_type_s | The type of event for which the backend is waiting |
+| event_s | The wait event name if the backend is currently waiting |
+| start_time_t | Event start time |
+| end_time_s | Event end time | 
 | LogicalServerName_s | Postgres server name | 
 | ResourceGroup | The resource group | 
 | SubscriptionId | Your subscription ID |
