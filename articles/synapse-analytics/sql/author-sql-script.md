@@ -18,26 +18,32 @@ Azure Synapse Studio (preview) provides a SQL script web interface for you to au
 There are several ways to start the authoring experience in SQL script. You can create a new SQL script through one of the following methods.
 
 1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
-![newsqlscript](media/author-sql-script/newsqlscript.png)
 
-2. From the Actions menu under Develop SQL scripts, choose **New SQL script** from the **Actions** menu under Develop SQL scripts.
-![newsqlscript2actions](media/author-sql-script/newsqlscript2actions.png)
+    ![newsqlscript](media/author-sql-script/newsqlscript.png)
+
+2. From the **Actions** menu, choose **New SQL script**.
+    
+    ![newsqlscript2actions](media/author-sql-script/newsqlscript2actions.png)
 
 Alternatively, you can: 
 
 3. Choose **Import** from the **Actions** menu under Develop SQL scripts and select an existing SQL script from your local storage.
-![newsqlscript3actions](media/author-sql-script/newsqlscript3actions.png)
+ 
+    ![newsqlscript3actions](media/author-sql-script/newsqlscript3actions.png)
 
 ## Create your SQL script
 
-1. Choose a name for your SQL script by selecting the **Property** button and replacing the default name assigned to the SQL script. 
-![newsqlscriptrename](media/author-sql-script/newsqlscriptrename.png)
+1. Choose a name for your SQL script by selecting the **Property** button and replacing the default name assigned to the SQL script.
+  
+    ![newsqlscriptrename](media/author-sql-script/newsqlscriptrename.png)
 
-2. Choose the specific SQL pool or the SQL on-demand from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**. 
-![newsqlchoosepool](media/author-sql-script/newsqlchoosepool.png)
+2. Choose the specific SQL pool or the SQL on-demand from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**.
+ 
+    ![newsqlchoosepool](media/author-sql-script/newsqlchoosepool.png)
 
 3. Start authoring your SQL script using the intellisense feature.
-![newsqlintellisense](media/author-sql-script/newsqlintellisense.png)
+
+    ![newsqlintellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## Run your SQL script
 
@@ -50,7 +56,6 @@ Select the **Run** button to execute your SQL script. The results are displayed 
 You can export the results to your local storage in different formats (including CSV, Excel, JSON, XML) by selecting "Export results" and choosing the extension.
 
 You can also visualize the SQL script results in a chart by selecting the **Chart** button. Select the "Chart type" and **Category column**. You can export the chart into a picture by selecting **Save as image**. 
-
 
 ![newsqlscriptresultschart](media/author-sql-script/newsqlscriptresultschart.png)
 
