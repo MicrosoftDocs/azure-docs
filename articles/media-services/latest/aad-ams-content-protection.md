@@ -3,16 +3,15 @@ title: End-to-End Content Protection using Azure AD
 description: This article teaches you how to protect your content with Azure Media Services and Azure Active Directory
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: willzhan
 manager: femila
-editor: ''
 
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 067/1/2020
 ms.author: inhenkel
 ---
 
@@ -39,7 +38,7 @@ The following latest technology versions and concepts are used. It's recommended
 
 ### Prerequisite knowledge
 
-It is recommended that you are familiar with the following concepts before beginning this tutorial:
+It is optional but recommended that you are familiar with the following concepts before beginning this tutorial:
 
 * Digital Rights Management (DRM)
 * [Azure Media Services (AMS) v3](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
@@ -65,7 +64,7 @@ It is recommended that you are familiar with the following concepts before begin
 > [!IMPORTANT]
 > This tutorial uses .NET to create the content key policy restriction.  If you are not a .NET developer, but want to try Node.js to connect to Azure Media Services, read [Connect to Media Services v3 API - Node.js](configure-connect-nodejs-howto.md). There is also a Node.js module available to handle key rollover automatically, see Node.js [passport-ad module](https://github.com/AzureAD/passport-azure-ad).
 
-## Consider the authentication requirements
+## Consider the authentication and authorization requirements
 
 A few challenges are presented in designing the subsystem. It has multiple moving parts, there are client app constraints, and the Azure AD key rollover that occurs every six weeks.
 
@@ -316,11 +315,11 @@ It is a common customer requirement that a subset of authenticated users is allo
 1. Add the *premium_user* to the *PremiumGroup* as a member, but do not add the *basic_user* to the group.
 1. Take note of the **Object ID** of the *PremiumGroup*.
 
-#### Setup in Media Services Account:
+#### Setup in Media Services Account
 
 Modify `ContentKeyPolicyRestriction` (as shown in the section above in the  Setup in Media Service Account), by adding a claim named *groups*, where `ida_EntitledGroupObjectId` has the object ID of *PremiumGroup* as its value:
 
-```dotnet
+```dotnetcli
 
 var tokenClaims = new ContentKeyPolicyTokenClaim[] { new ContentKeyPolicyTokenClaim("groups", ConfigAccessor.AppSettings["ida_EntitledGroupObjectId"])
 //, other claims, if any.
@@ -328,7 +327,7 @@ var tokenClaims = new ContentKeyPolicyTokenClaim[] { new ContentKeyPolicyTokenCl
 
 if (tokenClaims != null && tokenClaims.Length > 0)
 {
-     objContentKeyPolicyTokenRestriction.RequiredClaims = new List<ContentKeyPolicyTokenClaim>(drmSettings.TokenClaims);
+     objContentKeyPolicyTokenRestriction.RequiredClaims = new List<ContentKeyPolicyTokenClaim>(tokenClaims);
 }
 ```
 
@@ -338,8 +337,6 @@ The *groups* claim is a member of a [Restricted Claim Set](https://docs.microsof
 
 1. Sign in with the *premium_user* account. You should be able to play the protected content.
 1. Sign in in with the *basic_user* account. You should get an error indicating the video is encrypted but there is no key to decrypt it. If you view the Events, errors, and downloads with the dropdown at the bottom of the player diagnostic overlay, the error message should indicate license acquire failure due to the missing claim value for groups claim in the JWT issued by Azure AD token endpoint.
-
-## Common customer scenarios
 
 ### Supporting Multiple Media service Account (across Multiple Subscriptions)
 
