@@ -20,7 +20,7 @@ There are several ways to start the authoring experience in SQL script. You can 
 1. From the Develop menu, select the **"+"** icon and choose **SQL script**.
 ![newsqlscript](media/author-sql-script/newsqlscript.png)
 
-2. From the Actions menu under Develop SQL scripts, choose **New SQL script** from the **Actions** menu under Develop SQL scripts.
+2. From the Actions menu under Develop SQL scripts, choose **New SQL script** from the **Actions** menu under Develop SQL scripts.   
 ![newsqlscript2actions](media/author-sql-script/newsqlscript2actions.png)
 
 Alternatively, you can: 
