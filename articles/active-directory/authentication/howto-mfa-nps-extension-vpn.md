@@ -405,7 +405,9 @@ After you've successfully authenticated by using the secondary method, you are g
 
 To view successful sign-in events in the Windows Event Viewer logs query the Windows Security log, on the NPS server, by entering the following PowerShell command:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![PowerShell security Event Viewer](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -415,7 +417,9 @@ You can also view the security log or the Network Policy and Access Services cus
 
 On the server where you installed the NPS extension for Azure Multi-Factor Authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Example Event Viewer AuthZ logs pane](./media/howto-mfa-nps-extension-vpn/image46.png)
 
