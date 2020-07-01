@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
-ms.date: 06/24/2020
+ms.date: 07/01/2020
 ---
 
 # Upgrading your Log Analytics Dashboard visualizations
@@ -73,7 +73,7 @@ Dashboards can be visually dense and complex. In order to reduce cognitive load 
 
 ### Dashboard refresh on load
 
-Dashboards are refreshed upon load. All queries related to dashboard-pinned Log Analytics visualizations are executed and the dashboard is refreshed once it loads. If the dashboard page remains open, the data in the dashboard is refreshed every 30 minutes.
+Dashboards are refreshed upon load. All queries related to dashboard-pinned Log Analytics visualizations are executed and the dashboard is refreshed once it loads. If the dashboard page remains open, the data in the dashboard is refreshed every 60 minutes.
 
 ## Next steps
 
