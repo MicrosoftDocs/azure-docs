@@ -7,7 +7,11 @@
 - name: Quickstarts
   items:
   - name: Configure alerts for service health events
-    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+    items:
+    - name: Azure portal
+      href: alerts-activity-log-service-notifications-portal.md
+    - name: ARM template
+      href: alerts-activity-log-service-notifications-arm.md
 - name: Concepts
   items:
   - name: Azure status page
