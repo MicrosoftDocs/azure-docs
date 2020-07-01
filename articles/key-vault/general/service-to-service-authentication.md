@@ -129,7 +129,7 @@ This approach applies only to local development. When your solution is deployed 
 
 ## Running the application using managed identity or user-assigned identity
 
-When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required, but the managed identity must have *get* permissions for the key vault. You can give the managed identity *get* permissions through the key vault's *Access Policies*.
+When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required, but the managed identity must have *GET* permissions for the key vault. You can give the managed identity *GET* permissions through the key vault's *Access Policies*.
 
 Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To authenticate with a user-assigned identity, you need to specify the Client ID of the user-assigned identity in the connection string. The connection string is specified in [Connection String Support](#connection-string-support).
 
