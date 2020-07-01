@@ -30,6 +30,11 @@ Ensure you have the following which are instructed in the walk-through linked ab
 * Azure CLI installed with the `aks-preview` extension version 0.4.53 or greater
 * An AKS cluster on a supported version of 1.15 or greater installed with the Azure Policy Add-on
 
+## Limitations
+
+* During preview, there is a limit of 200 pods to run in the cluster with Azure Policy enabled.
+* Pod security policy and the Azure Policy Add-on for AKS cannot both be enabled. If installing the Azure Policy Add-on into a cluster with pod security policy enabled, disable the pod security policy with the [following instructions](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+
 ## Overview of securing pods through Azure Policy
 
 In a Kubernetes cluster, an admission controller is used to intercept requests to the API server when a resource is to be created. The admission controller can then *validate* the resource request against a set of rules, or *mutate* the resource to change deployment parameters.
@@ -40,7 +45,26 @@ The policy language used by Azure Policy for Kubernetes is built on the open-sou
 
 This document covers the scenarios of using Azure Policy to secure pods similar to what was enabled through pod security policies.
 
-## Enable policies on an AKS cluster that target pod security
+## How do pod security policies map to Azure Policy options?
+	
+|Scenario| Pod security policy | Azure Policy |
+|---|---|---|
+|Installation|Enable PSP Admission Controller|Enable Azure Policy Add-on
+|Deploy policies| Deploy PSP resource| Assign Azure PSP Policies to subscription/resourceGroup scope. Azure Policy Add-on installs the policies.
+| Default policies | When PSP is enabled in AKS, some default policies are applied | No default policies applied on enabling Azure Policy Add-on. User has to explicitly do an assignment in Azure.
+| Who can create and assign policies | Cluster admin creates PSP resource | In Azure Portal, policies can be assigned at Management group/subscription/resource group level. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource group. Through API, user can assign policies at more granular level at AKS cluster resource scope. The user should have minimum of 'owner' or 'Resource Policy Contributor' permissions on AKS cluster resource.
+| Authorizing policies| Users/ServiceAccounts should be given permissions to use PSP policies. | No additional cluster level assignment required. Once policies are assigned in Azure, all cluster users can use these policies.
+| Policy applicability | The admin user bypasses the enforcement of pod security policies. | All users (admin & non-admin) sees the same policies. There is no special casing based on users. Policy applicability can be excluded at namespace level.
+| Policy scope |Cluster scope: PSP resources are not namespaced. | Cluster scope: Constraint templates are not namespaced.
+| Deny/Audit/Mutation action | - Support only deny action - Mutate with default values on create request. - Only validation during update requests.| - Support audit & deny actions. - No mutation for now, planned for later.
+| PSP compliance of cluster | - There is no visibility on compliance of pods that existed before enabling PSPs. - Non-compliant pods created after enabling PSPs are denied. | - Any non-compliant pods that existed before applying PSPs would show up in policy violations. - Non-compliant pods created after enabling PSPs are denied (if policies are installed in deny mode). 
+| How to view PSP policies on cluster? | `kubectl get psp` | `kubectl get constrainttemplate` - All policies including PSPs and non PSPs are listed. - Listing only PSP policies is not supported as of now.
+| PSP standard - Privileged | Privileged PSP resource is created by default on enabling PSP feature. | Privileged mode implies no restriction. This is equivalent to not doing any Azure Policy assignment.
+| PSP standard - Baseline/default | User installs standard PSP baseline resource. | Azure Policy provides an built-in initiative for baseline PSP. User assigns this initiative at cluster scope.
+| PSP standard - Restricted | User installs standard PSP restricted resource. | Azure Policy provides an built-in initiative for restricted PSP. User assigns this initiative at cluster scope.
+| PSP custom policies | User can build their own custom PSP resource YAML and install it on cluster. | User needs to create a custom initiative in Azure and assign the initiative at cluster scope |
+
+## Enable Azure policies for pod security
 
 After installing the Azure Policy Add-on, no policies are applied by default. You can select from built-in policies to be audited or enforced against a given AKS cluster.
 
