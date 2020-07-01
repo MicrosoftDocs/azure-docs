@@ -46,7 +46,7 @@ Follow these steps to add a redirect URI for an app that uses MSAL.js 2.0 or lat
 
 You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By configuring your redirect URI using the **Single-page application** tile in the **Add a platform** pane, your application registration is configured to support the authorization code flow with PKCE and CORS.
 
-Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code) for further guidance.
+Follow the [tutorial](tutorial-v2-javascript-auth-code.md) for further guidance.
 
 ## Redirect URI: [MSAL.js 1.0 with implicit flow](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
@@ -63,7 +63,7 @@ Follow these steps to add a redirect URI for a single-page app that uses MSAL.js
 
 You've now completed the registration of your single-page application (SPA) and configured a redirect URI to which the client will be redirected and any security tokens will be sent. By selecting one or both of **ID tokens** and **Access tokens**, you've enabled the implicit grant flow.
 
-Follow the [tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-spa) for further guidancce. 
+Follow the [tutorial](tutorial-v2-javascript-spa.md) for further guidance. 
 
 ## Note about authorization flows
 
