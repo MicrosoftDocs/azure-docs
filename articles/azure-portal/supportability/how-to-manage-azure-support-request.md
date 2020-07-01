@@ -23,9 +23,9 @@ View the details and status of support requests by going to **Help + support** >
 
 :::image type="content" source="media/how-to-manage-azure-support-request/allrequestslower.png" alt-text="All support requests":::
 
-On this page, you can search, filter, and sort support requests. Select a support request to view details, including severity and any messages associated with the request.
+On this page, you can search, filter, and sort support requests. Select a support request to view details, including its severity and any messages associated with the request.
 
-## Send a message related to a support request
+## Send a message
 
 1. On the **All support requests** page, select the support request.
 
@@ -33,10 +33,10 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 1. Enter your message and select **Submit**.
 
-## Change the severity level of a support request
+## Change the severity level
 
 > [!NOTE]
-> The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
+> The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 >
 
 1. On the **All support requests** page, select the support request.
@@ -69,7 +69,7 @@ When you create a support request, by default the **Share diagnostic information
     
         :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Grant permissions for diagnostic information":::
 
-## Upload files for a support request
+## Upload files
 
 You can use the file upload option to upload diagnostic files or any other files that you think are relevant to a support request.
 
@@ -84,11 +84,10 @@ You can use the file upload option to upload diagnostic files or any other files
 Follow these guidelines when you use the file upload option:
 
 * To protect your privacy, do not include any personal information in your upload.
-* All files must have a file name extension, such as *.docx* or *.xlsx*. See the table for the allowed file name extensions.
 * The file name must be no longer than 110 characters.
 * You can't upload more than one file.
 * Files can't be larger than 4 MB.
-* The following table shows the filename extensions that are allowed for upload.
+* All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
 
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -121,11 +120,12 @@ Follow these guidelines when you use the file upload option:
 | -            | -      | -            | -      | -         |     -       | .zix    |
 | -            | -      | -            | -      | -         |  -          | .zzz    |
 
-## Reopen a closed support request
+## Reopen a closed request
 
 If you need to reopen a closed support request, create a [new message](#send-a-message-related-to-a-support-request), which automatically reopens the request.
 
 ## Next steps
 
 [How to create an Azure support request](how-to-create-azure-support-request.md)
+
 [Azure support ticket REST API](/rest/api/support)
