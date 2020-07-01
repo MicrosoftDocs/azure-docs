@@ -58,6 +58,7 @@ These observations make it straightforward to use connections brokered by the el
 
 This code example (from the accompanying sample) illustrates the approach where the sharding key is provided by the application to the library to broker the connection to the right shard.   
 
+```csharp
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
                      connectionString: connStrBldr.ConnectionString,
@@ -70,6 +71,7 @@ This code example (from the accompanying sample) illustrates the approach where 
                             VALUES (@name)", new { name = blog.Name }
                         );
     }
+```
 
 The call to the [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) API replaces the default creation and opening of a SQL Client connection. The [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) call takes the arguments that are required for data-dependent routing: 
 
