@@ -1,5 +1,5 @@
 ---	
-title: Frequently asked questions about Azure for Students and Azure Dev Tools for Teaching	
+title: Frequently asked questions about the Azure Education Hub.	
 description: Find answers to some common questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.	
 author: v-dihans	
 ms.author: rymend	
@@ -8,9 +8,13 @@ ms.topic: overview
 ms.date:  06/30/2020	
 ---	
 
-# Frequently asked questions about Azure Dev Tools for Teaching
+# Frequently asked questions about the Azure Education Hub
 
-This article addresses frequent questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching. 
+This article addresses frequent questions about offerings available in the Azure Education Hub:
+
+- Azure for Students
+- Azure for Students Starter
+- Azure Dev Tools for Teaching
 
 ## Azure for Students
 
