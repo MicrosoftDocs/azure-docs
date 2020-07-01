@@ -800,7 +800,7 @@ These are the log attributes/properties of data movements through each leg of da
 | **taskName**                 | String | The name of executed data flow task                                | `Data Flow Task` |
 | **dataflowPathIdString**     | String | The unique ID for tracking data flow path                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
 | **dataflowPathName**         | String | The name of data flow path                                         | `ADO NET Source Output` |
-| **sourceComponentName**      | String | The name of data flow component that sents data                    | `SQLDB Table3` |
+| **sourceComponentName**      | String | The name of data flow component that sends data                    | `SQLDB Table3` |
 | **destinationComponentName** | String | The name of data flow component that receives data                 | `Derived Column` |
 | **rowsSent**                 | String | The number of rows sent by source component                        | `500` |
 | **createdTime**              | String | The time when row values are obtained in UTC format                | `2017-06-28T21:00:27.3534352Z` |
@@ -856,7 +856,7 @@ When you configure diagnostic settings and workspace for your ADF on Azure Monit
 
 To raise alerts on SSIS operational metrics from ADF portal, [select the **Alerts & metrics** page of ADF **Monitor** hub and follow the step-by-step instructions provided](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts).
 
-![Raising SSIS operational alerts from ADF portal](media/data-factory-monitor-oms/adf-monitor-alerts-ssis.png)
+![Raising SSIS operational alerts from ADF portal](media/data-factory-monitor-oms/data-factory-monitor-alerts-ssis.png)
 
 To raise alerts on SSIS operational metrics from Azure portal, [select the **Alerts** page of Azure **Monitor** hub and follow the step-by-step instructions provided](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-alerts).
 
@@ -881,7 +881,7 @@ The schemas and content of SSIS package execution logs in Azure Monitor and Log 
 | `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
 | `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
 
-For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Anaytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
+For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events).
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of your invocation methods, for example on Azure-enabled SQL Server Data Tools (SSDT), via T-SQL on SSMS/SQL Server Agent/other designated tools, or as triggered/sandbox/debug runs of Execute SSIS Package activities in ADF pipelines.
 
