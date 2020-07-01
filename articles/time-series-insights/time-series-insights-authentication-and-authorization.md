@@ -77,7 +77,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 
    1. Use the **Application ID** and **Client Secret** (Application Key) from the Azure Active Directory app registration section to acquire the token on behalf of the application.
 
-   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample, read [Query data using C#](time-series-insights-query-data-csharp.md).
+   1. In C#, the following code can acquire the token on behalf of the application. For a complete sample on how to query data from a Gen 1 environment, read [Query data using C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -85,8 +85,6 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 > [!IMPORTANT]
 > If you are using [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) read about [migrating to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
-
-    See our [Manage GA reference data for an Azure Time Series Insights environment using C#](./time-series-insights-manage-reference-data-csharp.md) article to learn more.
 
 ## Common headers and parameters
 
