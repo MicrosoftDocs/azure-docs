@@ -5,12 +5,12 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/16/2019
+ms.date: 07/01/2019
 
 ---
 
 # Transition from Log Analytics log search to Azure Monitor logs
-The log search in Log Analytics was recently replaced with a new experience for analyzing Azure Monitor logs. The Log search page is currently still accessible through the **Logs (classic)** menu item in the **Log Analytics workspaces** page in the Azure portal but will be removed February 15th, 2019. This article describes differences between the two experiences to help you transition from log search. 
+The log search in Log Analytics was recently replaced with a new experience for analyzing Azure Monitor logs. The Log search page was accessible through the **Logs (classic)** menu item in the **Log Analytics workspaces** page in the Azure portal, but was removed February 15th, 2019. This article describes differences between the two experiences to help you transition from log search. 
 
 ## Filter results of a query
 In Log Search, a list of filters are displayed as search results are delivered. Select a filter and click **Apply** to run the query with the selected filter.
