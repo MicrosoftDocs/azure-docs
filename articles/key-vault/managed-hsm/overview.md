@@ -16,24 +16,30 @@ ms.author: mbaldwin
 ---
 # What is Azure Key Vault Managed HSM?
 
-Managed HSM is a cloud service that safeguards cryptographic keys for your cloud application. Managed HSM is a fully managed, highly available, single-tenant key management service that uses a **FIPS (Federal Information Protection Standard) 140-2 Level 3** validated HSMs.
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs.  
 
 ## Key Benefits
 
+
 ### Fully managed, highly available, single-tenant HSM as a service
-- **Single-tenant** - Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions spread across  Availability Zones to provide high availability within the region. Each HSM pool uses a separate customer-specific security domain that cryptographically isolates each customer's HSM pool while using the same hardware infrastructure.
-- **Highly available and zone resilient (where Availability zones are supported)** - Each HSM pool consists of multiple HSM partitions spans at least 2 availability zones
-- **Fully managed** - 
-- Further increase the durability and high availability further by extending the HSM pool to span multiple regions (coming soon)
-    - All regional HSM pools are kept in sync automatically
-    - Each HSM Pool in a region can be addressed through its regional endpoint
-    - Managed HSM instance will also have a global endpoint that allows reaching closest available regional endpoint (can be cross-region)
+ 
+- **Fully managed** - You don't need to provision, configure, patch and maintain HSMs or key management software. In case of hardware failure, member partitions for your HSM pool will be automatically migrated to healthy nodes
 
-### Integrated with Azure PaaS/SaaS services 
-- Use cryptographic keys in Managed HSM pool to encrypt your data at rest  encryption at rest in Azure services, Office 365 Customer Key, Azure Information Protection
+- **Highly available and zone resilient**   (where Availability zones are supported) - Each HSM pool consists of multiple HSM partitions span across at least 2 availability zones for zone resiliency
+
+- **Single-tenant** - Each Managed HSM instance is dedicated to a single customer and consists of a pool of multiple HSM partitions. Each HSM pool uses a separate customer-specific security domain that cryptographically isolates each customer's HSM pool.
+
+### Enhanced data protection and compliance
+
+- **FIPS 140-2 Level 3** -Secure key management to protect your data and meet compliance requirements with FIPS ((Federal Information Protection Standard)) 140-2 Level 3 validated HSMs. Managed HSMS uses Marvell LiquidSecurity family of HSMs.
+- **Monitor and audit** - fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 
 
-
+### Integrated with Azure and Microsoft PaaS/SaaS services 
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to [encrypt your data at rest in Azure services](../../security/fundamentals/encryption-atrest.md), [Service encryption with customer key for Office 365](/microsoft-365/compliance/customer-key-overview), [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) and other Microsoft cloud services.
 
 ### Uses same API and management interfaces as Key Vault
-- Easily migrate from Key Vault (a multi-tenant) service 
+- Easily migrate your existing applications  from Key Vault (a multi-tenant) to Managed HSM
+- Use same application development and deployment patterns for all your applications irrespective of which key management solution it uses
+
+## 
