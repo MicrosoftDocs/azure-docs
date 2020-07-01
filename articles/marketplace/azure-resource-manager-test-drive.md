@@ -13,7 +13,7 @@ ms.author: dsindona
 
 Use this type if you have an offer on Azure Marketplace or AppSource but want to build a test drive with only Azure resources. An Azure Resource Manager (ARM) template is a coded container of Azure resources that you design to best represent your solution. Test drive takes the provided ARM template and deploys all the resources it requires to a resource group. This is the only test drive option for virtual machine or Azure app offers.
 
-If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) and [Understand the structure and syntax of ARM templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) to better understand how to build and test your own templates.
+If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/resource-group-authoring-templates.md) to better understand how to build and test your own templates.
 
 For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
 
@@ -29,7 +29,7 @@ A deployment template contains all the Azure resources that comprise your soluti
 
   - **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
 
-- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
 
 - **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends. Use only whole numbers (for example, "2" hours is valid, "1.5" is not).
 
@@ -67,7 +67,7 @@ You can use any valid name for your parameters; test drive recognizes parameter 
 
 | Metadata Type   | Parameter Type  | Description     | Sample Value    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI of your deployment package| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **baseuri**     | string          | Base URI of your deployment package| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
 | **username**    | string          | New random user name.| admin68876      |
 | **password**    | secure string    | New random password | Lp!ACS\^2kh     |
 | **session id**   | string          | Unique test drive session ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -168,7 +168,7 @@ You can use this parameter to uniquely identify the test drive session, if it's 
 
 ### Unique Names
 
-Some Azure resources, like storage accounts or DNS names, requires globally unique names. This means that every time test drive deploys the ARM template, it creates a new resource group with a unique name for all its resources. Therefore, you must use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to generate random unique values:
+Some Azure resources, like storage accounts or DNS names, requires globally unique names. This means that every time test drive deploys the ARM template, it creates a new resource group with a unique name for all its resources. Therefore, you must use the [uniquestring](../azure-resource-manager/templates/template-functions.md) function concatenated with your variable names on resource group IDs to generate random unique values:
 
 ```JSON
 "variables": {
@@ -263,7 +263,7 @@ Example:
 
 ### Subscription Limits
 
-Don't forget about subscription and service limits. For example, if you want to deploy up to ten 4-core virtual machines, you need to ensure the subscription you use for your lab allows you to use 40 cores. For more information about Azure subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). As multiple test drives can be taken at the same time, verify that your subscription can handle the number of cores multiplied by the total number of concurrent test drives that can be taken.
+Don't forget about subscription and service limits. For example, if you want to deploy up to ten 4-core virtual machines, you need to ensure the subscription you use for your lab allows you to use 40 cores. For more information about Azure subscription and service limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). As multiple test drives can be taken at the same time, verify that your subscription can handle the number of cores multiplied by the total number of concurrent test drives that can be taken.
 
 ### What to upload
 
@@ -298,7 +298,7 @@ The final section to complete is to be able to deploy the test drives automatica
 
    ![Azure Active Directory properties](media/test-drive/azure-active-directory-properties.png)
 
-   If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+   If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.
 
@@ -320,10 +320,14 @@ The final section to complete is to be able to deploy the test drives automatica
 
    1. Select the type of **Subscription** you are using for the test drive.
    1. Select **Access control (IAM)**.
-   1. Select the **Role assignments** tab, then **Add role assignment**.<br>
-   ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
-   1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.<br>
-   ![Add the permissions](media/test-drive/access-control-permissions.jpg)
+   1. Select the **Role assignments** tab, then **Add role assignment**.
+
+      ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
+
+   1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.
+
+      ![Add the permissions](media/test-drive/access-control-permissions.jpg)
+
    1. Select **Save**.
 
 7. Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.
