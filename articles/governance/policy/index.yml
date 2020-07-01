@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/16/2020
+  ms.date: 06/29/2020
 
 landingContent:
   - title: About Azure Policy
@@ -35,13 +35,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (portal)
+          - text: Assign a policy (Portal)
             url: ./assign-policy-portal.md
-          - text: Assign a policy (PowerShell)
-            url: ./assign-policy-powershell.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md
-          - text: Assign a policy (template)
+          - text: Assign a policy (Azure PowerShell)
+            url: ./assign-policy-powershell.md
+          - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
       - linkListType: tutorial
         links:

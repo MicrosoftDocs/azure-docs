@@ -34,6 +34,7 @@ Spring Boot version | Spring Cloud version
 ---|---
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.RELEASE
+2.3 | Hoxton.SR5
 
 ### Dependencies for Spring Boot version 2.1
 
@@ -86,7 +87,31 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
         </dependencies>
     </dependencyManagement>
 ```
+### Dependencies for Spring Boot version 2.3
 
+For Spring Boot version 2.3 add the following dependencies to the application POM file.
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.0.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR5</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
 ## Azure Spring Cloud client dependency
 
 Azure Spring Cloud hosts and manages Spring Cloud components. The components include Spring Cloud Service Registry and Spring Cloud Config Server. Include the Azure Spring Cloud client library in your dependencies to allow communication with your Azure Spring Cloud service instance.
@@ -97,6 +122,7 @@ Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 ---|---|---
 2.1 | Greenwich.RELEASE | 2.1
 2.2 | Hoxton.RELEASE | 2.2
+2.3 | Hoxton.SR5 | 2.3
 
 Include one of the following dependencies in your pom.xml file. Select the dependency whose Azure Spring Cloud version matches your own.
 
@@ -108,7 +134,7 @@ For Spring Boot version 2.1 add the following dependency to the application POM 
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.1</version>
+        <version>2.1.2</version>
 </dependency>
 ```
 
@@ -120,7 +146,17 @@ For Spring Boot version 2.2 add the following dependency to the application POM 
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.2.0</version>
+        <version>2.2.1</version>
+</dependency>
+```
+
+For Spring Boot version 2.3 add the following dependency to the application POM file.
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.3.0</version>
 </dependency>
 ```
 

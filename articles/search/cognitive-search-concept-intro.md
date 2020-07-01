@@ -78,7 +78,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 #### Add a knowledgeStore element to save enrichments
 
-[Search REST api-version=2019-05-06-Preview](search-api-preview.md) extends skillsets with a `knowledgeStore` definition that provides an Azure storage connection and projections that describe how the enrichments are stored. This is in addition to your index. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. For more information, see [Knowledge store (preview)](knowledge-store-concept-intro.md).
+[Search REST api-version=2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) extends skillsets with a `knowledgeStore` definition that provides an Azure storage connection and projections that describe how the enrichments are stored. This is in addition to your index. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. For more information, see [Knowledge store](knowledge-store-concept-intro.md).
 
 ### Step 3: Search index and query-based access
 
@@ -116,6 +116,6 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Example: Creating a custom skill for AI enrichment (C#)](cognitive-search-create-custom-skill-example.md)
 + [Quickstart: Try AI enrichment in a portal walk-through](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn about the AI enrichment APIs](cognitive-search-tutorial-blob.md)
-+ [Knowledge store (preview)](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 + [Create a knowledge store in REST](knowledge-store-create-rest.md)
 + [Troubleshooting tips](cognitive-search-concept-troubleshooting.md)
