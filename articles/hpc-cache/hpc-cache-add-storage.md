@@ -32,6 +32,8 @@ From the Azure portal, open your cache instance and click **Storage targets** on
 
 ### [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
 Use the [az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) option to show the existing storage targets for a cache. Supply the cache name and the resource group (unless you have set it globally).
 
 ```azurecli
@@ -103,6 +105,8 @@ Steps to add the RBAC roles:
 ![screenshot of add role assignment GUI](media/hpc-cache-add-role.png)
 
 ### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 ### Prerequisite: Storage account access
 
@@ -221,6 +225,8 @@ Fill in these values for each namespace path:
 When finished, click **OK** to add the storage target.
 
 ### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use the Azure CLI command [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) to create the storage target. Supply these values in addition to the cache name and cache resource group:
 

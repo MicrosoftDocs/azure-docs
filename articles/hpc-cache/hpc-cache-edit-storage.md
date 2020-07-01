@@ -23,6 +23,8 @@ To remove a storage target, select it in the list and click the **Delete** butto
 
 ### [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
 Use [az hpc-cache storage-target remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) to delete a storage target from the cache.
 
 ---
@@ -66,6 +68,8 @@ Each namespace path needs a unique combination of export and subdirectory. That 
 After making changes, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
 ### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use the [az nfs-storage-target](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) command to change the <!--IP address, -->usage model, virtual namespace path, and NFS export or subdirectory values for a storage target.
 
@@ -111,6 +115,8 @@ The details page for a Blob storage target lets you modify the virtual namespace
 When finished, click **OK** to update the storage target, or click **Cancel** to discard changes.
 
 ### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) to update a target's namespace path.
 

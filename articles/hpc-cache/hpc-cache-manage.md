@@ -52,10 +52,6 @@ To reactivate a stopped cache, click the **Start** button. No confirmation is ne
 
 ### [Azure CLI](#tab/azure-cli)
 
-Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
-
-<!-- [!INCLUDE [cli-reminder.md](/includes/cli-reminder.md)] -->
-
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
@@ -111,7 +107,7 @@ To flush the cache, click the **Flush** button and then click **Yes** to confirm
 
 ### [Azure CLI](#tab/azure-cli)
 
-Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
 
@@ -137,7 +133,7 @@ Click the **Upgrade** button to begin the software update. The cache status chan
 
 ### [Azure CLI](#tab/azure-cli)
 
-Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
@@ -191,7 +187,7 @@ After stopping the cache, click the **Delete** button to permanently remove the 
 
 ### [Azure CLI](#tab/azure-cli)
 
-Before running Azure CLI commands, use the ``az login`` command to sign in and choose a subscription, and make sure you have installed the ``hpc-cache`` Azure CLI extension. Read [Set up Azure CLI for Azure HPC Cache](az-cli-prerequisites.md) for details.
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
 
