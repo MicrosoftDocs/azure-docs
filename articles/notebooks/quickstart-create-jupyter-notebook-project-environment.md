@@ -68,4 +68,4 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
