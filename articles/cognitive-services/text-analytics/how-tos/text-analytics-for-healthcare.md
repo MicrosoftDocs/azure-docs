@@ -241,27 +241,228 @@ The following JSON is an example of the Text Analytics for Health API response b
 
 ```json
 {
-  "documents": [
+    "documents": [
         {
             "id": "1",
             "entities": [
                 {
                     "id": "0",
                     "offset": 21,
-                    "length": 19,
-                    "text": "high blood pressure",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9998,
-                    "umlsId": "C0020538"
+                    "length": 4,
+                    "text": "high",
+                    "type": "EXAMINATION_VALUE",
+                    "score": 0.55,
+                    "isNegated": false
                 },
                 {
                     "id": "1",
+                    "offset": 26,
+                    "length": 14,
+                    "text": "blood pressure",
+                    "type": "EXAMINATION_NAME",
+                    "score": 0.65,
+                    "isNegated": false,
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C1271104"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C54707"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "392570002"
+                        }
+                    ]
+                },
+                {
+                    "id": "2",
                     "offset": 45,
                     "length": 19,
                     "text": "irregular heartbeat",
                     "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.9997,
-                    "umlsId": "C0003811"
+                    "score": 0.99,
+                    "isNegated": false,
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C0003811"
+                        },
+                        {
+                            "dataSource": "AOD",
+                            "id": "0000005346"
+                        },
+                        {
+                            "dataSource": "BI",
+                            "id": "BI00057"
+                        },
+                        {
+                            "dataSource": "CCPSS",
+                            "id": "1017785"
+                        },
+                        {
+                            "dataSource": "CCS",
+                            "id": "7.2.9"
+                        },
+                        {
+                            "dataSource": "CCSR_10",
+                            "id": "CIR017"
+                        },
+                        {
+                            "dataSource": "CHV",
+                            "id": "0000001440"
+                        },
+                        {
+                            "dataSource": "COSTAR",
+                            "id": "153"
+                        },
+                        {
+                            "dataSource": "CSP",
+                            "id": "1393-3277"
+                        },
+                        {
+                            "dataSource": "CST",
+                            "id": "ARRHYTHMIA"
+                        },
+                        {
+                            "dataSource": "HPO",
+                            "id": "HP:0011675"
+                        },
+                        {
+                            "dataSource": "ICD10",
+                            "id": "I49.9"
+                        },
+                        {
+                            "dataSource": "ICD10AM",
+                            "id": "I49.9"
+                        },
+                        {
+                            "dataSource": "ICD10CM",
+                            "id": "I49.9"
+                        },
+                        {
+                            "dataSource": "ICD9CM",
+                            "id": "427.9"
+                        },
+                        {
+                            "dataSource": "ICPC",
+                            "id": "K80"
+                        },
+                        {
+                            "dataSource": "ICPC2EENG",
+                            "id": "K80"
+                        },
+                        {
+                            "dataSource": "ICPC2ICD10ENG",
+                            "id": "MTHU033639"
+                        },
+                        {
+                            "dataSource": "ICPC2P",
+                            "id": "K80012"
+                        },
+                        {
+                            "dataSource": "LCH",
+                            "id": "U000359"
+                        },
+                        {
+                            "dataSource": "LCH_NW",
+                            "id": "sh85007430"
+                        },
+                        {
+                            "dataSource": "LNC",
+                            "id": "LA15419-7"
+                        },
+                        {
+                            "dataSource": "MDR",
+                            "id": "10003119"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "35851"
+                        },
+                        {
+                            "dataSource": "MEDLINEPLUS",
+                            "id": "147"
+                        },
+                        {
+                            "dataSource": "MSH",
+                            "id": "D001145"
+                        },
+                        {
+                            "dataSource": "MTH",
+                            "id": "153"
+                        },
+                        {
+                            "dataSource": "MTHICD9",
+                            "id": "427.9"
+                        },
+                        {
+                            "dataSource": "NANDA-I",
+                            "id": "00126"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C2881"
+                        },
+                        {
+                            "dataSource": "NCI_FDA",
+                            "id": "1721"
+                        },
+                        {
+                            "dataSource": "NCI_NICHD",
+                            "id": "C2881"
+                        },
+                        {
+                            "dataSource": "NOC",
+                            "id": "040520"
+                        },
+                        {
+                            "dataSource": "OMIM",
+                            "id": "115000"
+                        },
+                        {
+                            "dataSource": "PSY",
+                            "id": "03790"
+                        },
+                        {
+                            "dataSource": "RCD",
+                            "id": "X77BB"
+                        },
+                        {
+                            "dataSource": "SNM",
+                            "id": "F-73102"
+                        },
+                        {
+                            "dataSource": "SNMI",
+                            "id": "D3-30010"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "698247007"
+                        },
+                        {
+                            "dataSource": "WHO",
+                            "id": "0433"
+                        }
+                    ]
+                }
+            ],
+            "relations": [
+                {
+                    "relationType": "VALUE_OF_EXAMINATION",
+                    "score": 1.0,
+                    "entities": [
+                        {
+                            "id": "0",
+                            "role": "ATTRIBUTE"
+                        },
+                        {
+                            "id": "1",
+                            "role": "ENTITY"
+                        }
+                    ]
                 }
             ]
         },
@@ -274,7 +475,8 @@ The following JSON is an example of the Text Analytics for Health API response b
                     "length": 5,
                     "text": "100mg",
                     "type": "DOSAGE",
-                    "score": 0.9997
+                    "score": 0.98,
+                    "isNegated": false
                 },
                 {
                     "id": "1",
@@ -282,8 +484,130 @@ The following JSON is an example of the Text Analytics for Health API response b
                     "length": 9,
                     "text": "ibuprofen",
                     "type": "MEDICATION_NAME",
-                    "score": 0.9999,
-                    "umlsId": "C0020740"
+                    "score": 0.97,
+                    "isNegated": false,
+                    "links": [
+                        {
+                            "dataSource": "UMLS",
+                            "id": "C0020740"
+                        },
+                        {
+                            "dataSource": "AOD",
+                            "id": "0000019879"
+                        },
+                        {
+                            "dataSource": "ATC",
+                            "id": "M01AE01"
+                        },
+                        {
+                            "dataSource": "CCPSS",
+                            "id": "0046165"
+                        },
+                        {
+                            "dataSource": "CHV",
+                            "id": "0000006519"
+                        },
+                        {
+                            "dataSource": "CSP",
+                            "id": "2270-2077"
+                        },
+                        {
+                            "dataSource": "DRUGBANK",
+                            "id": "DB01050"
+                        },
+                        {
+                            "dataSource": "GS",
+                            "id": "1611"
+                        },
+                        {
+                            "dataSource": "LCH_NW",
+                            "id": "sh97005926"
+                        },
+                        {
+                            "dataSource": "LNC",
+                            "id": "LP16165-0"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "40458"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "d00015"
+                        },
+                        {
+                            "dataSource": "MSH",
+                            "id": "D007052"
+                        },
+                        {
+                            "dataSource": "MTHSPL",
+                            "id": "WK2XYI10QM"
+                        },
+                        {
+                            "dataSource": "NCI",
+                            "id": "C561"
+                        },
+                        {
+                            "dataSource": "NCI_CTRP",
+                            "id": "C561"
+                        },
+                        {
+                            "dataSource": "NCI_DCP",
+                            "id": "00803"
+                        },
+                        {
+                            "dataSource": "NCI_DTP",
+                            "id": "NSC0256857"
+                        },
+                        {
+                            "dataSource": "NCI_FDA",
+                            "id": "WK2XYI10QM"
+                        },
+                        {
+                            "dataSource": "NCI_NCI-GLOSS",
+                            "id": "CDR0000613511"
+                        },
+                        {
+                            "dataSource": "NDDF",
+                            "id": "002377"
+                        },
+                        {
+                            "dataSource": "PDQ",
+                            "id": "CDR0000040475"
+                        },
+                        {
+                            "dataSource": "RCD",
+                            "id": "x02MO"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "5640"
+                        },
+                        {
+                            "dataSource": "SNM",
+                            "id": "E-7772"
+                        },
+                        {
+                            "dataSource": "SNMI",
+                            "id": "C-603C0"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "387207008"
+                        },
+                        {
+                            "dataSource": "USP",
+                            "id": "m39860"
+                        },
+                        {
+                            "dataSource": "USPMG",
+                            "id": "MTHU000060"
+                        },
+                        {
+                            "dataSource": "VANDF",
+                            "id": "4017840"
+                        }
+                    ]
                 },
                 {
                     "id": "2",
@@ -291,7 +615,8 @@ The following JSON is an example of the Text Analytics for Health API response b
                     "length": 11,
                     "text": "twice daily",
                     "type": "FREQUENCY",
-                    "score": 0.9998
+                    "score": 1.0,
+                    "isNegated": false
                 }
             ],
             "relations": [
@@ -308,12 +633,26 @@ The following JSON is an example of the Text Analytics for Health API response b
                             "role": "ENTITY"
                         }
                     ]
+                },
+                {
+                    "relationType": "FREQUENCY_OF_MEDICATION",
+                    "score": 1.0,
+                    "entities": [
+                        {
+                            "id": "1",
+                            "role": "ENTITY"
+                        },
+                        {
+                            "id": "2",
+                            "role": "ATTRIBUTE"
+                        }
+                    ]
                 }
             ]
         }
-  ],
-  "errors": [],
-  "modelVersion": "2020-01-01"
+    ],
+    "errors": [],
+    "modelVersion": "2020-05-08"
 }
 ```
 
