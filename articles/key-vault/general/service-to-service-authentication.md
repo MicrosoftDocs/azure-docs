@@ -15,8 +15,8 @@ ms.subservice: general
 
 # Service-to-service authentication to Azure Key Vault using .NET
 
-> ![NOTE]
-> The authentication methods documented in this article are no longer considered best practices. We encourage you to adopt the updated authentication methods in [How to authenticate to Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication).
+> [!NOTE]
+> The authentication methods documented in this article are no longer considered best practices. We encourage you to adopt the updated authentication methods in [How to authenticate to Azure Key Vault](authentication.md).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 

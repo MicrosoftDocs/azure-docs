@@ -13,7 +13,7 @@ ms.author: mbaldwin
  
 # Key Vault versions
 
-Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault Channel](https://azure.microsoft.com/en-us/updates/?category=security&query=Key%20vault)
+Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/en-us/updates/?category=security&query=Key%20vault).
 
 ## June 2020
 
