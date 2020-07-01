@@ -5,12 +5,12 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 06/30/2020
 ---
 
 # Infrastructure double encryption for Azure Database for MySQL
 
-Learn how to use the  how set up and manage Infrastructure double encryption for your Azure Database for MySQL.
+Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for MySQL.
 
 ## Prerequisites
 
@@ -28,7 +28,15 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 
+    ![Azure Database for MySQL selections](./media/howto-double-encryption/infrastructure-encryption-selected.png)
+
 4. Select **Review + create** to provision the server.
+
+    ![Azure Database for MySQL summary](./media/howto-double-encryption/infrastructure-encryption-summary.png)
+
+5. Once the server is created you can validate the infrastructure double encryption by checking the status in the **Data encryption** server blade.
+
+    ![Azure Database for MySQL validation](./media/howto-double-encryption/infrastructure-encryption-validation.png)
 
 ## Create an Azure Database for MySQL server with Infrastructure Double encryption - CLI
 

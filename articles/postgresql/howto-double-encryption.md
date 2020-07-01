@@ -5,12 +5,12 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 06/30/2020
 ---
 
 # Infrastructure double encryption for Azure Database for PostgreSQL
 
-Learn how to use the  how set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
+Learn how to use the how set up and manage Infrastructure double encryption for your Azure Database for PostgreSQL.
 
 ## Prerequisites
 
@@ -22,13 +22,21 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 1. Select **Create a resource** (+) in the upper-left corner of the  portal.
 
-2. Select **Databases** > **Azure Database for PostgreSQL**. You can also enter **PostgreSQL** in the search box to find the service. Enabled the single server deployment option.
+2. Select **Databases** > **Azure Database for PostgreSQL**. You can also enter PostgreSQL in the search box to find the service. Enabled the **Single server** deployment option.
 
-    ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
+   ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 
+    ![Azure Database for PostgreSQL selections](./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png)
+
 4. Select **Review + create** to provision the server.
+
+    ![Azure Database for PostgreSQL summary](./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png)
+
+5. Once the server is created you can validate the infrastructure double encryption by checking the status in the **Data encryption** server blade.
+
+    ![Azure Database for MySQL validation](./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png)
 
 ## Create an Azure Database for PostgreSQL server with Infrastructure Double encryption - CLI
 
