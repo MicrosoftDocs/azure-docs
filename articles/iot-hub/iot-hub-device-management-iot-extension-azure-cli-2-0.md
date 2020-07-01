@@ -85,7 +85,7 @@ Set a desired property interval = 3000 by running the following command:
 
 ```azurecli
 az iot hub device-twin update -n <your hub name> \
-  -d <your device id> --set properties.desired.interval = 3000
+  -d <your device id> --set properties.desired.interval=3000
 ```
 
 This property can be read from your device.
@@ -114,7 +114,7 @@ Add a field role = temperature&humidity to the device by running the following c
 az iot hub device-twin update \
   --hub-name <your hub name> \
   --device-id <your device id> \
-  --set tags = '{"role":"temperature&humidity"}}'
+  --set tags='{"role":"temperature&humidity"}'
 ```
 
 ## Device twin queries
