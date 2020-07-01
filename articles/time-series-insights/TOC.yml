@@ -184,7 +184,7 @@
         - name: Get Event Schema
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema
       - name: Time Series Hierarchies
-      items:
+        items:
         - name: Overview
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies
         - name: Execute Batch
@@ -192,10 +192,10 @@
         - name: Get
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get
       - name: Time Series Instances
-      items:
+        items:
         - name: Overview
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances
-          - name: Execute Batch
+        - name: Execute Batch
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch
         - name: Get
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get
@@ -204,7 +204,7 @@
         - name: Suggest
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest
       - name: Time Series Types
-      items:
+        items:
         - name: Overview
           href: https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes
         - name: Execute Batch
