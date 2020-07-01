@@ -146,7 +146,7 @@
   - name: Time Series Insights 
     items:
     - name: Rest APIs Overview
-      href: https://docs.microsoft.com/ rest/api/time-series-insights/
+      href: https://docs.microsoft.com/rest/api/time-series-insights/
     - name: Data Access Gen 1
       items:
       - name: Overview
@@ -156,11 +156,11 @@
         - name: Query
           href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query
         - name: API
-          href: /rest/api/time-series-insights/ga-query-api
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api
         - name: Syntax
-          href: /rest/api/time-series-insights/ga-query-syntax
+          href: https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax
       - name: Reference Data API
-        href: /rest/api/time-series-insights/ga-reference-data-api
+        href: https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api
     - name: Data Access Gen 2
       items:
       - name: Overview
