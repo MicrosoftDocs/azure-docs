@@ -59,7 +59,7 @@ Configure the cluster to use Ubuntu 18.04 when the cluster is created. Use the `
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-If you want to create a regular Ubuntu 16.04 cluster, you can do so by omitting the custom `--aks-custom-headers` tag.
+If you want to create clusters with the AKS Ubuntu 16.04 image, you can do so by omitting the custom `--aks-custom-headers` tag.
 
 ### Use AKS Ubuntu 18.04 existing clusters (Preview)
 
@@ -69,12 +69,12 @@ Configure a new node pool to use Ubuntu 18.04. Use the `--aks-custom-headers` fl
 az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-If you want to create a regular Ubuntu 16.04 node pools, you can do so by omitting the custom `--aks-custom-headers` tag.
+If you want to create node pools with the AKS Ubuntu 16.04 image, you can do so by omitting the custom `--aks-custom-headers` tag.
 
 
 ## Container runtime configuration (Preview)
 
-A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away syscalls or Operating-System specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
+A container runtime is software that executes containers and manages container images on a node. The runtime helps abstract away syscalls or operating system (OS) specific functionality to run containers on Linux or Windows. Today AKS is using [Moby](https://mobyproject.org/) (upstream docker) as its container runtime. 
     
 ![Docker CRI](media/cluster-configuration/docker-cri.png)
 
@@ -86,7 +86,7 @@ By using containerd for AKS nodes, pod startup latency improves and node resourc
 
 ![Docker CRI](media/cluster-configuration/containerd-cri.png)
 
-Containerd works on every GA version of kubernetes in AKS, and generically in every kubernetes version above v1.10, and supports all kubernetes and AKS features.
+Containerd works on every GA version of kubernetes in AKS, and in every upstream kubernetes version above v1.10, and supports all kubernetes and AKS features.
 
 > [!IMPORTANT]
 > After containerd becomes generally available on AKS, it'll be the default and only option available for container runtime on new clusters. You can still use Moby nodepools and clusters on older supported versions until those fall off support. 
@@ -152,15 +152,15 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 
 ### Containerd limitations/differences
 * To use containerd as the container runtime you must use AKS Ubuntu 18.04 as your base OS image.
-* While the docker toolset is still present on the nodes, Kubernetes uses containerd as the container runtime. As such, since Moby/Docker does not manage the Kubernetes-created containers on the nodes, you can't view or interact with your containers using Docker commands (like `docker ps`) or the Docker API.
-* For containerd, we recommend using [crictl](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI over the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (eg. `crictl ps`). 
+* While the docker toolset is still present on the nodes, Kubernetes uses containerd as the container runtime. Therefore, since Moby/Docker does not manage the Kubernetes-created containers on the nodes, you can't view or interact with your containers using Docker commands (like `docker ps`) or the Docker API.
+* For containerd, we recommend using [crictl](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (eg. `crictl ps`). 
    * It does not provide the complete functionality of the docker CLI. It's intended for troubleshooting only.
    * crictl offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
 * Containerd sets up logging using the standardized cri logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the cri logging format (like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md))
 * You can no longer access the docker engine, `/var/run/docker.sock` or use Docker-in-Docker (DinD).
   * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/insights/container-insights-enable-new-cluster.md) instead. Additionally AKS does not support running any out of band commands on the agent nodes that could cause instability.
-  * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is ill-advised. Kubernetes is not fully aware of those consumed resources, and those approaches present a lot of issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
-* Building images - The best and recommended option is using fit-for-purpose services for this that Azure provides such as [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). If you really want to do this within the cluster, you should look at more secure in-cluster options like [img](https://github.com/genuinetools/img)
+  * Even when using Moby/docker, building images and directly leveraging the docker engine via the methods above is strongly discouraged. Kubernetes is not fully aware of those consumed resources, and those approaches present a lot of issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
+* Building images - The recommended approach for building images is to use [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md). An alternative approach is to use more secure in-cluster options like [img](https://github.com/genuinetools/img).
 
 
 
