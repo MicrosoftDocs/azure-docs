@@ -335,9 +335,6 @@
         - name: Use remote compute targets
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Define ML tasks
-          displayName: machine learning, task type, automl
-          href: how-to-define-task-type.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md
