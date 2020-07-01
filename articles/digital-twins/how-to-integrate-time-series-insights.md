@@ -69,7 +69,7 @@ az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <
 ## Create and connect a Time Series Insights instance
 
 1. Create a preview PAYG environment. [Tutorial: Create a Preview PAYG environment](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#create-a-preview-payg-environment)
-    1. Select the **PAYG(Preview)** pricing tier and to enter a Time Series ID Property name of **cloudEvents:subject**
+    1. Select the **PAYG(Preview)** pricing tier and to enter Time Series ID Properties of **cloudEvents:subject** and **patch_path**
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is cloudEvents:subject":::
 
