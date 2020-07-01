@@ -10,9 +10,7 @@ Security Center provides real-time threat protection for your containerized envi
 
 Security Center provides threat protection at different levels: 
 
-* **Host level** - The Log Analytics agent monitors Linux for suspicious activities. The agent triggers alerts for suspicious activities originating from the Azure Kubernetes Service node or a container running on it. Examples of such activities include web shell detection and connection with known suspicious IP addresses.
-
-    The deployment of the agent can be automated with Security Center's autoprovisioning option.
+* **Host level** - The Log Analytics agent monitors Linux for suspicious activities. The agent triggers alerts for suspicious activities originating from the node or a container running on it. Examples of such activities include web shell detection and connection with known suspicious IP addresses.
 
     For a deeper insight into the security of your containerized environment, the agent monitors container-specific analytics. It will trigger alerts for events such as privileged container creation, suspicious access to API servers, and Secure Shell (SSH) servers running inside a Docker container.
 
