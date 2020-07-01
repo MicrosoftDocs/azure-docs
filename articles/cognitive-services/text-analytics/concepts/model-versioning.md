@@ -35,11 +35,15 @@ You can find details about the updates for these models in [What's new](../whats
 
 ## Text Analytics for health
 
-The [Text Analytics for health](../how-tos/text-analytics-for-healthcare.md) container uses separate model versioning than the above API endpoints.
+The [Text Analytics for health](../how-tos/text-analytics-for-healthcare.md) container uses separate model versioning than the above API endpoints.  Please note that only one model version is available per container image.
 
-| Supported Versions                       | latest version |
-|------------------------------------------|----------------|
-| `2020-07-01`                             | `2020-07-01`   |
+| Endpoint                        | Container Image Tag                     | Model version |
+|---------------------------------|-----------------------------------------|---------------|
+| `/domains/health`               | `1.1.012640001-amd64-preview` or latest | `2020-05-08`  |
+| `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
+| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
+
+
 
 
 ## Next steps
