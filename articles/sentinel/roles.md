@@ -24,7 +24,7 @@ ms.author: yelevin
 Azure Sentinel uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md)
 to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
-Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. RBAC roles can be assigned in the Azure Sentinel workspace directly, or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
+Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. RBAC roles can be assigned in the Azure Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
 
 ## Roles for working in Azure Sentinel
 
@@ -40,6 +40,12 @@ There are three dedicated built-in Azure Sentinel roles.
 
 - [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) can, in addition to the above, create and edit workbooks, analytics rules, and other Azure Sentinel resources.
 
+> [!NOTE]
+>
+> - For best results, these roles should be assigned on the **resource group** that contains the Azure Sentinel workspace. This way they will apply to all the resources that are deployed to support Azure Sentinel, which should also be placed in that same resource group.
+>
+> - Another option is to assign the roles directly on the Azure Sentinel **workspace** itself. If you do this, you must also assign the same roles on the SecurityInsights **solution resource** in that workspace. You may need to assign them on other resources as well, and you will need to be constantly managing role assignments on resources.
+
 ### Additional roles and permissions
 
 Users with particular job requirements may need to be assigned additional roles or specific permissions in order to accomplish their tasks.
@@ -54,29 +60,15 @@ Users with particular job requirements may need to be assigned additional roles 
 
 For a side-by-side comparison, see the [table below](#roles-and-allowed-actions).
 
-> [!NOTE]
->
-> - The security principle of **least privilege** dictates that you assign the least permissive role needed for users to complete their tasks. For example, assign the Azure Sentinel Contributor role only to users who need to create rules or workbooks.
->
-> - We recommend therefore that you assign Azure Sentinel roles (*not* Log Analytics roles):
->    - on the Log Analytics workspace resource, *and*
->    - on the **SecurityInsights** solution resource on the corresponding workspace,
-> - In addition, where necessary, assign additional roles and permissions on the specific resources that require them.
-
-
 ### Other roles you might see assigned
 
 In assigning Azure Sentinel-specific RBAC roles, you may come across other Azure and Log Analytics RBAC roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
 
 - **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
-- **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) and [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access across all your Log Analytics workspaces. 
+- **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) and [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access to your Log Analytics workspaces. 
 
-    > [!NOTE]
-    > Log Analytics roles also grant read access across all Azure resources, but will assign write permissions only to Log Analytics resources.
-
-For example, a user who is assigned the **Azure Sentinel Reader** role, but not the **Azure Sentinel Contributor** role, will still be able to edit data in Azure Sentinel if assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions, making sure you do not break any needed access to another resource.
-
+For example, a user who is assigned the **Azure Sentinel Reader** role, but not the **Azure Sentinel Contributor** role, will still be able to edit items in Azure Sentinel if assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions, making sure you do not break any needed access to another resource.
 
 ## Roles and allowed actions
 
