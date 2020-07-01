@@ -42,7 +42,6 @@ To learn more, about privacy and terms of use related to the Azure Maps visual s
 There are a few considerations and requirements for this Preview release of **Azure Maps**:
 
 -   The **Azure Maps** visual is in Preview and must be enabled in Power BI Desktop. To enable **Azure Maps**, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after doing this, it’s likely that a tenant admin switch in the Admin Portal needs to be enabled.
--   The **Azure Maps** visual will plot up to a maximum of 3,500 data points currently, with plans to increase this in a future update.
 -   The data set must have fields that contain **latitude** and **longitude** information. Geocoding of location fields will be added in a future update.
 -   The built-in legend control for Power BI does not currently appear in this preview. It will be added in a future update.
 
@@ -145,9 +144,9 @@ For coverage details for the different Azure Maps services that power this visua
 
 See this documentation for information on [Azure Maps Web SDK supported browsers](supported-browsers.md).
 
-**How many rows of data can I visualize?**
+**How many data points can I visualize?**
 
-The initial preview of this visual is limited to 3,500 rows, with plans to increase this limit in future updates.
+This visual supports up to 30,000 data points.
 
 **Can addresses or other location strings be used in this visual?**
 
