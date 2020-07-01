@@ -22,11 +22,12 @@ For information on a **hosted** or **logic app** test drive, see [What is a test
 A deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Set the following properties in Partner Center:
 
 - **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
+
 - **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
 
-    **Hot** – This type of instance is deployed and awaiting access per selected region. Customers can instantly access *Hot* instances of a test drive, rather than having to wait for a deployment. The tradeoff is that these instances are always running on your Azure subscription, so they will incur a larger uptime cost. It is highly recommended to have at least one *Hot* instance, as most customers don't want to wait for full deployments, resulting in a drop-off in customer usage if no *Hot* instance is available.
+  - **Hot** – This type of instance is deployed and awaiting access per selected region. Customers can instantly access *Hot* instances of a test drive, rather than having to wait for a deployment. The tradeoff is that these instances are always running on your Azure subscription, so they will incur a larger uptime cost. It is highly recommended to have at least one *Hot* instance, as most customers don't want to wait for full deployments, resulting in a drop-off in customer usage if no *Hot* instance is available.
 
-    **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
+  - **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
 
 - **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
@@ -116,9 +117,7 @@ Test drive initializes this parameter with a new random user name:
 }
 ```
 
-Sample value:
-
-    admin68876
+Sample value: `admin68876`
 
 You can use either random or constant usernames for your solution.
 
@@ -140,9 +139,7 @@ Test drive initializes this parameter with a new random password:
 }
 ```
 
-Sample value:
-
-    Lp!ACS^2kh
+Sample value:  `Lp!ACS^2kh`
 
 You can use either random or constant passwords for your solution.
 
@@ -165,8 +162,7 @@ Test drive initializes this parameter with a unique GUID representing Test drive
 ```
 
 Sample value:
-
-    b8c8693e-5673-449c-badd-257a405a6dee
+`b8c8693e-5673-449c-badd-257a405a6dee`
 
 You can use this parameter to uniquely identify the test drive session, if it's necessary.
 
@@ -296,39 +292,39 @@ The final section to complete is to be able to deploy the test drives automatica
 
 1. Obtain an **Azure Subscription ID**. This grants access to Azure services and the Azure portal. The subscription is where resource usage is reported and services are billed. If you do not already have a separate Azure subscription for test drives only, make one. You can find Azure Subscription IDs (such as `1a83645ac-1234-5ab6-6789-1h234g764ghty1`) by signing in to Azure portal and selecting **Subscriptions** from the left-nav menu.
 
-    ![Azure Subscriptions](media/test-drive/azure-subscriptions.png)
+   ![Azure Subscriptions](media/test-drive/azure-subscriptions.png)
 
 2. Obtain an **Azure AD Tenant ID**. If you already have a Tenant ID available you can find it in **Azure Active Directory** > **Properties** > **Directory ID**:
 
-    ![Azure Active Directory properties](media/test-drive/azure-active-directory-properties.png)
+   ![Azure Active Directory properties](media/test-drive/azure-active-directory-properties.png)
 
-    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+   If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
 3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.
 
-      1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
-      2. Search **App registrations** and select **Add**.
-      3. Provide an application name.
-      4. Select the **Type** of **Web app / API**.
-      5. Provide any value in the Sign-on URL, this field isn't used.
-      6. Select **Create**.
-      7. After the application has been created, select **Properties** > **Set the application as multi-tenant** and then **Save**.
+   1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
+   2. Search **App registrations** and select **Add**.
+   3. Provide an application name.
+   4. Select the **Type** of **Web app / API**.
+   5. Provide any value in the Sign-on URL, this field isn't used.
+   6. Select **Create**.
+   7. After the application has been created, select **Properties** > **Set the application as multi-tenant** and then **Save**.
 
 4. Select **Save**.
 
 5. Copy the Application ID for this registered app and paste it in the test drive field.
 
-    ![Azure AD application ID detail](media/test-drive/azure-ad-application-id-detail.png)
+   ![Azure AD application ID detail](media/test-drive/azure-ad-application-id-detail.png)
 
 6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
 
-    1. Select the type of **Subscription** you are using for the test drive.
-    1. Select **Access control (IAM)**.
-    1. Select the **Role assignments** tab, then **Add role assignment**.<br>
-    ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
-    1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.<br>
-    ![Add the permissions](media/test-drive/access-control-permissions.jpg)
-    1. Select **Save**.
+   1. Select the type of **Subscription** you are using for the test drive.
+   1. Select **Access control (IAM)**.
+   1. Select the **Role assignments** tab, then **Add role assignment**.<br>
+   ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
+   1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.<br>
+   ![Add the permissions](media/test-drive/access-control-permissions.jpg)
+   1. Select **Save**.
 
 7. Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.
 
@@ -342,7 +338,7 @@ Now that all your test drive fields are complete, **Republish** your offer. Once
 1. Open your Azure subscription inside the Azure portal.
 1. Verify that your test drive is deploying correctly.
 
-    ![Azure portal](media/test-drive/azure-portal.png)
+   ![Azure portal](media/test-drive/azure-portal.png)
 
 Don't delete any test drive instances provisioned for your customers; the test drive service will automatically clean up these Resource Groups after a customer is finished with it.
 
