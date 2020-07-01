@@ -50,10 +50,10 @@ For more information, see [How to import data into and export data from Azure Ca
 ## Reboot
 The premium tier allows you to reboot one or more nodes of your cache on-demand. This allows you to test your application for resiliency in the event of a failure. You can reboot the following nodes.
 
-* Master node of your cache
-* Secondary node of your cache
-* Both primary and secondary nodes of your cache
-* When using a premium cache with clustering, you can reboot the primary, secondary, or both nodes for individual shards in the cache
+* Primary node of your cache
+* Replica node of your cache
+* Both primary and replica nodes of your cache
+* When using a premium cache with clustering, you can reboot the primary, replica, or both nodes for individual shards in the cache
 
 For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
 
