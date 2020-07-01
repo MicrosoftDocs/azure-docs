@@ -12,7 +12,7 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Other support matrices:
 
 - [General support matrix](backup-support-matrix.md) for Azure Backup
-- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server/System Center Data Protection Manager (DPM) backup
+- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server / System Center Data Protection Manager (DPM) backup
 - [Support matrix](backup-support-matrix-mars-agent.md) for backup with the Microsoft Azure Recovery Services (MARS) agent
 
 ## Supported scenarios
