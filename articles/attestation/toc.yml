@@ -29,7 +29,7 @@
         href: claimrulegrammar.md
       - name: Claim sets
         href: claimsets.md
-- name: Workflow
+  - name: Workflow
     href: workflow.md
 - name: References
   items:
