@@ -31,8 +31,6 @@ Azure Monitor for SAP Solutions is offered through Azure Marketplace. It provide
 
 Customers can monitor different components of an SAP landscape such as Azure Virtual Machines, High-availability cluster, SAP HANA database and so on, by adding the corresponding **provider** for that component. 
 
-See below for the list of supported components and regions for Public Preview. We plan to add more providers for additional components over time.  
-
 Supported infrastructure:  
 
 - Azure Virtual Machine  
@@ -41,13 +39,6 @@ Supported infrastructure:
 Supported databases:  
 - SAP HANA Database 
 - Microsoft SQL server  
-
-Supported Azure regions:  
-- East US  
-- East US 2  
-- West US 2  
-- West Europe  
-- North Europe (coming soon!)  
 
 Azure Monitor for SAP Solutions leverages the power of existing [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) capabilities such as Log Analytics and [Workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) to provide additional monitoring capabilities. Customers can create [custom visualizations](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview#getting-started) by editing the default Workbooks provided by Azure Monitor for SAP Solutions, write [custom queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and create [custom alerts](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) by using Azure Log Analytics workspace, take advantage of [flexible retention period](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and connect monitoring data with their ticketing system.
 
@@ -87,10 +78,10 @@ It is highly recommended that customers enable data sharing, as it gives Microso
 
 At a high level, the following diagram explains how Azure Monitor for SAP Solutions collects telemetry from SAP HANA database. The architecture is agnostic to whether SAP HANA is deployed on Azure Virtual Machines or Azure Large Instances.
 
-![Azure Monitor for SAP solutions architecture](./media/azure-monitor-sap/azure-monitor-sap-architecture.png)
+![Azure Monitor for SAP solutions architecture](./media/azure-monitor-sap/azure-monitor-architecture.png)
 
 The key components of the architecture are:   
-- Azure portal – the starting point for customers. Customers can navigate to marketplace within Azure Portal and discover Azure Monitor for SAP Solutions
+- Azure portal – the starting point for customers. Customers can navigate to marketplace within Azure portal and discover Azure Monitor for SAP Solutions
 - Azure Monitor for SAP Solutions resource – a landing place for customers to view monitoring telemetry 
 - Managed resource group – deployed automatically as part of the Azure Monitor for SAP Solutions resource deployment. The resources deployed within managed resource group help in collection of telemetry. Key resources deployed and their purpose are:  
    - Azure Virtual Machine: Also known as *collector VM*. This is a Standard_B2ms VM. The main purpose of this VM is to host the *Monitoring Payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the collected data to the monitoring framework. In the above diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.

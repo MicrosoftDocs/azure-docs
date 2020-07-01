@@ -34,9 +34,10 @@ For public preview, the following provider types are supported:
 - High-availability cluster
 - Microsoft SQL Server
 
-![Azure Monitor for SAP solutions providers](./media/azure-monitor-sap/azure-monitor-sap-providers.png)
+![Azure Monitor for SAP solutions providers](./media/azure-monitor-sap/azure-monitor-providers.png)
 
 Customers are recommended to configure at least one provider from the available provider types at the time of deploying the SAP Monitor resource. By configuring a provider, customers initiate data collection from the corresponding component for which the provider is configured.   
+
 If customers don't configure any providers at the time of deploying SAP monitor resource, although the SAP monitor resource will be successfully deployed, no telemetry data will be collected. Customers have an option to add providers after deployment through SAP monitor resource within Azure portal. Customers can add or delete providers from the SAP monitor resource at any time.
 
 > [!Tip]
@@ -49,7 +50,7 @@ Customers can configure one or more providers of provider type *SAP HANA* to ena
 In public preview, customers can expect to see the following data with SAP HANA provider: Underlying infrastructure utilization, SAP HANA Host status, SAP HANA System Replication, and SAP HANA Backup telemetry data. 
 To configure SAP HANA provider, Host IP address, HANA SQL port number, and SYSTEMDB username and password are required. Customers are recommended to configure SAP HANA provider against SYSTEMDB, however additional providers can be configured against other database tenants.
 
-![Azure Monitor for SAP solutions providers - SAP HANA](./media/azure-monitor-sap/azure-monitor-sap-providers-hana.png)
+![Azure Monitor for SAP solutions providers - SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
 ## Provider type High-availability cluster
 Customers can configure one or more providers of provider type *High-availability cluster* to enable data collection from Pacemaker cluster within the SAP landscape. The High-availability cluster provider connects to Pacemaker,  using [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) endpoint, pulls telemetry data from the database and pushes it to Log Analytics workspace in the customer subscription. High-availability cluster provider collects data every 60 seconds from Pacemaker.  
@@ -58,7 +59,7 @@ In public preview, customers can expect to see the following data with High-avai
  - Cluster status represented as roll-up of node and resource status 
  - [others](https://github.com/ClusterLabs/ha_cluster_exporter/blob/master/doc/metrics.md) 
 
-![Azure Monitor for SAP solutions providers - High Availability cluster](./media/azure-monitor-sap/azure-monitor-sap-providers-pacemaker-cluster.png)
+![Azure Monitor for SAP solutions providers - High Availability cluster](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
 To configure High-availability cluster provider, there are two primary steps involved: 
 1. Install [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) in *each* node within Pacemaker cluster 
@@ -76,7 +77,7 @@ In public preview, customers can expect to see the following data with SQL Serve
 
 To configure Microsoft SQL Server provider, the SAP System ID, the Host IP address, SQL Server port number as well as the SQL Server login name and password are required.
 
-![Azure Monitor for SAP solutions providers - SQL](./media/azure-monitor-sap/azure-monitor-sap-providers-sql.png)
+![Azure Monitor for SAP solutions providers - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
 ## Next steps
 
