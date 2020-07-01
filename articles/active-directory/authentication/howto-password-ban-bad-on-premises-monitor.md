@@ -60,7 +60,7 @@ Discrete events to capture these situations are logged, based around the followi
 
 The key password-validation-related events are as follows:
 
-|   |Password change |Password set|
+| Event |Password change |Password set|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Fail (due to customer password policy)| 10016, 30002| 10017, 30003|

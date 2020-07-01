@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -42,7 +42,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
     ![B2C tenant, Directory and Subscription pane, Azure portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
 1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Policies**, select **User flows (policies)**, and then select **New user flow**.
+1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
     ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -78,7 +78,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 If you want to enable users to edit their profile in your application, you use a profile editing user flow.
 
-1. In the menu of the Azure AD B2C tenant overview page, select **User flows (policies)**, and then select **New user flow**.
+1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
 1. Select the **Profile editing** user flow on the **Recommended** tab.
 1. Enter a **Name** for the user flow. For example, *profileediting1*.
 1. For **Identity providers**, select **Local Account SignIn**.
@@ -96,7 +96,7 @@ If you want to enable users to edit their profile in your application, you use a
 
 To enable users of your application to reset their password, you use a password reset user flow.
 
-1. In the Azure AD B2C tenant overview menu, select **User flows (policies)**, and then select **New user flow**.
+1. In the Azure AD B2C tenant overview menu, select **User flows**, and then select **New user flow**.
 1. Select the **Password reset** user flow on the **Recommended** tab.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
 1. For **Identity providers**, enable **Reset password using email address**.

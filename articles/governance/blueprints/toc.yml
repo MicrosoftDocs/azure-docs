@@ -69,6 +69,17 @@
     - name: Steps to deploy
       displayName: standards, DoD, IL4
       href: ./samples/dod-impact-level-4/deploy.md
+  - name: DoD Impact Level 5
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview

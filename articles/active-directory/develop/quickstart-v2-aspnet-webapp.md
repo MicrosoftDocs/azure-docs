@@ -153,7 +153,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
 > | `Authority`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
