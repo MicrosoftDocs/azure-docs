@@ -25,7 +25,7 @@ In the command prompt, change directory to this location, and then type `spx` to
 
 > [!NOTE]
 > Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
-> If you add this directory to your path, Powershell and the Windows command prompt will find spx without including the `.\` prefix.
+> If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
 
 #### [Linux Install](#tab/linuxinstall)
 
